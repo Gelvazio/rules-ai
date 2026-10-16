@@ -44,6 +44,7 @@ C8); cópia em `~/.codex/AGENTS.md.bak`.
 |---|---------|---------|
 | C11 | Graphify | ✅ Rodar **uma vez no início de cada conversa** e **analisar** o `GRAPH_REPORT.md`; regra em `regras/graphify.md`. `~/.claude/CLAUDE.md` (cópia `.bak2`) e `~/.codex/AGENTS.md` ajustados |
 | C12 | Regras dos projetos × globais | ✅ Alinhar. **Executado em 2026-10-16** por Claude Code (Sonnet 5.5) com `IA_SEM_TRAVA=1` a pedido do usuário: REA `ALINHAR.1` a `.5` (aceite `.6` pendente) e aulasenai `#202.1` a `#202.4` (aceite `#202.5` pendente) |
+| C13 | Push ao finalizar tarefa (substitui a parte de push da C6) | ✅ Em **todos os projetos e IAs**, ao finalizar uma tarefa: commit **e push** na branch principal, sem esperar pedido. Só deixa de valer com "só commit, sem push" do usuário ou "sem push" expresso no projeto. Pedido do usuário em 2026-10-16; regra em `regras/git-geral.md` |
 
 ## Pendente de decisão
 

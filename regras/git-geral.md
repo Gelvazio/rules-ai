@@ -1,6 +1,7 @@
 # 🔀 Git — regras comuns a todos os projetos
 
-Cada projeto pode ter regras mais específicas (hooks, push automático); elas valem no projeto.
+Cada projeto pode ter regras mais específicas (hooks, push automático); elas valem no projeto,
+exceto onde dizem expressamente "sem push".
 Pontos de conflito entre projetos estão em `CONFLITOS.md`.
 
 - ✅ Trabalhar direto na branch principal (`main`/`develop`). ⛔ Sem `git worktree` e sem branches
@@ -12,8 +13,10 @@ Pontos de conflito entre projetos estão em `CONFLITOS.md`.
   ⛔ Nunca `git add .`.
 - ⛔ `git merge` e `git pull` sem `--rebase` (usar `git pull --rebase`); sem PR para entregar tarefa.
 - ⛔ `git status` repetido entre comandos ou depois do commit (o git já avisa erros).
-- ⛔ `git push --force`. Push segue a regra do projeto; sem regra, só quando o usuário pedir.
+- ✅ **Ao finalizar uma tarefa: commit + `git push`** (na branch principal), sem esperar pedido
+  (C13, 2026-10-16). Push recusado porque o remoto andou → `git pull --rebase` e push de novo.
+- ⛔ `git push --force`.
 - ✅ Usuário pede "faça commit agora" → na hora, mesmo no meio da tarefa; "só commit, sem push"
-  → respeitar.
+  → respeitar (vale só para aquele pedido).
 - ✅ Não versionar o que o projeto proíbe (`.env`, chaves, tokens, dados pessoais, gabaritos…).
 - Rodar comandos de git sem perguntar "posso executar?".
