@@ -73,3 +73,12 @@ Ressalva: o problema pode ser fácil demais para o Sonnet gastar raciocínio ext
 
 **Conclusão (uma linha): `low` e `medium` indistinguíveis; só `high` mostra diferença, e pequena** (+1,5% de tokens, +46% de tempo; 2 das 3 execuções de `high` usaram 2 chamadas de ferramenta, a terceira ficou igual a `low`/`medium`).
 Ressalvas: amostra de 3 por nível; o problema foi resolvido por força bruta (pouco raciocínio a regular); o relatório de uso não separa tokens de raciocínio. Recomendação para decisão do usuário: manter `high` só no `executor-pesado`; `low` vs `medium` não se comprovou.
+
+### ESFORCO-GLOBAL.3, .4 e .5 — `effort` em todos os agentes e em todas as tarefas pendentes
+
+**Pedido (2026-10-16 20:40):** "2-aceito; 1-crie em todas as tarefas o effort; 3-adicione o effort sempre, se não usa, é só o modelo ignorar, faça isso pra todas as tarefas que estão pendentes no quadro de tarefas em todos os projetos"
+
+- **.3** (MEDIO): `effort:` no frontmatter dos agentes (`classificador-tarefas`/`executor-leve` = low, `executor-medio` = medium, `executor-pesado` = high), em todos os projetos que têm agentes; cópias por IA regeradas pelo script de cada projeto. IA que não usa o campo o ignora.
+- **.4** (PESADO, mudança em massa): em cada linha ⬜ dos quadros, acrescentar `effort` derivado do nível (LEVE=low, MEDIO=medium, PESADO=high). Linha sem nível: classificar pelos sinais de `niveis-e-modelos.md` (na dúvida sobe) e gravar `nível · effort`. Aceite do usuário = `effort low`. Fora: `DEMAIS-PROJETOS-DE-SISTEMAS-MANTER-OFFLINE` (regra C20) e `ajax-ai-by-pewdiepie` (cópias de terceiros).
+- **Decisão** (2026-10-16 20:40, Gelvazio): o `effort` vai **sempre**, em todas as tarefas e IAs; quem não usa ignora.
+

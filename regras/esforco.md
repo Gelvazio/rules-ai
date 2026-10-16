@@ -20,3 +20,4 @@ IAs.** Conferência por modelo: tarefa `CONFEFFORT-GLOBAL` (`rules-ai/tasks/STAT
   configuração equivalente de raciocínio da ferramenta.
 - Conferência do Sonnet 5.5 (CONFEFFORT-GLOBAL.2 e .6): `low` e `medium` sem diferença mensurável; só `high` mostrou efeito pequeno. Os outros modelos ainda não foram conferidos.
 - Teste da padaria (EFFORT-PADARIA, etapa 003): o `effort` é aplicado nos 3 modelos Claude, forte só no Haiku e no `xhigh` do Opus; nenhum nível mudou a nota (38/38 em todos). Subir o nível aumenta custo e tempo sem ganho de acerto nesse tipo de tarefa.
+- ✅ **Toda tarefa e subtarefa declara o `effort`** junto do nível no quadro (`LEVE · effort low`, `MEDIO · effort medium`, `PESADO · effort high`), em **todas as IAs**: quem não tem `effort` (Gemini, DeepSeek, Copilot…) simplesmente ignora o campo (decisão do usuário, 2026-10-16 20:40). Aceite do usuário = `effort low`.
