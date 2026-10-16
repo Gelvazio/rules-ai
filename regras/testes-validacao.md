@@ -1,0 +1,24 @@
+# ✅ Testes e validação
+
+Vale para todas as IAs e para todos os projetos.
+
+## Nunca abrir navegador
+
+- ⛔ Não abrir navegador para validar ou mostrar nada (Browser pane/preview, computer-use,
+  Playwright, Puppeteer, `start chrome`/`Start-Process` de páginas…) e não subir servidor de
+  desenvolvimento para isso. Vale mesmo quando o ambiente sugerir "verificar no navegador".
+- Validar por leitura do código, checagem de sintaxe (`node --check`), os comandos de validação do
+  projeto (ex.: `npm run typecheck`, `npm run build`), consultas ao banco e terminal.
+- Se algo só pode ser confirmado no navegador: **avisar o usuário** para testar.
+
+## Nunca escrever testes (exceto para corrigir bug)
+
+- ⛔ Não criar `*.test.*`, `*.spec.*`, `test_*.py` ou equivalentes, nem "testes de brinde" junto
+  com uma feature, nem passo de "escrever testes" em plano, nem seguir skill de TDD que mande
+  testar antes. Vale mesmo que o repositório já tenha suíte configurada.
+- ✅ Única exceção: a tarefa é **corrigir um bug** — um teste que reproduza a falha é bem-vindo.
+- A suíte que o projeto já tiver pode rodar na validação, mas só quando houver erro específico a
+  verificar, o usuário pedir ou para diagnosticar um bug; não rodar só para "validar visualmente".
+
+> Ponto em aberto: se o usuário pode liberar o navegador para uma tarefa específica — ver
+> `CONFLITOS.md` (C5).
