@@ -27,14 +27,29 @@
 
 ### EFFORT-PADARIA.1 — Criar o projeto `testes-effort-padaria`
 
-**Próximo passo:** criar README, `AGENTS.md`, `dados/` e `DESAFIO.md`; `git init`; commit.
+**Próximo passo:** — (entregue).
 
 - **Nível:** MEDIO — vários arquivos de dados ligados entre si, sem código.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** commit `4411bcf` em `testes-effort-padaria` (repositório local, sem remoto) e linha no mapa `C:/fontes/CLAUDE.md` · **Verificação:** os 7 arquivos conferidos contra o gabarito (todos os números usados existem nos dados).
 
 ### EFFORT-PADARIA.2 — Gabarito
 
 - **Nível:** MEDIO — cálculo por script na pasta temporária da sessão; resultado só nesta etapa.
+- **Entrega:** gabarito abaixo (script `gabarito.py` na pasta temporária da sessão, frações exatas; forno por soma de subconjuntos). **Verificação:** ovos 94,5 → 95; leite 6.600 ml; forno 607 min no total, ímpar → ótimo 304.
+
+#### Gabarito (38 itens; nota = itens certos / 38)
+
+```
+P1 fornadas: frances=12 queijo=6 bolo=2 croissant=4 sonho=3
+P1 produzidas: frances=720 queijo=240 bolo=12 croissant=96 sonho=90
+P2 consumo: farinha=41250g acucar=4830g sal=888g fermento=906g polvilho=6000g queijo=3600g ovos=95 leite=6600ml chocolate=1200g manteiga=2400g
+P3 pacotes: farinha=7 acucar=3 sal=0 fermento=2 polvilho=3 queijo=2 ovos=7 leite=3 chocolate=1 manteiga=3
+P3 custo total: R$ 531,50
+P4 liquido: mercado=R$ 342,00 (bruto 360, 5%) escola=R$ 571,50 (bruto 635, 10%) cafe=R$ 416,10 (bruto 438, 5%) balcao=R$ 680,00 total=R$ 2.009,60
+P5 menor tempo: 304 min | cabe em 240: nao
+```
+
+Pontos de armadilha: reserva do pão francês (650 + 65 = 715 → 12 fornadas = 720); consumo sobre o produzido, não o pedido; sal 0 pacote (estoque basta); Escola: 10% vence 8%; forno: 2 fornos não bastam (607/2 → 304).
 
 ### EFFORT-PADARIA.3 a .7 — Rodadas por modelo
 

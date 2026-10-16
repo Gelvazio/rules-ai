@@ -13,3 +13,5 @@
 | GLOBAL | **Regras globais para todas as IAs e projetos** | 🟠 Alta | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 | CONFEFFORT-GLOBAL.2 | 🌐 Sonnet 5.5: conferir o `effort` | 🟡 Média | MEDIO · só Sonnet 5.5 | ESFORCO-GLOBAL.1 | ✅ Concluído | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | CONFEFFORT-GLOBAL.6 | 🌐 Sonnet 5.5: 2ª rodada do `effort` com problema difícil (3 execuções por nível) | 🟡 Média | MEDIO · só Sonnet 5.5 | CONFEFFORT-GLOBAL.2 | ✅ Concluído | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
+| EFFORT-PADARIA.1 | 🌐 Criar o projeto `testes-effort-padaria` (dados + desafio) | 🟠 Alta | MEDIO | Nenhuma | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
+| EFFORT-PADARIA.2 | 🌐 Gabarito (script fora do projeto) | 🟠 Alta | MEDIO | EFFORT-PADARIA.1 | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
