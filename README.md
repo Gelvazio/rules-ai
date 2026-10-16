@@ -22,7 +22,7 @@ arquivo global da IA; o resto do arquivo fica como está.
 | IA | Arquivo global | Como liga | Situação |
 |----|----------------|-----------|----------|
 | Claude Code | `~/.claude/CLAUDE.md` | `@import` do unificado | ✅ no script |
-| Gemini CLI | `~/.gemini/GEMINI.md` | `@import` do unificado | ✅ no script |
+| Gemini CLI | `~/.gemini/GEMINI.md` | embutir o texto (o Gemini não aceita `@import` fora de `~/.gemini`) | ✅ no script |
 | Codex | `~/.codex/AGENTS.md` | embutir o texto | ✅ no script (seções que contradiziam foram removidas; resta o graphify, C11) |
 | Grok, Cursor, Qoder, Kiro, opencode, DeepSeek, Devin | — | — | ⏳ caminho do arquivo global não confirmado; não adivinhado |
 

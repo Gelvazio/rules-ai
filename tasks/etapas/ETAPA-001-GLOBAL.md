@@ -41,3 +41,19 @@ DeepSeek, Devin) e acrescentá-lo ao `DESTINOS` do script.
 
 **Próximo passo:** o usuário confere quando as subtarefas `ALINHAR.*` (REA) e `#202.*` (aulasenai)
 estiverem ✅; cada uma é de um nível/modelo (Haiku, Sonnet ou Opus).
+
+### GLOBAL.8 — Gemini CLI lendo as regras de verdade (concluída)
+
+- **Nível:** MEDIO — ajuste pequeno no script, mas exige entender o carregador do Gemini ·
+  **Modelo:** Claude Code Sonnet 5.5 (ou superior)
+- **Descrição:** no `@google/gemini-cli-core` 0.64.0 (`utils/memoryImportProcessor.js`), o GEMINI.md
+  global é lido sem `projectRoot`, então `validateImportPath` recusa qualquer `@import` e grava
+  `<!-- Import failed: ... - Path traversal attempt -->`: o Gemini não via nenhuma regra global.
+  O destino do Gemini no `sincronizar.mjs` passou de `importar` para `embutir` (como o Codex).
+- **Entrega:** commit `fix(GLOBAL.8)` · **Verificação:** `--aplicar` gravou o
+  `~/.gemini/GEMINI.md` (cópia em `.bak`) e a segunda rodada deu "igual" no Gemini e no Codex; o
+  bloco do Gemini tem `graphify.md` e as regras do quadro. `~/.claude/CLAUDE.md` não foi aberto
+  nesta sessão (pasta protegida); o Claude Code aceita `@` com caminho absoluto, então segue no
+  modo `importar`.
+- **Anotação:** feito por Claude Code (Opus 5.5) (nuvem · main), pelo app de desktop, a pedido do
+  usuário ("Ligar as outras IAs às regras globais").

@@ -18,7 +18,8 @@ const APLICAR = process.argv.includes('--aplicar');
 /** Destinos: `importar` usa `@arquivo` (a IA lê o unificado); `embutir` copia o texto. */
 const DESTINOS = [
   { ia: 'Claude Code', arquivo: join(homedir(), '.claude', 'CLAUDE.md'), modo: 'importar' },
-  { ia: 'Gemini CLI', arquivo: join(homedir(), '.gemini', 'GEMINI.md'), modo: 'importar' },
+  // Gemini CLI recusa @import fora da pasta do GEMINI.md global ("Path traversal attempt")
+  { ia: 'Gemini CLI', arquivo: join(homedir(), '.gemini', 'GEMINI.md'), modo: 'embutir' },
   { ia: 'Codex', arquivo: join(homedir(), '.codex', 'AGENTS.md'), modo: 'embutir' },
 ];
 

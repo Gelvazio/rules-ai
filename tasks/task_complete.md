@@ -7,3 +7,4 @@
 | GLOBAL.3 | Script `sincronizar.mjs` e ligar Claude Code e Gemini CLI | 🟠 Alta | MEDIO · Sonnet 5.5 | GLOBAL.2 | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 | GLOBAL.4 | Confirmar os conflitos C1 a C10 (`CONFLITOS.md`) | 🟠 Alta | Usuário | GLOBAL.3 | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 | GLOBAL.6 | Decidir C11 (graphify) e C12 (alinhar projetos) | 🟠 Alta | Usuário | GLOBAL.4 | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
+| GLOBAL.8 | Gemini CLI: trocar o `@import` por texto embutido (o Gemini recusa import fora de `~/.gemini`) | 🟠 Alta | MEDIO · Sonnet 5.5 | GLOBAL.6 | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
