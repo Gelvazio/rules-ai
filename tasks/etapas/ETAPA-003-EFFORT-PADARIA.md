@@ -57,3 +57,13 @@ Pontos de armadilha: reserva do pão francês (650 + 65 = 715 → 12 fornadas = 
 - **Nível:** .3 LEVE, .4 MEDIO, .5 PESADO, .6 e .7 MEDIO (nível do modelo medido).
 
 ### EFFORT-PADARIA.8 — Relatório comparativo · EFFORT-PADARIA.9 — Aceite do usuário
+
+#### EFFORT-PADARIA.3 — Haiku 5.5 — resultado (2026-10-16 20:15, líder Claude Code Opus 5.5)
+
+| effort | nota | tokens | tempo | leituras |
+|---|---|---|---|---|
+| `low` | 38/38 | 52.476 | 27,7 s | 7 |
+| `medium` | 38/38 | 54.252 (+3,4%) | 33,2 s (+20%) | 8 |
+| `high` | 38/38 | 56.776 (+8,2%) | 41,4 s (+49%) | 8 |
+
+**Conclusão: `effort` aplicado no Haiku** — tokens e tempo crescem de `low` a `high`; a nota já é máxima em `low` (o desafio não separa os níveis pelo acerto neste modelo). Nenhum agente executou código.

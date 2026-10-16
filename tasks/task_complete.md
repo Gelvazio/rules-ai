@@ -15,3 +15,4 @@
 | CONFEFFORT-GLOBAL.6 | 🌐 Sonnet 5.5: 2ª rodada do `effort` com problema difícil (3 execuções por nível) | 🟡 Média | MEDIO · só Sonnet 5.5 | CONFEFFORT-GLOBAL.2 | ✅ Concluído | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | EFFORT-PADARIA.1 | 🌐 Criar o projeto `testes-effort-padaria` (dados + desafio) | 🟠 Alta | MEDIO | Nenhuma | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | EFFORT-PADARIA.2 | 🌐 Gabarito (script fora do projeto) | 🟠 Alta | MEDIO | EFFORT-PADARIA.1 | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
+| EFFORT-PADARIA.3 | 🌐 Haiku 5.5: `low`/`medium`/`high` | 🟠 Alta | LEVE · agente Haiku | EFFORT-PADARIA.2 | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
