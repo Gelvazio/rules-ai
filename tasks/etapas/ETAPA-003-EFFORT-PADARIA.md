@@ -102,3 +102,7 @@ Pontos de armadilha: reserva do pão francês (650 + 65 = 715 → 12 fornadas = 
 2. **Nenhum nível mudou a nota**: os 10 agentes acertaram 38/38. Para este tipo de tarefa (contas em várias etapas), subir o `effort` só aumenta custo e tempo.
 3. Recomendação para decisão do usuário: manter `low` em `LEVE` e `medium` em `MEDIO`; em `PESADO`, `high` basta — `xhigh` só com pedido. Repetir o teste com um desafio em que algum modelo erre, para medir ganho de acerto.
 4. Ressalva: 1 execução por nível; Gemini e DeepSeek (.6 e .7) ainda faltam.
+
+#### EFFORT-PADARIA.9 — Aceite
+
+- 2026-10-16: usuário respondeu "aceito" ao relatório da .8. A mãe continua aberta até a .6 (Gemini) e a .7 (DeepSeek).
