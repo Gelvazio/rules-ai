@@ -77,3 +77,28 @@ Pontos de armadilha: reserva do pão francês (650 + 65 = 715 → 12 fornadas = 
 | `high` | 38/38 | 51.627 (+2,9%) | 27,9 s (+1%) | 8 |
 
 **Conclusão: no Sonnet o `effort` tem efeito fraco** — `low` e `medium` iguais; `high` só um pouco mais de tokens. Coincide com a CONFEFFORT-GLOBAL.6 (etapa 002). Nota máxima nos três; nenhum agente executou código.
+
+#### EFFORT-PADARIA.5 — Opus 5.5 — resultado (2026-10-16 20:30, líder Claude Code Opus 5.5)
+
+| effort | nota | tokens | tempo | leituras |
+|---|---|---|---|---|
+| `low` | 38/38 | 50.084 | 34,7 s | 8 |
+| `medium` | 38/38 | 50.254 (+0,3%) | 35,7 s (+3%) | 8 |
+| `high` | 38/38 | 50.358 (+0,5%) | 36,0 s (+4%) | 8 |
+| `xhigh` | 38/38 | 52.065 (+4,0%) | 49,2 s (+42%) | 8 |
+
+**Conclusão: no Opus, `low` a `high` quase iguais; só `xhigh` muda** (mais tempo e tokens, mesma nota).
+
+#### EFFORT-PADARIA.8 — Relatório comparativo (2026-10-16 20:31)
+
+| Modelo | `low` → `high`: tokens | `low` → `high`: tempo | Nota | Leitura |
+|---|---|---|---|---|
+| Haiku 5.5 | +8,2% | +49% | 38/38 nos 3 | `effort` aplicado e visível |
+| Sonnet 5.5 | +2,9% | +1% | 38/38 nos 3 | efeito fraco (igual à etapa 002) |
+| Opus 5.5 | +0,5% (`xhigh` +4,0%) | +4% (`xhigh` +42%) | 38/38 nos 4 | só `xhigh` muda |
+
+**Conclusões:**
+1. O `effort` **é aplicado** nos três modelos Claude (tokens e tempo nunca diminuem com o nível), mas o efeito é forte só no Haiku e no `xhigh` do Opus.
+2. **Nenhum nível mudou a nota**: os 10 agentes acertaram 38/38. Para este tipo de tarefa (contas em várias etapas), subir o `effort` só aumenta custo e tempo.
+3. Recomendação para decisão do usuário: manter `low` em `LEVE` e `medium` em `MEDIO`; em `PESADO`, `high` basta — `xhigh` só com pedido. Repetir o teste com um desafio em que algum modelo erre, para medir ganho de acerto.
+4. Ressalva: 1 execução por nível; Gemini e DeepSeek (.6 e .7) ainda faltam.

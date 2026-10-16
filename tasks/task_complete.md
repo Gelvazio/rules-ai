@@ -17,3 +17,5 @@
 | EFFORT-PADARIA.2 | 🌐 Gabarito (script fora do projeto) | 🟠 Alta | MEDIO | EFFORT-PADARIA.1 | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | EFFORT-PADARIA.3 | 🌐 Haiku 5.5: `low`/`medium`/`high` | 🟠 Alta | LEVE · agente Haiku | EFFORT-PADARIA.2 | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | EFFORT-PADARIA.4 | 🌐 Sonnet 5.5: `low`/`medium`/`high` | 🟠 Alta | MEDIO · agente Sonnet | EFFORT-PADARIA.2 | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
+| EFFORT-PADARIA.5 | 🌐 Opus 5.5: `low`/`medium`/`high`/`xhigh` | 🟠 Alta | PESADO · agente Opus | EFFORT-PADARIA.2 | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
+| EFFORT-PADARIA.8 | 🌐 Relatório comparativo | 🟠 Alta | MEDIO | EFFORT-PADARIA.3, .4, .5 | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
