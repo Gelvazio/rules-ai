@@ -15,12 +15,19 @@ SEREM GLOBAIS PRA TODAS AS IAS … ESCOPO: TODOS OS PROJETOS DA PASTA FONTES …
 - **Não feito de propósito:** Codex (o arquivo atual contradiz as regras) e as demais IAs
   (caminho do arquivo global não confirmado); o `AGENTS.md` de cada projeto não foi alterado.
 
-### GLOBAL.4 — Confirmar os conflitos
+### GLOBAL.4 — Confirmar os conflitos (concluída)
 
-**Próximo passo:** o usuário responde C1 a C10 (ex.: "C1 = B"); depois copiar a regra escolhida
-para `regras/` e rodar `node scripts/sincronizar.mjs --aplicar`.
+- **Entrega:** commit `feat(GLOBAL.4)` · **Verificação:** respostas do usuário (C1=A, C2=A, C3=A,
+  C4=B, C5=B, C6=A, C7=A, C8=A, C9=juntar, C10=juntar A e B) aplicadas em `regras/`; script
+  rodado com `--aplicar` e depois "igual" nos 3 destinos (Claude Code, Gemini CLI, Codex).
+- **Anotação:** do `~/.codex/AGENTS.md` foram removidas as seções de testes, worktree/merge,
+  commit+push automático e frase final (cópia em `.bak`); restou o graphify (C11).
 
-### GLOBAL.5 — Codex e demais IAs
+### GLOBAL.5 — Demais IAs
 
-**Próximo passo:** depois do GLOBAL.4, achar o arquivo global de cada IA (Codex, Grok, Cursor,
-Qoder, Kiro, opencode, DeepSeek) e acrescentá-lo ao `DESTINOS` do script.
+**Próximo passo:** achar o arquivo global de cada IA (Grok, Cursor, Qoder, Kiro, opencode,
+DeepSeek, Devin) e acrescentá-lo ao `DESTINOS` do script.
+
+### GLOBAL.6 — Decidir C11 e C12
+
+**Próximo passo:** o usuário responde C11 e C12 em `CONFLITOS.md`.

@@ -11,8 +11,8 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | Tarefa | Título | Prioridade | Modelo | Depende de | Status | Em uso por | Etapa |
 |---|---|---|---|---|---|---|---|
 | GLOBAL | **Regras globais para todas as IAs e projetos** | 🟠 Alta | — | Nenhuma | 🔄 Em progresso | — (não reservável) | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
-| GLOBAL.4 | Confirmar os conflitos C1 a C10 (`CONFLITOS.md`) | 🟠 Alta | Usuário | GLOBAL.3 | 👀 Aguardando o usuário | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
-| GLOBAL.5 | Ligar Codex e as demais IAs (caminhos e conflitos C6 a C8) | 🟡 Média | MEDIO · Sonnet 5.5 | GLOBAL.4 | ⬜ Pendente | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
+| GLOBAL.5 | Ligar as demais IAs (Grok, Cursor, Qoder, Kiro, opencode, DeepSeek, Devin): achar o arquivo global de cada uma | 🟡 Média | MEDIO · Sonnet 5.5 | Nenhuma | ⬜ Pendente | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
+| GLOBAL.6 | Decidir C11 (graphify no Codex) e C12 (regras dos projetos × globais) | 🟠 Alta | Usuário | GLOBAL.4 | 👀 Aguardando o usuário | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 
 ## Registro de decisões
 

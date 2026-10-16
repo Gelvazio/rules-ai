@@ -10,6 +10,7 @@ Pontos de conflito entre projetos estão em `CONFLITOS.md`.
   quadro saem sem perguntar.
 - ✅ `git add <arquivos da tarefa>` pelo caminho; conferir com `git diff --cached --name-only`.
   ⛔ Nunca `git add .`.
+- ⛔ `git merge` e `git pull` sem `--rebase` (usar `git pull --rebase`); sem PR para entregar tarefa.
 - ⛔ `git status` repetido entre comandos ou depois do commit (o git já avisa erros).
 - ⛔ `git push --force`. Push segue a regra do projeto; sem regra, só quando o usuário pedir.
 - ✅ Usuário pede "faça commit agora" → na hora, mesmo no meio da tarefa; "só commit, sem push"

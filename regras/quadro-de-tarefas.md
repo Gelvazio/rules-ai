@@ -1,23 +1,92 @@
-# 🗂️ Quadro de tarefas — o essencial, para qualquer projeto
+# 🗂️ Quadro de tarefas — fonte única, para qualquer projeto
 
-Só o que **todos** os projetos já adotam. O detalhe (modelos do `STATUS.md`, reserva, níveis,
-ciclo completo) fica no projeto: `.claude/rules/tasks/` — e as divergências entre projetos estão
-em `CONFLITOS.md` até o usuário decidir.
+Serve para qualquer projeto (nada específico de um projeto). Ciclo da tarefa:
+`ciclo-da-task.md` · várias sessões/IAs: `frentes-e-reserva.md` · níveis: `niveis-e-modelos.md`.
+Sem pasta `tasks/` no projeto: `STATUS.md` na raiz, com as mesmas colunas.
 
-- ✅ Todo pedido que **muda** algo (arquivo, banco, configuração) vira **tarefa no quadro antes de
-  executar** (`tasks/STATUS.md` + etapa em `tasks/etapas/`; sem quadro: `STATUS.md` na raiz).
-  Pergunta ou análise que não muda nada não vira tarefa.
-- ✅ Toda tarefa-mãe tem **no mínimo 1 subtarefa**; o trabalho e a reserva são na subtarefa.
-- ✅ **Pequena** (ajuste pontual até ~3 arquivos, sem banco/segurança/estrutura nova/mudança em
-  massa): executar direto, registrando no quadro e commitando. **Grande** (banco, segurança,
-  várias partes, geração em massa, apagar dados): plano + resumo ao usuário + **aprovação
-  explícita**; mudança de escopo = nova aprovação. Na dúvida, é grande.
-- ✅ Status `⬜ Pendente` · `🔄 Em progresso` · `✅ Concluído` · `⛔ Bloqueado` (com motivo) ·
-  `👀 Aguardando o usuário`, atualizado **na hora**, uma subtarefa por vez; histórico nunca apagado.
-- ✅ Ao iniciar ou retomar: sincronizar, ler o quadro **antes** de agir e continuar de onde parou
-  (sem refazer ✅ nem pular itens).
-- ✅ Reservar a subtarefa (nome da IA/frente em "Em uso por") com commit + push **antes** de
-  trabalhar; ⛔ nunca mexer na reserva de outra frente.
-- ✅ **Um commit por subtarefa entregue**, com o quadro no mesmo commit.
-- ⭐ Planejar → aprovar → executar 1 item por vez → registrar na hora → entregar.
-  **O que não está no quadro não aconteceu.**
+## Tarefa e subtarefa
+
+- **Toda tarefa-mãe tem no mínimo 1 subtarefa** (`<TAREFA>.1`, `<TAREFA>.2`…), cada uma com
+  **linha própria** em "📌 Tarefas" e **nível** (`niveis-e-modelos.md`). Não existe tarefa-mãe sem
+  subtarefa.
+- O trabalho e a reserva são sempre numa **subtarefa**; a mãe não se reserva e fecha quando todas
+  as subtarefas estiverem ✅.
+- **Cada subtarefa pode ser assumida por qualquer IA/frente** do nível certo, independente das
+  outras subtarefas da mesma mãe (respeitando dependências e reservas).
+
+## Cada informação em um lugar só
+
+| Informação | Lugar único |
+|------------|-------------|
+| Status, prioridade, modelo, dependências e reserva de cada subtarefa (e da mãe) **aberta ou em andamento** | Linha própria em "📌 Tarefas" do `tasks/STATUS.md` |
+| Linha de tarefa ou subtarefa **concluída (✅)** | Tabela "✅ Concluídas" do `tasks/task_complete.md` |
+| Pedido, objetivo, plano (tarefa grande), escopo, riscos, decisões | **Etapa** da mãe: `tasks/etapas/ETAPA-NNN-<uuid8>-ASSUNTO.md` |
+| Nível, descrição, critérios, próximo passo, entrega e verificação de cada subtarefa | Seção da subtarefa dentro da etapa da mãe |
+| Tarefa que cada sessão está fazendo | Linha da frente em "🧭 Frentes" do `tasks/STATUS.md` (e "Em uso por") |
+| Decisões, riscos, pendências e lições do projeto | Seções do `tasks/STATUS.md` |
+| Recados entre sessões | `tasks/RECADOS.md` (só se acrescentam linhas) |
+
+- ⛔ Não copiar para outro lugar: sem `TASKS.md`, sem plano separado em `docs/`, sem lista de
+  pendências do usuário montada à mão, sem resumo com contagens, sem cópia da fila em tabela de banco.
+- ⛔ **No `STATUS.md` só ficam tarefas abertas ou em andamento.** Linha (mãe ou subtarefa) que vira
+  ✅ é **recortada** do "📌 Tarefas" e colada no fim da tabela do `tasks/task_complete.md`, no
+  **mesmo commit** da entrega (move, não copia). Reabrir = mover a linha de volta.
+- O que o usuário precisa fazer = linhas e itens **👀** (filtrar; não copiar).
+- O que não está no quadro não aconteceu. Histórico nunca é apagado: só se acrescentam etapas.
+- Linguagem simples, que quem não é técnico entende.
+
+## Legenda
+
+⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado (motivo + o que destrava) ·
+👀 Aguardando o usuário · Prioridade: 🔴 Máxima · 🟠 Alta · 🟡 Média · 🟢 Baixa
+
+## Modelo do `tasks/STATUS.md`
+
+```markdown
+# STATUS — <Projeto>
+**Objetivo:** <1 frase> · **Partes interessadas:** <quem decide / aprova / usa>
+**Links:** [Regras](../AGENTS.md) · [Etapas](etapas/) · [Concluídas](task_complete.md) · [Recados](RECADOS.md)
+
+## 🧭 Frentes de trabalho
+| Frente | Tarefa (etapa) | Situação | Atualizado em |
+
+## 📌 Tarefas            (só abertas/em andamento; mãe em negrito + uma linha por subtarefa)
+| Tarefa | Título | Prioridade | Modelo | Depende de | Status | Em uso por | Etapa |
+
+## Escopo do projeto · 🗂️ Etapas · Riscos · Bloqueios gerais · Registro de decisões
+## Pendências (ficou para depois) · Lições aprendidas
+```
+
+- **Status** na linha: só o emoji e 1–3 palavras (`🔄 Em execução`); o detalhe fica na etapa.
+- **Modelo:** nível + modelo indicado (ex.: `LEVE · Haiku`); `Usuário` quando quem faz é o
+  usuário; `—` na mãe.
+- **Em uso por:** `<IA (modelo)> (<frente>) (desde <data hora>)`, `—` (livre) ou
+  `— (não reservável)` na mãe.
+- Seção sem conteúdo fica com a tabela vazia (não apagar o cabeçalho).
+
+## Modelo do `tasks/task_complete.md`
+
+```markdown
+# ✅ Concluídas — <Projeto>
+| Tarefa | Título | Prioridade | Modelo | Depende de | Status | Em uso por | Etapa |
+```
+
+## Modelo da etapa (uma por tarefa-mãe)
+
+```markdown
+## Etapa NNN-<uuid8> — <TAREFA>: <título>
+**Tarefa:** <TAREFA> · **Pedido em:** AAAA-MM-DD HH:MM · **Criada por:** <IA (frente)>
+**Pedido:** <palavras de quem pediu>
+**Objetivo:** <1 frase: o que e por quê>
+### Escopo · ### Riscos · ### Decisões     ← só em tarefa grande (o plano é a etapa)
+
+### <TAREFA>.1 — <título da subtarefa>
+**Próximo passo:** <ação exata>
+- **Nível:** <nível> — <motivo curto>
+- **Descrição:** … · **Critérios de Aceitação:** …
+- **Entrega:** <commit(s)> · **Verificação:** <como foi conferido> · **Anotação:** …
+```
+
+- Número da etapa sequencial + 8 caracteres de um UUID (evita número repetido entre sessões).
+- Subtarefas pequenas (minutos ou horas), na ordem de execução; em tarefa grande, a última é o
+  **aceite do usuário**.

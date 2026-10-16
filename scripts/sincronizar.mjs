@@ -19,6 +19,7 @@ const APLICAR = process.argv.includes('--aplicar');
 const DESTINOS = [
   { ia: 'Claude Code', arquivo: join(homedir(), '.claude', 'CLAUDE.md'), modo: 'importar' },
   { ia: 'Gemini CLI', arquivo: join(homedir(), '.gemini', 'GEMINI.md'), modo: 'importar' },
+  { ia: 'Codex', arquivo: join(homedir(), '.codex', 'AGENTS.md'), modo: 'embutir' },
 ];
 
 /**
