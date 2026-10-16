@@ -23,10 +23,22 @@ SEREM GLOBAIS PRA TODAS AS IAS … ESCOPO: TODOS OS PROJETOS DA PASTA FONTES …
 - **Anotação:** do `~/.codex/AGENTS.md` foram removidas as seções de testes, worktree/merge,
   commit+push automático e frase final (cópia em `.bak`); restou o graphify (C11).
 
-### GLOBAL.5 — Demais IAs
+### GLOBAL.5 — Demais IAs (concluída)
 
-**Próximo passo:** achar o arquivo global de cada IA (Grok, Cursor, Qoder, Kiro, opencode,
-DeepSeek, Devin) e acrescentá-lo ao `DESTINOS` do script.
+- **Nível:** MEDIO — achar o caminho de cada IA na documentação e estender o script ·
+  **Modelo:** Claude Code Sonnet 5.5 (ou superior)
+- **Descrição:** caminhos tirados da documentação oficial de cada IA: Grok lê `~/.grok/`
+  (docs.x.ai, "Project rules"); Qoder `~/.qoder/AGENTS.md` (docs.qoder.com, "Memory"); opencode
+  `~/.config/opencode/AGENTS.md`, sem `@import` (opencode.ai, "Rules"); Devin
+  `%APPDATA%\devin\AGENTS.md` (docs.devin.ai, "Rules"); Kiro `~/.kiro/steering/` (kiro.dev,
+  "Steering"; arquivo próprio `rules-ai.md`, sempre incluído). Todos no modo `embutir`; o Kiro
+  usa `criarPasta` porque `steering/` não existia.
+- **Ficaram de fora:** Cursor (as regras do usuário ficam só em Configurações → Rules, sem
+  arquivo) e DeepSeek (`%APPDATA%\@deepseek-ai` não tem arquivo de regras).
+- **Entrega:** commit `feat(GLOBAL.5)` · **Verificação:** `node --check` ok; `--aplicar` gravou
+  os 5 arquivos novos (25.610 bytes cada, com `graphify.md` e as regras do quadro) e a segunda
+  rodada deu "igual" em todos; Gemini e Codex continuaram "igual". Rodado no Linux do app de
+  desktop com as pastas do usuário ligadas; no Windows o script usa os mesmos caminhos.
 
 ### GLOBAL.6 — Decidir C11 e C12 (concluída)
 

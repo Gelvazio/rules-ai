@@ -24,7 +24,13 @@ arquivo global da IA; o resto do arquivo fica como está.
 | Claude Code | `~/.claude/CLAUDE.md` | `@import` do unificado | ✅ no script |
 | Gemini CLI | `~/.gemini/GEMINI.md` | embutir o texto (o Gemini não aceita `@import` fora de `~/.gemini`) | ✅ no script |
 | Codex | `~/.codex/AGENTS.md` | embutir o texto | ✅ no script (seções que contradiziam foram removidas; resta o graphify, C11) |
-| Grok, Cursor, Qoder, Kiro, opencode, DeepSeek, Devin | — | — | ⏳ caminho do arquivo global não confirmado; não adivinhado |
+| Grok | `~/.grok/AGENTS.md` | embutir o texto | ✅ no script |
+| Qoder | `~/.qoder/AGENTS.md` | embutir o texto | ✅ no script |
+| opencode | `~/.config/opencode/AGENTS.md` | embutir o texto (não lê `@import`) | ✅ no script |
+| Devin | `%APPDATA%\devin\AGENTS.md` | embutir o texto | ✅ no script |
+| Kiro | `~/.kiro/steering/rules-ai.md` (steering global, sempre incluído) | embutir o texto | ✅ no script |
+| Cursor | — (regras do usuário ficam só em Configurações → Rules) | colar à mão | ⏳ sem arquivo global |
+| DeepSeek | — (nenhum arquivo de regras na instalação) | — | ⏳ sem arquivo global |
 
 ## Precedência
 

@@ -14,13 +14,29 @@ const ARQUIVO_UNIFICADO = join(RAIZ, 'dist', 'REGRAS-GLOBAIS.md');
 const MARCA_INICIO = '<!-- rules-ai:inicio (gerado por C:/fontes/rules-ai; não editar) -->';
 const MARCA_FIM = '<!-- rules-ai:fim -->';
 const APLICAR = process.argv.includes('--aplicar');
+/** Pasta de configuração do usuário: %APPDATA% no Windows, ~/.config nos outros sistemas. */
+const PASTA_CONFIG_USUARIO = process.env.APPDATA ?? join(homedir(), '.config');
 
-/** Destinos: `importar` usa `@arquivo` (a IA lê o unificado); `embutir` copia o texto. */
+/**
+ * Destinos: `importar` usa `@arquivo` (a IA lê o unificado); `embutir` copia o texto.
+ * `criarPasta` cria a pasta do arquivo quando ela ainda não existe (só com --aplicar).
+ * Cursor (regras do usuário só nas configurações) e DeepSeek ficam de fora: sem arquivo global.
+ */
 const DESTINOS = [
   { ia: 'Claude Code', arquivo: join(homedir(), '.claude', 'CLAUDE.md'), modo: 'importar' },
   // Gemini CLI recusa @import fora da pasta do GEMINI.md global ("Path traversal attempt")
   { ia: 'Gemini CLI', arquivo: join(homedir(), '.gemini', 'GEMINI.md'), modo: 'embutir' },
   { ia: 'Codex', arquivo: join(homedir(), '.codex', 'AGENTS.md'), modo: 'embutir' },
+  { ia: 'Grok', arquivo: join(homedir(), '.grok', 'AGENTS.md'), modo: 'embutir' },
+  { ia: 'Qoder', arquivo: join(homedir(), '.qoder', 'AGENTS.md'), modo: 'embutir' },
+  { ia: 'opencode', arquivo: join(homedir(), '.config', 'opencode', 'AGENTS.md'), modo: 'embutir' },
+  { ia: 'Devin', arquivo: join(PASTA_CONFIG_USUARIO, 'devin', 'AGENTS.md'), modo: 'embutir' },
+  {
+    ia: 'Kiro',
+    arquivo: join(homedir(), '.kiro', 'steering', 'rules-ai.md'),
+    modo: 'embutir',
+    criarPasta: true,
+  },
 ];
 
 /**
@@ -66,18 +82,20 @@ function aplicarBloco(atual, bloco) {
 
 /**
  * Sincroniza um destino (ou só informa, sem --aplicar).
- * @param {{ia: string, arquivo: string, modo: string}} destino - Destino a sincronizar.
+ * @param {{ia: string, arquivo: string, modo: string, criarPasta?: boolean}} destino - Destino.
  * @param {string} unificado - Texto unificado das regras.
  */
 function sincronizarDestino(destino, unificado) {
-  const pastaExiste = existsSync(dirname(destino.arquivo));
-  if (!pastaExiste) return console.log(`pulado   ${destino.ia}: pasta não existe`);
+  const pastaArquivo = dirname(destino.arquivo);
+  const pastaDaIa = destino.criarPasta ? dirname(pastaArquivo) : pastaArquivo;
+  if (!existsSync(pastaDaIa)) return console.log(`pulado   ${destino.ia}: pasta não existe`);
 
   const atual = existsSync(destino.arquivo) ? readFileSync(destino.arquivo, 'utf8') : '';
   const novo = aplicarBloco(atual, montarBloco(destino, unificado));
   if (novo === atual) return console.log(`igual    ${destino.ia}: ${destino.arquivo}`);
   if (!APLICAR) return console.log(`mudaria  ${destino.ia}: ${destino.arquivo} (use --aplicar)`);
 
+  mkdirSync(pastaArquivo, { recursive: true });
   if (atual) copyFileSync(destino.arquivo, `${destino.arquivo}.bak`);
   writeFileSync(destino.arquivo, novo, 'utf8');
   console.log(`gravado  ${destino.ia}: ${destino.arquivo}`);
