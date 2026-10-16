@@ -22,3 +22,4 @@
 | EFFORT-PADARIA.9 | 🌐 Aceite do usuário | 🟠 Alta | Usuário | EFFORT-PADARIA.8 | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | ESFORCO-GLOBAL.2 | 🌐 Aceite do usuário | 🟡 Média | LEVE | ESFORCO-GLOBAL.1 | ✅ Concluído | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | ESFORCO-GLOBAL.3 | 🌐 `effort` no frontmatter dos agentes de todos os projetos (aulasenai, template, testes-de-frontend, dashboards) | 🟠 Alta | MEDIO · effort medium | Nenhuma | ✅ Concluído | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
+| ESFORCO-GLOBAL.4 | 🌐 `effort` em todas as tarefas pendentes (⬜) dos quadros de todos os projetos (323 linhas; classificar as 171 sem nível) | 🟠 Alta | PESADO · effort high | ESFORCO-GLOBAL.3 | ✅ Concluído | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |

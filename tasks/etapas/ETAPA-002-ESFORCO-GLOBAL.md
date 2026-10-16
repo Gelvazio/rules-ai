@@ -83,3 +83,15 @@ Ressalvas: amostra de 3 por nível; o problema foi resolvido por força bruta (p
 - **Decisão** (2026-10-16 20:40, Gelvazio): o `effort` vai **sempre**, em todas as tarefas e IAs; quem não usa ignora.
 
 - **.3 entregue (2026-10-16 20:50):** `effort` em 19 agentes — aulasenai `38d5d701` (7, inclusive revisor e auditores = medium), template `fbeba06`, testes-de-frontend e dashboard-ai (cópias por `npm run sync:agentes`). Por engano entraram arquivos não rastreados de outras frentes (aulasenai `.agents/`, template `.codex/hooks*`); tirados do Git no commit seguinte, continuam no disco.
+
+- **.4 entregue (2026-10-16 21:00):** `effort` em 319 linhas ⬜ de 7 quadros. Com nível já gravado (152): `· effort <x>` na célula do nível. Sem nível (167): classificadas por script (sinais de `niveis-e-modelos.md`; nome da matéria não conta como sinal) e gravado `` `NIVEL · effort x` `` no título.
+  | Quadro | Commit | Linhas |
+  |---|---|---|
+  | REA | `929f7d0` | 138 com nível |
+  | aulasenai | `1f8deb81` (+ visualizador regenerado) | 9 com nível + 94 classificadas (53 PESADO, 35 MEDIO, 6 LEVE) |
+  | rules-ai | `7d11a27` | 6 |
+  | testes-de-frontend | `dfd32ae` | 9 classificadas |
+  | AUTOMATIZACAO-LEITURA-EMAILS | `cca6e23` | 25 classificadas |
+  | dashboard-plataformas-de-ia | `5789c64` | 4 classificadas |
+  | dashboard-ai (9 cópias, mesmo repositório) | `36f2b2a` | 39 classificadas |
+  **Verificação:** simulação revisada linha a linha antes de aplicar (corrigidos: nome de matéria com "Arquitetura"/"Segurança", "banco de horas", "migrado", gerador/visualizador como código); push conferido (local = remoto) nos 7. Fora: pasta offline (C20) e `ajax-ai-by-pewdiepie`. Classificação automática: quem pegar a tarefa pode reclassificar (subir o nível).
