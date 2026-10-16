@@ -20,3 +20,4 @@
 | EFFORT-PADARIA.5 | 🌐 Opus 5.5: `low`/`medium`/`high`/`xhigh` | 🟠 Alta | PESADO · agente Opus | EFFORT-PADARIA.2 | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | EFFORT-PADARIA.8 | 🌐 Relatório comparativo | 🟠 Alta | MEDIO | EFFORT-PADARIA.3, .4, .5 | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | EFFORT-PADARIA.9 | 🌐 Aceite do usuário | 🟠 Alta | Usuário | EFFORT-PADARIA.8 | ✅ Concluído | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
+| ESFORCO-GLOBAL.2 | 🌐 Aceite do usuário | 🟡 Média | LEVE | ESFORCO-GLOBAL.1 | ✅ Concluído | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
