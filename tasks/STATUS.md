@@ -11,7 +11,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | Tarefa | Título | Prioridade | Modelo | Depende de | Status | Em uso por | Etapa |
 |---|---|---|---|---|---|---|---|
 | GLOBAL | **Regras globais para todas as IAs e projetos** | 🟠 Alta | — | Nenhuma | 🔄 Em progresso | — (não reservável) | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
-| GLOBAL.5 | Ligar as demais IAs (Grok, Cursor, Qoder, Kiro, opencode, DeepSeek, Devin): achar o arquivo global de cada uma | 🟡 Média | MEDIO · Sonnet 5.5 | Nenhuma | ⬜ Pendente | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
+| GLOBAL.5 | Ligar as demais IAs (Grok, Cursor, Qoder, Kiro, opencode, DeepSeek, Devin): achar o arquivo global de cada uma | 🟡 Média | MEDIO · Sonnet 5.5 | Nenhuma | 🔄 Em execução | Claude Code (Opus 5.5) (nuvem · main) (desde 2026-10-16 15:55) | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 
 ## Registro de decisões
 
