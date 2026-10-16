@@ -67,3 +67,13 @@ Pontos de armadilha: reserva do pão francês (650 + 65 = 715 → 12 fornadas = 
 | `high` | 38/38 | 56.776 (+8,2%) | 41,4 s (+49%) | 8 |
 
 **Conclusão: `effort` aplicado no Haiku** — tokens e tempo crescem de `low` a `high`; a nota já é máxima em `low` (o desafio não separa os níveis pelo acerto neste modelo). Nenhum agente executou código.
+
+#### EFFORT-PADARIA.4 — Sonnet 5.5 — resultado (2026-10-16 20:20, líder Claude Code Opus 5.5)
+
+| effort | nota | tokens | tempo | leituras |
+|---|---|---|---|---|
+| `low` | 38/38 | 50.183 | 27,5 s | 8 |
+| `medium` | 38/38 | 50.354 (+0,3%) | 27,5 s (0%) | 8 |
+| `high` | 38/38 | 51.627 (+2,9%) | 27,9 s (+1%) | 8 |
+
+**Conclusão: no Sonnet o `effort` tem efeito fraco** — `low` e `medium` iguais; `high` só um pouco mais de tokens. Coincide com a CONFEFFORT-GLOBAL.6 (etapa 002). Nota máxima nos três; nenhum agente executou código.
