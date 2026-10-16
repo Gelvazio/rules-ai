@@ -43,7 +43,7 @@ C8); cópia em `~/.codex/AGENTS.md.bak`.
 | # | Assunto | Decisão |
 |---|---------|---------|
 | C11 | Graphify | ✅ Rodar **uma vez no início de cada conversa** e **analisar** o `GRAPH_REPORT.md`; regra em `regras/graphify.md`. `~/.claude/CLAUDE.md` (cópia `.bak2`) e `~/.codex/AGENTS.md` ajustados |
-| C12 | Regras dos projetos × globais | ✅ Alinhar. Tarefas abertas: REA `ALINHAR` (etapa 013) e aulasenai `#202` (etapa 329); cada subtarefa só pode ser pega pelo modelo escrito nela |
+| C12 | Regras dos projetos × globais | ✅ Alinhar. **Executado em 2026-10-16** por Claude Code (Sonnet 5.5) com `IA_SEM_TRAVA=1` a pedido do usuário: REA `ALINHAR.1` a `.5` (aceite `.6` pendente) e aulasenai `#202.1` a `#202.4` (aceite `#202.5` pendente) |
 
 ## Pendente de decisão
 

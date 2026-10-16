@@ -12,7 +12,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 |---|---|---|---|---|---|---|---|
 | GLOBAL | **Regras globais para todas as IAs e projetos** | 🟠 Alta | — | Nenhuma | 🔄 Em progresso | — (não reservável) | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 | GLOBAL.5 | Ligar as demais IAs (Grok, Cursor, Qoder, Kiro, opencode, DeepSeek, Devin): achar o arquivo global de cada uma | 🟡 Média | MEDIO · Sonnet 5.5 | Nenhuma | ⬜ Pendente | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
-| GLOBAL.7 | Acompanhar o alinhamento dos projetos: REA `ALINHAR` (etapa 013) e aulasenai `#202` (etapa 329) | 🟠 Alta | Usuário | Nenhuma | 👀 Aguardando o usuário | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
+| GLOBAL.7 | Aceitar o alinhamento dos projetos (entregue): REA `ALINHAR.6` (etapa 013) e aulasenai `#202.5` (etapa 329) | 🟠 Alta | Usuário | Nenhuma | 👀 Aguardando o usuário | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 
 ## Registro de decisões
 
