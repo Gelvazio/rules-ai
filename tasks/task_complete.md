@@ -8,3 +8,4 @@
 | GLOBAL.4 | Confirmar os conflitos C1 a C10 (`CONFLITOS.md`) | 🟠 Alta | Usuário | GLOBAL.3 | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 | GLOBAL.6 | Decidir C11 (graphify) e C12 (alinhar projetos) | 🟠 Alta | Usuário | GLOBAL.4 | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 | GLOBAL.8 | Gemini CLI: trocar o `@import` por texto embutido (o Gemini recusa import fora de `~/.gemini`) | 🟠 Alta | MEDIO · Sonnet 5.5 | GLOBAL.6 | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
+| GLOBAL.7 | Aceitar o alinhamento dos projetos (entregue): REA `ALINHAR.6` (etapa 013) e aulasenai `#202.5` (etapa 329) | 🟠 Alta | Usuário | Nenhuma | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
