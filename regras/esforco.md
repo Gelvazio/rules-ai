@@ -18,3 +18,4 @@ IAs.** Conferência por modelo: tarefa `CONFEFFORT-GLOBAL` (`rules-ai/tasks/STAT
 - ⚠️ O agente **não enxerga** o próprio esforço: conferir por fora (tokens, tempo, tamanho da
   resposta), como manda a `CONFEFFORT-GLOBAL`. Nem toda IA tem `effort` (Gemini, DeepSeek): usar a
   configuração equivalente de raciocínio da ferramenta.
+- Conferência do Sonnet 5.5 (CONFEFFORT-GLOBAL.2 e .6): `low` e `medium` sem diferença mensurável; só `high` mostrou efeito pequeno. Os outros modelos ainda não foram conferidos.

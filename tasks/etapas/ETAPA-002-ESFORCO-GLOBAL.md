@@ -60,3 +60,16 @@ Ressalva: o problema pode ser fácil demais para o Sonnet gastar raciocínio ext
 - **Nível:** MEDIO · **Modelo:** só Claude Code Sonnet 5.5. Pedido do usuário ("sim") depois de a rodada 1 não mostrar diferença.
 - **Problema:** 9 pessoas A–I com 9 restrições cruzadas; gabarito 77 (força bruta em Python). Critério: tokens/tempo crescem de `low` a `high`, `effort` ignorado ou só `high` muda.
 - **Entrega:** — · **Verificação:** —
+
+#### CONFEFFORT-GLOBAL.6 — resultado (2026-10-16 20:25, Claude Code Sonnet 5.5, local · main)
+
+9 agentes `model: sonnet` (3 por `effort`), mesmo enunciado (9 pessoas, 9 regras; gabarito 77). Todos acertaram 77, resolvendo por script Python (1 a 2 chamadas de ferramenta).
+
+| effort | tokens (3 execuções) | média | tempo (3 execuções) | média |
+|---|---|---|---|---|
+| `low` | 42.503 · 42.512 · 42.615 | 42.543 | 8,6 · 7,9 · 8,2 s | 8,2 s |
+| `medium` | 42.761 · 42.578 · 42.604 | 42.648 | 8,4 · 7,4 · 9,7 s | 8,5 s |
+| `high` | 43.247 · 43.843 · 42.490 | 43.193 | 12,4 · 14,9 · 8,7 s | 12,0 s |
+
+**Conclusão (uma linha): `low` e `medium` indistinguíveis; só `high` mostra diferença, e pequena** (+1,5% de tokens, +46% de tempo; 2 das 3 execuções de `high` usaram 2 chamadas de ferramenta, a terceira ficou igual a `low`/`medium`).
+Ressalvas: amostra de 3 por nível; o problema foi resolvido por força bruta (pouco raciocínio a regular); o relatório de uso não separa tokens de raciocínio. Recomendação para decisão do usuário: manter `high` só no `executor-pesado`; `low` vs `medium` não se comprovou.
