@@ -52,3 +52,11 @@ Agentes descartáveis `model: sonnet` (parâmetro `effort` do Agent), problema p
 
 **Conclusão (uma linha): `effort` ignorado ou sem efeito mensurável neste problema** — diferença de 0,4% nos tokens e de 0,4 s, sem passos de raciocínio a mais; os três acertaram.
 Ressalva: o problema pode ser fácil demais para o Sonnet gastar raciocínio extra e o relatório de uso não separa tokens de raciocínio; para decidir remover ou ajustar o campo, repetir com problema mais difícil.
+
+### CONFEFFORT-GLOBAL.6 — Sonnet 5.5: 2ª rodada com problema difícil
+
+**Próximo passo:** rodar 9 agentes (3 por `effort`) e comparar tokens, tempo e tamanho.
+
+- **Nível:** MEDIO · **Modelo:** só Claude Code Sonnet 5.5. Pedido do usuário ("sim") depois de a rodada 1 não mostrar diferença.
+- **Problema:** 9 pessoas A–I com 9 restrições cruzadas; gabarito 77 (força bruta em Python). Critério: tokens/tempo crescem de `low` a `high`, `effort` ignorado ou só `high` muda.
+- **Entrega:** — · **Verificação:** —
