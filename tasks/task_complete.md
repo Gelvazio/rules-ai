@@ -11,3 +11,4 @@
 | GLOBAL.7 | Aceitar o alinhamento dos projetos (entregue): REA `ALINHAR.6` (etapa 013) e aulasenai `#202.5` (etapa 329) | 🟠 Alta | Usuário | Nenhuma | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 | GLOBAL.5 | Ligar as demais IAs (Grok, Cursor, Qoder, Kiro, opencode, DeepSeek, Devin): achar o arquivo global de cada uma | 🟡 Média | MEDIO · Sonnet 5.5 | Nenhuma | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 | GLOBAL | **Regras globais para todas as IAs e projetos** | 🟠 Alta | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
+| CONFEFFORT-GLOBAL.2 | 🌐 Sonnet 5.5: conferir o `effort` | 🟡 Média | MEDIO · só Sonnet 5.5 | ESFORCO-GLOBAL.1 | ✅ Concluído | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |

@@ -39,3 +39,16 @@ Procedimento e problema padrão: os da ETAPA-012 do REA (`REA-APP-CLONES/tasks/e
 - **CONFEFFORT-GLOBAL.1** — Haiku 5.5 (LEVE) · **.2** — Sonnet 5.5 (MEDIO) · **.3** — Opus 5.5 (PESADO, incluir `xhigh`) · **.4** — Gemini Pro (MEDIO) · **.5** — DeepSeek raciocínio (MEDIO).
 - **Critérios de aceitação:** tabela com `low`/`medium`/`high` (tokens, tempo, tamanho) e conclusão em uma linha (`aplicado`, `ignorado` ou `não deu para medir`).
 - **Entrega:** — · **Verificação:** — (por subtarefa, na hora de executar).
+
+#### CONFEFFORT-GLOBAL.2 — Sonnet 5.5 — resultado (2026-10-16 20:05, Claude Code Sonnet 5.5, local · main)
+
+Agentes descartáveis `model: sonnet` (parâmetro `effort` do Agent), problema padrão colado sem mudar uma palavra; medidas do relatório de uso de cada subagente:
+
+| effort | tokens totais | tempo | resposta |
+|---|---|---|---|
+| `low` | 41.253 | 14.119 ms | 40 ordens, lista completa |
+| `medium` | 41.331 | 14.513 ms | 40 ordens, lista completa |
+| `high` | 41.424 | 14.515 ms | 40 ordens, lista completa |
+
+**Conclusão (uma linha): `effort` ignorado ou sem efeito mensurável neste problema** — diferença de 0,4% nos tokens e de 0,4 s, sem passos de raciocínio a mais; os três acertaram.
+Ressalva: o problema pode ser fácil demais para o Sonnet gastar raciocínio extra e o relatório de uso não separa tokens de raciocínio; para decidir remover ou ajustar o campo, repetir com problema mais difícil.
