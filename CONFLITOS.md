@@ -42,5 +42,5 @@ C8); cópia em `~/.codex/AGENTS.md.bak`.
 
 | # | Assunto | Situação | Decisão |
 |---|---------|----------|---------|
-| C11 | Graphify no `~/.codex/AGENTS.md` | O Codex manda rodar o graphify **no início de cada conversa** e ler `graphify-out/GRAPH_REPORT.md` de `C:ontes\professor-senai`; o `~/.claude/CLAUDE.md` e o `aulasenai` dizem **só quando o usuário pedir**; o REA manda rodar a cada mudança | ⏳ |
+| C11 | Graphify no `~/.codex/AGENTS.md` | O Codex manda rodar o graphify **no início de cada conversa** e ler `graphify-out/GRAPH_REPORT.md` de `C:/fontes/professor-senai`; o `~/.claude/CLAUDE.md` e o `aulasenai` dizem **só quando o usuário pedir**; o REA manda rodar a cada mudança | ⏳ |
 | C12 | Regras de projeto que ficaram diferentes das globais | `REA-APP-CLONES/.claude/rules` segue C2=B (só o seu nível), C3=B (sem tabela de frentes) e a frase C1=B; `aulasenai` segue C4=A (✅ no `STATUS.md`) e C5=A | ⏳ |
