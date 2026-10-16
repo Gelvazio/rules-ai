@@ -38,9 +38,13 @@ Todos aplicados em `regras/` (`ciclo-da-task.md`, `frentes-e-reserva.md`, `quadr
 removidas as seções de testes, worktree/merge, commit+push automático e a frase final (C1, C6, C7,
 C8); cópia em `~/.codex/AGENTS.md.bak`.
 
+## Decididos depois (2026-10-16)
+
+| # | Assunto | Decisão |
+|---|---------|---------|
+| C11 | Graphify | ✅ Rodar **uma vez no início de cada conversa** e **analisar** o `GRAPH_REPORT.md`; regra em `regras/graphify.md`. `~/.claude/CLAUDE.md` (cópia `.bak2`) e `~/.codex/AGENTS.md` ajustados |
+| C12 | Regras dos projetos × globais | ✅ Alinhar. Tarefas abertas: REA `ALINHAR` (etapa 013) e aulasenai `#202` (etapa 329); cada subtarefa só pode ser pega pelo modelo escrito nela |
+
 ## Pendente de decisão
 
-| # | Assunto | Situação | Decisão |
-|---|---------|----------|---------|
-| C11 | Graphify no `~/.codex/AGENTS.md` | O Codex manda rodar o graphify **no início de cada conversa** e ler `graphify-out/GRAPH_REPORT.md` de `C:/fontes/professor-senai`; o `~/.claude/CLAUDE.md` e o `aulasenai` dizem **só quando o usuário pedir**; o REA manda rodar a cada mudança | ⏳ |
-| C12 | Regras de projeto que ficaram diferentes das globais | `REA-APP-CLONES/.claude/rules` segue C2=B (só o seu nível), C3=B (sem tabela de frentes) e a frase C1=B; `aulasenai` segue C4=A (✅ no `STATUS.md`) e C5=A | ⏳ |
+Nenhum.

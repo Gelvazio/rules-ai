@@ -28,6 +28,16 @@ SEREM GLOBAIS PRA TODAS AS IAS … ESCOPO: TODOS OS PROJETOS DA PASTA FONTES …
 **Próximo passo:** achar o arquivo global de cada IA (Grok, Cursor, Qoder, Kiro, opencode,
 DeepSeek, Devin) e acrescentá-lo ao `DESTINOS` do script.
 
-### GLOBAL.6 — Decidir C11 e C12
+### GLOBAL.6 — Decidir C11 e C12 (concluída)
 
-**Próximo passo:** o usuário responde C11 e C12 em `CONFLITOS.md`.
+- **Entrega:** commit `feat(GLOBAL.6)` · **Verificação:** `regras/graphify.md` criado; script com
+  `--aplicar` e depois "igual" nos 3 destinos; `~/.claude/CLAUDE.md` sem a regra antiga "só quando o
+  usuário pedir"; `~/.codex/AGENTS.md` sem o caminho fixo de `professor-senai`. Tarefas abertas nos
+  quadros do REA (`ALINHAR`) e do aulasenai (`#202`).
+- **Anotação:** C11 foi aplicado só nas regras globais; o relatório do graphify não foi rodado nesta
+  conversa (a regra manda esperar a próxima).
+
+### GLOBAL.7 — Acompanhar o alinhamento dos projetos
+
+**Próximo passo:** o usuário confere quando as subtarefas `ALINHAR.*` (REA) e `#202.*` (aulasenai)
+estiverem ✅; cada uma é de um nível/modelo (Haiku, Sonnet ou Opus).
