@@ -20,11 +20,11 @@ nível de agente (ESFORCO) e a conferência de que o `effort` é aplicado em cad
 
 ### ESFORCO-GLOBAL.1 — Regra global `regras/esforco.md`
 
-**Próximo passo:** criar `regras/esforco.md` (tabela acima, quem declara o `effort`, onde fica no frontmatter dos agentes), rodar `node scripts/sincronizar.mjs --aplicar`, commit + push.
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — só `.md` · **Modelo:** Claude Code Sonnet 5.5 pega por não haver subtarefa MEDIO livre para esta frente sem violar "1 por frente"; registrado.
 - **Critérios de aceitação:** regra sincronizada nas IAs; `CONFLITOS.md` com a decisão (C21).
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** `regras/esforco.md`, C21 em `CONFLITOS.md`, sincronizada nas IAs · **Verificação:** `sincronizar.mjs --aplicar` gravou as IAs e o unificado inclui `esforco.md`.
 
 ### ESFORCO-GLOBAL.2 — Aceite do usuário
 
