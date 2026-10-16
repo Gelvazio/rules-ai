@@ -48,4 +48,13 @@ C8); cópia em `~/.codex/AGENTS.md.bak`.
 
 ## Pendente de decisão
 
-Nenhum.
+| # | Assunto | Regra global | Regra do projeto | Situação |
+|---|---------|--------------|------------------|----------|
+| C14 | `plataforma-ia`: graphify e commit | Global: graphify 1x por conversa; commit por tarefa | Projeto: ler o relatório e rodar `graphify update` a cada alteração; commit automático após cada alteração | ⏳ usuário decide |
+| C15 | `gelvazio.github.io` e `PROJETO-CANIL-DOCE-LAR`: commit | Global: 1 commit + push por tarefa finalizada | Projeto: commit + push após QUALQUER alteração (gelvazio.github.io também roda graphify a cada alteração) | ⏳ usuário decide |
+| C16 | `controlemercadoria` e `c3tecnologia-site`: graphify | Global: 1x no início da conversa; nunca após modificar arquivos | Projeto: `graphify update` após modificar código | ⏳ usuário decide |
+| C17 | `PROJETO-EMAIL-SENAI`: graphify | Global: no projeto ativo | Projeto: só na raiz antiga `C:ontesulas-senai` | ⏳ usuário decide |
+| C18 | `ANALISE-PLATAFORMAS-DE-IA` linha 51 | Global: nunca abrir navegador | Projeto: "Abrir no navegador para visualizar os dados" | ⏳ usuário decide |
+| C19 | `dashboard-ai-*`: quadro e travas | Global: `tasks/STATUS.md` + reserva | Projeto: `task-principal.md`, lock com commit + push, hooks `pre-push`/`pre-merge-commit` | ⏳ usuário decide |
+
+
