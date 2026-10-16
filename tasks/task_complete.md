@@ -10,3 +10,4 @@
 | GLOBAL.8 | Gemini CLI: trocar o `@import` por texto embutido (o Gemini recusa import fora de `~/.gemini`) | 🟠 Alta | MEDIO · Sonnet 5.5 | GLOBAL.6 | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 | GLOBAL.7 | Aceitar o alinhamento dos projetos (entregue): REA `ALINHAR.6` (etapa 013) e aulasenai `#202.5` (etapa 329) | 🟠 Alta | Usuário | Nenhuma | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
 | GLOBAL.5 | Ligar as demais IAs (Grok, Cursor, Qoder, Kiro, opencode, DeepSeek, Devin): achar o arquivo global de cada uma | 🟡 Média | MEDIO · Sonnet 5.5 | Nenhuma | ✅ Concluído | — | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
+| GLOBAL | **Regras globais para todas as IAs e projetos** | 🟠 Alta | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-001](etapas/ETAPA-001-GLOBAL.md) |
