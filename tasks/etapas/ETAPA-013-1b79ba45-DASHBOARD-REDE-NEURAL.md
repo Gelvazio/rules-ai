@@ -356,6 +356,23 @@ no front-end além do `localStorage` já aprovado na `.9`.
   `descartarRotulo`), então a cena e os personagens não mudaram.
 - **Conferido:** `node --check`; `CSS2DRenderer.js` do `three@0.170.0` responde 200 no jsDelivr.
 
+### DASHBOARD-REDE-NEURAL.22 — Percentual na cabeça do agente
+
+**Status:** ✅ entregue 2026-10-17 17:55.
+
+- **Pedido:** "colocar na cabeça de cada agente que está trabalhando, o percentual que já fez da
+  tarefa". O quadro não guardava percentual; decisão do usuário: o agente escreve no quadro, regra
+  só do `rules-ai`.
+- **Regra C31 (`AGENTS.md`):** ` · NN%` no fim da célula "Em uso por" (0% ao reservar, atualizar a
+  cada avanço, `—` ao concluir).
+- **Código:** `quadro_tarefas.py` lê o percentual (campo `progresso`, `None` quando não informado) e
+  o tira do nome do agente; a fila gera o evento `avancou` quando só o percentual muda; cada agente
+  que trabalha ganha um selo acima do nome com barra e "NN%" (uma linha por tarefa, com o final do
+  id, se tiver mais de uma; "—%" quando o agente não informou); o histórico mostra "avançou X (NN%)".
+- **Conferido:** `node --check`; fila com `node` (0% → 40% gera `avancou:40`); `/api/agentes` no
+  servidor reiniciado devolve `.22` com 80% (esta própria tarefa, atualizada pela regra) e `.3` sem
+  percentual.
+
 ### DASHBOARD-REDE-NEURAL.19 — Aceite do usuário
 
 **Status:** 👀 aguardando o usuário (reiniciar o `servidor.py` antes). O usuário abre `http://localhost:8080/graphs/agentes.html`, muda o status
@@ -383,3 +400,4 @@ de uma tarefa no quadro e confere a animação cerca de 30 s depois.
 | 2026-10-17 17:37 | `.18` executada; nome do agente nos personagens, tela inteira só com o menu e `menu.js` único | Gelvazio | "execute a tarefa .18" e pedidos durante a execução |
 | 2026-10-17 17:41 | `.20` (C26): globo das pendentes no centro, agentes em órbita com as tarefas que fazem, concluídas num anel | Gelvazio | "as tarefas pendentes devem ser um globo no centro..." |
 | 2026-10-17 17:49 | `.21` (C26, correção): rótulos em HTML (CSS2DRenderer) no lugar da textura de canvas | Gelvazio | "os textos estão foscos" |
+| 2026-10-17 17:55 | `.22` (C26) e regra C31: percentual escrito pelo agente em "Em uso por", mostrado na cabeça dele | Gelvazio | "tem como colocar na cabeça de cada agente..." → "Agente escreve no quadro" / "Só no rules-ai" |

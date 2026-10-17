@@ -15,6 +15,7 @@ const VERBOS = Object.freeze({
   nova: 'nova tarefa',
   removida: 'saiu do quadro',
   mudou: 'mudou',
+  avancou: 'avançou',
 });
 const horaAgora = () => new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
@@ -101,7 +102,8 @@ export function registrarEvento(evento) {
   const hora = tipo === 'reservada' && tarefa.desde ? tarefa.desde.slice(11) : horaAgora();
   const item = document.createElement('li');
   item.className = `eventos__item eventos__item--${tipo}`;
-  item.textContent = `${hora} · ${agente ? `${nomeCurto(agente)} ` : ''}${VERBOS[tipo] ?? tipo} ${tarefa.tarefa}`;
+  const percentual = Number.isInteger(tarefa.progresso) && tipo !== 'concluida' ? ` (${tarefa.progresso}%)` : '';
+  item.textContent = `${hora} · ${agente ? `${nomeCurto(agente)} ` : ''}${VERBOS[tipo] ?? tipo} ${tarefa.tarefa}${percentual}`;
   item.title = tarefa.titulo;
   const lista = $('eventos');
   $('eventos-vazio').hidden = true;

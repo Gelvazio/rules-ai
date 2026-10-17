@@ -48,11 +48,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-REDE-NEURAL.19 | Aceite do usuário: conferir a página "Agentes ao vivo" no navegador | 🟡 Média | Usuário · effort low | DASHBOARD-REDE-NEURAL.18 | 👀 Aguardando o usuário | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.20 | Agentes ao vivo: pendentes num globo no centro e agentes orbitando com as tarefas que fazem (concluídas num anel externo) | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | DASHBOARD-REDE-NEURAL.18 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.21 | Correção: rótulos nítidos na página Agentes ao vivo (texto em HTML com CSS2DRenderer no lugar da textura de canvas) | 🟠 Alta | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.20 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| DASHBOARD-REDE-NEURAL.22 | Percentual da tarefa na cabeça de cada agente que está trabalhando (regra C31: ` · NN%` na coluna "Em uso por") | 🟡 Média | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.21 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 17:54 | DASHBOARD-REDE-NEURAL.22 (C26) e regra do projeto C31: o percentual vem do agente, escrito como ` · NN%` no fim da coluna "Em uso por"; vale só no `rules-ai` | Gelvazio | "tem como colocar na cabeça de cada agente que está trabalhando, o percentual que já fez da tarefa?" → "Agente escreve no quadro" / "Só no rules-ai" |
 | 2026-10-17 17:48 | DASHBOARD-REDE-NEURAL.21 (C26, correção): os rótulos eram texturas de canvas 512×128 esticadas em sprites e borravam; passam a ser HTML (CSS2DRenderer), nítidos em qualquer zoom | Gelvazio | "os textos estão foscos" |
 | 2026-10-17 17:39 | DASHBOARD-REDE-NEURAL.20 (C26): trocar as trilhas por um globo central com as pendentes e agentes orbitando com as tarefas em andamento; concluídas num anel externo, bloqueadas e aguardando no globo com cor própria | Gelvazio | "as tarefas pendentes devem ser um globo no centro, e os agentes devem ficar ao redor, como que orbitando esta esfera maior, com as tarefas que estão fazendo" |
 | 2026-10-17 17:37 | DASHBOARD-REDE-NEURAL.18 entregue: `graphs/agentes.html` em tela inteira só com o menu, nome do agente (coluna "Em uso por") sobre cada personagem, menu único em `assets/js/menu.js` nas 3 páginas | Gelvazio | "execute a tarefa .18" / "tem como colocar nome do agente, como na task?" / "ocupe 100% da largura... apenas o menu em cima" / "coloque o menu em um arquivo menu.js" |

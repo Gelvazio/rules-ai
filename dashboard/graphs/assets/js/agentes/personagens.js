@@ -2,6 +2,7 @@
 // A forma e a cor vêm do modelo citado no nome (Haiku, Sonnet, Opus/Fable, Gemini, DeepSeek).
 import * as THREE from 'three';
 import { criarObjeto } from '../cenas/formas.js';
+import { CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
 import { criarRotulo } from './rotulos.js';
 
 const MODELOS = [
@@ -14,6 +15,7 @@ const MODELOS = [
 const PADRAO = { forma_simples: 'esfera', cor: '#94a3b8' };
 const TAMANHO_CORPO = 0.7;
 const ALTURA_ROTULO = 0.8;
+const ALTURA_PROGRESSO = 1.35;
 
 /**
  * Forma e cor do personagem a partir do nome do agente.
@@ -58,5 +60,41 @@ export function criarPersonagem(nome) {
   const rotulo = criarRotulo(linhasDoNome(nome), { cor: definicao.cor, escala: 0.9 });
   rotulo.position.y = ALTURA_ROTULO;
   grupo.add(rotulo);
-  return { nome, cor: definicao.cor, grupo, base: new THREE.Vector3(), alvo: new THREE.Vector3() };
+  const progresso = new CSS2DObject(document.createElement('div'));
+  progresso.element.className = 'progresso3d';
+  progresso.element.style.setProperty('--cor-rotulo', definicao.cor);
+  progresso.position.y = ALTURA_PROGRESSO;
+  progresso.visible = false;
+  grupo.add(progresso);
+  return { nome, cor: definicao.cor, grupo, progresso, chaveProgresso: '', base: new THREE.Vector3(), alvo: new THREE.Vector3() };
+}
+
+function linhaProgresso({ tarefa, progresso }, mostrarId) {
+  const linha = document.createElement('div');
+  linha.className = 'progresso3d__linha';
+  const conhecido = Number.isInteger(progresso);
+  const id = document.createElement('span');
+  id.className = 'progresso3d__id';
+  id.textContent = mostrarId ? tarefa.slice(tarefa.lastIndexOf('.')) : '';
+  const barra = document.createElement('span');
+  barra.className = 'progresso3d__barra';
+  barra.style.setProperty('--valor', `${conhecido ? progresso : 0}%`);
+  const valor = document.createElement('strong');
+  valor.textContent = conhecido ? `${progresso}%` : '—%';
+  linha.append(id, barra, valor);
+  linha.title = conhecido ? `${tarefa}: ${progresso}%` : `${tarefa}: o agente ainda não informou o percentual (regra C31)`;
+  return linha;
+}
+
+/**
+ * Mostra na cabeça do agente o percentual de cada tarefa que ele está fazendo (some se não trabalha).
+ * @param {object} personagem - Criado por criarPersonagem.
+ * @param {Array<{tarefa: string, progresso: ?number}>} itens - Tarefas em andamento do agente.
+ */
+export function atualizarProgresso(personagem, itens) {
+  const chave = JSON.stringify(itens);
+  if (personagem.chaveProgresso === chave) return;
+  personagem.chaveProgresso = chave;
+  personagem.progresso.visible = itens.length > 0;
+  personagem.progresso.element.replaceChildren(...itens.map((item) => linhaProgresso(item, itens.length > 1)));
 }

@@ -9,6 +9,7 @@ STATUS_POR_EMOJI = (("🔄", "progresso"), ("✅", "concluido"), ("⏹", "conclu
 NIVEIS = ("LEVE", "MEDIO", "PESADO")
 PADRAO_DESDE = re.compile(r"\(?desde (\d{4}-\d{2}-\d{2} \d{2}:\d{2})\)?")
 PADRAO_MARCAS = re.compile(r"[*`]")
+PADRAO_PERCENTUAL = re.compile(r"\s*·\s*(\d{1,3})\s*%\s*$")  # regra C31: "... · 40%" no fim
 
 
 def limpar(texto):
@@ -47,18 +48,21 @@ def status_da_coluna(status):
 
 
 def agente_da_coluna(em_uso_por):
-    """Nome do agente (sem o trecho 'desde ...') e a hora em que ele reservou."""
+    """Nome do agente (sem 'desde ...' e sem o percentual), a hora da reserva e o percentual (ou None)."""
     if em_uso_por.startswith("—") or not em_uso_por:
-        return "", ""
-    desde = PADRAO_DESDE.search(em_uso_por)
-    nome = PADRAO_DESDE.sub("", em_uso_por).strip()
-    return nome, desde.group(1) if desde else ""
+        return "", "", None
+    percentual = PADRAO_PERCENTUAL.search(em_uso_por)
+    texto = PADRAO_PERCENTUAL.sub("", em_uso_por)
+    desde = PADRAO_DESDE.search(texto)
+    nome = PADRAO_DESDE.sub("", texto).strip()
+    progresso = min(int(percentual.group(1)), 100) if percentual else None
+    return nome, desde.group(1) if desde else "", progresso
 
 
 def tarefa_da_linha(colunas, indice):
     """Dict de uma linha do quadro."""
     tarefa = limpar(colunas[0])
-    agente, desde = agente_da_coluna(colunas[6])
+    agente, desde, progresso = agente_da_coluna(colunas[6])
     return {
         "tarefa": tarefa,
         "titulo": limpar(colunas[1]),
@@ -68,6 +72,7 @@ def tarefa_da_linha(colunas, indice):
         "status": status_da_coluna(colunas[5]),
         "agente": agente,
         "desde": desde,
+        "progresso": progresso,
         "global": "🌐" in colunas[1],
         "indice": indice,
     }

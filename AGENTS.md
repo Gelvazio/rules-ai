@@ -22,3 +22,15 @@
 - **Ao terminar** (junto do **TAREFA FINALIZADA E SINCRONIZADA!** ou ao parar de trabalhar):
   apagar `tasks/.sessao-ativa`.
 - O arquivo fica fora do Git (`.gitignore`): a trava é local, desta pasta.
+
+## 📊 Percentual da tarefa em "Em uso por" (só neste projeto, C31)
+
+- Quem está com uma subtarefa reservada escreve o quanto já fez no **fim** da célula "Em uso por"
+  do `tasks/STATUS.md`, no formato ` · NN%` (decisão do usuário, 2026-10-17):
+  `Claude Code (Opus 5.5) (local · main) (desde 2026-10-17 17:24) · 40%`.
+- **Ao reservar:** ` · 0%`. **Durante:** atualizar a cada avanço que mude o número (no mínimo a
+  cada etapa do trabalho: plano, código, conferência, registro). **Ao concluir:** a célula volta
+  para `—`, como sempre.
+- O número é uma estimativa honesta de quem trabalha (0 a 100, sem casas decimais). A página
+  `dashboard/graphs/agentes.html` mostra esse valor na cabeça do agente.
+

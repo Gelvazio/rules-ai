@@ -25,6 +25,9 @@ function eventoDaMudanca(anterior, tarefa) {
   if (anterior.agente !== tarefa.agente) {
     return { tipo: tarefa.agente ? 'reservada' : 'liberada', tarefa, anterior };
   }
+  if (anterior.progresso !== tarefa.progresso && tarefa.progresso !== null && tarefa.progresso !== undefined) {
+    return { tipo: 'avancou', tarefa, anterior };
+  }
   return null;
 }
 

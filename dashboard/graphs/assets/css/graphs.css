@@ -549,3 +549,42 @@
   font-size: 0.66rem;
   border-width: 1px;
 }
+
+/* Percentual na cabeça do agente (regra C31 do rules-ai). */
+.progresso3d {
+  display: grid;
+  gap: 3px;
+  padding: 4px 8px;
+  background: rgb(11 16 32 / 90%);
+  border: 1.5px solid var(--cor-rotulo, var(--cor-texto));
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.progresso3d__linha {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.progresso3d__id:empty {
+  display: none;
+}
+
+.progresso3d__id {
+  color: var(--cor-texto-suave);
+  font-size: 0.7rem;
+}
+
+.progresso3d__barra {
+  width: 56px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cor-rotulo) var(--valor), rgb(255 255 255 / 15%) var(--valor));
+}
+
+.progresso3d strong {
+  color: var(--cor-texto);
+}

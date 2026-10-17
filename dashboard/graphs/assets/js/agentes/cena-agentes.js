@@ -2,7 +2,7 @@
 // orbitam em volta levando como satélites as tarefas que estão fazendo, e as concluídas vão para um
 // anel externo. Cada cartão persegue o seu lugar a cada quadro, então as mudanças viram voos.
 import * as THREE from 'three';
-import { criarPersonagem } from './personagens.js';
+import { atualizarProgresso, criarPersonagem } from './personagens.js';
 import { criarRotulo, descartarRotulo } from './rotulos.js';
 
 export const TRILHAS = Object.freeze([
@@ -16,6 +16,7 @@ const COR_NIVEL = Object.freeze({ LEVE: '#f59e0b', MEDIO: '#3b82f6', PESADO: '#e
 const COR_SEM_NIVEL = '#64748b';
 const COR_PULSO = Object.freeze({
   concluida: 0x22c55e, bloqueada: 0xef4444, aguardando: 0xfacc15, reservada: 0xffffff, nova: 0x7c5cff,
+  avancou: 0x60a5fa,
 });
 const COR_ALERTA = Object.freeze({ bloqueado: 0xef4444, aguardando: 0xfacc15 });
 const RAIO_GLOBO = 3;
@@ -127,6 +128,10 @@ function distribuirVagas(estado) {
   }
   for (const [agente, lista] of porAgente) {
     ordenar(lista).forEach((c, indice) => { c.vaga = { papel: 'satelite', indice, total: lista.length, agente }; });
+  }
+  for (const personagem of estado.agentes.values()) {
+    const lista = porAgente.get(personagem.nome) ?? [];
+    atualizarProgresso(personagem, lista.map((c) => ({ tarefa: c.tarefa.tarefa, progresso: c.tarefa.progresso ?? null })));
   }
   return { globo: grupos.globo.length, anel: grupos.anel.length };
 }
