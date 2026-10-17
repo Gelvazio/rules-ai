@@ -328,6 +328,22 @@ no front-end além do `localStorage` já aprovado na `.9`.
     (nada sai aos 29 s, tudo sai aos 30 s), servidor de teste na porta 8091 com `/api/agentes`
     devolvendo as 36 linhas do quadro e `.py` bloqueado (404).
 
+### DASHBOARD-REDE-NEURAL.20 — Globo das pendentes com agentes em órbita
+
+**Status:** ✅ entregue 2026-10-17 17:41.
+
+- **Nível:** PESADO — só Opus 5.5+ ou Fable · effort high.
+- **Pedido:** "as tarefas pendentes devem ser um globo no centro, e os agentes devem ficar ao redor,
+  como que orbitando esta esfera maior, com as tarefas que estão fazendo".
+- **Entregue:** `assets/js/agentes/cena-agentes.js` reescrito (mesma interface: `sincronizar`,
+  `aplicarEvento`, `desenhar`, `contagem`). Globo translúcido girando, com as pendentes
+  distribuídas na superfície (espiral de Fibonacci); bloqueadas piscam em vermelho e as que aguardam
+  o usuário em amarelo. Cada agente orbita o globo na própria órbita (raio e inclinação alternados),
+  com as tarefas em andamento girando em volta dele, ligadas por linha. Concluídas num anel externo
+  inclinado, sem rótulo, com placa "Concluídas · N". Cada cartão persegue a sua vaga a cada quadro:
+  reservar e concluir viram voos. Câmera recuada; movimento reduzido congela as órbitas.
+- **Conferido:** `node --check`; o visual fica para o aceite (`.19`).
+
 ### DASHBOARD-REDE-NEURAL.19 — Aceite do usuário
 
 **Status:** 👀 aguardando o usuário (reiniciar o `servidor.py` antes). O usuário abre `http://localhost:8080/graphs/agentes.html`, muda o status
@@ -353,3 +369,4 @@ de uma tarefa no quadro e confere a animação cerca de 30 s depois.
 | 2026-10-17 16:57 | `.17` (C26): saldo de créditos no cabeçalho | Gelvazio | "sim, mostre o saldo de créditos na página" |
 | 2026-10-17 17:10 | `.18` criada (C26) com plano aprovado: fonte só o `rules-ai/tasks/STATUS.md`, atraso configurável (30 s); só registrada no quadro | Gelvazio | "como eu posso usar esta interface em 3D, pra mostrar o trabalho real dos meus agentes..." / "apenas grave a tarefa no quadro de tasks" |
 | 2026-10-17 17:37 | `.18` executada; nome do agente nos personagens, tela inteira só com o menu e `menu.js` único | Gelvazio | "execute a tarefa .18" e pedidos durante a execução |
+| 2026-10-17 17:41 | `.20` (C26): globo das pendentes no centro, agentes em órbita com as tarefas que fazem, concluídas num anel | Gelvazio | "as tarefas pendentes devem ser um globo no centro..." |

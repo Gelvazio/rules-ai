@@ -46,11 +46,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-REDE-NEURAL.17 | Saldo de créditos da Tripo no cabeçalho do 3D GRAPHS AI e da cena | 🟡 Média | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.16 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.18 | 3D GRAPHS AI: página "Agentes ao vivo" — cena 3D com as tarefas reais do `tasks/STATUS.md` (rota `/api/agentes`, fila com atraso de 30 s configurável) | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | DASHBOARD-REDE-NEURAL.14 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.19 | Aceite do usuário: conferir a página "Agentes ao vivo" no navegador | 🟡 Média | Usuário · effort low | DASHBOARD-REDE-NEURAL.18 | 👀 Aguardando o usuário | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| DASHBOARD-REDE-NEURAL.20 | Agentes ao vivo: pendentes num globo no centro e agentes orbitando com as tarefas que fazem (concluídas num anel externo) | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | DASHBOARD-REDE-NEURAL.18 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 17:39 | DASHBOARD-REDE-NEURAL.20 (C26): trocar as trilhas por um globo central com as pendentes e agentes orbitando com as tarefas em andamento; concluídas num anel externo, bloqueadas e aguardando no globo com cor própria | Gelvazio | "as tarefas pendentes devem ser um globo no centro, e os agentes devem ficar ao redor, como que orbitando esta esfera maior, com as tarefas que estão fazendo" |
 | 2026-10-17 17:37 | DASHBOARD-REDE-NEURAL.18 entregue: `graphs/agentes.html` em tela inteira só com o menu, nome do agente (coluna "Em uso por") sobre cada personagem, menu único em `assets/js/menu.js` nas 3 páginas | Gelvazio | "execute a tarefa .18" / "tem como colocar nome do agente, como na task?" / "ocupe 100% da largura... apenas o menu em cima" / "coloque o menu em um arquivo menu.js" |
 | 2026-10-17 17:10 | DASHBOARD-REDE-NEURAL.18 (C26): plano aprovado — fonte só o `rules-ai/tasks/STATUS.md`, atraso configurável (padrão 30 s, coleta a cada 10 s), cena nova `graphs/agentes.html`; só registrada no quadro, execução depois (Tripo gerando) | Gelvazio | "como eu posso usar esta interface em 3D, pra mostrar o trabalho real dos meus agentes, ligando as tarefas nela... com um certo delay" |
 | 2026-10-17 16:57 | DASHBOARD-REDE-NEURAL.17 (C26): saldo de créditos da Tripo no cabeçalho do 3D GRAPHS AI e da cena | Gelvazio | "sim, mostre o saldo de créditos na página" |

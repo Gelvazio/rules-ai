@@ -52,10 +52,11 @@ para a Tripo). Sem modelos gerados, cada objeto usa uma **forma simples**; o bot
 ## Agentes ao vivo (`agentes.html`)
 
 Mostra em 3D o trabalho real dos agentes, lido de `rules-ai/tasks/STATUS.md` pela rota
-`/api/agentes` (só leitura). Tela inteira, só com o menu em cima. Uma trilha por status (Pendente,
-Em progresso, Aguardando o usuário, Bloqueado, Concluído), um cartão por subtarefa (cor pelo nível) e
-um personagem por nome da coluna "Em uso por", com o nome escrito em cima e uma linha até as tarefas
-que está fazendo. A página lê o quadro a cada 10 s e anima cada mudança só depois do **atraso**
+`/api/agentes` (só leitura). Tela inteira, só com o menu em cima. As tarefas pendentes formam um
+**globo** no centro (bloqueadas piscam em vermelho e as que aguardam o usuário em amarelo); cada nome
+da coluna "Em uso por" vira um personagem que **orbita** o globo, com o nome escrito em cima e as
+tarefas que está fazendo girando em volta dele, ligadas por uma linha; as concluídas vão para um
+**anel** externo. Cor do cartão pelo nível. Reservar e concluir viram voos do cartão. A página lê o quadro a cada 10 s e anima cada mudança só depois do **atraso**
 (padrão 30 s, `ATRASO_AGENTES` no `.env`; o seletor na tela vale para o navegador). Precisa do
 servidor local reiniciado depois desta versão.
 

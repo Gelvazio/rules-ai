@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 17:41 (Brasília): DASHBOARD-REDE-NEURAL.20 entregue: na página Agentes ao vivo, as pendentes formam um globo no centro, os agentes orbitam em volta com as tarefas que estão fazendo, e as concluídas vão para um anel externo.
 - 2026-10-17 17:37 (Brasília): DASHBOARD-REDE-NEURAL.18 entregue: `dashboard/graphs/agentes.html` mostra em 3D as tarefas reais do `tasks/STATUS.md` (rota `/api/agentes`, atraso padrão de 30 s), com o nome de cada agente sobre o personagem; tela inteira só com o menu; menu único em `graphs/assets/js/menu.js`. `.19` aguarda o aceite do usuário.
 - 2026-10-17 17:12 (Brasília): DASHBOARD-REDE-NEURAL.18 registrada no quadro (só o plano, ⬜ pendente): página `dashboard/graphs/agentes.html` com as tarefas reais do `tasks/STATUS.md` em 3D, atraso configurável (padrão 30 s). `.19` é o aceite do usuário.
 - 2026-10-17 16:57 (Brasília): DASHBOARD-REDE-NEURAL.17: saldo de créditos da Tripo no cabeçalho do 3D GRAPHS AI e da cena.

@@ -19,8 +19,8 @@ function prepararBase() {
   const conteiner = $('cena');
   const base = criarBase(conteiner);
   base.controles.autoRotate = false;
-  base.camera.position.set(0, 7.5, 9.5);
-  base.controles.target.set(0, 0, -3);
+  base.camera.position.set(0, 5.5, 15);
+  base.controles.target.set(0, 0.3, 0);
   ajustarTamanho(base, conteiner);
   window.addEventListener('resize', () => ajustarTamanho(base, conteiner));
   return base;
