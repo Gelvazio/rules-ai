@@ -38,11 +38,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-REDE-NEURAL.9 | Ícone de configuração no 3D GRAPHS AI: modal para a chave da Tripo salva no `localStorage` | 🟡 Média | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.8 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.10 | Pasta `dashboard/prompts/` | 🟢 Baixa | LEVE · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.11 | Um prompt `.md` por imagem em `dashboard/prompts/` (MODELO-3D-REDE-NEURAL-01 a 04) | 🟢 Baixa | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.10 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| DASHBOARD-REDE-NEURAL.12 | Prompts de `dashboard/prompts/` independentes (nenhum cita outro prompt ou imagem) | 🟢 Baixa | LEVE · effort low | DASHBOARD-REDE-NEURAL.11 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 16:34 | DASHBOARD-REDE-NEURAL.12 (C26): cada prompt de `dashboard/prompts/` é independente; o 04 foi reescrito inteiro (infográfico + animação) e o 02 não cita mais o 04 | Gelvazio | "cada prompt deve ser unico, e nao referenciar os outros" |
 | 2026-10-17 16:31 | DASHBOARD-REDE-NEURAL.11 (C26): um prompt `.md` por imagem em `dashboard/prompts/`, com nomes genéricos e dados fictícios no lugar das marcas e ganhos dos reels | Gelvazio | "CRIE 1 prompt pra cada imagem nela, com o nome da imagem .md no prompt" |
 | 2026-10-17 16:21 | DASHBOARD-REDE-NEURAL.10 (C26): pasta `dashboard/prompts/` criada com README | Gelvazio | "crie 1 nova pasta de nome prompts" → "rules-ai/dashboard/prompts" |
 | 2026-10-17 16:16 | DASHBOARD-REDE-NEURAL.9 criada (C26): chave da Tripo no `localStorage` via modal; o servidor local recebe a chave no cabeçalho `X-Tripo-Key` e usa o `.env` como alternativa | Gelvazio | "e um icone de config, que abre um modal pra colocar a chave de api e salvar no localstorage, no menu 3D graphs ai" |

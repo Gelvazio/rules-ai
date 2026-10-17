@@ -1,7 +1,6 @@
 # MODELO-3D-REDE-NEURAL-02 — Infográfico "1 agente no lugar de 25 assentos"
 
-**Imagem de referência:** `MODELO-3D-REDE-NEURAL-02.png` (quadro inicial; o
-`MODELO-3D-REDE-NEURAL-04.png` mostra o mesmo infográfico mais adiante na animação).
+**Imagem de referência:** `MODELO-3D-REDE-NEURAL-02.png`
 
 ## O que a imagem mostra
 

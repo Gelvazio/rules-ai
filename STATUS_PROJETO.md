@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 16:34 (Brasília): DASHBOARD-REDE-NEURAL.12: os 4 prompts de `dashboard/prompts/` ficaram independentes (o 04 foi reescrito inteiro; o 02 não cita mais o 04).
 - 2026-10-17 16:31 (Brasília): DASHBOARD-REDE-NEURAL.11: 4 prompts em `dashboard/prompts/` (`MODELO-3D-REDE-NEURAL-01.md` a `04.md`), um por imagem, para recriar cada tela como página HTML.
 - 2026-10-17 16:21 (Brasília): DASHBOARD-REDE-NEURAL.10: pasta `dashboard/prompts/` criada (com README).
 - 2026-10-17 16:18 (Brasília): DASHBOARD-REDE-NEURAL.9 entregue: ícone ⚙ no 3D GRAPHS AI abre modal para salvar a chave da Tripo no `localStorage` (enviada só ao servidor local em `X-Tripo-Key`; `.env` como alternativa). Corrigido o bloqueio do Cloudflare da Tripo (erro 1010) com User-Agent próprio; URL base e autenticação confirmadas (401 com chave falsa).

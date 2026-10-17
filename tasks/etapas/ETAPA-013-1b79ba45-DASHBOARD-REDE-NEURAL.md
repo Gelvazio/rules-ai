@@ -192,6 +192,14 @@ mostra as probabilidades da saída.
   (Three.js); 04 animação do infográfico 02. Nomes genéricos e dados fictícios com aviso. As
   imagens `.png` (capturas de reels de terceiros) ficam fora do commit.
 
+### DASHBOARD-REDE-NEURAL.12 — Prompts independentes
+
+**Status:** ✅ entregue 2026-10-17 16:34.
+
+- **Nível:** LEVE — ajuste de 2 prompts e do README da pasta.
+- **Descrição:** nenhum prompt cita outro prompt nem outra imagem. O 04 foi reescrito como
+  infográfico completo com foco na animação da rede do agente; o 02 perdeu a menção ao 04.
+
 ## Decisões
 
 | Data | Decisão | Quem | Por quê |
@@ -204,3 +212,4 @@ mostra as probabilidades da saída.
 | 2026-10-17 16:16 | `.9` criada (C26): chave da Tripo no `localStorage` via modal | Gelvazio | "e um icone de config, que abre um modal pra colocar a chave de api..." |
 | 2026-10-17 16:21 | `.10` criada (C26): pasta `dashboard/prompts/` | Gelvazio | "crie 1 nova pasta de nome prompts" |
 | 2026-10-17 16:31 | `.11` criada (C26): um prompt por imagem em `dashboard/prompts/` | Gelvazio | "CRIE 1 prompt pra cada imagem nela..." |
+| 2026-10-17 16:34 | `.12` (C26): prompts independentes | Gelvazio | "cada prompt deve ser unico, e nao referenciar os outros" |
