@@ -186,6 +186,10 @@ o valor original em dólar ao lado do valor em reais.
 
 ## 7. Do texto coletado ao JSON final
 
+> **No dashboard:** `python dashboard/scripts/gerar_dados_painel.py` transforma o `coleta.json`
+> e as páginas de reels salvas em `dashboard/MODELOS-DE-IA/` (Salvar como… no navegador) em
+> `assets/js/dados/ferramentas.js`, exibido na aba "Ferramentas de IA 3D" do `index.html`.
+
 O scraping traz **fatos** (texto da página). A análise (notas de 1 a 5, ranking,
 recomendação) é **opinião** e vem depois:
 

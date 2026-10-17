@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rede neural em 3D</title>
+  <title>Dashboard de IA</title>
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/painel.css">
+  <link rel="stylesheet" href="assets/css/ferramentas.css">
   <script type="importmap">
   {
     "imports": {
@@ -15,17 +16,32 @@
   }
   </script>
   <script type="module" src="assets/js/principal.js"></script>
+  <script type="module" src="assets/js/ferramentas/abas.js"></script>
 </head>
 <body>
   <header class="cabecalho">
-    <h1 class="cabecalho__titulo">Rede neural em 3D</h1>
-    <p class="cabecalho__subtitulo">
+    <h1 id="titulo-pagina" class="cabecalho__titulo">Rede neural em 3D</h1>
+    <p id="subtitulo-pagina" class="cabecalho__subtitulo">
       4 entradas → 6 → 5 neurônios ocultos → 3 saídas.
       Clique num neurônio para ver o cálculo.
     </p>
+    <nav class="abas" role="tablist" aria-label="Seções do dashboard">
+      <button class="abas__botao" type="button" role="tab" data-aba="rede"
+        aria-controls="aba-rede" aria-selected="true"
+        data-titulo="Rede neural em 3D"
+        data-subtitulo="4 entradas → 6 → 5 neurônios ocultos → 3 saídas. Clique num neurônio para ver o cálculo.">
+        Rede neural 3D
+      </button>
+      <button class="abas__botao" type="button" role="tab" data-aba="ferramentas"
+        aria-controls="aba-ferramentas" aria-selected="false"
+        data-titulo="Ferramentas de IA 3D"
+        data-subtitulo="Dados coletados dos links do CLAUDE.md (coleta.json) e dos reels salvos em MODELOS-DE-IA.">
+        Ferramentas de IA 3D
+      </button>
+    </nav>
   </header>
 
-  <main class="layout">
+  <main id="aba-rede" class="layout" role="tabpanel">
     <section id="cena" class="layout__cena" aria-label="Cena 3D da rede neural"></section>
 
     <aside id="painel" class="layout__painel painel">
@@ -77,6 +93,10 @@
         </ul>
       </section>
     </aside>
+  </main>
+
+  <main id="aba-ferramentas" class="ferramentas" role="tabpanel" hidden>
+    <div id="conteudo-ferramentas"></div>
   </main>
 
   <p id="aviso" class="aviso" hidden></p>

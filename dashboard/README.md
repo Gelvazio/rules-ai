@@ -26,6 +26,10 @@ Depois abra http://localhost:8080 no navegador.
 - `assets/js/tela/`: painel 2D (entradas, cálculo, barras e legenda).
 - `scripts/`: coletor Python dos links do `CLAUDE.md` (`python dashboard/scripts/coletar.py`,
   saída em `scripts/saida/coleta.json`, fora do Git). Guia: `WEB-SCRAP.md`.
+- Aba **Ferramentas de IA 3D**: `assets/js/ferramentas/` (abas, tabela e cartões) e
+  `assets/css/ferramentas.css`. Os dados ficam em `assets/js/dados/ferramentas.js`, gerado por
+  `python dashboard/scripts/gerar_dados_painel.py` a partir do `coleta.json` e dos reels salvos
+  em `MODELOS-DE-IA/` (rodar de novo depois de cada coleta; não editar o arquivo à mão).
 
 Tarefa de origem: DASHBOARD-REDE-NEURAL
 (`tasks/etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md`).

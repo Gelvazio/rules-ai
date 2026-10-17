@@ -128,6 +128,20 @@ mostra as probabilidades da saída.
 - **Critérios de aceitação:** `py_compile` passa; a execução grava um JSON válido; falhas
   (timeout, 403, captcha) ficam registradas sem burlar proteção.
 
+### DASHBOARD-REDE-NEURAL.7 — Aba "Ferramentas de IA 3D" no `index.html`
+
+**Status:** ✅ entregue 2026-10-17 15:44. Aba com resumo (coleta, cotação, 10/10 links com dados), tabela comparativa, cartões L04–L10 e reels L01–L03 com legenda; aba da rede neural intacta.
+
+- **Nível:** MEDIO — gerador Python + tela em JS/CSS.
+- **Modelo:** executada pelo Opus 5.5 a pedido do usuário
+- **Effort:** medium
+- **Descrição:** `scripts/gerar_dados_painel.py` lê `scripts/saida/coleta.json` e as páginas salvas em
+  `MODELOS-DE-IA/` e grava `assets/js/dados/ferramentas.js` (sem o texto bruto das páginas);
+  `assets/js/ferramentas/` desenha a aba (cards por link, preços em US$ e R$, formatos, reels).
+  A aba da rede neural continua igual.
+- **Critérios de aceitação:** `py_compile` e `node --check` passam; a aba abre sem depender do
+  `principal.js` (cena 3D, `.3`).
+
 ## Decisões
 
 | Data | Decisão | Quem | Por quê |
@@ -135,3 +149,4 @@ mostra as probabilidades da saída.
 | 2026-10-17 17:19 | Tarefa criada só com o plano; execução depende do "sim" do usuário | Claude Code (Opus 5.5) | Tarefa grande (estrutura nova, cena 3D inteira) |
 | 2026-10-17 17:21 | Plano aprovado; execução pelo líder Opus 5.5 com agentes por nível (Haiku .1, Sonnet .2 e .4, Opus .3) | Gelvazio | "sim, aprovo o plano da DASHBOARD-REDE-NEURAL (etapa 013)" |
 | 2026-10-17 15:03 | `.6` criada (C26): coletor Python dos links do `dashboard/CLAUDE.md` | Gelvazio | "crie 1 pasta scripts nele crie e rode o app em python que coleta os dados dos sites solicitados" |
+| 2026-10-17 15:37 | `.7` criada (C26): aba de ferramentas no `index.html` | Gelvazio | "leia coleta.json e atualize o dashboard em index.html com as informacoes..." |

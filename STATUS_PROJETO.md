@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 15:44 (Brasília): DASHBOARD-REDE-NEURAL.7 entregue: aba "Ferramentas de IA 3D" no `dashboard/index.html` (dados do `coleta.json` e dos reels salvos em `MODELOS-DE-IA/`, gerados por `scripts/gerar_dados_painel.py`). `/graphify --update` rodado: 500 nós, 628 ligações, 45 comunidades; `.graphifyignore` novo tira `MODELOS-DE-IA/` do grafo.
 - 2026-10-17 15:33 (Brasília): `graphify update .` rodado a pedido do usuário; sem mudança de topologia, só o cache (`stat-index.json`, `manifest.json`) foi atualizado.
 - 2026-10-17 15:25 (Brasília): DASHBOARD-REDE-NEURAL.6 entregue: coletor Python em `dashboard/scripts/` (Playwright + AwesomeAPI) dos links do `dashboard/CLAUDE.md`; saída em `dashboard/scripts/saida/coleta.json` (fora do Git). `WEB-SCRAP.md`, `dashboard/README.md` e `.gitignore` atualizados.
 - 2026-10-17 17:25 (Brasília): DASHBOARD-REDE-NEURAL: plano aprovado; `.1` entregue (Haiku): pasta `dashboard/` com `index.html`, CSS e README.

@@ -33,11 +33,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-REDE-NEURAL.4 | Painel 2D: cálculo do neurônio, entradas e probabilidades | 🟡 Média | MEDIO · só Sonnet · effort medium | DASHBOARD-REDE-NEURAL.3 | ⬜ Pendente | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.5 | Aceite do usuário | 🟡 Média | Usuário · effort low | DASHBOARD-REDE-NEURAL.4 | ⬜ Pendente | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.6 | Coletor Python dos links do `dashboard/CLAUDE.md` (`dashboard/scripts/`) | 🟡 Média | MEDIO · effort medium | Nenhuma | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| DASHBOARD-REDE-NEURAL.7 | Aba "Ferramentas de IA 3D" no `dashboard/index.html` com os dados do `coleta.json` e dos reels de `MODELOS-DE-IA` | 🟡 Média | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.6 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 15:37 | DASHBOARD-REDE-NEURAL.7 criada (C26): aba nova no `index.html` com os dados coletados; a aba da rede neural fica intacta | Gelvazio | "leia coleta.json e atualize o dashboard em index.html com as informacoes, e use tambem as informacoes do instagram em MODELOS-DE-IA" |
 | 2026-10-17 15:03 | DASHBOARD-REDE-NEURAL.6 criada (C26): coletor Python dos links L04–L10 em `dashboard/scripts/`, executado pelo Opus 5.5 a pedido | Gelvazio | "crie 1 pasta scripts nele crie e rode o app em python que coleta os dados dos sites solicitados" |
 | 2026-10-17 17:21 | DASHBOARD-REDE-NEURAL: plano da etapa 013 aprovado; execução pelo líder Opus 5.5 com agentes por nível | Gelvazio | "sim, aprovo o plano da DASHBOARD-REDE-NEURAL (etapa 013)" |
 | 2026-10-17 | Mensagem só com `.` = listar as tarefas pendentes, sem começar nenhuma (C30) | Gelvazio | "sim, registre o . como regra global" |
