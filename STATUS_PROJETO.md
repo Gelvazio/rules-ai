@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 15:55 (Brasília): tarefa GERENCIADOR-GLOBAL (etapa 009) criada no quadro do `rules-ai`: gerenciador centralizado que chama as tarefas livres de cada modelo. Tarefa grande: só o plano e as perguntas agora; execução depende do "sim" do usuário. Nada foi executado nem disparado.
 - 2026-10-17 12:54 (Brasília): SUBTAREFA-GLOBAL concluída: `sincronizar.mjs --aplicar` rodado com autorização do usuário; a C26 chegou ao Claude Code (via `dist`), Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro.
 - 2026-10-17 12:48 (Brasília): regra global nova C26 (`regras/ciclo-da-task.md`, tarefa SUBTAREFA-GLOBAL, etapa 008): a IA que está numa subtarefa pode criar subtarefas novas **só dentro da mãe atual** (nunca mãe nova) e publica direto no quadro (commit + push, sem aprovação); na equipe do Claude Code quem cria é o líder. A regra chega às IAs depois do `sincronizar.mjs --aplicar` (SUBTAREFA-GLOBAL.2, aguarda o usuário).
 - 2026-10-17 12:30 (Brasília): GRAPHIFY-GLOBAL concluída: `graphify.md` do aulasenai e do REA-APP-CLONES alinhados à C25; `sincronizar.mjs --aplicar` rodado (Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro gravados; Claude Code igual); seção antiga de graphify do `~/.claude/CLAUDE.md` trocada pela C25.

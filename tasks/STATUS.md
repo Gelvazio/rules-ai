@@ -26,11 +26,19 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | GATILHO-GLOBAL | **🌐 GLOBAL — Mensagem `;` = pegue a próxima tarefa do seu modelo (C24)** | 🟡 Média | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
 | GATILHO-GLOBAL.1 | 🌐 Regra global, conflito C24 e status do projeto · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ⬜ Pendente | — | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
 | GATILHO-GLOBAL.2 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`, autorizado pelo usuário) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | GATILHO-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
+| **GERENCIADOR-GLOBAL** | **🌐 GLOBAL — Gerenciador centralizado que chama as tarefas livres de cada modelo (plano aguardando aprovação)** | 🟡 Média | — | Nenhuma | 👀 Aguardando o usuário | — (não reservável) | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
+| GERENCIADOR-GLOBAL.1 | 🌐 Desenho e prova de conceito (perguntas da etapa antes) · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+ ou Fable | Nenhuma | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
+| GERENCIADOR-GLOBAL.2 | 🌐 Regra global `regras/gerenciador-centralizado.md` · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | GERENCIADOR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
+| GERENCIADOR-GLOBAL.3 | 🌐 Script central: leitura dos quadros e tarefas livres por modelo (sem disparar) · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
+| GERENCIADOR-GLOBAL.4 | 🌐 Disparo de sessões por modelo, com limite, trava e `PARAR` · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.3 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
+| GERENCIADOR-GLOBAL.5 | 🌐 Vigilância periódica (agendador ou loop no intervalo aprovado) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet | GERENCIADOR-GLOBAL.4 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
+| GERENCIADOR-GLOBAL.6 | 🌐 Aceite do usuário | 🟠 Alta | Usuário | GERENCIADOR-GLOBAL.5 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 15:55 | GERENCIADOR-GLOBAL registrada como tarefa grande (plano na etapa 009); execução só depois do "sim" do usuário às perguntas da etapa | Claude Code (Haiku 5.5) | Estrutura nova e disparo automático de sessões |
 | 2026-10-17 | IA pode criar subtarefas **só dentro da mãe atual** e publica direto, sem aprovação (C26) | Gelvazio | "1-SOMENTE SUBTAREFAS DENTRO DA MAE ATUAL;2-PUBLICA DIRETO A TAREFA" |
 | 2026-10-17 | Graphify: ler o `GRAPH_REPORT.md` antes de criar e antes de executar tarefa; `graphify update .` ao fim de cada tarefa concluída e retirada do quadro (C25, substitui a C11); a IA roda o `--aplicar` | Gelvazio | "ajuste a regra global de graphify.md, pra sempre ler o graph_report.md antes de executar 1 tarefa e antes de criar 1 tarefa... sincronize as regras globais" |
 | 2026-10-17 | Gatilho `;` (pegar a próxima tarefa do seu modelo) vira regra global C24, e o usuário autoriza a IA a rodar o `--aplicar` nesta tarefa | Gelvazio | "este ;, é um gatilho pra *Pegue a proxima tarefa disponivel para seu modelo*, anote esta regra em rules-ai, global... e rode o sincronizador de regras globais" |
