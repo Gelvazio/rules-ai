@@ -27,6 +27,8 @@
 | 2026-10-17 15:55 | Tarefa grande: só o plano e a registro no quadro agora. Execução depende de aprovação explícita. | Claude Code (Haiku 5.5) | Estrutura nova e disparo automático de sessões (regra de tarefa grande). |
 | 2026-10-17 15:55 | Pendente de decisão do usuário: o `gerenciador-de-tarefas` das `aulas-senai-*` (skill já existente) será substituído, ampliado ou convivirá com este gerenciador? | — | Evitar dois gerenciadores disputando as mesmas pastas. |
 | 2026-10-17 15:55 | Pendente de decisão do usuário: rodar sem supervisão (com `;` automático) ou só avisar e o usuário dispara? | — | Define o nível de risco aceito e o consumo de tokens. |
+| 2026-10-17 13:01 | **Plano aprovado.** (1) Projetos: só `rules-ai` e `aulasenai` (`gerenciador-de-ia` não existe); (2) começa **só avisando**, disparo automático só depois do aceite `.6`; (3) ciclo a cada **1 minuto**; modelo **sem tarefa rodando** é verificado a cada **20 segundos** até chegar tarefa para ele; (4) só Claude Code; (5) convive com o `gerenciador-de-tarefas`: o central fica **fora** das pastas `aulas-senai-*` | Gelvazio | "1-sim;2-sim;3-intervalo a cada minuto, se o modelo nao tem tarefa rodando,fique verificando a cada 20 segundos se nao chegou tarefas pra ele;4-sim;5-sim" (respostas às recomendações) |
+| 2026-10-17 13:01 | Hora "15:55" das linhas acima foi gravada com relógio adiantado (a etapa foi criada antes das 13:00); mantida como histórico | Claude Code (Opus 5.5) | Histórico não se apaga |
 
 ### Perguntas que precisam de resposta antes de executar
 
