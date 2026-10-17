@@ -44,13 +44,19 @@ modelo**…" (2 linhas), inserir este item, sem mudar:
 
 ### SUBTAREFA-GLOBAL.2 — Rodar o sincronizador
 
-**Próximo passo:** rodar `node scripts/sincronizar.mjs --aplicar` (autorizado: "sim", 2026-10-17 12:52).
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — rodar um script já existente.
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** a regra só chega às IAs depois do `--aplicar`; conferir que
   `dist/REGRAS-GLOBAIS.md` contém "Trabalho novo descoberto no caminho".
+- **Entrega (2026-10-17 12:54, Haiku · executor-leve; líder Opus 5.5):** `node scripts/sincronizar.mjs
+  --aplicar` sem erro (saída 0): `dist/REGRAS-GLOBAIS.md` regerado; gravado em Claude Code, Gemini
+  CLI, Codex, Grok, Qoder, opencode, Devin e Kiro.
+- **Verificação (líder):** a frase está em `dist/REGRAS-GLOBAIS.md`, `~/.gemini/GEMINI.md`,
+  `~/.codex/AGENTS.md` e `~/.kiro/steering/rules-ai.md`; `~/.claude/CLAUDE.md` importa o `dist`
+  (`@C:/fontes/rules-ai/dist/REGRAS-GLOBAIS.md`).
 
 ## Decisões
 
