@@ -1,5 +1,10 @@
-// Menu único das páginas do 3D GRAPHS AI: preenche todo <nav data-menu> com os mesmos links e
-// destaca a página aberta. Para acrescentar uma página, basta uma linha em ITENS_MENU.
+// Menu único das páginas do 3D GRAPHS AI: preenche todo <nav data-menu> com os mesmos links,
+// destaca a página aberta e põe acima dele a linha dos projetos, com o projeto atual em destaque.
+// Para acrescentar uma página ou um projeto, basta uma linha em ITENS_MENU ou em PROJETOS.
+
+const PROJETOS = Object.freeze([
+  { nome: 'Rules Ai', atual: true },
+]);
 
 const ITENS_MENU = Object.freeze([
   { texto: 'Dashboard', href: '../index.html' },
@@ -25,12 +30,30 @@ function criarLink({ texto, href }, atual) {
   return link;
 }
 
+function criarProjeto({ nome, atual }) {
+  const item = document.createElement('span');
+  item.className = atual ? 'abas__botao abas__botao--atual abas__botao--projeto' : 'abas__botao abas__botao--projeto';
+  item.textContent = nome;
+  if (atual) item.setAttribute('aria-current', 'true');
+  return item;
+}
+
+function criarLinhaProjetos() {
+  const linha = document.createElement('nav');
+  linha.className = 'abas abas--projetos';
+  linha.setAttribute('aria-label', 'Projeto atual');
+  linha.append(...PROJETOS.map(criarProjeto));
+  return linha;
+}
+
 /**
- * Põe os links do menu no começo do <nav> (o que já houver nele, como saldo e ⚙, fica depois).
+ * Põe a linha dos projetos acima do <nav> e os links no começo dele (o que já houver nele, como
+ * saldo e ⚙, fica depois).
  * @param {HTMLElement} nav - Elemento <nav data-menu>.
  */
 export function montarMenu(nav) {
   const atual = paginaAtual();
+  nav.before(criarLinhaProjetos());
   nav.prepend(...ITENS_MENU.map((item) => criarLink(item, atual)));
 }
 

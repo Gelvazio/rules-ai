@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 17:58 (Brasília): DASHBOARD-REDE-NEURAL.23 entregue: o menu das páginas do 3D GRAPHS AI ganhou uma linha em cima com o projeto atual, "Rules Ai".
 - 2026-10-17 17:55 (Brasília): regra do projeto C31 (`AGENTS.md`): quem reserva uma subtarefa escreve ` · NN%` no fim da coluna "Em uso por". DASHBOARD-REDE-NEURAL.22 entregue: a página Agentes ao vivo mostra esse percentual na cabeça de cada agente que trabalha.
 - 2026-10-17 17:49 (Brasília): DASHBOARD-REDE-NEURAL.21 (correção): os rótulos da página Agentes ao vivo passaram a ser HTML (CSS2DRenderer) e ficaram nítidos em qualquer zoom.
 - 2026-10-17 17:41 (Brasília): DASHBOARD-REDE-NEURAL.20 entregue: na página Agentes ao vivo, as pendentes formam um globo no centro, os agentes orbitam em volta com as tarefas que estão fazendo, e as concluídas vão para um anel externo.

@@ -1,4 +1,11 @@
 /* Página 3D GRAPHS AI. Usa os tokens de ../assets/css/base.css. */
+
+/* Cabeçalho com altura livre (menu em 2 linhas) e a área principal ocupando o resto da tela. */
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 .abas {
   display: flex;
   gap: 8px;
@@ -21,7 +28,8 @@
 .graphs {
   display: grid;
   grid-template-columns: 1fr var(--largura-painel);
-  height: calc(100vh - var(--altura-cabecalho));
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .graphs__cena {
@@ -49,6 +57,11 @@
 }
 
 @media (max-width: 800px) {
+  body:not(.tela-cheia) {
+    display: block;
+    height: auto;
+  }
+
   .graphs {
     grid-template-columns: 1fr;
     height: auto;
@@ -378,21 +391,17 @@
 
 /* Página "Agentes ao vivo": só a barra de menus em cima e a cena em toda a largura. */
 .tela-cheia {
-  --altura-barra: 44px;
-  height: 100vh;
   overflow: hidden;
 }
 
 .barra {
-  display: flex;
-  align-items: center;
-  height: var(--altura-barra);
-  padding: 0 var(--espaco);
+  display: grid;
+  gap: 6px;
+  padding: 8px var(--espaco);
   border-bottom: 1px solid var(--cor-borda);
-  box-sizing: border-box;
 }
 
-.abas--barra {
+.barra .abas {
   margin-top: 0;
   flex-wrap: wrap;
 }
@@ -405,7 +414,8 @@
 .tela-cheia__cena {
   position: relative;
   width: 100%;
-  height: calc(100vh - var(--altura-barra));
+  flex: 1 1 auto;
+  min-height: 0;
   overflow: hidden;
 }
 
@@ -587,4 +597,19 @@
 
 .progresso3d strong {
   color: var(--cor-texto);
+}
+
+/* Linha dos projetos, acima do menu das páginas (assets/js/menu.js). */
+.abas--projetos {
+  flex-wrap: wrap;
+}
+
+.abas__botao--projeto {
+  font-weight: bold;
+  letter-spacing: 0.02em;
+}
+
+.abas__botao--projeto.abas__botao--atual {
+  color: #fff;
+  background: var(--cor-destaque);
 }
