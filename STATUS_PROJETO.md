@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 20:12 (Brasília): DASHBOARD-REDE-NEURAL.18 registrada no quadro (só o plano, ⬜ pendente): página `dashboard/graphs/agentes.html` com as tarefas reais do `tasks/STATUS.md` em 3D, atraso configurável (padrão 30 s). `.19` é o aceite do usuário.
 - 2026-10-17 16:57 (Brasília): DASHBOARD-REDE-NEURAL.17: saldo de créditos da Tripo no cabeçalho do 3D GRAPHS AI e da cena.
 - 2026-10-17 16:52 (Brasília): DASHBOARD-REDE-NEURAL.16: o modal da chave avisa quando é colado o client_id (`tcli_`) em vez da chave secreta (`tsk_`).
 - 2026-10-17 16:50 (Brasília): DASHBOARD-REDE-NEURAL.15 (correção): ⚙ da chave também na `graphs/cena.html`; validação da chave aceita qualquer caractere visível sem espaço.

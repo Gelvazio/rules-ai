@@ -280,6 +280,46 @@ no front-end além do `localStorage` já aprovado na `.9`.
   com o valor em US$ no título; atualiza ao abrir, ao salvar a chave e depois de cada geração.
   Testado sem chave e com chave falsa; o formato com saldo real depende de uma conta com créditos.
 
+### DASHBOARD-REDE-NEURAL.18 — Página "Agentes ao vivo" (tarefas reais em 3D, com atraso)
+
+**Status:** ⬜ pendente (plano aprovado 2026-10-17 20:10; só registrada, execução depois).
+
+- **Nível:** PESADO — só Opus 5.5+ ou Fable · effort high.
+- **Objetivo:** mostrar na interface 3D o trabalho real dos agentes, ligado às tarefas do
+  `rules-ai/tasks/STATUS.md`, "ao vivo" com atraso configurável (padrão 30 s).
+- **Back-end (Python, biblioteca padrão):**
+  - `graphs/quadro_tarefas.py` novo: `ler_quadro(caminho)` lê a tabela "📌 Tarefas" e devolve
+    `tarefa`, `titulo`, `pai`, `nivel` (LEVE/MEDIO/PESADO/USUARIO), `status` (pendente,
+    progresso, concluido, bloqueado, aguardando), `em_uso_por`, `desde`, `global`.
+  - `config_graphs.py`: `ARQUIVO_QUADRO`, `INTERVALO_COLETA_SEGUNDOS = 10`, `atraso_agentes()`
+    (`ATRASO_AGENTES` no `.env`, padrão 30; acrescentar no `.env.example`).
+  - `servidor.py`: rota `GET /api/agentes` (só leitura) com `atualizado_em`, `atraso_padrao`,
+    `intervalo` e `tarefas`.
+- **Front-end (ES modules, sem bundler):**
+  - `graphs/agentes.html` nova (estrutura da `cena.html`) + link no menu do `graphs/index.html`.
+  - `assets/js/api.js`: `lerAgentes()`.
+  - `assets/js/agentes.js`: entrada da página (base de `visualizador.js`, polling de 10 s, laço).
+  - `assets/js/agentes/fila-atrasada.js`: `compararRetratos` → eventos (`nova`, `reservada`,
+    `concluida`, `bloqueada`, `aguardando`, `liberada`) e fila com `mostrarEm = recebido + atraso`.
+  - `assets/js/agentes/cena-agentes.js`: trilhas por status, tarefas como blocos com rótulo
+    (cor pelo nível), agentes Haiku/Sonnet/Opus reaproveitando as formas/GLB do `prompt-04.json`
+    via `criarObjeto`; reserva = agente voa até o bloco e liga uma linha; conclusão = pulso verde.
+    `prefers-reduced-motion` sem animação.
+  - `assets/js/agentes/hud-agentes.js`: contadores, últimos eventos (hora do `desde`), seletor
+    de atraso (0/10/30/60/120 s, `localStorage` com try/catch) e selo "ao vivo −30 s".
+- **Fora do escopo:** outros quadros, transcripts das sessões, Supabase/Realtime, modelos novos
+  na Tripo para os agentes.
+- **Fidelidade:** a cena só vê o que os agentes registram no quadro (granularidade do `STATUS.md`).
+- **Verificação:** `ler_quadro` via `python -c` confere contagem e campos; `curl
+  localhost:8080/api/agentes` devolve JSON; `node --check` nos `.js`; `compararRetratos` testado
+  com `node`; limites de 1000 linhas por arquivo e 45 por função. Visual conferido pelo usuário
+  (`.19`). Reiniciar o `servidor.py` só depois das gerações da Tripo em andamento.
+
+### DASHBOARD-REDE-NEURAL.19 — Aceite do usuário
+
+**Status:** ⬜ pendente. O usuário abre `http://localhost:8080/graphs/agentes.html`, muda o status
+de uma tarefa no quadro e confere a animação cerca de 30 s depois.
+
 ## Decisões
 
 | Data | Decisão | Quem | Por quê |
@@ -298,3 +338,4 @@ no front-end além do `localStorage` já aprovado na `.9`.
 | 2026-10-17 16:40 | `.14` aprovada: formas simples primeiro, V3, inglês | Gelvazio | "1-formas simples primeiro;2-migre para V3;3-ingles" |
 | 2026-10-17 16:50 | `.15` (correção): ⚙ na cena e validação da chave | Gelvazio | "n habilitou" |
 | 2026-10-17 16:57 | `.17` (C26): saldo de créditos no cabeçalho | Gelvazio | "sim, mostre o saldo de créditos na página" |
+| 2026-10-17 20:10 | `.18` criada (C26) com plano aprovado: fonte só o `rules-ai/tasks/STATUS.md`, atraso configurável (30 s); só registrada no quadro | Gelvazio | "como eu posso usar esta interface em 3D, pra mostrar o trabalho real dos meus agentes..." / "apenas grave a tarefa no quadro de tasks" |

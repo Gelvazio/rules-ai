@@ -44,11 +44,14 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-REDE-NEURAL.15 | Correção: engrenagem ⚙ na `cena.html` e validação da chave aceitando qualquer caractere visível | 🟠 Alta | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.14 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.16 | Modal da chave avisa quando é colado o client_id (`tcli_...`) em vez da chave secreta (`tsk_...`) | 🟢 Baixa | LEVE · effort low | DASHBOARD-REDE-NEURAL.15 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.17 | Saldo de créditos da Tripo no cabeçalho do 3D GRAPHS AI e da cena | 🟡 Média | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.16 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| DASHBOARD-REDE-NEURAL.18 | 3D GRAPHS AI: página "Agentes ao vivo" — cena 3D com as tarefas reais do `tasks/STATUS.md` (rota `/api/agentes`, fila com atraso de 30 s configurável) | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | DASHBOARD-REDE-NEURAL.14 | ⬜ Pendente | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| DASHBOARD-REDE-NEURAL.19 | Aceite do usuário: conferir a página "Agentes ao vivo" no navegador | 🟡 Média | Usuário · effort low | DASHBOARD-REDE-NEURAL.18 | ⬜ Pendente | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 20:10 | DASHBOARD-REDE-NEURAL.18 (C26): plano aprovado — fonte só o `rules-ai/tasks/STATUS.md`, atraso configurável (padrão 30 s, coleta a cada 10 s), cena nova `graphs/agentes.html`; só registrada no quadro, execução depois (Tripo gerando) | Gelvazio | "como eu posso usar esta interface em 3D, pra mostrar o trabalho real dos meus agentes, ligando as tarefas nela... com um certo delay" |
 | 2026-10-17 16:57 | DASHBOARD-REDE-NEURAL.17 (C26): saldo de créditos da Tripo no cabeçalho do 3D GRAPHS AI e da cena | Gelvazio | "sim, mostre o saldo de créditos na página" |
 | 2026-10-17 16:52 | DASHBOARD-REDE-NEURAL.16 (C26): a Tripo recusou o `tcli_...` (client_id); o modal passa a recusar esse prefixo e pedir a chave `tsk_` | Gelvazio | "erro ao gerar: ... API key must start with 'tsk_'..." |
 | 2026-10-17 16:50 | DASHBOARD-REDE-NEURAL.15 (C26, correção): a `cena.html` ganhou a ⚙; a validação da chave (modal e servidor) passou de `[\w.-]` para ASCII visível sem espaço, porque o botão Gerar não habilitava | Gelvazio | "n habilitou" / "a pagina cena.html, n tem o botao de config da chave de api" |
