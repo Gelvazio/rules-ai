@@ -29,7 +29,7 @@ subtarefa livre **do seu modelo**, executa e entrega, sem perguntar.
 
 ### GATILHO-GLOBAL.1 — Regra global, conflito C24 e status do projeto
 
-**Próximo passo:** nenhum. Subtarefa entregue em 2026-10-17 16:30.
+**Próximo passo:** nenhum. Subtarefa entregue em 2026-10-17 16:24.
 
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** só Haiku — nunca outro (regra C22, sem exceção; o pedido veio a uma sessão Sonnet).
@@ -44,7 +44,7 @@ subtarefa livre **do seu modelo**, executa e entrega, sem perguntar.
 
 ### GATILHO-GLOBAL.2 — Rodar o sincronizador
 
-**Próximo passo:** aguardar a GATILHO-GLOBAL.1.
+**Próximo passo:** nenhum. Subtarefa entregue em 2026-10-17 16:24.
 
 - **Nível:** LEVE — só roda o script existente, sem escrever código.
 - **Modelo:** só Haiku — nunca outro.
@@ -55,8 +55,7 @@ subtarefa livre **do seu modelo**, executa e entrega, sem perguntar.
 - **Critérios de aceitação:** `dist/REGRAS-GLOBAIS.md` contém o "Gatilho `;`"; a saída lista cada IA
   (Claude Code, Gemini CLI, Codex, Grok, Qoder, opencode, Devin, Kiro) como atualizada ou igual;
   nada fora do bloco marcado foi alterado.
-- **Entrega:** — · **Verificação:** — (colar a saída do script e o `grep` do gatilho em
-  `dist/REGRAS-GLOBAIS.md`)
+- **Entrega:** sincronizador `--aplicar` rodado (autorizado pelo usuário); gravados Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro; Claude Code igual (importa o `dist`) · **Verificação:** `dist/REGRAS-GLOBAIS.md` tem o título "## Gatilho `;`" (linha 323); `~/.claude/CLAUDE.md` tem `@C:/fontes/rules-ai/dist/REGRAS-GLOBAIS.md` (linha 538).
 
 ### Decisões
 

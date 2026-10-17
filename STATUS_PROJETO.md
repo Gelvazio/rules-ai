@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 16:24 (Brasília): GATILHO-GLOBAL.2 concluída: `sincronizar.mjs --aplicar` rodado com a autorização do usuário; gravados Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro; Claude Code igual (importa o `dist`, que já tem o gatilho `;`). Com isso a regra C24 vale nas IAs.
 - 2026-10-17 13:22 (Brasília): GERENCIADOR-GLOBAL.8 entregue (Opus 5.5): respostas de 16:12 conferidas; valem projetos `aulasenai`/`aulas-senai-*` (mesmo quadro), `rules-ai` e `gerenciador-de-ia`, automático para Haiku e Sonnet, 30 s, só Claude Code e mesclagem; pendentes: `dashboard-ai-*` (pastas não existem em `C:\fontes`), limite por hora e custo, e 1 sessão por pasta.
 - 2026-10-17 16:25 (Brasília): gatilho `;` (C24) escrito em `regras/frentes-e-reserva.md` e marcado no `CONFLITOS.md` (GATILHO-GLOBAL.1). A sincronização (GATILHO-GLOBAL.2) ainda não rodou; a regra só chega às outras IAs depois dela.
 - 2026-10-17 13:18 (Brasília): C27 ampliada (`regras/exibicao-de-status.md`, STATUS-QUADRO-GLOBAL.3): todo quadro que fala de tarefa tem a coluna Tarefa (ID), e ao mostrar subtarefas a linha da mãe vem primeiro, em negrito. Regras globais sincronizadas.
