@@ -69,7 +69,7 @@ update .`). Sem perguntar.
 
 ### GRAPHIFY-GLOBAL.2 — Alinhar o `graphify.md` dos projetos
 
-**Próximo passo:** executar (só Haiku).
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** só Haiku — nunca outro
@@ -77,10 +77,17 @@ update .`). Sem perguntar.
   `C:\fontes\REA-APP-CLONES\.claude\rules\graphify.md` contradizem a regra nova ("⛔ não rodar ao
   finalizar tarefas"); passam a só apontar para a global e manter o que é do projeto. As pastas
   `aulas-senai-CLAUDE-*` são cópias do repositório do aulasenai e recebem pelo `git pull`.
+- **Entrega (2026-10-17 12:31, Haiku · executor-leve; líder Opus 5.5):** `aulasenai`:
+  `.claude/rules/graphify.md` reescrito (só aponta para a C25 e guarda o comando, a skill e o
+  aviso dos 5.000 nós) e `docs/HISTORICO-REGRAS.md` (commit `a4c754e6`); `REA-APP-CLONES`:
+  `.claude/rules/graphify.md` (commit `500d5bf`). **Ajuste do líder:** a linha do `graphify.md`
+  nos `INDEX.md` dos dois projetos (citava a C11). Visualizador do aulasenai regenerado.
+- **Verificação (líder):** leitura dos dois arquivos: nenhum "⛔ não rodar ao finalizar"; ambos
+  citam a C25.
 
 ### GRAPHIFY-GLOBAL.3 — Rodar o sincronizador
 
-**Próximo passo:** depois da .1.
+**Próximo passo:** executar (só Haiku).
 
 - **Nível:** LEVE — rodar um script já existente.
 - **Modelo:** só Haiku — nunca outro
