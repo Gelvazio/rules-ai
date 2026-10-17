@@ -211,6 +211,53 @@ mostra as probabilidades da saída.
 - **Achado:** a API atual é a V3 (`https://openapi.tripo3d.ai/v3`); o `graphs/` usa a V2. A
   seção 11 do guia lista o que mudar para migrar.
 
+### DASHBOARD-REDE-NEURAL.14 — Prompt 04 no 3D GRAPHS AI com a API da Tripo (plano)
+
+**Próximo passo:** o usuário responder às perguntas abaixo e dar o "sim" (criada 2026-10-17 16:39).
+
+- **Nível:** PESADO — leitor de prompts no servidor, geração em lote na Tripo, cena 3D nova com
+  animação; vários arquivos ligados e gasto de créditos.
+- **Modelo:** só Opus 5.5+ ou Fable · **Effort:** high
+- **Depende de:** `.9` (chave no navegador) e `.13` (guia da API; decidir V2 ou V3).
+
+**Problema:** o `MODELO-3D-REDE-NEURAL-04.md` descreve uma **página HTML** (infográfico com
+cartões, kanban, rosca, Sankey e animação). A Tripo texto → 3D gera **um objeto por chamada** a
+partir de uma frase curta. O prompt não pode ser enviado inteiro.
+
+**Plano:**
+1. **Objetos do prompt 04** → arquivo `dashboard/graphs/cenas/prompt-04.json` (o `.md` do prompt
+   não muda): lista dos objetos 3D com um prompt curto em inglês para a Tripo e o papel na cena.
+   Proposta inicial (5 gerações, cerca de 50 a 100 créditos = US$ 0,50 a 1,00):
+   | Objeto | Prompt para a Tripo | Papel |
+   |---|---|---|
+   | Agente planejador | "orange pixelated voxel cube character, cute, game asset" | personagem 1 |
+   | Agente testador | "glossy glowing blue sphere character with simple eyes" | personagem 2 |
+   | Agente revisor | "glossy glowing pink sphere character with simple eyes" | personagem 3 |
+   | Hexágono do agente | "neon hexagonal badge, sci-fi, emissive red edges" | núcleo da rede |
+   | Assento | "minimal low poly office chair" | repetido 25 vezes (instâncias) |
+2. **Servidor:** rota `GET /api/cenas` (lista os `.json` de `graphs/cenas/`) e geração em lote
+   reaproveitando `/api/gerar` (1 tarefa por objeto, com confirmação do custo total e o
+   `LIMITE_GERACOES`); cada GLB salvo com o id do objeto (`prompt-04/<objeto>.glb`).
+3. **Página:** no 3D GRAPHS AI, seletor "Cena do prompt" com a 04; mostra os objetos, quais já
+   têm GLB e o botão "Gerar os que faltam" com o custo somado.
+4. **Cena 3D animada** (`graphs/assets/js/cenas/prompt-04.js`), fiel ao prompt 04 em 3D:
+   os 3 personagens no alto; 25 assentos em fila (InstancedMesh do GLB do assento); o hexágono à
+   direita; um relógio único (0 a 1) que assume os assentos um a um até 15 de 25; linhas verdes do
+   hexágono a cada assento com nó vermelho pulsante; cursor azul; contadores em HTML sobre a cena;
+   Pausar/Continuar, Reiniciar e velocidade 1x/2x/4x; `prefers-reduced-motion` mostra o estado
+   final. Enquanto um GLB não existir, usa uma forma simples no lugar (cubo, esfera, hexágono).
+5. Documentar no `graphs/README.md` e registrar as gerações feitas (task_id, créditos).
+
+**Perguntas para o usuário (antes do "sim"):**
+1. Gerar os 5 objetos na Tripo (cerca de US$ 0,50 a 1,00) ou montar primeiro a cena com formas
+   simples e gerar depois?
+2. Migrar o cliente para a API V3 junto (recomendado no `TRIPO_AI_DOCS.md`) ou manter a V2?
+3. Os prompts dos objetos ficam em inglês (a Tripo responde melhor) ou em português?
+
+**Critérios de aceitação:** `py_compile` e `node --check` passam; a cena abre sem chave (formas
+simples) e troca pelos GLB quando existirem; custo total confirmado antes de gerar; nenhuma chave
+no front-end além do `localStorage` já aprovado na `.9`.
+
 ## Decisões
 
 | Data | Decisão | Quem | Por quê |
@@ -225,3 +272,4 @@ mostra as probabilidades da saída.
 | 2026-10-17 16:31 | `.11` criada (C26): um prompt por imagem em `dashboard/prompts/` | Gelvazio | "CRIE 1 prompt pra cada imagem nela..." |
 | 2026-10-17 16:34 | `.12` (C26): prompts independentes | Gelvazio | "cada prompt deve ser unico, e nao referenciar os outros" |
 | 2026-10-17 16:38 | `.13` (C26): guia da API e dos SDKs da Tripo | Gelvazio | "leia o site ... e crie um documento de nome TRIPO_AI_DOCS.md" |
+| 2026-10-17 16:39 | `.14` criada (C26) só com o plano; aguarda respostas e o "sim" | Gelvazio | "crie 1 tarefa pra isso, para o prompt 04" |
