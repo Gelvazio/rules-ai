@@ -28,11 +28,14 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | GERENCIADOR-GLOBAL.5 | 🌐 Vigilância periódica (agendador ou loop no intervalo aprovado) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet | GERENCIADOR-GLOBAL.4 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.6 | 🌐 Aceite do usuário | 🟠 Alta | Usuário | GERENCIADOR-GLOBAL.5 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.7 | 🌐 Mesclar o `gerenciador-de-tarefas` ao central e revisar o desenho da .1 com as respostas de 16:12 · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
+| **PONTO-GLOBAL** | **🌐 GLOBAL — Mensagem `.` = liste as tarefas pendentes (C30)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-012](etapas/ETAPA-012-PONTO-GLOBAL.md) |
+| PONTO-GLOBAL.1 | 🌐 Regra global, C30, status e sincronizador · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | 🔄 Em progresso | Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) (local · main) (desde 2026-10-17 13:51) | [ETAPA-012](etapas/ETAPA-012-PONTO-GLOBAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 | Mensagem só com `.` = listar as tarefas pendentes, sem começar nenhuma (C30) | Gelvazio | "sim, registre o . como regra global" |
 | 2026-10-17 | GERENCIADOR-GLOBAL: `dashboard-ai-*` entram; **disparo automático em pausa** (só ler e avisar); conflito de pasta única vira a tarefa `PASTA-UNICA-GLOBAL` | Gelvazio | "dashboard-ai-*  ja voltou;nao faca nenhum disparo automatico,deixe em pausa isso de automatico por enquanto;abra uma nova tarefa pra resolver conflitos de rules-ai e gerenciador-de-ia" |
 | 2026-10-17 13:34 | GERENCIADOR-GLOBAL.2 entregue (C28, `regras/gerenciador-centralizado.md`); o disparo automático fica condicionado a ordem explícita do usuário, a ordem vigente é a pausa de 13:30 (pedido do usuário); o automático de 16:12 fica para reativação | Claude Code (Haiku 5.5) | Pausa vigente (pedido do usuário) |
 | 2026-10-17 16:14 | Usuário confirmou que valem as respostas de 16:12; abre a GERENCIADOR-GLOBAL.8 (Opus) só para conferir contra o plano de 13:01 | Gelvazio | "vale as regras daqui, abra uma sub-task em GERENCIADOR-GLOBAL nova so pra conferir isso e atribua ao CLAUDE OPUS" |
