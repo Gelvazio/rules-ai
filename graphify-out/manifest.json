@@ -24,9 +24,9 @@
     "semantic_hash": "bd4ce873f82c760edb3f52617819ad0a"
   },
   "STATUS_PROJETO.md": {
-    "mtime": 1792264701.7547412,
-    "seen": 1792264707.919742,
-    "ast_hash": "433bb5ded620f14135e7596046eb8f44",
+    "mtime": 1792266274.1854365,
+    "seen": 1792266282.1912885,
+    "ast_hash": "c137471a25058d590448a04f63a69758",
     "semantic_hash": ""
   },
   "regras/atividades-e-idioma.md": {
@@ -102,9 +102,9 @@
     "semantic_hash": "7901c01152e3776498a04db7c2c12fcd"
   },
   "tasks/STATUS.md": {
-    "mtime": 1792264701.747712,
-    "seen": 1792264707.919742,
-    "ast_hash": "89700dd8b03f47d5c925627f8f4c4391",
+    "mtime": 1792266274.1780066,
+    "seen": 1792266282.1992548,
+    "ast_hash": "adc4cceaf822910eab4c1c8cde344d3e",
     "semantic_hash": ""
   },
   "tasks/etapas/ETAPA-001-GLOBAL.md": {
@@ -240,9 +240,9 @@
     "semantic_hash": "afbf605cb0a66bea69047fabcca137cd"
   },
   "dashboard/README.md": {
-    "mtime": 1792263202.900536,
-    "seen": 1792263206.693916,
-    "ast_hash": "ce0b052f75067fd90160506583856fa6",
+    "mtime": 1792264894.1222248,
+    "seen": 1792266282.1912885,
+    "ast_hash": "5ff2d999eb01824eb489c8b2f51ea006",
     "semantic_hash": ""
   },
   "dashboard/WEB-SCRAP.md": {
@@ -270,9 +270,9 @@
     "semantic_hash": "bf14bc7258c083aca548042482674bca"
   },
   "tasks/etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md": {
-    "mtime": 1792264701.754235,
-    "seen": 1792264707.919742,
-    "ast_hash": "fc3dad20abd0a73b154898131ac10873",
+    "mtime": 1792266274.1854365,
+    "seen": 1792266282.2037807,
+    "ast_hash": "677d86769c683c53d68827d5976ad6bf",
     "semantic_hash": ""
   },
   "dashboard/assets/js/dados/ferramentas.js": {
@@ -330,15 +330,15 @@
     "semantic_hash": ""
   },
   "dashboard/graphs/assets/js/api.js": {
-    "mtime": 1792264608.1833985,
-    "seen": 1792264707.919742,
-    "ast_hash": "dd922fd14fe2aa6c986d6cc372124d70",
+    "mtime": 1792266182.3113134,
+    "seen": 1792266282.1860018,
+    "ast_hash": "85920a6f5373ad2231bad0124276e855",
     "semantic_hash": ""
   },
   "dashboard/graphs/assets/js/config.js": {
-    "mtime": 1792263117.342741,
-    "seen": 1792263206.693916,
-    "ast_hash": "80ccf2b16ea43da0720c58521c61fb88",
+    "mtime": 1792266183.9191744,
+    "seen": 1792266282.1860018,
+    "ast_hash": "390c844aa61e58a2b3938a8c16e21e2f",
     "semantic_hash": ""
   },
   "dashboard/graphs/assets/js/principal.js": {
@@ -348,45 +348,45 @@
     "semantic_hash": ""
   },
   "dashboard/graphs/assets/js/visualizador.js": {
-    "mtime": 1792263135.5424426,
-    "seen": 1792263206.693916,
-    "ast_hash": "978c70dcce924b7a633af58321ef3dbc",
+    "mtime": 1792266117.4024017,
+    "seen": 1792266282.187247,
+    "ast_hash": "c694aa7ac6885ac144139c32702c030e",
     "semantic_hash": ""
   },
   "dashboard/graphs/cliente_tripo.py": {
-    "mtime": 1792264668.7419322,
-    "seen": 1792264707.919742,
-    "ast_hash": "6d6a6bcbb3d1441cd69575e4aaf7b882",
+    "mtime": 1792266057.2358823,
+    "seen": 1792266282.187247,
+    "ast_hash": "53442e2bfc48b3b3d5103e297081e041",
     "semantic_hash": ""
   },
   "dashboard/graphs/config_graphs.py": {
-    "mtime": 1792264670.154554,
-    "seen": 1792264707.919742,
-    "ast_hash": "235ac81b18dffb69bc0c4e335061fb86",
+    "mtime": 1792266049.6791513,
+    "seen": 1792266282.187247,
+    "ast_hash": "3aeb48e55a31c4e04bf60ae11e248d26",
     "semantic_hash": ""
   },
   "dashboard/graphs/galeria_modelos.py": {
-    "mtime": 1792263063.3537552,
-    "seen": 1792263206.693916,
-    "ast_hash": "ddb913c7a3767aa99cb49d0f0de9fed9",
+    "mtime": 1792266100.3394718,
+    "seen": 1792266282.187247,
+    "ast_hash": "8d574db0d6133e542de7e0e7ee87d6f0",
     "semantic_hash": ""
   },
   "dashboard/graphs/servidor.py": {
-    "mtime": 1792264588.944474,
-    "seen": 1792264707.919742,
-    "ast_hash": "f3f396d60a5534c0f5d2c17e3f7cfac0",
+    "mtime": 1792266109.3300571,
+    "seen": 1792266282.187247,
+    "ast_hash": "4e1b26097d43c94c2c38394bf0600561",
     "semantic_hash": ""
   },
   "dashboard/graphs/README.md": {
-    "mtime": 1792264701.7457125,
-    "seen": 1792264707.919742,
-    "ast_hash": "d6fac65dcf9789ff084b6e9440ff6f20",
+    "mtime": 1792266274.1711648,
+    "seen": 1792266282.1918426,
+    "ast_hash": "0cef1b40fd43e2643493ad5f2e2d1a9c",
     "semantic_hash": ""
   },
   "dashboard/graphs/index.html": {
-    "mtime": 1792264634.055936,
-    "seen": 1792264707.919742,
-    "ast_hash": "559289e15ac1d7815f476e0f3741fd6c",
+    "mtime": 1792266222.4699697,
+    "seen": 1792266282.1918426,
+    "ast_hash": "47f6dc08db2ea45c38dcd43f207a6681",
     "semantic_hash": ""
   },
   "dashboard/graphs/assets/js/chave.js": {
@@ -399,6 +399,108 @@
     "mtime": 1792264604.7086437,
     "seen": 1792264707.919742,
     "ast_hash": "7ba44ac678783d574454ea5038a88c17",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/assets/js/cena.js": {
+    "mtime": 1792266206.5226,
+    "seen": 1792266282.1860018,
+    "ast_hash": "20996641186f3998b5105671252acde9",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/assets/js/cenas/formas.js": {
+    "mtime": 1792266152.9014184,
+    "seen": 1792266282.1860018,
+    "ast_hash": "adf0c8495b6b515ea14fd69f658dd2f4",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/assets/js/cenas/hud.js": {
+    "mtime": 1792266194.3810835,
+    "seen": 1792266282.1860018,
+    "ast_hash": "de213d3cdc2747ed0b42b6deef451a08",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/assets/js/cenas/linha-do-tempo.js": {
+    "mtime": 1792266140.6674263,
+    "seen": 1792266282.1860018,
+    "ast_hash": "cd6c0c6ff8ddaeb4425fd8a22112cc5d",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/assets/js/cenas/prompt-04.js": {
+    "mtime": 1792266171.2521553,
+    "seen": 1792266282.1860018,
+    "ast_hash": "592198e5807b0ea8ced9dec4c99e6705",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/cenas_prompts.py": {
+    "mtime": 1792266082.8713374,
+    "seen": 1792266282.187247,
+    "ast_hash": "e0506494dca0c8fd07d6d0c8970cf853",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/TRIPO_AI_DOCS.md": {
+    "mtime": 1792266274.1711648,
+    "seen": 1792266282.1918426,
+    "ast_hash": "52c86f9dd6d37457bbb4533f8d452b94",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/cena.html": {
+    "mtime": 1792266215.3213377,
+    "seen": 1792266282.1918426,
+    "ast_hash": "0fae71c72ffae327179f22fa7dab1532",
+    "semantic_hash": ""
+  },
+  "dashboard/prompts/MODELO-3D-REDE-NEURAL-01.md": {
+    "mtime": 1792265438.1473618,
+    "seen": 1792266282.1918426,
+    "ast_hash": "4cd7c85875cc439d7b322c1d86272f35",
+    "semantic_hash": ""
+  },
+  "dashboard/prompts/MODELO-3D-REDE-NEURAL-02.md": {
+    "mtime": 1792265623.4861863,
+    "seen": 1792266282.1918426,
+    "ast_hash": "5ff1eef6493d259c1dfee5ce5a66c63c",
+    "semantic_hash": ""
+  },
+  "dashboard/prompts/MODELO-3D-REDE-NEURAL-03.md": {
+    "mtime": 1792265469.4766178,
+    "seen": 1792266282.1918426,
+    "ast_hash": "22450993e5d0ba068756efb7d7347d13",
+    "semantic_hash": ""
+  },
+  "dashboard/prompts/MODELO-3D-REDE-NEURAL-04.md": {
+    "mtime": 1792265793.0874486,
+    "seen": 1792266282.1918426,
+    "ast_hash": "be41fcb88536ea43130dc4b99d8a6e65",
+    "semantic_hash": ""
+  },
+  "dashboard/prompts/README.md": {
+    "mtime": 1792265649.1688654,
+    "seen": 1792266282.1918426,
+    "ast_hash": "03c0ce416ceaa8a438a62dd6ce160c95",
+    "semantic_hash": ""
+  },
+  "dashboard/prompts/MODELO-3D-REDE-NEURAL-01.png": {
+    "mtime": 1792264951.1592002,
+    "seen": 1792266282.2052014,
+    "ast_hash": "9f6b1737c414d474bdfc444d9d7d617c",
+    "semantic_hash": ""
+  },
+  "dashboard/prompts/MODELO-3D-REDE-NEURAL-02.png": {
+    "mtime": 1792264991.1621318,
+    "seen": 1792266282.2052014,
+    "ast_hash": "1fe096ae7edd23ea3509bdd0faba689b",
+    "semantic_hash": ""
+  },
+  "dashboard/prompts/MODELO-3D-REDE-NEURAL-03.png": {
+    "mtime": 1792265009.2594948,
+    "seen": 1792266282.2052014,
+    "ast_hash": "40c8042395b3ebe69e023a888521d9e5",
+    "semantic_hash": ""
+  },
+  "dashboard/prompts/MODELO-3D-REDE-NEURAL-04.png": {
+    "mtime": 1792265027.5519714,
+    "seen": 1792266282.2058897,
+    "ast_hash": "89ad4a71a1d9ef11f17bf5a2370313d7",
     "semantic_hash": ""
   }
 }

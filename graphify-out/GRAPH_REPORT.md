@@ -1,23 +1,23 @@
 # Graph Report - rules-ai  (2026-10-17)
 
 ## Corpus Check
-- 63 files · ~40,118 words
+- 76 files · ~129,359 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 595 nodes · 872 edges · 48 communities (47 shown, 1 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 25 edges (avg confidence: 0.83)
+- 697 nodes · 1030 edges · 65 communities (63 shown, 2 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 30 edges (avg confidence: 0.83)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cd031177`
+- Built from commit: `4af3e017`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - regras/frentes-e-reserva.md
 - Web scraping dos links do `CLAUDE.md`
-- tasks/STATUS.md — rules-ai
+- CONFLITOS.md
 - coletar.py
 - gerar_dados_painel.py
 - tasks/task_complete.md — Concluídas
@@ -31,8 +31,8 @@
 - Etapa 011 — PASTA-UNICA-GLOBAL: conflitos de várias sessões na mesma pasta (`rules-ai` e `gerenciador-de-ia`)
 - Etapa 013-1b79ba45 — DASHBOARD-REDE-NEURAL: visualização 3D das camadas de uma rede neural
 - scripts/sincronizar.mjs
-- Manipulador
-- principal.js
+- servidor.py
+- cena.js
 - dashboard/CLAUDE.md (prompt de análise de mercado)
 - Etapa 001 — GLOBAL: Regras globais para todas as IAs e projetos
 - regras/ciclo-da-task.md
@@ -55,24 +55,41 @@
 - regras/atividades-e-idioma.md
 - 🗂️ Quadro de tarefas — fonte única, para qualquer projeto
 - 🤖 Gerenciador centralizado de tarefas
-- Reserva de subtarefa (Em uso por + commit/push)
-- TAREFA FINALIZADA E SINCRONIZADA!
+- regras/git-geral.md
+- Gatilho ';' (C24) pegar próxima tarefa do seu modelo
 - 3D GRAPHS AI
-- tasks/STATUS.md (quadro de tarefas)
+- Tripo AI — como usar a API e os SDKs
 - C25 — Ler GRAPH_REPORT antes de criar/executar e atualizar ao fim
 - Etapa 004 — MODELO-GLOBAL: nunca executar tarefa que não é do seu modelo
+- prompt-04.js
+- galeria_modelos.py
+- cenas_prompts.py
+- Manipulador
+- modal-config.js
+- niveis-e-modelos.md (Níveis de tarefa)
+- tasks/STATUS.md — rules-ai
+- .chave_do_pedido
+- ErroTripo
+- Tarefa GERENCIADOR-GLOBAL — gerenciador centralizado
+- ⚖️ Conflitos entre regras — aguardam a confirmação do usuário
+- 🎚️ Níveis de tarefa — quem pega o quê
+- MODELO-3D-REDE-NEURAL-01 — Orquestrador de agentes em anel
+- MODELO-3D-REDE-NEURAL-02 — Infográfico "1 agente no lugar de 25 assentos"
+- MODELO-3D-REDE-NEURAL-03 — Painel de robô com toro 3D de partículas
+- MODELO-3D-REDE-NEURAL-04 — Infográfico animado: a rede do agente tomando os assentos
+- prompts/README.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `tasks/task_complete.md — Concluídas` - 26 edges
 2. `criar()` - 17 edges
-3. `tasks/STATUS.md — rules-ai` - 16 edges
-4. `Manipulador` - 14 edges
+3. `Manipulador` - 16 edges
+4. `tasks/STATUS.md — rules-ai` - 16 edges
 5. `Etapa 009-a0c1d676 — GERENCIADOR-GLOBAL: gerenciador centralizado que chama as tarefas livres de cada modelo` - 13 edges
-6. `niveis-e-modelos.md (Níveis de tarefa)` - 12 edges
-7. `criarCartaoSite()` - 10 edges
-8. `Etapa 013-1b79ba45 — DASHBOARD-REDE-NEURAL: visualização 3D das camadas de uma rede neural` - 10 edges
-9. `montarPainelFerramentas()` - 9 edges
-10. `aoGerar()` - 9 edges
+6. `Tripo AI — como usar a API e os SDKs` - 12 edges
+7. `niveis-e-modelos.md (Níveis de tarefa)` - 12 edges
+8. `criarCartaoSite()` - 10 edges
+9. `Etapa 013-1b79ba45 — DASHBOARD-REDE-NEURAL: visualização 3D das camadas de uma rede neural` - 10 edges
+10. `montarPainelFerramentas()` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Uma sessão por vez (trava tasks/.sessao-ativa, C29)` --semantically_similar_to--> `Reserva de subtarefa (Em uso por + commit/push)`  [INFERRED] [semantically similar]
@@ -81,10 +98,10 @@
   regras/gerenciador-centralizado.md → AGENTS.md
 - `Líder gerenciador-de-tarefas (aulas-senai)` --semantically_similar_to--> `Equipe de agentes do Claude Code (líder + executor-leve/medio/pesado)`  [INFERRED] [semantically similar]
   tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md → regras/niveis-e-modelos.md
-- `Tarefa EFFORT-PADARIA — testar low/medium/high com padaria` --references--> `Nunca escrever testes (exceto bug)`  [EXTRACTED]
-  tasks/etapas/ETAPA-003-EFFORT-PADARIA.md → regras/testes-validacao.md
 - `tasks/task_complete.md — Concluídas` --implements--> `Cada informação em um lugar só`  [INFERRED]
   tasks/task_complete.md → regras/quadro-de-tarefas.md
+- `C26 — IA cria subtarefas só na mãe atual e publica direto` --conceptually_related_to--> `Tarefa-mãe com no mínimo 1 subtarefa`  [INFERRED]
+  tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md → regras/quadro-de-tarefas.md
 
 ## Import Cycles
 - None detected.
@@ -94,19 +111,19 @@
 - **Medição do effort por nível e modelo** — task_esforco_global, task_confeffort_global, task_effort_padaria, rule_c21, projeto_testes_effort_padaria [EXTRACTED 1.00]
 - **Gatilhos de mensagem curta (; e .) sobre frentes-e-reserva e níveis** — rule_c24, rule_c30, frentes_e_reserva_md, regras_niveis_e_modelos_doc, exibicao_de_status_md [INFERRED 0.85]
 
-## Communities (48 total, 1 thin omitted)
+## Communities (65 total, 2 thin omitted)
 
 ### Community 0 - "regras/frentes-e-reserva.md"
-Cohesion: 0.32
-Nodes (7): C27 Todo status em quadro (tabela com ID e emoji), Frente (sessão de IA), Gatilho '.' (C30) listar pendentes, Gatilho ';' (C24) pegar próxima tarefa do seu modelo, tasks/RECADOS.md, Trava especial, Modos ver (padrão) e disparar (em pausa)
+Cohesion: 0.25
+Nodes (6): niveis-e-modelos.md (coluna Modelo), effort por nível (LEVE=low, MEDIO=medium, PESADO=high) - C21, Frente (sessão de IA), tasks/RECADOS.md, Trava especial, 🎛️ Esforço (`effort`) dos agentes
 
 ### Community 1 - "Web scraping dos links do `CLAUDE.md`"
 Cohesion: 0.18
 Nodes (10): 1. Antes de começar, 2. Tipo de cada link e a técnica indicada, 3. Preparar o ambiente, 4. Script de coleta (L04 a L10), 5. Reels do Instagram (L01 a L03), 6. Cotação do dólar (PASSO 4 do `CLAUDE.md`), 7. Do texto coletado ao JSON final, 8. Problemas comuns (+2 more)
 
-### Community 2 - "tasks/STATUS.md — rules-ai"
-Cohesion: 0.06
-Nodes (51): regras/ciclo-da-task.md, ⚖️ Conflitos entre regras — aguardam a confirmação do usuário, Decididos depois (2026-10-16), Decididos em 2026-10-16 (C1 a C10), O que ficou de fora de propósito (específico de projeto), O que já está no global (sem conflito), Pendente de decisão, Disparo automático em pausa (modo ver) (+43 more)
+### Community 2 - "CONFLITOS.md"
+Cohesion: 0.27
+Nodes (12): regras/ciclo-da-task.md, regras/exibicao-de-status.md, regras/frentes-e-reserva.md, Cada informação em um lugar só, Tarefa-mãe com no mínimo 1 subtarefa, Modelo da etapa ETAPA-NNN-<uuid8>, quadro-de-tarefas.md (fonte única), C24 — Gatilho ; (pegar próxima tarefa do seu modelo) (+4 more)
 
 ### Community 3 - "coletar.py"
 Cohesion: 0.09
@@ -117,8 +134,8 @@ Cohesion: 0.07
 Nodes (38): main(), montar_dados(), montar_reel(), montar_site(), natureza_do_tipo(), Gera assets/js/dados/ferramentas.js para a aba "Ferramentas de IA 3D" do…, fato' se a página mostra formatos 3D exportáveis; senão 'provavel'., Nos artigos comparativos, os h2/h3 costumam ser as ferramentas citadas. (+30 more)
 
 ### Community 5 - "tasks/task_complete.md — Concluídas"
-Cohesion: 0.20
-Nodes (12): dist/REGRAS-GLOBAIS.md, ETAPA-001 GLOBAL, ETAPA-008 SUBTAREFA-GLOBAL, ETAPA-010 STATUS-QUADRO-GLOBAL, Cada informação em um lugar só, C12 — Alinhar projetos, scripts/sincronizar.mjs (--aplicar), Tarefa GLOBAL — Regras globais para todas as IAs (+4 more)
+Cohesion: 0.22
+Nodes (11): dist/REGRAS-GLOBAIS.md, ETAPA-001 GLOBAL, ETAPA-008 SUBTAREFA-GLOBAL, ETAPA-010 STATUS-QUADRO-GLOBAL, C12 — Alinhar projetos, scripts/sincronizar.mjs (--aplicar), Tarefa GLOBAL — Regras globais para todas as IAs, Tarefa STATUS-QUADRO-GLOBAL — status sempre em quadro (+3 more)
 
 ### Community 6 - "rede-neural.js"
 Cohesion: 0.15
@@ -129,7 +146,7 @@ Cohesion: 0.15
 Nodes (33): DADOS_FERRAMENTAS, iniciarAbas(), lerAbaSalva(), mostrarAba(), salvarAba(), blocoExtras(), blocoPrecos(), cabecalhoCartao() (+25 more)
 
 ### Community 8 - "Etapa 009-a0c1d676 — GERENCIADOR-GLOBAL: gerenciador centralizado que chama as tarefas livres de cada modelo"
-Cohesion: 0.12
+Cohesion: 0.13
 Nodes (15): Conferência das respostas de 16:12, Decisões, Desenho, Escopo, Etapa 009-a0c1d676 — GERENCIADOR-GLOBAL: gerenciador centralizado que chama as tarefas livres de cada modelo, GERENCIADOR-GLOBAL.1 — Desenho e prova de conceito (aprovação antes), GERENCIADOR-GLOBAL.2 — Regra global do gerenciador, GERENCIADOR-GLOBAL.3 — Script central de leitura do quadro (+7 more)
 
 ### Community 9 - "Etapa 003 — EFFORT-PADARIA: testar `low`, `medium` e `high` em todos os modelos com um projeto de padaria"
@@ -160,13 +177,13 @@ Nodes (11): Critério de pronto, DASHBOARD-REDE-NEURAL.1 — Estrutura da pasta 
 Cohesion: 0.33
 Nodes (6): Arquivos globais por IA (Claude, Gemini, Codex, Grok, Qoder, opencode, Devin, Kiro), Bloco marcado rules-ai:inicio/fim, dist/REGRAS-GLOBAIS.md, README.md (rules-ai), Precedência projeto > global, scripts/sincronizar.mjs
 
-### Community 16 - "Manipulador"
-Cohesion: 0.06
-Nodes (40): baixar(), chamar(), consultar_saldo(), consultar_tarefa(), criar_tarefa_texto(), ErroTripo, Chamadas à API da Tripo (texto → 3D). A chave nunca sai do servidor local., Falha ao falar com a Tripo (rede, chave inválida, saldo, resposta inesperada). (+32 more)
+### Community 16 - "servidor.py"
+Cohesion: 0.23
+Nodes (10): Chamadas à API da Tripo (texto → 3D). A chave nunca sai do servidor local., chave_tripo(), ler_env(), limite_geracoes(), Constantes do servidor local do 3D GRAPHS AI e leitura do .env., Lê pares CHAVE=valor do .env (sem dependências) e mescla com o ambiente., Chave da API da Tripo, ou '' se não configurada., Máximo de gerações por execução do servidor (proteção de custo). (+2 more)
 
-### Community 17 - "principal.js"
-Cohesion: 0.11
-Nodes (38): acompanharTarefa(), esperar(), gerarModelo(), lerEstado(), listarModelos(), pedirJson(), lerChave(), mascarar() (+30 more)
+### Community 17 - "cena.js"
+Cohesion: 0.09
+Nodes (45): acompanharTarefa(), esperar(), gerarModelo(), gerarObjetoCena(), lerEstado(), listarCenas(), listarModelos(), pedirJson() (+37 more)
 
 ### Community 18 - "dashboard/CLAUDE.md (prompt de análise de mercado)"
 Cohesion: 0.29
@@ -177,8 +194,8 @@ Cohesion: 0.25
 Nodes (7): Etapa 001 — GLOBAL: Regras globais para todas as IAs e projetos, GLOBAL.1 a GLOBAL.3 — Entrega, GLOBAL.4 — Confirmar os conflitos (concluída), GLOBAL.5 — Demais IAs (concluída), GLOBAL.6 — Decidir C11 e C12 (concluída), GLOBAL.7 — Acompanhar o alinhamento dos projetos, GLOBAL.8 — Gemini CLI lendo as regras de verdade (concluída)
 
 ### Community 20 - "regras/ciclo-da-task.md"
-Cohesion: 0.29
-Nodes (5): niveis-e-modelos.md (coluna Modelo), C26 Subtarefa nova só dentro da mãe atual, Tarefa grande: plano na etapa + aprovação, effort por nível (LEVE=low, MEDIO=medium, PESADO=high) - C21, 🎛️ Esforço (`effort`) dos agentes
+Cohesion: 0.33
+Nodes (6): Ordem criar → publicar → assumir → trabalhar, tasks/STATUS.md (quadro de tarefas), C26 Subtarefa nova só dentro da mãe atual, Tarefa grande: plano na etapa + aprovação, Reserva de subtarefa (Em uso por + commit/push), scripts/gerenciador.mjs + gerenciador.config.json
 
 ### Community 21 - "📏 Código — Limites, nomes e legibilidade"
 Cohesion: 0.11
@@ -249,24 +266,24 @@ Cohesion: 0.29
 Nodes (7): Cada informação em um lugar só, Legenda, Modelo da etapa (uma por tarefa-mãe), Modelo do `tasks/STATUS.md`, Modelo do `tasks/task_complete.md`, 🗂️ Quadro de tarefas — fonte única, para qualquer projeto, Tarefa e subtarefa
 
 ### Community 40 - "🤖 Gerenciador centralizado de tarefas"
-Cohesion: 0.33
-Nodes (6): Como parar, 🤖 Gerenciador centralizado de tarefas, Limites, Modos, O que ele faz, Regras do modo `disparar`
+Cohesion: 0.25
+Nodes (7): scripts/PARAR (parada do gerenciador), Como parar, 🤖 Gerenciador centralizado de tarefas, Limites, Modos, O que ele faz, Regras do modo `disparar`
 
-### Community 41 - "Reserva de subtarefa (Em uso por + commit/push)"
-Cohesion: 0.33
-Nodes (5): Ordem criar → publicar → assumir → trabalhar, Reserva de subtarefa (Em uso por + commit/push), Um commit por tarefa, git add por caminho, Sem worktree, sem merge, pull --rebase, sem force push, 🔀 Git — regras comuns a todos os projetos
+### Community 41 - "regras/git-geral.md"
+Cohesion: 0.50
+Nodes (3): Um commit por tarefa, git add por caminho, Sem worktree, sem merge, pull --rebase, sem force push, 🔀 Git — regras comuns a todos os projetos
 
-### Community 42 - "TAREFA FINALIZADA E SINCRONIZADA!"
-Cohesion: 0.40
-Nodes (4): AGENTS.md (rules-ai), Uma sessão por vez (trava tasks/.sessao-ativa, C29), TAREFA FINALIZADA E SINCRONIZADA!, 📊 Exibição de status — sempre em quadro
+### Community 42 - "Gatilho ';' (C24) pegar próxima tarefa do seu modelo"
+Cohesion: 0.28
+Nodes (8): AGENTS.md (rules-ai), Uma sessão por vez (trava tasks/.sessao-ativa, C29), TAREFA FINALIZADA E SINCRONIZADA!, C27 Todo status em quadro (tabela com ID e emoji), Gatilho '.' (C30) listar pendentes, Gatilho ';' (C24) pegar próxima tarefa do seu modelo, Modos ver (padrão) e disparar (em pausa), 📊 Exibição de status — sempre em quadro
 
 ### Community 43 - "3D GRAPHS AI"
-Cohesion: 0.33
-Nodes (5): 3D GRAPHS AI, API escolhida: Tripo (a mais barata da coleta), Arquivos, Como usar, Pendente
+Cohesion: 0.29
+Nodes (6): 3D GRAPHS AI, API escolhida: Tripo (a mais barata da coleta), Arquivos, Cena do prompt 04 (`cena.html`), Como usar, Situação da API
 
-### Community 45 - "tasks/STATUS.md (quadro de tarefas)"
-Cohesion: 0.50
-Nodes (3): tasks/STATUS.md (quadro de tarefas), scripts/PARAR (parada do gerenciador), scripts/gerenciador.mjs + gerenciador.config.json
+### Community 45 - "Tripo AI — como usar a API e os SDKs"
+Cohesion: 0.10
+Nodes (20): 10. Divergências da própria documentação, 11. Situação no nosso dashboard (`dashboard/graphs/`), 1. Visão geral, 2. Chave da API (autenticação), 3.1 Criar a tarefa (texto → 3D), 3.2 Consultar a tarefa, 3.3 Baixar o modelo, 3. Fluxo pela API REST (V3) (+12 more)
 
 ### Community 46 - "C25 — Ler GRAPH_REPORT antes de criar/executar e atualizar ao fim"
 Cohesion: 0.40
@@ -276,25 +293,89 @@ Nodes (5): ETAPA-007 GRAPHIFY-GLOBAL, regras/graphify.md, C11 — graphify (regr
 Cohesion: 0.40
 Nodes (4): Decisões, Etapa 004 — MODELO-GLOBAL: nunca executar tarefa que não é do seu modelo, MODELO-GLOBAL.1 — Regra global, MODELO-GLOBAL.2 — Levar aos outros projetos e às IAs
 
+### Community 48 - "prompt-04.js"
+Cohesion: 0.18
+Nodes (17): carregador, criarCadeira(), criarEsfera(), criarHexagono(), criarObjeto(), criarVoxel(), encaixar(), FABRICAS (+9 more)
+
+### Community 49 - "galeria_modelos.py"
+Cohesion: 0.14
+Nodes (18): baixar(), Baixa o GLB gerado (as URLs da Tripo são temporárias) para o disco., arquivo_pronto(), destino_do_modelo(), gravar_meta(), id_valido(), ler_meta(), listar_modelos() (+10 more)
+
+### Community 50 - "cenas_prompts.py"
+Cohesion: 0.21
+Nodes (13): caminho_glb(), com_arquivos(), id_valido(), ler_cena(), listar_cenas(), objeto_da_cena(), Cenas montadas a partir dos prompts (graphs/cenas/*.json) e os GLB gerados para…, Ids de cena e de objeto: minúsculas, números e hífen. (+5 more)
+
+### Community 51 - "Manipulador"
+Cohesion: 0.21
+Nodes (6): caminho_proibido(), Manipulador, Gera por prompt livre ou, com cena+objeto, pelo prompt_tripo definido na cena., Nunca servir .env, arquivos ocultos nem código Python do servidor., Arquivos estáticos do dashboard + rotas /api/ do 3D GRAPHS AI., SimpleHTTPRequestHandler
+
+### Community 52 - "modal-config.js"
+Cohesion: 0.39
+Nodes (10): lerChave(), mascarar(), removerChave(), salvarChave(), abrir(), alternarVisibilidade(), aoRemover(), aoSalvar() (+2 more)
+
+### Community 53 - "niveis-e-modelos.md (Níveis de tarefa)"
+Cohesion: 0.18
+Nodes (12): regras/esforco.md, ETAPA-004 MODELO-GLOBAL, Nível LEVE, Nível MEDIO, Nível PESADO, Tabela ferramenta x nível (quem pega o quê), Coluna Modelo obrigatória, niveis-e-modelos.md (Níveis de tarefa) (+4 more)
+
+### Community 54 - "tasks/STATUS.md — rules-ai"
+Cohesion: 0.24
+Nodes (10): ETAPA-002 ESFORCO-GLOBAL / CONFEFFORT-GLOBAL, ETAPA-003 EFFORT-PADARIA, Projeto testes-effort-padaria, Tarefa CONFEFFORT-GLOBAL — conferir effort por modelo, Tarefa EFFORT-PADARIA — testar low/medium/high com padaria, Tarefa ESFORCO-GLOBAL — effort por nível, tasks/STATUS.md — rules-ai, Registro de decisões (+2 more)
+
+### Community 55 - ".chave_do_pedido"
+Cohesion: 0.25
+Nodes (5): consultar_saldo(), consultar_tarefa(), Status, progresso e URL do modelo (se pronto) de uma tarefa., Saldo de créditos da conta., Chave enviada pelo navegador (localStorage); '' se ausente ou malformada.
+
+### Community 56 - "ErroTripo"
+Cohesion: 0.33
+Nodes (7): chamar(), criar_tarefa_texto(), ErroTripo, Falha ao falar com a Tripo (rede, chave inválida, saldo, resposta inesperada)., Faz a requisição autenticada e devolve o campo 'data' da resposta. Usa a chave…, Cria a tarefa texto → 3D (V3) e devolve o task_id., Exception
+
+### Community 57 - "Tarefa GERENCIADOR-GLOBAL — gerenciador centralizado"
+Cohesion: 0.29
+Nodes (7): Disparo automático em pausa (modo ver), ETAPA-009-a0c1d676 GERENCIADOR-GLOBAL, regras/gerenciador-centralizado.md, Líder gerenciador-de-tarefas (aulas-senai), Equipe de agentes do Claude Code (líder + executor-leve/medio/pesado), C28 — Gerenciador centralizado, Tarefa GERENCIADOR-GLOBAL — gerenciador centralizado
+
+### Community 58 - "⚖️ Conflitos entre regras — aguardam a confirmação do usuário"
+Cohesion: 0.33
+Nodes (6): ⚖️ Conflitos entre regras — aguardam a confirmação do usuário, Decididos depois (2026-10-16), Decididos em 2026-10-16 (C1 a C10), O que ficou de fora de propósito (específico de projeto), O que já está no global (sem conflito), Pendente de decisão
+
+### Community 59 - "🎚️ Níveis de tarefa — quem pega o quê"
+Cohesion: 0.40
+Nodes (5): Como usar, Equipe de agentes do Claude Code, 🎚️ Níveis de tarefa — quem pega o quê, Os 3 níveis, Quem pega cada nível
+
+### Community 60 - "MODELO-3D-REDE-NEURAL-01 — Orquestrador de agentes em anel"
+Cohesion: 0.50
+Nodes (3): MODELO-3D-REDE-NEURAL-01 — Orquestrador de agentes em anel, O que a imagem mostra, Prompt (copiar)
+
+### Community 61 - "MODELO-3D-REDE-NEURAL-02 — Infográfico "1 agente no lugar de 25 assentos""
+Cohesion: 0.50
+Nodes (3): MODELO-3D-REDE-NEURAL-02 — Infográfico "1 agente no lugar de 25 assentos", O que a imagem mostra, Prompt (copiar)
+
+### Community 62 - "MODELO-3D-REDE-NEURAL-03 — Painel de robô com toro 3D de partículas"
+Cohesion: 0.50
+Nodes (3): MODELO-3D-REDE-NEURAL-03 — Painel de robô com toro 3D de partículas, O que a imagem mostra, Prompt (copiar)
+
+### Community 63 - "MODELO-3D-REDE-NEURAL-04 — Infográfico animado: a rede do agente tomando os assentos"
+Cohesion: 0.50
+Nodes (3): MODELO-3D-REDE-NEURAL-04 — Infográfico animado: a rede do agente tomando os assentos, O que a imagem mostra, Prompt (copiar)
+
 ## Knowledge Gaps
-- **196 isolated node(s):** `TAMANHOS_CAMADAS`, `SEMENTE_PESOS`, `ENTRADAS_PADRAO`, `NOMES_SAIDAS`, `NOMES_CAMADAS` (+191 more)
+- **228 isolated node(s):** `TAMANHOS_CAMADAS`, `SEMENTE_PESOS`, `ENTRADAS_PADRAO`, `NOMES_SAIDAS`, `NOMES_CAMADAS` (+223 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `tasks/task_complete.md — Concluídas` connect `tasks/task_complete.md — Concluídas` to `Tarefa INDEX-FONTES — cards e modais no C:\fontes\index.html`, `Etapa 005 — INDEX-FONTES: cards e modais no `C:\fontes\index.html``, `tasks/STATUS.md — rules-ai`, `Etapa 009-a0c1d676 — GERENCIADOR-GLOBAL: gerenciador centralizado que chama as tarefas livres de cada modelo`, `Etapa 003 — EFFORT-PADARIA: testar `low`, `medium` e `high` em todos os modelos com um projeto de padaria`, `Etapa 002 — ESFORCO-GLOBAL e CONFEFFORT-GLOBAL: esforço (`effort`) vale para todos os projetos`, `Etapa 011 — PASTA-UNICA-GLOBAL: conflitos de várias sessões na mesma pasta (`rules-ai` e `gerenciador-de-ia`)`, `Etapa 013-1b79ba45 — DASHBOARD-REDE-NEURAL: visualização 3D das camadas de uma rede neural`, `Etapa 004 — MODELO-GLOBAL: nunca executar tarefa que não é do seu modelo`, `C25 — Ler GRAPH_REPORT antes de criar/executar e atualizar ao fim`, `Etapa 001 — GLOBAL: Regras globais para todas as IAs e projetos`, `Etapa 010 — STATUS-QUADRO-GLOBAL: todo status é mostrado em quadro`, `Tarefa PASTA-UNICA-GLOBAL — uma sessão por vez na mesma pasta`, `Etapa 006 — GATILHO-GLOBAL: mensagem `;` = pegue a próxima tarefa do seu modelo`, `Etapa 007 — GRAPHIFY-GLOBAL: ler o relatório antes de criar ou executar tarefa e atualizar ao fim`, `Etapa 008 — SUBTAREFA-GLOBAL: a IA cria subtarefas na mãe atual e publica direto`, `ETAPA-012-PONTO-GLOBAL.md`?**
-  _High betweenness centrality (0.107) - this node is a cross-community bridge._
-- **Why does `tasks/STATUS.md — rules-ai` connect `tasks/STATUS.md — rules-ai` to `Tarefa INDEX-FONTES — cards e modais no C:\fontes\index.html`, `tasks/task_complete.md — Concluídas`, `Etapa 009-a0c1d676 — GERENCIADOR-GLOBAL: gerenciador centralizado que chama as tarefas livres de cada modelo`, `Etapa 003 — EFFORT-PADARIA: testar `low`, `medium` e `high` em todos os modelos com um projeto de padaria`, `Etapa 002 — ESFORCO-GLOBAL e CONFEFFORT-GLOBAL: esforço (`effort`) vale para todos os projetos`, `Etapa 013-1b79ba45 — DASHBOARD-REDE-NEURAL: visualização 3D das camadas de uma rede neural`, `Etapa 004 — MODELO-GLOBAL: nunca executar tarefa que não é do seu modelo`?**
-  _High betweenness centrality (0.093) - this node is a cross-community bridge._
-- **Why does `AGENTS.md (rules-ai)` connect `TAREFA FINALIZADA E SINCRONIZADA!` to `tasks/STATUS.md — rules-ai`?**
+- **Why does `tasks/task_complete.md — Concluídas` connect `tasks/task_complete.md — Concluídas` to `Tarefa INDEX-FONTES — cards e modais no C:\fontes\index.html`, `Etapa 005 — INDEX-FONTES: cards e modais no `C:\fontes\index.html``, `CONFLITOS.md`, `Etapa 003 — EFFORT-PADARIA: testar `low`, `medium` e `high` em todos os modelos com um projeto de padaria`, `Etapa 002 — ESFORCO-GLOBAL e CONFEFFORT-GLOBAL: esforço (`effort`) vale para todos os projetos`, `Etapa 011 — PASTA-UNICA-GLOBAL: conflitos de várias sessões na mesma pasta (`rules-ai` e `gerenciador-de-ia`)`, `Etapa 013-1b79ba45 — DASHBOARD-REDE-NEURAL: visualização 3D das camadas de uma rede neural`, `Etapa 004 — MODELO-GLOBAL: nunca executar tarefa que não é do seu modelo`, `C25 — Ler GRAPH_REPORT antes de criar/executar e atualizar ao fim`, `Etapa 001 — GLOBAL: Regras globais para todas as IAs e projetos`, `tasks/STATUS.md — rules-ai`, `Etapa 010 — STATUS-QUADRO-GLOBAL: todo status é mostrado em quadro`, `Tarefa PASTA-UNICA-GLOBAL — uma sessão por vez na mesma pasta`, `Etapa 006 — GATILHO-GLOBAL: mensagem `;` = pegue a próxima tarefa do seu modelo`, `Etapa 007 — GRAPHIFY-GLOBAL: ler o relatório antes de criar ou executar tarefa e atualizar ao fim`, `Etapa 008 — SUBTAREFA-GLOBAL: a IA cria subtarefas na mãe atual e publica direto`, `ETAPA-012-PONTO-GLOBAL.md`?**
+  _High betweenness centrality (0.078) - this node is a cross-community bridge._
+- **Why does `tasks/STATUS.md — rules-ai` connect `tasks/STATUS.md — rules-ai` to `Tarefa INDEX-FONTES — cards e modais no C:\fontes\index.html`, `CONFLITOS.md`, `tasks/task_complete.md — Concluídas`, `Etapa 003 — EFFORT-PADARIA: testar `low`, `medium` e `high` em todos os modelos com um projeto de padaria`, `Etapa 002 — ESFORCO-GLOBAL e CONFEFFORT-GLOBAL: esforço (`effort`) vale para todos os projetos`, `Etapa 013-1b79ba45 — DASHBOARD-REDE-NEURAL: visualização 3D das camadas de uma rede neural`, `Etapa 004 — MODELO-GLOBAL: nunca executar tarefa que não é do seu modelo`, `niveis-e-modelos.md (Níveis de tarefa)`, `Tarefa GERENCIADOR-GLOBAL — gerenciador centralizado`?**
   _High betweenness centrality (0.068) - this node is a cross-community bridge._
+- **Why does `AGENTS.md (rules-ai)` connect `Gatilho ';' (C24) pegar próxima tarefa do seu modelo` to `CONFLITOS.md`?**
+  _High betweenness centrality (0.049) - this node is a cross-community bridge._
 - **What connects `TAMANHOS_CAMADAS`, `SEMENTE_PESOS`, `ENTRADAS_PADRAO` to the rest of the system?**
-  _196 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `tasks/STATUS.md — rules-ai` be split into smaller, more focused modules?**
-  _Cohesion score 0.06033182503770739 - nodes in this community are weakly interconnected._
+  _228 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `coletar.py` be split into smaller, more focused modules?**
   _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
 - **Should `gerar_dados_painel.py` be split into smaller, more focused modules?**
   _Cohesion score 0.07439024390243902 - nodes in this community are weakly interconnected._
+- **Should `rede-neural.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.14761904761904762 - nodes in this community are weakly interconnected._

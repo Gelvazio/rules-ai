@@ -24,9 +24,9 @@
     "semantic_hash": "bd4ce873f82c760edb3f52617819ad0a"
   },
   "STATUS_PROJETO.md": {
-    "mtime": 1792263202.9095373,
-    "seen": 1792263206.693916,
-    "ast_hash": "f36ebf0e0534ee933aeca9c68bbcb745",
+    "mtime": 1792264701.7547412,
+    "seen": 1792264707.919742,
+    "ast_hash": "433bb5ded620f14135e7596046eb8f44",
     "semantic_hash": ""
   },
   "regras/atividades-e-idioma.md": {
@@ -102,9 +102,9 @@
     "semantic_hash": "7901c01152e3776498a04db7c2c12fcd"
   },
   "tasks/STATUS.md": {
-    "mtime": 1792263202.9015467,
-    "seen": 1792263206.693916,
-    "ast_hash": "6f6d1ca02dba0caca5cbb80ac03c4f3c",
+    "mtime": 1792264701.747712,
+    "seen": 1792264707.919742,
+    "ast_hash": "89700dd8b03f47d5c925627f8f4c4391",
     "semantic_hash": ""
   },
   "tasks/etapas/ETAPA-001-GLOBAL.md": {
@@ -270,9 +270,9 @@
     "semantic_hash": "bf14bc7258c083aca548042482674bca"
   },
   "tasks/etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md": {
-    "mtime": 1792263202.9081292,
-    "seen": 1792263206.693916,
-    "ast_hash": "f1cc3be5d3f933b0147d03d66161b65f",
+    "mtime": 1792264701.754235,
+    "seen": 1792264707.919742,
+    "ast_hash": "fc3dad20abd0a73b154898131ac10873",
     "semantic_hash": ""
   },
   "dashboard/assets/js/dados/ferramentas.js": {
@@ -330,9 +330,9 @@
     "semantic_hash": ""
   },
   "dashboard/graphs/assets/js/api.js": {
-    "mtime": 1792263124.8332736,
-    "seen": 1792263206.693916,
-    "ast_hash": "f4d93f16dbb33be30e26ad1bda2a8e87",
+    "mtime": 1792264608.1833985,
+    "seen": 1792264707.919742,
+    "ast_hash": "dd922fd14fe2aa6c986d6cc372124d70",
     "semantic_hash": ""
   },
   "dashboard/graphs/assets/js/config.js": {
@@ -342,9 +342,9 @@
     "semantic_hash": ""
   },
   "dashboard/graphs/assets/js/principal.js": {
-    "mtime": 1792263147.8383534,
-    "seen": 1792263206.693916,
-    "ast_hash": "f3d0816b33dac65dea9a91350b8cb725",
+    "mtime": 1792264620.4403586,
+    "seen": 1792264707.919742,
+    "ast_hash": "fc212a75f1958db91abe66913c16a414",
     "semantic_hash": ""
   },
   "dashboard/graphs/assets/js/visualizador.js": {
@@ -354,15 +354,15 @@
     "semantic_hash": ""
   },
   "dashboard/graphs/cliente_tripo.py": {
-    "mtime": 1792263056.2053642,
-    "seen": 1792263206.693916,
-    "ast_hash": "699b7a32b73abeaea759ae9b85e1231f",
+    "mtime": 1792264668.7419322,
+    "seen": 1792264707.919742,
+    "ast_hash": "6d6a6bcbb3d1441cd69575e4aaf7b882",
     "semantic_hash": ""
   },
   "dashboard/graphs/config_graphs.py": {
-    "mtime": 1792263045.7564294,
-    "seen": 1792263206.693916,
-    "ast_hash": "1173dfe1e92d1c86e30e776dd2f49b61",
+    "mtime": 1792264670.154554,
+    "seen": 1792264707.919742,
+    "ast_hash": "235ac81b18dffb69bc0c4e335061fb86",
     "semantic_hash": ""
   },
   "dashboard/graphs/galeria_modelos.py": {
@@ -372,21 +372,33 @@
     "semantic_hash": ""
   },
   "dashboard/graphs/servidor.py": {
-    "mtime": 1792263089.4724452,
-    "seen": 1792263206.693916,
-    "ast_hash": "434366d21b789f10d306df68df70134e",
+    "mtime": 1792264588.944474,
+    "seen": 1792264707.919742,
+    "ast_hash": "f3f396d60a5534c0f5d2c17e3f7cfac0",
     "semantic_hash": ""
   },
   "dashboard/graphs/README.md": {
-    "mtime": 1792263190.9211822,
-    "seen": 1792263206.693916,
-    "ast_hash": "5abcbcbe082caa1adc573e9de3f0d02d",
+    "mtime": 1792264701.7457125,
+    "seen": 1792264707.919742,
+    "ast_hash": "d6fac65dcf9789ff084b6e9440ff6f20",
     "semantic_hash": ""
   },
   "dashboard/graphs/index.html": {
-    "mtime": 1792263102.0767193,
-    "seen": 1792263206.693916,
-    "ast_hash": "f3bd95238d90ca90a36e4026e0259e9e",
+    "mtime": 1792264634.055936,
+    "seen": 1792264707.919742,
+    "ast_hash": "559289e15ac1d7815f476e0f3741fd6c",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/assets/js/chave.js": {
+    "mtime": 1792264597.5201015,
+    "seen": 1792264707.919742,
+    "ast_hash": "3769d7f64f9ff92e55f3506e917a74f4",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/assets/js/modal-config.js": {
+    "mtime": 1792264604.7086437,
+    "seen": 1792264707.919742,
+    "ast_hash": "7ba44ac678783d574454ea5038a88c17",
     "semantic_hash": ""
   }
 }

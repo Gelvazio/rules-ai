@@ -62,11 +62,11 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "errotripo",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "dashboard_graphs_servidor_manipulador",
@@ -75,11 +75,11 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "manipulador",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L36"
+      "source_location": "L39"
     },
     {
       "id": "scripts_sincronizar_aplicarbloco",
@@ -147,11 +147,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "baixar()",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L69"
+      "source_location": "L74"
     },
     {
       "id": "dashboard_graphs_cliente_tripo_chamar",
@@ -159,11 +159,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "chamar()",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L21"
+      "source_location": "L22"
     },
     {
       "id": "dashboard_graphs_cliente_tripo_consultar_saldo",
@@ -171,11 +171,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "consultar_saldo()",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L64"
+      "source_location": "L69"
     },
     {
       "id": "dashboard_graphs_cliente_tripo_consultar_tarefa",
@@ -183,11 +183,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "consultar_tarefa()",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L51"
+      "source_location": "L56"
     },
     {
       "id": "dashboard_graphs_cliente_tripo_criar_tarefa_texto",
@@ -195,11 +195,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "criar_tarefa_texto()",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L43"
+      "source_location": "L48"
     },
     {
       "id": "dashboard_graphs_config_graphs_chave_tripo",
@@ -207,11 +207,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "chave_tripo()",
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L43"
+      "source_location": "L44"
     },
     {
       "id": "dashboard_graphs_config_graphs_ler_env",
@@ -219,11 +219,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "ler_env()",
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L28"
+      "source_location": "L29"
     },
     {
       "id": "dashboard_graphs_config_graphs_limite_geracoes",
@@ -231,11 +231,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "limite_geracoes()",
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L48"
+      "source_location": "L49"
     },
     {
       "id": "dashboard_graphs_galeria_modelos_arquivo_pronto",
@@ -243,7 +243,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "arquivo_pronto()",
       "source_file": "dashboard/graphs/galeria_modelos.py",
@@ -255,7 +255,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "id_valido()",
       "source_file": "dashboard/graphs/galeria_modelos.py",
@@ -267,7 +267,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "listar_modelos()",
       "source_file": "dashboard/graphs/galeria_modelos.py",
@@ -279,7 +279,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "registrar_pedido()",
       "source_file": "dashboard/graphs/galeria_modelos.py",
@@ -291,7 +291,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "salvar_modelo()",
       "source_file": "dashboard/graphs/galeria_modelos.py",
@@ -303,11 +303,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "caminho_proibido()",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L30"
+      "source_location": "L33"
     },
     {
       "id": "dashboard_graphs_servidor_main",
@@ -315,11 +315,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "main()",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L109"
+      "source_location": "L118"
+    },
+    {
+      "id": "dashboard_graphs_servidor_manipulador_chave_do_pedido",
+      "label": ".chave_do_pedido()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Manipulador",
+      "file_type": "code",
+      "norm_label": ".chave_do_pedido()",
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L42"
     },
     {
       "id": "dashboard_graphs_servidor_manipulador_do_get",
@@ -327,11 +339,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": ".do_get()",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L47"
+      "source_location": "L55"
     },
     {
       "id": "dashboard_graphs_servidor_manipulador_do_post",
@@ -339,11 +351,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": ".do_post()",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L58"
+      "source_location": "L66"
     },
     {
       "id": "dashboard_graphs_servidor_manipulador_executar",
@@ -351,11 +363,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": ".executar()",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L63"
+      "source_location": "L71"
     },
     {
       "id": "dashboard_graphs_servidor_manipulador_responder",
@@ -363,11 +375,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": ".responder()",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L39"
+      "source_location": "L47"
     },
     {
       "id": "dashboard_graphs_servidor_manipulador_rota_estado",
@@ -375,11 +387,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": ".rota_estado()",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L71"
+      "source_location": "L79"
     },
     {
       "id": "dashboard_graphs_servidor_manipulador_rota_gerar",
@@ -387,11 +399,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": ".rota_gerar()",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L82"
+      "source_location": "L91"
     },
     {
       "id": "dashboard_graphs_servidor_manipulador_rota_modelos",
@@ -399,11 +411,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": ".rota_modelos()",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L76"
+      "source_location": "L85"
     },
     {
       "id": "dashboard_graphs_servidor_manipulador_rota_saldo",
@@ -411,11 +423,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": ".rota_saldo()",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L79"
+      "source_location": "L88"
     },
     {
       "id": "dashboard_graphs_servidor_manipulador_rota_tarefa",
@@ -423,11 +435,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": ".rota_tarefa()",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L96"
+      "source_location": "L105"
     },
     {
       "id": "dashboard_graphs_assets_js_api_acompanhartarefa",
@@ -439,7 +451,7 @@
       "file_type": "code",
       "norm_label": "acompanhartarefa()",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L51"
+      "source_location": "L58"
     },
     {
       "id": "dashboard_graphs_assets_js_api_esperar",
@@ -451,7 +463,7 @@
       "file_type": "code",
       "norm_label": "esperar()",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L43"
+      "source_location": "L50"
     },
     {
       "id": "dashboard_graphs_assets_js_api_gerarmodelo",
@@ -463,7 +475,7 @@
       "file_type": "code",
       "norm_label": "gerarmodelo()",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L34"
+      "source_location": "L41"
     },
     {
       "id": "dashboard_graphs_assets_js_api_lerestado",
@@ -475,7 +487,7 @@
       "file_type": "code",
       "norm_label": "lerestado()",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L15"
+      "source_location": "L22"
     },
     {
       "id": "dashboard_graphs_assets_js_api_listarmodelos",
@@ -487,7 +499,7 @@
       "file_type": "code",
       "norm_label": "listarmodelos()",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L24"
+      "source_location": "L31"
     },
     {
       "id": "dashboard_graphs_assets_js_api_pedirjson",
@@ -499,7 +511,127 @@
       "file_type": "code",
       "norm_label": "pedirjson()",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L4"
+      "source_location": "L8"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_chave_lerchave",
+      "label": "lerChave()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "lerchave()",
+      "source_file": "dashboard/graphs/assets/js/chave.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_chave_mascarar",
+      "label": "mascarar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "mascarar()",
+      "source_file": "dashboard/graphs/assets/js/chave.js",
+      "source_location": "L42"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_chave_removerchave",
+      "label": "removerChave()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "removerchave()",
+      "source_file": "dashboard/graphs/assets/js/chave.js",
+      "source_location": "L29"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_chave_salvarchave",
+      "label": "salvarChave()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "salvarchave()",
+      "source_file": "dashboard/graphs/assets/js/chave.js",
+      "source_location": "L19"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_modal_config_abrir",
+      "label": "abrir()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "abrir()",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L15"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_modal_config_alternarvisibilidade",
+      "label": "alternarVisibilidade()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "alternarvisibilidade()",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L25"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_modal_config_aoremover",
+      "label": "aoRemover()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "aoremover()",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L47"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_modal_config_aosalvar",
+      "label": "aoSalvar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "aosalvar()",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L32"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_modal_config_atualizarsituacao",
+      "label": "atualizarSituacao()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "atualizarsituacao()",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_modal_config_iniciarmodalconfig",
+      "label": "iniciarModalConfig()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "iniciarmodalconfig()",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L58"
     },
     {
       "id": "dashboard_graphs_assets_js_principal_abrirmodelo",
@@ -511,7 +643,7 @@
       "file_type": "code",
       "norm_label": "abrirmodelo()",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L14"
+      "source_location": "L16"
     },
     {
       "id": "dashboard_graphs_assets_js_principal_aogerar",
@@ -523,7 +655,19 @@
       "file_type": "code",
       "norm_label": "aogerar()",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L59"
+      "source_location": "L63"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_principal_atualizarestado",
+      "label": "atualizarEstado()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "atualizarestado()",
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L89"
     },
     {
       "id": "dashboard_graphs_assets_js_principal_avisar",
@@ -535,7 +679,7 @@
       "file_type": "code",
       "norm_label": "avisar()",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L9"
+      "source_location": "L11"
     },
     {
       "id": "dashboard_graphs_assets_js_principal_carregargaleria",
@@ -547,7 +691,7 @@
       "file_type": "code",
       "norm_label": "carregargaleria()",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L40"
+      "source_location": "L42"
     },
     {
       "id": "dashboard_graphs_assets_js_principal_descreverestado",
@@ -559,7 +703,7 @@
       "file_type": "code",
       "norm_label": "descreverestado()",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L78"
+      "source_location": "L82"
     },
     {
       "id": "dashboard_graphs_assets_js_principal_iniciar",
@@ -571,7 +715,7 @@
       "file_type": "code",
       "norm_label": "iniciar()",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L84"
+      "source_location": "L96"
     },
     {
       "id": "dashboard_graphs_assets_js_principal_itemgaleria",
@@ -583,7 +727,7 @@
       "file_type": "code",
       "norm_label": "itemgaleria()",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L25"
+      "source_location": "L27"
     },
     {
       "id": "dashboard_graphs_assets_js_principal_mostrarprogresso",
@@ -595,7 +739,19 @@
       "file_type": "code",
       "norm_label": "mostrarprogresso()",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L53"
+      "source_location": "L55"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_principal_temchave",
+      "label": "temChave()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "temchave()",
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L61"
     },
     {
       "id": "dashboard_graphs_assets_js_visualizador_ajustartamanho",
@@ -1486,156 +1642,18 @@
       "source_location": "L10"
     },
     {
-      "id": "gerenciador_mjs",
-      "label": "scripts/gerenciador.mjs + gerenciador.config.json",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "code",
-      "norm_label": "scripts/gerenciador.mjs + gerenciador.config.json",
-      "source_file": "regras/gerenciador-centralizado.md",
-      "source_location": "L3-L4",
-      "source_url": null
-    },
-    {
-      "id": "ciclo_niveis_e_modelos",
-      "label": "niveis-e-modelos.md (coluna Modelo)",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "niveis-e-modelos.md (coluna modelo)",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L43",
-      "source_url": null
-    },
-    {
-      "id": "ciclo_status_md",
-      "label": "tasks/STATUS.md (quadro de tarefas)",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "tasks/status.md (quadro de tarefas)",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L12",
-      "source_url": null
-    },
-    {
       "id": "frentes_recados_md",
       "label": "tasks/RECADOS.md",
       "_origin": "ast",
       "author": null,
       "captured_at": null,
       "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
+      "community_name": "regras/frentes-e-reserva.md",
       "contributor": null,
       "file_type": "document",
       "norm_label": "tasks/recados.md",
       "source_file": "regras/frentes-e-reserva.md",
       "source_location": "L50",
-      "source_url": null
-    },
-    {
-      "id": "agents_trava_sessao_ativa",
-      "label": "Uma sess\u00e3o por vez (trava tasks/.sessao-ativa, C29)",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "uma sessao por vez (trava tasks/.sessao-ativa, c29)",
-      "rationale": "Decis\u00e3o do usu\u00e1rio (2026-10-17) para evitar conflitos de v\u00e1rias sess\u00f5es na mesma pasta; trava local fora do Git, 60 min sem atualiza\u00e7\u00e3o = abandonada.",
-      "source_file": "AGENTS.md",
-      "source_location": "L9-L24",
-      "source_url": null
-    },
-    {
-      "id": "ciclo_criar_publicar_assumir",
-      "label": "Ordem criar \u2192 publicar \u2192 assumir \u2192 trabalhar",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "ordem criar \u2192 publicar \u2192 assumir \u2192 trabalhar",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L10-L20",
-      "source_url": null
-    },
-    {
-      "id": "ciclo_frase_final",
-      "label": "TAREFA FINALIZADA E SINCRONIZADA!",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "tarefa finalizada e sincronizada!",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L74-L76",
-      "source_url": null
-    },
-    {
-      "id": "ciclo_subtarefa_no_caminho",
-      "label": "C26 Subtarefa nova s\u00f3 dentro da m\u00e3e atual",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "c26 subtarefa nova so dentro da mae atual",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L46-L53",
-      "source_url": null
-    },
-    {
-      "id": "ciclo_tarefa_grande_plano",
-      "label": "Tarefa grande: plano na etapa + aprova\u00e7\u00e3o",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "tarefa grande: plano na etapa + aprovacao",
-      "rationale": "Banco, seguran\u00e7a, v\u00e1rias partes ou mudan\u00e7a em massa exigem plano e sim claro do usu\u00e1rio; na d\u00favida \u00e9 grande.",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L22-L39",
-      "source_url": null
-    },
-    {
-      "id": "esforco_effort_por_nivel",
-      "label": "effort por n\u00edvel (LEVE=low, MEDIO=medium, PESADO=high) - C21",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "effort por nivel (leve=low, medio=medium, pesado=high) - c21",
-      "rationale": "Declarar no frontmatter para valer sempre, sem depender do esfor\u00e7o da sess\u00e3o do l\u00edder; o agente n\u00e3o enxerga o pr\u00f3prio esfor\u00e7o.",
-      "source_file": "regras/esforco.md",
-      "source_location": "L8-L16",
       "source_url": null
     },
     {
@@ -1645,7 +1663,7 @@
       "author": null,
       "captured_at": null,
       "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
+      "community_name": "regras/frentes-e-reserva.md",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "c27 todo status em quadro (tabela com id e emoji)",
@@ -1660,7 +1678,7 @@
       "author": null,
       "captured_at": null,
       "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
+      "community_name": "regras/frentes-e-reserva.md",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "frente (sessao de ia)",
@@ -1675,7 +1693,7 @@
       "author": null,
       "captured_at": null,
       "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
+      "community_name": "regras/frentes-e-reserva.md",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "gatilho '.' (c30) listar pendentes",
@@ -1690,28 +1708,12 @@
       "author": null,
       "captured_at": null,
       "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
+      "community_name": "regras/frentes-e-reserva.md",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "gatilho ';' (c24) pegar proxima tarefa do seu modelo",
       "source_file": "regras/frentes-e-reserva.md",
       "source_location": "L52-L64",
-      "source_url": null
-    },
-    {
-      "id": "frentes_reserva_subtarefa",
-      "label": "Reserva de subtarefa (Em uso por + commit/push)",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "reserva de subtarefa (em uso por + commit/push)",
-      "rationale": "V\u00e1rias IAs s\u00f3 se falam pelos arquivos; a reserva com push imediato evita que duas frentes peguem a mesma subtarefa.",
-      "source_file": "regras/frentes-e-reserva.md",
-      "source_location": "L15-L29",
       "source_url": null
     },
     {
@@ -1721,27 +1723,12 @@
       "author": null,
       "captured_at": null,
       "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
+      "community_name": "regras/frentes-e-reserva.md",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "trava especial",
       "source_file": "regras/frentes-e-reserva.md",
       "source_location": "L36-L37",
-      "source_url": null
-    },
-    {
-      "id": "gerenciador_arquivo_parar",
-      "label": "scripts/PARAR (parada do gerenciador)",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "scripts/parar (parada do gerenciador)",
-      "source_file": "regras/gerenciador-centralizado.md",
-      "source_location": "L30-L33",
       "source_url": null
     },
     {
@@ -1751,7 +1738,7 @@
       "author": null,
       "captured_at": null,
       "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
+      "community_name": "regras/frentes-e-reserva.md",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "modos ver (padrao) e disparar (em pausa)",
@@ -1915,13 +1902,44 @@
       "source_url": null
     },
     {
+      "id": "status_registro_decisoes",
+      "label": "Registro de decis\u00f5es (STATUS.md)",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "registro de decisoes (status.md)",
+      "source_file": "tasks/STATUS.md",
+      "source_location": "L226",
+      "source_url": null
+    },
+    {
+      "id": "niveis_e_modelos_equipe_agentes",
+      "label": "Equipe de agentes do Claude Code (l\u00edder + executor-leve/medio/pesado)",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "equipe de agentes do claude code (lider + executor-leve/medio/pesado)",
+      "rationale": "L\u00edder Opus reserva uma subtarefa por vez, delega ao agente do n\u00edvel, confere e commita; s\u00f3 o l\u00edder usa Git e edita o quadro.",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L49",
+      "source_url": null
+    },
+    {
       "id": "niveis_e_modelos_nivel_leve",
       "label": "N\u00edvel LEVE",
       "_origin": "ast",
       "author": null,
       "captured_at": null,
       "community": 2,
-      "community_name": "niveis-e-modelos.md (N\u00edveis de tarefa)",
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "nivel leve",
@@ -1936,7 +1954,7 @@
       "author": null,
       "captured_at": null,
       "community": 2,
-      "community_name": "niveis-e-modelos.md (N\u00edveis de tarefa)",
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "nivel medio",
@@ -1951,7 +1969,7 @@
       "author": null,
       "captured_at": null,
       "community": 2,
-      "community_name": "niveis-e-modelos.md (N\u00edveis de tarefa)",
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "nivel pesado",
@@ -1961,18 +1979,66 @@
       "source_url": null
     },
     {
+      "id": "niveis_e_modelos_tabela_ferramentas",
+      "label": "Tabela ferramenta x n\u00edvel (quem pega o qu\u00ea)",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "tabela ferramenta x nivel (quem pega o que)",
+      "rationale": "Modelos mais fracos fazem tarefas simples e o forte fica com as dif\u00edceis; o sinal mais restritivo vence e na d\u00favida sobe o n\u00edvel.",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L17",
+      "source_url": null
+    },
+    {
       "id": "quadro_de_tarefas_coluna_modelo",
       "label": "Coluna Modelo obrigat\u00f3ria",
       "_origin": "ast",
       "author": null,
       "captured_at": null,
       "community": 2,
-      "community_name": "niveis-e-modelos.md (N\u00edveis de tarefa)",
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "coluna modelo obrigatoria",
       "source_file": "regras/quadro-de-tarefas.md",
       "source_location": "L132",
+      "source_url": null
+    },
+    {
+      "id": "quadro_de_tarefas_mae_subtarefa",
+      "label": "Tarefa-m\u00e3e com no m\u00ednimo 1 subtarefa",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "tarefa-mae com no minimo 1 subtarefa",
+      "rationale": "Trabalho e reserva sempre na subtarefa; a m\u00e3e n\u00e3o se reserva e fecha quando todas est\u00e3o conclu\u00eddas.",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L78",
+      "source_url": null
+    },
+    {
+      "id": "quadro_de_tarefas_modelo_etapa",
+      "label": "Modelo da etapa ETAPA-NNN-<uuid8>",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "modelo da etapa etapa-nnn-<uuid8>",
+      "rationale": "N\u00famero sequencial + 8 caracteres de UUID evita n\u00famero repetido entre sess\u00f5es.",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L146",
       "source_url": null
     },
     {
@@ -1982,12 +2048,74 @@
       "author": null,
       "captured_at": null,
       "community": 2,
-      "community_name": "niveis-e-modelos.md (N\u00edveis de tarefa)",
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "c2 \u2014 nunca executar subtarefa que nao e do seu modelo",
       "source_file": "regras/niveis-e-modelos.md",
       "source_location": "L30",
+      "source_url": null
+    },
+    {
+      "id": "ciclo_niveis_e_modelos",
+      "label": "niveis-e-modelos.md (coluna Modelo)",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 20,
+      "community_name": "regras/ciclo-da-task.md",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "niveis-e-modelos.md (coluna modelo)",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L43",
+      "source_url": null
+    },
+    {
+      "id": "ciclo_subtarefa_no_caminho",
+      "label": "C26 Subtarefa nova s\u00f3 dentro da m\u00e3e atual",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 20,
+      "community_name": "regras/ciclo-da-task.md",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "c26 subtarefa nova so dentro da mae atual",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L46-L53",
+      "source_url": null
+    },
+    {
+      "id": "ciclo_tarefa_grande_plano",
+      "label": "Tarefa grande: plano na etapa + aprova\u00e7\u00e3o",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 20,
+      "community_name": "regras/ciclo-da-task.md",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "tarefa grande: plano na etapa + aprovacao",
+      "rationale": "Banco, seguran\u00e7a, v\u00e1rias partes ou mudan\u00e7a em massa exigem plano e sim claro do usu\u00e1rio; na d\u00favida \u00e9 grande.",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L22-L39",
+      "source_url": null
+    },
+    {
+      "id": "esforco_effort_por_nivel",
+      "label": "effort por n\u00edvel (LEVE=low, MEDIO=medium, PESADO=high) - C21",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 20,
+      "community_name": "regras/ciclo-da-task.md",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "effort por nivel (leve=low, medio=medium, pesado=high) - c21",
+      "rationale": "Declarar no frontmatter para valer sempre, sem depender do esfor\u00e7o da sess\u00e3o do l\u00edder; o agente n\u00e3o enxerga o pr\u00f3prio esfor\u00e7o.",
+      "source_file": "regras/esforco.md",
+      "source_location": "L8-L16",
       "source_url": null
     },
     {
@@ -2079,22 +2207,6 @@
       "norm_label": "tokens css em :root e bem",
       "source_file": "regras/codigo-solid.md",
       "source_location": "L34-L38",
-      "source_url": null
-    },
-    {
-      "id": "niveis_e_modelos_equipe_agentes",
-      "label": "Equipe de agentes do Claude Code (l\u00edder + executor-leve/medio/pesado)",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 29,
-      "community_name": "Tarefa GERENCIADOR-GLOBAL \u2014 gerenciador centralizado",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "equipe de agentes do claude code (lider + executor-leve/medio/pesado)",
-      "rationale": "L\u00edder Opus reserva uma subtarefa por vez, delega ao agente do n\u00edvel, confere e commita; s\u00f3 o l\u00edder usa Git e edita o quadro.",
-      "source_file": "regras/niveis-e-modelos.md",
-      "source_location": "L49",
       "source_url": null
     },
     {
@@ -2233,18 +2345,34 @@
       "source_url": null
     },
     {
-      "id": "status_registro_decisoes",
-      "label": "Registro de decis\u00f5es (STATUS.md)",
+      "id": "ciclo_criar_publicar_assumir",
+      "label": "Ordem criar \u2192 publicar \u2192 assumir \u2192 trabalhar",
       "_origin": "ast",
       "author": null,
       "captured_at": null,
-      "community": 40,
-      "community_name": "CONFLITOS.md",
+      "community": 41,
+      "community_name": "Reserva de subtarefa (Em uso por + commit/push)",
       "contributor": null,
-      "file_type": "document",
-      "norm_label": "registro de decisoes (status.md)",
-      "source_file": "tasks/STATUS.md",
-      "source_location": "L226",
+      "file_type": "rationale",
+      "norm_label": "ordem criar \u2192 publicar \u2192 assumir \u2192 trabalhar",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L10-L20",
+      "source_url": null
+    },
+    {
+      "id": "frentes_reserva_subtarefa",
+      "label": "Reserva de subtarefa (Em uso por + commit/push)",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 41,
+      "community_name": "Reserva de subtarefa (Em uso por + commit/push)",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "reserva de subtarefa (em uso por + commit/push)",
+      "rationale": "V\u00e1rias IAs s\u00f3 se falam pelos arquivos; a reserva com push imediato evita que duas frentes peguem a mesma subtarefa.",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L15-L29",
       "source_url": null
     },
     {
@@ -2254,7 +2382,7 @@
       "author": null,
       "captured_at": null,
       "community": 41,
-      "community_name": "regras/git-geral.md",
+      "community_name": "Reserva de subtarefa (Em uso por + commit/push)",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "um commit por tarefa, git add por caminho",
@@ -2269,7 +2397,7 @@
       "author": null,
       "captured_at": null,
       "community": 41,
-      "community_name": "regras/git-geral.md",
+      "community_name": "Reserva de subtarefa (Em uso por + commit/push)",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "sem worktree, sem merge, pull --rebase, sem force push",
@@ -2278,13 +2406,89 @@
       "source_url": null
     },
     {
+      "id": "agents_trava_sessao_ativa",
+      "label": "Uma sess\u00e3o por vez (trava tasks/.sessao-ativa, C29)",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 42,
+      "community_name": "TAREFA FINALIZADA E SINCRONIZADA!",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "uma sessao por vez (trava tasks/.sessao-ativa, c29)",
+      "rationale": "Decis\u00e3o do usu\u00e1rio (2026-10-17) para evitar conflitos de v\u00e1rias sess\u00f5es na mesma pasta; trava local fora do Git, 60 min sem atualiza\u00e7\u00e3o = abandonada.",
+      "source_file": "AGENTS.md",
+      "source_location": "L9-L24",
+      "source_url": null
+    },
+    {
+      "id": "ciclo_frase_final",
+      "label": "TAREFA FINALIZADA E SINCRONIZADA!",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 42,
+      "community_name": "TAREFA FINALIZADA E SINCRONIZADA!",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "tarefa finalizada e sincronizada!",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L74-L76",
+      "source_url": null
+    },
+    {
+      "id": "gerenciador_mjs",
+      "label": "scripts/gerenciador.mjs + gerenciador.config.json",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 45,
+      "community_name": "tasks/STATUS.md (quadro de tarefas)",
+      "contributor": null,
+      "file_type": "code",
+      "norm_label": "scripts/gerenciador.mjs + gerenciador.config.json",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L3-L4",
+      "source_url": null
+    },
+    {
+      "id": "ciclo_status_md",
+      "label": "tasks/STATUS.md (quadro de tarefas)",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 45,
+      "community_name": "tasks/STATUS.md (quadro de tarefas)",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "tasks/status.md (quadro de tarefas)",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L12",
+      "source_url": null
+    },
+    {
+      "id": "gerenciador_arquivo_parar",
+      "label": "scripts/PARAR (parada do gerenciador)",
+      "_origin": "ast",
+      "author": null,
+      "captured_at": null,
+      "community": 45,
+      "community_name": "tasks/STATUS.md (quadro de tarefas)",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "scripts/parar (parada do gerenciador)",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L30-L33",
+      "source_url": null
+    },
+    {
       "id": "quadro_de_tarefas_lugar_unico",
       "label": "Cada informa\u00e7\u00e3o em um lugar s\u00f3",
       "_origin": "ast",
       "author": null,
       "captured_at": null,
-      "community": 42,
-      "community_name": "quadro-de-tarefas.md (fonte \u00fanica)",
+      "community": 5,
+      "community_name": "tasks/task_complete.md \u2014 Conclu\u00eddas",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "cada informacao em um lugar so",
@@ -2292,318 +2496,6 @@
       "source_file": "regras/quadro-de-tarefas.md",
       "source_location": "L88",
       "source_url": null
-    },
-    {
-      "id": "quadro_de_tarefas_mae_subtarefa",
-      "label": "Tarefa-m\u00e3e com no m\u00ednimo 1 subtarefa",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 42,
-      "community_name": "quadro-de-tarefas.md (fonte \u00fanica)",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "tarefa-mae com no minimo 1 subtarefa",
-      "rationale": "Trabalho e reserva sempre na subtarefa; a m\u00e3e n\u00e3o se reserva e fecha quando todas est\u00e3o conclu\u00eddas.",
-      "source_file": "regras/quadro-de-tarefas.md",
-      "source_location": "L78",
-      "source_url": null
-    },
-    {
-      "id": "quadro_de_tarefas_modelo_etapa",
-      "label": "Modelo da etapa ETAPA-NNN-<uuid8>",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 42,
-      "community_name": "quadro-de-tarefas.md (fonte \u00fanica)",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "modelo da etapa etapa-nnn-<uuid8>",
-      "rationale": "N\u00famero sequencial + 8 caracteres de UUID evita n\u00famero repetido entre sess\u00f5es.",
-      "source_file": "regras/quadro-de-tarefas.md",
-      "source_location": "L146",
-      "source_url": null
-    },
-    {
-      "id": "niveis_e_modelos_tabela_ferramentas",
-      "label": "Tabela ferramenta x n\u00edvel (quem pega o qu\u00ea)",
-      "_origin": "ast",
-      "author": null,
-      "captured_at": null,
-      "community": 48,
-      "community_name": "C21 \u2014 Esfor\u00e7o por n\u00edvel (LEVE=low, MEDIO=medium, PESADO=high)",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "tabela ferramenta x nivel (quem pega o que)",
-      "rationale": "Modelos mais fracos fazem tarefas simples e o forte fica com as dif\u00edceis; o sinal mais restritivo vence e na d\u00favida sobe o n\u00edvel.",
-      "source_file": "regras/niveis-e-modelos.md",
-      "source_location": "L17",
-      "source_url": null
-    },
-    {
-      "id": "regras_ciclo_da_task_ciclo_de_uma_tarefa_task",
-      "label": "\ud83d\udd01 Ciclo de uma tarefa (TASK)",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "\ud83d\udd01 ciclo de uma tarefa (task)",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "regras_ciclo_da_task_encerrar",
-      "label": "Encerrar",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "encerrar",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L58"
-    },
-    {
-      "id": "regras_ciclo_da_task_executar",
-      "label": "Executar",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "executar",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L38"
-    },
-    {
-      "id": "regras_ciclo_da_task_o_que_vira_task",
-      "label": "O que vira TASK",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "o que vira task",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L5"
-    },
-    {
-      "id": "regras_ciclo_da_task_ordem_de_todo_pedido_criar_publicar_assumir_trabalhar",
-      "label": "Ordem de todo pedido: criar \u2192 publicar \u2192 assumir \u2192 trabalhar",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "ordem de todo pedido: criar \u2192 publicar \u2192 assumir \u2192 trabalhar",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L10"
-    },
-    {
-      "id": "regras_ciclo_da_task_pequena_ou_grande",
-      "label": "Pequena ou grande",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pequena ou grande",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L21"
-    },
-    {
-      "id": "regras_ciclo_da_task_retomar_sess\u00e3o_nova_ou_que_caiu",
-      "label": "Retomar (sess\u00e3o nova ou que caiu)",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "retomar (sessao nova ou que caiu)",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": "L73"
-    },
-    {
-      "id": "regras_esforco_esfor\u00e7o_effort_dos_agentes",
-      "label": "\ud83c\udf9b\ufe0f Esfor\u00e7o (`effort`) dos agentes",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "\ud83c\udf9b\ufe0f esforco (`effort`) dos agentes",
-      "source_file": "regras/esforco.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "regras_exibicao_de_status_exibi\u00e7\u00e3o_de_status_sempre_em_quadro",
-      "label": "\ud83d\udcca Exibi\u00e7\u00e3o de status \u2014 sempre em quadro",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "\ud83d\udcca exibicao de status \u2014 sempre em quadro",
-      "source_file": "regras/exibicao-de-status.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "regras_frentes_e_reserva_conflitos",
-      "label": "Conflitos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "conflitos",
-      "source_file": "regras/frentes-e-reserva.md",
-      "source_location": "L43"
-    },
-    {
-      "id": "regras_frentes_e_reserva_frentes",
-      "label": "Frentes",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "frentes",
-      "source_file": "regras/frentes-e-reserva.md",
-      "source_location": "L6"
-    },
-    {
-      "id": "regras_frentes_e_reserva_frentes_e_reserva_de_subtarefas",
-      "label": "\ud83e\udded Frentes e reserva de subtarefas",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "\ud83e\udded frentes e reserva de subtarefas",
-      "source_file": "regras/frentes-e-reserva.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "regras_frentes_e_reserva_gatilho_liste_as_tarefas_pendentes",
-      "label": "Gatilho `.` \u2014 liste as tarefas pendentes",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "gatilho `.` \u2014 liste as tarefas pendentes",
-      "source_file": "regras/frentes-e-reserva.md",
-      "source_location": "L63"
-    },
-    {
-      "id": "regras_frentes_e_reserva_gatilho_pegue_a_pr\u00f3xima_tarefa_do_seu_modelo",
-      "label": "Gatilho `;` \u2014 pegue a pr\u00f3xima tarefa do seu modelo",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "gatilho `;` \u2014 pegue a proxima tarefa do seu modelo",
-      "source_file": "regras/frentes-e-reserva.md",
-      "source_location": "L50"
-    },
-    {
-      "id": "regras_frentes_e_reserva_limites",
-      "label": "Limites",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "limites",
-      "source_file": "regras/frentes-e-reserva.md",
-      "source_location": "L30"
-    },
-    {
-      "id": "regras_frentes_e_reserva_pegar_uma_subtarefa",
-      "label": "Pegar uma subtarefa",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pegar uma subtarefa",
-      "source_file": "regras/frentes-e-reserva.md",
-      "source_location": "L15"
-    },
-    {
-      "id": "regras_gerenciador_centralizado_como_parar",
-      "label": "Como parar",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "como parar",
-      "source_file": "regras/gerenciador-centralizado.md",
-      "source_location": "L29"
-    },
-    {
-      "id": "regras_gerenciador_centralizado_gerenciador_centralizado_de_tarefas",
-      "label": "\ud83e\udd16 Gerenciador centralizado de tarefas",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "\ud83e\udd16 gerenciador centralizado de tarefas",
-      "source_file": "regras/gerenciador-centralizado.md",
-      "source_location": "L1"
-    },
-    {
-      "id": "regras_gerenciador_centralizado_limites",
-      "label": "Limites",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "limites",
-      "source_file": "regras/gerenciador-centralizado.md",
-      "source_location": "L34"
-    },
-    {
-      "id": "regras_gerenciador_centralizado_modos",
-      "label": "Modos",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "modos",
-      "source_file": "regras/gerenciador-centralizado.md",
-      "source_location": "L12"
-    },
-    {
-      "id": "regras_gerenciador_centralizado_o_que_ele_faz",
-      "label": "O que ele faz",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "o que ele faz",
-      "source_file": "regras/gerenciador-centralizado.md",
-      "source_location": "L6"
-    },
-    {
-      "id": "regras_gerenciador_centralizado_regras_do_modo_disparar",
-      "label": "Regras do modo `disparar`",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "regras do modo `disparar`",
-      "source_file": "regras/gerenciador-centralizado.md",
-      "source_location": "L19"
     },
     {
       "id": "dashboard_web_scrap",
@@ -2981,7 +2873,7 @@
       "node_kind": "heading",
       "norm_label": "1. executar alinhamento das regras globais",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L78"
+      "source_location": "L79"
     },
     {
       "id": "status_projeto_2_ligar_as_outras_ias_\u00e0s_regras_globais",
@@ -2993,7 +2885,7 @@
       "node_kind": "heading",
       "norm_label": "2. ligar as outras ias as regras globais",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L94"
+      "source_location": "L95"
     },
     {
       "id": "status_projeto_3_status_do_projeto_em_markdown",
@@ -3005,7 +2897,7 @@
       "node_kind": "heading",
       "norm_label": "3. status do projeto em markdown",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L107"
+      "source_location": "L108"
     },
     {
       "id": "status_projeto_4_atualizar_status_a_cada_hora",
@@ -3017,7 +2909,7 @@
       "node_kind": "heading",
       "norm_label": "4. atualizar status a cada hora",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L111"
+      "source_location": "L112"
     },
     {
       "id": "status_projeto_frentes_de_trabalho",
@@ -3029,7 +2921,7 @@
       "node_kind": "heading",
       "norm_label": "frentes de trabalho",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L76"
+      "source_location": "L77"
     },
     {
       "id": "status_projeto_o_que_espera_de_voc\u00ea",
@@ -3041,7 +2933,7 @@
       "node_kind": "heading",
       "norm_label": "o que espera de voce",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L66"
+      "source_location": "L67"
     },
     {
       "id": "status_projeto_o_que_mudou_desde_a_\u00faltima_grava\u00e7\u00e3o",
@@ -3065,7 +2957,7 @@
       "node_kind": "heading",
       "norm_label": "objetivo",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L60"
+      "source_location": "L61"
     },
     {
       "id": "status_projeto_quadro_do_rea_rea_app_clones",
@@ -3077,7 +2969,7 @@
       "node_kind": "heading",
       "norm_label": "quadro do rea (`rea-app-clones`)",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L116"
+      "source_location": "L117"
     },
     {
       "id": "status_projeto_status_do_projeto_dashboard_ai",
@@ -3372,7 +3264,7 @@
       "label": "cliente_tripo.py",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "cliente_tripo.py",
       "source_file": "dashboard/graphs/cliente_tripo.py",
@@ -3383,7 +3275,7 @@
       "label": "config_graphs.py",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "config_graphs.py",
       "source_file": "dashboard/graphs/config_graphs.py",
@@ -3394,7 +3286,7 @@
       "label": "galeria_modelos.py",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "galeria_modelos.py",
       "source_file": "dashboard/graphs/galeria_modelos.py",
@@ -3405,7 +3297,7 @@
       "label": "servidor.py",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "servidor.py",
       "source_file": "dashboard/graphs/servidor.py",
@@ -3416,7 +3308,7 @@
       "label": "Exception",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "exception",
       "source_file": "",
@@ -3427,7 +3319,7 @@
       "label": "SimpleHTTPRequestHandler",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "code",
       "norm_label": "simplehttprequesthandler",
       "source_file": "",
@@ -3438,128 +3330,128 @@
       "label": "Chamadas \u00e0 API da Tripo (texto \u2192 3D). A chave nunca sai do servidor local.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "chamadas a api da tripo (texto \u2192 3d). a chave nunca sai do servidor local.",
       "source_file": "dashboard/graphs/cliente_tripo.py",
       "source_location": "L1"
     },
     {
-      "id": "dashboard_graphs_cliente_tripo_rationale_18",
+      "id": "dashboard_graphs_cliente_tripo_rationale_19",
       "label": "Falha ao falar com a Tripo (rede, chave inv\u00e1lida, saldo, resposta inesperada).",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "falha ao falar com a tripo (rede, chave invalida, saldo, resposta inesperada).",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
-      "id": "dashboard_graphs_cliente_tripo_rationale_22",
-      "label": "Faz a requisi\u00e7\u00e3o autenticada e devolve o campo 'data' da resposta.",
+      "id": "dashboard_graphs_cliente_tripo_rationale_23",
+      "label": "Faz a requisi\u00e7\u00e3o autenticada e devolve o campo 'data' da resposta. Usa a chave\u2026",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
-      "norm_label": "faz a requisicao autenticada e devolve o campo 'data' da resposta.",
+      "norm_label": "faz a requisicao autenticada e devolve o campo 'data' da resposta. usa a chave...",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
-      "id": "dashboard_graphs_cliente_tripo_rationale_44",
+      "id": "dashboard_graphs_cliente_tripo_rationale_49",
       "label": "Cria a tarefa texto \u2192 3D e devolve o task_id.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "cria a tarefa texto \u2192 3d e devolve o task_id.",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L44"
+      "source_location": "L49"
     },
     {
-      "id": "dashboard_graphs_cliente_tripo_rationale_52",
+      "id": "dashboard_graphs_cliente_tripo_rationale_57",
       "label": "Status, progresso e URL do modelo (se pronto) de uma tarefa.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "status, progresso e url do modelo (se pronto) de uma tarefa.",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L52"
-    },
-    {
-      "id": "dashboard_graphs_cliente_tripo_rationale_65",
-      "label": "Saldo de cr\u00e9ditos da conta.",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "servidor.py",
-      "file_type": "rationale",
-      "norm_label": "saldo de creditos da conta.",
-      "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L65"
+      "source_location": "L57"
     },
     {
       "id": "dashboard_graphs_cliente_tripo_rationale_70",
+      "label": "Saldo de cr\u00e9ditos da conta.",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Manipulador",
+      "file_type": "rationale",
+      "norm_label": "saldo de creditos da conta.",
+      "source_file": "dashboard/graphs/cliente_tripo.py",
+      "source_location": "L70"
+    },
+    {
+      "id": "dashboard_graphs_cliente_tripo_rationale_75",
       "label": "Baixa o GLB gerado (as URLs da Tripo s\u00e3o tempor\u00e1rias) para o disco.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "baixa o glb gerado (as urls da tripo sao temporarias) para o disco.",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L70"
+      "source_location": "L75"
     },
     {
       "id": "dashboard_graphs_config_graphs_rationale_1",
       "label": "Constantes do servidor local do 3D GRAPHS AI e leitura do .env.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "constantes do servidor local do 3d graphs ai e leitura do .env.",
       "source_file": "dashboard/graphs/config_graphs.py",
       "source_location": "L1"
     },
     {
-      "id": "dashboard_graphs_config_graphs_rationale_29",
+      "id": "dashboard_graphs_config_graphs_rationale_30",
       "label": "L\u00ea pares CHAVE=valor do .env (sem depend\u00eancias) e mescla com o ambiente.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "le pares chave=valor do .env (sem dependencias) e mescla com o ambiente.",
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L29"
+      "source_location": "L30"
     },
     {
-      "id": "dashboard_graphs_config_graphs_rationale_44",
+      "id": "dashboard_graphs_config_graphs_rationale_45",
       "label": "Chave da API da Tripo, ou '' se n\u00e3o configurada.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "chave da api da tripo, ou '' se nao configurada.",
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L44"
+      "source_location": "L45"
     },
     {
-      "id": "dashboard_graphs_config_graphs_rationale_49",
+      "id": "dashboard_graphs_config_graphs_rationale_50",
       "label": "M\u00e1ximo de gera\u00e7\u00f5es por execu\u00e7\u00e3o do servidor (prote\u00e7\u00e3o de custo).",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "maximo de geracoes por execucao do servidor (protecao de custo).",
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L49"
+      "source_location": "L50"
     },
     {
       "id": "dashboard_graphs_galeria_modelos_rationale_1",
       "label": "Modelos gerados salvos em graphs/modelos/ (um .glb e um .json de metadados\u2026",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "modelos gerados salvos em graphs/modelos/ (um .glb e um .json de metadados...",
       "source_file": "dashboard/graphs/galeria_modelos.py",
@@ -3570,7 +3462,7 @@
       "label": "Evita caminhos maliciosos: s\u00f3 letras, n\u00fameros, _ e -.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "evita caminhos maliciosos: so letras, numeros, _ e -.",
       "source_file": "dashboard/graphs/galeria_modelos.py",
@@ -3581,7 +3473,7 @@
       "label": "Grava os metadados assim que a tarefa \u00e9 criada.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "grava os metadados assim que a tarefa e criada.",
       "source_file": "dashboard/graphs/galeria_modelos.py",
@@ -3592,7 +3484,7 @@
       "label": "Baixa o GLB pronto, atualiza os metadados e devolve o nome do arquivo.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "baixa o glb pronto, atualiza os metadados e devolve o nome do arquivo.",
       "source_file": "dashboard/graphs/galeria_modelos.py",
@@ -3603,7 +3495,7 @@
       "label": "Nome do GLB j\u00e1 baixado, ou None.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "nome do glb ja baixado, ou none.",
       "source_file": "dashboard/graphs/galeria_modelos.py",
@@ -3614,7 +3506,7 @@
       "label": "Modelos com GLB baixado, do mais novo ao mais antigo.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "modelos com glb baixado, do mais novo ao mais antigo.",
       "source_file": "dashboard/graphs/galeria_modelos.py",
@@ -3625,33 +3517,44 @@
       "label": "Servidor local do dashboard com a API do 3D GRAPHS AI. Uso: python\u2026",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "servidor local do dashboard com a api do 3d graphs ai. uso: python...",
       "source_file": "dashboard/graphs/servidor.py",
       "source_location": "L1"
     },
     {
-      "id": "dashboard_graphs_servidor_rationale_31",
+      "id": "dashboard_graphs_servidor_rationale_34",
       "label": "Nunca servir .env, arquivos ocultos nem c\u00f3digo Python do servidor.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "nunca servir .env, arquivos ocultos nem codigo python do servidor.",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L31"
+      "source_location": "L34"
     },
     {
-      "id": "dashboard_graphs_servidor_rationale_37",
+      "id": "dashboard_graphs_servidor_rationale_40",
       "label": "Arquivos est\u00e1ticos do dashboard + rotas /api/ do 3D GRAPHS AI.",
       "_origin": "ast",
       "community": 16,
-      "community_name": "servidor.py",
+      "community_name": "Manipulador",
       "file_type": "rationale",
       "norm_label": "arquivos estaticos do dashboard + rotas /api/ do 3d graphs ai.",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L37"
+      "source_location": "L40"
+    },
+    {
+      "id": "dashboard_graphs_servidor_rationale_43",
+      "label": "Chave enviada pelo navegador (localStorage); '' se ausente ou malformada.",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "Manipulador",
+      "file_type": "rationale",
+      "norm_label": "chave enviada pelo navegador (localstorage); '' se ausente ou malformada.",
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L43"
     },
     {
       "id": "dashboard_graphs_assets_js_api",
@@ -3662,6 +3565,17 @@
       "file_type": "code",
       "norm_label": "api.js",
       "source_file": "dashboard/graphs/assets/js/api.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "dashboard_graphs_assets_js_chave",
+      "label": "chave.js",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "chave.js",
+      "source_file": "dashboard/graphs/assets/js/chave.js",
       "source_location": "L1"
     },
     {
@@ -3742,6 +3656,17 @@
       "source_location": "L18"
     },
     {
+      "id": "dashboard_graphs_assets_js_modal_config",
+      "label": "modal-config.js",
+      "_origin": "ast",
+      "community": 17,
+      "community_name": "principal.js",
+      "file_type": "code",
+      "norm_label": "modal-config.js",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L1"
+    },
+    {
       "id": "dashboard_graphs_assets_js_principal",
       "label": "principal.js",
       "_origin": "ast",
@@ -3761,7 +3686,7 @@
       "file_type": "code",
       "norm_label": "visualizador",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L7"
+      "source_location": "L8"
     },
     {
       "id": "dashboard_graphs_assets_js_visualizador",
@@ -3871,11 +3796,95 @@
       "source_location": "L57"
     },
     {
+      "id": "conflitos",
+      "label": "CONFLITOS.md",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "conflitos.md",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "conflitos_conflitos_entre_regras_aguardam_a_confirma\u00e7\u00e3o_do_usu\u00e1rio",
+      "label": "\u2696\ufe0f Conflitos entre regras \u2014 aguardam a confirma\u00e7\u00e3o do usu\u00e1rio",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\u2696\ufe0f conflitos entre regras \u2014 aguardam a confirmacao do usuario",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "conflitos_decididos_depois_2026_10_16",
+      "label": "Decididos depois (2026-10-16)",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "decididos depois (2026-10-16)",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "conflitos_decididos_em_2026_10_16_c1_a_c10",
+      "label": "Decididos em 2026-10-16 (C1 a C10)",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "decididos em 2026-10-16 (c1 a c10)",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L34"
+    },
+    {
+      "id": "conflitos_o_que_ficou_de_fora_de_prop\u00f3sito_espec\u00edfico_de_projeto",
+      "label": "O que ficou de fora de prop\u00f3sito (espec\u00edfico de projeto)",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "o que ficou de fora de proposito (especifico de projeto)",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L29"
+    },
+    {
+      "id": "conflitos_o_que_j\u00e1_est\u00e1_no_global_sem_conflito",
+      "label": "O que j\u00e1 est\u00e1 no global (sem conflito)",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "o que ja esta no global (sem conflito)",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L23"
+    },
+    {
+      "id": "conflitos_pendente_de_decis\u00e3o",
+      "label": "Pendente de decis\u00e3o",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pendente de decisao",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L60"
+    },
+    {
       "id": "regras_niveis_e_modelos_como_usar",
       "label": "Como usar",
       "_origin": "ast",
       "community": 2,
-      "community_name": "niveis-e-modelos.md (N\u00edveis de tarefa)",
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "como usar",
@@ -3887,7 +3896,7 @@
       "label": "Equipe de agentes do Claude Code",
       "_origin": "ast",
       "community": 2,
-      "community_name": "niveis-e-modelos.md (N\u00edveis de tarefa)",
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "equipe de agentes do claude code",
@@ -3899,7 +3908,7 @@
       "label": "\ud83c\udf9a\ufe0f N\u00edveis de tarefa \u2014 quem pega o qu\u00ea",
       "_origin": "ast",
       "community": 2,
-      "community_name": "niveis-e-modelos.md (N\u00edveis de tarefa)",
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "\ud83c\udf9a\ufe0f niveis de tarefa \u2014 quem pega o que",
@@ -3911,7 +3920,7 @@
       "label": "Os 3 n\u00edveis",
       "_origin": "ast",
       "community": 2,
-      "community_name": "niveis-e-modelos.md (N\u00edveis de tarefa)",
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "os 3 niveis",
@@ -3923,7 +3932,7 @@
       "label": "Quem pega cada n\u00edvel",
       "_origin": "ast",
       "community": 2,
-      "community_name": "niveis-e-modelos.md (N\u00edveis de tarefa)",
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "quem pega cada nivel",
@@ -3931,76 +3940,52 @@
       "source_location": "L16"
     },
     {
-      "id": "conflitos_conflitos_entre_regras_aguardam_a_confirma\u00e7\u00e3o_do_usu\u00e1rio",
-      "label": "\u2696\ufe0f Conflitos entre regras \u2014 aguardam a confirma\u00e7\u00e3o do usu\u00e1rio",
+      "id": "tasks_status_registro_de_decis\u00f5es",
+      "label": "Registro de decis\u00f5es",
       "_origin": "ast",
-      "community": 20,
-      "community_name": "\u2696\ufe0f Conflitos entre regras \u2014 aguardam a confirma\u00e7\u00e3o do usu\u00e1rio",
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\u2696\ufe0f conflitos entre regras \u2014 aguardam a confirmacao do usuario",
-      "source_file": "CONFLITOS.md",
+      "norm_label": "registro de decisoes",
+      "source_file": "tasks/STATUS.md",
+      "source_location": "L37"
+    },
+    {
+      "id": "tasks_status_status_rules_ai",
+      "label": "STATUS \u2014 rules-ai",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "status \u2014 rules-ai",
+      "source_file": "tasks/STATUS.md",
       "source_location": "L1"
     },
     {
-      "id": "conflitos_decididos_depois_2026_10_16",
-      "label": "Decididos depois (2026-10-16)",
+      "id": "tasks_status_tarefas",
+      "label": "\ud83d\udccc Tarefas",
       "_origin": "ast",
-      "community": 20,
-      "community_name": "\u2696\ufe0f Conflitos entre regras \u2014 aguardam a confirma\u00e7\u00e3o do usu\u00e1rio",
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "decididos depois (2026-10-16)",
-      "source_file": "CONFLITOS.md",
-      "source_location": "L41"
+      "norm_label": "\ud83d\udccc tarefas",
+      "source_file": "tasks/STATUS.md",
+      "source_location": "L9"
     },
     {
-      "id": "conflitos_decididos_em_2026_10_16_c1_a_c10",
-      "label": "Decididos em 2026-10-16 (C1 a C10)",
+      "id": "regras_esforco_esfor\u00e7o_effort_dos_agentes",
+      "label": "\ud83c\udf9b\ufe0f Esfor\u00e7o (`effort`) dos agentes",
       "_origin": "ast",
       "community": 20,
-      "community_name": "\u2696\ufe0f Conflitos entre regras \u2014 aguardam a confirma\u00e7\u00e3o do usu\u00e1rio",
+      "community_name": "regras/ciclo-da-task.md",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "decididos em 2026-10-16 (c1 a c10)",
-      "source_file": "CONFLITOS.md",
-      "source_location": "L34"
-    },
-    {
-      "id": "conflitos_o_que_ficou_de_fora_de_prop\u00f3sito_espec\u00edfico_de_projeto",
-      "label": "O que ficou de fora de prop\u00f3sito (espec\u00edfico de projeto)",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "\u2696\ufe0f Conflitos entre regras \u2014 aguardam a confirma\u00e7\u00e3o do usu\u00e1rio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "o que ficou de fora de proposito (especifico de projeto)",
-      "source_file": "CONFLITOS.md",
-      "source_location": "L29"
-    },
-    {
-      "id": "conflitos_o_que_j\u00e1_est\u00e1_no_global_sem_conflito",
-      "label": "O que j\u00e1 est\u00e1 no global (sem conflito)",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "\u2696\ufe0f Conflitos entre regras \u2014 aguardam a confirma\u00e7\u00e3o do usu\u00e1rio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "o que ja esta no global (sem conflito)",
-      "source_file": "CONFLITOS.md",
-      "source_location": "L23"
-    },
-    {
-      "id": "conflitos_pendente_de_decis\u00e3o",
-      "label": "Pendente de decis\u00e3o",
-      "_origin": "ast",
-      "community": 20,
-      "community_name": "\u2696\ufe0f Conflitos entre regras \u2014 aguardam a confirma\u00e7\u00e3o do usu\u00e1rio",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "pendente de decisao",
-      "source_file": "CONFLITOS.md",
-      "source_location": "L60"
+      "norm_label": "\ud83c\udf9b\ufe0f esforco (`effort`) dos agentes",
+      "source_file": "regras/esforco.md",
+      "source_location": "L1"
     },
     {
       "id": "regras_codigo_limites_nomes_checklist",
@@ -4123,40 +4108,88 @@
       "source_location": "L18"
     },
     {
-      "id": "tasks_status_registro_de_decis\u00f5es",
-      "label": "Registro de decis\u00f5es",
+      "id": "regras_ciclo_da_task_ciclo_de_uma_tarefa_task",
+      "label": "\ud83d\udd01 Ciclo de uma tarefa (TASK)",
       "_origin": "ast",
       "community": 22,
-      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "community_name": "\ud83d\udd01 Ciclo de uma tarefa (TASK)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "registro de decisoes",
-      "source_file": "tasks/STATUS.md",
-      "source_location": "L37"
-    },
-    {
-      "id": "tasks_status_status_rules_ai",
-      "label": "STATUS \u2014 rules-ai",
-      "_origin": "ast",
-      "community": 22,
-      "community_name": "tasks/STATUS.md \u2014 rules-ai",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "status \u2014 rules-ai",
-      "source_file": "tasks/STATUS.md",
+      "norm_label": "\ud83d\udd01 ciclo de uma tarefa (task)",
+      "source_file": "regras/ciclo-da-task.md",
       "source_location": "L1"
     },
     {
-      "id": "tasks_status_tarefas",
-      "label": "\ud83d\udccc Tarefas",
+      "id": "regras_ciclo_da_task_encerrar",
+      "label": "Encerrar",
       "_origin": "ast",
       "community": 22,
-      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "community_name": "\ud83d\udd01 Ciclo de uma tarefa (TASK)",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "\ud83d\udccc tarefas",
-      "source_file": "tasks/STATUS.md",
-      "source_location": "L9"
+      "norm_label": "encerrar",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L58"
+    },
+    {
+      "id": "regras_ciclo_da_task_executar",
+      "label": "Executar",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "\ud83d\udd01 Ciclo de uma tarefa (TASK)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "executar",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L38"
+    },
+    {
+      "id": "regras_ciclo_da_task_o_que_vira_task",
+      "label": "O que vira TASK",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "\ud83d\udd01 Ciclo de uma tarefa (TASK)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "o que vira task",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L5"
+    },
+    {
+      "id": "regras_ciclo_da_task_ordem_de_todo_pedido_criar_publicar_assumir_trabalhar",
+      "label": "Ordem de todo pedido: criar \u2192 publicar \u2192 assumir \u2192 trabalhar",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "\ud83d\udd01 Ciclo de uma tarefa (TASK)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "ordem de todo pedido: criar \u2192 publicar \u2192 assumir \u2192 trabalhar",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L10"
+    },
+    {
+      "id": "regras_ciclo_da_task_pequena_ou_grande",
+      "label": "Pequena ou grande",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "\ud83d\udd01 Ciclo de uma tarefa (TASK)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pequena ou grande",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L21"
+    },
+    {
+      "id": "regras_ciclo_da_task_retomar_sess\u00e3o_nova_ou_que_caiu",
+      "label": "Retomar (sess\u00e3o nova ou que caiu)",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "\ud83d\udd01 Ciclo de uma tarefa (TASK)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "retomar (sessao nova ou que caiu)",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L73"
     },
     {
       "id": "tasks_etapas_etapa_010_status_quadro_global",
@@ -4529,6 +4562,90 @@
       "norm_label": "rules-ai",
       "source_file": "README.md",
       "source_location": "L1"
+    },
+    {
+      "id": "regras_frentes_e_reserva_conflitos",
+      "label": "Conflitos",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "\ud83e\udded Frentes e reserva de subtarefas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "conflitos",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L43"
+    },
+    {
+      "id": "regras_frentes_e_reserva_frentes",
+      "label": "Frentes",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "\ud83e\udded Frentes e reserva de subtarefas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "frentes",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L6"
+    },
+    {
+      "id": "regras_frentes_e_reserva_frentes_e_reserva_de_subtarefas",
+      "label": "\ud83e\udded Frentes e reserva de subtarefas",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "\ud83e\udded Frentes e reserva de subtarefas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\ud83e\udded frentes e reserva de subtarefas",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "regras_frentes_e_reserva_gatilho_liste_as_tarefas_pendentes",
+      "label": "Gatilho `.` \u2014 liste as tarefas pendentes",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "\ud83e\udded Frentes e reserva de subtarefas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "gatilho `.` \u2014 liste as tarefas pendentes",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L63"
+    },
+    {
+      "id": "regras_frentes_e_reserva_gatilho_pegue_a_pr\u00f3xima_tarefa_do_seu_modelo",
+      "label": "Gatilho `;` \u2014 pegue a pr\u00f3xima tarefa do seu modelo",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "\ud83e\udded Frentes e reserva de subtarefas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "gatilho `;` \u2014 pegue a proxima tarefa do seu modelo",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L50"
+    },
+    {
+      "id": "regras_frentes_e_reserva_limites",
+      "label": "Limites",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "\ud83e\udded Frentes e reserva de subtarefas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "limites",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L30"
+    },
+    {
+      "id": "regras_frentes_e_reserva_pegar_uma_subtarefa",
+      "label": "Pegar uma subtarefa",
+      "_origin": "ast",
+      "community": 29,
+      "community_name": "\ud83e\udded Frentes e reserva de subtarefas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "pegar uma subtarefa",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L15"
     },
     {
       "id": "dashboard_scripts_coletar",
@@ -5400,27 +5517,99 @@
       "source_location": "L8"
     },
     {
-      "id": "conflitos",
-      "label": "CONFLITOS.md",
+      "id": "regras_gerenciador_centralizado_como_parar",
+      "label": "Como parar",
       "_origin": "ast",
       "community": 40,
-      "community_name": "CONFLITOS.md",
+      "community_name": "\ud83e\udd16 Gerenciador centralizado de tarefas",
       "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "conflitos.md",
-      "source_file": "CONFLITOS.md",
+      "node_kind": "heading",
+      "norm_label": "como parar",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L29"
+    },
+    {
+      "id": "regras_gerenciador_centralizado_gerenciador_centralizado_de_tarefas",
+      "label": "\ud83e\udd16 Gerenciador centralizado de tarefas",
+      "_origin": "ast",
+      "community": 40,
+      "community_name": "\ud83e\udd16 Gerenciador centralizado de tarefas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\ud83e\udd16 gerenciador centralizado de tarefas",
+      "source_file": "regras/gerenciador-centralizado.md",
       "source_location": "L1"
+    },
+    {
+      "id": "regras_gerenciador_centralizado_limites",
+      "label": "Limites",
+      "_origin": "ast",
+      "community": 40,
+      "community_name": "\ud83e\udd16 Gerenciador centralizado de tarefas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "limites",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L34"
+    },
+    {
+      "id": "regras_gerenciador_centralizado_modos",
+      "label": "Modos",
+      "_origin": "ast",
+      "community": 40,
+      "community_name": "\ud83e\udd16 Gerenciador centralizado de tarefas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "modos",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L12"
+    },
+    {
+      "id": "regras_gerenciador_centralizado_o_que_ele_faz",
+      "label": "O que ele faz",
+      "_origin": "ast",
+      "community": 40,
+      "community_name": "\ud83e\udd16 Gerenciador centralizado de tarefas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "o que ele faz",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L6"
+    },
+    {
+      "id": "regras_gerenciador_centralizado_regras_do_modo_disparar",
+      "label": "Regras do modo `disparar`",
+      "_origin": "ast",
+      "community": 40,
+      "community_name": "\ud83e\udd16 Gerenciador centralizado de tarefas",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "regras do modo `disparar`",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L19"
     },
     {
       "id": "regras_git_geral_git_regras_comuns_a_todos_os_projetos",
       "label": "\ud83d\udd00 Git \u2014 regras comuns a todos os projetos",
       "_origin": "ast",
       "community": 41,
-      "community_name": "regras/git-geral.md",
+      "community_name": "Reserva de subtarefa (Em uso por + commit/push)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "\ud83d\udd00 git \u2014 regras comuns a todos os projetos",
       "source_file": "regras/git-geral.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "regras_exibicao_de_status_exibi\u00e7\u00e3o_de_status_sempre_em_quadro",
+      "label": "\ud83d\udcca Exibi\u00e7\u00e3o de status \u2014 sempre em quadro",
+      "_origin": "ast",
+      "community": 42,
+      "community_name": "TAREFA FINALIZADA E SINCRONIZADA!",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "\ud83d\udcca exibicao de status \u2014 sempre em quadro",
+      "source_file": "regras/exibicao-de-status.md",
       "source_location": "L1"
     },
     {
@@ -5469,7 +5658,7 @@
       "node_kind": "heading",
       "norm_label": "arquivos",
       "source_file": "dashboard/graphs/README.md",
-      "source_location": "L33"
+      "source_location": "L40"
     },
     {
       "id": "dashboard_graphs_readme_como_usar",
@@ -5493,7 +5682,7 @@
       "node_kind": "heading",
       "norm_label": "pendente",
       "source_file": "dashboard/graphs/README.md",
-      "source_location": "L43"
+      "source_location": "L50"
     },
     {
       "id": "dashboard_claude",
@@ -6194,97 +6383,18 @@
       "source_location": "L14"
     },
     {
-      "id": "agents_md",
-      "label": "AGENTS.md (rules-ai)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "agents.md (rules-ai)",
-      "source_file": "AGENTS.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "regras_ciclo_da_task",
-      "label": "regras/ciclo-da-task.md",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "regras/ciclo-da-task.md",
-      "source_file": "regras/ciclo-da-task.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "regras_esforco",
-      "label": "regras/esforco.md",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "regras/esforco.md",
-      "source_file": "regras/esforco.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "regras_exibicao_de_status",
-      "label": "regras/exibicao-de-status.md",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "regras/exibicao-de-status.md",
-      "source_file": "regras/exibicao-de-status.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "regras_frentes_e_reserva",
       "label": "regras/frentes-e-reserva.md",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
+      "community_name": "regras/frentes-e-reserva.md",
       "contributor": null,
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "regras/frentes-e-reserva.md",
       "source_file": "regras/frentes-e-reserva.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "regras_gerenciador_centralizado",
-      "label": "regras/gerenciador-centralizado.md",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 0,
-      "community_name": "regras/ciclo-da-task.md",
-      "contributor": null,
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "regras/gerenciador-centralizado.md",
-      "source_file": "regras/gerenciador-centralizado.md",
       "source_location": null,
       "source_url": null
     },
@@ -6334,17 +6444,243 @@
       "source_url": null
     },
     {
+      "id": "ciclo_da_task_md",
+      "label": "regras/ciclo-da-task.md",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "regras/ciclo-da-task.md",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "esforco_md",
+      "label": "regras/esforco.md",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "regras/esforco.md",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "etapa_002_doc",
+      "label": "ETAPA-002 ESFORCO-GLOBAL / CONFEFFORT-GLOBAL",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "etapa-002 esforco-global / confeffort-global",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "etapa_003_doc",
+      "label": "ETAPA-003 EFFORT-PADARIA",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "etapa-003 effort-padaria",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "etapa_004_doc",
+      "label": "ETAPA-004 MODELO-GLOBAL",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "etapa-004 modelo-global",
+      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "etapa_009_doc",
+      "label": "ETAPA-009-a0c1d676 GERENCIADOR-GLOBAL",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "etapa-009-a0c1d676 gerenciador-global",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "exibicao_de_status_md",
+      "label": "regras/exibicao-de-status.md",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "regras/exibicao-de-status.md",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "frentes_e_reserva_md",
+      "label": "regras/frentes-e-reserva.md",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "regras/frentes-e-reserva.md",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "gerenciador_centralizado_md",
+      "label": "regras/gerenciador-centralizado.md",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "regras/gerenciador-centralizado.md",
+      "source_file": "tasks/STATUS.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "projeto_testes_effort_padaria",
+      "label": "Projeto testes-effort-padaria",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "projeto testes-effort-padaria",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "regras_niveis_e_modelos_doc",
       "label": "niveis-e-modelos.md (N\u00edveis de tarefa)",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 2,
-      "community_name": "niveis-e-modelos.md (N\u00edveis de tarefa)",
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "contributor": null,
       "file_type": "document",
       "norm_label": "niveis-e-modelos.md (niveis de tarefa)",
       "source_file": "regras/niveis-e-modelos.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "regras_quadro_de_tarefas_doc",
+      "label": "quadro-de-tarefas.md (fonte \u00fanica)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "quadro-de-tarefas.md (fonte unica)",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "tasks_status_doc",
+      "label": "tasks/STATUS.md \u2014 rules-ai",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "tasks/status.md \u2014 rules-ai",
+      "source_file": "tasks/STATUS.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "disparo_automatico_pausa",
+      "label": "Disparo autom\u00e1tico em pausa (modo ver)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "disparo automatico em pausa (modo ver)",
+      "rationale": "Risco de sess\u00f5es sem supervis\u00e3o e gasto de tokens; usu\u00e1rio pausou em 2026-10-17 13:30.",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "gerenciador_de_tarefas_skill",
+      "label": "L\u00edder gerenciador-de-tarefas (aulas-senai)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "lider gerenciador-de-tarefas (aulas-senai)",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "rule_c21",
+      "label": "C21 \u2014 Esfor\u00e7o por n\u00edvel (LEVE=low, MEDIO=medium, PESADO=high)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "c21 \u2014 esforco por nivel (leve=low, medio=medium, pesado=high)",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
       "source_location": null,
       "source_url": null
     },
@@ -6355,12 +6691,196 @@
       "author": null,
       "captured_at": null,
       "community": 2,
-      "community_name": "niveis-e-modelos.md (N\u00edveis de tarefa)",
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
       "contributor": null,
       "file_type": "rationale",
       "norm_label": "c22 \u2014 so o nivel exato do modelo, sem excecao",
       "rationale": "Troca a C2=A pela B: acabam as exce\u00e7\u00f5es; modelo gravado em toda tarefa (coluna Modelo + linha na etapa).",
       "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "rule_c24",
+      "label": "C24 \u2014 Gatilho ; (pegar pr\u00f3xima tarefa do seu modelo)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "c24 \u2014 gatilho ; (pegar proxima tarefa do seu modelo)",
+      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "rule_c26",
+      "label": "C26 \u2014 IA cria subtarefas s\u00f3 na m\u00e3e atual e publica direto",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "c26 \u2014 ia cria subtarefas so na mae atual e publica direto",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "rule_c27",
+      "label": "C27 \u2014 Todo status mostrado em quadro",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "c27 \u2014 todo status mostrado em quadro",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "rule_c28",
+      "label": "C28 \u2014 Gerenciador centralizado",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "c28 \u2014 gerenciador centralizado",
+      "source_file": "tasks/STATUS.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "rule_c30",
+      "label": "C30 \u2014 Gatilho . (listar tarefas pendentes)",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "c30 \u2014 gatilho . (listar tarefas pendentes)",
+      "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "task_confeffort_global",
+      "label": "Tarefa CONFEFFORT-GLOBAL \u2014 conferir effort por modelo",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "tarefa confeffort-global \u2014 conferir effort por modelo",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "task_effort_padaria",
+      "label": "Tarefa EFFORT-PADARIA \u2014 testar low/medium/high com padaria",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "tarefa effort-padaria \u2014 testar low/medium/high com padaria",
+      "rationale": "Na etapa 002 o problema era f\u00e1cil e resolvido por script; aqui o agente \u00e9 proibido de executar c\u00f3digo para o effort aparecer.",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "task_esforco_global",
+      "label": "Tarefa ESFORCO-GLOBAL \u2014 effort por n\u00edvel",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "tarefa esforco-global \u2014 effort por nivel",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "task_gerenciador_global",
+      "label": "Tarefa GERENCIADOR-GLOBAL \u2014 gerenciador centralizado",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "tarefa gerenciador-global \u2014 gerenciador centralizado",
+      "rationale": "Olha os quadros de todos os projetos e chama a pr\u00f3xima tarefa livre de cada modelo, respeitando C22 e C24; disparo autom\u00e1tico em pausa por ordem do usu\u00e1rio (13:30).",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "task_modelo_global",
+      "label": "Tarefa MODELO-GLOBAL \u2014 nunca executar tarefa de outro modelo",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 2,
+      "community_name": "tasks/STATUS.md \u2014 rules-ai",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "tarefa modelo-global \u2014 nunca executar tarefa de outro modelo",
+      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "regras_ciclo_da_task",
+      "label": "regras/ciclo-da-task.md",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 20,
+      "community_name": "regras/ciclo-da-task.md",
+      "contributor": null,
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "regras/ciclo-da-task.md",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "regras_esforco",
+      "label": "regras/esforco.md",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 20,
+      "community_name": "regras/ciclo-da-task.md",
+      "contributor": null,
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "regras/esforco.md",
+      "source_file": "regras/esforco.md",
       "source_location": null,
       "source_url": null
     },
@@ -6408,112 +6928,6 @@
       "node_kind": "page",
       "norm_label": "regras/codigo-solid.md",
       "source_file": "regras/codigo-solid.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "etapa_002_doc",
-      "label": "ETAPA-002 ESFORCO-GLOBAL / CONFEFFORT-GLOBAL",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 22,
-      "community_name": "tasks/STATUS.md \u2014 rules-ai",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "etapa-002 esforco-global / confeffort-global",
-      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "etapa_003_doc",
-      "label": "ETAPA-003 EFFORT-PADARIA",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 22,
-      "community_name": "tasks/STATUS.md \u2014 rules-ai",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "etapa-003 effort-padaria",
-      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "projeto_testes_effort_padaria",
-      "label": "Projeto testes-effort-padaria",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 22,
-      "community_name": "tasks/STATUS.md \u2014 rules-ai",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "projeto testes-effort-padaria",
-      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "tasks_status_doc",
-      "label": "tasks/STATUS.md \u2014 rules-ai",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 22,
-      "community_name": "tasks/STATUS.md \u2014 rules-ai",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "tasks/status.md \u2014 rules-ai",
-      "source_file": "tasks/STATUS.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "task_confeffort_global",
-      "label": "Tarefa CONFEFFORT-GLOBAL \u2014 conferir effort por modelo",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 22,
-      "community_name": "tasks/STATUS.md \u2014 rules-ai",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "tarefa confeffort-global \u2014 conferir effort por modelo",
-      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "task_effort_padaria",
-      "label": "Tarefa EFFORT-PADARIA \u2014 testar low/medium/high com padaria",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 22,
-      "community_name": "tasks/STATUS.md \u2014 rules-ai",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "tarefa effort-padaria \u2014 testar low/medium/high com padaria",
-      "rationale": "Na etapa 002 o problema era f\u00e1cil e resolvido por script; aqui o agente \u00e9 proibido de executar c\u00f3digo para o effort aparecer.",
-      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "task_esforco_global",
-      "label": "Tarefa ESFORCO-GLOBAL \u2014 effort por n\u00edvel",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 22,
-      "community_name": "tasks/STATUS.md \u2014 rules-ai",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "tarefa esforco-global \u2014 effort por nivel",
-      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
       "source_location": null,
       "source_url": null
     },
@@ -6650,98 +7064,6 @@
       "file_type": "rationale",
       "norm_label": "tarefa ponto-global \u2014 mensagem . = listar pendentes",
       "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "etapa_009_doc",
-      "label": "ETAPA-009-a0c1d676 GERENCIADOR-GLOBAL",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 29,
-      "community_name": "Tarefa GERENCIADOR-GLOBAL \u2014 gerenciador centralizado",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "etapa-009-a0c1d676 gerenciador-global",
-      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "gerenciador_centralizado_md",
-      "label": "regras/gerenciador-centralizado.md",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 29,
-      "community_name": "Tarefa GERENCIADOR-GLOBAL \u2014 gerenciador centralizado",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "regras/gerenciador-centralizado.md",
-      "source_file": "tasks/STATUS.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "disparo_automatico_pausa",
-      "label": "Disparo autom\u00e1tico em pausa (modo ver)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 29,
-      "community_name": "Tarefa GERENCIADOR-GLOBAL \u2014 gerenciador centralizado",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "disparo automatico em pausa (modo ver)",
-      "rationale": "Risco de sess\u00f5es sem supervis\u00e3o e gasto de tokens; usu\u00e1rio pausou em 2026-10-17 13:30.",
-      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "gerenciador_de_tarefas_skill",
-      "label": "L\u00edder gerenciador-de-tarefas (aulas-senai)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 29,
-      "community_name": "Tarefa GERENCIADOR-GLOBAL \u2014 gerenciador centralizado",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "lider gerenciador-de-tarefas (aulas-senai)",
-      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "rule_c28",
-      "label": "C28 \u2014 Gerenciador centralizado",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 29,
-      "community_name": "Tarefa GERENCIADOR-GLOBAL \u2014 gerenciador centralizado",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "c28 \u2014 gerenciador centralizado",
-      "source_file": "tasks/STATUS.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "task_gerenciador_global",
-      "label": "Tarefa GERENCIADOR-GLOBAL \u2014 gerenciador centralizado",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 29,
-      "community_name": "Tarefa GERENCIADOR-GLOBAL \u2014 gerenciador centralizado",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "tarefa gerenciador-global \u2014 gerenciador centralizado",
-      "rationale": "Olha os quadros de todos os projetos e chama a pr\u00f3xima tarefa livre de cada modelo, respeitando C22 e C24; disparo autom\u00e1tico em pausa por ordem do usu\u00e1rio (13:30).",
-      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
       "source_location": null,
       "source_url": null
     },
@@ -6900,88 +7222,13 @@
       "source_url": null
     },
     {
-      "id": "exibicao_de_status_md",
-      "label": "regras/exibicao-de-status.md",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 40,
-      "community_name": "CONFLITOS.md",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "regras/exibicao-de-status.md",
-      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "frentes_e_reserva_md",
-      "label": "regras/frentes-e-reserva.md",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 40,
-      "community_name": "CONFLITOS.md",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "regras/frentes-e-reserva.md",
-      "source_file": "regras/niveis-e-modelos.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "rule_c24",
-      "label": "C24 \u2014 Gatilho ; (pegar pr\u00f3xima tarefa do seu modelo)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 40,
-      "community_name": "CONFLITOS.md",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "c24 \u2014 gatilho ; (pegar proxima tarefa do seu modelo)",
-      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "rule_c27",
-      "label": "C27 \u2014 Todo status mostrado em quadro",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 40,
-      "community_name": "CONFLITOS.md",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "c27 \u2014 todo status mostrado em quadro",
-      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "rule_c30",
-      "label": "C30 \u2014 Gatilho . (listar tarefas pendentes)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 40,
-      "community_name": "CONFLITOS.md",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "c30 \u2014 gatilho . (listar tarefas pendentes)",
-      "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "regras_git_geral",
       "label": "regras/git-geral.md",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 41,
-      "community_name": "regras/git-geral.md",
+      "community_name": "Reserva de subtarefa (Em uso por + commit/push)",
       "contributor": null,
       "file_type": "document",
       "node_kind": "page",
@@ -6991,138 +7238,49 @@
       "source_url": null
     },
     {
-      "id": "ciclo_da_task_md",
-      "label": "regras/ciclo-da-task.md",
+      "id": "agents_md",
+      "label": "AGENTS.md (rules-ai)",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 42,
-      "community_name": "quadro-de-tarefas.md (fonte \u00fanica)",
+      "community_name": "TAREFA FINALIZADA E SINCRONIZADA!",
       "contributor": null,
       "file_type": "document",
-      "norm_label": "regras/ciclo-da-task.md",
-      "source_file": "regras/quadro-de-tarefas.md",
+      "norm_label": "agents.md (rules-ai)",
+      "source_file": "AGENTS.md",
       "source_location": null,
       "source_url": null
     },
     {
-      "id": "regras_quadro_de_tarefas_doc",
-      "label": "quadro-de-tarefas.md (fonte \u00fanica)",
+      "id": "regras_exibicao_de_status",
+      "label": "regras/exibicao-de-status.md",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 42,
-      "community_name": "quadro-de-tarefas.md (fonte \u00fanica)",
+      "community_name": "TAREFA FINALIZADA E SINCRONIZADA!",
       "contributor": null,
       "file_type": "document",
-      "norm_label": "quadro-de-tarefas.md (fonte unica)",
-      "source_file": "regras/quadro-de-tarefas.md",
+      "node_kind": "page",
+      "norm_label": "regras/exibicao-de-status.md",
+      "source_file": "regras/exibicao-de-status.md",
       "source_location": null,
       "source_url": null
     },
     {
-      "id": "rule_c26",
-      "label": "C26 \u2014 IA cria subtarefas s\u00f3 na m\u00e3e atual e publica direto",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 42,
-      "community_name": "quadro-de-tarefas.md (fonte \u00fanica)",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "c26 \u2014 ia cria subtarefas so na mae atual e publica direto",
-      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "sincronizar_mjs",
-      "label": "scripts/sincronizar.mjs (--aplicar)",
+      "id": "regras_gerenciador_centralizado",
+      "label": "regras/gerenciador-centralizado.md",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
       "community": 45,
-      "community_name": "scripts/sincronizar.mjs (--aplicar)",
-      "contributor": null,
-      "file_type": "code",
-      "norm_label": "scripts/sincronizar.mjs (--aplicar)",
-      "rationale": "Grava as regras globais no arquivo global de cada IA (Claude Code, Gemini CLI, Codex, Grok, Qoder, opencode, Devin, Kiro).",
-      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "dist_regras_globais",
-      "label": "dist/REGRAS-GLOBAIS.md",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 45,
-      "community_name": "scripts/sincronizar.mjs (--aplicar)",
+      "community_name": "tasks/STATUS.md (quadro de tarefas)",
       "contributor": null,
       "file_type": "document",
-      "norm_label": "dist/regras-globais.md",
-      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "etapa_004_doc",
-      "label": "ETAPA-004 MODELO-GLOBAL",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 45,
-      "community_name": "scripts/sincronizar.mjs (--aplicar)",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "etapa-004 modelo-global",
-      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "etapa_008_doc",
-      "label": "ETAPA-008 SUBTAREFA-GLOBAL",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 45,
-      "community_name": "scripts/sincronizar.mjs (--aplicar)",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "etapa-008 subtarefa-global",
-      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "task_modelo_global",
-      "label": "Tarefa MODELO-GLOBAL \u2014 nunca executar tarefa de outro modelo",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 45,
-      "community_name": "scripts/sincronizar.mjs (--aplicar)",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "tarefa modelo-global \u2014 nunca executar tarefa de outro modelo",
-      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "task_subtarefa_global",
-      "label": "Tarefa SUBTAREFA-GLOBAL \u2014 IA cria subtarefas na m\u00e3e atual",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 45,
-      "community_name": "scripts/sincronizar.mjs (--aplicar)",
-      "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "tarefa subtarefa-global \u2014 ia cria subtarefas na mae atual",
-      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "node_kind": "page",
+      "norm_label": "regras/gerenciador-centralizado.md",
+      "source_file": "regras/gerenciador-centralizado.md",
       "source_location": null,
       "source_url": null
     },
@@ -7202,32 +7360,33 @@
       "source_url": null
     },
     {
-      "id": "esforco_md",
-      "label": "regras/esforco.md",
+      "id": "sincronizar_mjs",
+      "label": "scripts/sincronizar.mjs (--aplicar)",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 48,
-      "community_name": "C21 \u2014 Esfor\u00e7o por n\u00edvel (LEVE=low, MEDIO=medium, PESADO=high)",
+      "community": 5,
+      "community_name": "tasks/task_complete.md \u2014 Conclu\u00eddas",
       "contributor": null,
-      "file_type": "document",
-      "norm_label": "regras/esforco.md",
-      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "file_type": "code",
+      "norm_label": "scripts/sincronizar.mjs (--aplicar)",
+      "rationale": "Grava as regras globais no arquivo global de cada IA (Claude Code, Gemini CLI, Codex, Grok, Qoder, opencode, Devin, Kiro).",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
       "source_location": null,
       "source_url": null
     },
     {
-      "id": "rule_c21",
-      "label": "C21 \u2014 Esfor\u00e7o por n\u00edvel (LEVE=low, MEDIO=medium, PESADO=high)",
+      "id": "dist_regras_globais",
+      "label": "dist/REGRAS-GLOBAIS.md",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 48,
-      "community_name": "C21 \u2014 Esfor\u00e7o por n\u00edvel (LEVE=low, MEDIO=medium, PESADO=high)",
+      "community": 5,
+      "community_name": "tasks/task_complete.md \u2014 Conclu\u00eddas",
       "contributor": null,
-      "file_type": "rationale",
-      "norm_label": "c21 \u2014 esforco por nivel (leve=low, medio=medium, pesado=high)",
-      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "file_type": "document",
+      "norm_label": "dist/regras-globais.md",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
       "source_location": null,
       "source_url": null
     },
@@ -7243,6 +7402,21 @@
       "file_type": "document",
       "norm_label": "etapa-001 global",
       "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "etapa_008_doc",
+      "label": "ETAPA-008 SUBTAREFA-GLOBAL",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 5,
+      "community_name": "tasks/task_complete.md \u2014 Conclu\u00eddas",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "etapa-008 subtarefa-global",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
       "source_location": null,
       "source_url": null
     },
@@ -7319,6 +7493,21 @@
       "file_type": "rationale",
       "norm_label": "tarefa status-quadro-global \u2014 status sempre em quadro",
       "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "task_subtarefa_global",
+      "label": "Tarefa SUBTAREFA-GLOBAL \u2014 IA cria subtarefas na m\u00e3e atual",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 5,
+      "community_name": "tasks/task_complete.md \u2014 Conclu\u00eddas",
+      "contributor": null,
+      "file_type": "rationale",
+      "norm_label": "tarefa subtarefa-global \u2014 ia cria subtarefas na mae atual",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
       "source_location": null,
       "source_url": null
     }
@@ -8017,7 +8206,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L54",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -8029,7 +8218,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L57",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -8041,7 +8230,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L35",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -8053,7 +8242,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L17",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -8065,7 +8254,127 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L25",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_api_pedirjson",
+      "target": "dashboard_graphs_assets_js_chave_lerchave",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/api.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config_abrir",
+      "target": "dashboard_graphs_assets_js_chave_lerchave",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config_abrir",
+      "target": "dashboard_graphs_assets_js_modal_config_atualizarsituacao",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config_aoremover",
+      "target": "dashboard_graphs_assets_js_chave_removerchave",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config_aoremover",
+      "target": "dashboard_graphs_assets_js_modal_config_atualizarsituacao",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config_aosalvar",
+      "target": "dashboard_graphs_assets_js_chave_salvarchave",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config_atualizarsituacao",
+      "target": "dashboard_graphs_assets_js_chave_mascarar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config_atualizarsituacao",
+      "target": "dashboard_graphs_assets_js_chave_lerchave",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config_iniciarmodalconfig",
+      "target": "dashboard_graphs_assets_js_modal_config_aoremover",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config_iniciarmodalconfig",
+      "target": "dashboard_graphs_assets_js_modal_config_aosalvar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -8077,12 +8386,12 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L21",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
       "source": "dashboard_graphs_assets_js_principal_aogerar",
-      "target": "dashboard_graphs_assets_js_principal_avisar",
+      "target": "dashboard_graphs_assets_js_principal_temchave",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8094,6 +8403,18 @@
     },
     {
       "source": "dashboard_graphs_assets_js_principal_aogerar",
+      "target": "dashboard_graphs_assets_js_principal_avisar",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal_aogerar",
       "target": "dashboard_graphs_assets_js_api_acompanhartarefa",
       "relation": "calls",
       "_origin": "ast",
@@ -8101,7 +8422,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L68",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -8113,7 +8434,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L68",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -8125,7 +8446,55 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L70",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal_aogerar",
+      "target": "dashboard_graphs_assets_js_principal_atualizarestado",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal_atualizarestado",
+      "target": "dashboard_graphs_assets_js_api_lerestado",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal_atualizarestado",
+      "target": "dashboard_graphs_assets_js_principal_descreverestado",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal_atualizarestado",
+      "target": "dashboard_graphs_assets_js_principal_temchave",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -8137,7 +8506,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L41",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -8149,43 +8518,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L49",
+      "source_location": "L51",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_assets_js_principal_iniciar",
-      "target": "dashboard_graphs_assets_js_api_lerestado",
+      "source": "dashboard_graphs_assets_js_principal_descreverestado",
+      "target": "dashboard_graphs_assets_js_principal_temchave",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L85",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_assets_js_principal_iniciar",
-      "target": "dashboard_graphs_assets_js_principal_descreverestado",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L86",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_assets_js_principal_iniciar",
-      "target": "dashboard_graphs_assets_js_principal_aogerar",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L90",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -8197,7 +8542,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L92",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal_iniciar",
+      "target": "dashboard_graphs_assets_js_modal_config_iniciarmodalconfig",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L99",
       "weight": 1.0
     },
     {
@@ -8209,7 +8566,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L35",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -8269,7 +8626,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L75",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -8281,7 +8638,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L23",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -8293,7 +8650,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L25",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -8305,7 +8662,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L66",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -8317,7 +8674,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L53",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -8329,7 +8686,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L45",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -8341,7 +8698,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L47",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -8353,7 +8710,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -8365,7 +8722,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L51",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -8389,7 +8746,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L113",
+      "source_location": "L122",
       "weight": 1.0
     },
     {
@@ -8401,7 +8758,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L51",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -8413,7 +8770,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L54",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -8425,7 +8782,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L55",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -8437,7 +8794,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L60",
+      "source_location": "L68",
       "weight": 1.0
     },
     {
@@ -8449,7 +8806,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L61",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -8461,7 +8818,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L65",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -8473,7 +8830,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L72",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador_rota_estado",
+      "target": "dashboard_graphs_servidor_manipulador_chave_do_pedido",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -8485,19 +8854,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L74",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_servidor_manipulador_rota_gerar",
-      "target": "dashboard_graphs_config_graphs_limite_geracoes",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L89",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -8509,7 +8866,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L91",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador_rota_gerar",
+      "target": "dashboard_graphs_servidor_manipulador_chave_do_pedido",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador_rota_gerar",
+      "target": "dashboard_graphs_config_graphs_limite_geracoes",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -8521,7 +8902,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L80",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador_rota_saldo",
+      "target": "dashboard_graphs_servidor_manipulador_chave_do_pedido",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -8533,7 +8926,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L102",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador_rota_tarefa",
+      "target": "dashboard_graphs_servidor_manipulador_chave_do_pedido",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L111",
       "weight": 1.0
     },
     {
@@ -9246,6 +9651,18 @@
     },
     {
       "source": "dashboard_graphs_assets_js_api",
+      "target": "dashboard_graphs_assets_js_chave_lerchave",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "dashboard/graphs/assets/js/api.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_api",
       "target": "dashboard_graphs_assets_js_config_intervalo_consulta_ms",
       "relation": "imports",
       "_origin": "ast",
@@ -9253,7 +9670,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L2",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -9265,7 +9682,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L2",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -9277,6 +9694,54 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/assets/js/api.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config",
+      "target": "dashboard_graphs_assets_js_chave_lerchave",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config",
+      "target": "dashboard_graphs_assets_js_chave_mascarar",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config",
+      "target": "dashboard_graphs_assets_js_chave_removerchave",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config",
+      "target": "dashboard_graphs_assets_js_chave_salvarchave",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
       "source_location": "L2",
       "weight": 1.0
     },
@@ -9354,7 +9819,7 @@
     },
     {
       "source": "dashboard_graphs_assets_js_principal",
-      "target": "dashboard_graphs_assets_js_visualizador_criarvisualizador",
+      "target": "dashboard_graphs_assets_js_modal_config_iniciarmodalconfig",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9362,6 +9827,18 @@
       "context": "import",
       "source_file": "dashboard/graphs/assets/js/principal.js",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal",
+      "target": "dashboard_graphs_assets_js_visualizador_criarvisualizador",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -9409,7 +9886,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -9421,7 +9898,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -9433,7 +9910,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -9445,7 +9922,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -9457,7 +9934,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -9469,7 +9946,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -9481,7 +9958,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -9630,6 +10107,18 @@
     },
     {
       "source": "dashboard_graphs_assets_js_api",
+      "target": "dashboard_graphs_assets_js_chave",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "dashboard/graphs/assets/js/api.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_api",
       "target": "dashboard_graphs_assets_js_config",
       "relation": "imports_from",
       "_origin": "ast",
@@ -9637,6 +10126,18 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/assets/js/api.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config",
+      "target": "dashboard_graphs_assets_js_chave",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
       "source_location": "L2",
       "weight": 1.0
     },
@@ -9666,7 +10167,7 @@
     },
     {
       "source": "dashboard_graphs_assets_js_principal",
-      "target": "dashboard_graphs_assets_js_visualizador",
+      "target": "dashboard_graphs_assets_js_modal_config",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9674,6 +10175,18 @@
       "context": "import",
       "source_file": "dashboard/graphs/assets/js/principal.js",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal",
+      "target": "dashboard_graphs_assets_js_visualizador",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -9733,7 +10246,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -9745,7 +10258,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -10621,7 +11134,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L15",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -10632,7 +11145,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L24",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -10643,18 +11156,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L34",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_assets_js_api",
-      "target": "dashboard_graphs_assets_js_api_pedirjson",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L4",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -10665,7 +11167,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L43",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -10676,7 +11178,62 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/assets/js/api.js",
-      "source_location": "L51",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_api",
+      "target": "dashboard_graphs_assets_js_api_pedirjson",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/api.js",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_chave",
+      "target": "dashboard_graphs_assets_js_chave_salvarchave",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/chave.js",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_chave",
+      "target": "dashboard_graphs_assets_js_chave_removerchave",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/chave.js",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_chave",
+      "target": "dashboard_graphs_assets_js_chave_mascarar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/chave.js",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_chave",
+      "target": "dashboard_graphs_assets_js_chave_lerchave",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/chave.js",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -10746,91 +11303,69 @@
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_assets_js_principal",
-      "target": "dashboard_graphs_assets_js_principal_abrirmodelo",
+      "source": "dashboard_graphs_assets_js_modal_config",
+      "target": "dashboard_graphs_assets_js_modal_config_abrir",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L14",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_assets_js_principal",
-      "target": "dashboard_graphs_assets_js_principal_itemgaleria",
+      "source": "dashboard_graphs_assets_js_modal_config",
+      "target": "dashboard_graphs_assets_js_modal_config_alternarvisibilidade",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
       "source_location": "L25",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_assets_js_principal",
-      "target": "dashboard_graphs_assets_js_principal_carregargaleria",
+      "source": "dashboard_graphs_assets_js_modal_config",
+      "target": "dashboard_graphs_assets_js_modal_config_aosalvar",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L40",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_assets_js_principal",
-      "target": "dashboard_graphs_assets_js_principal_mostrarprogresso",
+      "source": "dashboard_graphs_assets_js_modal_config",
+      "target": "dashboard_graphs_assets_js_modal_config_aoremover",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L53",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_assets_js_principal",
-      "target": "dashboard_graphs_assets_js_principal_aogerar",
+      "source": "dashboard_graphs_assets_js_modal_config",
+      "target": "dashboard_graphs_assets_js_modal_config_iniciarmodalconfig",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L59",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_assets_js_principal",
-      "target": "dashboard_graphs_assets_js_principal_visualizador",
+      "source": "dashboard_graphs_assets_js_modal_config",
+      "target": "dashboard_graphs_assets_js_modal_config_atualizarsituacao",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
       "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_assets_js_principal",
-      "target": "dashboard_graphs_assets_js_principal_descreverestado",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L78",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_assets_js_principal",
-      "target": "dashboard_graphs_assets_js_principal_iniciar",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -10841,7 +11376,117 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L9",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal",
+      "target": "dashboard_graphs_assets_js_principal_abrirmodelo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal",
+      "target": "dashboard_graphs_assets_js_principal_itemgaleria",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal",
+      "target": "dashboard_graphs_assets_js_principal_carregargaleria",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal",
+      "target": "dashboard_graphs_assets_js_principal_mostrarprogresso",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal",
+      "target": "dashboard_graphs_assets_js_principal_temchave",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal",
+      "target": "dashboard_graphs_assets_js_principal_aogerar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal",
+      "target": "dashboard_graphs_assets_js_principal_visualizador",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal",
+      "target": "dashboard_graphs_assets_js_principal_descreverestado",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal",
+      "target": "dashboard_graphs_assets_js_principal_atualizarestado",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal",
+      "target": "dashboard_graphs_assets_js_principal_iniciar",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -10907,7 +11552,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -10918,7 +11563,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -10929,7 +11574,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L43",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -10940,7 +11585,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L51",
+      "source_location": "L56",
       "weight": 1.0
     },
     {
@@ -10951,7 +11596,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L64",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -10962,7 +11607,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L69",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -10973,7 +11618,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -10984,7 +11629,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L43",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -10995,7 +11640,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L48",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -11083,7 +11728,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/README.md",
-      "source_location": "L33",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -11094,7 +11739,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/README.md",
-      "source_location": "L43",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -11116,7 +11761,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L109",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -11127,7 +11772,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L30",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -11138,7 +11783,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L36",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -12403,7 +13048,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L107",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -12414,7 +13059,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L111",
+      "source_location": "L112",
       "weight": 1.0
     },
     {
@@ -12425,7 +13070,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L78",
+      "source_location": "L79",
       "weight": 1.0
     },
     {
@@ -12436,7 +13081,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L94",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -12447,7 +13092,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L116",
+      "source_location": "L117",
       "weight": 1.0
     },
     {
@@ -12458,7 +13103,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L60",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -12469,7 +13114,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L66",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -12491,7 +13136,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L76",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -13690,7 +14335,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -13701,95 +14346,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L36",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_servidor_manipulador",
-      "target": "dashboard_graphs_servidor_manipulador_responder",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/servidor.py",
       "source_location": "L39",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_servidor_manipulador",
-      "target": "dashboard_graphs_servidor_manipulador_do_get",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L47",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_servidor_manipulador",
-      "target": "dashboard_graphs_servidor_manipulador_do_post",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L58",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_servidor_manipulador",
-      "target": "dashboard_graphs_servidor_manipulador_executar",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L63",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_servidor_manipulador",
-      "target": "dashboard_graphs_servidor_manipulador_rota_estado",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L71",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_servidor_manipulador",
-      "target": "dashboard_graphs_servidor_manipulador_rota_modelos",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L76",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_servidor_manipulador",
-      "target": "dashboard_graphs_servidor_manipulador_rota_saldo",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L79",
-      "weight": 1.0
-    },
-    {
-      "source": "dashboard_graphs_servidor_manipulador",
-      "target": "dashboard_graphs_servidor_manipulador_rota_gerar",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L82",
       "weight": 1.0
     },
     {
@@ -13800,7 +14357,106 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L96",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador",
+      "target": "dashboard_graphs_servidor_manipulador_chave_do_pedido",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador",
+      "target": "dashboard_graphs_servidor_manipulador_responder",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador",
+      "target": "dashboard_graphs_servidor_manipulador_do_get",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador",
+      "target": "dashboard_graphs_servidor_manipulador_do_post",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador",
+      "target": "dashboard_graphs_servidor_manipulador_executar",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador",
+      "target": "dashboard_graphs_servidor_manipulador_rota_estado",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador",
+      "target": "dashboard_graphs_servidor_manipulador_rota_modelos",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador",
+      "target": "dashboard_graphs_servidor_manipulador_rota_saldo",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_manipulador",
+      "target": "dashboard_graphs_servidor_manipulador_rota_gerar",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -13815,69 +14471,69 @@
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_cliente_tripo_rationale_18",
+      "source": "dashboard_graphs_cliente_tripo_rationale_19",
       "target": "dashboard_graphs_cliente_tripo_errotripo",
       "relation": "rationale_for",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_cliente_tripo_rationale_22",
+      "source": "dashboard_graphs_cliente_tripo_rationale_23",
       "target": "dashboard_graphs_cliente_tripo_chamar",
       "relation": "rationale_for",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_cliente_tripo_rationale_44",
+      "source": "dashboard_graphs_cliente_tripo_rationale_49",
       "target": "dashboard_graphs_cliente_tripo_criar_tarefa_texto",
       "relation": "rationale_for",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L44",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_cliente_tripo_rationale_52",
+      "source": "dashboard_graphs_cliente_tripo_rationale_57",
       "target": "dashboard_graphs_cliente_tripo_consultar_tarefa",
       "relation": "rationale_for",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L52",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_cliente_tripo_rationale_65",
+      "source": "dashboard_graphs_cliente_tripo_rationale_70",
       "target": "dashboard_graphs_cliente_tripo_consultar_saldo",
       "relation": "rationale_for",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L65",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_cliente_tripo_rationale_70",
+      "source": "dashboard_graphs_cliente_tripo_rationale_75",
       "target": "dashboard_graphs_cliente_tripo_baixar",
       "relation": "rationale_for",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/cliente_tripo.py",
-      "source_location": "L70",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -13892,36 +14548,36 @@
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_config_graphs_rationale_29",
+      "source": "dashboard_graphs_config_graphs_rationale_30",
       "target": "dashboard_graphs_config_graphs_ler_env",
       "relation": "rationale_for",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_config_graphs_rationale_44",
+      "source": "dashboard_graphs_config_graphs_rationale_45",
       "target": "dashboard_graphs_config_graphs_chave_tripo",
       "relation": "rationale_for",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L44",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_config_graphs_rationale_49",
+      "source": "dashboard_graphs_config_graphs_rationale_50",
       "target": "dashboard_graphs_config_graphs_limite_geracoes",
       "relation": "rationale_for",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/config_graphs.py",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -14002,25 +14658,36 @@
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_servidor_rationale_31",
+      "source": "dashboard_graphs_servidor_rationale_34",
       "target": "dashboard_graphs_servidor_caminho_proibido",
       "relation": "rationale_for",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L31",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
-      "source": "dashboard_graphs_servidor_rationale_37",
+      "source": "dashboard_graphs_servidor_rationale_40",
       "target": "dashboard_graphs_servidor_manipulador",
       "relation": "rationale_for",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L37",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_servidor_rationale_43",
+      "target": "dashboard_graphs_servidor_manipulador_chave_do_pedido",
+      "relation": "rationale_for",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "dashboard/graphs/servidor.py",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -15699,6 +16366,30 @@
       "weight": 1.0
     },
     {
+      "source": "dashboard_graphs_assets_js_modal_config_iniciarmodalconfig",
+      "target": "dashboard_graphs_assets_js_modal_config_abrir",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_modal_config_iniciarmodalconfig",
+      "target": "dashboard_graphs_assets_js_modal_config_alternarvisibilidade",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "dashboard/graphs/assets/js/modal-config.js",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
       "source": "dashboard_graphs_assets_js_principal_aogerar",
       "target": "dashboard_graphs_assets_js_principal_mostrarprogresso",
       "relation": "indirect_call",
@@ -15707,7 +16398,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L68",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -15719,7 +16410,31 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "dashboard/graphs/assets/js/principal.js",
-      "source_location": "L43",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal_iniciar",
+      "target": "dashboard_graphs_assets_js_principal_aogerar",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_graphs_assets_js_principal_iniciar",
+      "target": "dashboard_graphs_assets_js_principal_atualizarestado",
+      "relation": "indirect_call",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "argument",
+      "source_file": "dashboard/graphs/assets/js/principal.js",
+      "source_location": "L99",
       "weight": 1.0
     },
     {
@@ -15741,7 +16456,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.95,
       "source_file": "dashboard/graphs/servidor.py",
-      "source_location": "L66",
+      "source_location": "L74",
       "weight": 0.8
     },
     {
@@ -16687,5 +17402,5 @@
       "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md"
     }
   ],
-  "built_at_commit": "21d86ea923f0421b92651fdb9e11b9e016195752"
+  "built_at_commit": "cd031177448992e464185af313a778c1e21b96ac"
 }
