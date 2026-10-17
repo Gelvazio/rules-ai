@@ -27,8 +27,7 @@
 
 ### PASTA-UNICA-GLOBAL.1 — Levantar o conflito e propor a solução
 
-**Próximo passo:** comparar as opções abaixo (custo, risco, o que muda nas regras) e escrever a
-recomendação nesta seção.
+**Próximo passo:** — (entregue).
 
 - **Nível:** PESADO — mudança de estrutura e de regra global, vários projetos.
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro
@@ -39,11 +38,35 @@ recomendação nesta seção.
   compartilhados (`STATUS.md`, `STATUS_PROJETO.md`) só pelo líder, o resto livre.
 - **Critérios de Aceitação:** tabela das opções e recomendação; lista do que muda (regras,
   gerenciador, `C:\fontes\CLAUDE.md`); nenhuma pasta criada.
-- **Entrega:** — · **Verificação:** —
+- **Entrega (2026-10-17 13:36, Claude Code Opus 5.5):** comparação e recomendação abaixo.
+- **Verificação:** tamanhos medidos (`rules-ai` 1,5 MB, `gerenciador-de-ia` 0,9 MB, `aulasenai`
+  3,3 GB); remotos conferidos (as 4 `aulas-senai-CLAUDE-*` são clones de `Gelvazio/aulasenai`);
+  `regras/frentes-e-reserva.md` e `git-geral.md` lidos. Nenhuma pasta criada.
+
+#### Comparação
+
+| Tarefa | Opção | Como funciona | A favor | Contra |
+|---|---|---|---|---|
+| `PASTA-UNICA-GLOBAL.1` | (A) Trava por pasta | Uma sessão por vez na pasta; lock no quadro (commit + push); as outras esperam | Nada novo para criar | Acaba o trabalho em paralelo dos modelos; um commit a mais por lock; sessão que cai prende a pasta |
+| `PASTA-UNICA-GLOBAL.1` | **(B) Cópia por modelo** | Clones do mesmo repositório: `<projeto>-CLAUDE-HAIKU`, `-SONNET`, `-OPUS`; cada sessão só na pasta do seu modelo; a pasta principal fica para o líder e o usuário | Mesmo modelo que já funciona no `aulasenai`; paralelo de verdade; o conflito vira `git pull --rebase` (linhas diferentes do quadro se juntam sozinhas); clones pequenos (≈ 2 MB cada) | 6 pastas novas; cada cópia precisa de `pull` antes e `push` depois (já é regra) |
+| `PASTA-UNICA-GLOBAL.1` | (C) Mista | Só o líder edita `STATUS.md` e `STATUS_PROJETO.md`; o resto é livre | Pouca mudança | Não resolve: sessão de `;` não tem líder, e o `git add`/`commit` ainda vê os arquivos das outras sessões na mesma pasta |
+
+**Recomendação: (B)**, com 3 regras junto:
+1. **Uma sessão por pasta**: cada cópia só recebe sessão do seu modelo (C22 já garante o modelo).
+2. **Sincronizador só na pasta principal** `C:\fontes\rules-ai`, depois de `git pull`: o
+   `~/.claude/CLAUDE.md` importa `C:/fontes/rules-ai/dist/REGRAS-GLOBAIS.md`, e as outras IAs são
+   gravadas a partir do `dist` da pasta que roda o script.
+3. **Graphify por pasta** (`graphify-out/` já fica fora do Git).
+
+**O que muda se aprovado:** (1) criar `rules-ai-CLAUDE-HAIKU/-SONNET/-OPUS` e
+`gerenciador-de-ia-CLAUDE-HAIKU/-SONNET/-OPUS` (`git clone`); (2) regra global nova
+`regras/pasta-por-modelo.md` (C28) e item no `frentes-e-reserva.md`; (3) `C:\fontes\CLAUDE.md`
+(mapa: as cópias e o `gerenciador-de-ia`, que falta hoje); (4) `GERENCIADOR-GLOBAL.7`: o
+gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` já faz.
 
 ### PASTA-UNICA-GLOBAL.2 — Aprovação do plano
 
-**Próximo passo:** o usuário escolhe a opção da `.1`; as subtarefas de execução são criadas depois.
+**Próximo passo:** o usuário escolhe a opção da `.1` (recomendada: B); as subtarefas de execução são criadas depois.
 
 - **Nível:** Usuário.
 - **Modelo:** Usuário — nunca outro
