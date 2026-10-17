@@ -24,6 +24,7 @@
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 16:12 | **Respostas do usuário (supersedem a de 13:01 nos pontos em que divergem):** (1) projetos: `aulasenai`, `gerenciador-de-ia`, `dashboard-ai-*`, `aulasenai-*` (as `aulas-senai-*`) e `rules-ai`; (2) disparo **automático** para Haiku e Sonnet; (3) a cada **30 s**, projeto por projeto, vê qual modelo está ocioso e manda pegar a próxima tarefa livre; (4) só Claude Code; (5) **mescla** as regras com o `gerenciador-de-tarefas` e atribui a tarefa ao **Opus** (ver .7). Revoga o "só avisar até o aceite .6" e a exclusão das `aulas-senai-*` do plano de 13:01 | Gelvazio | "1-aulasenai,gerenciador-de-ia,dashboasr-ai-*,aulasenai-*,rules-ai;2-automatico para Haiku e Sonnet;3-a cada 30 segundos,vai de projeto em projeto,lendo o quadro de tasks e vendo qual modelo esta ocioso,e neste caso,ja manda este modelo pegar a proxima task disponivel;4-so claude;5-mescla as regras, atribua ao claude opus" |
 | 2026-10-17 15:55 | Tarefa grande: só o plano e a registro no quadro agora. Execução depende de aprovação explícita. | Claude Code (Haiku 5.5) | Estrutura nova e disparo automático de sessões (regra de tarefa grande). |
 | 2026-10-17 15:55 | Pendente de decisão do usuário: o `gerenciador-de-tarefas` das `aulas-senai-*` (skill já existente) será substituído, ampliado ou convivirá com este gerenciador? | — | Evitar dois gerenciadores disputando as mesmas pastas. |
 | 2026-10-17 15:55 | Pendente de decisão do usuário: rodar sem supervisão (com `;` automático) ou só avisar e o usuário dispara? | — | Define o nível de risco aceito e o consumo de tokens. |
@@ -120,4 +121,14 @@
 - **Modelo:** Usuário — nunca outro.
 - **Descrição:** aceite e liberação do disparo automático.
 - **Critérios de Aceitação:** o usuário responde "sim" com a configuração escolhida.
+- **Entrega:** — · **Verificação:** — · **Anotação:** —
+
+### GERENCIADOR-GLOBAL.7 — Mesclar o `gerenciador-de-tarefas` e revisar o desenho
+
+**Próximo passo:** ler o líder `gerenciador-de-tarefas` (skill e a pasta `aulas-senai-CLAUDE-OPUS-LIDER`), listar as regras que entram no central e revisar o desenho da .1 com as respostas de 16:12.
+
+- **Nível:** PESADO — mescla de dois gerenciadores que disparam sessões e mudança de escopo.
+- **Modelo:** só Opus 5.5+ ou Fable — nunca outro.
+- **Descrição:** (a) mesclar as regras do `gerenciador-de-tarefas` ao central e dizer o que sai; (b) revisar a .1: lista de projetos, automático só para Haiku e Sonnet, ciclo de 30 s por projeto, modelo ocioso = sem linha `🔄` dele e sem processo vivo; (c) cobrir o risco de 30 s com disparo automático: no máximo 1 sessão ativa por modelo e limite de disparos por hora; (d) evitar disputa com o líder nas pastas `aulas-senai-*` (uma trava por pasta).
+- **Critérios de Aceitação:** desenho da .1 revisado, com a lista do que mudou; regras mescladas listadas nesta seção; nenhuma sessão disparada por esta etapa.
 - **Entrega:** — · **Verificação:** — · **Anotação:** —

@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 16:12 (Brasília): GERENCIADOR-GLOBAL: respostas do usuário registradas na etapa 009 (projetos: `aulasenai`, `gerenciador-de-ia`, `dashboard-ai-*`, `aulasenai-*`, `rules-ai`; automático só para Haiku e Sonnet; ciclo de 30 s; só Claude Code; mesclar com o `gerenciador-de-tarefas` e atribuir ao Opus pela subtarefa .7). Revoga, nos pontos que divergem, o plano de 13:01. Nada foi disparado.
 - 2026-10-17 13:16 (Brasília): `regras/esforco.md` (C21) limpo: saíram os resultados das conferências (Sonnet, Opus, padaria), que ficam na etapa 002; a regra ficou só com o que a IA precisa fazer. Regras globais sincronizadas (ESFORCO-GLOBAL.6).
 - 2026-10-17 13:12 (Brasília): C21 (`regras/esforco.md`) atualizada com a conferência do Opus 5.5 (CONFEFFORT-GLOBAL.3: `effort` aplicado, +2,3% de tokens e +40% de tempo de `low` a `xhigh`); regras globais sincronizadas (CONFEFFORT-GLOBAL.7).
 - 2026-10-17 13:10 (Brasília): GERENCIADOR-GLOBAL: plano aprovado (só `rules-ai` e `aulasenai`, começa só avisando, volta de 20 s para modelo ocioso e 60 s para ocupado, só Claude Code, fora das `aulas-senai-*`); `.1` entregue (prova de conceito `claude -p --model haiku` ok e desenho na etapa 009). Próximas: `.2` (Haiku) e `.3` (Opus).
