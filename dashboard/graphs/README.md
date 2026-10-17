@@ -41,7 +41,7 @@ por execução. Os GLB gerados ficam em `graphs/modelos/` (fora do Git).
 
 - `servidor.py`: serve o dashboard e as rotas `/api/estado`, `/api/modelos`, `/api/gerar`,
   `/api/tarefa/<id>`, `/api/saldo`. Nunca serve `.env`, arquivos ocultos nem `.py`.
-- `cliente_tripo.py`: chamadas à Tripo (a chave só existe aqui).
+- `cliente_tripo.py`: chamadas à Tripo (usa a chave do cabeçalho `X-Tripo-Key` ou a do `.env`).
 - `galeria_modelos.py`: grava e lista os modelos em `modelos/`.
 - `config_graphs.py`: constantes e leitura do `.env`.
 - `index.html`, `assets/css/graphs.css`, `assets/js/` (`principal.js`, `api.js`,
