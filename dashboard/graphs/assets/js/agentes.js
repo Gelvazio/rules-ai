@@ -31,7 +31,7 @@ function prepararBase() {
   const base = criarBase(conteiner);
   base.rotulos = criarCamadaRotulos(conteiner);
   base.controles.autoRotate = false;
-  base.camera.position.set(0, 1.5, 18);
+  base.camera.position.set(0, 1.5, 23);
   base.controles.target.set(0, 0, 0);
   const ajustar = () => {
     ajustarTamanho(base, conteiner);

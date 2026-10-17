@@ -53,11 +53,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-REDE-NEURAL.24 | Menu de projetos troca o quadro lido pela página Agentes ao vivo (projetos descobertos em `C:ontes\*	asks\STATUS.md`, sem as pastas `DEMAIS-PROJETOS-*`) | 🟡 Média | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.23 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.25 | Agentes ao vivo como mapa mental (`dashboard/prompts/modelo.png`): globo girando no centro, agentes parados em volta ligados por galhos e tarefas em ramos | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | DASHBOARD-REDE-NEURAL.20 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.26 | `agentes.html` sem os links Dashboard, 3D GRAPHS AI e Cena do prompt 04 no menu | 🟢 Baixa | LEVE · effort low | DASHBOARD-REDE-NEURAL.24 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| DASHBOARD-REDE-NEURAL.27 | Agentes ao vivo: globo menor, agentes mais afastados e uma linha fina do globo até cada tarefa em andamento | 🟢 Baixa | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.25 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 18:08 | DASHBOARD-REDE-NEURAL.27 (C26): globo menor (raio 3 → 2), agentes mais afastados e linha fina do globo até cada tarefa que um agente está fazendo | Gelvazio | "deixe o globo menor e os agentes mais afastados, e cada task deve ter 1 linha fina do globo até ela" |
 | 2026-10-17 18:07 | DASHBOARD-REDE-NEURAL.26 (C26): no `agentes.html`, o menu de páginas não mostra Dashboard, 3D GRAPHS AI nem Cena do prompt 04 (atributo `data-menu-ocultar`; as outras páginas seguem com o menu completo) | Gelvazio | "no arquivo agentes.html, remova os menus Dashboard, Cena do Prompt 04, 3D graphs ai" |
 | 2026-10-17 18:03 | DASHBOARD-REDE-NEURAL.25 (C26): a cena segue o `modelo.png` (mapa mental): globo girando no centro, agentes parados em volta apontando para o globo por galhos da sua cor, tarefas do agente em ramos finos | Gelvazio | "leia a imagem modelo.png, é desta forma que deve ficar o globo, girando e os Agentes espalhados em volta" / "os agentes não giram, apenas apontam para o globo" |
 | 2026-10-17 18:00 | DASHBOARD-REDE-NEURAL.24 (C26): o menu de projetos troca o quadro lido; projetos descobertos automaticamente (pastas de `C:ontes` com `tasks\STATUS.md`, nunca as `DEMAIS-PROJETOS-*`, C20/C23); colunas lidas pelo nome do cabeçalho | Gelvazio | "faça o menu de projetos trocar o quadro lido" |

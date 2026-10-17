@@ -3,7 +3,9 @@
 // ligados ao globo por galhos, com as tarefas que estão fazendo em ramos, e as concluídas vão para
 // um anel colado ao globo. Cada cartão persegue o seu lugar a cada quadro, então as mudanças viram voos.
 import * as THREE from 'three';
-import { atualizarGalho, atualizarRamo, criarGalho, criarRamo, posicaoDoAgente, posicaoNoRamo } from './galhos.js';
+import {
+  atualizarFio, atualizarGalho, atualizarRamo, criarFio, criarGalho, criarRamo, posicaoDoAgente, posicaoNoRamo,
+} from './galhos.js';
 import { atualizarProgresso, criarPersonagem } from './personagens.js';
 import { criarRotulo, descartarRotulo } from './rotulos.js';
 
@@ -21,8 +23,8 @@ const COR_PULSO = Object.freeze({
   avancou: 0x60a5fa,
 });
 const COR_ALERTA = Object.freeze({ bloqueado: 0xef4444, aguardando: 0xfacc15 });
-const RAIO_GLOBO = 3;
-const RAIO_ANEL = 4.2;
+const RAIO_GLOBO = 2;
+const RAIO_ANEL = 2.9;
 const INCLINACAO_ANEL = 0.35;
 const GIRO_GLOBO = 0.12;
 const GIRO_ANEL = 0.04;
@@ -31,8 +33,8 @@ const QUEDA_PULSO = 0.5;
 const ANGULO_DOURADO = Math.PI * (3 - Math.sqrt(5));
 // Quadros grandes (o do aulasenai passa de 700 pendentes): acima deste total, as pendentes comuns
 // ficam sem rótulo no globo e os cartões encolhem para caber na esfera.
-const LIMITE_ROTULOS_GLOBO = 40;
-const CARTOES_SEM_ENCOLHER = 60;
+const LIMITE_ROTULOS_GLOBO = 25;
+const CARTOES_SEM_ENCOLHER = 27;
 const GEOMETRIA_CARTAO = new THREE.BoxGeometry(0.5, 0.3, 0.08);
 
 const corDoNivel = (nivel) => COR_NIVEL[nivel] ?? COR_SEM_NIVEL;
@@ -158,17 +160,20 @@ function distribuirVagas(estado) {
 function criarLinha(estado, cartao) {
   const personagem = estado.agentes.get(cartao.tarefa.agente);
   const linha = criarRamo(personagem.cor);
-  estado.cena.add(linha);
-  return { linha, cartao, personagem };
+  const fio = criarFio();
+  estado.cena.add(linha, fio);
+  return { linha, fio, cartao, personagem };
 }
 
 function sincronizarLinhas(estado) {
   for (const [id, item] of estado.linhas) {
     const cartao = estado.cartoes.get(id);
     if (!cartao || !segura(cartao) || item.personagem.nome !== cartao.tarefa.agente) {
-      item.linha.removeFromParent();
-      item.linha.geometry.dispose();
-      item.linha.material.dispose();
+      for (const objeto of [item.linha, item.fio]) {
+        objeto.removeFromParent();
+        objeto.geometry.dispose();
+        objeto.material.dispose();
+      }
       estado.linhas.delete(id);
     }
   }
@@ -254,8 +259,9 @@ function desenharCartoes(estado, fator, dt, tempo) {
 }
 
 function desenharLinhas(estado) {
-  for (const { linha, cartao, personagem } of estado.linhas.values()) {
+  for (const { linha, fio, cartao, personagem } of estado.linhas.values()) {
     atualizarRamo(linha, personagem.grupo.position, cartao.grupo.position);
+    atualizarFio(fio, RAIO_GLOBO, cartao.grupo.position);
   }
 }
 

@@ -423,6 +423,17 @@ no front-end além do `localStorage` já aprovado na `.9`.
   "Agentes ao vivo"). `index.html` e `cena.html` seguem com o menu completo.
 - **Conferido:** `node --check`.
 
+### DASHBOARD-REDE-NEURAL.27 — Globo menor, agentes afastados e fio até cada tarefa
+
+**Status:** ✅ entregue 2026-10-17 18:08.
+
+- **Entregue:** globo com raio 2 (era 3) e anel das concluídas com raio 2,9 (era 4,2); agentes
+  numa elipse maior (9,6 × 5,8, era 7,2 × 4,4) e ramos de 2,4; câmera recuada (z = 23). Cada tarefa
+  em andamento ganha um fio fino e claro (`criarFio`/`atualizarFio` em `galhos.js`) da superfície do
+  globo até ela, além do ramo do agente. Com o globo menor, o limite de rótulos no globo caiu para
+  25 pendentes e os cartões encolhem a partir de 27.
+- **Conferido:** `node --check`.
+
 ### DASHBOARD-REDE-NEURAL.19 — Aceite do usuário
 
 **Status:** 👀 aguardando o usuário (reiniciar o `servidor.py` antes). O usuário abre `http://localhost:8080/graphs/agentes.html`, muda o status
@@ -455,3 +466,4 @@ de uma tarefa no quadro e confere a animação cerca de 30 s depois.
 | 2026-10-17 18:05 | `.24` (C26): menu de projetos troca o quadro lido | Gelvazio | "faça o menu de projetos trocar o quadro lido" |
 | 2026-10-17 18:05 | `.25` (C26): mapa mental do `modelo.png`, agentes parados apontando para o globo | Gelvazio | "leia a imagem modelo.png..." / "os agentes não giram, apenas apontam para o globo" |
 | 2026-10-17 18:07 | `.26` (C26): agentes.html sem Dashboard, 3D GRAPHS AI e Cena do prompt 04 no menu | Gelvazio | "no arquivo agentes.html, remova os menus..." |
+| 2026-10-17 18:08 | `.27` (C26): globo menor, agentes mais afastados, fio do globo até cada tarefa em andamento | Gelvazio | "deixe o globo menor e os agentes mais afastados..." |

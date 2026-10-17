@@ -2,10 +2,10 @@
 // globo, cada um ligado a ele por um galho grosso, e as tarefas do agente saem dele em ramos finos.
 import * as THREE from 'three';
 
-const RAIO_X_AGENTES = 7.2;
-const RAIO_Y_AGENTES = 4.4;
+const RAIO_X_AGENTES = 9.6;
+const RAIO_Y_AGENTES = 5.8;
 const ANGULO_INICIAL = Math.PI * 0.78; // o primeiro agente fica em cima, à esquerda (como no modelo)
-const COMPRIMENTO_RAMO = 2.1;
+const COMPRIMENTO_RAMO = 2.4;
 const ABERTURA_RAMOS = 0.5;
 const ESPESSURA_GALHO = 0.08;
 const CURVA_GALHO = 0.18;
@@ -88,4 +88,28 @@ export function atualizarRamo(ramo, agente, tarefa) {
   pontos.forEach((p, i) => posicoes.setXYZ(i, p.x, p.y, p.z));
   posicoes.needsUpdate = true;
   ramo.geometry.computeBoundingSphere();
+}
+
+/**
+ * Linha fina e clara da superfície do globo até uma tarefa.
+ * @returns {THREE.Line} Linha de 2 pontos (atualizados por atualizarFio).
+ */
+export function criarFio() {
+  const geometria = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]);
+  return new THREE.Line(geometria, new THREE.LineBasicMaterial({ color: 0xe2e8f0, transparent: true, opacity: 0.35 }));
+}
+
+/**
+ * Estica o fio da borda do globo, na direção da tarefa, até a tarefa.
+ * @param {THREE.Line} fio - Criado por criarFio.
+ * @param {number} raioGlobo - Raio do globo.
+ * @param {THREE.Vector3} tarefa - Posição do cartão da tarefa.
+ */
+export function atualizarFio(fio, raioGlobo, tarefa) {
+  const posicoes = fio.geometry.attributes.position;
+  const inicio = tarefa.clone().setLength(raioGlobo);
+  posicoes.setXYZ(0, inicio.x, inicio.y, inicio.z);
+  posicoes.setXYZ(1, tarefa.x, tarefa.y, tarefa.z);
+  posicoes.needsUpdate = true;
+  fio.geometry.computeBoundingSphere();
 }
