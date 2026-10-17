@@ -282,7 +282,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 
 ### DASHBOARD-REDE-NEURAL.18 — Página "Agentes ao vivo" (tarefas reais em 3D, com atraso)
 
-**Status:** ⬜ pendente (plano aprovado 2026-10-17 20:10; só registrada, execução depois).
+**Status:** ⬜ pendente (plano aprovado 2026-10-17 17:10; só registrada, execução depois).
 
 - **Nível:** PESADO — só Opus 5.5+ ou Fable · effort high.
 - **Objetivo:** mostrar na interface 3D o trabalho real dos agentes, ligado às tarefas do
@@ -338,4 +338,4 @@ de uma tarefa no quadro e confere a animação cerca de 30 s depois.
 | 2026-10-17 16:40 | `.14` aprovada: formas simples primeiro, V3, inglês | Gelvazio | "1-formas simples primeiro;2-migre para V3;3-ingles" |
 | 2026-10-17 16:50 | `.15` (correção): ⚙ na cena e validação da chave | Gelvazio | "n habilitou" |
 | 2026-10-17 16:57 | `.17` (C26): saldo de créditos no cabeçalho | Gelvazio | "sim, mostre o saldo de créditos na página" |
-| 2026-10-17 20:10 | `.18` criada (C26) com plano aprovado: fonte só o `rules-ai/tasks/STATUS.md`, atraso configurável (30 s); só registrada no quadro | Gelvazio | "como eu posso usar esta interface em 3D, pra mostrar o trabalho real dos meus agentes..." / "apenas grave a tarefa no quadro de tasks" |
+| 2026-10-17 17:10 | `.18` criada (C26) com plano aprovado: fonte só o `rules-ai/tasks/STATUS.md`, atraso configurável (30 s); só registrada no quadro | Gelvazio | "como eu posso usar esta interface em 3D, pra mostrar o trabalho real dos meus agentes..." / "apenas grave a tarefa no quadro de tasks" |
