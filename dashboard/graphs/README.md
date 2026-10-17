@@ -49,17 +49,35 @@ para a Tripo). Sem modelos gerados, cada objeto usa uma **forma simples**; o bot
 "Gerar os que faltam" (com chave e confirmação do custo) gera cada objeto na Tripo e salva em
 `modelos/cenas/prompt-04/<objeto>.glb`, e a cena passa a usar o GLB.
 
+## Agentes ao vivo (`agentes.html`)
+
+Mostra em 3D o trabalho real dos agentes, lido de `rules-ai/tasks/STATUS.md` pela rota
+`/api/agentes` (só leitura). Tela inteira, só com o menu em cima. Uma trilha por status (Pendente,
+Em progresso, Aguardando o usuário, Bloqueado, Concluído), um cartão por subtarefa (cor pelo nível) e
+um personagem por nome da coluna "Em uso por", com o nome escrito em cima e uma linha até as tarefas
+que está fazendo. A página lê o quadro a cada 10 s e anima cada mudança só depois do **atraso**
+(padrão 30 s, `ATRASO_AGENTES` no `.env`; o seletor na tela vale para o navegador). Precisa do
+servidor local reiniciado depois desta versão.
+
+## Menu
+
+`assets/js/menu.js` monta o mesmo menu em todas as páginas (`<nav data-menu>`). Para acrescentar uma
+página, basta uma linha em `ITENS_MENU`.
+
 ## Arquivos
 
 - `TRIPO_AI_DOCS.md`: guia da API (V3) e dos SDKs da Tripo, com a migração V2 → V3.
 
 - `servidor.py`: serve o dashboard e as rotas `/api/estado`, `/api/modelos`, `/api/gerar`,
-  `/api/tarefa/<id>`, `/api/saldo` (devolve `saldo` e `congelado`), `/api/cenas`. Nunca serve `.env`, arquivos ocultos nem `.py`.
+  `/api/tarefa/<id>`, `/api/saldo` (devolve `saldo` e `congelado`), `/api/cenas`, `/api/agentes`. Nunca serve `.env`, arquivos ocultos nem `.py`.
 - `cliente_tripo.py`: chamadas à Tripo (usa a chave do cabeçalho `X-Tripo-Key` ou a do `.env`).
 - `galeria_modelos.py`: grava e lista os modelos em `modelos/`.
 - `config_graphs.py`: constantes (API V3) e leitura do `.env`.
 - `cenas_prompts.py` e `cenas/*.json`: cenas montadas a partir dos prompts e os GLB de cada objeto.
 - `cena.html`, `assets/js/cena.js` e `assets/js/cenas/` (linha do tempo, formas simples, cena do prompt 04, painel).
+- `quadro_tarefas.py`: lê a tabela do `tasks/STATUS.md` para `/api/agentes`.
+- `agentes.html`, `assets/js/agentes.js` e `assets/js/agentes/` (fila com atraso, cena, personagens, rótulos, painéis).
+- `assets/js/menu.js`: menu único das páginas.
 - `index.html`, `assets/css/graphs.css`, `assets/js/` (`principal.js`, `api.js`,
   `visualizador.js`, `config.js`, `chave.js` e `modal-config.js` do ícone ⚙).
 

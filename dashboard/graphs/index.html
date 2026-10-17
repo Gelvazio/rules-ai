@@ -14,6 +14,7 @@
     }
   }
   </script>
+  <script type="module" src="assets/js/menu.js"></script>
   <script type="module" src="assets/js/principal.js"></script>
 </head>
 <body>
@@ -22,9 +23,7 @@
     <p class="cabecalho__subtitulo">
       Modelos 3D gerados por IA a partir de texto (API Tripo, a mais barata da coleta).
     </p>
-    <nav class="abas" aria-label="Navegação">
-      <a class="abas__botao" href="../index.html">← Voltar ao dashboard</a>
-      <a class="abas__botao" href="cena.html">Cena do prompt 04</a>
+    <nav class="abas" aria-label="Navegação" data-menu>
       <span id="saldo" class="abas__saldo abas__saldo--neutro" aria-live="polite">Saldo: —</span>
       <button id="botao-config" class="abas__icone" type="button"
         aria-label="Configurações (chave da API)" title="Configurações (chave da API)">

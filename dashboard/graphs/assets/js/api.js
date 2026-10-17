@@ -52,6 +52,11 @@ export async function lerSaldo() {
   return pedirJson(ROTAS.saldo);
 }
 
+/** @returns {Promise<object>} Tarefas do tasks/STATUS.md, atraso padrão e intervalo de coleta. */
+export async function lerAgentes() {
+  return pedirJson(ROTAS.agentes);
+}
+
 /** @returns {Promise<Array<object>>} Cenas dos prompts com o estado dos GLB de cada objeto. */
 export async function listarCenas() {
   const dados = await pedirJson(ROTAS.cenas);

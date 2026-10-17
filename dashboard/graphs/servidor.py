@@ -12,15 +12,19 @@ from urllib.parse import unquote
 
 import cenas_prompts as cenas
 import galeria_modelos as galeria
+import quadro_tarefas as quadro
 from cliente_tripo import ErroTripo, consultar_saldo, consultar_tarefa, criar_tarefa_texto
 from config_graphs import (
+    ARQUIVO_QUADRO,
     CUSTO_CREDITOS,
     HOST,
+    INTERVALO_COLETA_SEGUNDOS,
     PASTA_DASHBOARD,
     PORTA_PADRAO,
     STATUS_FINAIS,
     TAMANHO_MAX_PROMPT,
     VALOR_CREDITO_USD,
+    atraso_agentes,
     chave_tripo,
     limite_geracoes,
 )
@@ -55,7 +59,8 @@ class Manipulador(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         rotas = {"/api/estado": self.rota_estado, "/api/modelos": self.rota_modelos,
-                 "/api/saldo": self.rota_saldo, "/api/cenas": self.rota_cenas}
+                 "/api/saldo": self.rota_saldo, "/api/cenas": self.rota_cenas,
+                 "/api/agentes": self.rota_agentes}
         if self.path in rotas:
             return self.executar(rotas[self.path])
         if self.path.startswith("/api/tarefa/"):
@@ -93,6 +98,11 @@ class Manipulador(SimpleHTTPRequestHandler):
 
     def rota_cenas(self):
         return {"cenas": cenas.listar_cenas()}
+
+    def rota_agentes(self):
+        """Tarefas do tasks/STATUS.md (só leitura) com o atraso e o intervalo de coleta."""
+        dados = quadro.ler_quadro(ARQUIVO_QUADRO)
+        return {**dados, "atraso_padrao": atraso_agentes(), "intervalo": INTERVALO_COLETA_SEGUNDOS}
 
     def ler_corpo(self):
         tamanho = int(self.headers.get("Content-Length", 0))

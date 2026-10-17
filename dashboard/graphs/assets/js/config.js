@@ -8,6 +8,7 @@ export const ROTAS = Object.freeze({
   tarefa: '/api/tarefa/',
   cenas: '/api/cenas',
   saldo: '/api/saldo',
+  agentes: '/api/agentes',
 });
 
 /** JSON da cena padrão, usado quando a página não veio do servidor local. */

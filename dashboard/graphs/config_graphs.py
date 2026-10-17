@@ -23,6 +23,10 @@ STATUS_FINAIS = {"success", "failed", "banned", "expired", "cancelled", "unknown
 PASTA_CENAS = PASTA_GRAPHS / "cenas"
 PASTA_MODELOS_CENAS = PASTA_MODELOS / "cenas"
 
+# Página "Agentes ao vivo": quadro lido a cada pedido e atraso padrão da reprodução.
+ARQUIVO_QUADRO = PASTA_DASHBOARD.parent / "tasks" / "STATUS.md"
+INTERVALO_COLETA_SEGUNDOS = 10
+
 TEMPO_LIMITE_SEGUNDOS = 60
 USER_AGENT = "dashboard-3d-graphs-ai/1.0 (+python urllib)"
 TAMANHO_MAX_PROMPT = 1024
@@ -39,7 +43,7 @@ def ler_env():
             if linha and not linha.startswith("#") and "=" in linha:
                 chave, valor = linha.split("=", 1)
                 valores[chave.strip()] = valor.strip().strip('"').strip("'")
-    for chave in ("TRIPO_API_KEY", "LIMITE_GERACOES"):
+    for chave in ("TRIPO_API_KEY", "LIMITE_GERACOES", "ATRASO_AGENTES"):
         if os.environ.get(chave):
             valores[chave] = os.environ[chave]
     return valores
@@ -56,3 +60,11 @@ def limite_geracoes():
         return max(0, int(ler_env().get("LIMITE_GERACOES", "5")))
     except ValueError:
         return 5
+
+
+def atraso_agentes():
+    """Segundos entre a mudança no quadro e a animação na página "Agentes ao vivo"."""
+    try:
+        return max(0, int(ler_env().get("ATRASO_AGENTES", "30")))
+    except ValueError:
+        return 30

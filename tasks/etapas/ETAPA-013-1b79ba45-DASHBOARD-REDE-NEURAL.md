@@ -282,7 +282,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 
 ### DASHBOARD-REDE-NEURAL.18 — Página "Agentes ao vivo" (tarefas reais em 3D, com atraso)
 
-**Status:** ⬜ pendente (plano aprovado 2026-10-17 17:10; só registrada, execução depois).
+**Status:** ✅ entregue 2026-10-17 17:37.
 
 - **Nível:** PESADO — só Opus 5.5+ ou Fable · effort high.
 - **Objetivo:** mostrar na interface 3D o trabalho real dos agentes, ligado às tarefas do
@@ -315,9 +315,22 @@ no front-end além do `localStorage` já aprovado na `.9`.
   com `node`; limites de 1000 linhas por arquivo e 45 por função. Visual conferido pelo usuário
   (`.19`). Reiniciar o `servidor.py` só depois das gerações da Tripo em andamento.
 
+- **Entregue (2026-10-17 17:37), com os pedidos feitos durante a execução:**
+  - Nome do agente como no quadro: um personagem por nome da coluna "Em uso por", com o nome
+    escrito em cima ("Claude Code" / "Opus 5.5 · local · main"); forma e cor pelo modelo citado.
+  - `agentes.html` em tela inteira, só com o menu em cima (sem títulos nem textos); contagem,
+    atraso e eventos ficam sobre a cena.
+  - `assets/js/menu.js`: menu único (Dashboard, 3D GRAPHS AI, Cena do prompt 04, Agentes ao vivo)
+    usado em `index.html`, `cena.html` e `agentes.html`, com a página aberta destacada.
+  - Os personagens usam só formas simples (os GLB da Tripo foram deixados de lado por serem
+    pesados demais: 1,4 milhão de triângulos cada).
+  - Conferido: `node --check` em todos os `.js`, `py_compile`, fila testada com `node`
+    (nada sai aos 29 s, tudo sai aos 30 s), servidor de teste na porta 8091 com `/api/agentes`
+    devolvendo as 36 linhas do quadro e `.py` bloqueado (404).
+
 ### DASHBOARD-REDE-NEURAL.19 — Aceite do usuário
 
-**Status:** ⬜ pendente. O usuário abre `http://localhost:8080/graphs/agentes.html`, muda o status
+**Status:** 👀 aguardando o usuário (reiniciar o `servidor.py` antes). O usuário abre `http://localhost:8080/graphs/agentes.html`, muda o status
 de uma tarefa no quadro e confere a animação cerca de 30 s depois.
 
 ## Decisões
@@ -339,3 +352,4 @@ de uma tarefa no quadro e confere a animação cerca de 30 s depois.
 | 2026-10-17 16:50 | `.15` (correção): ⚙ na cena e validação da chave | Gelvazio | "n habilitou" |
 | 2026-10-17 16:57 | `.17` (C26): saldo de créditos no cabeçalho | Gelvazio | "sim, mostre o saldo de créditos na página" |
 | 2026-10-17 17:10 | `.18` criada (C26) com plano aprovado: fonte só o `rules-ai/tasks/STATUS.md`, atraso configurável (30 s); só registrada no quadro | Gelvazio | "como eu posso usar esta interface em 3D, pra mostrar o trabalho real dos meus agentes..." / "apenas grave a tarefa no quadro de tasks" |
+| 2026-10-17 17:37 | `.18` executada; nome do agente nos personagens, tela inteira só com o menu e `menu.js` único | Gelvazio | "execute a tarefa .18" e pedidos durante a execução |
