@@ -66,12 +66,55 @@ gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` j
 
 ### PASTA-UNICA-GLOBAL.2 — Aprovação do plano
 
-**Próximo passo:** o usuário escolhe a opção da `.1` (recomendada: B); as subtarefas de execução são criadas depois.
+**Próximo passo:** — (entregue para o `rules-ai`; `gerenciador-de-ia` segue na `.4`).
 
 - **Nível:** Usuário.
 - **Modelo:** Usuário — nunca outro
 - **Effort:** low
 - **Critérios de Aceitação:** "sim" claro com a opção escolhida, registrado em Decisões.
+- **Entrega (2026-10-17 13:37):** `rules-ai` = **(A) uma sessão por vez**, só neste projeto. · **Verificação:** resposta do usuário em Decisões.
+
+### PASTA-UNICA-GLOBAL.3 — Regra do `rules-ai`: uma sessão por vez
+
+**Próximo passo:** acrescentar a seção abaixo no fim do `AGENTS.md`, a linha no `.gitignore`, a linha C29 e o status.
+
+- **Nível:** LEVE — só `.md` e `.gitignore`.
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **Descrição:** (1) no fim de `AGENTS.md` (depois do bloco `rules-ai:global`), uma linha em branco e
+  a seção abaixo, sem mudar; (2) no fim do `.gitignore`, a linha `tasks/.sessao-ativa`; (3) em
+  `CONFLITOS.md`, no fim da tabela "Decididos depois", a linha
+  `| C29 | Sessões na mesma pasta (`rules-ai`) | ✅ **Só no `rules-ai`:** uma sessão de IA por vez, com a trava local `tasks/.sessao-ativa` (fora do Git); regra no `AGENTS.md` do projeto. `gerenciador-de-ia` ainda sem decisão (PASTA-UNICA-GLOBAL.4). Pedido do usuário em 2026-10-17 |`;
+  (4) nova linha no topo de "O que mudou desde a última gravação" do `STATUS_PROJETO.md`.
+- **Critério de pronto:** os 4 arquivos com o texto exato; nada mais alterado; sem sincronizador
+  (é regra do projeto, não global).
+
+```markdown
+## 🔒 Uma sessão por vez (só neste projeto, C29)
+
+- ⛔ Em `C:\fontes\rules-ai` trabalha **uma sessão de IA por vez**, de qualquer IA ou modelo
+  (decisão do usuário, 2026-10-17). Agente de equipe (subagente do líder) não conta: trabalha sob a
+  trava do líder.
+- **Ao começar** (antes de criar, reservar ou editar qualquer coisa): ler `tasks/.sessao-ativa`.
+  - Existe, é de **outra** sessão e foi atualizado há **menos de 60 min** → **não trabalhar**:
+    avisar o usuário quem está na pasta (o texto do arquivo) e parar.
+  - Não existe, ou passou de 60 min sem atualização → gravar nele
+    `<IA (modelo)> (<frente>) desde <data 13:37>` e seguir; se assumiu uma trava velha, dizer ao
+    usuário de quem era.
+- **Durante:** regravar o arquivo (mesmo texto + ` · atualizado <data 13:37>`) a cada subtarefa
+  reservada ou entregue.
+- **Ao terminar** (junto do **TAREFA FINALIZADA E SINCRONIZADA!** ou ao parar de trabalhar):
+  apagar `tasks/.sessao-ativa`.
+- O arquivo fica fora do Git (`.gitignore`): a trava é local, desta pasta.
+```
+
+### PASTA-UNICA-GLOBAL.4 — Decidir o `gerenciador-de-ia`
+
+**Próximo passo:** o usuário escolhe A, B ou C da `.1` para o `gerenciador-de-ia`.
+
+- **Nível:** Usuário.
+- **Modelo:** Usuário — nunca outro
+- **Effort:** low
 - **Entrega:** — · **Verificação:** —
 
 ## Decisões
@@ -79,3 +122,4 @@ gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` j
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
 | 2026-10-17 13:30 | Tarefa nova para os conflitos de pasta única; tarefa grande (plano na `.1`, aprovação na `.2`) | Gelvazio | "abra uma nova tarefa pra resolver conflitos de rules-ai e gerenciador-de-ia" |
+| 2026-10-17 13:37 | `rules-ai`: **(A) uma sessão por vez**, só neste projeto; `gerenciador-de-ia` sem decisão (`.4`) | Gelvazio | "aqui em rules-ai,exclusivamente,deve ser 1 sessao por vez" |
