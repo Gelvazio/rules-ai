@@ -10,6 +10,7 @@ from config_graphs import (
     TEMPO_LIMITE_SEGUNDOS,
     TIPO_TEXTO_3D,
     URL_BASE_TRIPO,
+    USER_AGENT,
     chave_tripo,
 )
 
@@ -18,15 +19,19 @@ class ErroTripo(Exception):
     """Falha ao falar com a Tripo (rede, chave inválida, saldo, resposta inesperada)."""
 
 
-def chamar(metodo, caminho, corpo=None):
-    """Faz a requisição autenticada e devolve o campo 'data' da resposta."""
-    chave = chave_tripo()
+def chamar(metodo, caminho, corpo=None, chave=""):
+    """Faz a requisição autenticada e devolve o campo 'data' da resposta.
+
+    Usa a chave recebida (do localStorage, via servidor local) ou, sem ela, a do .env.
+    """
+    chave = chave or chave_tripo()
     if not chave:
-        raise ErroTripo("TRIPO_API_KEY não configurada no dashboard/graphs/.env")
+        raise ErroTripo("Chave da Tripo não configurada: use a engrenagem ⚙ ou o graphs/.env")
     dados = json.dumps(corpo).encode("utf-8") if corpo is not None else None
     pedido = urllib.request.Request(URL_BASE_TRIPO + caminho, data=dados, method=metodo)
     pedido.add_header("Authorization", f"Bearer {chave}")
     pedido.add_header("Content-Type", "application/json")
+    pedido.add_header("User-Agent", USER_AGENT)  # o Cloudflare da Tripo barra o padrão do urllib (erro 1010)
     try:
         with urllib.request.urlopen(pedido, timeout=TEMPO_LIMITE_SEGUNDOS) as resposta:
             conteudo = json.loads(resposta.read().decode("utf-8"))
@@ -40,17 +45,17 @@ def chamar(metodo, caminho, corpo=None):
     return conteudo.get("data", {})
 
 
-def criar_tarefa_texto(prompt):
+def criar_tarefa_texto(prompt, chave=""):
     """Cria a tarefa texto → 3D e devolve o task_id."""
-    dados = chamar("POST", CAMINHO_TAREFA, {"type": TIPO_TEXTO_3D, "prompt": prompt})
+    dados = chamar("POST", CAMINHO_TAREFA, {"type": TIPO_TEXTO_3D, "prompt": prompt}, chave)
     if "task_id" not in dados:
         raise ErroTripo(f"Resposta sem task_id: {dados}")
     return dados["task_id"]
 
 
-def consultar_tarefa(task_id):
+def consultar_tarefa(task_id, chave=""):
     """Status, progresso e URL do modelo (se pronto) de uma tarefa."""
-    dados = chamar("GET", f"{CAMINHO_TAREFA}/{task_id}")
+    dados = chamar("GET", f"{CAMINHO_TAREFA}/{task_id}", chave=chave)
     saida = dados.get("output") or {}
     url_modelo = next((saida[c] for c in CAMPOS_MODELO_SAIDA if saida.get(c)), None)
     return {
@@ -61,15 +66,16 @@ def consultar_tarefa(task_id):
     }
 
 
-def consultar_saldo():
+def consultar_saldo(chave=""):
     """Saldo de créditos da conta."""
-    return chamar("GET", CAMINHO_SALDO)
+    return chamar("GET", CAMINHO_SALDO, chave=chave)
 
 
 def baixar(url, destino):
     """Baixa o GLB gerado (as URLs da Tripo são temporárias) para o disco."""
+    pedido = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     try:
-        with urllib.request.urlopen(url, timeout=TEMPO_LIMITE_SEGUNDOS) as resposta:
+        with urllib.request.urlopen(pedido, timeout=TEMPO_LIMITE_SEGUNDOS) as resposta:
             destino.write_bytes(resposta.read())
     except (urllib.error.URLError, TimeoutError) as erro:
         raise ErroTripo(f"Falha ao baixar o modelo: {erro}") from erro

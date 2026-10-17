@@ -20,6 +20,7 @@ CAMPOS_MODELO_SAIDA = ("pbr_model", "model", "base_model")
 STATUS_FINAIS = {"success", "failed", "banned", "expired", "cancelled", "unknown"}
 
 TEMPO_LIMITE_SEGUNDOS = 60
+USER_AGENT = "dashboard-3d-graphs-ai/1.0 (+python urllib)"
 TAMANHO_MAX_PROMPT = 1024
 CUSTO_CREDITOS = "10 a 20"
 VALOR_CREDITO_USD = 0.01

@@ -35,11 +35,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-REDE-NEURAL.6 | Coletor Python dos links do `dashboard/CLAUDE.md` (`dashboard/scripts/`) | 🟡 Média | MEDIO · effort medium | Nenhuma | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.7 | Aba "Ferramentas de IA 3D" no `dashboard/index.html` com os dados do `coleta.json` e dos reels de `MODELOS-DE-IA` | 🟡 Média | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.6 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.8 | Menu "3D GRAPHS AI" → `dashboard/graphs/`: visualizador de modelos 3D gerados por IA (API Tripo, texto → 3D) | 🟡 Média | PESADO · effort high | DASHBOARD-REDE-NEURAL.7 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| DASHBOARD-REDE-NEURAL.9 | Ícone de configuração no 3D GRAPHS AI: modal para a chave da Tripo salva no `localStorage` | 🟡 Média | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.8 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 16:16 | DASHBOARD-REDE-NEURAL.9 criada (C26): chave da Tripo no `localStorage` via modal; o servidor local recebe a chave no cabeçalho `X-Tripo-Key` e usa o `.env` como alternativa | Gelvazio | "e um icone de config, que abre um modal pra colocar a chave de api e salvar no localstorage, no menu 3D graphs ai" |
 | 2026-10-17 15:50 | DASHBOARD-REDE-NEURAL.8 criada (C26): pasta `dashboard/graphs/` com a API mais barata (Tripo, US$ 0,10–0,20 por modelo); sem chave por enquanto, só texto → 3D, menu abre na mesma aba | Gelvazio | "crie 1 menu de nome 3D GRAPHS AI..." + respostas: "faça sem ela", "só texto → 3D", "na mesma aba" |
 | 2026-10-17 15:37 | DASHBOARD-REDE-NEURAL.7 criada (C26): aba nova no `index.html` com os dados coletados; a aba da rede neural fica intacta | Gelvazio | "leia coleta.json e atualize o dashboard em index.html com as informacoes, e use tambem as informacoes do instagram em MODELOS-DE-IA" |
 | 2026-10-17 15:03 | DASHBOARD-REDE-NEURAL.6 criada (C26): coletor Python dos links L04–L10 em `dashboard/scripts/`, executado pelo Opus 5.5 a pedido | Gelvazio | "crie 1 pasta scripts nele crie e rode o app em python que coleta os dados dos sites solicitados" |

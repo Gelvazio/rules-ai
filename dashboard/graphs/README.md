@@ -16,9 +16,16 @@ Fonte: `dashboard/scripts/saida/coleta.json` (coleta de 2026-10-17).
 
 ## Como usar
 
-1. Copie `.env.example` para `.env` (fica fora do Git) e preencha `TRIPO_API_KEY`
-   (crie em https://platform.tripo3d.ai). Sem chave, a página abre, mostra a galeria e um
-   exemplo procedural, e o botão Gerar fica desligado.
+1. Informe a chave da Tripo (crie em https://platform.tripo3d.ai) de um destes jeitos:
+   - **Engrenagem ⚙** no cabeçalho da página: abre um modal que salva a chave no `localStorage`
+     deste navegador (mostrar/ocultar e remover). O front manda a chave só ao servidor local, no
+     cabeçalho `X-Tripo-Key`, e ele a repassa à Tripo.
+   - **`.env`**: copie `.env.example` para `.env` (fora do Git) e preencha `TRIPO_API_KEY`.
+     Vale quando o navegador não mandou chave.
+
+   Sem chave, a página abre, mostra a galeria e um exemplo procedural, e o Gerar fica desligado.
+   Cuidado: no `localStorage` a chave fica legível por qualquer script da página (inclusive o
+   Three.js do CDN); para uso local isso basta, mas não publique esta página na internet.
 2. Rode, a partir de `C:\fontes\rules-ai`:
 
    ```
@@ -38,10 +45,13 @@ por execução. Os GLB gerados ficam em `graphs/modelos/` (fora do Git).
 - `galeria_modelos.py`: grava e lista os modelos em `modelos/`.
 - `config_graphs.py`: constantes e leitura do `.env`.
 - `index.html`, `assets/css/graphs.css`, `assets/js/` (`principal.js`, `api.js`,
-  `visualizador.js`, `config.js`).
+  `visualizador.js`, `config.js`, `chave.js` e `modal-config.js` do ícone ⚙).
 
 ## Pendente
 
-Os endpoints da Tripo (`/v2/openapi/task`, `/task/{id}`, `/user/balance`, campos `output.pbr_model`
-e `output.model`) foram escritos sem conferir a documentação, que só abre com JavaScript. Confira
-na primeira geração com chave; se algo mudar, ajuste só `config_graphs.py` e `cliente_tripo.py`.
+- **Conferido (2026-10-17 16:18):** URL base `https://api.tripo3d.ai/v2/openapi` e autenticação
+  `Authorization: Bearer <chave>` (uma chave falsa recebe `401 {"code":1002,"message":"Authentication failed"}`).
+  O Cloudflare da Tripo barra o User-Agent padrão do Python (erro 1010); o cliente manda um próprio.
+- **A conferir com chave válida:** corpo `{"type":"text_to_model","prompt":...}`, campos
+  `data.task_id`, `data.status`, `data.progress`, `data.output.pbr_model`/`model` e `/user/balance`.
+  Se algo mudar, ajuste só `config_graphs.py` e `cliente_tripo.py`.

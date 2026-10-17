@@ -1,10 +1,12 @@
-// Liga o visualizador, a galeria e o formulário de geração.
+// Liga o visualizador, a galeria, o formulário de geração e o modal de configuração.
 import { acompanharTarefa, gerarModelo, lerEstado, listarModelos } from './api.js';
 import { NOMES_STATUS, PASTA_MODELOS } from './config.js';
+import { iniciarModalConfig } from './modal-config.js';
 import { criarVisualizador } from './visualizador.js';
 
 const $ = (id) => document.getElementById(id);
 const visualizador = criarVisualizador($('cena'));
+let estadoAtual = null;
 
 function avisar(texto) {
   $('aviso').textContent = texto;
@@ -56,11 +58,13 @@ function mostrarProgresso({ status, progresso }) {
   $('progresso-texto').textContent = `${NOMES_STATUS[status] ?? status} · ${progresso ?? 0}%`;
 }
 
-async function aoGerar(evento, estado) {
+const temChave = (estado) => Boolean(estado && (estado.chave_no_pedido || estado.chave_configurada));
+
+async function aoGerar(evento) {
   evento.preventDefault();
   const prompt = $('prompt').value.trim();
-  if (!prompt) return;
-  const custo = `${estado.custo_creditos} créditos (US$ 0,10 a 0,20)`;
+  if (!prompt || !temChave(estadoAtual)) return;
+  const custo = `${estadoAtual.custo_creditos} créditos (US$ 0,10 a 0,20)`;
   if (!window.confirm(`Gerar "${prompt}"?\nCusto estimado: ${custo} na sua conta Tripo.`)) return;
   $('botao-gerar').disabled = true;
   avisar('');
@@ -71,25 +75,29 @@ async function aoGerar(evento, estado) {
   } catch (erro) {
     avisar(erro.message);
   } finally {
-    $('botao-gerar').disabled = false;
+    await atualizarEstado();
   }
 }
 
 function descreverEstado(estado) {
   if (!estado) return 'Abra pelo servidor local (python dashboard/graphs/servidor.py) para gerar e ver a galeria.';
-  if (!estado.chave_configurada) return 'Chave da Tripo não configurada: copie graphs/.env.example para .env e preencha TRIPO_API_KEY.';
-  return `Pronto para gerar · ${estado.geracoes_feitas}/${estado.limite_geracoes} gerações nesta execução.`;
+  if (!temChave(estado)) return 'Sem chave da Tripo: clique na engrenagem ⚙ para informar a sua.';
+  const origem = estado.chave_no_pedido ? 'chave deste navegador' : 'chave do graphs/.env';
+  return `Pronto para gerar (${origem}) · ${estado.geracoes_feitas}/${estado.limite_geracoes} gerações nesta execução.`;
+}
+
+async function atualizarEstado() {
+  estadoAtual = await lerEstado();
+  $('estado-api').textContent = descreverEstado(estadoAtual);
+  $('botao-gerar').disabled = !temChave(estadoAtual);
+  return estadoAtual;
 }
 
 async function iniciar() {
-  const estado = await lerEstado();
-  $('estado-api').textContent = descreverEstado(estado);
   $('custo').textContent = 'Custo por modelo: 10 a 20 créditos (1 crédito = US$ 0,01).';
-  if (estado?.chave_configurada) {
-    $('botao-gerar').disabled = false;
-    $('form-gerar').addEventListener('submit', (evento) => aoGerar(evento, estado));
-  }
-  if (estado) await carregarGaleria(true);
+  $('form-gerar').addEventListener('submit', aoGerar);
+  iniciarModalConfig(atualizarEstado);
+  if (await atualizarEstado()) await carregarGaleria(true);
   else visualizador.mostrarExemplo();
 }
 

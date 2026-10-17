@@ -4,6 +4,7 @@ Uso: python dashboard/graphs/servidor.py [porta]
 Abre: http://localhost:8080 (dashboard) e http://localhost:8080/graphs/ (3D GRAPHS AI)
 """
 import json
+import re
 import sys
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -25,6 +26,8 @@ from config_graphs import (
 
 geracoes_feitas = 0
 EXTENSOES_PROIBIDAS = (".py", ".env", ".pyc")
+CABECALHO_CHAVE = "X-Tripo-Key"
+PADRAO_CHAVE = re.compile(r"^[\w.-]{8,200}$")
 
 
 def caminho_proibido(caminho):
@@ -35,6 +38,11 @@ def caminho_proibido(caminho):
 
 class Manipulador(SimpleHTTPRequestHandler):
     """Arquivos estáticos do dashboard + rotas /api/ do 3D GRAPHS AI."""
+
+    def chave_do_pedido(self):
+        """Chave enviada pelo navegador (localStorage); '' se ausente ou malformada."""
+        chave = (self.headers.get(CABECALHO_CHAVE) or "").strip()
+        return chave if PADRAO_CHAVE.match(chave) else ""
 
     def responder(self, codigo, dados):
         corpo = json.dumps(dados, ensure_ascii=False).encode("utf-8")
@@ -69,7 +77,8 @@ class Manipulador(SimpleHTTPRequestHandler):
             self.responder(400, {"erro": str(erro)})
 
     def rota_estado(self):
-        return {"chave_configurada": bool(chave_tripo()), "custo_creditos": CUSTO_CREDITOS,
+        return {"chave_configurada": bool(chave_tripo()), "chave_no_pedido": bool(self.chave_do_pedido()),
+                "custo_creditos": CUSTO_CREDITOS,
                 "valor_credito_usd": VALOR_CREDITO_USD, "geracoes_feitas": geracoes_feitas,
                 "limite_geracoes": limite_geracoes()}
 
@@ -77,7 +86,7 @@ class Manipulador(SimpleHTTPRequestHandler):
         return {"modelos": galeria.listar_modelos()}
 
     def rota_saldo(self):
-        return consultar_saldo()
+        return consultar_saldo(self.chave_do_pedido())
 
     def rota_gerar(self):
         global geracoes_feitas
@@ -88,7 +97,7 @@ class Manipulador(SimpleHTTPRequestHandler):
             raise ValueError("Informe o prompt e confirme o custo antes de gerar.")
         if geracoes_feitas >= limite_geracoes():
             raise ValueError("Limite de gerações desta execução atingido (LIMITE_GERACOES no .env).")
-        task_id = criar_tarefa_texto(prompt)
+        task_id = criar_tarefa_texto(prompt, self.chave_do_pedido())
         geracoes_feitas += 1
         galeria.registrar_pedido(task_id, prompt)
         return {"task_id": task_id}
@@ -99,7 +108,7 @@ class Manipulador(SimpleHTTPRequestHandler):
         pronto = galeria.arquivo_pronto(task_id)
         if pronto:
             return {"status": "success", "progresso": 100, "arquivo": pronto}
-        estado = consultar_tarefa(task_id)
+        estado = consultar_tarefa(task_id, self.chave_do_pedido())
         if estado["status"] == "success" and estado["url_modelo"]:
             estado["arquivo"] = galeria.salvar_modelo(task_id, estado["url_modelo"])
         estado["final"] = estado["status"] in STATUS_FINAIS

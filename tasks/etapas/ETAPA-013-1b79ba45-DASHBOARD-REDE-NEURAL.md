@@ -158,8 +158,21 @@ mostra as probabilidades da saída.
   procedural, e o Gerar fica desligado.
 - **Critérios de aceitação:** `py_compile` e `node --check` passam; servidor sobe e responde
   `/api/estado` sem chave; nenhuma chave no front-end; confirmação de custo antes de gerar.
-- **Pendente:** endpoints da Tripo escritos de memória (docs só abrem com JavaScript); conferir
-  na primeira geração com chave.
+- **Pendente:** URL base e auth conferidas em 2026-10-17 16:18 (401 com chave falsa); corpo da tarefa e campos
+  de saída a conferir na primeira geração com chave válida.
+
+### DASHBOARD-REDE-NEURAL.9 — Ícone de configuração e chave no `localStorage`
+
+**Status:** ✅ entregue 2026-10-17 16:18. Testado: chave do cabeçalho tem prioridade, `.env` como alternativa, chave malformada ignorada, chave não aparece no log; Tripo real responde 401 a chave falsa (URL base e auth confirmadas, erro 1010 do Cloudflare corrigido com User-Agent).
+
+- **Nível:** MEDIO — modal em JS + ajuste no servidor.
+- **Modelo:** Opus 5.5 (a pedido do usuário)
+- **Effort:** medium
+- **Descrição:** engrenagem no cabeçalho de `graphs/index.html` abre um `<dialog>` para salvar,
+  mostrar/ocultar e remover a chave da Tripo no `localStorage`. O front manda a chave no
+  cabeçalho `X-Tripo-Key` só para o servidor local, que a repassa à Tripo; sem ela, vale o `.env`.
+- **Critérios de aceitação:** `py_compile` e `node --check` passam; o servidor usa a chave do
+  cabeçalho e cai no `.env` sem ela; a chave nunca aparece em resposta nem em log.
 
 ## Decisões
 
@@ -170,3 +183,4 @@ mostra as probabilidades da saída.
 | 2026-10-17 15:03 | `.6` criada (C26): coletor Python dos links do `dashboard/CLAUDE.md` | Gelvazio | "crie 1 pasta scripts nele crie e rode o app em python que coleta os dados dos sites solicitados" |
 | 2026-10-17 15:37 | `.7` criada (C26): aba de ferramentas no `index.html` | Gelvazio | "leia coleta.json e atualize o dashboard em index.html com as informacoes..." |
 | 2026-10-17 15:50 | `.8` criada (C26): `graphs/` com a API da Tripo; sem chave, só texto → 3D, mesma aba | Gelvazio | Respostas às perguntas da tarefa |
+| 2026-10-17 16:16 | `.9` criada (C26): chave da Tripo no `localStorage` via modal | Gelvazio | "e um icone de config, que abre um modal pra colocar a chave de api..." |

@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 16:18 (Brasília): DASHBOARD-REDE-NEURAL.9 entregue: ícone ⚙ no 3D GRAPHS AI abre modal para salvar a chave da Tripo no `localStorage` (enviada só ao servidor local em `X-Tripo-Key`; `.env` como alternativa). Corrigido o bloqueio do Cloudflare da Tripo (erro 1010) com User-Agent próprio; URL base e autenticação confirmadas (401 com chave falsa).
 - 2026-10-17 15:53 (Brasília): DASHBOARD-REDE-NEURAL.8 entregue: menu "3D GRAPHS AI" no `dashboard/index.html` abre `dashboard/graphs/` (visualizador Three.js de GLB + geração texto → 3D pela API da Tripo, a mais barata da coleta, via `graphs/servidor.py` com a chave no `.env` fora do Git). Sem chave por enquanto; endpoints da Tripo a conferir na primeira geração.
 - 2026-10-17 15:44 (Brasília): DASHBOARD-REDE-NEURAL.7 entregue: aba "Ferramentas de IA 3D" no `dashboard/index.html` (dados do `coleta.json` e dos reels salvos em `MODELOS-DE-IA/`, gerados por `scripts/gerar_dados_painel.py`). `/graphify --update` rodado: 500 nós, 628 ligações, 45 comunidades; `.graphifyignore` novo tira `MODELOS-DE-IA/` do grafo.
 - 2026-10-17 15:33 (Brasília): `graphify update .` rodado a pedido do usuário; sem mudança de topologia, só o cache (`stat-index.json`, `manifest.json`) foi atualizado.
