@@ -112,12 +112,23 @@ gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` j
 
 ### PASTA-UNICA-GLOBAL.4 — Decidir o `gerenciador-de-ia`
 
-**Próximo passo:** o usuário escolhe A, B ou C da `.1` para o `gerenciador-de-ia`.
+**Próximo passo:** — (entregue: opção A).
 
 - **Nível:** Usuário.
 - **Modelo:** Usuário — nunca outro
 - **Effort:** low
-- **Entrega:** — · **Verificação:** —
+- **Entrega (2026-10-17 13:44):** `gerenciador-de-ia` = **(A) uma sessão por vez**. · **Verificação:** resposta do usuário em Decisões.
+
+### PASTA-UNICA-GLOBAL.5 — Levar a regra ao `gerenciador-de-ia`
+
+**Próximo passo:** executar a `#5.1` do quadro do `gerenciador-de-ia` (etapa 005-e52472de) e ampliar a linha C29.
+
+- **Nível:** LEVE — só `.md` e `.gitignore`.
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **Descrição:** (1) a `#5.1` do `gerenciador-de-ia` (seção `## 10. Uma sessão por vez` no `CLAUDE.md` de lá e `.gitignore`), com commit no repositório dele; (2) em `CONFLITOS.md`, trocar a linha C29 pela linha abaixo; (3) linha no topo do `STATUS_PROJETO.md`.
+- **Linha C29 nova:** `| C29 | Sessões na mesma pasta (`rules-ai`, `gerenciador-de-ia`) | ✅ **No `rules-ai` e no `gerenciador-de-ia`:** uma sessão de IA por vez, com a trava local `tasks/.sessao-ativa` (fora do Git); regra no `AGENTS.md` do `rules-ai` e na seção 10 do `CLAUDE.md` do `gerenciador-de-ia`. Pedido do usuário em 2026-10-17 |`
+- **Critério de pronto:** regra nos dois projetos; C29 cobre os dois.
 
 ## Decisões
 
@@ -125,3 +136,4 @@ gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` j
 |---|---|---|---|
 | 2026-10-17 13:30 | Tarefa nova para os conflitos de pasta única; tarefa grande (plano na `.1`, aprovação na `.2`) | Gelvazio | "abra uma nova tarefa pra resolver conflitos de rules-ai e gerenciador-de-ia" |
 | 2026-10-17 13:37 | `rules-ai`: **(A) uma sessão por vez**, só neste projeto; `gerenciador-de-ia` sem decisão (`.4`) | Gelvazio | "aqui em rules-ai,exclusivamente,deve ser 1 sessao por vez" |
+| 2026-10-17 13:44 | `gerenciador-de-ia`: **(A) uma sessão por vez**, como o `rules-ai` | Gelvazio | "gerenciador-de-ia também 1 sessão por vez" |
