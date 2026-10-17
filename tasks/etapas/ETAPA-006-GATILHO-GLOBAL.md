@@ -29,7 +29,7 @@ subtarefa livre **do seu modelo**, executa e entrega, sem perguntar.
 
 ### GATILHO-GLOBAL.1 — Regra global, conflito C24 e status do projeto
 
-**Próximo passo:** reservar e executar (só Haiku). Primeiro `git pull --rebase origin main`.
+**Próximo passo:** nenhum. Subtarefa entregue em 2026-10-17 16:30.
 
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** só Haiku — nunca outro (regra C22, sem exceção; o pedido veio a uma sessão Sonnet).
@@ -40,7 +40,7 @@ subtarefa livre **do seu modelo**, executa e entrega, sem perguntar.
   gravação" com data e hora (Brasília) e o que mudou (regra do `;`, C24 e sincronização).
 - **Critérios de aceitação:** o texto da regra está idêntico ao acima; C24 está no `CONFLITOS.md`;
   `STATUS_PROJETO.md` registra a mudança com data e hora.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** commit `docs(regras): gatilho ; (C24) em frentes-e-reserva.md e no CONFLITOS.md` (regra, C24 e `STATUS_PROJETO.md`) · **Verificação:** `grep` achou o título "## Gatilho `;`" em `regras/frentes-e-reserva.md` (linha 50) e a linha C24 no `CONFLITOS.md` (linha 50); o arquivo tem 4.078 bytes, abaixo de 5 KB; o texto da regra é o da etapa, sem mudança.
 
 ### GATILHO-GLOBAL.2 — Rodar o sincronizador
 

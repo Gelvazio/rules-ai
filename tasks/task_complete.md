@@ -42,3 +42,4 @@
 | STATUS-QUADRO-GLOBAL.3 | 🌐 C27: ID da tarefa e linha da mãe em todo quadro; sincronizar · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ✅ Concluído (2026-10-17 13:19) | — | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
 | STATUS-QUADRO-GLOBAL | **🌐 GLOBAL — Todo status é mostrado em quadro, no terminal e no IDE (C27; ampliada na .3)** | 🟡 Média | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.8 | 🌐 Conferir as respostas de 16:12 contra o plano de 13:01 · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.1 | ✅ Concluído (2026-10-17 13:22) | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
+| GATILHO-GLOBAL.1 | 🌐 Regra global, conflito C24 e status do projeto · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ✅ Concluído (2026-10-17 16:30) | — | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
