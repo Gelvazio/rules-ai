@@ -42,11 +42,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-REDE-NEURAL.13 | `dashboard/graphs/TRIPO_AI_DOCS.md`: guia da API e dos SDKs da Tripo (lido de developers.tripo3d.ai) | 🟢 Baixa | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.8 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.14 | 3D GRAPHS AI: usar o prompt `MODELO-3D-REDE-NEURAL-04.md` com a API da Tripo (objetos 3D gerados + cena 3D animada do infográfico) | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | DASHBOARD-REDE-NEURAL.9, DASHBOARD-REDE-NEURAL.13 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.15 | Correção: engrenagem ⚙ na `cena.html` e validação da chave aceitando qualquer caractere visível | 🟠 Alta | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.14 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| DASHBOARD-REDE-NEURAL.16 | Modal da chave avisa quando é colado o client_id (`tcli_...`) em vez da chave secreta (`tsk_...`) | 🟢 Baixa | LEVE · effort low | DASHBOARD-REDE-NEURAL.15 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 16:52 | DASHBOARD-REDE-NEURAL.16 (C26): a Tripo recusou o `tcli_...` (client_id); o modal passa a recusar esse prefixo e pedir a chave `tsk_` | Gelvazio | "erro ao gerar: ... API key must start with 'tsk_'..." |
 | 2026-10-17 16:50 | DASHBOARD-REDE-NEURAL.15 (C26, correção): a `cena.html` ganhou a ⚙; a validação da chave (modal e servidor) passou de `[\w.-]` para ASCII visível sem espaço, porque o botão Gerar não habilitava | Gelvazio | "n habilitou" / "a pagina cena.html, n tem o botao de config da chave de api" |
 | 2026-10-17 16:40 | DASHBOARD-REDE-NEURAL.14 aprovada: formas simples primeiro (sem gerar na Tripo agora), migrar o cliente para a API V3, prompts dos objetos em inglês | Gelvazio | "1-formas simples primeiro;2-migre para V3;3-ingles" |
 | 2026-10-17 16:39 | DASHBOARD-REDE-NEURAL.14 criada (C26) só com o plano: o prompt 04 descreve uma página, e a Tripo gera um objeto por vez; o plano extrai os objetos 3D do prompt, gera cada um e monta a cena animada no 3D GRAPHS AI. Execução depende do "sim" (gasta créditos) | Gelvazio | "como eu faço pra usa os prompts da pasta prompt, com esta api, no projeto atual 3D graphs AI, crie 1 tarefa pra isso, para o prompt 04" |

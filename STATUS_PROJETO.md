@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 16:52 (Brasília): DASHBOARD-REDE-NEURAL.16: o modal da chave avisa quando é colado o client_id (`tcli_`) em vez da chave secreta (`tsk_`).
 - 2026-10-17 16:50 (Brasília): DASHBOARD-REDE-NEURAL.15 (correção): ⚙ da chave também na `graphs/cena.html`; validação da chave aceita qualquer caractere visível sem espaço.
 - 2026-10-17 16:44 (Brasília): DASHBOARD-REDE-NEURAL.14 entregue: cena 3D animada do prompt 04 em `dashboard/graphs/cena.html` (formas simples até gerar os 5 objetos na Tripo) e cliente da Tripo migrado para a API V3.
 - 2026-10-17 16:39 (Brasília): DASHBOARD-REDE-NEURAL.14 criada só com o plano: usar o prompt 04 no 3D GRAPHS AI (objetos 3D gerados na Tripo + cena animada do infográfico). Aguarda respostas e o "sim" do usuário.

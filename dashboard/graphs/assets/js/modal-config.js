@@ -36,6 +36,10 @@ function aoSalvar(evento, aoMudar) {
     $('config-erro').textContent = 'Chave inválida: cole a chave sem espaços (8 a 300 caracteres).';
     return;
   }
+  if (chave.startsWith('tcli_')) {
+    $('config-erro').textContent = 'Isso é o client_id (tcli_...). Use a chave secreta, que começa com tsk_.';
+    return;
+  }
   if (!salvarChave(chave)) {
     $('config-erro').textContent = 'O navegador bloqueou o armazenamento (janela privada?).';
     return;
