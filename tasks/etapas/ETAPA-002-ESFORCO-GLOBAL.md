@@ -93,6 +93,23 @@ Ressalvas: amostra de 3 por nível; o problema foi resolvido por força bruta (p
   conferem nas 4 respostas. Ressalvas: 1 execução por nível; os tokens incluem o contexto fixo do
   agente (~38 mil), então a diferença absoluta é pequena e o tempo é o sinal mais claro.
 
+### CONFEFFORT-GLOBAL.7 — Atualizar a C21 com a conferência do Opus
+
+**Próximo passo:** trocar a linha da conferência em `regras/esforco.md`, anotar o status do projeto e
+rodar o sincronizador.
+
+- **Nível:** LEVE — só `.md` e rodar um script já existente.
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **Pedido:** "sim, abra a subtarefa e atualize a C21" (2026-10-17 13:11); criada no caminho (C26).
+- **Descrição:** (1) em `regras/esforco.md`, trocar a linha que começa com "- Conferência do Sonnet
+  5.5 (CONFEFFORT-GLOBAL.2 e .6)" por:
+  `- Conferência por modelo: **Sonnet 5.5** (CONFEFFORT-GLOBAL.2 e .6): `low` e `medium` sem diferença mensurável; só `high` mostrou efeito pequeno. **Opus 5.5** (CONFEFFORT-GLOBAL.3, 2026-10-17): `effort` aplicado — tokens e tempo crescem de `low` a `xhigh` (+2,3% de tokens, +40% de tempo), todos com a resposta certa. Faltam Haiku, Gemini e DeepSeek.`;
+  (2) em `STATUS_PROJETO.md`, nova linha no topo de "O que mudou desde a última gravação";
+  (3) `node scripts/sincronizar.mjs --aplicar` (a C21 está nos arquivos globais das IAs) e conferir
+  que `dist/REGRAS-GLOBAIS.md` contém "**Opus 5.5** (CONFEFFORT-GLOBAL.3".
+- **Critério de pronto:** só essa linha muda em `esforco.md`; sincronizador sem erro.
+
 ### ESFORCO-GLOBAL.3, .4 e .5 — `effort` em todos os agentes e em todas as tarefas pendentes
 
 **Pedido (2026-10-16 20:40):** "2-aceito; 1-crie em todas as tarefas o effort; 3-adicione o effort sempre, se não usa, é só o modelo ignorar, faça isso pra todas as tarefas que estão pendentes no quadro de tarefas em todos os projetos"
