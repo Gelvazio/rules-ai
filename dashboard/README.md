@@ -30,6 +30,7 @@ serve o dashboard) e da chave no `graphs/.env`. Detalhes em `graphs/README.md`.
 - `assets/js/rede/`: cálculo da rede (pesos, propagação).
 - `assets/js/cena/`: desenho das camadas, neurônios e conexões em 3D.
 - `assets/js/tela/`: painel 2D (entradas, cálculo, barras e legenda).
+- `prompts/`: prompts usados no dashboard (um `.md` por prompt).
 - `scripts/`: coletor Python dos links do `CLAUDE.md` (`python dashboard/scripts/coletar.py`,
   saída em `scripts/saida/coleta.json`, fora do Git). Guia: `WEB-SCRAP.md`.
 - Aba **Ferramentas de IA 3D**: `assets/js/ferramentas/` (abas, tabela e cartões) e

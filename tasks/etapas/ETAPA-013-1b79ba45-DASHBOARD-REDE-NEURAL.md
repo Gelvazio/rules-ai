@@ -174,6 +174,13 @@ mostra as probabilidades da saída.
 - **Critérios de aceitação:** `py_compile` e `node --check` passam; o servidor usa a chave do
   cabeçalho e cai no `.env` sem ela; a chave nunca aparece em resposta nem em log.
 
+### DASHBOARD-REDE-NEURAL.10 — Pasta `dashboard/prompts/`
+
+**Status:** ✅ entregue 2026-10-17 16:21.
+
+- **Nível:** LEVE — 1 pasta com README (o Git não versiona pasta vazia).
+- **Descrição:** pasta para guardar os prompts do dashboard, um `.md` por prompt.
+
 ## Decisões
 
 | Data | Decisão | Quem | Por quê |
@@ -184,3 +191,4 @@ mostra as probabilidades da saída.
 | 2026-10-17 15:37 | `.7` criada (C26): aba de ferramentas no `index.html` | Gelvazio | "leia coleta.json e atualize o dashboard em index.html com as informacoes..." |
 | 2026-10-17 15:50 | `.8` criada (C26): `graphs/` com a API da Tripo; sem chave, só texto → 3D, mesma aba | Gelvazio | Respostas às perguntas da tarefa |
 | 2026-10-17 16:16 | `.9` criada (C26): chave da Tripo no `localStorage` via modal | Gelvazio | "e um icone de config, que abre um modal pra colocar a chave de api..." |
+| 2026-10-17 16:21 | `.10` criada (C26): pasta `dashboard/prompts/` | Gelvazio | "crie 1 nova pasta de nome prompts" |
