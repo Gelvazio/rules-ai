@@ -9,8 +9,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 ## 📌 Tarefas
 
 | Tarefa | Título | Prioridade | Modelo | Depende de | Status | Em uso por | Etapa |
-|---|---|---|---|
-| 2026-10-17 | GERENCIADOR-GLOBAL: `dashboard-ai-*` entram; **disparo automático em pausa** (só ler e avisar); conflito de pasta única vira a tarefa `PASTA-UNICA-GLOBAL` | Gelvazio | "dashboard-ai-*  ja voltou;nao faca nenhum disparo automatico,deixe em pausa isso de automatico por enquanto;abra uma nova tarefa pra resolver conflitos de rules-ai e gerenciador-de-ia" |---|---|---|---|
+|---|---|---|---|---|---|---|---|
 | EFFORT-PADARIA | **🌐 GLOBAL — Testar `low`/`medium`/`high` em todos os modelos com o projeto da padaria** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | EFFORT-PADARIA.6 | 🌐 Gemini Pro: 3 níveis de raciocínio | 🟠 Alta | MEDIO · só Gemini CLI · effort medium | EFFORT-PADARIA.2 | ⬜ Pendente | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | EFFORT-PADARIA.7 | 🌐 DeepSeek (raciocínio): 3 níveis | 🟠 Alta | MEDIO · só DeepSeek · effort medium | EFFORT-PADARIA.2 | ⬜ Pendente | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
