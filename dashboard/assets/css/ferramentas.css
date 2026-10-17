@@ -16,6 +16,10 @@
   font-size: 0.85rem;
 }
 
+.abas__botao--link {
+  text-decoration: none;
+}
+
 .abas__botao[aria-selected="true"] {
   background: var(--cor-destaque);
   color: #ffffff;

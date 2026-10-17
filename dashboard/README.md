@@ -16,6 +16,12 @@ python -m http.server 8080
 
 Depois abra http://localhost:8080 no navegador.
 
+## 3D GRAPHS AI
+
+Menu do cabeçalho que abre `graphs/index.html`: gera modelos 3D por texto na API da Tripo e os
+mostra em 3D. Precisa do servidor local (`python dashboard/graphs/servidor.py`, que também
+serve o dashboard) e da chave no `graphs/.env`. Detalhes em `graphs/README.md`.
+
 ## Estrutura
 
 - `index.html`: estrutura da página e import map do Three.js.

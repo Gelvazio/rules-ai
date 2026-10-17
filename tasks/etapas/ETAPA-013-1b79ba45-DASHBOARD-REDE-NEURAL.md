@@ -142,6 +142,25 @@ mostra as probabilidades da saída.
 - **Critérios de aceitação:** `py_compile` e `node --check` passam; a aba abre sem depender do
   `principal.js` (cena 3D, `.3`).
 
+### DASHBOARD-REDE-NEURAL.8 — Menu "3D GRAPHS AI" e pasta `dashboard/graphs/`
+
+**Status:** ✅ entregue 2026-10-17 15:53. Servidor testado sem chave real (rotas, bloqueio de `.env`/`.py`, confirmação de custo, `task_id` inválido); geração real depende da chave do usuário.
+
+- **Nível:** PESADO — pasta nova, servidor + integração com API paga + cena 3D.
+- **Modelo:** Opus 5.5 (a pedido do usuário)
+- **Effort:** high
+- **Descrição:** botão "3D GRAPHS AI" no cabeçalho do `index.html` (link na mesma aba) para
+  `graphs/index.html`: visualizador Three.js 0.170.0 de GLB, campo de prompt e botão Gerar
+  (texto → 3D na API da Tripo, a mais barata da coleta: 1 crédito = US$ 0,01, 10–20 créditos por
+  modelo), progresso e galeria. `graphs/servidor.py` (biblioteca padrão) serve o dashboard e
+  repassa as chamadas com a `TRIPO_API_KEY` do `.env` (fora do Git); GLB salvos em
+  `graphs/modelos/` (fora do Git). Sem chave: a página abre, mostra a galeria e um exemplo
+  procedural, e o Gerar fica desligado.
+- **Critérios de aceitação:** `py_compile` e `node --check` passam; servidor sobe e responde
+  `/api/estado` sem chave; nenhuma chave no front-end; confirmação de custo antes de gerar.
+- **Pendente:** endpoints da Tripo escritos de memória (docs só abrem com JavaScript); conferir
+  na primeira geração com chave.
+
 ## Decisões
 
 | Data | Decisão | Quem | Por quê |
@@ -150,3 +169,4 @@ mostra as probabilidades da saída.
 | 2026-10-17 17:21 | Plano aprovado; execução pelo líder Opus 5.5 com agentes por nível (Haiku .1, Sonnet .2 e .4, Opus .3) | Gelvazio | "sim, aprovo o plano da DASHBOARD-REDE-NEURAL (etapa 013)" |
 | 2026-10-17 15:03 | `.6` criada (C26): coletor Python dos links do `dashboard/CLAUDE.md` | Gelvazio | "crie 1 pasta scripts nele crie e rode o app em python que coleta os dados dos sites solicitados" |
 | 2026-10-17 15:37 | `.7` criada (C26): aba de ferramentas no `index.html` | Gelvazio | "leia coleta.json e atualize o dashboard em index.html com as informacoes..." |
+| 2026-10-17 15:50 | `.8` criada (C26): `graphs/` com a API da Tripo; sem chave, só texto → 3D, mesma aba | Gelvazio | Respostas às perguntas da tarefa |

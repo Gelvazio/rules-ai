@@ -36,7 +36,7 @@ function mostrarAba(aba, botoes) {
 
 /** Liga os botões das abas e monta a aba de ferramentas. */
 export function iniciarAbas() {
-  const botoes = [...document.querySelectorAll('.abas__botao')];
+  const botoes = [...document.querySelectorAll('.abas__botao[data-aba]')];
   montarPainelFerramentas(document.getElementById('conteudo-ferramentas'));
   botoes.forEach((botao) => {
     botao.addEventListener('click', () => mostrarAba(botao.dataset.aba, botoes));
