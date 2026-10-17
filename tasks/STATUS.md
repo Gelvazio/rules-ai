@@ -26,11 +26,16 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | GATILHO-GLOBAL | **🌐 GLOBAL — Mensagem `;` = pegue a próxima tarefa do seu modelo (C24)** | 🟡 Média | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
 | GATILHO-GLOBAL.1 | 🌐 Regra global, conflito C24 e status do projeto · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ⬜ Pendente | — | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
 | GATILHO-GLOBAL.2 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`, autorizado pelo usuário) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | GATILHO-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
+| GRAPHIFY-GLOBAL | **🌐 GLOBAL — Ler o GRAPH_REPORT.md antes de criar/executar tarefa e atualizar o grafo ao fim (C25)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
+| GRAPHIFY-GLOBAL.1 | 🌐 Regra global, conflito C25 e status do projeto · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku | Nenhuma | 🔄 Em progresso | Claude Code (Haiku · executor-leve) (local · main · aulasenai s14) (desde 2026-10-17 12:26) | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
+| GRAPHIFY-GLOBAL.2 | 🌐 Alinhar o `graphify.md` do aulasenai e do REA-APP-CLONES · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku | GRAPHIFY-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
+| GRAPHIFY-GLOBAL.3 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`, autorizado pelo usuário) · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku | GRAPHIFY-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 | Graphify: ler o `GRAPH_REPORT.md` antes de criar e antes de executar tarefa; `graphify update .` ao fim de cada tarefa concluída e retirada do quadro (C25, substitui a C11); a IA roda o `--aplicar` | Gelvazio | "ajuste a regra global de graphify.md, pra sempre ler o graph_report.md antes de executar 1 tarefa e antes de criar 1 tarefa... sincronize as regras globais" |
 | 2026-10-17 | Gatilho `;` (pegar a próxima tarefa do seu modelo) vira regra global C24, e o usuário autoriza a IA a rodar o `--aplicar` nesta tarefa | Gelvazio | "este ;, é um gatilho pra *Pegue a proxima tarefa disponivel para seu modelo*, anote esta regra em rules-ai, global... e rode o sincronizador de regras globais" |
 | 2026-10-16 | Escopo: todos os projetos de `C:\fontes`; um conflito entre regras = **uma** regra para todos, confirmada pelo usuário | Gelvazio | "1 REGRA PARA OS DOIS CASOS, ME PERGUNTE SOBRE ESTES CASOS" |
 | 2026-10-16 | Repositório das regras globais: `C:\fontes\rules-ai`; sem branch (tudo na `main`) | Gelvazio | "USE ESTE REPO AQUI" |
