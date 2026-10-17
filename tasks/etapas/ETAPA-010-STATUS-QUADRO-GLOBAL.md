@@ -50,13 +50,15 @@ PowerShell, bash) e no chat do Claude Code no IDE.
 
 ### STATUS-QUADRO-GLOBAL.2 — Rodar o sincronizador
 
-**Próximo passo:** rodar `node scripts/sincronizar.mjs --aplicar` (autorizado: "sim", 2026-10-17 12:58).
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — rodar um script já existente.
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** a regra só chega às IAs depois do `--aplicar`; conferir que
   `dist/REGRAS-GLOBAIS.md` contém "Todo status é mostrado em quadro".
+- **Entrega (2026-10-17 12:59, Haiku · executor-leve; líder Opus 5.5):** `sincronizar.mjs --aplicar` sem erro (saída 0); gravado em Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro; Claude Code igual (usa o `@import` do `dist`).
+- **Verificação (líder):** a frase está em `dist/REGRAS-GLOBAIS.md`, `~/.gemini/GEMINI.md`, `~/.codex/AGENTS.md` e `~/.kiro/steering/rules-ai.md`.
 
 ## Decisões
 
