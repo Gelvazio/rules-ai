@@ -29,8 +29,8 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | GERENCIADOR-GLOBAL.5 | 🌐 Vigilância periódica (agendador ou loop no intervalo aprovado) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet | GERENCIADOR-GLOBAL.4 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.6 | 🌐 Aceite do usuário | 🟠 Alta | Usuário | GERENCIADOR-GLOBAL.5 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.7 | 🌐 Mesclar o `gerenciador-de-tarefas` ao central e revisar o desenho da .1 com as respostas de 16:12 · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
-| **PASTA-UNICA-GLOBAL** | **🌐 GLOBAL — Conflitos de várias sessões na mesma pasta (`rules-ai`, `gerenciador-de-ia`)** | 🟠 Alta | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-011](etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md) |
-| PASTA-UNICA-GLOBAL.1 | 🌐 Levantar o conflito e propor a solução (trava por pasta × cópia por modelo × mista) · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable | Nenhuma | ⬜ Pendente | — | [ETAPA-011](etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md) |
+| **PASTA-UNICA-GLOBAL** | **🌐 GLOBAL — Conflitos de várias sessões na mesma pasta (`rules-ai`, `gerenciador-de-ia`)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-011](etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md) |
+| PASTA-UNICA-GLOBAL.1 | 🌐 Levantar o conflito e propor a solução (trava por pasta × cópia por modelo × mista) · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable | Nenhuma | 🔄 Em progresso | Claude Code (Opus 5.5) (local · main) (desde 2026-10-17 13:33) | [ETAPA-011](etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md) |
 | PASTA-UNICA-GLOBAL.2 | 🌐 Aprovação do plano · `effort low` | 🟠 Alta | Usuário | PASTA-UNICA-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-011](etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md) |
 
 ## Registro de decisões
