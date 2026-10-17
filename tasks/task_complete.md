@@ -33,3 +33,4 @@
 | SUBTAREFA-GLOBAL.1 | 🌐 Regra global, conflito C26 e status do projeto · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ✅ Concluído (2026-10-17 12:48) | — | [ETAPA-008](etapas/ETAPA-008-SUBTAREFA-GLOBAL.md) |
 | SUBTAREFA-GLOBAL.2 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`, autorizado pelo usuário) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | SUBTAREFA-GLOBAL.1 | ✅ Concluído (2026-10-17 12:54) | — | [ETAPA-008](etapas/ETAPA-008-SUBTAREFA-GLOBAL.md) |
 | SUBTAREFA-GLOBAL | **🌐 GLOBAL — IA cria subtarefas só na mãe atual e publica direto (C26)** | 🟡 Média | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-008](etapas/ETAPA-008-SUBTAREFA-GLOBAL.md) |
+| STATUS-QUADRO-GLOBAL.1 | 🌐 Regra global, conflito C27 e status do projeto · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ✅ Concluído (2026-10-17 12:56) | — | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |

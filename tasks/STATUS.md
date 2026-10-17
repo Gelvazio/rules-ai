@@ -34,13 +34,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | GERENCIADOR-GLOBAL.5 | 🌐 Vigilância periódica (agendador ou loop no intervalo aprovado) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet | GERENCIADOR-GLOBAL.4 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.6 | 🌐 Aceite do usuário | 🟠 Alta | Usuário | GERENCIADOR-GLOBAL.5 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | STATUS-QUADRO-GLOBAL | **🌐 GLOBAL — Todo status é mostrado em quadro, no terminal e no IDE (C27)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
-| STATUS-QUADRO-GLOBAL.1 | 🌐 Regra global, conflito C27 e status do projeto · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | 🔄 Em progresso | Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) (local · main) (desde 2026-10-17 12:54) | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
 | STATUS-QUADRO-GLOBAL.2 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`) — aguarda autorização | 🟡 Média | Usuário | STATUS-QUADRO-GLOBAL.1 | 👀 Aguardando o usuário | — | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 | Todo status é mostrado em quadro (tabela), em todas as IAs, no terminal e no IDE (C27) | Gelvazio | "todos os staus devem sempre ser mostrados em forma de quadro aqui no cmd ou no claude code IDE" |
 | 2026-10-17 15:55 | GERENCIADOR-GLOBAL registrada como tarefa grande (plano na etapa 009); execução só depois do "sim" do usuário às perguntas da etapa | Claude Code (Haiku 5.5) | Estrutura nova e disparo automático de sessões |
 | 2026-10-17 | IA pode criar subtarefas **só dentro da mãe atual** e publica direto, sem aprovação (C26) | Gelvazio | "1-SOMENTE SUBTAREFAS DENTRO DA MAE ATUAL;2-PUBLICA DIRETO A TAREFA" |
 | 2026-10-17 | Graphify: ler o `GRAPH_REPORT.md` antes de criar e antes de executar tarefa; `graphify update .` ao fim de cada tarefa concluída e retirada do quadro (C25, substitui a C11); a IA roda o `--aplicar` | Gelvazio | "ajuste a regra global de graphify.md, pra sempre ler o graph_report.md antes de executar 1 tarefa e antes de criar 1 tarefa... sincronize as regras globais" |

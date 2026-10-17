@@ -33,7 +33,7 @@ PowerShell, bash) e no chat do Claude Code no IDE.
 
 ### STATUS-QUADRO-GLOBAL.1 — Regra global, conflito C27 e status do projeto
 
-**Próximo passo:** criar o arquivo da regra e as linhas de `CONFLITOS.md` e `STATUS_PROJETO.md`.
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** só Haiku — nunca outro
@@ -44,6 +44,9 @@ PowerShell, bash) e no chat do Claude Code no IDE.
   (3) em `STATUS_PROJETO.md`, nova linha no topo de "O que mudou desde a última gravação" com data
   e hora (Brasília) e o que mudou.
 - **Critério de pronto:** os 3 arquivos com o texto exato; nada mais alterado.
+- **Entrega (2026-10-17 12:56, Haiku · executor-leve; líder Opus 5.5):** os 3 arquivos.
+- **Verificação (líder):** `regras/exibicao-de-status.md` igual ao bloco da etapa (comparação por
+  script); linha C27 depois da C26 em `CONFLITOS.md`; linha nova no topo do `STATUS_PROJETO.md`.
 
 ### STATUS-QUADRO-GLOBAL.2 — Rodar o sincronizador
 
