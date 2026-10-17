@@ -76,7 +76,7 @@ gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` j
 
 ### PASTA-UNICA-GLOBAL.3 — Regra do `rules-ai`: uma sessão por vez
 
-**Próximo passo:** acrescentar a seção abaixo no fim do `AGENTS.md`, a linha no `.gitignore`, a linha C29 e o status.
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — só `.md` e `.gitignore`.
 - **Modelo:** só Haiku — nunca outro
@@ -88,6 +88,8 @@ gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` j
   (4) nova linha no topo de "O que mudou desde a última gravação" do `STATUS_PROJETO.md`.
 - **Critério de pronto:** os 4 arquivos com o texto exato; nada mais alterado; sem sincronizador
   (é regra do projeto, não global).
+- **Entrega (2026-10-17 13:40, Haiku · executor-leve; líder Opus 5.5):** `AGENTS.md`, `.gitignore`, `CONFLITOS.md`, `STATUS_PROJETO.md`. **Ajuste do líder:** `<data hora>` tinha virado `<data 13:37>` (troca de texto sem diferenciar maiúsculas, do líder) no `AGENTS.md` e nesta etapa; corrigido.
+- **Verificação (líder):** fim do `AGENTS.md` igual ao bloco desta etapa (comparação por script); `git check-ignore tasks/.sessao-ativa` confirma que fica fora do Git; linha C29 depois da C28. Trava desta sessão gravada e apagada ao fim.
 
 ```markdown
 ## 🔒 Uma sessão por vez (só neste projeto, C29)
@@ -99,9 +101,9 @@ gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` j
   - Existe, é de **outra** sessão e foi atualizado há **menos de 60 min** → **não trabalhar**:
     avisar o usuário quem está na pasta (o texto do arquivo) e parar.
   - Não existe, ou passou de 60 min sem atualização → gravar nele
-    `<IA (modelo)> (<frente>) desde <data 13:37>` e seguir; se assumiu uma trava velha, dizer ao
+    `<IA (modelo)> (<frente>) desde <data hora>` e seguir; se assumiu uma trava velha, dizer ao
     usuário de quem era.
-- **Durante:** regravar o arquivo (mesmo texto + ` · atualizado <data 13:37>`) a cada subtarefa
+- **Durante:** regravar o arquivo (mesmo texto + ` · atualizado <data hora>`) a cada subtarefa
   reservada ou entregue.
 - **Ao terminar** (junto do **TAREFA FINALIZADA E SINCRONIZADA!** ou ao parar de trabalhar):
   apagar `tasks/.sessao-ativa`.

@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 13:38 (Brasília): regra do projeto C29 (`AGENTS.md`, PASTA-UNICA-GLOBAL.3): no `rules-ai` trabalha **uma sessão de IA por vez**, com a trava local `tasks/.sessao-ativa` (fora do Git, 60 min sem atualização = abandonada). `gerenciador-de-ia` ainda sem decisão (PASTA-UNICA-GLOBAL.4).
 - 2026-10-17 13:36 (Brasília): PASTA-UNICA-GLOBAL.1 entregue (Opus 5.5): recomendada a cópia por modelo (`<projeto>-CLAUDE-HAIKU/-SONNET/-OPUS`, como no `aulasenai`), com sincronizador só na pasta principal; aguarda a aprovação do usuário (`.2`).
 - 2026-10-17 13:34 (Brasília): GERENCIADOR-GLOBAL.2 entregue: `regras/gerenciador-centralizado.md` (C28, `CONFLITOS.md`). Ordem vigente: disparo automático em pausa (pedido do usuário, 13:30). O automático só para Haiku e Sonnet (16:12) fica para reativação. A regra mantém o modo `ver` como padrão. Sincronizador não rodado (não autorizado nesta subtarefa).
 - 2026-10-17 13:31 (Brasília): GERENCIADOR-GLOBAL: `dashboard-ai-*` voltaram e entram; **disparo automático em pausa** pelo usuário (a `.4` fica ⛔). Tarefa nova PASTA-UNICA-GLOBAL (etapa 011): conflitos de várias sessões na mesma pasta (`rules-ai`, `gerenciador-de-ia`); `.1` (Opus) propõe a solução, `.2` é a aprovação do usuário.
