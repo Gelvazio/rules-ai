@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 12:27 (Brasília): regra global de graphify mudou (C25, substitui a C11; `regras/graphify.md`): ler o `GRAPH_REPORT.md` antes de criar e antes de executar cada tarefa; `graphify update .` no início da conversa e ao fim de cada tarefa concluída e retirada do quadro (tarefa GRAPHIFY-GLOBAL, etapa 007). O `graphify.md` do aulasenai e do REA-APP-CLONES será alinhado e o sincronizador será rodado nas subtarefas .2 e .3.
 - 2026-10-17 11:55 (Brasília): tarefa GLOBAL GATILHO-GLOBAL (etapa 006) criada e publicada no quadro:
   mensagem só com `;` = "pegue a próxima tarefa disponível para o seu modelo" (decisão C24). Subtarefas
   `.1` (regra em `regras/frentes-e-reserva.md`, C24 e este status) e `.2` (`sincronizar.mjs --aplicar`)

@@ -52,7 +52,7 @@ update .`). Sem perguntar.
 
 ### GRAPHIFY-GLOBAL.1 — Regra global, conflito C25 e status do projeto
 
-**Próximo passo:** reservar e executar (só Haiku).
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** só Haiku — nunca outro
@@ -62,10 +62,14 @@ update .`). Sem perguntar.
   e, no fim da linha C11, acrescentar ` · **Substituída pela C25 (2026-10-17).**`; (3) em
   `STATUS_PROJETO.md`, nova linha no topo de "O que mudou desde a última gravação" com data e
   hora (Brasília) e o que mudou.
+- **Entrega (2026-10-17 12:28, Haiku · executor-leve; líder Opus 5.5):** os 3 arquivos.
+- **Verificação (líder):** `regras/graphify.md` igual ao texto da etapa (comparação feita por
+  script); C11 marcada como substituída e linha C25 no fim de "Decididos depois"; linha nova no
+  topo do `STATUS_PROJETO.md`.
 
 ### GRAPHIFY-GLOBAL.2 — Alinhar o `graphify.md` dos projetos
 
-**Próximo passo:** depois da .1.
+**Próximo passo:** executar (só Haiku).
 
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** só Haiku — nunca outro

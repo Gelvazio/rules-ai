@@ -26,3 +26,4 @@
 | MODELO-GLOBAL.1 | 🌐 Regra global (C22) | 🟡 Média | LEVE · só Haiku (exceção Q4: Opus 5.5) | Nenhuma | ✅ Concluído | — | [ETAPA-004](etapas/ETAPA-004-MODELO-GLOBAL.md) |
 | INDEX-FONTES | **Cards e modais no `C:\fontes\index.html`** | 🟡 Média | — | Nenhuma | ✅ Concluído | — | [ETAPA-005](etapas/ETAPA-005-INDEX-FONTES.md) |
 | INDEX-FONTES.1 | Cards, modais e gerador de dados | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-005](etapas/ETAPA-005-INDEX-FONTES.md) |
+| GRAPHIFY-GLOBAL.1 | 🌐 Regra global, conflito C25 e status do projeto · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku | Nenhuma | ✅ Concluído (2026-10-17 12:28) | — | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
