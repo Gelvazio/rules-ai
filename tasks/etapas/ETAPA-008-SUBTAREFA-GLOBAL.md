@@ -44,10 +44,11 @@ modelo**…" (2 linhas), inserir este item, sem mudar:
 
 ### SUBTAREFA-GLOBAL.2 — Rodar o sincronizador
 
-**Próximo passo:** esperar o usuário autorizar `node scripts/sincronizar.mjs --aplicar`.
+**Próximo passo:** rodar `node scripts/sincronizar.mjs --aplicar` (autorizado: "sim", 2026-10-17 12:52).
 
-- **Nível:** Usuário — autorizar a gravação nos arquivos globais das IAs.
-- **Modelo:** Usuário (depois de autorizado, LEVE · só Haiku)
+- **Nível:** LEVE — rodar um script já existente.
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
 - **Descrição:** a regra só chega às IAs depois do `--aplicar`; conferir que
   `dist/REGRAS-GLOBAIS.md` contém "Trabalho novo descoberto no caminho".
 
@@ -56,4 +57,5 @@ modelo**…" (2 linhas), inserir este item, sem mudar:
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
 | 2026-10-17 12:46 | Só subtarefas dentro da mãe atual; publicação direta, sem aprovação | Gelvazio | "1-SOMENTE SUBTAREFAS DENTRO DA MAE ATUAL;2-PUBLICA DIRETO A TAREFA" |
+| 2026-10-17 12:52 | Usuário autoriza rodar o `sincronizar.mjs --aplicar` | Gelvazio | "sim" à pergunta "Posso rodar o sincronizador agora?" |
 | 2026-10-17 12:46 | Executada pelo líder Opus 5.5 com o agente Haiku (subtarefa LEVE) | Claude Code (Opus 5.5) | Fluxo de equipe de `niveis-e-modelos.md` (C22) |
