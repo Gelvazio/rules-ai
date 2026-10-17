@@ -28,3 +28,5 @@
 | INDEX-FONTES.1 | Cards, modais e gerador de dados | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-005](etapas/ETAPA-005-INDEX-FONTES.md) |
 | GRAPHIFY-GLOBAL.1 | 🌐 Regra global, conflito C25 e status do projeto · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku | Nenhuma | ✅ Concluído (2026-10-17 12:28) | — | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
 | GRAPHIFY-GLOBAL.2 | 🌐 Alinhar o `graphify.md` do aulasenai e do REA-APP-CLONES · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku | GRAPHIFY-GLOBAL.1 | ✅ Concluído (2026-10-17 12:31) | — | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
+| GRAPHIFY-GLOBAL | **🌐 GLOBAL — Ler o GRAPH_REPORT.md antes de criar/executar tarefa e atualizar o grafo ao fim (C25)** | 🟠 Alta | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
+| GRAPHIFY-GLOBAL.3 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`, autorizado pelo usuário) · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku | GRAPHIFY-GLOBAL.1 | ✅ Concluído (2026-10-17 12:30) | — | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |

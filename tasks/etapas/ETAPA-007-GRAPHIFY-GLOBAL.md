@@ -87,9 +87,17 @@ update .`). Sem perguntar.
 
 ### GRAPHIFY-GLOBAL.3 — Rodar o sincronizador
 
-**Próximo passo:** executar (só Haiku).
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — rodar um script já existente.
 - **Modelo:** só Haiku — nunca outro
 - **Descrição:** `node scripts/sincronizar.mjs --aplicar` (autorizado pelo usuário: "sincronize as
   regras globais"); conferir que `dist/REGRAS-GLOBAIS.md` tem o texto novo.
+- **Entrega (2026-10-17 12:30, Haiku · executor-leve; líder Opus 5.5):** `node scripts/sincronizar.mjs
+  --aplicar` sem erro: `dist/REGRAS-GLOBAIS.md` regerado; gravado em Gemini CLI, Codex, Grok,
+  Qoder, opencode, Devin e Kiro; Claude Code já igual (usa `@import` do `dist`). **Ajuste do
+  líder:** o `~/.claude/CLAUDE.md` tinha, fora do bloco do sincronizador, a seção antiga "Graphify
+  no início de cada conversa" (C11), que contradizia a C25; trocada pelo texto da C25 (cópia
+  `CLAUDE.md.bak3`).
+- **Verificação:** `dist/REGRAS-GLOBAIS.md`, `~/.gemini/GEMINI.md` e `~/.codex/AGENTS.md` contêm
+  "Antes de criar uma tarefa"; `~/.claude/CLAUDE.md` com a seção C25.

@@ -26,8 +26,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | GATILHO-GLOBAL | **🌐 GLOBAL — Mensagem `;` = pegue a próxima tarefa do seu modelo (C24)** | 🟡 Média | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
 | GATILHO-GLOBAL.1 | 🌐 Regra global, conflito C24 e status do projeto · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ⬜ Pendente | — | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
 | GATILHO-GLOBAL.2 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`, autorizado pelo usuário) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | GATILHO-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
-| GRAPHIFY-GLOBAL | **🌐 GLOBAL — Ler o GRAPH_REPORT.md antes de criar/executar tarefa e atualizar o grafo ao fim (C25)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
-| GRAPHIFY-GLOBAL.3 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`, autorizado pelo usuário) · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku | GRAPHIFY-GLOBAL.1 | 🔄 Em progresso | Claude Code (Haiku · executor-leve) (local · main · aulasenai s14) (desde 2026-10-17 12:31) | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
 
 ## Registro de decisões
 
