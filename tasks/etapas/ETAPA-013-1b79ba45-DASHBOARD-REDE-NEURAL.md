@@ -213,7 +213,9 @@ mostra as probabilidades da saída.
 
 ### DASHBOARD-REDE-NEURAL.14 — Prompt 04 no 3D GRAPHS AI com a API da Tripo (plano)
 
-**Próximo passo:** o usuário responder às perguntas abaixo e dar o "sim" (criada 2026-10-17 16:39).
+**Respostas (2026-10-17 16:40):** 1 formas simples primeiro; 2 migrar para a V3; 3 prompts em inglês.
+
+**Status:** ✅ entregue 2026-10-17 16:44. Cena 3D do prompt 04 em `graphs/cena.html` com formas simples; cliente migrado para a V3 (401 com chave falsa nas 3 rotas); geração dos 5 objetos pronta, mas não executada (decisão do usuário: formas primeiro). Plano original abaixo: (criada 2026-10-17 16:39).
 
 - **Nível:** PESADO — leitor de prompts no servidor, geração em lote na Tripo, cena 3D nova com
   animação; vários arquivos ligados e gasto de créditos.
@@ -273,3 +275,4 @@ no front-end além do `localStorage` já aprovado na `.9`.
 | 2026-10-17 16:34 | `.12` (C26): prompts independentes | Gelvazio | "cada prompt deve ser unico, e nao referenciar os outros" |
 | 2026-10-17 16:38 | `.13` (C26): guia da API e dos SDKs da Tripo | Gelvazio | "leia o site ... e crie um documento de nome TRIPO_AI_DOCS.md" |
 | 2026-10-17 16:39 | `.14` criada (C26) só com o plano; aguarda respostas e o "sim" | Gelvazio | "crie 1 tarefa pra isso, para o prompt 04" |
+| 2026-10-17 16:40 | `.14` aprovada: formas simples primeiro, V3, inglês | Gelvazio | "1-formas simples primeiro;2-migre para V3;3-ingles" |

@@ -47,6 +47,27 @@ export async function gerarModelo(prompt) {
   return dados.task_id;
 }
 
+/** @returns {Promise<Array<object>>} Cenas dos prompts com o estado dos GLB de cada objeto. */
+export async function listarCenas() {
+  const dados = await pedirJson(ROTAS.cenas);
+  return dados.cenas;
+}
+
+/**
+ * Gera na Tripo um objeto de uma cena (o servidor usa o prompt_tripo do JSON da cena).
+ * @param {string} cena - Id da cena (ex.: "prompt-04").
+ * @param {string} objeto - Id do objeto (ex.: "assento").
+ * @returns {Promise<string>} task_id criado.
+ */
+export async function gerarObjetoCena(cena, objeto) {
+  const dados = await pedirJson(ROTAS.gerar, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ cena, objeto, confirmado: true }),
+  });
+  return dados.task_id;
+}
+
 const esperar = (ms) => new Promise((resolver) => { setTimeout(resolver, ms); });
 
 /**

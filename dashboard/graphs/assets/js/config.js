@@ -6,7 +6,11 @@ export const ROTAS = Object.freeze({
   modelos: '/api/modelos',
   gerar: '/api/gerar',
   tarefa: '/api/tarefa/',
+  cenas: '/api/cenas',
 });
+
+/** JSON da cena padrão, usado quando a página não veio do servidor local. */
+export const CENA_PADRAO = 'cenas/prompt-04.json';
 
 /** Pasta onde o servidor guarda os GLB gerados. */
 export const PASTA_MODELOS = 'modelos/';

@@ -10,14 +10,18 @@ ARQUIVO_ENV = PASTA_GRAPHS / ".env"
 HOST = "127.0.0.1"
 PORTA_PADRAO = 8080
 
-# API da Tripo (v2). Escrita de memória: a documentação só abre com JavaScript.
-# Conferir na primeira geração com chave (ETAPA-013, subtarefa .8).
-URL_BASE_TRIPO = "https://api.tripo3d.ai/v2/openapi"
-CAMINHO_TAREFA = "/task"
-CAMINHO_SALDO = "/user/balance"
-TIPO_TEXTO_3D = "text_to_model"
-CAMPOS_MODELO_SAIDA = ("pbr_model", "model", "base_model")
+# API V3 da Tripo (guia em TRIPO_AI_DOCS.md, lido de developers.tripo3d.ai em 2026-10-17).
+URL_BASE_TRIPO = "https://openapi.tripo3d.ai/v3"
+CAMINHO_GERAR_TEXTO = "/generation/text-to-model"
+CAMINHO_TAREFA = "/tasks"
+CAMINHO_SALDO = "/account/balance"
+MODELO_PADRAO = "v3.1-20260211"
+CAMPOS_MODELO_SAIDA = ("model_url", "pbr_model", "model")
+CAMPOS_IMAGEM_SAIDA = ("rendered_image_url", "rendered_image")
 STATUS_FINAIS = {"success", "failed", "banned", "expired", "cancelled", "unknown"}
+
+PASTA_CENAS = PASTA_GRAPHS / "cenas"
+PASTA_MODELOS_CENAS = PASTA_MODELOS / "cenas"
 
 TEMPO_LIMITE_SEGUNDOS = 60
 USER_AGENT = "dashboard-3d-graphs-ai/1.0 (+python urllib)"

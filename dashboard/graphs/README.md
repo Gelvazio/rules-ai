@@ -37,6 +37,16 @@ Fonte: `dashboard/scripts/saida/coleta.json` (coleta de 2026-10-17).
 Cada geração pede confirmação de custo; o servidor aceita no máximo `LIMITE_GERACOES` (padrão 5)
 por execução. Os GLB gerados ficam em `graphs/modelos/` (fora do Git).
 
+## Cena do prompt 04 (`cena.html`)
+
+Link **"Cena do prompt 04"** no cabeçalho do 3D GRAPHS AI. Mostra em 3D o prompt
+`dashboard/prompts/MODELO-3D-REDE-NEURAL-04.md`: 3 personagens, 25 assentos, o hexágono do agente
+ligando-se aos assentos por linhas verdes com nós vermelhos, cursor azul e contadores, com Pausar,
+Reiniciar e velocidade (1x/2x/4x). Os objetos ficam em `cenas/prompt-04.json` (prompts em inglês
+para a Tripo). Sem modelos gerados, cada objeto usa uma **forma simples**; o botão
+"Gerar os que faltam" (com chave e confirmação do custo) gera cada objeto na Tripo e salva em
+`modelos/cenas/prompt-04/<objeto>.glb`, e a cena passa a usar o GLB.
+
 ## Arquivos
 
 - `TRIPO_AI_DOCS.md`: guia da API (V3) e dos SDKs da Tripo, com a migração V2 → V3.
@@ -45,15 +55,17 @@ por execução. Os GLB gerados ficam em `graphs/modelos/` (fora do Git).
   `/api/tarefa/<id>`, `/api/saldo`. Nunca serve `.env`, arquivos ocultos nem `.py`.
 - `cliente_tripo.py`: chamadas à Tripo (usa a chave do cabeçalho `X-Tripo-Key` ou a do `.env`).
 - `galeria_modelos.py`: grava e lista os modelos em `modelos/`.
-- `config_graphs.py`: constantes e leitura do `.env`.
+- `config_graphs.py`: constantes (API V3) e leitura do `.env`.
+- `cenas_prompts.py` e `cenas/*.json`: cenas montadas a partir dos prompts e os GLB de cada objeto.
+- `cena.html`, `assets/js/cena.js` e `assets/js/cenas/` (linha do tempo, formas simples, cena do prompt 04, painel).
 - `index.html`, `assets/css/graphs.css`, `assets/js/` (`principal.js`, `api.js`,
   `visualizador.js`, `config.js`, `chave.js` e `modal-config.js` do ícone ⚙).
 
-## Pendente
+## Situação da API
 
-- **Conferido (2026-10-17 16:18):** URL base `https://api.tripo3d.ai/v2/openapi` e autenticação
-  `Authorization: Bearer <chave>` (uma chave falsa recebe `401 {"code":1002,"message":"Authentication failed"}`).
-  O Cloudflare da Tripo barra o User-Agent padrão do Python (erro 1010); o cliente manda um próprio.
-- **A conferir com chave válida:** corpo `{"type":"text_to_model","prompt":...}`, campos
-  `data.task_id`, `data.status`, `data.progress`, `data.output.pbr_model`/`model` e `/user/balance`.
-  Se algo mudar, ajuste só `config_graphs.py` e `cliente_tripo.py`.
+- **V3** desde 2026-10-17 16:44 (`https://openapi.tripo3d.ai/v3`): `POST /generation/text-to-model` com
+  `{"prompt", "model": "v3.1-20260211"}`, `GET /tasks/{id}` (saída em `output.model_url`) e
+  `GET /account/balance`. Uma chave falsa recebe `401 {"code":2,"message":"Invalid API key"}`
+  nas três rotas. O corpo completo da resposta ainda precisa ser conferido numa geração real.
+- O Cloudflare da Tripo barra o User-Agent padrão do Python (erro 1010); o cliente manda um próprio.
+- Guia completo: `TRIPO_AI_DOCS.md`.

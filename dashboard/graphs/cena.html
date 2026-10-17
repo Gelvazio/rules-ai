@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cenas dos prompts</title>
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/graphs.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="assets/js/cena.js"></script>
+</head>
+<body>
+  <header class="cabecalho">
+    <h1 class="cabecalho__titulo">Cena do prompt 04 · <span id="titulo-cena"></span></h1>
+    <p class="cabecalho__subtitulo">
+      Prompt MODELO-3D-REDE-NEURAL-04 em 3D: formas simples até os modelos serem gerados na Tripo.
+    </p>
+    <nav class="abas" aria-label="Navegação">
+      <a class="abas__botao" href="index.html">← 3D GRAPHS AI</a>
+      <a class="abas__botao" href="../index.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="graphs">
+    <section id="cena" class="graphs__cena" aria-label="Cena 3D animada">
+      <div class="hud" aria-live="polite">
+        <p id="contador-assentos" class="hud__destaque">0 de 25 assentos</p>
+        <p class="hud__linha">Custo mensal da equipe: <strong id="contador-equipe">R$ 0</strong></p>
+        <p class="hud__linha">Custo mensal do agente: <strong id="contador-agente">R$ 0</strong></p>
+      </div>
+      <p id="aviso-cena" class="graphs__rotulo"></p>
+    </section>
+
+    <aside class="graphs__painel painel">
+      <section class="painel__bloco">
+        <h2 class="painel__titulo">Animação</h2>
+        <div id="controles" class="controles">
+          <button id="botao-pausa" class="modal__secundario" type="button">Pausar</button>
+          <button id="botao-reiniciar" class="modal__secundario" type="button">Reiniciar</button>
+          <label class="painel__rotulo" for="velocidade">Velocidade</label>
+          <select id="velocidade" class="painel__campo controles__velocidade">
+            <option value="1">1x</option>
+            <option value="2">2x</option>
+            <option value="4">4x</option>
+          </select>
+        </div>
+        <p id="nota-movimento" class="gerar__estado" hidden>
+          Movimento reduzido ativo no sistema: mostrando o estado final, sem animação.
+        </p>
+      </section>
+
+      <section class="painel__bloco">
+        <h2 class="painel__titulo">Objetos da cena</h2>
+        <ul id="lista-objetos" class="objetos"></ul>
+        <p id="custo-cena" class="gerar__custo"></p>
+        <button id="botao-gerar-faltam" class="botao" type="button" disabled>Gerar os que faltam</button>
+        <p id="progresso-cena" class="gerar__estado"></p>
+      </section>
+    </aside>
+  </main>
+
+  <p id="aviso" class="aviso" hidden></p>
+</body>
+</html>

@@ -413,7 +413,9 @@ para o User-Agent padrão do Python (`urllib`). Mande um User-Agent próprio.
 
 ## 11. Situação no nosso dashboard (`dashboard/graphs/`)
 
-O `servidor.py` usa a **V2** (`https://api.tripo3d.ai/v2/openapi`, `POST /task` com
+**Atualização (2026-10-17 16:44): o dashboard já foi migrado para a V3** (tabela abaixo mantida como referência).
+
+Antes, o `servidor.py` usava a **V2** (`https://api.tripo3d.ai/v2/openapi`, `POST /task` com
 `type: "text_to_model"`, saída em `output.pbr_model`/`output.model`), que continua listada (cliente
 Python 0.4.2) e já respondeu `401` a uma chave falsa. Para migrar à **V3**, ajuste só
 `config_graphs.py` e `cliente_tripo.py`:

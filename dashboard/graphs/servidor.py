@@ -10,6 +10,7 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import unquote
 
+import cenas_prompts as cenas
 import galeria_modelos as galeria
 from cliente_tripo import ErroTripo, consultar_saldo, consultar_tarefa, criar_tarefa_texto
 from config_graphs import (
@@ -54,7 +55,7 @@ class Manipulador(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         rotas = {"/api/estado": self.rota_estado, "/api/modelos": self.rota_modelos,
-                 "/api/saldo": self.rota_saldo}
+                 "/api/saldo": self.rota_saldo, "/api/cenas": self.rota_cenas}
         if self.path in rotas:
             return self.executar(rotas[self.path])
         if self.path.startswith("/api/tarefa/"):
@@ -88,18 +89,29 @@ class Manipulador(SimpleHTTPRequestHandler):
     def rota_saldo(self):
         return consultar_saldo(self.chave_do_pedido())
 
-    def rota_gerar(self):
-        global geracoes_feitas
+    def rota_cenas(self):
+        return {"cenas": cenas.listar_cenas()}
+
+    def ler_corpo(self):
         tamanho = int(self.headers.get("Content-Length", 0))
-        corpo = json.loads(self.rfile.read(tamanho) or b"{}")
-        prompt = str(corpo.get("prompt", "")).strip()[:TAMANHO_MAX_PROMPT]
+        return json.loads(self.rfile.read(tamanho) or b"{}")
+
+    def rota_gerar(self):
+        """Gera por prompt livre ou, com cena+objeto, pelo prompt_tripo definido na cena."""
+        global geracoes_feitas
+        corpo = self.ler_corpo()
+        cena, objeto = corpo.get("cena"), corpo.get("objeto")
+        if cena or objeto:
+            prompt = cenas.objeto_da_cena(str(cena), str(objeto))["prompt_tripo"]
+        else:
+            prompt = str(corpo.get("prompt", "")).strip()[:TAMANHO_MAX_PROMPT]
         if not prompt or corpo.get("confirmado") is not True:
             raise ValueError("Informe o prompt e confirme o custo antes de gerar.")
         if geracoes_feitas >= limite_geracoes():
             raise ValueError("Limite de gerações desta execução atingido (LIMITE_GERACOES no .env).")
         task_id = criar_tarefa_texto(prompt, self.chave_do_pedido())
         geracoes_feitas += 1
-        galeria.registrar_pedido(task_id, prompt)
+        galeria.registrar_pedido(task_id, prompt, cena, objeto)
         return {"task_id": task_id}
 
     def rota_tarefa(self, task_id):

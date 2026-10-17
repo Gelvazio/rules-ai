@@ -4,11 +4,13 @@ import urllib.error
 import urllib.request
 
 from config_graphs import (
+    CAMINHO_GERAR_TEXTO,
     CAMINHO_SALDO,
     CAMINHO_TAREFA,
+    CAMPOS_IMAGEM_SAIDA,
     CAMPOS_MODELO_SAIDA,
+    MODELO_PADRAO,
     TEMPO_LIMITE_SEGUNDOS,
-    TIPO_TEXTO_3D,
     URL_BASE_TRIPO,
     USER_AGENT,
     chave_tripo,
@@ -46,8 +48,8 @@ def chamar(metodo, caminho, corpo=None, chave=""):
 
 
 def criar_tarefa_texto(prompt, chave=""):
-    """Cria a tarefa texto → 3D e devolve o task_id."""
-    dados = chamar("POST", CAMINHO_TAREFA, {"type": TIPO_TEXTO_3D, "prompt": prompt}, chave)
+    """Cria a tarefa texto → 3D (V3) e devolve o task_id."""
+    dados = chamar("POST", CAMINHO_GERAR_TEXTO, {"prompt": prompt, "model": MODELO_PADRAO}, chave)
     if "task_id" not in dados:
         raise ErroTripo(f"Resposta sem task_id: {dados}")
     return dados["task_id"]
@@ -62,7 +64,8 @@ def consultar_tarefa(task_id, chave=""):
         "status": dados.get("status", "unknown"),
         "progresso": dados.get("progress", 0),
         "url_modelo": url_modelo,
-        "url_imagem": saida.get("rendered_image"),
+        "url_imagem": next((saida[c] for c in CAMPOS_IMAGEM_SAIDA if saida.get(c)), None),
+        "creditos": dados.get("credits_consumed"),
     }
 
 

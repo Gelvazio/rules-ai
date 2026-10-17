@@ -278,3 +278,71 @@
   opacity: 0.45;
   cursor: not-allowed;
 }
+
+.hud {
+  position: absolute;
+  top: var(--espaco);
+  left: var(--espaco);
+  padding: 10px 14px;
+  background: rgb(11 16 32 / 82%);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  pointer-events: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.hud__destaque {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #86efac;
+}
+
+.hud__linha {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
+
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.controles__velocidade {
+  width: auto;
+}
+
+.objetos {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.objetos__item {
+  display: grid;
+  gap: 2px;
+  font-size: 0.8rem;
+}
+
+.objetos__estado {
+  font-size: 0.72rem;
+}
+
+.objetos__estado--glb {
+  color: #86efac;
+}
+
+.objetos__estado--forma {
+  color: #fde68a;
+}
+
+.objetos__prompt {
+  color: var(--cor-texto-suave);
+  font-size: 0.72rem;
+  overflow-wrap: anywhere;
+}

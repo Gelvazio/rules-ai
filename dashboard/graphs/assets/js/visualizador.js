@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { CENA } from './config.js';
 
-function criarBase(conteiner) {
+export function criarBase(conteiner) {
   const renderizador = new THREE.WebGLRenderer({ antialias: true });
   renderizador.setPixelRatio(window.devicePixelRatio);
   renderizador.outputColorSpace = THREE.SRGBColorSpace;
@@ -24,7 +24,7 @@ function criarBase(conteiner) {
   return { renderizador, cena, camera, controles };
 }
 
-function ajustarTamanho(base, conteiner) {
+export function ajustarTamanho(base, conteiner) {
   const { clientWidth: largura, clientHeight: altura } = conteiner;
   base.renderizador.setSize(largura, altura);
   base.camera.aspect = largura / Math.max(altura, 1);
@@ -32,7 +32,7 @@ function ajustarTamanho(base, conteiner) {
 }
 
 /** Centraliza o objeto na origem e o escala para caber em 2 unidades. */
-function enquadrar(objeto) {
+export function enquadrar(objeto) {
   const caixa = new THREE.Box3().setFromObject(objeto);
   const tamanho = caixa.getSize(new THREE.Vector3()).length() || 1;
   objeto.scale.multiplyScalar(2 / tamanho);
