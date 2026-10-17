@@ -66,4 +66,35 @@ PowerShell, bash) e no chat do Claude Code no IDE.
 |---|---|---|---|
 | 2026-10-17 12:54 | Todo status mostrado em quadro, em todas as IAs, no terminal e no IDE | Gelvazio | "todos os staus devem sempre ser mostrados em forma de quadro aqui no cmd ou no claude code IDE" |
 | 2026-10-17 12:58 | Usuário autoriza rodar o `sincronizar.mjs --aplicar` | Gelvazio | "sim" à pergunta "Posso rodá-lo agora?" |
+| 2026-10-17 13:17 | Tarefa reaberta para a `.3` (ampliar a C27), a pedido do usuário | Gelvazio | "sim, abra a subtarefa e atualize a C27" |
 | 2026-10-17 12:54 | Executada pelo líder Opus 5.5 com o agente Haiku (subtarefa LEVE) | Claude Code (Opus 5.5) | Fluxo de equipe de `niveis-e-modelos.md` (C22) |
+
+### STATUS-QUADRO-GLOBAL.3 — ID da tarefa e linha da mãe em todo quadro (ampliação da C27)
+
+**Próximo passo:** trocar o item das colunas em `regras/exibicao-de-status.md`, ampliar a linha C27, anotar o status e sincronizar.
+
+- **Nível:** LEVE — só `.md` e rodar um script já existente.
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **Pedido:** "sim, abra a subtarefa e atualize a C27" (2026-10-17 13:17), depois de "NESTE QUADRO ACIMA,N TEM O ID DA TAREFA E DAS SUBTASKS?".
+- **Descrição:** (1) em `regras/exibicao-de-status.md`, trocar as 2 linhas do item que começa com
+  "- Colunas mínimas para tarefas: **Tarefa · Título · Modelo · Status**" (termina em
+  "(ex.: Item · Situação · Detalhe).") pelo bloco abaixo, sem mudar; (2) em `CONFLITOS.md`, no fim
+  da linha C27 (antes do último ` |`), acrescentar
+  ` · **Ampliada em 2026-10-17:** coluna Tarefa (ID) em todo quadro que fala de tarefa e linha da mãe junto das subtarefas (STATUS-QUADRO-GLOBAL.3)`;
+  (3) nova linha no topo de "O que mudou desde a última gravação" do `STATUS_PROJETO.md`;
+  (4) `node scripts/sincronizar.mjs --aplicar` e conferir que `dist/REGRAS-GLOBAIS.md` contém
+  "Mãe junto das subtarefas".
+
+```markdown
+- Colunas mínimas para tarefas: **Tarefa (ID) · Título · Modelo · Status**, e **Em uso por**
+  quando houver reserva; outros assuntos usam as colunas que fizerem sentido (ex.: Item · Situação
+  · Detalhe).
+- ✅ **ID sempre visível:** todo quadro que fala de tarefa ou subtarefa (inclusive comparação,
+  perguntas, riscos ou decisões de uma tarefa) tem a coluna **Tarefa** com o ID (`<TAREFA>` ou
+  `<TAREFA>.<n>`); se todas as linhas são da mesma subtarefa, o ID vai no título do quadro.
+- ✅ **Mãe junto das subtarefas:** ao mostrar subtarefas, a linha da tarefa-mãe vem primeiro, em
+  negrito, com o status dela.
+```
+
+- **Critério de pronto:** só esse item muda na regra; linha C27 ampliada; sincronizador sem erro.
