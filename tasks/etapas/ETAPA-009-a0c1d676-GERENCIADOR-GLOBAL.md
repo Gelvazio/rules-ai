@@ -126,13 +126,30 @@
 
 ### GERENCIADOR-GLOBAL.8 — Conferir as respostas de 16:12
 
-**Próximo passo:** comparar as respostas de 16:12 com o plano de 13:01 e com o desenho da .1; registrar nesta seção o que vale, o que foi revogado e o que ainda precisa de decisão do usuário.
+**Próximo passo:** — (entregue).
 
 - **Nível:** PESADO — conferência de escopo de um gerenciador que dispara sessões.
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro.
 - **Descrição:** conferir ponto a ponto as cinco respostas de 16:12 (projetos, automático só para Haiku e Sonnet, ciclo de 30 s, só Claude Code, mesclagem atribuída ao Opus) contra o plano de 13:01 e o desenho da .1; listar o que conflita e o que a .7 precisa ajustar.
 - **Critérios de Aceitação:** lista de cada resposta com "vale", "revogada" ou "pendente de decisão"; nenhuma sessão disparada.
-- **Entrega:** — · **Verificação:** — · **Anotação:** —
+- **Entrega (2026-10-17 13:22, Claude Code Opus 5.5):** conferência abaixo.
+- **Verificação:** `Test-Path` e `git remote` nas pastas de `C:\fontes` (sem entrar em `DEMAIS-PROJETOS-*`); leitura do plano de 13:01, do desenho da `.1` e da `.7`. Nenhuma sessão disparada, nenhum outro projeto alterado.
+- **Anotação:** a afirmação "`gerenciador-de-ia` não existe" (plano de 13:01) estava **errada**: a pasta existe, só falta no mapa `C:\fontes\CLAUDE.md`.
+
+#### Conferência das respostas de 16:12
+
+| Tarefa | Ponto | Resposta de 16:12 | Situação | O que a `.7` ajusta |
+|---|---|---|---|---|
+| `GERENCIADOR-GLOBAL.8` | 1a. Projetos `aulasenai`, `rules-ai`, `gerenciador-de-ia` | Entram | ✅ Vale | Os 3 têm `tasks/STATUS.md` e Git na `main` |
+| `GERENCIADOR-GLOBAL.8` | 1b. `aulasenai-*` | Entram | ✅ Vale (lido como `aulas-senai-*`) | As 4 pastas `aulas-senai-CLAUDE-*` são clones do **mesmo** repositório e quadro do `aulasenai`: um quadro só, lido uma vez; a pasta escolhe o modelo (HAIKU, SONNET, OPUS) |
+| `GERENCIADOR-GLOBAL.8` | 1c. `dashboard-ai-*` | Entram | 👀 Pendente | **Nenhuma** pasta `dashboard-ai-*` existe hoje em `C:\fontes`; e o quadro delas é `task-principal.md` (conflito C19, sem decisão) |
+| `GERENCIADOR-GLOBAL.8` | 2. Disparo | Automático para Haiku e Sonnet | ✅ Vale; **revoga** o "só avisar até o `.6`" | Opus fica fora do automático. Depende da `GATILHO-GLOBAL` (C24, ainda ⬜): sem ela a sessão não sabe o que é `;` → `.4` depende da `GATILHO-GLOBAL` |
+| `GERENCIADOR-GLOBAL.8` | 3. Ritmo | 30 s, projeto por projeto | ✅ Vale; **revoga** 20 s/60 s | Limite de disparos por hora e `--max-budget-usd` por sessão **não foram respondidos** → 👀 Pendente |
+| `GERENCIADOR-GLOBAL.8` | 4. CLI | Só Claude Code | ✅ Vale (igual a 13:01) | — |
+| `GERENCIADOR-GLOBAL.8` | 5. `gerenciador-de-tarefas` | Mesclar ao central, pelo Opus | ✅ Vale; **revoga** "convive / fora das `aulas-senai-*`" | Até a `.7` terminar, os dois não podem rodar juntos nas `aulas-senai-*` |
+| `GERENCIADOR-GLOBAL.8` | 6. Mesma pasta, dois modelos | (não perguntado) | 👀 Pendente | `rules-ai` e `gerenciador-de-ia` têm uma pasta só: Haiku e Sonnet juntos nela brigam no Git → proposta: **1 sessão por pasta** de cada vez |
+
+**O que sobra para o usuário:** (a) `dashboard-ai-*`: tirar da lista ou dizer onde estão; (b) limite de disparos por hora e de custo por sessão; (c) aceitar "1 sessão por pasta de cada vez" nos projetos de pasta única.
 
 ### GERENCIADOR-GLOBAL.7 — Mesclar o `gerenciador-de-tarefas` e revisar o desenho
 
