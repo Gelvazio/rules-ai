@@ -24,7 +24,8 @@
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
-| 2026-10-17 16:14 | Usuário confirmou que valem as regras de 16:12; abre a subtarefa .8 (Opus) só para conferir a decisão contra o plano de 13:01 | Gelvazio | "vale as regras daqui, abra uma sub-task em GERENCIADOR-GLOBAL nova so pra conferir isso e atribua ao CLAUDE OPUS" |
+| 2026-10-17 13:34 | GERENCIADOR-GLOBAL.2 entregue: regra `regras/gerenciador-centralizado.md` (C28). O modo `disparar` fica condicionado a ordem explícita do usuário, a ordem vigente é a pausa de 13:30 (pedido do usuário); o automático de 16:12 fica para reativação | Claude Code (Haiku 5.5) | Conferência da .2; conflito pendente de decisão do usuário |
+ que valem as regras de 16:12; abre a subtarefa .8 (Opus) só para conferir a decisão contra o plano de 13:01 | Gelvazio | "vale as regras daqui, abra uma sub-task em GERENCIADOR-GLOBAL nova so pra conferir isso e atribua ao CLAUDE OPUS" |
 | 2026-10-17 13:30 | (a) `dashboard-ai-*` **entram**: as 9 pastas voltaram, todas com `tasks/STATUS.md` e Git; (b) **disparo automático em pausa** para todos os modelos, até nova ordem: o gerenciador só lê e avisa (modo `ver`); a `.4` fica ⛔ pausada; (c) o conflito de pasta única (`rules-ai` e `gerenciador-de-ia`) vai para uma tarefa nova (`PASTA-UNICA-GLOBAL`, etapa 011) | Gelvazio | "dashboard-ai-*  ja voltou;nao faca nenhum disparo automatico,deixe em pausa isso de automatico por enquanto;abra uma nova tarefa pra resolver conflitos de rules-ai e gerenciador-de-ia" |
 | 2026-10-17 16:12 | **Respostas do usuário (supersedem a de 13:01 nos pontos em que divergem):** (1) projetos: `aulasenai`, `gerenciador-de-ia`, `dashboard-ai-*`, `aulasenai-*` (as `aulas-senai-*`) e `rules-ai`; (2) disparo **automático** para Haiku e Sonnet; (3) a cada **30 s**, projeto por projeto, vê qual modelo está ocioso e manda pegar a próxima tarefa livre; (4) só Claude Code; (5) **mescla** as regras com o `gerenciador-de-tarefas` e atribui a tarefa ao **Opus** (ver .7). Revoga o "só avisar até o aceite .6" e a exclusão das `aulas-senai-*` do plano de 13:01 | Gelvazio | "1-aulasenai,gerenciador-de-ia,dashboasr-ai-*,aulasenai-*,rules-ai;2-automatico para Haiku e Sonnet;3-a cada 30 segundos,vai de projeto em projeto,lendo o quadro de tasks e vendo qual modelo esta ocioso,e neste caso,ja manda este modelo pegar a proxima task disponivel;4-so claude;5-mescla as regras, atribua ao claude opus" |
 | 2026-10-17 15:55 | Tarefa grande: só o plano e a registro no quadro agora. Execução depende de aprovação explícita. | Claude Code (Haiku 5.5) | Estrutura nova e disparo automático de sessões (regra de tarefa grande). |
@@ -77,13 +78,13 @@
 
 ### GERENCIADOR-GLOBAL.2 — Regra global do gerenciador
 
-**Próximo passo:** depois do .1, escrever `regras/gerenciador-centralizado.md` com a regra e o número C novo, e atualizar o registro de decisões.
+**Próximo passo:** nenhum. Entregue em 2026-10-17 13:34.
 
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** só Haiku — nunca outro.
 - **Descrição:** regra de quem pode ser disparado, quando, com que limites e como parar.
 - **Critérios de Aceitação:** regra escrita e linkada no registro de decisões; sincronizador rodado só com autorização.
-- **Entrega:** — · **Verificação:** — · **Anotação:** —
+- **Entrega:** commit `docs(regras): regra do gerenciador centralizado (C28)` (`regras/gerenciador-centralizado.md`; C28 no `CONFLITOS.md`; registro na etapa) · **Verificação:** conferência por leitura do texto contra as decisões de 13:30 e 16:12. **Ordem vigente:** pausa do disparo automático (pedido do usuário, registrado em 13:30). O automático só para Haiku e Sonnet (16:12) fica para quando o usuário reativar; a regra já escreve o modo `ver` como padrão. **Anotação:** sincronizador não rodado (não autorizado nesta subtarefa).
 
 ### GERENCIADOR-GLOBAL.3 — Script central de leitura do quadro
 
