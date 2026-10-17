@@ -114,9 +114,24 @@ mostra as probabilidades da saída.
 - **Modelo:** Usuário · effort low
 - **Descrição:** conferir no navegador cores, animação, clique e probabilidades.
 
+### DASHBOARD-REDE-NEURAL.6 — Coletor Python dos links do `dashboard/CLAUDE.md`
+
+**Status:** ✅ entregue 2026-10-17 15:25. Coleta de 15:22: L04, L05, L06, L08, L09 e L10 acessados; L07 bloqueado por verificação anti-bot; L01–L03 manuais; 403 nas extras da Tripo e do Canva; cotação 5,0627.
+
+- **Nível:** MEDIO — script Python com 4 arquivos pequenos, roteiro pronto no `WEB-SCRAP.md`.
+- **Modelo:** executada pelo Opus 5.5 a pedido do usuário
+- **Effort:** medium
+- **Descrição:** `dashboard/scripts/` com `config_coleta.py`, `extrator_pagina.py`, `cotacao.py`,
+  `coletar.py` e `requirements.txt`; Playwright para os sites em JavaScript (L04–L10), mais as
+  páginas de preço/API/termos achadas; cotação USD-BRL da AwesomeAPI. L01–L03 (Instagram) ficam
+  `nao_verificado` (coleta manual). Saída em `dashboard/scripts/saida/coleta.json` (fora do Git).
+- **Critérios de aceitação:** `py_compile` passa; a execução grava um JSON válido; falhas
+  (timeout, 403, captcha) ficam registradas sem burlar proteção.
+
 ## Decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
 | 2026-10-17 17:19 | Tarefa criada só com o plano; execução depende do "sim" do usuário | Claude Code (Opus 5.5) | Tarefa grande (estrutura nova, cena 3D inteira) |
 | 2026-10-17 17:21 | Plano aprovado; execução pelo líder Opus 5.5 com agentes por nível (Haiku .1, Sonnet .2 e .4, Opus .3) | Gelvazio | "sim, aprovo o plano da DASHBOARD-REDE-NEURAL (etapa 013)" |
+| 2026-10-17 15:03 | `.6` criada (C26): coletor Python dos links do `dashboard/CLAUDE.md` | Gelvazio | "crie 1 pasta scripts nele crie e rode o app em python que coleta os dados dos sites solicitados" |

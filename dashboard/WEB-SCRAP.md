@@ -47,9 +47,16 @@ playwright install chromium
 
 ## 4. Script de coleta (L04 a L10)
 
-Salve como `dashboard/scrap/coletar.py`. Ele abre cada página, espera o JavaScript carregar,
+> **Pronto em `dashboard/scripts/`:** o app já está implementado e dividido em
+> `config_coleta.py` (links e padrões), `extrator_pagina.py` (Playwright), `cotacao.py`
+> (AwesomeAPI) e `coletar.py` (ponto de entrada). Ele também coleta até 3 páginas de preço,
+> licença ou API achadas em cada site e marca páginas de verificação anti-bot como
+> `nao_verificado`. Instale com `pip install -r dashboard/scripts/requirements.txt` e
+> `python -m playwright install chromium`. O código abaixo é o modelo original.
+
+Salve como `dashboard/scripts/coletar.py`. Ele abre cada página, espera o JavaScript carregar,
 extrai o título, a descrição, os textos visíveis e os trechos com preço, e grava tudo em
-`dashboard/scrap/saida/coleta.json`.
+`dashboard/scripts/saida/coleta.json`.
 
 ```python
 """Coleta o texto público das páginas L04 a L10 do dashboard/CLAUDE.md."""
@@ -126,7 +133,7 @@ if __name__ == "__main__":
 Rodar:
 
 ```bash
-python dashboard/scrap/coletar.py
+python dashboard/scripts/coletar.py
 ```
 
 Depois, rode o script de novo com as URLs de `links_uteis` (preços, API, termos) no dicionário
@@ -198,5 +205,5 @@ recomendação) é **opinião** e vem depois:
 | Preços não aparecem | Ficam em outra página ou só depois do login | Coletar `/pricing`; se exigir login, marcar `nao_verificado` |
 | Página em inglês | O site ignora o `/pt` | Coletar assim mesmo e traduzir na análise |
 
-Não versione `dashboard/scrap/saida/` se ela tiver muito texto de terceiros: adicione ao
-`.gitignore`.
+Não versione `dashboard/scripts/saida/` se ela tiver muito texto de terceiros: adicione ao
+`.gitignore` (já feito: `dashboard/scripts/saida/`).

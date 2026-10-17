@@ -24,6 +24,8 @@ Depois abra http://localhost:8080 no navegador.
 - `assets/js/rede/`: cálculo da rede (pesos, propagação).
 - `assets/js/cena/`: desenho das camadas, neurônios e conexões em 3D.
 - `assets/js/tela/`: painel 2D (entradas, cálculo, barras e legenda).
+- `scripts/`: coletor Python dos links do `CLAUDE.md` (`python dashboard/scripts/coletar.py`,
+  saída em `scripts/saida/coleta.json`, fora do Git). Guia: `WEB-SCRAP.md`.
 
 Tarefa de origem: DASHBOARD-REDE-NEURAL
 (`tasks/etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md`).
