@@ -24,6 +24,7 @@
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 16:14 | Usuário confirmou que valem as regras de 16:12; abre a subtarefa .8 (Opus) só para conferir a decisão contra o plano de 13:01 | Gelvazio | "vale as regras daqui, abra uma sub-task em GERENCIADOR-GLOBAL nova so pra conferir isso e atribua ao CLAUDE OPUS" |
 | 2026-10-17 16:12 | **Respostas do usuário (supersedem a de 13:01 nos pontos em que divergem):** (1) projetos: `aulasenai`, `gerenciador-de-ia`, `dashboard-ai-*`, `aulasenai-*` (as `aulas-senai-*`) e `rules-ai`; (2) disparo **automático** para Haiku e Sonnet; (3) a cada **30 s**, projeto por projeto, vê qual modelo está ocioso e manda pegar a próxima tarefa livre; (4) só Claude Code; (5) **mescla** as regras com o `gerenciador-de-tarefas` e atribui a tarefa ao **Opus** (ver .7). Revoga o "só avisar até o aceite .6" e a exclusão das `aulas-senai-*` do plano de 13:01 | Gelvazio | "1-aulasenai,gerenciador-de-ia,dashboasr-ai-*,aulasenai-*,rules-ai;2-automatico para Haiku e Sonnet;3-a cada 30 segundos,vai de projeto em projeto,lendo o quadro de tasks e vendo qual modelo esta ocioso,e neste caso,ja manda este modelo pegar a proxima task disponivel;4-so claude;5-mescla as regras, atribua ao claude opus" |
 | 2026-10-17 15:55 | Tarefa grande: só o plano e a registro no quadro agora. Execução depende de aprovação explícita. | Claude Code (Haiku 5.5) | Estrutura nova e disparo automático de sessões (regra de tarefa grande). |
 | 2026-10-17 15:55 | Pendente de decisão do usuário: o `gerenciador-de-tarefas` das `aulas-senai-*` (skill já existente) será substituído, ampliado ou convivirá com este gerenciador? | — | Evitar dois gerenciadores disputando as mesmas pastas. |
@@ -121,6 +122,16 @@
 - **Modelo:** Usuário — nunca outro.
 - **Descrição:** aceite e liberação do disparo automático.
 - **Critérios de Aceitação:** o usuário responde "sim" com a configuração escolhida.
+- **Entrega:** — · **Verificação:** — · **Anotação:** —
+
+### GERENCIADOR-GLOBAL.8 — Conferir as respostas de 16:12
+
+**Próximo passo:** comparar as respostas de 16:12 com o plano de 13:01 e com o desenho da .1; registrar nesta seção o que vale, o que foi revogado e o que ainda precisa de decisão do usuário.
+
+- **Nível:** PESADO — conferência de escopo de um gerenciador que dispara sessões.
+- **Modelo:** só Opus 5.5+ ou Fable — nunca outro.
+- **Descrição:** conferir ponto a ponto as cinco respostas de 16:12 (projetos, automático só para Haiku e Sonnet, ciclo de 30 s, só Claude Code, mesclagem atribuída ao Opus) contra o plano de 13:01 e o desenho da .1; listar o que conflita e o que a .7 precisa ajustar.
+- **Critérios de Aceitação:** lista de cada resposta com "vale", "revogada" ou "pendente de decisão"; nenhuma sessão disparada.
 - **Entrega:** — · **Verificação:** — · **Anotação:** —
 
 ### GERENCIADOR-GLOBAL.7 — Mesclar o `gerenciador-de-tarefas` e revisar o desenho

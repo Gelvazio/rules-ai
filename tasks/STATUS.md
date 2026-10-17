@@ -32,11 +32,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | GERENCIADOR-GLOBAL.5 | 🌐 Vigilância periódica (agendador ou loop no intervalo aprovado) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet | GERENCIADOR-GLOBAL.4 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.6 | 🌐 Aceite do usuário | 🟠 Alta | Usuário | GERENCIADOR-GLOBAL.5 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.7 | 🌐 Mesclar o `gerenciador-de-tarefas` ao central e revisar o desenho da .1 com as respostas de 16:12 · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
+| GERENCIADOR-GLOBAL.8 | 🌐 Conferir que as respostas de 16:12 valem (e revogam o plano de 13:01 onde divergem) e registrar o que sobra para o usuário · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 16:14 | Usuário confirmou que valem as respostas de 16:12; abre a GERENCIADOR-GLOBAL.8 (Opus) só para conferir contra o plano de 13:01 | Gelvazio | "vale as regras daqui, abra uma sub-task em GERENCIADOR-GLOBAL nova so pra conferir isso e atribua ao CLAUDE OPUS" |
 | 2026-10-17 16:12 | GERENCIADOR-GLOBAL: respostas do usuário registradas na etapa 009 (projetos, disparo automático só Haiku e Sonnet, ciclo de 30 s, só Claude Code, mesclagem com o `gerenciador-de-tarefas` atribuída ao Opus via .7); revogam o plano de 13:01 nos pontos que divergem | Gelvazio | "1-aulasenai,gerenciador-de-ia,dashboasr-ai-*,aulasenai-*,rules-ai;2-automatico para Haiku e Sonnet;3-a cada 30 segundos...;4-so claude;5-mescla as regras, atribua ao claude opus" |
 | 2026-10-17 | Todo status é mostrado em quadro (tabela), em todas as IAs, no terminal e no IDE (C27) | Gelvazio | "todos os staus devem sempre ser mostrados em forma de quadro aqui no cmd ou no claude code IDE" |
 | 2026-10-17 15:55 | GERENCIADOR-GLOBAL registrada como tarefa grande (plano na etapa 009); execução só depois do "sim" do usuário às perguntas da etapa | Claude Code (Haiku 5.5) | Estrutura nova e disparo automático de sessões |
