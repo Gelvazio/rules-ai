@@ -71,7 +71,7 @@ PowerShell, bash) e no chat do Claude Code no IDE.
 
 ### STATUS-QUADRO-GLOBAL.3 — ID da tarefa e linha da mãe em todo quadro (ampliação da C27)
 
-**Próximo passo:** trocar o item das colunas em `regras/exibicao-de-status.md`, ampliar a linha C27, anotar o status e sincronizar.
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — só `.md` e rodar um script já existente.
 - **Modelo:** só Haiku — nunca outro
@@ -98,3 +98,5 @@ PowerShell, bash) e no chat do Claude Code no IDE.
 ```
 
 - **Critério de pronto:** só esse item muda na regra; linha C27 ampliada; sincronizador sem erro.
+- **Entrega (2026-10-17 13:19, Haiku · executor-leve; líder Opus 5.5):** `regras/exibicao-de-status.md`, `CONFLITOS.md`, `STATUS_PROJETO.md`; `sincronizar.mjs --aplicar` sem erro (7 IAs gravadas; Claude Code igual).
+- **Verificação (líder):** `git diff --stat` = só os 3 arquivos; regra sem entidades HTML; `dist/REGRAS-GLOBAIS.md` contém "Mãe junto das subtarefas".

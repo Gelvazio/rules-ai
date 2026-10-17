@@ -33,8 +33,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | GERENCIADOR-GLOBAL.6 | 🌐 Aceite do usuário | 🟠 Alta | Usuário | GERENCIADOR-GLOBAL.5 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.7 | 🌐 Mesclar o `gerenciador-de-tarefas` ao central e revisar o desenho da .1 com as respostas de 16:12 · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.8 | 🌐 Conferir que as respostas de 16:12 valem (e revogam o plano de 13:01 onde divergem) e registrar o que sobra para o usuário · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
-| STATUS-QUADRO-GLOBAL | **🌐 GLOBAL — Todo status é mostrado em quadro, no terminal e no IDE (C27) — reaberta para a .3** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
-| STATUS-QUADRO-GLOBAL.3 | 🌐 C27: ID da tarefa e linha da mãe em todo quadro; sincronizar · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | 🔄 Em progresso | Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) (local · main) (desde 2026-10-17 13:17) | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
 
 ## Registro de decisões
 
