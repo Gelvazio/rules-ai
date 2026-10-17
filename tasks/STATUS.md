@@ -23,8 +23,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | CONFEFFORT-GLOBAL.5 | 🌐 DeepSeek (raciocínio): conferir o esforço | 🟡 Média | MEDIO · só DeepSeek · effort medium | Nenhuma | ⬜ Pendente | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | MODELO-GLOBAL | **🌐 GLOBAL — Nunca executar tarefa que não é do seu modelo (C22)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-004](etapas/ETAPA-004-MODELO-GLOBAL.md) |
 | MODELO-GLOBAL.2 | 🌐 Levar aos outros projetos (`sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | MODELO-GLOBAL.1 | 👀 Aguardando o usuário | — | [ETAPA-004](etapas/ETAPA-004-MODELO-GLOBAL.md) |
-| INDEX-FONTES | **Cards e modais no `C:\fontes\index.html`** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-005](etapas/ETAPA-005-INDEX-FONTES.md) |
-| INDEX-FONTES.1 | Cards, modais e gerador de dados | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | Nenhuma | 🔄 Em execução | Claude Code (Opus 5.5) (local · main) (desde 2026-10-17) | [ETAPA-005](etapas/ETAPA-005-INDEX-FONTES.md) |
 
 ## Registro de decisões
 

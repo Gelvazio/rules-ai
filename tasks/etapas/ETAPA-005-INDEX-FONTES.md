@@ -17,10 +17,16 @@ globais, o CLAUDE.md do líder Opus e o quadro do `rules-ai`.
 
 ### INDEX-FONTES.1 — Cards, modais e gerador de dados
 
-**Próximo passo:** criar `assets/` e `scripts/` em `C:\fontes`, gerar os dados e conferir a sintaxe.
+**Próximo passo:** — (entregue).
 
 - **Nível:** PESADO — mais de 3 arquivos ligados (HTML, CSS, módulos JS e gerador).
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro.
 - **Descrição:** 4 cards (2 por linha) no topo do `index.html`, cada um abre um modal estilizado.
 - **Critérios de Aceitação:** os 4 modais mostram o conteúdo certo; o corpo da página mostra o
   `CLAUDE.md` da raiz e as regras do `rules-ai`; abre com duplo clique.
+- **Entrega:** `C:\fontes\index.html`, `assets/css/estilo.css`, `assets/js/` (`markdown.js`,
+  `modal.js`, `tarefas.js`, `pagina.js`, `dados.js` gerado), `scripts/gerar-dados-index.mjs` e
+  `atualizar-index.cmd` (fora do Git: `C:\fontes` não é repositório).
+- **Verificação:** `node --check` nos 5 scripts; leitura das tabelas rodada no Node (15 linhas
+  abertas em 5 grupos, 22 concluídas, 14 documentos do rules-ai); linhas ≤ 100 caracteres. O visual
+  **não** foi aberto no navegador (regra): o usuário confere com duplo clique no `index.html`.
