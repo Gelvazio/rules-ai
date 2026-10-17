@@ -52,7 +52,7 @@ mostra as probabilidades da saída.
 
 ### DASHBOARD-REDE-NEURAL.1 — Estrutura da pasta `dashboard/`
 
-**Próximo passo:** criar os arquivos abaixo (reservada 2026-10-17 17:21).
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — HTML de estrutura, CSS de tokens e `.md`, sem lógica.
 - **Modelo:** só Haiku — nunca outro
@@ -62,10 +62,12 @@ mostra as probabilidades da saída.
   `dashboard/assets/css/painel.css` e `dashboard/README.md` (o que é e como abrir).
 - **Critérios de aceitação:** sem `style=""`/`onclick`; versão exata do Three.js; README com o
   comando do servidor estático.
+- **Entrega (2026-10-17 17:23, Haiku 5.5 · executor-leve; líder Opus 5.5):** `dashboard/index.html`, `assets/css/base.css`, `assets/css/painel.css`, `README.md`.
+- **Verificação (líder):** import map com `three@0.170.0` exato; sem `style=""`/`onclick`; nenhuma linha > 100; `git check-ignore` não ignora a pasta.
 
 ### DASHBOARD-REDE-NEURAL.2 — Modelo da rede (pesos e propagação)
 
-**Próximo passo:** esperar a `.1`.
+**Próximo passo:** criar config/rede.js e rede/rede-neural.js (reservada 2026-10-17 17:23).
 
 - **Nível:** MEDIO — lógica em JS em 1 a 3 arquivos, sem DOM.
 - **Modelo:** só Sonnet — nunca outro

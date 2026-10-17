@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 17:25 (Brasília): DASHBOARD-REDE-NEURAL: plano aprovado; `.1` entregue (Haiku): pasta `dashboard/` com `index.html`, CSS e README.
 - 2026-10-17 17:19 (Brasília): tarefa DASHBOARD-REDE-NEURAL (etapa 013) criada no quadro: página em `dashboard/` com a visualização 3D das camadas de uma rede neural (Three.js). Tarefa grande: só o plano; execução depende do "sim" do usuário. Nada foi criado na pasta ainda.
 - 2026-10-17 13:52 (Brasília): regra global nova C30 (`regras/frentes-e-reserva.md`, tarefa PONTO-GLOBAL, etapa 012): mensagem só com `.` = listar em quadro as tarefas pendentes e apontar a próxima livre do seu modelo, sem reservar nem mudar nada. Regras globais sincronizadas.
 - 2026-10-17 13:47 (Brasília): C29 ampliada: o `gerenciador-de-ia` também tem **uma sessão de IA por vez** (seção 10 do `CLAUDE.md` de lá e `.gitignore`, tarefa #5 do quadro dele; PASTA-UNICA-GLOBAL.5).

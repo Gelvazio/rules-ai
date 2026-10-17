@@ -54,3 +54,4 @@
 | **PASTA-UNICA-GLOBAL** | **🌐 GLOBAL — Conflitos de várias sessões na mesma pasta: uma sessão por vez no `rules-ai` e no `gerenciador-de-ia` (C29)** | 🟠 Alta | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-011](etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md) |
 | PONTO-GLOBAL.1 | 🌐 Regra global, C30, status e sincronizador · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ✅ Concluído (2026-10-17 13:52) | — | [ETAPA-012](etapas/ETAPA-012-PONTO-GLOBAL.md) |
 | **PONTO-GLOBAL** | **🌐 GLOBAL — Mensagem `.` = liste as tarefas pendentes (C30)** | 🟡 Média | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-012](etapas/ETAPA-012-PONTO-GLOBAL.md) |
+| DASHBOARD-REDE-NEURAL.1 | Estrutura da pasta `dashboard/` (HTML, CSS, README) | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído (2026-10-17 17:23) | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
