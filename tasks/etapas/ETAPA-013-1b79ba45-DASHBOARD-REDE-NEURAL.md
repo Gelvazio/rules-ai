@@ -344,6 +344,18 @@ no front-end além do `localStorage` já aprovado na `.9`.
   reservar e concluir viram voos. Câmera recuada; movimento reduzido congela as órbitas.
 - **Conferido:** `node --check`; o visual fica para o aceite (`.19`).
 
+### DASHBOARD-REDE-NEURAL.21 — Correção: rótulos nítidos
+
+**Status:** ✅ entregue 2026-10-17 17:49.
+
+- **Problema:** "os textos estão foscos". Os rótulos eram texturas de canvas (512×128) esticadas
+  em sprites; com a distância e o zoom, o texto borrava.
+- **Correção:** `assets/js/agentes/rotulos.js` passa a criar `CSS2DObject` (HTML); `agentes.js`
+  ganha a camada `CSS2DRenderer` sobre o canvas (sem capturar o mouse) e a desenha a cada quadro;
+  estilos `.rotulo3d` e `.camada-rotulos` no `graphs.css`. Mesma interface (`criarRotulo`,
+  `descartarRotulo`), então a cena e os personagens não mudaram.
+- **Conferido:** `node --check`; `CSS2DRenderer.js` do `three@0.170.0` responde 200 no jsDelivr.
+
 ### DASHBOARD-REDE-NEURAL.19 — Aceite do usuário
 
 **Status:** 👀 aguardando o usuário (reiniciar o `servidor.py` antes). O usuário abre `http://localhost:8080/graphs/agentes.html`, muda o status
@@ -370,3 +382,4 @@ de uma tarefa no quadro e confere a animação cerca de 30 s depois.
 | 2026-10-17 17:10 | `.18` criada (C26) com plano aprovado: fonte só o `rules-ai/tasks/STATUS.md`, atraso configurável (30 s); só registrada no quadro | Gelvazio | "como eu posso usar esta interface em 3D, pra mostrar o trabalho real dos meus agentes..." / "apenas grave a tarefa no quadro de tasks" |
 | 2026-10-17 17:37 | `.18` executada; nome do agente nos personagens, tela inteira só com o menu e `menu.js` único | Gelvazio | "execute a tarefa .18" e pedidos durante a execução |
 | 2026-10-17 17:41 | `.20` (C26): globo das pendentes no centro, agentes em órbita com as tarefas que fazem, concluídas num anel | Gelvazio | "as tarefas pendentes devem ser um globo no centro..." |
+| 2026-10-17 17:49 | `.21` (C26, correção): rótulos em HTML (CSS2DRenderer) no lugar da textura de canvas | Gelvazio | "os textos estão foscos" |

@@ -507,3 +507,45 @@
     display: none;
   }
 }
+
+/* Rótulos 3D em HTML (CSS2DRenderer) da página "Agentes ao vivo". */
+.camada-rotulos {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sobreposto {
+  z-index: 2;
+}
+
+.rotulo3d {
+  display: grid;
+  max-width: 220px;
+  padding: 4px 8px;
+  background: rgb(11 16 32 / 88%);
+  border: 1.5px solid var(--cor-rotulo, var(--cor-texto));
+  border-radius: 6px;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+}
+
+.rotulo3d strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--cor-rotulo, var(--cor-texto));
+}
+
+.rotulo3d span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--cor-texto);
+}
+
+.rotulo3d--pequeno {
+  padding: 1px 5px;
+  font-size: 0.66rem;
+  border-width: 1px;
+}

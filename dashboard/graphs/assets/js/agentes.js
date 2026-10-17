@@ -1,6 +1,7 @@
 // Página "Agentes ao vivo": lê o tasks/STATUS.md pelo servidor local a cada intervalo, guarda as
 // mudanças numa fila e só as anima na cena 3D depois do atraso escolhido.
 import * as THREE from 'three';
+import { CSS2DRenderer } from 'three/addons/renderers/CSS2DRenderer.js';
 import { lerAgentes } from './api.js';
 import { montarCenaAgentes } from './agentes/cena-agentes.js';
 import { compararRetratos, criarFila, indexar } from './agentes/fila-atrasada.js';
@@ -15,14 +16,27 @@ function avisar(texto) {
   $('aviso').hidden = !texto;
 }
 
+/** Camada HTML dos rótulos, do tamanho da cena e sem capturar o mouse (os controles seguem no canvas). */
+function criarCamadaRotulos(conteiner) {
+  const rotulos = new CSS2DRenderer();
+  rotulos.domElement.className = 'camada-rotulos';
+  conteiner.append(rotulos.domElement);
+  return rotulos;
+}
+
 function prepararBase() {
   const conteiner = $('cena');
   const base = criarBase(conteiner);
+  base.rotulos = criarCamadaRotulos(conteiner);
   base.controles.autoRotate = false;
   base.camera.position.set(0, 5.5, 15);
   base.controles.target.set(0, 0.3, 0);
-  ajustarTamanho(base, conteiner);
-  window.addEventListener('resize', () => ajustarTamanho(base, conteiner));
+  const ajustar = () => {
+    ajustarTamanho(base, conteiner);
+    base.rotulos.setSize(conteiner.clientWidth, conteiner.clientHeight);
+  };
+  ajustar();
+  window.addEventListener('resize', ajustar);
   return base;
 }
 
@@ -54,6 +68,7 @@ function animar(base, cenaAgentes, fila) {
     cenaAgentes.desenhar(dt, relogio.elapsedTime);
     base.controles.update();
     base.renderizador.render(base.cena, base.camera);
+    base.rotulos.render(base.cena, base.camera);
   });
 }
 
