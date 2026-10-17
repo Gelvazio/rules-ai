@@ -132,3 +132,27 @@ Ressalvas: amostra de 3 por nível; o problema foi resolvido por força bruta (p
   | dashboard-plataformas-de-ia | `5789c64` | 4 classificadas |
   | dashboard-ai (9 cópias, mesmo repositório) | `36f2b2a` | 39 classificadas |
   **Verificação:** simulação revisada linha a linha antes de aplicar (corrigidos: nome de matéria com "Arquitetura"/"Segurança", "banco de horas", "migrado", gerador/visualizador como código); push conferido (local = remoto) nos 7. Fora: pasta offline (C20) e `ajax-ai-by-pewdiepie`. Classificação automática: quem pegar a tarefa pode reclassificar (subir o nível).
+
+### ESFORCO-GLOBAL.6 — Limpar o `esforco.md` (só a regra; resultados ficam aqui)
+
+**Próximo passo:** apagar as 2 linhas de resultado, trocar a linha 4, anotar o status e sincronizar.
+
+- **Nível:** LEVE — só `.md` e rodar um script já existente.
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **Pedido:** "sim, abra a subtarefa e limpe o esforco.md" (2026-10-17 13:15); criada no caminho (C26).
+- **Motivo:** os resultados das conferências são histórico, não mudam o que a IA faz e entram no
+  contexto de toda sessão de todas as IAs (via `dist/REGRAS-GLOBAIS.md`).
+- **Descrição:** em `regras/esforco.md`: (1) apagar a linha que começa com "- Conferência por
+  modelo: **Sonnet 5.5**" e a linha que começa com "- Teste da padaria (EFFORT-PADARIA"; (2) trocar
+  a linha 4 `IAs.** Conferência por modelo: tarefa `CONFEFFORT-GLOBAL` (`rules-ai/tasks/STATUS.md`).`
+  por `IAs.** Conferência por modelo: tarefa `CONFEFFORT-GLOBAL`; resultados nas etapas 002 e 003 do `rules-ai` (não ler para escolher o esforço).`;
+  (3) nova linha no topo de "O que mudou desde a última gravação" do `STATUS_PROJETO.md`;
+  (4) `node scripts/sincronizar.mjs --aplicar` e conferir que `dist/REGRAS-GLOBAIS.md` **não** contém
+  "Teste da padaria (EFFORT-PADARIA".
+- **Critério de pronto:** `esforco.md` sem as 2 linhas e com a linha 4 nova; nada mais muda.
+
+#### Resultados retirados do `esforco.md` (histórico, 2026-10-17)
+
+- Conferência por modelo: **Sonnet 5.5** (CONFEFFORT-GLOBAL.2 e .6): `low` e `medium` sem diferença mensurável; só `high` mostrou efeito pequeno. **Opus 5.5** (CONFEFFORT-GLOBAL.3, 2026-10-17): `effort` aplicado — tokens e tempo crescem de `low` a `xhigh` (+2,3% de tokens, +40% de tempo), todos com a resposta certa. Faltam Haiku, Gemini e DeepSeek.
+- Teste da padaria (EFFORT-PADARIA, etapa 003): o `effort` é aplicado nos 3 modelos Claude, forte só no Haiku e no `xhigh` do Opus; nenhum nível mudou a nota (38/38 em todos). Subir o nível aumenta custo e tempo sem ganho de acerto nesse tipo de tarefa.
