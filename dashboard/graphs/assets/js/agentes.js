@@ -10,6 +10,8 @@ import { ajustarTamanho, criarBase } from './visualizador.js';
 
 const $ = (id) => document.getElementById(id);
 const reduzirMovimento = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/** Projeto escolhido no menu de projetos (?projeto=<pasta>); vazio = padrão do servidor. */
+const PROJETO = new URLSearchParams(window.location.search).get('projeto') ?? '';
 
 function avisar(texto) {
   $('aviso').textContent = texto;
@@ -29,8 +31,8 @@ function prepararBase() {
   const base = criarBase(conteiner);
   base.rotulos = criarCamadaRotulos(conteiner);
   base.controles.autoRotate = false;
-  base.camera.position.set(0, 5.5, 15);
-  base.controles.target.set(0, 0.3, 0);
+  base.camera.position.set(0, 1.5, 18);
+  base.controles.target.set(0, 0, 0);
   const ajustar = () => {
     ajustarTamanho(base, conteiner);
     base.rotulos.setSize(conteiner.clientWidth, conteiner.clientHeight);
@@ -45,7 +47,7 @@ function vigiarQuadro(primeiro, fila) {
   let retrato = indexar(primeiro.tarefas);
   const ler = async () => {
     try {
-      const novo = indexar((await lerAgentes()).tarefas);
+      const novo = indexar((await lerAgentes(PROJETO)).tarefas);
       fila.enfileirar(compararRetratos(retrato, novo));
       retrato = novo;
       marcarLeitura(fila.pendentes);
@@ -78,10 +80,13 @@ async function iniciar() {
   $('nota-movimento').hidden = !reduzir;
   let primeiro;
   try {
-    primeiro = await lerAgentes();
-  } catch {
-    throw new Error('abra pelo servidor local (python dashboard/graphs/servidor.py); '
-      + 'se ele já estava rodando, reinicie-o para ganhar a rota /api/agentes.');
+    primeiro = await lerAgentes(PROJETO);
+  } catch (erro) {
+    if (erro instanceof TypeError || /404/.test(erro.message)) {
+      throw new Error('abra pelo servidor local (python dashboard/graphs/servidor.py); '
+        + 'se ele já estava rodando, reinicie-o para ganhar a rota /api/agentes.');
+    }
+    throw erro;
   }
   const cenaAgentes = montarCenaAgentes(base.cena, { reduzir });
   cenaAgentes.sincronizar(primeiro.tarefas);

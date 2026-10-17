@@ -385,6 +385,34 @@ no front-end além do `localStorage` já aprovado na `.9`.
   principal ocupa o resto da tela, então o menu em 2 linhas não empurra a cena para fora.
 - **Conferido:** `node --check`; visual no aceite (`.19`).
 
+### DASHBOARD-REDE-NEURAL.24 — Menu de projetos troca o quadro lido
+
+**Status:** ✅ entregue 2026-10-17 18:05.
+
+- **Servidor:** `/api/projetos` lista as pastas de `C:ontes` com `tasks\STATUS.md` (nunca as
+  `DEMAIS-PROJETOS-*`, regras C20 e C23), com nome legível ("rules-ai" → "Rules Ai"); 19 projetos
+  hoje. `/api/agentes?projeto=<pasta>` lê o quadro do projeto pedido (padrão: `rules-ai`); id fora
+  da lista é recusado (testado com `../rules-ai` e `DEMAIS-PROJETOS-NAO-MEXER-AGORA`).
+- **Leitor:** `quadro_tarefas.py` acha as colunas pelo nome do cabeçalho (os `dashboard-ai-*` e o
+  `testes-de-frontend` não têm "Modelo"; os do `aulasenai` têm "Verificado"). Os 19 quadros leem.
+- **Menu:** `menu.js` carrega os projetos do servidor (sem servidor, fica só "Rules Ai"); clicar
+  recarrega a página com `?projeto=`, e os links das páginas levam o parâmetro junto.
+- **Quadros grandes:** o `aulasenai` tem 711 pendentes. Acima de 40 pendentes no globo, as comuns
+  ficam sem rótulo (bloqueadas e aguardando mantêm) e os cartões encolhem; geometria compartilhada.
+
+### DASHBOARD-REDE-NEURAL.25 — Mapa mental (modelo.png)
+
+**Status:** ✅ entregue 2026-10-17 18:05.
+
+- **Pedido:** seguir `dashboard/prompts/modelo.png` (mapa mental): globo girando no centro e os
+  agentes espalhados em volta; "os agentes não giram, apenas apontam para o globo".
+- **Entregue:** `assets/js/agentes/galhos.js` (novo) com a geometria do mapa: agentes parados numa
+  elipse em volta do globo (o primeiro em cima, à esquerda), galho grosso e curvo da cor do agente
+  saindo da superfície do globo até ele, e as tarefas do agente abertas em leque para fora, em
+  ramos finos curvos. `cena-agentes.js` usa essas posições no lugar das órbitas; concluídas num anel
+  colado ao globo (raio 4,2) com a placa embaixo; câmera de frente.
+- **Conferido:** `node --check`; servidor reiniciado, `galhos.js` servido (200). Visual no aceite.
+
 ### DASHBOARD-REDE-NEURAL.19 — Aceite do usuário
 
 **Status:** 👀 aguardando o usuário (reiniciar o `servidor.py` antes). O usuário abre `http://localhost:8080/graphs/agentes.html`, muda o status
@@ -414,3 +442,5 @@ de uma tarefa no quadro e confere a animação cerca de 30 s depois.
 | 2026-10-17 17:49 | `.21` (C26, correção): rótulos em HTML (CSS2DRenderer) no lugar da textura de canvas | Gelvazio | "os textos estão foscos" |
 | 2026-10-17 17:55 | `.22` (C26) e regra C31: percentual escrito pelo agente em "Em uso por", mostrado na cabeça dele | Gelvazio | "tem como colocar na cabeça de cada agente..." → "Agente escreve no quadro" / "Só no rules-ai" |
 | 2026-10-17 17:58 | `.23` (C26): linha do projeto atual (Rules Ai) acima do menu | Gelvazio | "crie 1 menu em cima em mais 1 linha no menu com o nome do Projeto Atual, sendo este o Rules Ai" |
+| 2026-10-17 18:05 | `.24` (C26): menu de projetos troca o quadro lido | Gelvazio | "faça o menu de projetos trocar o quadro lido" |
+| 2026-10-17 18:05 | `.25` (C26): mapa mental do `modelo.png`, agentes parados apontando para o globo | Gelvazio | "leia a imagem modelo.png..." / "os agentes não giram, apenas apontam para o globo" |

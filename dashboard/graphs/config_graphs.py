@@ -23,8 +23,10 @@ STATUS_FINAIS = {"success", "failed", "banned", "expired", "cancelled", "unknown
 PASTA_CENAS = PASTA_GRAPHS / "cenas"
 PASTA_MODELOS_CENAS = PASTA_MODELOS / "cenas"
 
-# Página "Agentes ao vivo": quadro lido a cada pedido e atraso padrão da reprodução.
-ARQUIVO_QUADRO = PASTA_DASHBOARD.parent / "tasks" / "STATUS.md"
+# Página "Agentes ao vivo": projetos em C:ontes (cada um com tasks/STATUS.md), o projeto aberto
+# por padrão e o intervalo de leitura do quadro.
+PASTA_FONTES = PASTA_DASHBOARD.parent.parent
+PROJETO_PADRAO = PASTA_DASHBOARD.parent.name
 INTERVALO_COLETA_SEGUNDOS = 10
 
 TEMPO_LIMITE_SEGUNDOS = 60

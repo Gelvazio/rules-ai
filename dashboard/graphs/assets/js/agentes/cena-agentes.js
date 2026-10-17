@@ -1,7 +1,9 @@
-// Cena 3D da página "Agentes ao vivo": as tarefas pendentes formam um globo no centro, os agentes
-// orbitam em volta levando como satélites as tarefas que estão fazendo, e as concluídas vão para um
-// anel externo. Cada cartão persegue o seu lugar a cada quadro, então as mudanças viram voos.
+// Cena 3D da página "Agentes ao vivo", no formato de mapa mental (dashboard/prompts/modelo.png):
+// as tarefas pendentes formam um globo que gira no centro, os agentes ficam parados em volta,
+// ligados ao globo por galhos, com as tarefas que estão fazendo em ramos, e as concluídas vão para
+// um anel colado ao globo. Cada cartão persegue o seu lugar a cada quadro, então as mudanças viram voos.
 import * as THREE from 'three';
+import { atualizarGalho, atualizarRamo, criarGalho, criarRamo, posicaoDoAgente, posicaoNoRamo } from './galhos.js';
 import { atualizarProgresso, criarPersonagem } from './personagens.js';
 import { criarRotulo, descartarRotulo } from './rotulos.js';
 
@@ -20,17 +22,18 @@ const COR_PULSO = Object.freeze({
 });
 const COR_ALERTA = Object.freeze({ bloqueado: 0xef4444, aguardando: 0xfacc15 });
 const RAIO_GLOBO = 3;
-const RAIO_ANEL = 7.2;
-const INCLINACAO_ANEL = 0.22;
-const RAIO_ORBITA = 5;
-const RAIO_SATELITE = 1;
+const RAIO_ANEL = 4.2;
+const INCLINACAO_ANEL = 0.35;
 const GIRO_GLOBO = 0.12;
-const GIRO_ORBITA = 0.22;
-const GIRO_SATELITE = 1.1;
 const GIRO_ANEL = 0.04;
 const VELOCIDADE = 2.5;
 const QUEDA_PULSO = 0.5;
 const ANGULO_DOURADO = Math.PI * (3 - Math.sqrt(5));
+// Quadros grandes (o do aulasenai passa de 700 pendentes): acima deste total, as pendentes comuns
+// ficam sem rótulo no globo e os cartões encolhem para caber na esfera.
+const LIMITE_ROTULOS_GLOBO = 40;
+const CARTOES_SEM_ENCOLHER = 60;
+const GEOMETRIA_CARTAO = new THREE.BoxGeometry(0.5, 0.3, 0.08);
 
 const corDoNivel = (nivel) => COR_NIVEL[nivel] ?? COR_SEM_NIVEL;
 const segura = (cartao) => Boolean(cartao.tarefa.agente) && cartao.tarefa.status !== 'concluido';
@@ -73,7 +76,7 @@ function trocarRotulo(cartao, papel) {
   cartao.papelRotulo = papel;
   if (cartao.rotulo) descartarRotulo(cartao.rotulo);
   cartao.rotulo = null;
-  if (papel === 'anel') return; // no anel só o cartão: o total aparece na placa das concluídas
+  if (papel === 'anel' || papel === 'globo-sem-rotulo') return; // o total aparece na placa
   const { tarefa } = cartao;
   const linhas = papel === 'satelite' ? [tarefa.tarefa, tarefa.titulo] : [tarefa.tarefa];
   cartao.rotulo = criarRotulo(linhas, { cor: corDoNivel(tarefa.nivel), escala: papel === 'satelite' ? 0.85 : 0.5 });
@@ -82,7 +85,7 @@ function trocarRotulo(cartao, papel) {
 }
 
 function criarCartao(cena, tarefa) {
-  const malha = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.3, 0.08), new THREE.MeshStandardMaterial({
+  const malha = new THREE.Mesh(GEOMETRIA_CARTAO, new THREE.MeshStandardMaterial({
     color: corDoNivel(tarefa.nivel), emissive: 0x000000, roughness: 0.5,
   }));
   const grupo = new THREE.Group();
@@ -96,20 +99,21 @@ function removerCartao(estado, id) {
   if (!cartao) return;
   if (cartao.rotulo) descartarRotulo(cartao.rotulo);
   cartao.grupo.removeFromParent();
-  cartao.malha.geometry.dispose();
-  cartao.malha.material.dispose();
+  cartao.malha.material.dispose(); // a geometria é compartilhada
   estado.cartoes.delete(id);
 }
 
 function garantirAgente(estado, nome) {
   if (!nome || estado.agentes.has(nome)) return;
   const personagem = criarPersonagem(nome);
-  estado.cena.add(personagem.grupo);
+  personagem.galho = criarGalho(personagem.cor);
+  personagem.posicaoGalho = new THREE.Vector3(Infinity, 0, 0);
+  estado.cena.add(personagem.grupo, personagem.galho);
   estado.agentes.set(nome, personagem);
 }
 
 /** Dá a cada cartão a sua vaga (globo, satélite de um agente ou anel) e o rótulo do papel. */
-function distribuirVagas(estado) {
+function agruparPorPapel(estado) {
   const grupos = { globo: [], anel: [] };
   const porAgente = new Map();
   for (const cartao of estado.cartoes.values()) {
@@ -120,8 +124,23 @@ function distribuirVagas(estado) {
     } else {
       grupos[papel].push(cartao);
     }
-    trocarRotulo(cartao, papel);
   }
+  return { grupos, porAgente };
+}
+
+function rotularCartoes(estado, totalGlobo) {
+  const globoCheio = totalGlobo > LIMITE_ROTULOS_GLOBO;
+  estado.escalaGlobo = Math.min(1, Math.sqrt(CARTOES_SEM_ENCOLHER / Math.max(totalGlobo, 1)));
+  for (const cartao of estado.cartoes.values()) {
+    const papel = papelDo(cartao);
+    const semRotulo = papel === 'globo' && globoCheio && cartao.tarefa.status === 'pendente';
+    trocarRotulo(cartao, semRotulo ? 'globo-sem-rotulo' : papel);
+  }
+}
+
+function distribuirVagas(estado) {
+  const { grupos, porAgente } = agruparPorPapel(estado);
+  rotularCartoes(estado, grupos.globo.length);
   const ordenar = (lista) => lista.sort((a, b) => a.tarefa.indice - b.tarefa.indice);
   for (const papel of ['globo', 'anel']) {
     ordenar(grupos[papel]).forEach((c, indice, lista) => { c.vaga = { papel, indice, total: lista.length }; });
@@ -138,8 +157,7 @@ function distribuirVagas(estado) {
 
 function criarLinha(estado, cartao) {
   const personagem = estado.agentes.get(cartao.tarefa.agente);
-  const geometria = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]);
-  const linha = new THREE.Line(geometria, new THREE.LineBasicMaterial({ color: personagem.cor }));
+  const linha = criarRamo(personagem.cor);
   estado.cena.add(linha);
   return { linha, cartao, personagem };
 }
@@ -165,7 +183,7 @@ function reorganizar(estado) {
   atualizarPlaca(estado.placas.globo, ['Pendentes', `${totais.globo} no globo`],
     new THREE.Vector3(0, RAIO_GLOBO + 0.9, 0), estado.cena);
   atualizarPlaca(estado.placas.anel, ['Concluídas', `${totais.anel} no anel`],
-    new THREE.Vector3(RAIO_ANEL + 0.6, 0.9, 0), estado.cena);
+    new THREE.Vector3(0, -RAIO_GLOBO - 1.1, 0), estado.cena);
 }
 
 function pulsar(cartao, tipo) {
@@ -202,26 +220,17 @@ function posicaoNoAnel({ indice, total }, tempo, destino) {
   return destino.set(Math.cos(angulo) * RAIO_ANEL, -z * Math.sin(INCLINACAO_ANEL), z * Math.cos(INCLINACAO_ANEL));
 }
 
-function posicaoNaOrbita(indice, total, tempo, destino) {
-  const angulo = (indice / Math.max(total, 1)) * Math.PI * 2 + tempo * GIRO_ORBITA;
-  const raio = RAIO_ORBITA + (indice % 2) * 0.8;
-  const inclinacao = ((indice % 3) - 1) * 0.35;
-  const z = Math.sin(angulo) * raio;
-  return destino.set(Math.cos(angulo) * raio, z * Math.sin(inclinacao) + 0.6, z * Math.cos(inclinacao));
-}
-
-function posicaoSatelite({ indice, total }, centro, tempo, destino) {
-  const angulo = (indice / total) * Math.PI * 2 + tempo * GIRO_SATELITE;
-  return destino.set(Math.cos(angulo) * RAIO_SATELITE, -0.5 + 0.25 * Math.sin(angulo),
-    Math.sin(angulo) * RAIO_SATELITE).add(centro);
-}
-
-function desenharAgentes(estado, fator, tempo) {
+/** Agentes parados nos seus lugares (só voam ao chegar um agente novo); o galho segue o agente. */
+function desenharAgentes(estado, fator) {
   let indice = 0;
   for (const personagem of estado.agentes.values()) {
-    posicaoNaOrbita(indice, estado.agentes.size, tempo, personagem.alvo);
+    posicaoDoAgente(indice, estado.agentes.size, personagem.alvo);
     personagem.base.lerp(personagem.alvo, fator);
     personagem.grupo.position.copy(personagem.base);
+    if (personagem.posicaoGalho.distanceToSquared(personagem.base) > 1e-6) {
+      atualizarGalho(personagem.galho, RAIO_GLOBO, personagem.base);
+      personagem.posicaoGalho.copy(personagem.base);
+    }
     indice += 1;
   }
 }
@@ -232,24 +241,21 @@ function desenharCartoes(estado, fator, dt, tempo) {
     const { vaga } = cartao;
     if (vaga.papel === 'globo') posicaoNoGlobo(vaga, tempo * GIRO_GLOBO, cartao.alvo);
     else if (vaga.papel === 'anel') posicaoNoAnel(vaga, tempo, cartao.alvo);
-    else posicaoSatelite(vaga, estado.agentes.get(vaga.agente).grupo.position, tempo, cartao.alvo);
+    else posicaoNoRamo(vaga, estado.agentes.get(vaga.agente).grupo.position, cartao.alvo);
     cartao.grupo.position.lerp(cartao.alvo, fator);
     cartao.pulso = Math.max(0, cartao.pulso - dt * QUEDA_PULSO);
     const alerta = COR_ALERTA[cartao.tarefa.status];
     if (alerta !== undefined && cartao.pulso === 0) cartao.malha.material.emissive.setHex(alerta);
     const brilho = alerta !== undefined && cartao.pulso === 0 ? piscar * 0.8 : cartao.pulso * 1.4;
     cartao.malha.material.emissiveIntensity = brilho;
-    if (!estado.reduzir) cartao.malha.scale.setScalar(1 + cartao.pulso * 0.8);
+    const base = vaga.papel === 'globo' ? estado.escalaGlobo : 1;
+    cartao.malha.scale.setScalar(estado.reduzir ? base : base * (1 + cartao.pulso * 0.8));
   }
 }
 
 function desenharLinhas(estado) {
   for (const { linha, cartao, personagem } of estado.linhas.values()) {
-    const pontos = linha.geometry.attributes.position;
-    const { x, y, z } = personagem.grupo.position;
-    pontos.setXYZ(0, x, y - 0.35, z);
-    pontos.setXYZ(1, cartao.grupo.position.x, cartao.grupo.position.y, cartao.grupo.position.z);
-    pontos.needsUpdate = true;
+    atualizarRamo(linha, personagem.grupo.position, cartao.grupo.position);
   }
 }
 
@@ -271,7 +277,7 @@ function sincronizar(estado, tarefas) {
 export function montarCenaAgentes(cena, { reduzir }) {
   const estado = {
     cena, reduzir, inicio: false, cartoes: new Map(), agentes: new Map(), linhas: new Map(),
-    globo: criarGlobo(cena), placas: { globo: {}, anel: {} },
+    globo: criarGlobo(cena), placas: { globo: {}, anel: {} }, escalaGlobo: 1,
   };
   criarAnel(cena);
   return {
@@ -282,7 +288,7 @@ export function montarCenaAgentes(cena, { reduzir }) {
       const fator = estado.reduzir || estado.inicio ? 1 : 1 - Math.exp(-dt * VELOCIDADE);
       estado.inicio = false;
       estado.globo.rotation.y = -tempo * GIRO_GLOBO;
-      desenharAgentes(estado, fator, tempo);
+      desenharAgentes(estado, fator);
       desenharCartoes(estado, fator, dt, tempo);
       desenharLinhas(estado);
     },

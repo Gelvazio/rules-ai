@@ -52,9 +52,14 @@ export async function lerSaldo() {
   return pedirJson(ROTAS.saldo);
 }
 
-/** @returns {Promise<object>} Tarefas do tasks/STATUS.md, atraso padrão e intervalo de coleta. */
-export async function lerAgentes() {
-  return pedirJson(ROTAS.agentes);
+/**
+ * Tarefas do quadro de um projeto, atraso padrão e intervalo de coleta.
+ * @param {string} [projeto] - Pasta do projeto em C:ontes; vazio = projeto padrão do servidor.
+ * @returns {Promise<object>} Resposta de /api/agentes.
+ */
+export async function lerAgentes(projeto = '') {
+  const consulta = projeto ? `?projeto=${encodeURIComponent(projeto)}` : '';
+  return pedirJson(ROTAS.agentes + consulta);
 }
 
 /** @returns {Promise<Array<object>>} Cenas dos prompts com o estado dos GLB de cada objeto. */

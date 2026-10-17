@@ -8,19 +8,20 @@ import re
 import sys
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
-from urllib.parse import unquote
+from urllib.parse import parse_qs, unquote, urlsplit
 
 import cenas_prompts as cenas
 import galeria_modelos as galeria
 import quadro_tarefas as quadro
 from cliente_tripo import ErroTripo, consultar_saldo, consultar_tarefa, criar_tarefa_texto
 from config_graphs import (
-    ARQUIVO_QUADRO,
     CUSTO_CREDITOS,
     HOST,
     INTERVALO_COLETA_SEGUNDOS,
+    PASTA_FONTES,
     PASTA_DASHBOARD,
     PORTA_PADRAO,
+    PROJETO_PADRAO,
     STATUS_FINAIS,
     TAMANHO_MAX_PROMPT,
     VALOR_CREDITO_USD,
@@ -60,9 +61,10 @@ class Manipulador(SimpleHTTPRequestHandler):
     def do_GET(self):
         rotas = {"/api/estado": self.rota_estado, "/api/modelos": self.rota_modelos,
                  "/api/saldo": self.rota_saldo, "/api/cenas": self.rota_cenas,
-                 "/api/agentes": self.rota_agentes}
-        if self.path in rotas:
-            return self.executar(rotas[self.path])
+                 "/api/agentes": self.rota_agentes, "/api/projetos": self.rota_projetos}
+        caminho = urlsplit(self.path).path
+        if caminho in rotas:
+            return self.executar(rotas[caminho])
         if self.path.startswith("/api/tarefa/"):
             return self.executar(partial(self.rota_tarefa, self.path.rsplit("/", 1)[-1]))
         if caminho_proibido(self.path):
@@ -100,9 +102,15 @@ class Manipulador(SimpleHTTPRequestHandler):
         return {"cenas": cenas.listar_cenas()}
 
     def rota_agentes(self):
-        """Tarefas do tasks/STATUS.md (só leitura) com o atraso e o intervalo de coleta."""
-        dados = quadro.ler_quadro(ARQUIVO_QUADRO)
-        return {**dados, "atraso_padrao": atraso_agentes(), "intervalo": INTERVALO_COLETA_SEGUNDOS}
+        """Tarefas do quadro do projeto (?projeto=<pasta>, só leitura), com o atraso e o intervalo."""
+        projeto = parse_qs(urlsplit(self.path).query).get("projeto", [PROJETO_PADRAO])[0]
+        dados = quadro.ler_quadro(quadro.caminho_do_quadro(PASTA_FONTES, projeto))
+        return {**dados, "projeto": projeto, "atraso_padrao": atraso_agentes(),
+                "intervalo": INTERVALO_COLETA_SEGUNDOS}
+
+    def rota_projetos(self):
+        """Projetos com quadro de tarefas (sem as pastas DEMAIS-PROJETOS-*, regras C20/C23)."""
+        return {"padrao": PROJETO_PADRAO, "projetos": quadro.listar_projetos(PASTA_FONTES)}
 
     def ler_corpo(self):
         tamanho = int(self.headers.get("Content-Length", 0))
