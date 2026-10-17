@@ -26,7 +26,7 @@ modelo**…" (2 linhas), inserir este item, sem mudar:
 
 ### SUBTAREFA-GLOBAL.1 — Regra global, conflito C26 e status do projeto
 
-**Próximo passo:** inserir o texto acima e as linhas de `CONFLITOS.md` e `STATUS_PROJETO.md`.
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** só Haiku — nunca outro
@@ -37,6 +37,10 @@ modelo**…" (2 linhas), inserir este item, sem mudar:
   (3) em `STATUS_PROJETO.md`, nova linha no topo de "O que mudou desde a última gravação" com data
   e hora (Brasília) e o que mudou.
 - **Critério de pronto:** os 3 arquivos com o texto exato; nada mais alterado.
+- **Entrega (2026-10-17 12:48, Haiku · executor-leve; líder Opus 5.5):** os 3 arquivos.
+- **Verificação (líder):** `git diff --stat` = só os 3 arquivos (9 linhas inseridas); item C26 logo
+  depois do "⛔ Nunca executar…" em `ciclo-da-task.md`; linha C26 depois da C25 em `CONFLITOS.md`;
+  linha nova no topo do `STATUS_PROJETO.md`.
 
 ### SUBTAREFA-GLOBAL.2 — Rodar o sincronizador
 

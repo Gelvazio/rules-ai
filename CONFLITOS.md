@@ -50,6 +50,7 @@ C8); cópia em `~/.codex/AGENTS.md.bak`.
 | C22 | Nunca executar tarefa de outro modelo (substitui a C2 = A) | ✅ Cada IA só pega o **seu** nível, nem acima nem abaixo, **sem exceção** (acabam as autorizações de nível); coluna **Modelo** obrigatória no quadro (`LEVE · só Haiku`…) e linha `- **Modelo:**` em cada subtarefa. Pedido do usuário em 2026-10-16 22:48 (aulasenai #247); regras em `niveis-e-modelos.md`, `frentes-e-reserva.md`, `ciclo-da-task.md`, `quadro-de-tarefas.md` |
 | C21 | Esforço (`effort`) dos agentes | ✅ Global: `LEVE`=`low`, `MEDIO`=`medium`, `PESADO`=`high`, no frontmatter dos agentes; regra em `regras/esforco.md`; conferência por modelo na `CONFEFFORT-GLOBAL` |
 | C25 | Graphify: ler antes de criar/executar tarefa e atualizar ao fim (substitui a C11) | ✅ Ler o `GRAPH_REPORT.md` antes de criar e antes de executar cada tarefa; `graphify update .` no início da conversa e ao fim de cada tarefa concluída e retirada do quadro. Pedido do usuário em 2026-10-17; regra em `regras/graphify.md` |
+| C26 | IA cria subtarefas no caminho | ✅ Só **subtarefas dentro da mãe atual** (nunca mãe nova), com nível, modelo e `effort`, publicadas direto (commit + push, sem aprovação); não reserva a nova; na equipe do Claude Code quem cria é o líder. Pedido do usuário em 2026-10-17; regra em `regras/ciclo-da-task.md` |
 
 ## Pendente de decisão
 

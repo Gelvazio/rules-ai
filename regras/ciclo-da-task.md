@@ -40,6 +40,13 @@ Na dúvida, é grande. O projeto pode definir exceções (rotinas já autorizada
 - **Uma subtarefa por vez por frente**; terminar (ou liberar) antes de reservar outra.
 - ⛔ **Nunca executar subtarefa que não é do seu modelo** (coluna Modelo; `niveis-e-modelos.md`),
   nem a pedido; o pedido fora do seu modelo vira subtarefa livre para o modelo certo.
+- ✅ **Trabalho novo descoberto no caminho vira subtarefa da mãe atual** (C26, 2026-10-17): a IA
+  que está numa subtarefa pode criar **subtarefas novas só dentro da mãe atual**
+  (`<TAREFA>.<próximo número>`), com nível, modelo e `effort`, seção na etapa (descrição, critérios
+  e próximo passo) e linha `⬜` livre no `STATUS.md`, e **publica direto** (commit + push do quadro,
+  sem esperar aprovação do usuário). Não reserva a nova (segue na sua) e ⛔ **nunca cria
+  tarefa-mãe nova**: trabalho fora da mãe atual → avisar o usuário. Na equipe de agentes do Claude
+  Code, o executor avisa o líder, e o líder cria e publica.
 - Atualizar **na hora**: `🔄` na linha ao reservar, `✅` ao entregar — nunca acumular.
 - **Próximo passo** da seção da subtarefa sempre atualizado: é a última coisa a escrever ao parar
   e a primeira a ler ao retomar.

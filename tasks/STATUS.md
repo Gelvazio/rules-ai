@@ -27,7 +27,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | GATILHO-GLOBAL.1 | 🌐 Regra global, conflito C24 e status do projeto · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ⬜ Pendente | — | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
 | GATILHO-GLOBAL.2 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`, autorizado pelo usuário) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | GATILHO-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
 | SUBTAREFA-GLOBAL | **🌐 GLOBAL — IA cria subtarefas só na mãe atual e publica direto (C26)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-008](etapas/ETAPA-008-SUBTAREFA-GLOBAL.md) |
-| SUBTAREFA-GLOBAL.1 | 🌐 Regra global, conflito C26 e status do projeto · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | 🔄 Em progresso | Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) (local · main) (desde 2026-10-17 12:46) | [ETAPA-008](etapas/ETAPA-008-SUBTAREFA-GLOBAL.md) |
 | SUBTAREFA-GLOBAL.2 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`) — aguarda autorização | 🟡 Média | Usuário | SUBTAREFA-GLOBAL.1 | 👀 Aguardando o usuário | — | [ETAPA-008](etapas/ETAPA-008-SUBTAREFA-GLOBAL.md) |
 
 ## Registro de decisões

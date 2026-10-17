@@ -30,3 +30,4 @@
 | GRAPHIFY-GLOBAL.2 | 🌐 Alinhar o `graphify.md` do aulasenai e do REA-APP-CLONES · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku | GRAPHIFY-GLOBAL.1 | ✅ Concluído (2026-10-17 12:31) | — | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
 | GRAPHIFY-GLOBAL | **🌐 GLOBAL — Ler o GRAPH_REPORT.md antes de criar/executar tarefa e atualizar o grafo ao fim (C25)** | 🟠 Alta | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
 | GRAPHIFY-GLOBAL.3 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`, autorizado pelo usuário) · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku | GRAPHIFY-GLOBAL.1 | ✅ Concluído (2026-10-17 12:30) | — | [ETAPA-007](etapas/ETAPA-007-GRAPHIFY-GLOBAL.md) |
+| SUBTAREFA-GLOBAL.1 | 🌐 Regra global, conflito C26 e status do projeto · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ✅ Concluído (2026-10-17 12:48) | — | [ETAPA-008](etapas/ETAPA-008-SUBTAREFA-GLOBAL.md) |
