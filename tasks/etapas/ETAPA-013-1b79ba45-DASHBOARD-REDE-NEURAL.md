@@ -181,6 +181,17 @@ mostra as probabilidades da saída.
 - **Nível:** LEVE — 1 pasta com README (o Git não versiona pasta vazia).
 - **Descrição:** pasta para guardar os prompts do dashboard, um `.md` por prompt.
 
+### DASHBOARD-REDE-NEURAL.11 — Um prompt por imagem em `dashboard/prompts/`
+
+**Status:** ✅ entregue 2026-10-17 16:31.
+
+- **Nível:** MEDIO — ler 4 imagens e escrever 4 prompts.
+- **Descrição:** `MODELO-3D-REDE-NEURAL-01.md` a `04.md`, cada um com a descrição da imagem e um
+  prompt pronto para recriar a tela como página HTML: 01 orquestrador de agentes em anel; 02
+  infográfico "1 agente no lugar de 25 assentos"; 03 painel de robô com toro 3D de partículas
+  (Three.js); 04 animação do infográfico 02. Nomes genéricos e dados fictícios com aviso. As
+  imagens `.png` (capturas de reels de terceiros) ficam fora do commit.
+
 ## Decisões
 
 | Data | Decisão | Quem | Por quê |
@@ -192,3 +203,4 @@ mostra as probabilidades da saída.
 | 2026-10-17 15:50 | `.8` criada (C26): `graphs/` com a API da Tripo; sem chave, só texto → 3D, mesma aba | Gelvazio | Respostas às perguntas da tarefa |
 | 2026-10-17 16:16 | `.9` criada (C26): chave da Tripo no `localStorage` via modal | Gelvazio | "e um icone de config, que abre um modal pra colocar a chave de api..." |
 | 2026-10-17 16:21 | `.10` criada (C26): pasta `dashboard/prompts/` | Gelvazio | "crie 1 nova pasta de nome prompts" |
+| 2026-10-17 16:31 | `.11` criada (C26): um prompt por imagem em `dashboard/prompts/` | Gelvazio | "CRIE 1 prompt pra cada imagem nela..." |
