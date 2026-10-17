@@ -1,0 +1,96 @@
+# Status do projeto DASHBOARD-AI
+
+**Atualizado em:** 2026-10-16 15:20 (horário de Brasília) · regravado de hora em hora por uma tarefa agendada
+**Fontes:** conversa do projeto, as threads abertas e o quadro `tasks/STATUS.md` na `main` do
+repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
+
+## O que mudou desde a última gravação
+
+- 2026-10-17 10:40 (Brasília): nova regra global C23 (`regras/pastas-ignoradas.md`, `CONFLITOS.md`): nada da
+  pasta `DEMAIS-PROJETOS-NAO-MEXER-AGORA` (projetos parados) é lido nas sessões; `C:\fontes\CLAUDE.md` atualizado.
+- 2026-10-16 23:33 (Brasília): `node scripts/sincronizar.mjs --aplicar` rodado (pedido do usuário): `dist/REGRAS-GLOBAIS.md` sem mudança; regras regravadas em Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro; Claude Code já estava igual.
+- 2026-10-16 19:55 (Brasília): tarefas ESFORCO e CONFEFFORT viraram GLOBAIS (`tasks/STATUS.md`, etapa 002); nova regra `regras/esforco.md` (C21).
+- 2026-10-16 17:30 (Brasília): `C:\fontes\CLAUDE.md` (raiz) sem a lista da pasta offline e com a regra C20.
+- 2026-10-16 17:20 (Brasília): nova regra global C20 (`regras/pastas-ignoradas.md`): nunca ler de início a
+  pasta `DEMAIS-PROJETOS-DE-SISTEMAS-MANTER-OFFLINE`.
+- 2026-10-16 17:00 (Brasília): parágrafo "regras globais valem" colocado no CLAUDE.md/AGENTS.md de todos os
+  projetos com Git (e criado onde faltava); divergências C14 a C19 aguardam a decisão do usuário.
+- 2026-10-16 16:30 (Brasília): regra global de git mudou (C13): ao finalizar uma tarefa, commit + push em
+  todos os projetos e IAs (`regras/git-geral.md`, `CONFLITOS.md`); sincronizada nas IAs.
+- Primeira versão deste arquivo, feita a partir do `STATUS-PROJETO.md` das 15:10.
+- Nova thread "Atualizar status a cada hora" criada, com a tarefa agendada desta atualização.
+- A thread "Status do projeto em Markdown" foi encerrada.
+- Nenhum commit novo na `main` do REA (continua em `d4da53a`) e nenhuma resposta nova nas threads
+  "Executar alinhamento" e "Ligar as outras IAs".
+
+## Objetivo
+
+Fazer várias IAs (Claude Code, Gemini CLI, Codex e outras) trabalharem juntas pelas mesmas regras
+globais (`C:\fontes\rules-ai`), com o quadro de tarefas como ponto de encontro. O repositório de
+trabalho é o `rea-app-clones` (REA), que usa essas regras para clonar o Chaos Code v3.
+
+## O que espera de você
+
+| # | O quê | Onde |
+|---|-------|------|
+| 1 | Rodar `git push origin main` em `C:\fontes\rules-ai` (o commit `fix(GLOBAL.8)` já está feito; a rede da nuvem não alcança esse repositório) | Seu computador |
+| 2 | Abrir uma sessão nova do Claude Code e conferir no `/memory` se as regras globais aparecem (a pasta `~/.claude` não pôde ser lida daqui) | Seu computador |
+| 3 | Responder à thread "Executar alinhamento das regras globais": a pergunta dela já está resolvida (ver abaixo), então basta dizer que pode encerrar | Projeto |
+| 4 | Opcional: apagar as travas vencidas `stale-HEAD-lock-claude` e `stale-maintenance-lock-claude` em `C:\fontes\rules-ai\.git` | Seu computador |
+| 5 | Aceites pendentes no quadro do REA: `CLONE.14.3` e `SERVIDOR.54` (só depois que as subtarefas anteriores terminarem) | `tasks/STATUS.md` |
+
+## Frentes de trabalho
+
+### 1. Executar alinhamento das regras globais
+
+- **Situação:** parada esperando você, mas **o trabalho já está feito**.
+- **O que a thread perguntou:** se você aprova o plano da ALINHAR.5 e o push direto na `main`.
+- **O que o quadro mostra:** uma sessão Claude Code (Sonnet 5.5) no seu computador já fez a
+  ALINHAR.1 a ALINHAR.5, com o seu "SIM" registrado às 15:15, e você deu o aceite (ALINHAR.6).
+  Os commits estão na `main`, do `78ad585` ao `d4da53a`. A ALINHAR inteira está em
+  `tasks/task_complete.md`.
+- **O que mudou no REA:**
+  - O graphify roda só no início da conversa e o relatório é analisado (C11).
+  - A frase final das tarefas foi alinhada (C1).
+  - A ordem passou a ser criar, publicar e assumir (C9), com a tabela "Frentes de trabalho" (C3).
+  - Cada IA pega primeiro do seu nível e só desce quando não houver livre (C2). A trava do
+    `pre-commit` continua recusando nível acima.
+- **Próximo passo:** encerrar a thread. Não há nada para aplicar.
+
+### 2. Ligar as outras IAs às regras globais
+
+- **Situação:** concluída do lado da nuvem; falta o push (item 1 acima).
+- **O que foi feito:**
+  - **Codex:** ok. O `~/.codex/AGENTS.md` bate com as regras atuais, inclusive `graphify.md` e o quadro.
+  - **Gemini CLI:** não lia nada. A versão 0.64.0 recusa `@import` de fora da pasta ("Path traversal
+    attempt"). O script de sincronização passou a colar o texto, como no Codex, e o
+    `~/.gemini/GEMINI.md` foi regravado (o original ficou em `GEMINI.md.bak`).
+  - **Claude Code:** continua com `@import` de caminho absoluto, que ele aceita. Falta só a
+    conferência no `/memory` (item 2 acima).
+  - Tarefa GLOBAL.8 registrada no `task_complete.md` e na etapa do `rules-ai`, com o commit
+    `fix(GLOBAL.8)`.
+
+### 3. Status do projeto em Markdown
+
+- **Situação:** concluída e encerrada. Gerou o `STATUS-PROJETO.md`, base deste arquivo.
+
+### 4. Atualizar status a cada hora
+
+- **Situação:** concluída. Criou a tarefa agendada que regrava este `STATUS_PROJETO.md` de hora em
+  hora (o mínimo permitido no projeto; 5 minutos não é aceito).
+
+## Quadro do REA (`rea-app-clones`)
+
+| Tarefa | Título | Prioridade | Concluídas | Abertas | Aguardando você |
+|--------|--------|-----------|-----------|---------|-----------------|
+| CLONE | Clonar o Chaos Code v3 em Node/TypeScript + Electron | 🟠 Alta | 9 | 100 | `CLONE.14.3` (aceite) |
+| SERVIDOR | Servidor local do clone (Python + FastAPI) | 🟠 Alta | 14 | 40 | `SERVIDOR.54` (aceite) |
+| CONFEFFORT | Conferir o esforço (`effort`) em cada modelo | 🟡 Média | 0 | 5 | — |
+| ALINHAR | Alinhar o REA às regras globais | — | 6 | 0 | ✅ concluída |
+
+- **Ninguém está com reserva agora.** A única frente no quadro (Sonnet 5.5, local) está `⏹️ Encerrada`.
+- **Livres para pegar agora (todas da CLONE):** CLONE.1.3, 1.4, 1.5, 1.6, 1.7 e 1.10 (PESADO,
+  Opus 5.5) e CLONE.7.2 e 10.1 (LEVE, Haiku 5.5).
+- **Ponto de atenção:** o "Registro de decisões" do `STATUS.md` ainda mostra as regras antigas de
+  2026-10-15 ("só o seu nível" e "graphify após cada mudança"). A ALINHAR substituiu as duas, mas
+  essas linhas não ganharam a decisão nova ao lado.
