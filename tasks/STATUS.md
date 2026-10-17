@@ -23,11 +23,15 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | CONFEFFORT-GLOBAL.5 | 🌐 DeepSeek (raciocínio): conferir o esforço | 🟡 Média | MEDIO · só DeepSeek · effort medium | Nenhuma | ⬜ Pendente | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | MODELO-GLOBAL | **🌐 GLOBAL — Nunca executar tarefa que não é do seu modelo (C22)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-004](etapas/ETAPA-004-MODELO-GLOBAL.md) |
 | MODELO-GLOBAL.2 | 🌐 Levar aos outros projetos (`sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | MODELO-GLOBAL.1 | 👀 Aguardando o usuário | — | [ETAPA-004](etapas/ETAPA-004-MODELO-GLOBAL.md) |
+| GATILHO-GLOBAL | **🌐 GLOBAL — Mensagem `;` = pegue a próxima tarefa do seu modelo (C24)** | 🟡 Média | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
+| GATILHO-GLOBAL.1 | 🌐 Regra global, conflito C24 e status do projeto · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ⬜ Pendente | — | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
+| GATILHO-GLOBAL.2 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`, autorizado pelo usuário) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | GATILHO-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-006](etapas/ETAPA-006-GATILHO-GLOBAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 | Gatilho `;` (pegar a próxima tarefa do seu modelo) vira regra global C24, e o usuário autoriza a IA a rodar o `--aplicar` nesta tarefa | Gelvazio | "este ;, é um gatilho pra *Pegue a proxima tarefa disponivel para seu modelo*, anote esta regra em rules-ai, global... e rode o sincronizador de regras globais" |
 | 2026-10-16 | Escopo: todos os projetos de `C:\fontes`; um conflito entre regras = **uma** regra para todos, confirmada pelo usuário | Gelvazio | "1 REGRA PARA OS DOIS CASOS, ME PERGUNTE SOBRE ESTES CASOS" |
 | 2026-10-16 | Repositório das regras globais: `C:\fontes\rules-ai`; sem branch (tudo na `main`) | Gelvazio | "USE ESTE REPO AQUI" |
 | 2026-10-16 | Tarefa executada por Claude Code (Sonnet 5.5) mesmo sendo de nível PESADO | Gelvazio | "ja assuma e faça esta tarefa, sem perguntas" |

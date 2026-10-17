@@ -6,6 +6,10 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 11:55 (Brasília): tarefa GLOBAL GATILHO-GLOBAL (etapa 006) criada e publicada no quadro:
+  mensagem só com `;` = "pegue a próxima tarefa disponível para o seu modelo" (decisão C24). Subtarefas
+  `.1` (regra em `regras/frentes-e-reserva.md`, C24 e este status) e `.2` (`sincronizar.mjs --aplicar`)
+  são LEVE, só Haiku, e ainda **não foram feitas**: a regra só vale depois da `.2`.
 - 2026-10-17 10:55 (Brasília): tarefa INDEX-FONTES (etapa 005): `C:\fontes\index.html` ganhou 4 cards com modais
   (raiz, rules-ai, líder Opus e tarefas), com dados gerados por `C:\fontes\scripts\gerar-dados-index.mjs`.
 - 2026-10-17 10:40 (Brasília): nova regra global C23 (`regras/pastas-ignoradas.md`, `CONFLITOS.md`): nada da
