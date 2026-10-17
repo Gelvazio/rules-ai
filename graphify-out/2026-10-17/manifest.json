@@ -24,9 +24,9 @@
     "semantic_hash": "bd4ce873f82c760edb3f52617819ad0a"
   },
   "STATUS_PROJETO.md": {
-    "mtime": 1792262647.8722236,
-    "seen": 1792262662.5470629,
-    "ast_hash": "ecd5b6b393fad5ef0f1c28af54799316",
+    "mtime": 1792263202.9095373,
+    "seen": 1792263206.693916,
+    "ast_hash": "f36ebf0e0534ee933aeca9c68bbcb745",
     "semantic_hash": ""
   },
   "regras/atividades-e-idioma.md": {
@@ -102,9 +102,9 @@
     "semantic_hash": "7901c01152e3776498a04db7c2c12fcd"
   },
   "tasks/STATUS.md": {
-    "mtime": 1792262647.8671095,
-    "seen": 1792262662.5470629,
-    "ast_hash": "eb9333e85cfcacc19be042b3cf8729e6",
+    "mtime": 1792263202.9015467,
+    "seen": 1792263206.693916,
+    "ast_hash": "6f6d1ca02dba0caca5cbb80ac03c4f3c",
     "semantic_hash": ""
   },
   "tasks/etapas/ETAPA-001-GLOBAL.md": {
@@ -240,9 +240,9 @@
     "semantic_hash": "afbf605cb0a66bea69047fabcca137cd"
   },
   "dashboard/README.md": {
-    "mtime": 1792262647.8645682,
-    "seen": 1792262662.5470629,
-    "ast_hash": "b13c62b40b6efe184cd24a1c167fe071",
+    "mtime": 1792263202.900536,
+    "seen": 1792263206.693916,
+    "ast_hash": "ce0b052f75067fd90160506583856fa6",
     "semantic_hash": ""
   },
   "dashboard/WEB-SCRAP.md": {
@@ -252,9 +252,9 @@
     "semantic_hash": ""
   },
   "dashboard/index.html": {
-    "mtime": 1792262475.2749283,
-    "seen": 1792262662.5470629,
-    "ast_hash": "c74e2e232e1a643b1a7a6c83e9c19e0d",
+    "mtime": 1792263160.3016958,
+    "seen": 1792263206.693916,
+    "ast_hash": "5a4e8b2cc84107bccbc3d418e5a04d52",
     "semantic_hash": ""
   },
   "dashboard/modelos-3d-de-ia.txt": {
@@ -270,9 +270,9 @@
     "semantic_hash": "bf14bc7258c083aca548042482674bca"
   },
   "tasks/etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md": {
-    "mtime": 1792262647.8712187,
-    "seen": 1792262662.5470629,
-    "ast_hash": "4509edf1f4bb4ab90fc3bcac8a2b9231",
+    "mtime": 1792263202.9081292,
+    "seen": 1792263206.693916,
+    "ast_hash": "f1cc3be5d3f933b0147d03d66161b65f",
     "semantic_hash": ""
   },
   "dashboard/assets/js/dados/ferramentas.js": {
@@ -282,9 +282,9 @@
     "semantic_hash": ""
   },
   "dashboard/assets/js/ferramentas/abas.js": {
-    "mtime": 1792262447.3947759,
-    "seen": 1792262662.5470629,
-    "ast_hash": "70fb3d29012ac2ee34637a914d874ff8",
+    "mtime": 1792263160.3016958,
+    "seen": 1792263206.693916,
+    "ast_hash": "30429556c392c109a55931578830ae30",
     "semantic_hash": ""
   },
   "dashboard/assets/js/ferramentas/cartoes.js": {
@@ -327,6 +327,66 @@
     "mtime": 1792262343.361589,
     "seen": 1792262662.5470629,
     "ast_hash": "af818eee03bc0843c72c123e31069add",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/assets/js/api.js": {
+    "mtime": 1792263124.8332736,
+    "seen": 1792263206.693916,
+    "ast_hash": "f4d93f16dbb33be30e26ad1bda2a8e87",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/assets/js/config.js": {
+    "mtime": 1792263117.342741,
+    "seen": 1792263206.693916,
+    "ast_hash": "80ccf2b16ea43da0720c58521c61fb88",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/assets/js/principal.js": {
+    "mtime": 1792263147.8383534,
+    "seen": 1792263206.693916,
+    "ast_hash": "f3d0816b33dac65dea9a91350b8cb725",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/assets/js/visualizador.js": {
+    "mtime": 1792263135.5424426,
+    "seen": 1792263206.693916,
+    "ast_hash": "978c70dcce924b7a633af58321ef3dbc",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/cliente_tripo.py": {
+    "mtime": 1792263056.2053642,
+    "seen": 1792263206.693916,
+    "ast_hash": "699b7a32b73abeaea759ae9b85e1231f",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/config_graphs.py": {
+    "mtime": 1792263045.7564294,
+    "seen": 1792263206.693916,
+    "ast_hash": "1173dfe1e92d1c86e30e776dd2f49b61",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/galeria_modelos.py": {
+    "mtime": 1792263063.3537552,
+    "seen": 1792263206.693916,
+    "ast_hash": "ddb913c7a3767aa99cb49d0f0de9fed9",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/servidor.py": {
+    "mtime": 1792263089.4724452,
+    "seen": 1792263206.693916,
+    "ast_hash": "434366d21b789f10d306df68df70134e",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/README.md": {
+    "mtime": 1792263190.9211822,
+    "seen": 1792263206.693916,
+    "ast_hash": "5abcbcbe082caa1adc573e9de3f0d02d",
+    "semantic_hash": ""
+  },
+  "dashboard/graphs/index.html": {
+    "mtime": 1792263102.0767193,
+    "seen": 1792263206.693916,
+    "ast_hash": "f3bd95238d90ca90a36e4026e0259e9e",
     "semantic_hash": ""
   }
 }
