@@ -74,6 +74,25 @@ Ressalva: o problema pode ser fácil demais para o Sonnet gastar raciocínio ext
 **Conclusão (uma linha): `low` e `medium` indistinguíveis; só `high` mostra diferença, e pequena** (+1,5% de tokens, +46% de tempo; 2 das 3 execuções de `high` usaram 2 chamadas de ferramenta, a terceira ficou igual a `low`/`medium`).
 Ressalvas: amostra de 3 por nível; o problema foi resolvido por força bruta (pouco raciocínio a regular); o relatório de uso não separa tokens de raciocínio. Recomendação para decisão do usuário: manter `high` só no `executor-pesado`; `low` vs `medium` não se comprovou.
 
+#### CONFEFFORT-GLOBAL.3 — Opus 5.5 — resultado (2026-10-17 13:05, Claude Code Opus 5.5, local · main)
+
+- **Nível:** PESADO · **Modelo:** só Claude Code Opus 5.5.
+- **Entrega:** 4 agentes descartáveis `model: opus`, um por nível (parâmetro `effort` do Agent),
+  problema padrão da ETAPA-012 do REA, sem ferramentas; medidas do relatório de uso de cada um:
+
+| effort | tokens totais | tempo | resposta |
+|---|---|---|---|
+| `low` | 39.893 | 19.010 ms | 40 ordens, lista completa, conta + conferência por complemento |
+| `medium` | 40.206 | 21.810 ms | 40 ordens, lista completa, duas formas de contar |
+| `high` | 40.380 | 22.911 ms | 40 ordens, lista completa, tabela das 10 bases + conferência |
+| `xhigh` | 40.823 | 26.635 ms | 40 ordens, lista completa, explicita a premissa de "antes", duas contagens e verificação |
+
+**Conclusão (uma linha): `effort` aplicado** — tokens e tempo crescem em ordem de `low` a `xhigh`
+(+2,3% de tokens, +40% de tempo), e a resposta fica mais cuidadosa a cada nível; os quatro acertaram 40.
+- **Verificação:** os 4 relatórios de uso (tokens e `duration_ms`) lidos pelo líder; as 40 ordens
+  conferem nas 4 respostas. Ressalvas: 1 execução por nível; os tokens incluem o contexto fixo do
+  agente (~38 mil), então a diferença absoluta é pequena e o tempo é o sinal mais claro.
+
 ### ESFORCO-GLOBAL.3, .4 e .5 — `effort` em todos os agentes e em todas as tarefas pendentes
 
 **Pedido (2026-10-16 20:40):** "2-aceito; 1-crie em todas as tarefas o effort; 3-adicione o effort sempre, se não usa, é só o modelo ignorar, faça isso pra todas as tarefas que estão pendentes no quadro de tarefas em todos os projetos"

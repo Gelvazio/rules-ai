@@ -36,3 +36,4 @@
 | STATUS-QUADRO-GLOBAL.1 | 🌐 Regra global, conflito C27 e status do projeto · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ✅ Concluído (2026-10-17 12:56) | — | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
 | STATUS-QUADRO-GLOBAL.2 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`, autorizado pelo usuário) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | STATUS-QUADRO-GLOBAL.1 | ✅ Concluído (2026-10-17 12:59) | — | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
 | STATUS-QUADRO-GLOBAL | **🌐 GLOBAL — Todo status é mostrado em quadro, no terminal e no IDE (C27)** | 🟡 Média | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
+| CONFEFFORT-GLOBAL.3 | 🌐 Opus 5.5: conferir o `effort` (incluir `xhigh`) — **aplicado** | 🟡 Média | PESADO · só Opus 5.5 · effort high | Nenhuma | ✅ Concluído (2026-10-17 13:05) | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
