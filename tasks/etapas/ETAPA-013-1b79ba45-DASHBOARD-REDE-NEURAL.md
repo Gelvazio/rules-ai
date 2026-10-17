@@ -52,7 +52,7 @@ mostra as probabilidades da saída.
 
 ### DASHBOARD-REDE-NEURAL.1 — Estrutura da pasta `dashboard/`
 
-**Próximo passo:** esperar o "sim" do usuário ao plano; depois criar os arquivos abaixo.
+**Próximo passo:** criar os arquivos abaixo (reservada 2026-10-17 17:21).
 
 - **Nível:** LEVE — HTML de estrutura, CSS de tokens e `.md`, sem lógica.
 - **Modelo:** só Haiku — nunca outro
@@ -115,3 +115,4 @@ mostra as probabilidades da saída.
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
 | 2026-10-17 17:19 | Tarefa criada só com o plano; execução depende do "sim" do usuário | Claude Code (Opus 5.5) | Tarefa grande (estrutura nova, cena 3D inteira) |
+| 2026-10-17 17:21 | Plano aprovado; execução pelo líder Opus 5.5 com agentes por nível (Haiku .1, Sonnet .2 e .4, Opus .3) | Gelvazio | "sim, aprovo o plano da DASHBOARD-REDE-NEURAL (etapa 013)" |
