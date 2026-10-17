@@ -67,7 +67,7 @@ mostra as probabilidades da saída.
 
 ### DASHBOARD-REDE-NEURAL.2 — Modelo da rede (pesos e propagação)
 
-**Próximo passo:** criar config/rede.js e rede/rede-neural.js (reservada 2026-10-17 17:23).
+**Próximo passo:** — (entregue).
 
 - **Nível:** MEDIO — lógica em JS em 1 a 3 arquivos, sem DOM.
 - **Modelo:** só Sonnet — nunca outro
@@ -77,10 +77,12 @@ mostra as probabilidades da saída.
   devolve, por camada e por neurônio, `z`, ativação e as parcelas `entrada × peso`; ReLU e
   softmax).
 - **Critérios de aceitação:** roda com `node`; probabilidades somam 1; mesma semente = mesmos pesos.
+- **Entrega (2026-10-17 17:24, Sonnet 5.5 · executor-medio; líder Opus 5.5):** `assets/js/config/rede.js` e `assets/js/rede/rede-neural.js` (`criarRede`, `propagar`, `relu`, `softmax`, gerador mulberry32).
+- **Verificação (líder):** `node --check` ok; conferência com `node` fora do repositório: probabilidades [0,378; 0,355; 0,267], soma 1; mesma semente = mesmos pesos; erros em português para tamanhos e entradas inválidos.
 
 ### DASHBOARD-REDE-NEURAL.3 — Cena 3D com propagação animada
 
-**Próximo passo:** esperar a `.2`.
+**Próximo passo:** criar a cena em assets/js/cena/, cores.js e principal.js (reservada 2026-10-17 17:24).
 
 - **Nível:** PESADO — cena 3D inteira, mais de 3 arquivos ligados.
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro
