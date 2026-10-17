@@ -95,8 +95,7 @@ Ressalvas: amostra de 3 por nível; o problema foi resolvido por força bruta (p
 
 ### CONFEFFORT-GLOBAL.7 — Atualizar a C21 com a conferência do Opus
 
-**Próximo passo:** trocar a linha da conferência em `regras/esforco.md`, anotar o status do projeto e
-rodar o sincronizador.
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — só `.md` e rodar um script já existente.
 - **Modelo:** só Haiku — nunca outro
@@ -109,6 +108,8 @@ rodar o sincronizador.
   (3) `node scripts/sincronizar.mjs --aplicar` (a C21 está nos arquivos globais das IAs) e conferir
   que `dist/REGRAS-GLOBAIS.md` contém "**Opus 5.5** (CONFEFFORT-GLOBAL.3".
 - **Critério de pronto:** só essa linha muda em `esforco.md`; sincronizador sem erro.
+- **Entrega (2026-10-17 13:12, Haiku · executor-leve; líder Opus 5.5):** `regras/esforco.md` (1 linha), `STATUS_PROJETO.md`; `sincronizar.mjs --aplicar` sem erro (Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro gravados; Claude Code igual).
+- **Verificação (líder):** `git diff --stat` = 1 linha trocada em `esforco.md` e 1 inserida no status; `dist/REGRAS-GLOBAIS.md` contém a linha nova.
 
 ### ESFORCO-GLOBAL.3, .4 e .5 — `effort` em todos os agentes e em todas as tarefas pendentes
 
