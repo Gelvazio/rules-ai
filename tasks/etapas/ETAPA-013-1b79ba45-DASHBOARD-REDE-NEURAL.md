@@ -200,6 +200,17 @@ mostra as probabilidades da saída.
 - **Descrição:** nenhum prompt cita outro prompt nem outra imagem. O 04 foi reescrito como
   infográfico completo com foco na animação da rede do agente; o 02 perdeu a menção ao 04.
 
+### DASHBOARD-REDE-NEURAL.13 — Guia `graphs/TRIPO_AI_DOCS.md`
+
+**Status:** ✅ entregue 2026-10-17 16:38.
+
+- **Nível:** MEDIO — leitura de 8 páginas da documentação e escrita do guia.
+- **Descrição:** como obter a chave, fluxo REST V3 (criar, consultar, baixar), os 5 SDKs (JS,
+  Python, Go, Rust, Java), endpoints, versões, créditos, limites, erros e divergências da
+  documentação. Não lidas (só abrem com JavaScript): "Texto para modelo 3D" e "Modelos".
+- **Achado:** a API atual é a V3 (`https://openapi.tripo3d.ai/v3`); o `graphs/` usa a V2. A
+  seção 11 do guia lista o que mudar para migrar.
+
 ## Decisões
 
 | Data | Decisão | Quem | Por quê |
@@ -213,3 +224,4 @@ mostra as probabilidades da saída.
 | 2026-10-17 16:21 | `.10` criada (C26): pasta `dashboard/prompts/` | Gelvazio | "crie 1 nova pasta de nome prompts" |
 | 2026-10-17 16:31 | `.11` criada (C26): um prompt por imagem em `dashboard/prompts/` | Gelvazio | "CRIE 1 prompt pra cada imagem nela..." |
 | 2026-10-17 16:34 | `.12` (C26): prompts independentes | Gelvazio | "cada prompt deve ser unico, e nao referenciar os outros" |
+| 2026-10-17 16:38 | `.13` (C26): guia da API e dos SDKs da Tripo | Gelvazio | "leia o site ... e crie um documento de nome TRIPO_AI_DOCS.md" |

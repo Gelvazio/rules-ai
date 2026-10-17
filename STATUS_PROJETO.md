@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 16:38 (Brasília): DASHBOARD-REDE-NEURAL.13: guia `dashboard/graphs/TRIPO_AI_DOCS.md` (API V3 e 5 SDKs da Tripo). Achado: o `graphs/` usa a V2; a migração para a V3 está descrita no guia.
 - 2026-10-17 16:34 (Brasília): DASHBOARD-REDE-NEURAL.12: os 4 prompts de `dashboard/prompts/` ficaram independentes (o 04 foi reescrito inteiro; o 02 não cita mais o 04).
 - 2026-10-17 16:31 (Brasília): DASHBOARD-REDE-NEURAL.11: 4 prompts em `dashboard/prompts/` (`MODELO-3D-REDE-NEURAL-01.md` a `04.md`), um por imagem, para recriar cada tela como página HTML.
 - 2026-10-17 16:21 (Brasília): DASHBOARD-REDE-NEURAL.10: pasta `dashboard/prompts/` criada (com README).

@@ -39,11 +39,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-REDE-NEURAL.10 | Pasta `dashboard/prompts/` | 🟢 Baixa | LEVE · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.11 | Um prompt `.md` por imagem em `dashboard/prompts/` (MODELO-3D-REDE-NEURAL-01 a 04) | 🟢 Baixa | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.10 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.12 | Prompts de `dashboard/prompts/` independentes (nenhum cita outro prompt ou imagem) | 🟢 Baixa | LEVE · effort low | DASHBOARD-REDE-NEURAL.11 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| DASHBOARD-REDE-NEURAL.13 | `dashboard/graphs/TRIPO_AI_DOCS.md`: guia da API e dos SDKs da Tripo (lido de developers.tripo3d.ai) | 🟢 Baixa | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.8 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 16:38 | DASHBOARD-REDE-NEURAL.13 (C26): guia `dashboard/graphs/TRIPO_AI_DOCS.md` da API V3 e dos 5 SDKs; registra que o dashboard usa a V2 e como migrar | Gelvazio | "leia o site https://developers.tripo3d.ai/pt/docs/sdk e crie um documento de nome TRIPO_AI_DOCS.md" |
 | 2026-10-17 16:34 | DASHBOARD-REDE-NEURAL.12 (C26): cada prompt de `dashboard/prompts/` é independente; o 04 foi reescrito inteiro (infográfico + animação) e o 02 não cita mais o 04 | Gelvazio | "cada prompt deve ser unico, e nao referenciar os outros" |
 | 2026-10-17 16:31 | DASHBOARD-REDE-NEURAL.11 (C26): um prompt `.md` por imagem em `dashboard/prompts/`, com nomes genéricos e dados fictícios no lugar das marcas e ganhos dos reels | Gelvazio | "CRIE 1 prompt pra cada imagem nela, com o nome da imagem .md no prompt" |
 | 2026-10-17 16:21 | DASHBOARD-REDE-NEURAL.10 (C26): pasta `dashboard/prompts/` criada com README | Gelvazio | "crie 1 nova pasta de nome prompts" → "rules-ai/dashboard/prompts" |

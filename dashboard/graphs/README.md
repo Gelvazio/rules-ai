@@ -39,6 +39,8 @@ por execução. Os GLB gerados ficam em `graphs/modelos/` (fora do Git).
 
 ## Arquivos
 
+- `TRIPO_AI_DOCS.md`: guia da API (V3) e dos SDKs da Tripo, com a migração V2 → V3.
+
 - `servidor.py`: serve o dashboard e as rotas `/api/estado`, `/api/modelos`, `/api/gerar`,
   `/api/tarefa/<id>`, `/api/saldo`. Nunca serve `.env`, arquivos ocultos nem `.py`.
 - `cliente_tripo.py`: chamadas à Tripo (usa a chave do cabeçalho `X-Tripo-Key` ou a do `.env`).
