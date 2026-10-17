@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 18:07 (Brasília): DASHBOARD-REDE-NEURAL.26 entregue: o menu do `agentes.html` não mostra mais Dashboard, 3D GRAPHS AI e Cena do prompt 04.
 - 2026-10-17 18:05 (Brasília): DASHBOARD-REDE-NEURAL.24 e .25 entregues: o menu de projetos do 3D GRAPHS AI troca o quadro lido (19 projetos de `C:ontes`, sem as pastas `DEMAIS-PROJETOS-*`), e a página Agentes ao vivo virou um mapa mental: globo girando no centro, agentes parados em volta ligados por galhos e tarefas em ramos.
 - 2026-10-17 17:58 (Brasília): DASHBOARD-REDE-NEURAL.23 entregue: o menu das páginas do 3D GRAPHS AI ganhou uma linha em cima com o projeto atual, "Rules Ai".
 - 2026-10-17 17:55 (Brasília): regra do projeto C31 (`AGENTS.md`): quem reserva uma subtarefa escreve ` · NN%` no fim da coluna "Em uso por". DASHBOARD-REDE-NEURAL.22 entregue: a página Agentes ao vivo mostra esse percentual na cabeça de cada agente que trabalha.

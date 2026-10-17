@@ -52,11 +52,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-REDE-NEURAL.23 | Menu: linha nova em cima com o projeto atual (Rules Ai), no `menu.js` das 3 páginas | 🟢 Baixa | LEVE · effort low | DASHBOARD-REDE-NEURAL.18 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.24 | Menu de projetos troca o quadro lido pela página Agentes ao vivo (projetos descobertos em `C:ontes\*	asks\STATUS.md`, sem as pastas `DEMAIS-PROJETOS-*`) | 🟡 Média | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.23 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.25 | Agentes ao vivo como mapa mental (`dashboard/prompts/modelo.png`): globo girando no centro, agentes parados em volta ligados por galhos e tarefas em ramos | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | DASHBOARD-REDE-NEURAL.20 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| DASHBOARD-REDE-NEURAL.26 | `agentes.html` sem os links Dashboard, 3D GRAPHS AI e Cena do prompt 04 no menu | 🟢 Baixa | LEVE · effort low | DASHBOARD-REDE-NEURAL.24 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-17 18:07 | DASHBOARD-REDE-NEURAL.26 (C26): no `agentes.html`, o menu de páginas não mostra Dashboard, 3D GRAPHS AI nem Cena do prompt 04 (atributo `data-menu-ocultar`; as outras páginas seguem com o menu completo) | Gelvazio | "no arquivo agentes.html, remova os menus Dashboard, Cena do Prompt 04, 3D graphs ai" |
 | 2026-10-17 18:03 | DASHBOARD-REDE-NEURAL.25 (C26): a cena segue o `modelo.png` (mapa mental): globo girando no centro, agentes parados em volta apontando para o globo por galhos da sua cor, tarefas do agente em ramos finos | Gelvazio | "leia a imagem modelo.png, é desta forma que deve ficar o globo, girando e os Agentes espalhados em volta" / "os agentes não giram, apenas apontam para o globo" |
 | 2026-10-17 18:00 | DASHBOARD-REDE-NEURAL.24 (C26): o menu de projetos troca o quadro lido; projetos descobertos automaticamente (pastas de `C:ontes` com `tasks\STATUS.md`, nunca as `DEMAIS-PROJETOS-*`, C20/C23); colunas lidas pelo nome do cabeçalho | Gelvazio | "faça o menu de projetos trocar o quadro lido" |
 | 2026-10-17 17:57 | DASHBOARD-REDE-NEURAL.23 (C26): linha de projetos acima do menu, com o projeto atual "Rules Ai" | Gelvazio | "crie 1 menu em cima em mais 1 linha no menu com o nome do Projeto Atual, sendo este o Rules Ai" |

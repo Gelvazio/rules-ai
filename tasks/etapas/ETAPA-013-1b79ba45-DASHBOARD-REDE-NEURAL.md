@@ -413,6 +413,16 @@ no front-end além do `localStorage` já aprovado na `.9`.
   colado ao globo (raio 4,2) com a placa embaixo; câmera de frente.
 - **Conferido:** `node --check`; servidor reiniciado, `galhos.js` servido (200). Visual no aceite.
 
+### DASHBOARD-REDE-NEURAL.26 — Menu enxuto no agentes.html
+
+**Status:** ✅ entregue 2026-10-17 18:07.
+
+- **Nível:** LEVE · effort low.
+- **Entregue:** `menu.js` aceita `data-menu-ocultar="<href> <href>"` no `<nav data-menu>`; o
+  `agentes.html` esconde Dashboard, 3D GRAPHS AI e Cena do prompt 04 (fica a linha dos projetos e
+  "Agentes ao vivo"). `index.html` e `cena.html` seguem com o menu completo.
+- **Conferido:** `node --check`.
+
 ### DASHBOARD-REDE-NEURAL.19 — Aceite do usuário
 
 **Status:** 👀 aguardando o usuário (reiniciar o `servidor.py` antes). O usuário abre `http://localhost:8080/graphs/agentes.html`, muda o status
@@ -444,3 +454,4 @@ de uma tarefa no quadro e confere a animação cerca de 30 s depois.
 | 2026-10-17 17:58 | `.23` (C26): linha do projeto atual (Rules Ai) acima do menu | Gelvazio | "crie 1 menu em cima em mais 1 linha no menu com o nome do Projeto Atual, sendo este o Rules Ai" |
 | 2026-10-17 18:05 | `.24` (C26): menu de projetos troca o quadro lido | Gelvazio | "faça o menu de projetos trocar o quadro lido" |
 | 2026-10-17 18:05 | `.25` (C26): mapa mental do `modelo.png`, agentes parados apontando para o globo | Gelvazio | "leia a imagem modelo.png..." / "os agentes não giram, apenas apontam para o globo" |
+| 2026-10-17 18:07 | `.26` (C26): agentes.html sem Dashboard, 3D GRAPHS AI e Cena do prompt 04 no menu | Gelvazio | "no arquivo agentes.html, remova os menus..." |

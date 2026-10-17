@@ -2,6 +2,7 @@
 // destaca a página aberta e põe acima dele a linha dos projetos. Escolher um projeto recarrega a
 // página com ?projeto=<pasta>, e a página "Agentes ao vivo" passa a ler o quadro dele.
 // Para acrescentar uma página, basta uma linha em ITENS_MENU; os projetos vêm de /api/projetos.
+// Uma página pode esconder links com data-menu-ocultar="<href> <href>" no próprio <nav>.
 
 const ROTA_PROJETOS = '/api/projetos';
 /** Usado quando a página não veio do servidor local (sem /api/projetos). */
@@ -77,7 +78,9 @@ export function montarMenu(nav) {
   linha.setAttribute('aria-label', 'Projetos');
   preencherProjetos(linha, PROJETOS_PADRAO);
   nav.before(linha);
-  nav.prepend(...ITENS_MENU.map((item) => criarLink(item, paginaAtual())));
+  const ocultos = (nav.dataset.menuOcultar ?? '').split(/\s+/).filter(Boolean);
+  const itens = ITENS_MENU.filter((item) => !ocultos.includes(item.href));
+  nav.prepend(...itens.map((item) => criarLink(item, paginaAtual())));
   carregarProjetos(linha);
 }
 

@@ -65,7 +65,8 @@ servidor local reiniciado depois desta versão.
 ## Menu
 
 `assets/js/menu.js` monta o mesmo menu em todas as páginas (`<nav data-menu>`). Para acrescentar uma
-página, basta uma linha em `ITENS_MENU`. Acima dele fica a linha dos projetos (`PROJETOS`), com o
+página, basta uma linha em `ITENS_MENU`; uma página esconde links com `data-menu-ocultar` (o
+`agentes.html` mostra só "Agentes ao vivo"). Acima dele fica a linha dos projetos (`PROJETOS`), com o
 projeto atual, "Rules Ai", em destaque.
 
 ## Arquivos
