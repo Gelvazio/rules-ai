@@ -6,8 +6,8 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
-- 2026-10-17 10:55 (Brasília): tarefa INDEX-FONTES (etapa 005): `C:ontesindex.html` ganhou 4 cards com modais
-  (raiz, rules-ai, líder Opus e tarefas), com dados gerados por `C:ontesscriptsgerar-dados-index.mjs`.
+- 2026-10-17 10:55 (Brasília): tarefa INDEX-FONTES (etapa 005): `C:\fontes\index.html` ganhou 4 cards com modais
+  (raiz, rules-ai, líder Opus e tarefas), com dados gerados por `C:\fontes\scripts\gerar-dados-index.mjs`.
 - 2026-10-17 10:40 (Brasília): nova regra global C23 (`regras/pastas-ignoradas.md`, `CONFLITOS.md`): nada da
   pasta `DEMAIS-PROJETOS-NAO-MEXER-AGORA` (projetos parados) é lido nas sessões; `C:\fontes\CLAUDE.md` atualizado.
 - 2026-10-16 23:33 (Brasília): `node scripts/sincronizar.mjs --aplicar` rodado (pedido do usuário): `dist/REGRAS-GLOBAIS.md` sem mudança; regras regravadas em Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro; Claude Code já estava igual.
