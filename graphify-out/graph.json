@@ -1,0 +1,3994 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "sincronizar.mjs",
+      "file_type": "code",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_sincronizar",
+      "community": 1,
+      "norm_label": "sincronizar.mjs"
+    },
+    {
+      "label": "RAIZ",
+      "file_type": "code",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "scripts_sincronizar_raiz",
+      "community": 1,
+      "norm_label": "raiz"
+    },
+    {
+      "label": "PASTA_REGRAS",
+      "file_type": "code",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "scripts_sincronizar_pasta_regras",
+      "community": 1,
+      "norm_label": "pasta_regras"
+    },
+    {
+      "label": "ARQUIVO_UNIFICADO",
+      "file_type": "code",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "scripts_sincronizar_arquivo_unificado",
+      "community": 1,
+      "norm_label": "arquivo_unificado"
+    },
+    {
+      "label": "APLICAR",
+      "file_type": "code",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "scripts_sincronizar_aplicar",
+      "community": 1,
+      "norm_label": "aplicar"
+    },
+    {
+      "label": "DESTINOS",
+      "file_type": "code",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "scripts_sincronizar_destinos",
+      "community": 1,
+      "norm_label": "destinos"
+    },
+    {
+      "label": "montarUnificado()",
+      "file_type": "code",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "scripts_sincronizar_montarunificado",
+      "community": 1,
+      "norm_label": "montarunificado()"
+    },
+    {
+      "label": "montarBloco()",
+      "file_type": "code",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "scripts_sincronizar_montarbloco",
+      "community": 1,
+      "norm_label": "montarbloco()"
+    },
+    {
+      "label": "aplicarBloco()",
+      "file_type": "code",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "scripts_sincronizar_aplicarbloco",
+      "community": 1,
+      "norm_label": "aplicarbloco()"
+    },
+    {
+      "label": "sincronizarDestino()",
+      "file_type": "code",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "scripts_sincronizar_sincronizardestino",
+      "community": 1,
+      "norm_label": "sincronizardestino()"
+    },
+    {
+      "label": "principal()",
+      "file_type": "code",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "scripts_sincronizar_principal",
+      "community": 1,
+      "norm_label": "principal()"
+    },
+    {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents",
+      "community": 20,
+      "norm_label": "agents.md"
+    },
+    {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_agents_md",
+      "community": 20,
+      "norm_label": "agents.md"
+    },
+    {
+      "label": "\ud83d\udd12 Uma sess\u00e3o por vez (s\u00f3 neste projeto, C29)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "agents_uma_sess\u00e3o_por_vez_s\u00f3_neste_projeto_c29",
+      "community": 20,
+      "norm_label": "\ud83d\udd12 uma sessao por vez (so neste projeto, c29)"
+    },
+    {
+      "label": "CONFLITOS.md",
+      "file_type": "document",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "conflitos",
+      "community": 7,
+      "norm_label": "conflitos.md"
+    },
+    {
+      "label": "\u2696\ufe0f Conflitos entre regras \u2014 aguardam a confirma\u00e7\u00e3o do usu\u00e1rio",
+      "file_type": "document",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "conflitos_conflitos_entre_regras_aguardam_a_confirma\u00e7\u00e3o_do_usu\u00e1rio",
+      "community": 7,
+      "norm_label": "\u2696\ufe0f conflitos entre regras \u2014 aguardam a confirmacao do usuario"
+    },
+    {
+      "label": "O que j\u00e1 est\u00e1 no global (sem conflito)",
+      "file_type": "document",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "conflitos_o_que_j\u00e1_est\u00e1_no_global_sem_conflito",
+      "community": 7,
+      "norm_label": "o que ja esta no global (sem conflito)"
+    },
+    {
+      "label": "O que ficou de fora de prop\u00f3sito (espec\u00edfico de projeto)",
+      "file_type": "document",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "conflitos_o_que_ficou_de_fora_de_prop\u00f3sito_espec\u00edfico_de_projeto",
+      "community": 7,
+      "norm_label": "o que ficou de fora de proposito (especifico de projeto)"
+    },
+    {
+      "label": "Decididos em 2026-10-16 (C1 a C10)",
+      "file_type": "document",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "conflitos_decididos_em_2026_10_16_c1_a_c10",
+      "community": 7,
+      "norm_label": "decididos em 2026-10-16 (c1 a c10)"
+    },
+    {
+      "label": "Decididos depois (2026-10-16)",
+      "file_type": "document",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "conflitos_decididos_depois_2026_10_16",
+      "community": 7,
+      "norm_label": "decididos depois (2026-10-16)"
+    },
+    {
+      "label": "Pendente de decis\u00e3o",
+      "file_type": "document",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "conflitos_pendente_de_decis\u00e3o",
+      "community": 7,
+      "norm_label": "pendente de decisao"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 14,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "rules-ai",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_rules_ai",
+      "community": 14,
+      "norm_label": "rules-ai"
+    },
+    {
+      "label": "Como funciona",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "readme_como_funciona",
+      "community": 14,
+      "norm_label": "como funciona"
+    },
+    {
+      "label": "Preced\u00eancia",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "readme_preced\u00eancia",
+      "community": 14,
+      "norm_label": "precedencia"
+    },
+    {
+      "label": "Mudar uma regra",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "readme_mudar_uma_regra",
+      "community": 14,
+      "norm_label": "mudar uma regra"
+    },
+    {
+      "label": "STATUS_PROJETO.md",
+      "file_type": "document",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "status_projeto",
+      "community": 2,
+      "norm_label": "status_projeto.md"
+    },
+    {
+      "label": "Status do projeto DASHBOARD-AI",
+      "file_type": "document",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "status_projeto_status_do_projeto_dashboard_ai",
+      "community": 2,
+      "norm_label": "status do projeto dashboard-ai"
+    },
+    {
+      "label": "O que mudou desde a \u00faltima grava\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "status_projeto_o_que_mudou_desde_a_\u00faltima_grava\u00e7\u00e3o",
+      "community": 2,
+      "norm_label": "o que mudou desde a ultima gravacao"
+    },
+    {
+      "label": "Objetivo",
+      "file_type": "document",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "status_projeto_objetivo",
+      "community": 2,
+      "norm_label": "objetivo"
+    },
+    {
+      "label": "O que espera de voc\u00ea",
+      "file_type": "document",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "status_projeto_o_que_espera_de_voc\u00ea",
+      "community": 2,
+      "norm_label": "o que espera de voce"
+    },
+    {
+      "label": "Frentes de trabalho",
+      "file_type": "document",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "status_projeto_frentes_de_trabalho",
+      "community": 2,
+      "norm_label": "frentes de trabalho"
+    },
+    {
+      "label": "1. Executar alinhamento das regras globais",
+      "file_type": "document",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "status_projeto_1_executar_alinhamento_das_regras_globais",
+      "community": 2,
+      "norm_label": "1. executar alinhamento das regras globais"
+    },
+    {
+      "label": "2. Ligar as outras IAs \u00e0s regras globais",
+      "file_type": "document",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "status_projeto_2_ligar_as_outras_ias_\u00e0s_regras_globais",
+      "community": 2,
+      "norm_label": "2. ligar as outras ias as regras globais"
+    },
+    {
+      "label": "3. Status do projeto em Markdown",
+      "file_type": "document",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "status_projeto_3_status_do_projeto_em_markdown",
+      "community": 2,
+      "norm_label": "3. status do projeto em markdown"
+    },
+    {
+      "label": "4. Atualizar status a cada hora",
+      "file_type": "document",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "status_projeto_4_atualizar_status_a_cada_hora",
+      "community": 2,
+      "norm_label": "4. atualizar status a cada hora"
+    },
+    {
+      "label": "Quadro do REA (`rea-app-clones`)",
+      "file_type": "document",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L110",
+      "_origin": "ast",
+      "id": "status_projeto_quadro_do_rea_rea_app_clones",
+      "community": 2,
+      "norm_label": "quadro do rea (`rea-app-clones`)"
+    },
+    {
+      "label": "atividades-e-idioma.md",
+      "file_type": "document",
+      "source_file": "regras/atividades-e-idioma.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_atividades_e_idioma",
+      "community": 21,
+      "norm_label": "atividades-e-idioma.md"
+    },
+    {
+      "label": "\ud83d\udde3\ufe0f Idioma e atividades",
+      "file_type": "document",
+      "source_file": "regras/atividades-e-idioma.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_atividades_e_idioma_idioma_e_atividades",
+      "community": 21,
+      "norm_label": "\ud83d\udde3\ufe0f idioma e atividades"
+    },
+    {
+      "label": "ciclo-da-task.md",
+      "file_type": "document",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_ciclo_da_task",
+      "community": 5,
+      "norm_label": "ciclo-da-task.md"
+    },
+    {
+      "label": "\ud83d\udd01 Ciclo de uma tarefa (TASK)",
+      "file_type": "document",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_ciclo_da_task_ciclo_de_uma_tarefa_task",
+      "community": 5,
+      "norm_label": "\ud83d\udd01 ciclo de uma tarefa (task)"
+    },
+    {
+      "label": "O que vira TASK",
+      "file_type": "document",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "regras_ciclo_da_task_o_que_vira_task",
+      "community": 5,
+      "norm_label": "o que vira task"
+    },
+    {
+      "label": "Ordem de todo pedido: criar \u2192 publicar \u2192 assumir \u2192 trabalhar",
+      "file_type": "document",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "regras_ciclo_da_task_ordem_de_todo_pedido_criar_publicar_assumir_trabalhar",
+      "community": 5,
+      "norm_label": "ordem de todo pedido: criar \u2192 publicar \u2192 assumir \u2192 trabalhar"
+    },
+    {
+      "label": "Pequena ou grande",
+      "file_type": "document",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "regras_ciclo_da_task_pequena_ou_grande",
+      "community": 5,
+      "norm_label": "pequena ou grande"
+    },
+    {
+      "label": "Executar",
+      "file_type": "document",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "regras_ciclo_da_task_executar",
+      "community": 5,
+      "norm_label": "executar"
+    },
+    {
+      "label": "Encerrar",
+      "file_type": "document",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "regras_ciclo_da_task_encerrar",
+      "community": 5,
+      "norm_label": "encerrar"
+    },
+    {
+      "label": "Retomar (sess\u00e3o nova ou que caiu)",
+      "file_type": "document",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "regras_ciclo_da_task_retomar_sess\u00e3o_nova_ou_que_caiu",
+      "community": 5,
+      "norm_label": "retomar (sessao nova ou que caiu)"
+    },
+    {
+      "label": "codigo-limites-nomes.md",
+      "file_type": "document",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_codigo_limites_nomes",
+      "community": 8,
+      "norm_label": "codigo-limites-nomes.md"
+    },
+    {
+      "label": "\ud83d\udccf C\u00f3digo \u2014 Limites, nomes e legibilidade",
+      "file_type": "document",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_codigo_limites_nomes_c\u00f3digo_limites_nomes_e_legibilidade",
+      "community": 8,
+      "norm_label": "\ud83d\udccf codigo \u2014 limites, nomes e legibilidade"
+    },
+    {
+      "label": "Limites obrigat\u00f3rios",
+      "file_type": "document",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "regras_codigo_limites_nomes_limites_obrigat\u00f3rios",
+      "community": 8,
+      "norm_label": "limites obrigatorios"
+    },
+    {
+      "label": "Legibilidade",
+      "file_type": "document",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "regras_codigo_limites_nomes_legibilidade",
+      "community": 8,
+      "norm_label": "legibilidade"
+    },
+    {
+      "label": "Nomes em portugu\u00eas (sem acentos)",
+      "file_type": "document",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "regras_codigo_limites_nomes_nomes_em_portugu\u00eas_sem_acentos",
+      "community": 8,
+      "norm_label": "nomes em portugues (sem acentos)"
+    },
+    {
+      "label": "Exemplo",
+      "file_type": "document",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "regras_codigo_limites_nomes_exemplo",
+      "community": 8,
+      "norm_label": "exemplo"
+    },
+    {
+      "label": "Checklist",
+      "file_type": "document",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "regras_codigo_limites_nomes_checklist",
+      "community": 8,
+      "norm_label": "checklist"
+    },
+    {
+      "label": "codigo-solid.md",
+      "file_type": "document",
+      "source_file": "regras/codigo-solid.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_codigo_solid",
+      "community": 15,
+      "norm_label": "codigo-solid.md"
+    },
+    {
+      "label": "\ud83e\uddf1 C\u00f3digo \u2014 Princ\u00edpios SOLID",
+      "file_type": "document",
+      "source_file": "regras/codigo-solid.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_codigo_solid_c\u00f3digo_princ\u00edpios_solid",
+      "community": 15,
+      "norm_label": "\ud83e\uddf1 codigo \u2014 principios solid"
+    },
+    {
+      "label": "Os 5 princ\u00edpios",
+      "file_type": "document",
+      "source_file": "regras/codigo-solid.md",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "regras_codigo_solid_os_5_princ\u00edpios",
+      "community": 15,
+      "norm_label": "os 5 principios"
+    },
+    {
+      "label": "Por tecnologia",
+      "file_type": "document",
+      "source_file": "regras/codigo-solid.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "regras_codigo_solid_por_tecnologia",
+      "community": 15,
+      "norm_label": "por tecnologia"
+    },
+    {
+      "label": "Checklist SOLID",
+      "file_type": "document",
+      "source_file": "regras/codigo-solid.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "regras_codigo_solid_checklist_solid",
+      "community": 15,
+      "norm_label": "checklist solid"
+    },
+    {
+      "label": "esforco.md",
+      "file_type": "document",
+      "source_file": "regras/esforco.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_esforco",
+      "community": 22,
+      "norm_label": "esforco.md"
+    },
+    {
+      "label": "\ud83c\udf9b\ufe0f Esfor\u00e7o (`effort`) dos agentes",
+      "file_type": "document",
+      "source_file": "regras/esforco.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_esforco_esfor\u00e7o_effort_dos_agentes",
+      "community": 22,
+      "norm_label": "\ud83c\udf9b\ufe0f esforco (`effort`) dos agentes"
+    },
+    {
+      "label": "exibicao-de-status.md",
+      "file_type": "document",
+      "source_file": "regras/exibicao-de-status.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_exibicao_de_status",
+      "community": 29,
+      "norm_label": "exibicao-de-status.md"
+    },
+    {
+      "label": "\ud83d\udcca Exibi\u00e7\u00e3o de status \u2014 sempre em quadro",
+      "file_type": "document",
+      "source_file": "regras/exibicao-de-status.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_exibicao_de_status_exibi\u00e7\u00e3o_de_status_sempre_em_quadro",
+      "community": 29,
+      "norm_label": "\ud83d\udcca exibicao de status \u2014 sempre em quadro"
+    },
+    {
+      "label": "frentes-e-reserva.md",
+      "file_type": "document",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_frentes_e_reserva",
+      "community": 11,
+      "norm_label": "frentes-e-reserva.md"
+    },
+    {
+      "label": "\ud83e\udded Frentes e reserva de subtarefas",
+      "file_type": "document",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_frentes_e_reserva_frentes_e_reserva_de_subtarefas",
+      "community": 11,
+      "norm_label": "\ud83e\udded frentes e reserva de subtarefas"
+    },
+    {
+      "label": "Frentes",
+      "file_type": "document",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "regras_frentes_e_reserva_frentes",
+      "community": 11,
+      "norm_label": "frentes"
+    },
+    {
+      "label": "Pegar uma subtarefa",
+      "file_type": "document",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "regras_frentes_e_reserva_pegar_uma_subtarefa",
+      "community": 11,
+      "norm_label": "pegar uma subtarefa"
+    },
+    {
+      "label": "Limites",
+      "file_type": "document",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "regras_frentes_e_reserva_limites",
+      "community": 11,
+      "norm_label": "limites"
+    },
+    {
+      "label": "Conflitos",
+      "file_type": "document",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "regras_frentes_e_reserva_conflitos",
+      "community": 11,
+      "norm_label": "conflitos"
+    },
+    {
+      "label": "Gatilho `;` \u2014 pegue a pr\u00f3xima tarefa do seu modelo",
+      "file_type": "document",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "regras_frentes_e_reserva_gatilho_pegue_a_pr\u00f3xima_tarefa_do_seu_modelo",
+      "community": 11,
+      "norm_label": "gatilho `;` \u2014 pegue a proxima tarefa do seu modelo"
+    },
+    {
+      "label": "Gatilho `.` \u2014 liste as tarefas pendentes",
+      "file_type": "document",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "regras_frentes_e_reserva_gatilho_liste_as_tarefas_pendentes",
+      "community": 11,
+      "norm_label": "gatilho `.` \u2014 liste as tarefas pendentes"
+    },
+    {
+      "label": "gerenciador-centralizado.md",
+      "file_type": "document",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_gerenciador_centralizado",
+      "community": 31,
+      "norm_label": "gerenciador-centralizado.md"
+    },
+    {
+      "label": "\ud83e\udd16 Gerenciador centralizado de tarefas",
+      "file_type": "document",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_gerenciador_centralizado_gerenciador_centralizado_de_tarefas",
+      "community": 31,
+      "norm_label": "\ud83e\udd16 gerenciador centralizado de tarefas"
+    },
+    {
+      "label": "O que ele faz",
+      "file_type": "document",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "regras_gerenciador_centralizado_o_que_ele_faz",
+      "community": 31,
+      "norm_label": "o que ele faz"
+    },
+    {
+      "label": "Modos",
+      "file_type": "document",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "regras_gerenciador_centralizado_modos",
+      "community": 31,
+      "norm_label": "modos"
+    },
+    {
+      "label": "Regras do modo `disparar`",
+      "file_type": "document",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "regras_gerenciador_centralizado_regras_do_modo_disparar",
+      "community": 31,
+      "norm_label": "regras do modo `disparar`"
+    },
+    {
+      "label": "Como parar",
+      "file_type": "document",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "regras_gerenciador_centralizado_como_parar",
+      "community": 31,
+      "norm_label": "como parar"
+    },
+    {
+      "label": "Limites",
+      "file_type": "document",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "regras_gerenciador_centralizado_limites",
+      "community": 31,
+      "norm_label": "limites"
+    },
+    {
+      "label": "git-geral.md",
+      "file_type": "document",
+      "source_file": "regras/git-geral.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_git_geral",
+      "community": 23,
+      "norm_label": "git-geral.md"
+    },
+    {
+      "label": "\ud83d\udd00 Git \u2014 regras comuns a todos os projetos",
+      "file_type": "document",
+      "source_file": "regras/git-geral.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_git_geral_git_regras_comuns_a_todos_os_projetos",
+      "community": 23,
+      "norm_label": "\ud83d\udd00 git \u2014 regras comuns a todos os projetos"
+    },
+    {
+      "label": "graphify.md",
+      "file_type": "document",
+      "source_file": "regras/graphify.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_graphify",
+      "community": 16,
+      "norm_label": "graphify.md"
+    },
+    {
+      "label": "\ud83d\udd78\ufe0f graphify \u2014 grafo de conhecimento do projeto",
+      "file_type": "document",
+      "source_file": "regras/graphify.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_graphify_graphify_grafo_de_conhecimento_do_projeto",
+      "community": 16,
+      "norm_label": "\ud83d\udd78\ufe0f graphify \u2014 grafo de conhecimento do projeto"
+    },
+    {
+      "label": "Quando ler o `graphify-out/GRAPH_REPORT.md`",
+      "file_type": "document",
+      "source_file": "regras/graphify.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "regras_graphify_quando_ler_o_graphify_out_graph_report_md",
+      "community": 16,
+      "norm_label": "quando ler o `graphify-out/graph_report.md`"
+    },
+    {
+      "label": "Quando atualizar o grafo",
+      "file_type": "document",
+      "source_file": "regras/graphify.md",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "regras_graphify_quando_atualizar_o_grafo",
+      "community": 16,
+      "norm_label": "quando atualizar o grafo"
+    },
+    {
+      "label": "Falhas",
+      "file_type": "document",
+      "source_file": "regras/graphify.md",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "regras_graphify_falhas",
+      "community": 16,
+      "norm_label": "falhas"
+    },
+    {
+      "label": "niveis-e-modelos.md",
+      "file_type": "document",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_niveis_e_modelos",
+      "community": 12,
+      "norm_label": "niveis-e-modelos.md"
+    },
+    {
+      "label": "\ud83c\udf9a\ufe0f N\u00edveis de tarefa \u2014 quem pega o qu\u00ea",
+      "file_type": "document",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_niveis_e_modelos_n\u00edveis_de_tarefa_quem_pega_o_qu\u00ea",
+      "community": 12,
+      "norm_label": "\ud83c\udf9a\ufe0f niveis de tarefa \u2014 quem pega o que"
+    },
+    {
+      "label": "Os 3 n\u00edveis",
+      "file_type": "document",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "regras_niveis_e_modelos_os_3_n\u00edveis",
+      "community": 12,
+      "norm_label": "os 3 niveis"
+    },
+    {
+      "label": "Quem pega cada n\u00edvel",
+      "file_type": "document",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "regras_niveis_e_modelos_quem_pega_cada_n\u00edvel",
+      "community": 12,
+      "norm_label": "quem pega cada nivel"
+    },
+    {
+      "label": "Como usar",
+      "file_type": "document",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "regras_niveis_e_modelos_como_usar",
+      "community": 12,
+      "norm_label": "como usar"
+    },
+    {
+      "label": "Equipe de agentes do Claude Code",
+      "file_type": "document",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "regras_niveis_e_modelos_equipe_de_agentes_do_claude_code",
+      "community": 12,
+      "norm_label": "equipe de agentes do claude code"
+    },
+    {
+      "label": "pastas-ignoradas.md",
+      "file_type": "document",
+      "source_file": "regras/pastas-ignoradas.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_pastas_ignoradas",
+      "community": 24,
+      "norm_label": "pastas-ignoradas.md"
+    },
+    {
+      "label": "\ud83d\udeab Pastas que n\u00e3o se leem de in\u00edcio",
+      "file_type": "document",
+      "source_file": "regras/pastas-ignoradas.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_pastas_ignoradas_pastas_que_n\u00e3o_se_leem_de_in\u00edcio",
+      "community": 24,
+      "norm_label": "\ud83d\udeab pastas que nao se leem de inicio"
+    },
+    {
+      "label": "quadro-de-tarefas.md",
+      "file_type": "document",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_quadro_de_tarefas",
+      "community": 6,
+      "norm_label": "quadro-de-tarefas.md"
+    },
+    {
+      "label": "\ud83d\uddc2\ufe0f Quadro de tarefas \u2014 fonte \u00fanica, para qualquer projeto",
+      "file_type": "document",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_quadro_de_tarefas_quadro_de_tarefas_fonte_\u00fanica_para_qualquer_projeto",
+      "community": 6,
+      "norm_label": "\ud83d\uddc2\ufe0f quadro de tarefas \u2014 fonte unica, para qualquer projeto"
+    },
+    {
+      "label": "Tarefa e subtarefa",
+      "file_type": "document",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "regras_quadro_de_tarefas_tarefa_e_subtarefa",
+      "community": 6,
+      "norm_label": "tarefa e subtarefa"
+    },
+    {
+      "label": "Cada informa\u00e7\u00e3o em um lugar s\u00f3",
+      "file_type": "document",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "regras_quadro_de_tarefas_cada_informa\u00e7\u00e3o_em_um_lugar_s\u00f3",
+      "community": 6,
+      "norm_label": "cada informacao em um lugar so"
+    },
+    {
+      "label": "Legenda",
+      "file_type": "document",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "regras_quadro_de_tarefas_legenda",
+      "community": 6,
+      "norm_label": "legenda"
+    },
+    {
+      "label": "Modelo do `tasks/STATUS.md`",
+      "file_type": "document",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "regras_quadro_de_tarefas_modelo_do_tasks_status_md",
+      "community": 6,
+      "norm_label": "modelo do `tasks/status.md`"
+    },
+    {
+      "label": "Modelo do `tasks/task_complete.md`",
+      "file_type": "document",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "regras_quadro_de_tarefas_modelo_do_tasks_task_complete_md",
+      "community": 6,
+      "norm_label": "modelo do `tasks/task_complete.md`"
+    },
+    {
+      "label": "Modelo da etapa (uma por tarefa-m\u00e3e)",
+      "file_type": "document",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "regras_quadro_de_tarefas_modelo_da_etapa_uma_por_tarefa_m\u00e3e",
+      "community": 6,
+      "norm_label": "modelo da etapa (uma por tarefa-mae)"
+    },
+    {
+      "label": "testes-validacao.md",
+      "file_type": "document",
+      "source_file": "regras/testes-validacao.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_testes_validacao",
+      "community": 18,
+      "norm_label": "testes-validacao.md"
+    },
+    {
+      "label": "\u2705 Testes e valida\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "regras/testes-validacao.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_testes_validacao_testes_e_valida\u00e7\u00e3o",
+      "community": 18,
+      "norm_label": "\u2705 testes e validacao"
+    },
+    {
+      "label": "Nunca abrir navegador",
+      "file_type": "document",
+      "source_file": "regras/testes-validacao.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "regras_testes_validacao_nunca_abrir_navegador",
+      "community": 18,
+      "norm_label": "nunca abrir navegador"
+    },
+    {
+      "label": "Nunca escrever testes (exceto para corrigir bug)",
+      "file_type": "document",
+      "source_file": "regras/testes-validacao.md",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "regras_testes_validacao_nunca_escrever_testes_exceto_para_corrigir_bug",
+      "community": 18,
+      "norm_label": "nunca escrever testes (exceto para corrigir bug)"
+    },
+    {
+      "label": "STATUS.md",
+      "file_type": "document",
+      "source_file": "tasks/STATUS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tasks_status",
+      "community": 19,
+      "norm_label": "status.md"
+    },
+    {
+      "label": "STATUS \u2014 rules-ai",
+      "file_type": "document",
+      "source_file": "tasks/STATUS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tasks_status_status_rules_ai",
+      "community": 19,
+      "norm_label": "status \u2014 rules-ai"
+    },
+    {
+      "label": "\ud83d\udccc Tarefas",
+      "file_type": "document",
+      "source_file": "tasks/STATUS.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "tasks_status_tarefas",
+      "community": 19,
+      "norm_label": "\ud83d\udccc tarefas"
+    },
+    {
+      "label": "Registro de decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/STATUS.md",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "tasks_status_registro_de_decis\u00f5es",
+      "community": 19,
+      "norm_label": "registro de decisoes"
+    },
+    {
+      "label": "ETAPA-001-GLOBAL.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_001_global",
+      "community": 4,
+      "norm_label": "etapa-001-global.md"
+    },
+    {
+      "label": "Etapa 001 \u2014 GLOBAL: Regras globais para todas as IAs e projetos",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_001_global_etapa_001_global_regras_globais_para_todas_as_ias_e_projetos",
+      "community": 4,
+      "norm_label": "etapa 001 \u2014 global: regras globais para todas as ias e projetos"
+    },
+    {
+      "label": "GLOBAL.1 a GLOBAL.3 \u2014 Entrega",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "etapas_etapa_001_global_global_1_a_global_3_entrega",
+      "community": 4,
+      "norm_label": "global.1 a global.3 \u2014 entrega"
+    },
+    {
+      "label": "GLOBAL.4 \u2014 Confirmar os conflitos (conclu\u00edda)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "etapas_etapa_001_global_global_4_confirmar_os_conflitos_conclu\u00edda",
+      "community": 4,
+      "norm_label": "global.4 \u2014 confirmar os conflitos (concluida)"
+    },
+    {
+      "label": "GLOBAL.5 \u2014 Demais IAs (conclu\u00edda)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "etapas_etapa_001_global_global_5_demais_ias_conclu\u00edda",
+      "community": 4,
+      "norm_label": "global.5 \u2014 demais ias (concluida)"
+    },
+    {
+      "label": "GLOBAL.6 \u2014 Decidir C11 e C12 (conclu\u00edda)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "etapas_etapa_001_global_global_6_decidir_c11_e_c12_conclu\u00edda",
+      "community": 4,
+      "norm_label": "global.6 \u2014 decidir c11 e c12 (concluida)"
+    },
+    {
+      "label": "GLOBAL.7 \u2014 Acompanhar o alinhamento dos projetos",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "etapas_etapa_001_global_global_7_acompanhar_o_alinhamento_dos_projetos",
+      "community": 4,
+      "norm_label": "global.7 \u2014 acompanhar o alinhamento dos projetos"
+    },
+    {
+      "label": "GLOBAL.8 \u2014 Gemini CLI lendo as regras de verdade (conclu\u00edda)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "etapas_etapa_001_global_global_8_gemini_cli_lendo_as_regras_de_verdade_conclu\u00edda",
+      "community": 4,
+      "norm_label": "global.8 \u2014 gemini cli lendo as regras de verdade (concluida)"
+    },
+    {
+      "label": "ETAPA-002-ESFORCO-GLOBAL.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global",
+      "community": 3,
+      "norm_label": "etapa-002-esforco-global.md"
+    },
+    {
+      "label": "Etapa 002 \u2014 ESFORCO-GLOBAL e CONFEFFORT-GLOBAL: esfor\u00e7o (`effort`) vale para todos os projetos",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_etapa_002_esforco_global_e_confeffort_global_esfor\u00e7o_effort_vale_para_todos_os_projetos",
+      "community": 3,
+      "norm_label": "etapa 002 \u2014 esforco-global e confeffort-global: esforco (`effort`) vale para todos os projetos"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_decis\u00f5es",
+      "community": 3,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "ESFORCO-GLOBAL.1 \u2014 Regra global `regras/esforco.md`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_esforco_global_1_regra_global_regras_esforco_md",
+      "community": 3,
+      "norm_label": "esforco-global.1 \u2014 regra global `regras/esforco.md`"
+    },
+    {
+      "label": "ESFORCO-GLOBAL.2 \u2014 Aceite do usu\u00e1rio",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_esforco_global_2_aceite_do_usu\u00e1rio",
+      "community": 3,
+      "norm_label": "esforco-global.2 \u2014 aceite do usuario"
+    },
+    {
+      "label": "CONFEFFORT-GLOBAL \u2014 Subtarefas por modelo",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_confeffort_global_subtarefas_por_modelo",
+      "community": 3,
+      "norm_label": "confeffort-global \u2014 subtarefas por modelo"
+    },
+    {
+      "label": "CONFEFFORT-GLOBAL.2 \u2014 Sonnet 5.5 \u2014 resultado (2026-10-16 20:05, Claude Code Sonnet 5.5, local \u00b7 main)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_confeffort_global_2_sonnet_5_5_resultado_2026_10_16_20_05_claude_code_sonnet_5_5_local_main",
+      "community": 3,
+      "norm_label": "confeffort-global.2 \u2014 sonnet 5.5 \u2014 resultado (2026-10-16 20:05, claude code sonnet 5.5, local \u00b7 main)"
+    },
+    {
+      "label": "CONFEFFORT-GLOBAL.6 \u2014 Sonnet 5.5: 2\u00aa rodada com problema dif\u00edcil",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_confeffort_global_6_sonnet_5_5_2a_rodada_com_problema_dif\u00edcil",
+      "community": 3,
+      "norm_label": "confeffort-global.6 \u2014 sonnet 5.5: 2a rodada com problema dificil"
+    },
+    {
+      "label": "CONFEFFORT-GLOBAL.6 \u2014 resultado (2026-10-16 20:25, Claude Code Sonnet 5.5, local \u00b7 main)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_confeffort_global_6_resultado_2026_10_16_20_25_claude_code_sonnet_5_5_local_main",
+      "community": 3,
+      "norm_label": "confeffort-global.6 \u2014 resultado (2026-10-16 20:25, claude code sonnet 5.5, local \u00b7 main)"
+    },
+    {
+      "label": "CONFEFFORT-GLOBAL.3 \u2014 Opus 5.5 \u2014 resultado (2026-10-17 13:05, Claude Code Opus 5.5, local \u00b7 main)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_confeffort_global_3_opus_5_5_resultado_2026_10_17_13_05_claude_code_opus_5_5_local_main",
+      "community": 3,
+      "norm_label": "confeffort-global.3 \u2014 opus 5.5 \u2014 resultado (2026-10-17 13:05, claude code opus 5.5, local \u00b7 main)"
+    },
+    {
+      "label": "CONFEFFORT-GLOBAL.7 \u2014 Atualizar a C21 com a confer\u00eancia do Opus",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L96",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_confeffort_global_7_atualizar_a_c21_com_a_confer\u00eancia_do_opus",
+      "community": 3,
+      "norm_label": "confeffort-global.7 \u2014 atualizar a c21 com a conferencia do opus"
+    },
+    {
+      "label": "ESFORCO-GLOBAL.3, .4 e .5 \u2014 `effort` em todos os agentes e em todas as tarefas pendentes",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_esforco_global_3_4_e_5_effort_em_todos_os_agentes_e_em_todas_as_tarefas_pendentes",
+      "community": 3,
+      "norm_label": "esforco-global.3, .4 e .5 \u2014 `effort` em todos os agentes e em todas as tarefas pendentes"
+    },
+    {
+      "label": "ESFORCO-GLOBAL.6 \u2014 Limpar o `esforco.md` (s\u00f3 a regra; resultados ficam aqui)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L136",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_esforco_global_6_limpar_o_esforco_md_s\u00f3_a_regra_resultados_ficam_aqui",
+      "community": 3,
+      "norm_label": "esforco-global.6 \u2014 limpar o `esforco.md` (so a regra; resultados ficam aqui)"
+    },
+    {
+      "label": "Resultados retirados do `esforco.md` (hist\u00f3rico, 2026-10-17)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L157",
+      "_origin": "ast",
+      "id": "etapas_etapa_002_esforco_global_resultados_retirados_do_esforco_md_hist\u00f3rico_2026_10_17",
+      "community": 3,
+      "norm_label": "resultados retirados do `esforco.md` (historico, 2026-10-17)"
+    },
+    {
+      "label": "ETAPA-003-EFFORT-PADARIA.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria",
+      "community": 0,
+      "norm_label": "etapa-003-effort-padaria.md"
+    },
+    {
+      "label": "Etapa 003 \u2014 EFFORT-PADARIA: testar `low`, `medium` e `high` em todos os modelos com um projeto de padaria",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_etapa_003_effort_padaria_testar_low_medium_e_high_em_todos_os_modelos_com_um_projeto_de_padaria",
+      "community": 0,
+      "norm_label": "etapa 003 \u2014 effort-padaria: testar `low`, `medium` e `high` em todos os modelos com um projeto de padaria"
+    },
+    {
+      "label": "Escopo",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_escopo",
+      "community": 0,
+      "norm_label": "escopo"
+    },
+    {
+      "label": "Protocolo de medi\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_protocolo_de_medi\u00e7\u00e3o",
+      "community": 0,
+      "norm_label": "protocolo de medicao"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_decis\u00f5es",
+      "community": 0,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "EFFORT-PADARIA.1 \u2014 Criar o projeto `testes-effort-padaria`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_effort_padaria_1_criar_o_projeto_testes_effort_padaria",
+      "community": 0,
+      "norm_label": "effort-padaria.1 \u2014 criar o projeto `testes-effort-padaria`"
+    },
+    {
+      "label": "EFFORT-PADARIA.2 \u2014 Gabarito",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_effort_padaria_2_gabarito",
+      "community": 0,
+      "norm_label": "effort-padaria.2 \u2014 gabarito"
+    },
+    {
+      "label": "Gabarito (38 itens; nota = itens certos / 38)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_gabarito_38_itens_nota_itens_certos_38",
+      "community": 0,
+      "norm_label": "gabarito (38 itens; nota = itens certos / 38)"
+    },
+    {
+      "label": "EFFORT-PADARIA.3 a .7 \u2014 Rodadas por modelo",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_effort_padaria_3_a_7_rodadas_por_modelo",
+      "community": 0,
+      "norm_label": "effort-padaria.3 a .7 \u2014 rodadas por modelo"
+    },
+    {
+      "label": "EFFORT-PADARIA.8 \u2014 Relat\u00f3rio comparativo \u00b7 EFFORT-PADARIA.9 \u2014 Aceite do usu\u00e1rio",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_effort_padaria_8_relat\u00f3rio_comparativo_effort_padaria_9_aceite_do_usu\u00e1rio",
+      "community": 0,
+      "norm_label": "effort-padaria.8 \u2014 relatorio comparativo \u00b7 effort-padaria.9 \u2014 aceite do usuario"
+    },
+    {
+      "label": "EFFORT-PADARIA.3 \u2014 Haiku 5.5 \u2014 resultado (2026-10-16 20:15, l\u00edder Claude Code Opus 5.5)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_effort_padaria_3_haiku_5_5_resultado_2026_10_16_20_15_l\u00edder_claude_code_opus_5_5",
+      "community": 0,
+      "norm_label": "effort-padaria.3 \u2014 haiku 5.5 \u2014 resultado (2026-10-16 20:15, lider claude code opus 5.5)"
+    },
+    {
+      "label": "EFFORT-PADARIA.4 \u2014 Sonnet 5.5 \u2014 resultado (2026-10-16 20:20, l\u00edder Claude Code Opus 5.5)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_effort_padaria_4_sonnet_5_5_resultado_2026_10_16_20_20_l\u00edder_claude_code_opus_5_5",
+      "community": 0,
+      "norm_label": "effort-padaria.4 \u2014 sonnet 5.5 \u2014 resultado (2026-10-16 20:20, lider claude code opus 5.5)"
+    },
+    {
+      "label": "EFFORT-PADARIA.5 \u2014 Opus 5.5 \u2014 resultado (2026-10-16 20:30, l\u00edder Claude Code Opus 5.5)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L81",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_effort_padaria_5_opus_5_5_resultado_2026_10_16_20_30_l\u00edder_claude_code_opus_5_5",
+      "community": 0,
+      "norm_label": "effort-padaria.5 \u2014 opus 5.5 \u2014 resultado (2026-10-16 20:30, lider claude code opus 5.5)"
+    },
+    {
+      "label": "EFFORT-PADARIA.8 \u2014 Relat\u00f3rio comparativo (2026-10-16 20:31)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_effort_padaria_8_relat\u00f3rio_comparativo_2026_10_16_20_31",
+      "community": 0,
+      "norm_label": "effort-padaria.8 \u2014 relatorio comparativo (2026-10-16 20:31)"
+    },
+    {
+      "label": "EFFORT-PADARIA.9 \u2014 Aceite",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L106",
+      "_origin": "ast",
+      "id": "etapas_etapa_003_effort_padaria_effort_padaria_9_aceite",
+      "community": 0,
+      "norm_label": "effort-padaria.9 \u2014 aceite"
+    },
+    {
+      "label": "ETAPA-004-MODELO-GLOBAL.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_004_modelo_global",
+      "community": 13,
+      "norm_label": "etapa-004-modelo-global.md"
+    },
+    {
+      "label": "Etapa 004 \u2014 MODELO-GLOBAL: nunca executar tarefa que n\u00e3o \u00e9 do seu modelo",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_004_modelo_global_etapa_004_modelo_global_nunca_executar_tarefa_que_n\u00e3o_\u00e9_do_seu_modelo",
+      "community": 13,
+      "norm_label": "etapa 004 \u2014 modelo-global: nunca executar tarefa que nao e do seu modelo"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "etapas_etapa_004_modelo_global_decis\u00f5es",
+      "community": 13,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "MODELO-GLOBAL.1 \u2014 Regra global",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "etapas_etapa_004_modelo_global_modelo_global_1_regra_global",
+      "community": 13,
+      "norm_label": "modelo-global.1 \u2014 regra global"
+    },
+    {
+      "label": "MODELO-GLOBAL.2 \u2014 Levar aos outros projetos e \u00e0s IAs",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "etapas_etapa_004_modelo_global_modelo_global_2_levar_aos_outros_projetos_e_\u00e0s_ias",
+      "community": 13,
+      "norm_label": "modelo-global.2 \u2014 levar aos outros projetos e as ias"
+    },
+    {
+      "label": "ETAPA-005-INDEX-FONTES.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-005-INDEX-FONTES.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_005_index_fontes",
+      "community": 17,
+      "norm_label": "etapa-005-index-fontes.md"
+    },
+    {
+      "label": "Etapa 005 \u2014 INDEX-FONTES: cards e modais no `C:\\fontes\\index.html`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-005-INDEX-FONTES.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_005_index_fontes_etapa_005_index_fontes_cards_e_modais_no_c_fontes_index_html",
+      "community": 17,
+      "norm_label": "etapa 005 \u2014 index-fontes: cards e modais no `c:\\fontes\\index.html`"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-005-INDEX-FONTES.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "etapas_etapa_005_index_fontes_decis\u00f5es",
+      "community": 17,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "INDEX-FONTES.1 \u2014 Cards, modais e gerador de dados",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-005-INDEX-FONTES.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "etapas_etapa_005_index_fontes_index_fontes_1_cards_modais_e_gerador_de_dados",
+      "community": 17,
+      "norm_label": "index-fontes.1 \u2014 cards, modais e gerador de dados"
+    },
+    {
+      "label": "ETAPA-006-GATILHO-GLOBAL.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_006_gatilho_global",
+      "community": 9,
+      "norm_label": "etapa-006-gatilho-global.md"
+    },
+    {
+      "label": "Etapa 006 \u2014 GATILHO-GLOBAL: mensagem `;` = pegue a pr\u00f3xima tarefa do seu modelo",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_006_gatilho_global_etapa_006_gatilho_global_mensagem_pegue_a_pr\u00f3xima_tarefa_do_seu_modelo",
+      "community": 9,
+      "norm_label": "etapa 006 \u2014 gatilho-global: mensagem `;` = pegue a proxima tarefa do seu modelo"
+    },
+    {
+      "label": "Texto da regra (copiar sem mudar, em `regras/frentes-e-reserva.md`, no fim do arquivo)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "etapas_etapa_006_gatilho_global_texto_da_regra_copiar_sem_mudar_em_regras_frentes_e_reserva_md_no_fim_do_arquivo",
+      "community": 9,
+      "norm_label": "texto da regra (copiar sem mudar, em `regras/frentes-e-reserva.md`, no fim do arquivo)"
+    },
+    {
+      "label": "GATILHO-GLOBAL.1 \u2014 Regra global, conflito C24 e status do projeto",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "etapas_etapa_006_gatilho_global_gatilho_global_1_regra_global_conflito_c24_e_status_do_projeto",
+      "community": 9,
+      "norm_label": "gatilho-global.1 \u2014 regra global, conflito c24 e status do projeto"
+    },
+    {
+      "label": "GATILHO-GLOBAL.2 \u2014 Rodar o sincronizador",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "etapas_etapa_006_gatilho_global_gatilho_global_2_rodar_o_sincronizador",
+      "community": 9,
+      "norm_label": "gatilho-global.2 \u2014 rodar o sincronizador"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "etapas_etapa_006_gatilho_global_decis\u00f5es",
+      "community": 9,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "ETAPA-007-GRAPHIFY-GLOBAL.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-007-GRAPHIFY-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_007_graphify_global",
+      "community": 10,
+      "norm_label": "etapa-007-graphify-global.md"
+    },
+    {
+      "label": "Etapa 007 \u2014 GRAPHIFY-GLOBAL: ler o relat\u00f3rio antes de criar ou executar tarefa e atualizar ao fim",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-007-GRAPHIFY-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_007_graphify_global_etapa_007_graphify_global_ler_o_relat\u00f3rio_antes_de_criar_ou_executar_tarefa_e_atualizar_ao_fim",
+      "community": 10,
+      "norm_label": "etapa 007 \u2014 graphify-global: ler o relatorio antes de criar ou executar tarefa e atualizar ao fim"
+    },
+    {
+      "label": "Texto novo de `regras/graphify.md` (substituir o arquivo inteiro, sem mudar)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-007-GRAPHIFY-GLOBAL.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "etapas_etapa_007_graphify_global_texto_novo_de_regras_graphify_md_substituir_o_arquivo_inteiro_sem_mudar",
+      "community": 10,
+      "norm_label": "texto novo de `regras/graphify.md` (substituir o arquivo inteiro, sem mudar)"
+    },
+    {
+      "label": "GRAPHIFY-GLOBAL.1 \u2014 Regra global, conflito C25 e status do projeto",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-007-GRAPHIFY-GLOBAL.md",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "etapas_etapa_007_graphify_global_graphify_global_1_regra_global_conflito_c25_e_status_do_projeto",
+      "community": 10,
+      "norm_label": "graphify-global.1 \u2014 regra global, conflito c25 e status do projeto"
+    },
+    {
+      "label": "GRAPHIFY-GLOBAL.2 \u2014 Alinhar o `graphify.md` dos projetos",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-007-GRAPHIFY-GLOBAL.md",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "etapas_etapa_007_graphify_global_graphify_global_2_alinhar_o_graphify_md_dos_projetos",
+      "community": 10,
+      "norm_label": "graphify-global.2 \u2014 alinhar o `graphify.md` dos projetos"
+    },
+    {
+      "label": "GRAPHIFY-GLOBAL.3 \u2014 Rodar o sincronizador",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-007-GRAPHIFY-GLOBAL.md",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "etapas_etapa_007_graphify_global_graphify_global_3_rodar_o_sincronizador",
+      "community": 10,
+      "norm_label": "graphify-global.3 \u2014 rodar o sincronizador"
+    },
+    {
+      "label": "ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_008_subtarefa_global",
+      "community": 26,
+      "norm_label": "etapa-008-subtarefa-global.md"
+    },
+    {
+      "label": "Etapa 008 \u2014 SUBTAREFA-GLOBAL: a IA cria subtarefas na m\u00e3e atual e publica direto",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_008_subtarefa_global_etapa_008_subtarefa_global_a_ia_cria_subtarefas_na_m\u00e3e_atual_e_publica_direto",
+      "community": 26,
+      "norm_label": "etapa 008 \u2014 subtarefa-global: a ia cria subtarefas na mae atual e publica direto"
+    },
+    {
+      "label": "Texto novo de `regras/ciclo-da-task.md`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "etapas_etapa_008_subtarefa_global_texto_novo_de_regras_ciclo_da_task_md",
+      "community": 26,
+      "norm_label": "texto novo de `regras/ciclo-da-task.md`"
+    },
+    {
+      "label": "SUBTAREFA-GLOBAL.1 \u2014 Regra global, conflito C26 e status do projeto",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "etapas_etapa_008_subtarefa_global_subtarefa_global_1_regra_global_conflito_c26_e_status_do_projeto",
+      "community": 26,
+      "norm_label": "subtarefa-global.1 \u2014 regra global, conflito c26 e status do projeto"
+    },
+    {
+      "label": "SUBTAREFA-GLOBAL.2 \u2014 Rodar o sincronizador",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "etapas_etapa_008_subtarefa_global_subtarefa_global_2_rodar_o_sincronizador",
+      "community": 26,
+      "norm_label": "subtarefa-global.2 \u2014 rodar o sincronizador"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "etapas_etapa_008_subtarefa_global_decis\u00f5es",
+      "community": 26,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global",
+      "community": 27,
+      "norm_label": "etapa-009-a0c1d676-gerenciador-global.md"
+    },
+    {
+      "label": "Etapa 009-a0c1d676 \u2014 GERENCIADOR-GLOBAL: gerenciador centralizado que chama as tarefas livres de cada modelo",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "community": 27,
+      "norm_label": "etapa 009-a0c1d676 \u2014 gerenciador-global: gerenciador centralizado que chama as tarefas livres de cada modelo"
+    },
+    {
+      "label": "Escopo",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_escopo",
+      "community": 27,
+      "norm_label": "escopo"
+    },
+    {
+      "label": "Riscos",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_riscos",
+      "community": 27,
+      "norm_label": "riscos"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_decis\u00f5es",
+      "community": 27,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "Perguntas que precisam de resposta antes de executar",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_perguntas_que_precisam_de_resposta_antes_de_executar",
+      "community": 27,
+      "norm_label": "perguntas que precisam de resposta antes de executar"
+    },
+    {
+      "label": "GERENCIADOR-GLOBAL.1 \u2014 Desenho e prova de conceito (aprova\u00e7\u00e3o antes)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_1_desenho_e_prova_de_conceito_aprova\u00e7\u00e3o_antes",
+      "community": 27,
+      "norm_label": "gerenciador-global.1 \u2014 desenho e prova de conceito (aprovacao antes)"
+    },
+    {
+      "label": "Desenho",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_desenho",
+      "community": 27,
+      "norm_label": "desenho"
+    },
+    {
+      "label": "GERENCIADOR-GLOBAL.2 \u2014 Regra global do gerenciador",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L79",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_2_regra_global_do_gerenciador",
+      "community": 27,
+      "norm_label": "gerenciador-global.2 \u2014 regra global do gerenciador"
+    },
+    {
+      "label": "GERENCIADOR-GLOBAL.3 \u2014 Script central de leitura do quadro",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_3_script_central_de_leitura_do_quadro",
+      "community": 27,
+      "norm_label": "gerenciador-global.3 \u2014 script central de leitura do quadro"
+    },
+    {
+      "label": "GERENCIADOR-GLOBAL.4 \u2014 Disparo de sess\u00f5es por modelo",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_4_disparo_de_sess\u00f5es_por_modelo",
+      "community": 27,
+      "norm_label": "gerenciador-global.4 \u2014 disparo de sessoes por modelo"
+    },
+    {
+      "label": "GERENCIADOR-GLOBAL.5 \u2014 Vigil\u00e2ncia peri\u00f3dica",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L109",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_5_vigil\u00e2ncia_peri\u00f3dica",
+      "community": 27,
+      "norm_label": "gerenciador-global.5 \u2014 vigilancia periodica"
+    },
+    {
+      "label": "GERENCIADOR-GLOBAL.6 \u2014 Aceite do usu\u00e1rio",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L119",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_6_aceite_do_usu\u00e1rio",
+      "community": 27,
+      "norm_label": "gerenciador-global.6 \u2014 aceite do usuario"
+    },
+    {
+      "label": "GERENCIADOR-GLOBAL.8 \u2014 Conferir as respostas de 16:12",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L129",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_8_conferir_as_respostas_de_16_12",
+      "community": 27,
+      "norm_label": "gerenciador-global.8 \u2014 conferir as respostas de 16:12"
+    },
+    {
+      "label": "Confer\u00eancia das respostas de 16:12",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L141",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_confer\u00eancia_das_respostas_de_16_12",
+      "community": 27,
+      "norm_label": "conferencia das respostas de 16:12"
+    },
+    {
+      "label": "GERENCIADOR-GLOBAL.7 \u2014 Mesclar o `gerenciador-de-tarefas` e revisar o desenho",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L156",
+      "_origin": "ast",
+      "id": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_7_mesclar_o_gerenciador_de_tarefas_e_revisar_o_desenho",
+      "community": 27,
+      "norm_label": "gerenciador-global.7 \u2014 mesclar o `gerenciador-de-tarefas` e revisar o desenho"
+    },
+    {
+      "label": "ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_010_status_quadro_global",
+      "community": 28,
+      "norm_label": "etapa-010-status-quadro-global.md"
+    },
+    {
+      "label": "Etapa 010 \u2014 STATUS-QUADRO-GLOBAL: todo status \u00e9 mostrado em quadro",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_010_status_quadro_global_etapa_010_status_quadro_global_todo_status_\u00e9_mostrado_em_quadro",
+      "community": 28,
+      "norm_label": "etapa 010 \u2014 status-quadro-global: todo status e mostrado em quadro"
+    },
+    {
+      "label": "Texto novo de `regras/exibicao-de-status.md` (arquivo novo, sem mudar)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "etapas_etapa_010_status_quadro_global_texto_novo_de_regras_exibicao_de_status_md_arquivo_novo_sem_mudar",
+      "community": 28,
+      "norm_label": "texto novo de `regras/exibicao-de-status.md` (arquivo novo, sem mudar)"
+    },
+    {
+      "label": "STATUS-QUADRO-GLOBAL.1 \u2014 Regra global, conflito C27 e status do projeto",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "etapas_etapa_010_status_quadro_global_status_quadro_global_1_regra_global_conflito_c27_e_status_do_projeto",
+      "community": 28,
+      "norm_label": "status-quadro-global.1 \u2014 regra global, conflito c27 e status do projeto"
+    },
+    {
+      "label": "STATUS-QUADRO-GLOBAL.2 \u2014 Rodar o sincronizador",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "etapas_etapa_010_status_quadro_global_status_quadro_global_2_rodar_o_sincronizador",
+      "community": 28,
+      "norm_label": "status-quadro-global.2 \u2014 rodar o sincronizador"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "etapas_etapa_010_status_quadro_global_decis\u00f5es",
+      "community": 28,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "STATUS-QUADRO-GLOBAL.3 \u2014 ID da tarefa e linha da m\u00e3e em todo quadro (amplia\u00e7\u00e3o da C27)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "etapas_etapa_010_status_quadro_global_status_quadro_global_3_id_da_tarefa_e_linha_da_m\u00e3e_em_todo_quadro_amplia\u00e7\u00e3o_da_c27",
+      "community": 28,
+      "norm_label": "status-quadro-global.3 \u2014 id da tarefa e linha da mae em todo quadro (ampliacao da c27)"
+    },
+    {
+      "label": "ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_011_pasta_unica_global",
+      "community": 30,
+      "norm_label": "etapa-011-pasta-unica-global.md"
+    },
+    {
+      "label": "Etapa 011 \u2014 PASTA-UNICA-GLOBAL: conflitos de v\u00e1rias sess\u00f5es na mesma pasta (`rules-ai` e `gerenciador-de-ia`)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_011_pasta_unica_global_etapa_011_pasta_unica_global_conflitos_de_v\u00e1rias_sess\u00f5es_na_mesma_pasta_rules_ai_e_gerenciador_de_ia",
+      "community": 30,
+      "norm_label": "etapa 011 \u2014 pasta-unica-global: conflitos de varias sessoes na mesma pasta (`rules-ai` e `gerenciador-de-ia`)"
+    },
+    {
+      "label": "Contexto",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "etapas_etapa_011_pasta_unica_global_contexto",
+      "community": 30,
+      "norm_label": "contexto"
+    },
+    {
+      "label": "Riscos",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "etapas_etapa_011_pasta_unica_global_riscos",
+      "community": 30,
+      "norm_label": "riscos"
+    },
+    {
+      "label": "PASTA-UNICA-GLOBAL.1 \u2014 Levantar o conflito e propor a solu\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "etapas_etapa_011_pasta_unica_global_pasta_unica_global_1_levantar_o_conflito_e_propor_a_solu\u00e7\u00e3o",
+      "community": 30,
+      "norm_label": "pasta-unica-global.1 \u2014 levantar o conflito e propor a solucao"
+    },
+    {
+      "label": "Compara\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "etapas_etapa_011_pasta_unica_global_compara\u00e7\u00e3o",
+      "community": 30,
+      "norm_label": "comparacao"
+    },
+    {
+      "label": "PASTA-UNICA-GLOBAL.2 \u2014 Aprova\u00e7\u00e3o do plano",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "etapas_etapa_011_pasta_unica_global_pasta_unica_global_2_aprova\u00e7\u00e3o_do_plano",
+      "community": 30,
+      "norm_label": "pasta-unica-global.2 \u2014 aprovacao do plano"
+    },
+    {
+      "label": "PASTA-UNICA-GLOBAL.3 \u2014 Regra do `rules-ai`: uma sess\u00e3o por vez",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "etapas_etapa_011_pasta_unica_global_pasta_unica_global_3_regra_do_rules_ai_uma_sess\u00e3o_por_vez",
+      "community": 30,
+      "norm_label": "pasta-unica-global.3 \u2014 regra do `rules-ai`: uma sessao por vez"
+    },
+    {
+      "label": "PASTA-UNICA-GLOBAL.4 \u2014 Decidir o `gerenciador-de-ia`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L113",
+      "_origin": "ast",
+      "id": "etapas_etapa_011_pasta_unica_global_pasta_unica_global_4_decidir_o_gerenciador_de_ia",
+      "community": 30,
+      "norm_label": "pasta-unica-global.4 \u2014 decidir o `gerenciador-de-ia`"
+    },
+    {
+      "label": "PASTA-UNICA-GLOBAL.5 \u2014 Levar a regra ao `gerenciador-de-ia`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L122",
+      "_origin": "ast",
+      "id": "etapas_etapa_011_pasta_unica_global_pasta_unica_global_5_levar_a_regra_ao_gerenciador_de_ia",
+      "community": 30,
+      "norm_label": "pasta-unica-global.5 \u2014 levar a regra ao `gerenciador-de-ia`"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L135",
+      "_origin": "ast",
+      "id": "etapas_etapa_011_pasta_unica_global_decis\u00f5es",
+      "community": 30,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "ETAPA-012-PONTO-GLOBAL.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_012_ponto_global",
+      "community": 32,
+      "norm_label": "etapa-012-ponto-global.md"
+    },
+    {
+      "label": "Etapa 012 \u2014 PONTO-GLOBAL: mensagem `.` = liste as tarefas pendentes",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_012_ponto_global_etapa_012_ponto_global_mensagem_liste_as_tarefas_pendentes",
+      "community": 32,
+      "norm_label": "etapa 012 \u2014 ponto-global: mensagem `.` = liste as tarefas pendentes"
+    },
+    {
+      "label": "Texto da regra (no fim de `regras/frentes-e-reserva.md`, sem mudar)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "etapas_etapa_012_ponto_global_texto_da_regra_no_fim_de_regras_frentes_e_reserva_md_sem_mudar",
+      "community": 32,
+      "norm_label": "texto da regra (no fim de `regras/frentes-e-reserva.md`, sem mudar)"
+    },
+    {
+      "label": "PONTO-GLOBAL.1 \u2014 Regra global, conflito C30, status e sincronizador",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "etapas_etapa_012_ponto_global_ponto_global_1_regra_global_conflito_c30_status_e_sincronizador",
+      "community": 32,
+      "norm_label": "ponto-global.1 \u2014 regra global, conflito c30, status e sincronizador"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "etapas_etapa_012_ponto_global_decis\u00f5es",
+      "community": 32,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "task_complete.md",
+      "file_type": "document",
+      "source_file": "tasks/task_complete.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tasks_task_complete",
+      "community": 25,
+      "norm_label": "task_complete.md"
+    },
+    {
+      "label": "\u2705 Conclu\u00eddas \u2014 rules-ai",
+      "file_type": "document",
+      "source_file": "tasks/task_complete.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tasks_task_complete_conclu\u00eddas_rules_ai",
+      "community": 25,
+      "norm_label": "\u2705 concluidas \u2014 rules-ai"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar",
+      "target": "scripts_sincronizar_aplicar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L74",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar",
+      "target": "scripts_sincronizar_aplicarbloco"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar",
+      "target": "scripts_sincronizar_arquivo_unificado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar",
+      "target": "scripts_sincronizar_destinos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar",
+      "target": "scripts_sincronizar_montarbloco"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar",
+      "target": "scripts_sincronizar_montarunificado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar",
+      "target": "scripts_sincronizar_pasta_regras"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L105",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar",
+      "target": "scripts_sincronizar_principal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar",
+      "target": "scripts_sincronizar_raiz"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar",
+      "target": "scripts_sincronizar_sincronizardestino"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar_principal",
+      "target": "scripts_sincronizar_montarunificado"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L94",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar_sincronizardestino",
+      "target": "scripts_sincronizar_montarbloco"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/sincronizar.mjs",
+      "source_location": "L94",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_sincronizar_sincronizardestino",
+      "target": "scripts_sincronizar_aplicarbloco"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents",
+      "target": "agents_agents_md"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md",
+      "target": "agents_uma_sess\u00e3o_por_vez_s\u00f3_neste_projeto_c29"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "conflitos",
+      "target": "conflitos_conflitos_entre_regras_aguardam_a_confirma\u00e7\u00e3o_do_usu\u00e1rio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "conflitos_conflitos_entre_regras_aguardam_a_confirma\u00e7\u00e3o_do_usu\u00e1rio",
+      "target": "conflitos_decididos_depois_2026_10_16"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "conflitos_conflitos_entre_regras_aguardam_a_confirma\u00e7\u00e3o_do_usu\u00e1rio",
+      "target": "conflitos_decididos_em_2026_10_16_c1_a_c10"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "conflitos_conflitos_entre_regras_aguardam_a_confirma\u00e7\u00e3o_do_usu\u00e1rio",
+      "target": "conflitos_o_que_ficou_de_fora_de_prop\u00f3sito_espec\u00edfico_de_projeto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "conflitos_conflitos_entre_regras_aguardam_a_confirma\u00e7\u00e3o_do_usu\u00e1rio",
+      "target": "conflitos_o_que_j\u00e1_est\u00e1_no_global_sem_conflito"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONFLITOS.md",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "conflitos_conflitos_entre_regras_aguardam_a_confirma\u00e7\u00e3o_do_usu\u00e1rio",
+      "target": "conflitos_pendente_de_decis\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme",
+      "target": "readme_rules_ai"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_rules_ai",
+      "target": "readme_como_funciona"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_rules_ai",
+      "target": "readme_mudar_uma_regra"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "readme_rules_ai",
+      "target": "readme_preced\u00eancia"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "status_projeto",
+      "target": "status_projeto_status_do_projeto_dashboard_ai"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "status_projeto_status_do_projeto_dashboard_ai",
+      "target": "status_projeto_frentes_de_trabalho"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "status_projeto_status_do_projeto_dashboard_ai",
+      "target": "status_projeto_o_que_espera_de_voc\u00ea"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "status_projeto_status_do_projeto_dashboard_ai",
+      "target": "status_projeto_o_que_mudou_desde_a_\u00faltima_grava\u00e7\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "status_projeto_status_do_projeto_dashboard_ai",
+      "target": "status_projeto_objetivo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L90",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "status_projeto_status_do_projeto_dashboard_ai",
+      "target": "status_projeto_quadro_do_rea_rea_app_clones"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "status_projeto_frentes_de_trabalho",
+      "target": "status_projeto_1_executar_alinhamento_das_regras_globais"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "status_projeto_frentes_de_trabalho",
+      "target": "status_projeto_2_ligar_as_outras_ias_\u00e0s_regras_globais"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "status_projeto_frentes_de_trabalho",
+      "target": "status_projeto_3_status_do_projeto_em_markdown"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L85",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "status_projeto_frentes_de_trabalho",
+      "target": "status_projeto_4_atualizar_status_a_cada_hora"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/atividades-e-idioma.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_atividades_e_idioma",
+      "target": "regras_atividades_e_idioma_idioma_e_atividades"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_ciclo_da_task",
+      "target": "regras_ciclo_da_task_ciclo_de_uma_tarefa_task"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_ciclo_da_task_ciclo_de_uma_tarefa_task",
+      "target": "regras_ciclo_da_task_encerrar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_ciclo_da_task_ciclo_de_uma_tarefa_task",
+      "target": "regras_ciclo_da_task_executar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_ciclo_da_task_ciclo_de_uma_tarefa_task",
+      "target": "regras_ciclo_da_task_o_que_vira_task"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_ciclo_da_task_ciclo_de_uma_tarefa_task",
+      "target": "regras_ciclo_da_task_ordem_de_todo_pedido_criar_publicar_assumir_trabalhar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_ciclo_da_task_ciclo_de_uma_tarefa_task",
+      "target": "regras_ciclo_da_task_pequena_ou_grande"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/ciclo-da-task.md",
+      "source_location": "L66",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_ciclo_da_task_ciclo_de_uma_tarefa_task",
+      "target": "regras_ciclo_da_task_retomar_sess\u00e3o_nova_ou_que_caiu"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_codigo_limites_nomes",
+      "target": "regras_codigo_limites_nomes_c\u00f3digo_limites_nomes_e_legibilidade"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_codigo_limites_nomes_c\u00f3digo_limites_nomes_e_legibilidade",
+      "target": "regras_codigo_limites_nomes_checklist"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_codigo_limites_nomes_c\u00f3digo_limites_nomes_e_legibilidade",
+      "target": "regras_codigo_limites_nomes_exemplo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_codigo_limites_nomes_c\u00f3digo_limites_nomes_e_legibilidade",
+      "target": "regras_codigo_limites_nomes_legibilidade"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_codigo_limites_nomes_c\u00f3digo_limites_nomes_e_legibilidade",
+      "target": "regras_codigo_limites_nomes_limites_obrigat\u00f3rios"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/codigo-limites-nomes.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_codigo_limites_nomes_c\u00f3digo_limites_nomes_e_legibilidade",
+      "target": "regras_codigo_limites_nomes_nomes_em_portugu\u00eas_sem_acentos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/codigo-solid.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_codigo_solid",
+      "target": "regras_codigo_solid_c\u00f3digo_princ\u00edpios_solid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/codigo-solid.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_codigo_solid_c\u00f3digo_princ\u00edpios_solid",
+      "target": "regras_codigo_solid_checklist_solid"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/codigo-solid.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_codigo_solid_c\u00f3digo_princ\u00edpios_solid",
+      "target": "regras_codigo_solid_os_5_princ\u00edpios"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/codigo-solid.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_codigo_solid_c\u00f3digo_princ\u00edpios_solid",
+      "target": "regras_codigo_solid_por_tecnologia"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/esforco.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_esforco",
+      "target": "regras_esforco_esfor\u00e7o_effort_dos_agentes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/exibicao-de-status.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_exibicao_de_status",
+      "target": "regras_exibicao_de_status_exibi\u00e7\u00e3o_de_status_sempre_em_quadro"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_frentes_e_reserva",
+      "target": "regras_frentes_e_reserva_frentes_e_reserva_de_subtarefas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_frentes_e_reserva_frentes_e_reserva_de_subtarefas",
+      "target": "regras_frentes_e_reserva_conflitos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_frentes_e_reserva_frentes_e_reserva_de_subtarefas",
+      "target": "regras_frentes_e_reserva_frentes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "regras_frentes_e_reserva_frentes_e_reserva_de_subtarefas",
+      "target": "regras_frentes_e_reserva_gatilho_liste_as_tarefas_pendentes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_frentes_e_reserva_frentes_e_reserva_de_subtarefas",
+      "target": "regras_frentes_e_reserva_gatilho_pegue_a_pr\u00f3xima_tarefa_do_seu_modelo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_frentes_e_reserva_frentes_e_reserva_de_subtarefas",
+      "target": "regras_frentes_e_reserva_limites"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/frentes-e-reserva.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_frentes_e_reserva_frentes_e_reserva_de_subtarefas",
+      "target": "regras_frentes_e_reserva_pegar_uma_subtarefa"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_gerenciador_centralizado",
+      "target": "regras_gerenciador_centralizado_gerenciador_centralizado_de_tarefas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_gerenciador_centralizado_gerenciador_centralizado_de_tarefas",
+      "target": "regras_gerenciador_centralizado_como_parar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_gerenciador_centralizado_gerenciador_centralizado_de_tarefas",
+      "target": "regras_gerenciador_centralizado_limites"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_gerenciador_centralizado_gerenciador_centralizado_de_tarefas",
+      "target": "regras_gerenciador_centralizado_modos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_gerenciador_centralizado_gerenciador_centralizado_de_tarefas",
+      "target": "regras_gerenciador_centralizado_o_que_ele_faz"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/gerenciador-centralizado.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_gerenciador_centralizado_gerenciador_centralizado_de_tarefas",
+      "target": "regras_gerenciador_centralizado_regras_do_modo_disparar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/git-geral.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_git_geral",
+      "target": "regras_git_geral_git_regras_comuns_a_todos_os_projetos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/graphify.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_graphify",
+      "target": "regras_graphify_graphify_grafo_de_conhecimento_do_projeto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/graphify.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_graphify_graphify_grafo_de_conhecimento_do_projeto",
+      "target": "regras_graphify_falhas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/graphify.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_graphify_graphify_grafo_de_conhecimento_do_projeto",
+      "target": "regras_graphify_quando_atualizar_o_grafo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/graphify.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_graphify_graphify_grafo_de_conhecimento_do_projeto",
+      "target": "regras_graphify_quando_ler_o_graphify_out_graph_report_md"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_niveis_e_modelos",
+      "target": "regras_niveis_e_modelos_n\u00edveis_de_tarefa_quem_pega_o_qu\u00ea"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_niveis_e_modelos_n\u00edveis_de_tarefa_quem_pega_o_qu\u00ea",
+      "target": "regras_niveis_e_modelos_como_usar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L48",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_niveis_e_modelos_n\u00edveis_de_tarefa_quem_pega_o_qu\u00ea",
+      "target": "regras_niveis_e_modelos_equipe_de_agentes_do_claude_code"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_niveis_e_modelos_n\u00edveis_de_tarefa_quem_pega_o_qu\u00ea",
+      "target": "regras_niveis_e_modelos_os_3_n\u00edveis"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/niveis-e-modelos.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_niveis_e_modelos_n\u00edveis_de_tarefa_quem_pega_o_qu\u00ea",
+      "target": "regras_niveis_e_modelos_quem_pega_cada_n\u00edvel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/pastas-ignoradas.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_pastas_ignoradas",
+      "target": "regras_pastas_ignoradas_pastas_que_n\u00e3o_se_leem_de_in\u00edcio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_quadro_de_tarefas",
+      "target": "regras_quadro_de_tarefas_quadro_de_tarefas_fonte_\u00fanica_para_qualquer_projeto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_quadro_de_tarefas_quadro_de_tarefas_fonte_\u00fanica_para_qualquer_projeto",
+      "target": "regras_quadro_de_tarefas_cada_informa\u00e7\u00e3o_em_um_lugar_s\u00f3"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_quadro_de_tarefas_quadro_de_tarefas_fonte_\u00fanica_para_qualquer_projeto",
+      "target": "regras_quadro_de_tarefas_legenda"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_quadro_de_tarefas_quadro_de_tarefas_fonte_\u00fanica_para_qualquer_projeto",
+      "target": "regras_quadro_de_tarefas_modelo_da_etapa_uma_por_tarefa_m\u00e3e"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_quadro_de_tarefas_quadro_de_tarefas_fonte_\u00fanica_para_qualquer_projeto",
+      "target": "regras_quadro_de_tarefas_modelo_do_tasks_status_md"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_quadro_de_tarefas_quadro_de_tarefas_fonte_\u00fanica_para_qualquer_projeto",
+      "target": "regras_quadro_de_tarefas_modelo_do_tasks_task_complete_md"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/quadro-de-tarefas.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_quadro_de_tarefas_quadro_de_tarefas_fonte_\u00fanica_para_qualquer_projeto",
+      "target": "regras_quadro_de_tarefas_tarefa_e_subtarefa"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/testes-validacao.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_testes_validacao",
+      "target": "regras_testes_validacao_testes_e_valida\u00e7\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/testes-validacao.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_testes_validacao_testes_e_valida\u00e7\u00e3o",
+      "target": "regras_testes_validacao_nunca_abrir_navegador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/testes-validacao.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "regras_testes_validacao_testes_e_valida\u00e7\u00e3o",
+      "target": "regras_testes_validacao_nunca_escrever_testes_exceto_para_corrigir_bug"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/STATUS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tasks_status",
+      "target": "tasks_status_status_rules_ai"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/STATUS.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tasks_status_status_rules_ai",
+      "target": "tasks_status_registro_de_decis\u00f5es"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/STATUS.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tasks_status_status_rules_ai",
+      "target": "tasks_status_tarefas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_001_global",
+      "target": "etapas_etapa_001_global_etapa_001_global_regras_globais_para_todas_as_ias_e_projetos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_001_global_etapa_001_global_regras_globais_para_todas_as_ias_e_projetos",
+      "target": "etapas_etapa_001_global_global_1_a_global_3_entrega"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_001_global_etapa_001_global_regras_globais_para_todas_as_ias_e_projetos",
+      "target": "etapas_etapa_001_global_global_4_confirmar_os_conflitos_conclu\u00edda"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_001_global_etapa_001_global_regras_globais_para_todas_as_ias_e_projetos",
+      "target": "etapas_etapa_001_global_global_5_demais_ias_conclu\u00edda"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_001_global_etapa_001_global_regras_globais_para_todas_as_ias_e_projetos",
+      "target": "etapas_etapa_001_global_global_6_decidir_c11_e_c12_conclu\u00edda"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_001_global_etapa_001_global_regras_globais_para_todas_as_ias_e_projetos",
+      "target": "etapas_etapa_001_global_global_7_acompanhar_o_alinhamento_dos_projetos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-001-GLOBAL.md",
+      "source_location": "L57",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_001_global_etapa_001_global_regras_globais_para_todas_as_ias_e_projetos",
+      "target": "etapas_etapa_001_global_global_8_gemini_cli_lendo_as_regras_de_verdade_conclu\u00edda"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global",
+      "target": "etapas_etapa_002_esforco_global_etapa_002_esforco_global_e_confeffort_global_esfor\u00e7o_effort_vale_para_todos_os_projetos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global_etapa_002_esforco_global_e_confeffort_global_esfor\u00e7o_effort_vale_para_todos_os_projetos",
+      "target": "etapas_etapa_002_esforco_global_confeffort_global_6_sonnet_5_5_2a_rodada_com_problema_dif\u00edcil"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global_etapa_002_esforco_global_e_confeffort_global_esfor\u00e7o_effort_vale_para_todos_os_projetos",
+      "target": "etapas_etapa_002_esforco_global_confeffort_global_7_atualizar_a_c21_com_a_confer\u00eancia_do_opus"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global_etapa_002_esforco_global_e_confeffort_global_esfor\u00e7o_effort_vale_para_todos_os_projetos",
+      "target": "etapas_etapa_002_esforco_global_confeffort_global_subtarefas_por_modelo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global_etapa_002_esforco_global_e_confeffort_global_esfor\u00e7o_effort_vale_para_todos_os_projetos",
+      "target": "etapas_etapa_002_esforco_global_decis\u00f5es"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global_etapa_002_esforco_global_e_confeffort_global_esfor\u00e7o_effort_vale_para_todos_os_projetos",
+      "target": "etapas_etapa_002_esforco_global_esforco_global_1_regra_global_regras_esforco_md"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global_etapa_002_esforco_global_e_confeffort_global_esfor\u00e7o_effort_vale_para_todos_os_projetos",
+      "target": "etapas_etapa_002_esforco_global_esforco_global_2_aceite_do_usu\u00e1rio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global_etapa_002_esforco_global_e_confeffort_global_esfor\u00e7o_effort_vale_para_todos_os_projetos",
+      "target": "etapas_etapa_002_esforco_global_esforco_global_3_4_e_5_effort_em_todos_os_agentes_e_em_todas_as_tarefas_pendentes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global_etapa_002_esforco_global_e_confeffort_global_esfor\u00e7o_effort_vale_para_todos_os_projetos",
+      "target": "etapas_etapa_002_esforco_global_esforco_global_6_limpar_o_esforco_md_s\u00f3_a_regra_resultados_ficam_aqui"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global_confeffort_global_subtarefas_por_modelo",
+      "target": "etapas_etapa_002_esforco_global_confeffort_global_2_sonnet_5_5_resultado_2026_10_16_20_05_claude_code_sonnet_5_5_local_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global_confeffort_global_6_sonnet_5_5_2a_rodada_com_problema_dif\u00edcil",
+      "target": "etapas_etapa_002_esforco_global_confeffort_global_3_opus_5_5_resultado_2026_10_17_13_05_claude_code_opus_5_5_local_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global_confeffort_global_6_sonnet_5_5_2a_rodada_com_problema_dif\u00edcil",
+      "target": "etapas_etapa_002_esforco_global_confeffort_global_6_resultado_2026_10_16_20_25_claude_code_sonnet_5_5_local_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md",
+      "source_location": "L157",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_002_esforco_global_esforco_global_6_limpar_o_esforco_md_s\u00f3_a_regra_resultados_ficam_aqui",
+      "target": "etapas_etapa_002_esforco_global_resultados_retirados_do_esforco_md_hist\u00f3rico_2026_10_17"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria",
+      "target": "etapas_etapa_003_effort_padaria_etapa_003_effort_padaria_testar_low_medium_e_high_em_todos_os_modelos_com_um_projeto_de_padaria"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_etapa_003_effort_padaria_testar_low_medium_e_high_em_todos_os_modelos_com_um_projeto_de_padaria",
+      "target": "etapas_etapa_003_effort_padaria_decis\u00f5es"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_etapa_003_effort_padaria_testar_low_medium_e_high_em_todos_os_modelos_com_um_projeto_de_padaria",
+      "target": "etapas_etapa_003_effort_padaria_effort_padaria_1_criar_o_projeto_testes_effort_padaria"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_etapa_003_effort_padaria_testar_low_medium_e_high_em_todos_os_modelos_com_um_projeto_de_padaria",
+      "target": "etapas_etapa_003_effort_padaria_effort_padaria_2_gabarito"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_etapa_003_effort_padaria_testar_low_medium_e_high_em_todos_os_modelos_com_um_projeto_de_padaria",
+      "target": "etapas_etapa_003_effort_padaria_effort_padaria_3_a_7_rodadas_por_modelo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_etapa_003_effort_padaria_testar_low_medium_e_high_em_todos_os_modelos_com_um_projeto_de_padaria",
+      "target": "etapas_etapa_003_effort_padaria_effort_padaria_8_relat\u00f3rio_comparativo_effort_padaria_9_aceite_do_usu\u00e1rio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_etapa_003_effort_padaria_testar_low_medium_e_high_em_todos_os_modelos_com_um_projeto_de_padaria",
+      "target": "etapas_etapa_003_effort_padaria_escopo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_etapa_003_effort_padaria_testar_low_medium_e_high_em_todos_os_modelos_com_um_projeto_de_padaria",
+      "target": "etapas_etapa_003_effort_padaria_protocolo_de_medi\u00e7\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_effort_padaria_2_gabarito",
+      "target": "etapas_etapa_003_effort_padaria_gabarito_38_itens_nota_itens_certos_38"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_effort_padaria_8_relat\u00f3rio_comparativo_effort_padaria_9_aceite_do_usu\u00e1rio",
+      "target": "etapas_etapa_003_effort_padaria_effort_padaria_3_haiku_5_5_resultado_2026_10_16_20_15_l\u00edder_claude_code_opus_5_5"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L71",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_effort_padaria_8_relat\u00f3rio_comparativo_effort_padaria_9_aceite_do_usu\u00e1rio",
+      "target": "etapas_etapa_003_effort_padaria_effort_padaria_4_sonnet_5_5_resultado_2026_10_16_20_20_l\u00edder_claude_code_opus_5_5"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_effort_padaria_8_relat\u00f3rio_comparativo_effort_padaria_9_aceite_do_usu\u00e1rio",
+      "target": "etapas_etapa_003_effort_padaria_effort_padaria_5_opus_5_5_resultado_2026_10_16_20_30_l\u00edder_claude_code_opus_5_5"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_effort_padaria_8_relat\u00f3rio_comparativo_effort_padaria_9_aceite_do_usu\u00e1rio",
+      "target": "etapas_etapa_003_effort_padaria_effort_padaria_8_relat\u00f3rio_comparativo_2026_10_16_20_31"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md",
+      "source_location": "L106",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_003_effort_padaria_effort_padaria_8_relat\u00f3rio_comparativo_effort_padaria_9_aceite_do_usu\u00e1rio",
+      "target": "etapas_etapa_003_effort_padaria_effort_padaria_9_aceite"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_004_modelo_global",
+      "target": "etapas_etapa_004_modelo_global_etapa_004_modelo_global_nunca_executar_tarefa_que_n\u00e3o_\u00e9_do_seu_modelo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_004_modelo_global_etapa_004_modelo_global_nunca_executar_tarefa_que_n\u00e3o_\u00e9_do_seu_modelo",
+      "target": "etapas_etapa_004_modelo_global_decis\u00f5es"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_004_modelo_global_etapa_004_modelo_global_nunca_executar_tarefa_que_n\u00e3o_\u00e9_do_seu_modelo",
+      "target": "etapas_etapa_004_modelo_global_modelo_global_1_regra_global"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_004_modelo_global_etapa_004_modelo_global_nunca_executar_tarefa_que_n\u00e3o_\u00e9_do_seu_modelo",
+      "target": "etapas_etapa_004_modelo_global_modelo_global_2_levar_aos_outros_projetos_e_\u00e0s_ias"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-005-INDEX-FONTES.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_005_index_fontes",
+      "target": "etapas_etapa_005_index_fontes_etapa_005_index_fontes_cards_e_modais_no_c_fontes_index_html"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-005-INDEX-FONTES.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_005_index_fontes_etapa_005_index_fontes_cards_e_modais_no_c_fontes_index_html",
+      "target": "etapas_etapa_005_index_fontes_decis\u00f5es"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-005-INDEX-FONTES.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_005_index_fontes_etapa_005_index_fontes_cards_e_modais_no_c_fontes_index_html",
+      "target": "etapas_etapa_005_index_fontes_index_fontes_1_cards_modais_e_gerador_de_dados"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_006_gatilho_global",
+      "target": "etapas_etapa_006_gatilho_global_etapa_006_gatilho_global_mensagem_pegue_a_pr\u00f3xima_tarefa_do_seu_modelo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_006_gatilho_global_etapa_006_gatilho_global_mensagem_pegue_a_pr\u00f3xima_tarefa_do_seu_modelo",
+      "target": "etapas_etapa_006_gatilho_global_decis\u00f5es"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_006_gatilho_global_etapa_006_gatilho_global_mensagem_pegue_a_pr\u00f3xima_tarefa_do_seu_modelo",
+      "target": "etapas_etapa_006_gatilho_global_gatilho_global_1_regra_global_conflito_c24_e_status_do_projeto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_006_gatilho_global_etapa_006_gatilho_global_mensagem_pegue_a_pr\u00f3xima_tarefa_do_seu_modelo",
+      "target": "etapas_etapa_006_gatilho_global_gatilho_global_2_rodar_o_sincronizador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_006_gatilho_global_etapa_006_gatilho_global_mensagem_pegue_a_pr\u00f3xima_tarefa_do_seu_modelo",
+      "target": "etapas_etapa_006_gatilho_global_texto_da_regra_copiar_sem_mudar_em_regras_frentes_e_reserva_md_no_fim_do_arquivo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-007-GRAPHIFY-GLOBAL.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_007_graphify_global",
+      "target": "etapas_etapa_007_graphify_global_etapa_007_graphify_global_ler_o_relat\u00f3rio_antes_de_criar_ou_executar_tarefa_e_atualizar_ao_fim"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-007-GRAPHIFY-GLOBAL.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_007_graphify_global_etapa_007_graphify_global_ler_o_relat\u00f3rio_antes_de_criar_ou_executar_tarefa_e_atualizar_ao_fim",
+      "target": "etapas_etapa_007_graphify_global_graphify_global_1_regra_global_conflito_c25_e_status_do_projeto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-007-GRAPHIFY-GLOBAL.md",
+      "source_location": "L70",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_007_graphify_global_etapa_007_graphify_global_ler_o_relat\u00f3rio_antes_de_criar_ou_executar_tarefa_e_atualizar_ao_fim",
+      "target": "etapas_etapa_007_graphify_global_graphify_global_2_alinhar_o_graphify_md_dos_projetos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-007-GRAPHIFY-GLOBAL.md",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_007_graphify_global_etapa_007_graphify_global_ler_o_relat\u00f3rio_antes_de_criar_ou_executar_tarefa_e_atualizar_ao_fim",
+      "target": "etapas_etapa_007_graphify_global_graphify_global_3_rodar_o_sincronizador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-007-GRAPHIFY-GLOBAL.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_007_graphify_global_etapa_007_graphify_global_ler_o_relat\u00f3rio_antes_de_criar_ou_executar_tarefa_e_atualizar_ao_fim",
+      "target": "etapas_etapa_007_graphify_global_texto_novo_de_regras_graphify_md_substituir_o_arquivo_inteiro_sem_mudar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_008_subtarefa_global",
+      "target": "etapas_etapa_008_subtarefa_global_decis\u00f5es"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_008_subtarefa_global",
+      "target": "etapas_etapa_008_subtarefa_global_etapa_008_subtarefa_global_a_ia_cria_subtarefas_na_m\u00e3e_atual_e_publica_direto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_008_subtarefa_global_etapa_008_subtarefa_global_a_ia_cria_subtarefas_na_m\u00e3e_atual_e_publica_direto",
+      "target": "etapas_etapa_008_subtarefa_global_subtarefa_global_1_regra_global_conflito_c26_e_status_do_projeto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_008_subtarefa_global_etapa_008_subtarefa_global_a_ia_cria_subtarefas_na_m\u00e3e_atual_e_publica_direto",
+      "target": "etapas_etapa_008_subtarefa_global_subtarefa_global_2_rodar_o_sincronizador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_008_subtarefa_global_etapa_008_subtarefa_global_a_ia_cria_subtarefas_na_m\u00e3e_atual_e_publica_direto",
+      "target": "etapas_etapa_008_subtarefa_global_texto_novo_de_regras_ciclo_da_task_md"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_decis\u00f5es"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_escopo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_1_desenho_e_prova_de_conceito_aprova\u00e7\u00e3o_antes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_2_regra_global_do_gerenciador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_3_script_central_de_leitura_do_quadro"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L69",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_4_disparo_de_sess\u00f5es_por_modelo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L79",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_5_vigil\u00e2ncia_peri\u00f3dica"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L89",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_6_aceite_do_usu\u00e1rio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L137",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_7_mesclar_o_gerenciador_de_tarefas_e_revisar_o_desenho"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L127",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_8_conferir_as_respostas_de_16_12"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_perguntas_que_precisam_de_resposta_antes_de_executar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_etapa_009_a0c1d676_gerenciador_global_gerenciador_centralizado_que_chama_as_tarefas_livres_de_cada_modelo",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_riscos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_1_desenho_e_prova_de_conceito_aprova\u00e7\u00e3o_antes",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_desenho"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md",
+      "source_location": "L141",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_009_a0c1d676_gerenciador_global_gerenciador_global_8_conferir_as_respostas_de_16_12",
+      "target": "etapas_etapa_009_a0c1d676_gerenciador_global_confer\u00eancia_das_respostas_de_16_12"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_010_status_quadro_global",
+      "target": "etapas_etapa_010_status_quadro_global_decis\u00f5es"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_010_status_quadro_global",
+      "target": "etapas_etapa_010_status_quadro_global_etapa_010_status_quadro_global_todo_status_\u00e9_mostrado_em_quadro"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_010_status_quadro_global_etapa_010_status_quadro_global_todo_status_\u00e9_mostrado_em_quadro",
+      "target": "etapas_etapa_010_status_quadro_global_status_quadro_global_1_regra_global_conflito_c27_e_status_do_projeto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_010_status_quadro_global_etapa_010_status_quadro_global_todo_status_\u00e9_mostrado_em_quadro",
+      "target": "etapas_etapa_010_status_quadro_global_status_quadro_global_2_rodar_o_sincronizador"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_010_status_quadro_global_etapa_010_status_quadro_global_todo_status_\u00e9_mostrado_em_quadro",
+      "target": "etapas_etapa_010_status_quadro_global_texto_novo_de_regras_exibicao_de_status_md_arquivo_novo_sem_mudar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md",
+      "source_location": "L72",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_010_status_quadro_global_decis\u00f5es",
+      "target": "etapas_etapa_010_status_quadro_global_status_quadro_global_3_id_da_tarefa_e_linha_da_m\u00e3e_em_todo_quadro_amplia\u00e7\u00e3o_da_c27"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L135",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_011_pasta_unica_global",
+      "target": "etapas_etapa_011_pasta_unica_global_decis\u00f5es"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_011_pasta_unica_global",
+      "target": "etapas_etapa_011_pasta_unica_global_etapa_011_pasta_unica_global_conflitos_de_v\u00e1rias_sess\u00f5es_na_mesma_pasta_rules_ai_e_gerenciador_de_ia"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_011_pasta_unica_global_etapa_011_pasta_unica_global_conflitos_de_v\u00e1rias_sess\u00f5es_na_mesma_pasta_rules_ai_e_gerenciador_de_ia",
+      "target": "etapas_etapa_011_pasta_unica_global_contexto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_011_pasta_unica_global_etapa_011_pasta_unica_global_conflitos_de_v\u00e1rias_sess\u00f5es_na_mesma_pasta_rules_ai_e_gerenciador_de_ia",
+      "target": "etapas_etapa_011_pasta_unica_global_pasta_unica_global_1_levantar_o_conflito_e_propor_a_solu\u00e7\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L67",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_011_pasta_unica_global_etapa_011_pasta_unica_global_conflitos_de_v\u00e1rias_sess\u00f5es_na_mesma_pasta_rules_ai_e_gerenciador_de_ia",
+      "target": "etapas_etapa_011_pasta_unica_global_pasta_unica_global_2_aprova\u00e7\u00e3o_do_plano"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_011_pasta_unica_global_etapa_011_pasta_unica_global_conflitos_de_v\u00e1rias_sess\u00f5es_na_mesma_pasta_rules_ai_e_gerenciador_de_ia",
+      "target": "etapas_etapa_011_pasta_unica_global_pasta_unica_global_3_regra_do_rules_ai_uma_sess\u00e3o_por_vez"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L113",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_011_pasta_unica_global_etapa_011_pasta_unica_global_conflitos_de_v\u00e1rias_sess\u00f5es_na_mesma_pasta_rules_ai_e_gerenciador_de_ia",
+      "target": "etapas_etapa_011_pasta_unica_global_pasta_unica_global_4_decidir_o_gerenciador_de_ia"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L122",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_011_pasta_unica_global_etapa_011_pasta_unica_global_conflitos_de_v\u00e1rias_sess\u00f5es_na_mesma_pasta_rules_ai_e_gerenciador_de_ia",
+      "target": "etapas_etapa_011_pasta_unica_global_pasta_unica_global_5_levar_a_regra_ao_gerenciador_de_ia"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_011_pasta_unica_global_etapa_011_pasta_unica_global_conflitos_de_v\u00e1rias_sess\u00f5es_na_mesma_pasta_rules_ai_e_gerenciador_de_ia",
+      "target": "etapas_etapa_011_pasta_unica_global_riscos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "etapas_etapa_011_pasta_unica_global_pasta_unica_global_1_levantar_o_conflito_e_propor_a_solu\u00e7\u00e3o",
+      "target": "etapas_etapa_011_pasta_unica_global_compara\u00e7\u00e3o"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "etapas_etapa_012_ponto_global",
+      "target": "etapas_etapa_012_ponto_global_decis\u00f5es",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "etapas_etapa_012_ponto_global",
+      "target": "etapas_etapa_012_ponto_global_etapa_012_ponto_global_mensagem_liste_as_tarefas_pendentes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "etapas_etapa_012_ponto_global_etapa_012_ponto_global_mensagem_liste_as_tarefas_pendentes",
+      "target": "etapas_etapa_012_ponto_global_ponto_global_1_regra_global_conflito_c30_status_e_sincronizador",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "etapas_etapa_012_ponto_global_etapa_012_ponto_global_mensagem_liste_as_tarefas_pendentes",
+      "target": "etapas_etapa_012_ponto_global_texto_da_regra_no_fim_de_regras_frentes_e_reserva_md_sem_mudar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/task_complete.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tasks_task_complete",
+      "target": "tasks_task_complete_conclu\u00eddas_rules_ai"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "533137b39adf37421d5bad4d9089d27456e3c0a1"
+}

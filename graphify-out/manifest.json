@@ -1,0 +1,167 @@
+{
+  "scripts/sincronizar.mjs": {
+    "mtime": 1792176816.5092535,
+    "ast_hash": "41f1f882660fc2b7a694c4574defc748",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1792255140.5870109,
+    "ast_hash": "c57d0654d6dbc85ea30c67bed80f6fa3",
+    "semantic_hash": ""
+  },
+  "CONFLITOS.md": {
+    "mtime": 1792255902.021338,
+    "ast_hash": "777b3c4cdac41d5e5ae765f4419c87ff",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1792176850.6749356,
+    "ast_hash": "bd4ce873f82c760edb3f52617819ad0a",
+    "semantic_hash": ""
+  },
+  "STATUS_PROJETO.md": {
+    "mtime": 1792255902.021338,
+    "ast_hash": "5e53a307ad022e1afb59eea2dd317e01",
+    "semantic_hash": ""
+  },
+  "regras/atividades-e-idioma.md": {
+    "mtime": 1792166920.766559,
+    "ast_hash": "90b007e09dd8707f89854ca60cfb270e",
+    "semantic_hash": ""
+  },
+  "regras/ciclo-da-task.md": {
+    "mtime": 1792252033.5917964,
+    "ast_hash": "7a1c303d609406b6412dd41a71945ba2",
+    "semantic_hash": ""
+  },
+  "regras/codigo-limites-nomes.md": {
+    "mtime": 1792166906.1722069,
+    "ast_hash": "3a857d57dbcbec38c99cc3ebb31a698f",
+    "semantic_hash": ""
+  },
+  "regras/codigo-solid.md": {
+    "mtime": 1792166906.2385316,
+    "ast_hash": "de80e792479ccf648a4c00d0feb9d59d",
+    "semantic_hash": ""
+  },
+  "regras/esforco.md": {
+    "mtime": 1792253302.6471393,
+    "ast_hash": "e3e67f62edd22b33ac1951924b5a5d96",
+    "semantic_hash": ""
+  },
+  "regras/frentes-e-reserva.md": {
+    "mtime": 1792255902.021338,
+    "ast_hash": "a76e7963cc1942a1f40299d05a9364dc",
+    "semantic_hash": ""
+  },
+  "regras/git-geral.md": {
+    "mtime": 1792178675.4947255,
+    "ast_hash": "f916048a3ebf8bae74611ff89f8286c9",
+    "semantic_hash": ""
+  },
+  "regras/graphify.md": {
+    "mtime": 1792250840.768558,
+    "ast_hash": "64537d952eb07ecfe78a01895a80d31f",
+    "semantic_hash": ""
+  },
+  "regras/niveis-e-modelos.md": {
+    "mtime": 1792204408.4004152,
+    "ast_hash": "62260dec6853308502e6367f42e8c6ae",
+    "semantic_hash": ""
+  },
+  "regras/pastas-ignoradas.md": {
+    "mtime": 1792244430.252541,
+    "ast_hash": "0b4503357d885f3c4961587707c04723",
+    "semantic_hash": ""
+  },
+  "regras/quadro-de-tarefas.md": {
+    "mtime": 1792204408.4004152,
+    "ast_hash": "42f33024a6fd042913fcb576e8f28de9",
+    "semantic_hash": ""
+  },
+  "regras/testes-validacao.md": {
+    "mtime": 1792169714.32226,
+    "ast_hash": "7901c01152e3776498a04db7c2c12fcd",
+    "semantic_hash": ""
+  },
+  "tasks/STATUS.md": {
+    "mtime": 1792255929.1278503,
+    "ast_hash": "526418fc5eb95a771049f6fed1e6284c",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-001-GLOBAL.md": {
+    "mtime": 1792176850.679213,
+    "ast_hash": "3b85c8f8d5db3efd49bffb6a3d950447",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-002-ESFORCO-GLOBAL.md": {
+    "mtime": 1792253328.8447,
+    "ast_hash": "e6babb44c77db0912a7fb902f1f3b295",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-003-EFFORT-PADARIA.md": {
+    "mtime": 1792192355.2731726,
+    "ast_hash": "a681dc60155103474dc3c3dd6e090246",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-004-MODELO-GLOBAL.md": {
+    "mtime": 1792204408.4004152,
+    "ast_hash": "f24c4da2b8f81a510f7a6d04d2eb54bc",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-005-INDEX-FONTES.md": {
+    "mtime": 1792245389.4637146,
+    "ast_hash": "1a2d58ac5fdf7e49785c76bc5c73cfae",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-006-GATILHO-GLOBAL.md": {
+    "mtime": 1792254310.799248,
+    "ast_hash": "39652931840505b5ca81ed552b1d36c8",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-007-GRAPHIFY-GLOBAL.md": {
+    "mtime": 1792251016.2488916,
+    "ast_hash": "e63b1817b6b0b8ae12f7936722eff1a7",
+    "semantic_hash": ""
+  },
+  "tasks/task_complete.md": {
+    "mtime": 1792255929.1298623,
+    "ast_hash": "82ee8cb1e3dd8e0fd5f1f991ea56217f",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md": {
+    "mtime": 1792252281.7816212,
+    "ast_hash": "739d0090e372d8aeda3cf587210a557d",
+    "semantic_hash": ""
+  },
+  "regras/exibicao-de-status.md": {
+    "mtime": 1792253929.359404,
+    "ast_hash": "2d98741b750edc4921b94821b30295fe",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md": {
+    "mtime": 1792254883.9009886,
+    "ast_hash": "d930c4d2dc7c0be53f8a39e6d2651cb0",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md": {
+    "mtime": 1792253954.638988,
+    "ast_hash": "9a415e939605b28383892e93f9c40dcf",
+    "semantic_hash": ""
+  },
+  "regras/gerenciador-centralizado.md": {
+    "mtime": 1792254828.0314622,
+    "ast_hash": "fb879cd86b3e71b61619c4e6c59aac81",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md": {
+    "mtime": 1792255577.577299,
+    "ast_hash": "6b482785e237b314197cf41a469835df",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md": {
+    "mtime": 1792255929.1318731,
+    "ast_hash": "ad62fbbfa41b1f7e847cb8b0898b5be5",
+    "semantic_hash": ""
+  }
+}
