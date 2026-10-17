@@ -40,13 +40,37 @@
 
 ### GERENCIADOR-GLOBAL.1 — Desenho e prova de conceito (aprovação antes)
 
-**Próximo passo:** depois do "sim" do usuário às perguntas acima, conferir se o Claude Code aceita disparo não interativo com modelo fixo (`claude -p ";" --model haiku`, por `claude --help`) e registrar o resultado aqui. Nada muda nos quadros.
+**Próximo passo:** — (entregue).
 
 - **Nível:** PESADO — arquitetura e disparo de sessões, mais de 3 arquivos ligados.
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro.
 - **Descrição:** desenhar o script central, a lista de projetos, o formato de disparo por modelo, os limites, a trava e o registro de disparos.
 - **Critérios de Aceitação:** desenho escrito nesta seção; decisões das perguntas registradas; nenhum arquivo de projeto alterado.
-- **Entrega:** — · **Verificação:** — · **Anotação:** —
+- **Entrega (2026-10-17 13:10, Claude Code Opus 5.5):** prova de conceito e desenho abaixo.
+- **Verificação:** `claude --help` (2.1.302) tem `-p/--print`, `--model`, `--effort`,
+  `--output-format json`, `--max-budget-usd` e `--permission-mode`; prova de conceito numa pasta
+  temporária: `claude -p "<pergunta>" --model haiku --output-format json` → saída 0, 5,4 s,
+  `is_error: false`, `modelUsage` = `claude-haiku-5-5`, US$ 0,006. Nenhum quadro alterado.
+- **Anotação:** o disparo com `;` depende da regra C24 (`GATILHO-GLOBAL`, ainda ⬜): ela tem de
+  estar ✅ e sincronizada antes da `.4`.
+
+#### Desenho
+
+| Peça | Decisão |
+|---|---|
+| Script | `scripts/gerenciador.mjs` (Node, como o `sincronizar.mjs`), sem dependências externas |
+| Configuração | `scripts/gerenciador.config.json`: projetos (`rules-ai`, `aulasenai`), modelos (`haiku`, `sonnet`, `opus`), `modo` (`ver` padrão · `disparar`), `cicloSegundos: 60`, `ociosoSegundos: 20`, `maxSessoesPorModelo: 1`, `maxBudgetUsd` por sessão |
+| Pastas fora | `aulas-senai-*` (têm o líder `gerenciador-de-tarefas`), `DEMAIS-PROJETOS-*` (C20, C23) |
+| Leitura do quadro | `git fetch` + `git show origin/main:tasks/STATUS.md` (nunca a pasta de trabalho); acha a tabela de "📌 Tarefas" pelos **nomes** das colunas (`Tarefa`, `Modelo`, `Depende de`, `Status`, `Em uso por`) |
+| Subtarefa livre | `Status` começa com `⬜`; `Em uso por` = `—`; `Modelo` com "só Haiku/Sonnet/Opus/Fable"; toda dependência ✅ (no `STATUS.md` ou no `task_complete.md`). Fica de fora: "sem nível", `Usuário`, mãe (não reservável), `(nuvem)` |
+| Modelo ocupado | Linha `🔄` com o nome do modelo em `Em uso por`, **ou** processo vivo aberto pelo gerenciador (PID no registro) |
+| Ritmo | Uma volta a cada **20 s**; modelo **ocioso** é olhado em toda volta (20 s); modelo **ocupado**, a cada 3 voltas (**60 s**), só para ver se terminou |
+| Modo `ver` (padrão até o `.6`) | Imprime o quadro de livres por projeto e modelo (tabela, C27) e avisa quando chega tarefa nova para um modelo ocioso; não abre sessão |
+| Modo `disparar` (só depois do `.6`) | Para cada modelo ocioso com livre: `claude -p ";" --model <modelo> --effort <do nível> --output-format json --max-budget-usd <limite>` na pasta do projeto; a própria sessão reserva (C24 + `frentes-e-reserva.md`) |
+| Trava | `scripts/.gerenciador.lock` com o PID: uma instância só; lock de PID morto é retomado |
+| Parar | Arquivo `scripts/PARAR` → termina na próxima volta, sem abrir sessão |
+| Registro | `scripts/gerenciador.log.jsonl` (fora do Git): hora, projeto, modelo, subtarefa vista, disparo, PID, saída, custo |
+| Vigilância (`.5`) | O próprio laço de 20 s; o Agendador do Windows só **inicia** o script no logon (o Agendador não repete a menos de 1 min) |
 
 ### GERENCIADOR-GLOBAL.2 — Regra global do gerenciador
 

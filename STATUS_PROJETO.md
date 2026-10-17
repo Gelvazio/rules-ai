@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 13:10 (Brasília): GERENCIADOR-GLOBAL: plano aprovado (só `rules-ai` e `aulasenai`, começa só avisando, volta de 20 s para modelo ocioso e 60 s para ocupado, só Claude Code, fora das `aulas-senai-*`); `.1` entregue (prova de conceito `claude -p --model haiku` ok e desenho na etapa 009). Próximas: `.2` (Haiku) e `.3` (Opus).
 - 2026-10-17 13:05 (Brasília): CONFEFFORT-GLOBAL.3 entregue (Opus 5.5): `effort` aplicado — tokens e tempo crescem de `low` a `xhigh` (39.893 → 40.823 tokens; 19,0 → 26,6 s), todos acertaram. Faltam Haiku (.1), Gemini (.4) e DeepSeek (.5).
 - 2026-10-17 12:59 (Brasília): STATUS-QUADRO-GLOBAL concluída: `sincronizar.mjs --aplicar` rodado com autorização do usuário; a C27 chegou ao Claude Code (via `dist`), Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro.
 - 2026-10-17 12:56 (Brasília): regra global nova C27 (`regras/exibicao-de-status.md`, tarefa STATUS-QUADRO-GLOBAL, etapa 010): todo status (tarefas, frentes, pendências, conferências) é mostrado em quadro (tabela), no terminal e no chat do IDE, em todas as IAs. A regra chega às IAs depois do `sincronizar.mjs --aplicar` (STATUS-QUADRO-GLOBAL.2, aguarda o usuário).
