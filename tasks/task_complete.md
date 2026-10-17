@@ -52,3 +52,5 @@
 | PASTA-UNICA-GLOBAL.4 | 🌐 Decidir A, B ou C para o `gerenciador-de-ia` — (A) · `effort low` | 🟠 Alta | Usuário | PASTA-UNICA-GLOBAL.1 | ✅ Concluído (2026-10-17 13:44) | — | [ETAPA-011](etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md) |
 | PASTA-UNICA-GLOBAL.5 | 🌐 Levar a regra ao `gerenciador-de-ia` (#5.1 de lá) e ampliar a C29 · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku | PASTA-UNICA-GLOBAL.4 | ✅ Concluído (2026-10-17 13:46) | — | [ETAPA-011](etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md) |
 | **PASTA-UNICA-GLOBAL** | **🌐 GLOBAL — Conflitos de várias sessões na mesma pasta: uma sessão por vez no `rules-ai` e no `gerenciador-de-ia` (C29)** | 🟠 Alta | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-011](etapas/ETAPA-011-PASTA-UNICA-GLOBAL.md) |
+| PONTO-GLOBAL.1 | 🌐 Regra global, C30, status e sincronizador · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ✅ Concluído (2026-10-17 13:52) | — | [ETAPA-012](etapas/ETAPA-012-PONTO-GLOBAL.md) |
+| **PONTO-GLOBAL** | **🌐 GLOBAL — Mensagem `.` = liste as tarefas pendentes (C30)** | 🟡 Média | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-012](etapas/ETAPA-012-PONTO-GLOBAL.md) |

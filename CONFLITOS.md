@@ -55,6 +55,7 @@ C8); cópia em `~/.codex/AGENTS.md.bak`.
 | C27 | Exibição de status | ✅ Todo status (tarefas, frentes, pendências, conferências) é mostrado em **quadro** (tabela), no terminal e no chat do IDE, com o emoji da legenda; nunca em texto corrido ou lista solta. Pedido do usuário em 2026-10-17; regra em `regras/exibicao-de-status.md` · **Ampliada em 2026-10-17:** coluna Tarefa (ID) em todo quadro que fala de tarefa e linha da mãe junto das subtarefas (STATUS-QUADRO-GLOBAL.3) |
 | C28 | Gerenciador centralizado de tarefas | ✅ Regra em `regras/gerenciador-centralizado.md`: modo `ver` por padrão; `disparar` só com ordem explícita do usuário (**em pausa**, decisão de 13:30); quando ligado, só Haiku e Sonnet, ciclo de 30 s, 1 sessão por modelo. **Ordem vigente:** pausa (pedido do usuário em 13:30); o automático só para Haiku e Sonnet (16:12) fica para reativação. Pedido do usuário em 2026-10-17; etapa 009 |
 | C29 | Sessões na mesma pasta (`rules-ai`, `gerenciador-de-ia`) | ✅ **No `rules-ai` e no `gerenciador-de-ia`:** uma sessão de IA por vez, com a trava local `tasks/.sessao-ativa` (fora do Git); regra no `AGENTS.md` do `rules-ai` e na seção 10 do `CLAUDE.md` do `gerenciador-de-ia`. Pedido do usuário em 2026-10-17 |
+| C30 | Gatilho `.` | ✅ Mensagem só com `.` = listar em quadro as tarefas pendentes e apontar a próxima livre do **seu** modelo, sem reservar nem mudar nada; regra em `regras/frentes-e-reserva.md`. Pedido do usuário em 2026-10-17 |
 
 ## Pendente de decisão
 

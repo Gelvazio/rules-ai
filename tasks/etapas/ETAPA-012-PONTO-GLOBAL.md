@@ -23,7 +23,7 @@
 
 ### PONTO-GLOBAL.1 — Regra global, conflito C30, status e sincronizador
 
-**Próximo passo:** acrescentar o texto acima, a linha C30, o status e rodar o sincronizador.
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — só `.md` e rodar um script já existente.
 - **Modelo:** só Haiku — nunca outro
@@ -35,6 +35,8 @@
   (4) `node scripts/sincronizar.mjs --aplicar` (regra global: o pedido autoriza levar às IAs) e
   conferir que `dist/REGRAS-GLOBAIS.md` contém "Gatilho `.`".
 - **Critério de pronto:** os 3 arquivos com o texto exato; sincronizador sem erro.
+- **Entrega (2026-10-17 13:52, Haiku · executor-leve; líder Opus 5.5):** `regras/frentes-e-reserva.md`, `CONFLITOS.md`, `STATUS_PROJETO.md`; `sincronizar.mjs --aplicar` sem erro (7 IAs gravadas; Claude Code igual).
+- **Verificação (líder):** fim do `frentes-e-reserva.md` igual ao bloco desta etapa (comparação por script); `dist/REGRAS-GLOBAIS.md` contém o gatilho `.`.
 
 ## Decisões
 

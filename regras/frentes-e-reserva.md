@@ -59,3 +59,14 @@ mesmo repositório e só se falam pelos arquivos. Quadro: `quadro-de-tarefas.md`
   subtarefa livre (o `;` nunca autoriza pegar tarefa de outro modelo: `niveis-e-modelos.md`).
 - Tarefa grande sem o "sim" do usuário ao plano **não** é pega pelo `;` (fica 👀 até o "sim").
 - É **uma** subtarefa por mensagem `;`; para a seguinte, o usuário manda `;` de novo.
+
+## Gatilho `.` — liste as tarefas pendentes
+
+- Mensagem do usuário **só com `.`** = "Liste as tarefas pendentes do quadro" (C30, 2026-10-17).
+  Vale para todos os projetos e todas as IAs.
+- A IA faz, nesta ordem: **1)** sincronizar com o remoto; **2)** ler o `STATUS.md`; **3)** mostrar
+  em quadro (`exibicao-de-status.md`) as tarefas abertas: cada mãe primeiro, em negrito, e as
+  subtarefas ⬜ 🔄 ⛔ 👀, com Tarefa, Título, Modelo, Depende de, Status e Em uso por; **4)** dizer
+  qual é a próxima subtarefa livre do **seu** modelo, se houver.
+- ⛔ O `.` **não** reserva, não executa e não muda nada (nem o quadro). Para pegar a próxima, o
+  usuário manda `;`.
