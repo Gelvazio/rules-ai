@@ -2,6 +2,7 @@
 import { acompanharTarefa, gerarModelo, lerEstado, listarModelos } from './api.js';
 import { NOMES_STATUS, PASTA_MODELOS } from './config.js';
 import { iniciarModalConfig } from './modal-config.js';
+import { atualizarSaldo } from './saldo.js';
 import { criarVisualizador } from './visualizador.js';
 
 const $ = (id) => document.getElementById(id);
@@ -90,6 +91,7 @@ async function atualizarEstado() {
   estadoAtual = await lerEstado();
   $('estado-api').textContent = descreverEstado(estadoAtual);
   $('botao-gerar').disabled = !temChave(estadoAtual);
+  atualizarSaldo(temChave(estadoAtual));
   return estadoAtual;
 }
 

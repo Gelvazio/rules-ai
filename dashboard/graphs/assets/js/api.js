@@ -47,6 +47,11 @@ export async function gerarModelo(prompt) {
   return dados.task_id;
 }
 
+/** @returns {Promise<{saldo: number, congelado: number}>} Créditos da conta Tripo. */
+export async function lerSaldo() {
+  return pedirJson(ROTAS.saldo);
+}
+
 /** @returns {Promise<Array<object>>} Cenas dos prompts com o estado dos GLB de cada objeto. */
 export async function listarCenas() {
   const dados = await pedirJson(ROTAS.cenas);

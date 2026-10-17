@@ -6,6 +6,7 @@ import { atualizarContadores, ligarControles, mostrarObjetos } from './cenas/hud
 import { criarLinhaDoTempo } from './cenas/linha-do-tempo.js';
 import { montarCenaPrompt04 } from './cenas/prompt-04.js';
 import { iniciarModalConfig } from './modal-config.js';
+import { atualizarSaldo } from './saldo.js';
 import { ajustarTamanho, criarBase } from './visualizador.js';
 
 const $ = (id) => document.getElementById(id);
@@ -80,6 +81,7 @@ async function atualizarGeracao(contexto) {
   const podeGerar = Boolean(estado && (estado.chave_no_pedido || estado.chave_configurada));
   contexto.faltam = mostrarObjetos(contexto.dados, contexto.origens, podeGerar);
   $('progresso-cena').textContent = podeGerar ? '' : textoSemChave(contexto.doServidor);
+  atualizarSaldo(podeGerar);
 }
 
 async function iniciar() {

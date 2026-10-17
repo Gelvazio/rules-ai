@@ -34,6 +34,8 @@ Fonte: `dashboard/scripts/saida/coleta.json` (coleta de 2026-10-17).
 
 3. Abra http://localhost:8080/ (dashboard) ou http://localhost:8080/graphs/.
 
+O **saldo de créditos** aparece no cabeçalho, ao lado da ⚙ (verde com 10 ou mais créditos, vermelho abaixo disso, e os créditos reservados por gerações em andamento). Ele atualiza ao abrir a página, ao salvar a chave e depois de cada geração.
+
 Cada geração pede confirmação de custo; o servidor aceita no máximo `LIMITE_GERACOES` (padrão 5)
 por execução. Os GLB gerados ficam em `graphs/modelos/` (fora do Git).
 
@@ -52,7 +54,7 @@ para a Tripo). Sem modelos gerados, cada objeto usa uma **forma simples**; o bot
 - `TRIPO_AI_DOCS.md`: guia da API (V3) e dos SDKs da Tripo, com a migração V2 → V3.
 
 - `servidor.py`: serve o dashboard e as rotas `/api/estado`, `/api/modelos`, `/api/gerar`,
-  `/api/tarefa/<id>`, `/api/saldo`. Nunca serve `.env`, arquivos ocultos nem `.py`.
+  `/api/tarefa/<id>`, `/api/saldo` (devolve `saldo` e `congelado`), `/api/cenas`. Nunca serve `.env`, arquivos ocultos nem `.py`.
 - `cliente_tripo.py`: chamadas à Tripo (usa a chave do cabeçalho `X-Tripo-Key` ou a do `.env`).
 - `galeria_modelos.py`: grava e lista os modelos em `modelos/`.
 - `config_graphs.py`: constantes (API V3) e leitura do `.env`.

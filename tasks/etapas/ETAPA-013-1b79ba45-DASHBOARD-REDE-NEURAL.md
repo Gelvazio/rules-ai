@@ -270,6 +270,16 @@ no front-end além do `localStorage` já aprovado na `.9`.
   sem recarregar); validação no modal e no servidor trocada por ASCII visível sem espaço
   (8 a 300 caracteres). Servidor reiniciado na porta 8080.
 
+### DASHBOARD-REDE-NEURAL.17 — Saldo de créditos no cabeçalho
+
+**Status:** ✅ entregue 2026-10-17 16:57.
+
+- **Nível:** MEDIO — rota do servidor + módulo `saldo.js` nas duas páginas.
+- **Descrição:** `/api/saldo` devolve `{saldo, congelado}` (lidos de `balance` e `frozen` da V3);
+  `assets/js/saldo.js` mostra "Saldo: N créditos" ao lado da ⚙ em `index.html` e `cena.html`,
+  com o valor em US$ no título; atualiza ao abrir, ao salvar a chave e depois de cada geração.
+  Testado sem chave e com chave falsa; o formato com saldo real depende de uma conta com créditos.
+
 ## Decisões
 
 | Data | Decisão | Quem | Por quê |
@@ -287,3 +297,4 @@ no front-end além do `localStorage` já aprovado na `.9`.
 | 2026-10-17 16:39 | `.14` criada (C26) só com o plano; aguarda respostas e o "sim" | Gelvazio | "crie 1 tarefa pra isso, para o prompt 04" |
 | 2026-10-17 16:40 | `.14` aprovada: formas simples primeiro, V3, inglês | Gelvazio | "1-formas simples primeiro;2-migre para V3;3-ingles" |
 | 2026-10-17 16:50 | `.15` (correção): ⚙ na cena e validação da chave | Gelvazio | "n habilitou" |
+| 2026-10-17 16:57 | `.17` (C26): saldo de créditos no cabeçalho | Gelvazio | "sim, mostre o saldo de créditos na página" |

@@ -87,7 +87,9 @@ class Manipulador(SimpleHTTPRequestHandler):
         return {"modelos": galeria.listar_modelos()}
 
     def rota_saldo(self):
-        return consultar_saldo(self.chave_do_pedido())
+        """Saldo em créditos: disponível e congelado (reservado por tarefas em andamento)."""
+        dados = consultar_saldo(self.chave_do_pedido())
+        return {"saldo": dados.get("balance"), "congelado": dados.get("frozen", 0)}
 
     def rota_cenas(self):
         return {"cenas": cenas.listar_cenas()}

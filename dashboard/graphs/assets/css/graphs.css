@@ -346,3 +346,32 @@
   font-size: 0.72rem;
   overflow-wrap: anywhere;
 }
+
+.abas__saldo {
+  margin-left: auto;
+  align-self: center;
+  padding: 4px 10px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.abas__saldo + .abas__icone {
+  margin-left: 0;
+}
+
+.abas__saldo--neutro {
+  color: var(--cor-texto-suave);
+}
+
+.abas__saldo--ok {
+  color: #86efac;
+  border-color: #166534;
+}
+
+.abas__saldo--baixo {
+  color: #fca5a5;
+  border-color: #7f1d1d;
+}
