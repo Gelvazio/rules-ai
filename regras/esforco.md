@@ -1,7 +1,7 @@
 # 🎛️ Esforço (`effort`) dos agentes
 
 Decidido em 2026-10-16 (C21; origem: REA, etapa 011-9d3e7a52). **Vale para todos os projetos e todas as
-IAs.** Conferência por modelo: tarefa `CONFEFFORT-GLOBAL` (`rules-ai/tasks/STATUS.md`).
+IAs.** Conferência por modelo: tarefa `CONFEFFORT-GLOBAL`; resultados nas etapas 002 e 003 do `rules-ai` (não ler para escolher o esforço).
 
 - ✅ Todo agente de equipe declara o esforço no frontmatter (`effort:`), para valer sempre, sem
   depender do esforço da sessão do líder.
@@ -18,6 +18,4 @@ IAs.** Conferência por modelo: tarefa `CONFEFFORT-GLOBAL` (`rules-ai/tasks/STAT
 - ⚠️ O agente **não enxerga** o próprio esforço: conferir por fora (tokens, tempo, tamanho da
   resposta), como manda a `CONFEFFORT-GLOBAL`. Nem toda IA tem `effort` (Gemini, DeepSeek): usar a
   configuração equivalente de raciocínio da ferramenta.
-- Conferência por modelo: **Sonnet 5.5** (CONFEFFORT-GLOBAL.2 e .6): `low` e `medium` sem diferença mensurável; só `high` mostrou efeito pequeno. **Opus 5.5** (CONFEFFORT-GLOBAL.3, 2026-10-17): `effort` aplicado — tokens e tempo crescem de `low` a `xhigh` (+2,3% de tokens, +40% de tempo), todos com a resposta certa. Faltam Haiku, Gemini e DeepSeek.
-- Teste da padaria (EFFORT-PADARIA, etapa 003): o `effort` é aplicado nos 3 modelos Claude, forte só no Haiku e no `xhigh` do Opus; nenhum nível mudou a nota (38/38 em todos). Subir o nível aumenta custo e tempo sem ganho de acerto nesse tipo de tarefa.
 - ✅ **Toda tarefa e subtarefa declara o `effort`** junto do nível no quadro (`LEVE · effort low`, `MEDIO · effort medium`, `PESADO · effort high`), em **todas as IAs**: quem não tem `effort` (Gemini, DeepSeek, Copilot…) simplesmente ignora o campo (decisão do usuário, 2026-10-16 20:40). Aceite do usuário = `effort low`.

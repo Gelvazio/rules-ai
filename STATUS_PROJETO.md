@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 13:16 (Brasília): `regras/esforco.md` (C21) limpo: saíram os resultados das conferências (Sonnet, Opus, padaria), que ficam na etapa 002; a regra ficou só com o que a IA precisa fazer. Regras globais sincronizadas (ESFORCO-GLOBAL.6).
 - 2026-10-17 13:12 (Brasília): C21 (`regras/esforco.md`) atualizada com a conferência do Opus 5.5 (CONFEFFORT-GLOBAL.3: `effort` aplicado, +2,3% de tokens e +40% de tempo de `low` a `xhigh`); regras globais sincronizadas (CONFEFFORT-GLOBAL.7).
 - 2026-10-17 13:10 (Brasília): GERENCIADOR-GLOBAL: plano aprovado (só `rules-ai` e `aulasenai`, começa só avisando, volta de 20 s para modelo ocioso e 60 s para ocupado, só Claude Code, fora das `aulas-senai-*`); `.1` entregue (prova de conceito `claude -p --model haiku` ok e desenho na etapa 009). Próximas: `.2` (Haiku) e `.3` (Opus).
 - 2026-10-17 13:05 (Brasília): CONFEFFORT-GLOBAL.3 entregue (Opus 5.5): `effort` aplicado — tokens e tempo crescem de `low` a `xhigh` (39.893 → 40.823 tokens; 19,0 → 26,6 s), todos acertaram. Faltam Haiku (.1), Gemini (.4) e DeepSeek (.5).

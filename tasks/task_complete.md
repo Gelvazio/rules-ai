@@ -39,3 +39,4 @@
 | CONFEFFORT-GLOBAL.3 | 🌐 Opus 5.5: conferir o `effort` (incluir `xhigh`) — **aplicado** | 🟡 Média | PESADO · só Opus 5.5 · effort high | Nenhuma | ✅ Concluído (2026-10-17 13:05) | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.1 | 🌐 Desenho e prova de conceito · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+ ou Fable | Nenhuma | ✅ Concluído (2026-10-17 13:10) | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | CONFEFFORT-GLOBAL.7 | 🌐 Atualizar a C21 (`esforco.md`) com a conferência do Opus e sincronizar · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | CONFEFFORT-GLOBAL.3 | ✅ Concluído (2026-10-17 13:12) | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
+| ESFORCO-GLOBAL.6 | 🌐 Limpar o `esforco.md`: só a regra, resultados vão para a etapa; sincronizar · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | Nenhuma | ✅ Concluído (2026-10-17 13:16) | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |

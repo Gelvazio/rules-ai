@@ -135,7 +135,7 @@ Ressalvas: amostra de 3 por nível; o problema foi resolvido por força bruta (p
 
 ### ESFORCO-GLOBAL.6 — Limpar o `esforco.md` (só a regra; resultados ficam aqui)
 
-**Próximo passo:** apagar as 2 linhas de resultado, trocar a linha 4, anotar o status e sincronizar.
+**Próximo passo:** — (entregue).
 
 - **Nível:** LEVE — só `.md` e rodar um script já existente.
 - **Modelo:** só Haiku — nunca outro
@@ -151,6 +151,8 @@ Ressalvas: amostra de 3 por nível; o problema foi resolvido por força bruta (p
   (4) `node scripts/sincronizar.mjs --aplicar` e conferir que `dist/REGRAS-GLOBAIS.md` **não** contém
   "Teste da padaria (EFFORT-PADARIA".
 - **Critério de pronto:** `esforco.md` sem as 2 linhas e com a linha 4 nova; nada mais muda.
+- **Entrega (2026-10-17 13:16, Haiku · executor-leve; líder Opus 5.5):** `regras/esforco.md`, `STATUS_PROJETO.md`; `sincronizar.mjs --aplicar` sem erro (7 IAs gravadas; Claude Code igual).
+- **Verificação (líder):** `git diff --stat` = só `esforco.md` e o status; `dist/REGRAS-GLOBAIS.md` sem "Teste da padaria" e com "não ler para escolher o esforço".
 
 #### Resultados retirados do `esforco.md` (histórico, 2026-10-17)
 
