@@ -60,7 +60,7 @@
 
 **O que muda se aprovado:** (1) criar `rules-ai-CLAUDE-HAIKU/-SONNET/-OPUS` e
 `gerenciador-de-ia-CLAUDE-HAIKU/-SONNET/-OPUS` (`git clone`); (2) regra global nova
-`regras/pasta-por-modelo.md` (C28) e item no `frentes-e-reserva.md`; (3) `C:\fontes\CLAUDE.md`
+`regras/pasta-por-modelo.md` (C29; a C28 já é do gerenciador) e item no `frentes-e-reserva.md`; (3) `C:\fontes\CLAUDE.md`
 (mapa: as cópias e o `gerenciador-de-ia`, que falta hoje); (4) `GERENCIADOR-GLOBAL.7`: o
 gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` já faz.
 
