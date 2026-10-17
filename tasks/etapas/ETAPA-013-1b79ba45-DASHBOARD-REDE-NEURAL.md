@@ -260,6 +260,16 @@ partir de uma frase curta. O prompt não pode ser enviado inteiro.
 simples) e troca pelos GLB quando existirem; custo total confirmado antes de gerar; nenhuma chave
 no front-end além do `localStorage` já aprovado na `.9`.
 
+### DASHBOARD-REDE-NEURAL.15 — Correção: ⚙ na cena e validação da chave
+
+**Status:** ✅ entregue 2026-10-17 16:50.
+
+- **Problema:** o botão Gerar não habilitava. O servidor local não estava rodando, a `cena.html`
+  não tinha a ⚙, e a validação da chave (`[\w.-]{8,200}`) recusaria chaves com `+`, `/` ou `=`.
+- **Correção:** ⚙ e modal na `cena.html` (o botão "Gerar os que faltam" liga ao salvar a chave,
+  sem recarregar); validação no modal e no servidor trocada por ASCII visível sem espaço
+  (8 a 300 caracteres). Servidor reiniciado na porta 8080.
+
 ## Decisões
 
 | Data | Decisão | Quem | Por quê |
@@ -276,3 +286,4 @@ no front-end além do `localStorage` já aprovado na `.9`.
 | 2026-10-17 16:38 | `.13` (C26): guia da API e dos SDKs da Tripo | Gelvazio | "leia o site ... e crie um documento de nome TRIPO_AI_DOCS.md" |
 | 2026-10-17 16:39 | `.14` criada (C26) só com o plano; aguarda respostas e o "sim" | Gelvazio | "crie 1 tarefa pra isso, para o prompt 04" |
 | 2026-10-17 16:40 | `.14` aprovada: formas simples primeiro, V3, inglês | Gelvazio | "1-formas simples primeiro;2-migre para V3;3-ingles" |
+| 2026-10-17 16:50 | `.15` (correção): ⚙ na cena e validação da chave | Gelvazio | "n habilitou" |

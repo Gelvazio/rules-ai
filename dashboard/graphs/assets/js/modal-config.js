@@ -2,7 +2,7 @@
 import { lerChave, mascarar, removerChave, salvarChave } from './chave.js';
 
 const $ = (id) => document.getElementById(id);
-const PADRAO_CHAVE = /^[\w.-]{8,200}$/;
+const PADRAO_CHAVE = /^[\x21-\x7e]{8,300}$/; // ASCII visível, sem espaço nem quebra de linha
 
 function atualizarSituacao() {
   const chave = lerChave();
@@ -33,7 +33,7 @@ function aoSalvar(evento, aoMudar) {
   evento.preventDefault();
   const chave = $('config-chave').value.trim();
   if (!PADRAO_CHAVE.test(chave)) {
-    $('config-erro').textContent = 'Chave inválida: use só letras, números, ponto, _ ou - (8 a 200 caracteres).';
+    $('config-erro').textContent = 'Chave inválida: cole a chave sem espaços (8 a 300 caracteres).';
     return;
   }
   if (!salvarChave(chave)) {

@@ -28,7 +28,7 @@ from config_graphs import (
 geracoes_feitas = 0
 EXTENSOES_PROIBIDAS = (".py", ".env", ".pyc")
 CABECALHO_CHAVE = "X-Tripo-Key"
-PADRAO_CHAVE = re.compile(r"^[\w.-]{8,200}$")
+PADRAO_CHAVE = re.compile(r"^[\x21-\x7e]{8,300}$")  # ASCII visível, sem espaço nem quebra de linha
 
 
 def caminho_proibido(caminho):

@@ -5,6 +5,7 @@ import { CENA_PADRAO, NOMES_STATUS } from './config.js';
 import { atualizarContadores, ligarControles, mostrarObjetos } from './cenas/hud.js';
 import { criarLinhaDoTempo } from './cenas/linha-do-tempo.js';
 import { montarCenaPrompt04 } from './cenas/prompt-04.js';
+import { iniciarModalConfig } from './modal-config.js';
 import { ajustarTamanho, criarBase } from './visualizador.js';
 
 const $ = (id) => document.getElementById(id);
@@ -67,6 +68,20 @@ async function gerarFaltantes(dados, faltam) {
   window.location.reload(); // recarrega para trocar as formas pelos GLB
 }
 
+function textoSemChave(doServidor) {
+  return doServidor
+    ? 'Para gerar: clique na engrenagem ⚙ e salve a sua chave da Tripo.'
+    : 'Para gerar: abra pelo servidor local (python dashboard/graphs/servidor.py).';
+}
+
+/** Consulta o servidor (com a chave do navegador) e liga ou desliga o botão de gerar. */
+async function atualizarGeracao(contexto) {
+  const estado = contexto.doServidor ? await lerEstado() : null;
+  const podeGerar = Boolean(estado && (estado.chave_no_pedido || estado.chave_configurada));
+  contexto.faltam = mostrarObjetos(contexto.dados, contexto.origens, podeGerar);
+  $('progresso-cena').textContent = podeGerar ? '' : textoSemChave(contexto.doServidor);
+}
+
 async function iniciar() {
   const base = prepararBase();
   const { cenas, doServidor } = await carregarDados();
@@ -74,14 +89,13 @@ async function iniciar() {
   $('titulo-cena').textContent = dados.titulo;
   $('aviso-cena').textContent = dados.aviso;
   const cenaMontada = await MONTADORES[dados.id](base.cena, dados);
-  const estado = doServidor ? await lerEstado() : null;
-  const podeGerar = Boolean(estado && (estado.chave_no_pedido || estado.chave_configurada));
-  const faltam = mostrarObjetos(dados, cenaMontada.origens, podeGerar);
-  $('botao-gerar-faltam').addEventListener('click', () => gerarFaltantes(dados, faltam).catch((e) => {
+  const contexto = { dados, doServidor, origens: cenaMontada.origens, faltam: [] };
+  iniciarModalConfig(() => atualizarGeracao(contexto));
+  await atualizarGeracao(contexto);
+  $('botao-gerar-faltam').addEventListener('click', () => gerarFaltantes(dados, contexto.faltam).catch((e) => {
     avisar(e.message);
     $('botao-gerar-faltam').disabled = false;
   }));
-  if (!podeGerar) $('progresso-cena').textContent = 'Para gerar: abra pelo servidor local e salve a chave na ⚙ da página 3D GRAPHS AI.';
   animar(base, cenaMontada, dados);
 }
 
