@@ -34,7 +34,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | GERENCIADOR-GLOBAL.5 | 🌐 Vigilância periódica (agendador ou loop no intervalo aprovado) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet | GERENCIADOR-GLOBAL.4 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.6 | 🌐 Aceite do usuário | 🟠 Alta | Usuário | GERENCIADOR-GLOBAL.5 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | STATUS-QUADRO-GLOBAL | **🌐 GLOBAL — Todo status é mostrado em quadro, no terminal e no IDE (C27)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
-| STATUS-QUADRO-GLOBAL.2 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`) — aguarda autorização | 🟡 Média | Usuário | STATUS-QUADRO-GLOBAL.1 | 👀 Aguardando o usuário | — | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
+| STATUS-QUADRO-GLOBAL.2 | 🌐 Rodar o sincronizador (`sincronizar.mjs --aplicar`, autorizado pelo usuário) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku | STATUS-QUADRO-GLOBAL.1 | 🔄 Em progresso | Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) (local · main) (desde 2026-10-17 12:58) | [ETAPA-010](etapas/ETAPA-010-STATUS-QUADRO-GLOBAL.md) |
 
 ## Registro de decisões
 

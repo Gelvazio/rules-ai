@@ -50,10 +50,11 @@ PowerShell, bash) e no chat do Claude Code no IDE.
 
 ### STATUS-QUADRO-GLOBAL.2 — Rodar o sincronizador
 
-**Próximo passo:** esperar o usuário autorizar `node scripts/sincronizar.mjs --aplicar`.
+**Próximo passo:** rodar `node scripts/sincronizar.mjs --aplicar` (autorizado: "sim", 2026-10-17 12:58).
 
-- **Nível:** Usuário — autorizar a gravação nos arquivos globais das IAs.
-- **Modelo:** Usuário (depois de autorizado, LEVE · só Haiku)
+- **Nível:** LEVE — rodar um script já existente.
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
 - **Descrição:** a regra só chega às IAs depois do `--aplicar`; conferir que
   `dist/REGRAS-GLOBAIS.md` contém "Todo status é mostrado em quadro".
 
@@ -62,4 +63,5 @@ PowerShell, bash) e no chat do Claude Code no IDE.
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
 | 2026-10-17 12:54 | Todo status mostrado em quadro, em todas as IAs, no terminal e no IDE | Gelvazio | "todos os staus devem sempre ser mostrados em forma de quadro aqui no cmd ou no claude code IDE" |
+| 2026-10-17 12:58 | Usuário autoriza rodar o `sincronizar.mjs --aplicar` | Gelvazio | "sim" à pergunta "Posso rodá-lo agora?" |
 | 2026-10-17 12:54 | Executada pelo líder Opus 5.5 com o agente Haiku (subtarefa LEVE) | Claude Code (Opus 5.5) | Fluxo de equipe de `niveis-e-modelos.md` (C22) |
