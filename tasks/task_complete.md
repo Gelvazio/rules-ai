@@ -23,3 +23,4 @@
 | ESFORCO-GLOBAL.2 | 🌐 Aceite do usuário | 🟡 Média | LEVE | ESFORCO-GLOBAL.1 | ✅ Concluído | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | ESFORCO-GLOBAL.3 | 🌐 `effort` no frontmatter dos agentes de todos os projetos (aulasenai, template, testes-de-frontend, dashboards) | 🟠 Alta | MEDIO · effort medium | Nenhuma | ✅ Concluído | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | ESFORCO-GLOBAL.4 | 🌐 `effort` em todas as tarefas pendentes (⬜) dos quadros de todos os projetos (323 linhas; classificar as 171 sem nível) | 🟠 Alta | PESADO · effort high | ESFORCO-GLOBAL.3 | ✅ Concluído | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
+| MODELO-GLOBAL.1 | 🌐 Regra global (C22) | 🟡 Média | LEVE · só Haiku (exceção Q4: Opus 5.5) | Nenhuma | ✅ Concluído | — | [ETAPA-004](etapas/ETAPA-004-MODELO-GLOBAL.md) |

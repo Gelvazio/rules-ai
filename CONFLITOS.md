@@ -10,7 +10,7 @@ Fontes comparadas: `aulasenai/.claude/rules/` (A), `REA-APP-CLONES/.claude/rules
 | # | Assunto | Versão A (aulasenai) | Versão B (REA) | Confirmado |
 |---|---------|----------------------|----------------|------------|
 | C1 | Frase ao concluir uma tarefa | `TAREFA FINALIZADA E SINCRONIZADA!` (também no `~/.claude/CLAUDE.md`) | `TAREFA FINALIZADA!, AJUDO EM ALGO MAIS?` | ✅ A |
-| C2 | Nível da subtarefa × modelo | Pega nível **até o máximo** do modelo; modelo forte desce se não houver do seu nível | Pega **só o seu nível**; modelo forte não desce (trava no `pre-commit`) | ✅ A |
+| C2 | Nível da subtarefa × modelo | Pega nível **até o máximo** do modelo; modelo forte desce se não houver do seu nível | Pega **só o seu nível**; modelo forte não desce (trava no `pre-commit`) | ✅ A → **✅ B** (2026-10-16 22:53, C22) |
 | C3 | "Frentes" no quadro | Tabela "🧭 Frentes" com uma linha por sessão | Sem tabela: a frente é quem aparece em "Em uso por" | ✅ A |
 | C4 | Tarefa concluída (✅) | Fica no `STATUS.md` | É **movida** para `tasks/task_complete.md` | ✅ B |
 | C5 | Navegador | Proibido, sem exceção | Proibido, **exceto** se o usuário liberar para uma subtarefa (registrar na seção) | ✅ B |
@@ -46,6 +46,7 @@ C8); cópia em `~/.codex/AGENTS.md.bak`.
 | C12 | Regras dos projetos × globais | ✅ Alinhar. **Executado em 2026-10-16** por Claude Code (Sonnet 5.5) com `IA_SEM_TRAVA=1` a pedido do usuário: REA `ALINHAR.1` a `.5` (aceite `.6` pendente) e aulasenai `#202.1` a `#202.4` (aceite `#202.5` pendente) |
 | C13 | Push ao finalizar tarefa (substitui a parte de push da C6) | ✅ Em **todos os projetos e IAs**, ao finalizar uma tarefa: commit **e push** na branch principal, sem esperar pedido. Só deixa de valer com "só commit, sem push" do usuário ou "sem push" expresso no projeto. Pedido do usuário em 2026-10-16; regra em `regras/git-geral.md` |
 | C20 | Pasta `DEMAIS-PROJETOS-DE-SISTEMAS-MANTER-OFFLINE` | ✅ Nunca ler de início; só quando o usuário pedir ou a tarefa for dentro dela; regra em `regras/pastas-ignoradas.md` |
+| C22 | Nunca executar tarefa de outro modelo (substitui a C2 = A) | ✅ Cada IA só pega o **seu** nível, nem acima nem abaixo, **sem exceção** (acabam as autorizações de nível); coluna **Modelo** obrigatória no quadro (`LEVE · só Haiku`…) e linha `- **Modelo:**` em cada subtarefa. Pedido do usuário em 2026-10-16 22:48 (aulasenai #247); regras em `niveis-e-modelos.md`, `frentes-e-reserva.md`, `ciclo-da-task.md`, `quadro-de-tarefas.md` |
 | C21 | Esforço (`effort`) dos agentes | ✅ Global: `LEVE`=`low`, `MEDIO`=`medium`, `PESADO`=`high`, no frontmatter dos agentes; regra em `regras/esforco.md`; conferência por modelo na `CONFEFFORT-GLOBAL` |
 
 ## Pendente de decisão

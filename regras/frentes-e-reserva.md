@@ -16,12 +16,12 @@ mesmo repositório e só se falam pelos arquivos. Quadro: `quadro-de-tarefas.md`
 
 1. Sincronizar com o remoto; **só então** ler o `STATUS.md` (sem sincronizar, o quadro mente).
 2. Escolher uma **subtarefa** (nunca a linha da mãe) com **"Em uso por" = `—`**, **todas as
-   dependências ✅** e **nível até o máximo do seu modelo** (`niveis-e-modelos.md`). Sem nível →
-   classificar antes de pegar.
+   dependências ✅** e **do seu modelo** (coluna Modelo; `niveis-e-modelos.md`). ⛔ **Nunca**
+   subtarefa de outro modelo, nem acima nem abaixo, sem exceção. Sem nível → classificar antes.
 3. Entre as livres, a de **maior prioridade** (🔴 → 🟠 → 🟡 → 🟢); empate = ordem do quadro.
    🟢 Baixa só com orientação explícita do usuário (registrar na seção da subtarefa). Prioridade
-   não fura dependência, reserva nem trava especial. Modelo forte só pega nível mais leve se não
-   houver nenhuma livre do seu nível.
+   não fura dependência, reserva nem trava especial. Sem subtarefa livre do seu modelo → não pega
+   nenhuma e avisa o usuário.
 4. Gravar `<frente> (desde <data hora>)` em "Em uso por" e `🔄 Em execução` no Status, fazer
    **commit + push imediatos** e só então começar o trabalho.
 5. Push da reserva recusado → sincronizar, **reler** o quadro; se outra frente pegou a mesma

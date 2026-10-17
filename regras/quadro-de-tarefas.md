@@ -58,8 +58,9 @@ Sem pasta `tasks/` no projeto: `STATUS.md` na raiz, com as mesmas colunas.
 ```
 
 - **Status** na linha: só o emoji e 1–3 palavras (`🔄 Em execução`); o detalhe fica na etapa.
-- **Modelo:** nível + modelo indicado (ex.: `LEVE · Haiku`); `Usuário` quando quem faz é o
-  usuário; `—` na mãe.
+- **Modelo** (obrigatória em toda linha de subtarefa): `<nível> · só <modelo>` (ex.:
+  `LEVE · só Haiku`, `MEDIO · só Sonnet`, `PESADO · só Opus 5.5+ ou Fable`); `Usuário` quando quem
+  faz é o usuário (aceite); `—` na mãe. ⛔ Só o modelo da coluna executa (`niveis-e-modelos.md`).
 - **Em uso por:** `<IA (modelo)> (<frente>) (desde <data hora>)`, `—` (livre) ou
   `— (não reservável)` na mãe.
 - Seção sem conteúdo fica com a tabela vazia (não apagar o cabeçalho).
@@ -83,6 +84,7 @@ Sem pasta `tasks/` no projeto: `STATUS.md` na raiz, com as mesmas colunas.
 ### <TAREFA>.1 — <título da subtarefa>
 **Próximo passo:** <ação exata>
 - **Nível:** <nível> — <motivo curto>
+- **Modelo:** só <modelo> — nunca outro
 - **Descrição:** … · **Critérios de Aceitação:** …
 - **Entrega:** <commit(s)> · **Verificação:** <como foi conferido> · **Anotação:** …
 ```
