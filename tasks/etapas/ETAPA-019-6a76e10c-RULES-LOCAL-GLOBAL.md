@@ -830,8 +830,7 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
 
 ### RULES-LOCAL-GLOBAL.17 — Instalar no `gerenciador-de-ia`
 
-**Próximo passo:** o usuário versiona (commit) ou apaga o `AGENTS.md` fora do Git em
-`C:\fontes\gerenciador-de-ia`; depois, instalar como nos lotes (seção da `.16`).
+**Próximo passo:** esperar a `.19` (tira o `AGENTS.md` solto); depois, instalar como nos lotes (seção da `.16`).
 
 - **Nível:** PESADO — mudança em repositório de outro projeto (mesmo motivo dos lotes)
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
@@ -862,6 +861,25 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
   para o líder.
 - **Verificação (feita):** `node --check scripts/rules-local/sessao.mjs` → OK; `grep` confirma só
   o caminho novo no script. Não rodei o script numa cópia com versão diferente (leitura apenas).
+
+### RULES-LOCAL-GLOBAL.19 — Tirar o `AGENTS.md` solto do `gerenciador-de-ia`
+
+**Próximo passo:** OP-19 guarda a cópia de segurança, remove o arquivo e confere.
+
+- **Nível:** PESADO — remove arquivo de outro projeto (apagar dados)
+- **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
+- **Effort:** high
+- **Descrição:** criada em 2026-10-18 12:15 pelo líder, a pedido do usuário ("FACA A SUA SUGESTAO -> CRIE 1
+  SUB-TAREFA PRA RESOLVER O PROBLEMA"). O `C:\fontes\gerenciador-de-ia\AGENTS.md` (fora do Git,
+  2026-10-17 20:36) é uma cópia do `CLAUDE.md` versionado em que "Claude Code" virou "Codex" por
+  troca cega: links quebrados (`.Codex/rules/tasks/...`), frente e tabela de níveis erradas. As
+  regras valem no `CLAUDE.md`. Sugestão aprovada: guardar cópia em
+  `C:\Users\gelva\.claude\backups\gerenciador-de-ia-AGENTS.md-2026-10-18.md`, remover o arquivo
+  da pasta e respeitar a trava `tasks/.sessao-ativa` do projeto (seção 10 do `CLAUDE.md`).
+  Sem `AGENTS.md`, o instalador da `.17` põe o aviso no `CLAUDE.md` (F6).
+- **Critérios de aceitação:** cópia de segurança idêntica (mesmo hash); `git status --short` do
+  projeto sem `?? AGENTS.md`; nenhum outro arquivo do projeto alterado.
+- **Verificação:** `sha256sum` da cópia = do original antes de remover; `git status --short`.
 
 ### RULES-LOCAL-GLOBAL.5 — Levar a regra nova às IAs (`--aplicar`)
 
