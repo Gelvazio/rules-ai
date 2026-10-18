@@ -51,3 +51,11 @@
 - **Descrição:** a skill global `~/.agents/skills/classificar-tarefa/SKILL.md` tem a matriz
   ferramenta × modelo × nível com DeepSeek `⛔` em `PESADO`; alinhar à C35.
 - **Critérios de Aceitação:** a matriz da skill mostra DeepSeek em `PESADO`.
+
+---
+
+### Entregas desta etapa
+
+| Subtarefa | Commit | Verificação |
+|---|---|---|
+| NIVEL-DEEPSEEK.1 | `feat(NIVEL-DEEPSEEK.1)` | linha DeepSeek com `✅` em `PESADO`; frase do `PESADO` atualizada; C35 no `CONFLITOS.md` |

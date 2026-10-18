@@ -52,18 +52,20 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | HERDR-GLOBAL.1 | 🌐 Regra C33 (`regras/herdr.md`) | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-015](etapas/ETAPA-015-01ba1632-HERDR-GLOBAL.md) |
 | HERDR-GLOBAL.2 | 🌐 Levar ao computador do usuário (`--aplicar`, herdr, skill e integrações) | 🟡 Média | Usuário | HERDR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-015](etapas/ETAPA-015-01ba1632-HERDR-GLOBAL.md) |
 | **ESPEC-GLOBAL** | **🌐 GLOBAL — Fluxo de spec (requisitos, invariantes, perguntas abertas) em tarefa PESADA (C34)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
-| ESPEC-GLOBAL.1 | 🌐 Regra C34 (`regras/espec.md`) + exceção de teste de invariante só em PESADO (`testes-validacao.md`) | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
+| ESPEC-GLOBAL.1 | 🌐 Regra C34 (`regras/espec.md`) + exceção de teste de invariante só em PESADO (`testes-validacao.md`) | 🟠 Alta | PESADO · Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
 | ESPEC-GLOBAL.2 | 🌐 Blocos-modelo em `spec/templates/` + `spec/README.md` | 🟡 Média | LEVE · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
-| ESPEC-GLOBAL.3 | 🌐 Gate `spec/verificar-spec.mjs` (confere seções, EARS, perguntas fechadas, nível/modelo/effort) | 🟡 Média | MEDIO · effort medium | ESPEC-GLOBAL.2 | ⬜ Pendente | — | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
+| ESPEC-GLOBAL.3 | 🌐 Gate `spec/verificar-spec.mjs` (confere seções, EARS, perguntas fechadas, nível/modelo/effort) | 🟡 Média | MEDIO · effort medium | ESPEC-GLOBAL.2 | ✅ Concluído | — | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
 | ESPEC-GLOBAL.4 | 🌐 `node scripts/sincronizar.mjs --aplicar` e conferência nas IAs | 🟡 Média | Usuário | ESPEC-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
 | **NIVEL-DEEPSEEK** | **🌐 GLOBAL — DeepSeek também pega `PESADO` (altera a C22)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
-| NIVEL-DEEPSEEK.1 | 🌐 Regra: `PESADO` liberado para o DeepSeek (C35) | 🟠 Alta | PESADO · opção: DeepSeek (raciocínio) · effort high | Nenhuma | 🔄 Em execução | DeepSeek (Flash) (local · main) (desde 2026-10-18 08:53) · 0% | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
+| NIVEL-DEEPSEEK.1 | 🌐 Regra: `PESADO` liberado para o DeepSeek (C35) | 🟠 Alta | PESADO · DeepSeek · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
 | NIVEL-DEEPSEEK.2 | Matriz da skill global `classificar-tarefa` | 🟢 Baixa | LEVE · effort low | NIVEL-DEEPSEEK.1 | ⬜ Pendente | — | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 08:52 | NIVEL-DEEPSEEK (C35): o DeepSeek passa a pegar `PESADO`; a C22 continua valendo no resto (cada IA só pega o seu nível) | Gelvazio | "mude a regra C22, e libere deepseek PESADO tambem" |
+| 2026-10-18 08:56 | ESPEC-GLOBAL.1 e .3 entregues (C34): `regras/espec.md` + exceção de teste em `PESADO` + gate `spec/verificar-spec.mjs` | DeepSeek (Flash) | C34 aprovada na etapa 016 |
 | 2026-10-18 08:45 | ESPEC-GLOBAL (C34): fluxo de spec em tarefa PESADA vira regra global — requisitos EARS, invariantes e perguntas abertas como seções da **etapa** (plano continua na etapa, C10); exceção de teste de invariante **só em PESADO**; pacote completo em `spec/` (templates + gate) | Gelvazio | "Abrir exceção só para tarefa PESADA" · "Completo: pasta spec/ com templates + gate" · "Sim, seguir o protocolo completo" |
 | 2026-10-17 21:50 | A IA sempre aceita e nunca pede aceite ao usuário (C32); contas A, B e C do Claude Code entram no sincronizador (ACEITE-GLOBAL) | Gelvazio | "1-SEMPRE ACEITE,NUNCA PERGUNTE;2-SIM;3-SIM" |
 | 2026-10-17 18:08 | DASHBOARD-REDE-NEURAL.27 (C26): globo menor (raio 3 → 2), agentes mais afastados e linha fina do globo até cada tarefa que um agente está fazendo | Gelvazio | "deixe o globo menor e os agentes mais afastados, e cada task deve ter 1 linha fina do globo até ela" |

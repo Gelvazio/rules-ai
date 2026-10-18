@@ -101,3 +101,13 @@ abertas fechadas** antes de o agente codar, entregue a todas as IAs pelo `sincro
   `node scripts/sincronizar.mjs --aplicar`.
 - **Critérios de Aceitação:** `dist/REGRAS-GLOBAIS.md` contém a C34; o bloco está nos arquivos globais
   de Claude Code, Codex, Grok, Qoder, opencode, Devin e Kiro.
+
+---
+
+### Entregas desta etapa
+
+| Subtarefa | Commit | Verificação |
+|---|---|---|
+| ESPEC-GLOBAL.2 | `feat(ESPEC-GLOBAL.2)` | 4 arquivos em `spec/` (README + 3 templates), nenhum cita `docs/` |
+| ESPEC-GLOBAL.1 | `feat(ESPEC-GLOBAL.1)` | `regras/espec.md` + exceção em `testes-validacao.md`; C34 no `CONFLITOS.md` |
+| ESPEC-GLOBAL.3 | `feat(ESPEC-GLOBAL.3)` | gate ✅ em etapa com spec e ❌ na ETAPA-016; `node --check` sem erro |
