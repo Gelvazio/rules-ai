@@ -494,7 +494,7 @@ igual). O histórico fica no Git. Exemplo:
 
 ### RULES-LOCAL-GLOBAL.7 — Módulo de download com tempo-limite
 
-**Próximo passo:** esperar a `.6`.
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** MEDIO — 1 arquivo JS, sem gravação em disco
 - **Modelo:** só Sonnet — nunca outro
@@ -505,7 +505,7 @@ igual). O histórico fica no Git. Exemplo:
 
 ### RULES-LOCAL-GLOBAL.8 — Comparação item por item
 
-**Próximo passo:** esperar a `.6`.
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** MEDIO — função pura em 1 arquivo JS
 - **Modelo:** só Sonnet — nunca outro
@@ -513,6 +513,8 @@ igual). O histórico fica no Git. Exemplo:
 - **Descrição:** módulo `.mjs` com função pura que recebe as listas antiga e nova (nome → código) e devolve mudado, adicionado, removido e igual; regra renomeada = removida + adicionada.
 - **Critérios de aceitação:** INV-3; funções ≤ 45 linhas; `node --check`.
 - **Verificação:** conferência por `node -e` com os 3 casos (vazio, iguais, disjuntos) e uma renomeação.
+- **Entrega:** `scripts/rules-local/comparar.mjs` (`compararListas(antiga, nova)`, F4; sem commit — do líder).
+- **Verificação feita:** `node --check` ok; `node -e` com 6 casos (vazio×vazio, vazio×nova, iguais, disjuntos, 1 mudado, renomeação): resultado conforme F4 e INV-3 (soma das 4 listas = união das chaves) verdadeira em todos.
 
 ### RULES-LOCAL-GLOBAL.9 — Conferência do `rules-local/` contra a `VERSAO.md`
 
@@ -527,14 +529,15 @@ igual). O histórico fica no Git. Exemplo:
 
 ### RULES-LOCAL-GLOBAL.10 — Registro no `CONFLITOS.md`
 
-**Próximo passo:** esperar a `.6`.
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** LEVE — só `.md`
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** acrescentar ao `CONFLITOS.md` a decisão nova (regras globais em `rules-local/` por projeto, conferidas pela `VERSAO.md`; exceção pontual à C26 para criar TASK a partir do relatório).
 - **Critérios de aceitação:** linha nova no formato do arquivo, sem mexer nas outras.
-- **Verificação:** leitura do `git diff CONFLITOS.md`.
+- **Entrega:** `CONFLITOS.md` (1 linha nova, `C36`, na tabela "Decididos depois (2026-10-16)", antes de "Pendente de decisão"). Usei `C36` porque `C31` e `C33` não existem e a última é `C35`.
+- **Verificação:** `git diff --stat CONFLITOS.md` = 1 inserção, nenhum outro arquivo tocado (aviso de CRLF do Git é só aviso de checkout).
 
 ### RULES-LOCAL-GLOBAL.11 — Lista dos 18 repositórios do escopo
 
