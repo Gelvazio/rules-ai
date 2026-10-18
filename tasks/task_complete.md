@@ -149,3 +149,4 @@
 | JEV-RULES-AI.3 | Benchmark dourado e métricas (cego × revisor) | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.2 | ✅ Concluído | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
 | JEV-RULES-AI.7 | Regra global `regras/jev.md` + INDEX + C39 | 🟠 Alta | LEVE · só Haiku · effort low | JEV-RULES-AI.2, JEV-RULES-AI.5 | ✅ Concluído | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
 | JEV-RULES-AI.6 | CLI e integração com a skill `classificar-tarefa` | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.2, JEV-RULES-AI.3 | ✅ Concluído | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
+| JEV-RULES-AI.9 | Fechar vazamento de rótulo no `estado.mjs` (linhas de Entrega/`executor-<nível>`) e no detector do INV-1 | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.2, JEV-RULES-AI.3 | ✅ Concluído | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |

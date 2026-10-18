@@ -19,12 +19,21 @@ const DETECTORES_ROTULO = [
   ['modelo Gemini', /\bGemini(?:\s+CLI)?\s+(?:Flash|Pro)\b/i],
   ['modelo DeepSeek', /deepseek-(?:flash|v4-pro)/i],
   ['modelo DeepSeek (nome)', /DeepSeek\s+(?:V\d+(?:\.\d+)?\s+)?(?:Flash|Pro)\b/i],
+  ['executor-<nível>', /executor-(?:leve|medio|pesado)\b/i],
+  ['flag --leve/--medio/--pesado', /--(?:leve|medio|pesado)\b/i],
+  [
+    'linha Entrega/Verificação com parênteses',
+    /(?:^|\n)\s*(?:[-*]\s+)?\*\*(?:Entrega|Verifica[çc][ãa]o)\s*\(/i,
+  ],
 ];
 const TEXTOS_ADVERSARIAIS = [
   '- **Nível:** PESADO — banco\n- **Modelo:** só Opus 5.5+ ou Fable\n- **Effort:** high\nFazer X.',
   'Título · `MEDIO · effort medium` · só Sonnet',
   'nivel_atual: MEDIO  descrição normal sobre scripts',
   'Executor: Claude Code (Haiku 5.5), DeepSeek (raciocínio), Gemini Pro, deepseek-v4-pro.',
+  '- **Entrega (Claude Code · executor-leve; líder Opus 5.5):** commit abc\nTexto normal.',
+  '- **Verificação (líder):** node --check ok\nA tarefa usa o executor-pesado e o executor-medio.',
+  'Rodar o gerenciador com --leve ou --pesado e depois --medio.',
 ];
 let totalSubtarefas = 0;
 

@@ -290,7 +290,7 @@ Cuidados de implementação:
 
 ### JEV-RULES-AI.9 — Fechar vazamento de rótulo no `estado.mjs` e no detector do INV-1
 
-**Próximo passo:** acrescentar os filtros a `ROTULOS_REMOVIDOS`/`PADROES_ROTULO` do `estado.mjs` e ao detector de `testes/invariantes.mjs`; rodar o INV-1 e o benchmark cego de novo.
+**Próximo passo:** nenhum — ✅ concluída.
 - **Nível:** MEDIO — ajuste de lógica em 2 arquivos, sem chave nova.
 - **Modelo:** só Sonnet — nunca outro.
 - **Effort:** medium
@@ -300,6 +300,8 @@ Cuidados de implementação:
 - **Critérios de Aceitação:** INV-1 pega os novos padrões (casos adversariais) e passa nas subtarefas reais; benchmark cego rodado de novo com os números registrados no relatório.
 - **Verificação:** `node scripts/jev/testes/invariantes.mjs`; `node scripts/jev/avaliar.mjs --backend jev --variante cego --golden scripts/jev/benchmarks/golden.jsonl`.
 - **Estimativa:** 1 h.
+- **Entrega:** commit `feat(JEV-RULES-AI.9)` — `estado.mjs` descarta linhas `Entrega/Verificação (…)` e troca `executor-<nível>`/`--<nível>`; `testes/invariantes.mjs` com 3 detectores e 7 casos adversariais; executor jev9 (Sonnet 5.5). Benchmark cego refeito: final 0,600, sugerido 0,667, recall PESADO 0,883 — o vazamento não mudava o resultado.
+- **Verificação (líder):** `node --check` ok; INV-1 ok em 159 subtarefas reais + 7 adversariais; `agregacao` ok; benchmark cego 180 itens sem erro (US$ 0,009).
 
 ### JEV-RULES-AI.8 — Ativação direta, validação final e rollback
 

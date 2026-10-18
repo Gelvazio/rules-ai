@@ -31,6 +31,14 @@ const PADROES_ROTULO = [
   /\bDeepSeek\s*\(raciocínio\)/gi,
   /\b(?:LEVE|MEDIO|MÉDIO|PESADO)\b/g,
 ];
+/** Linhas `**Entrega (… · executor-leve …):**` e `**Verificação (líder):**` dos agentes. */
+const PADRAO_LINHA_RESIDUO =
+  /^\s*(?:[-*]\s+)?\*\*(?:Entrega|Verificação|Verificacao)\s*\([^*]*\*\*.*$/i;
+/** Pistas de nível que sobram em texto livre: trocadas por um termo neutro (não removidas). */
+const TROCAS_RESIDUO = [
+  [/\bexecutor-(?:leve|medio|pesado)\b/gi, 'executor'],
+  [/--(?:leve|medio|pesado)\b/gi, '--nivel'],
+];
 const PADROES_LIMPEZA = [
   [/`\s*`/g, ''],
   [/\*{2,}\s*\*{2,}/g, ''],
@@ -55,7 +63,10 @@ const PADROES_SEGREDO = [
  * @returns {string} Texto sem rótulos, com os restos de pontuação limpos.
  */
 export function removerRotulos(texto) {
-  const semRotulos = PADROES_ROTULO.reduce((atual, padrao) => atual.replace(padrao, ''), texto);
+  const semResiduos = TROCAS_RESIDUO.reduce(
+    (atual, [padrao, troca]) => atual.replace(padrao, troca), texto);
+  const semRotulos = PADROES_ROTULO.reduce((atual, padrao) => atual.replace(padrao, ''),
+    semResiduos);
   const limpo = PADROES_LIMPEZA.reduce((atual, [padrao, troca]) => atual.replace(padrao, troca),
     semRotulos);
   return limpo.trim();
@@ -201,6 +212,7 @@ function extrairArquivos(texto) {
  */
 function montarDescricao(linhas) {
   const mantidas = linhas.filter((linha) => {
+    if (PADRAO_LINHA_RESIDUO.test(linha)) return false;
     const achado = linha.match(PADRAO_ROTULO_LINHA);
     const rotulo = achado?.[1].trim().toLowerCase();
     return !rotulo || !(ROTULOS_REMOVIDOS.has(rotulo) || ROTULOS_SEPARADOS.has(rotulo));
