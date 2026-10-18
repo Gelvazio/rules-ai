@@ -137,3 +137,4 @@
 | UPDATE-REPOS.8 | Conferir e atualizar `dashboard-ai-gemini` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ✅ Concluído | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.9 | Conferir e atualizar `dashboard-ai-kiro-crew` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ✅ Concluído | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.10 | Conferir e atualizar `dashboard-ai-qoder` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ✅ Concluído | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.11 | Conferir e atualizar `aulas-senai-CLAUDE-HAIKU` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ✅ Concluído | — |
