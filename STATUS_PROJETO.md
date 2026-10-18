@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-18 10:40 (Brasília): INDEX-REGRAS.2 entregue: `scripts/sincronizar.mjs` monta o `dist/REGRAS-GLOBAIS.md` na ordem do `regras/INDEX.md` (sem o índice; avisa regra fora do índice e link quebrado). Falta o `--aplicar` do usuário (INDEX-REGRAS.3).
 - 2026-10-18 10:33 (Brasília): INDEX-REGRAS.1 entregue: `regras/INDEX.md`, índice de leitura das 17 regras globais (porta de entrada também na nuvem). INDEX-REGRAS.2 reservada (ordem do `dist/`).
 - 2026-10-18 10:05 (Brasília): DASHBOARD-REDE-NEURAL.3 entregue: cena 3D da rede neural em `dashboard/assets/js/cena/` (neurônios, ligações por sinal e tamanho do peso, propagação animada camada a camada, rótulos HTML e clique no neurônio) e `principal.js` ligando modelo → cena, com os eventos `rede:propagada` e `rede:neuronio-selecionado` para o painel da `.4`.
 - 2026-10-17 22:00 (Brasília): ACEITE-GLOBAL.2 entregue e ACEITE-GLOBAL fechada (sem aceite, pela C32): `scripts/sincronizar.mjs` grava também em `~/.claude-contaA`, `~/.claude-contaB` e `~/.claude-contaC`; `--aplicar` criou os 3 `CLAUDE.md` com o import e levou a C32 a todas as IAs.

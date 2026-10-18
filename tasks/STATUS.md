@@ -59,7 +59,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | NIVEL-DEEPSEEK.1 | 🌐 Regra: `PESADO` liberado para o DeepSeek (C35) | 🟠 Alta | PESADO · DeepSeek · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
 | NIVEL-DEEPSEEK.2 | Matriz da skill global `classificar-tarefa` | 🟢 Baixa | LEVE · effort low | NIVEL-DEEPSEEK.1 | ⬜ Pendente | — | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
 | **INDEX-REGRAS** | **🌐 GLOBAL — Índice de leitura das regras (`regras/INDEX.md`) e `dist/` na mesma ordem** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
-| INDEX-REGRAS.2 | 🌐 `sincronizar.mjs` monta o `dist/` na ordem do índice (sem o índice) | 🟡 Média | MEDIO · só Sonnet · effort medium | INDEX-REGRAS.1 | 🔄 Em execução | Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) (local · main) (desde 2026-10-18 10:34) · 0% | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
 | INDEX-REGRAS.3 | 🌐 Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | INDEX-REGRAS.2 | ⬜ Pendente | — | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
 
 ## Registro de decisões

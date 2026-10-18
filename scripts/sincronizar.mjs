@@ -11,6 +11,9 @@ import { fileURLToPath } from 'node:url';
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PASTA_REGRAS = join(RAIZ, 'regras');
 const ARQUIVO_UNIFICADO = join(RAIZ, 'dist', 'REGRAS-GLOBAIS.md');
+const ARQUIVO_INDICE = 'INDEX.md';
+/** Link de regra local no índice: `](nome.md)`, sem barra no nome. */
+const PADRAO_LINK_INDICE = /\]\(([^/()\s]+\.md)\)/g;
 const MARCA_INICIO = '<!-- rules-ai:inicio (gerado por C:/fontes/rules-ai; não editar) -->';
 const MARCA_FIM = '<!-- rules-ai:fim -->';
 const APLICAR = process.argv.includes('--aplicar');
@@ -46,15 +49,56 @@ const DESTINOS = [
 ];
 
 /**
- * Junta todos os `regras/*.md` em um texto único, em ordem alfabética.
+ * Lê do `regras/INDEX.md` a ordem dos arquivos linkados (só arquivos locais, sem `/`).
+ * @returns {string[]} Nomes dos arquivos na ordem do índice, sem repetir; vazio sem índice.
+ */
+function lerOrdemDoIndice() {
+  const caminho = join(PASTA_REGRAS, ARQUIVO_INDICE);
+  if (!existsSync(caminho)) return [];
+
+  const texto = readFileSync(caminho, 'utf8');
+  const nomes = [...texto.matchAll(PADRAO_LINK_INDICE)].map((achado) => achado[1]);
+  return [...new Set(nomes)].filter((nome) => nome !== ARQUIVO_INDICE);
+}
+
+/**
+ * Monta a lista final de regras: primeiro as do índice, na ordem dele; depois as que
+ * não estão no índice (alfabética, com aviso). Sem índice, tudo em ordem alfabética.
+ * @returns {string[]} Nomes dos arquivos de `regras/` que entram no unificado.
+ */
+function listarArquivosDeRegras() {
+  const existentes = readdirSync(PASTA_REGRAS)
+    .filter((nome) => nome.endsWith('.md') && nome !== ARQUIVO_INDICE)
+    .sort();
+  const ordemDoIndice = lerOrdemDoIndice();
+
+  const inexistentes = ordemDoIndice.filter((nome) => !existentes.includes(nome));
+  inexistentes.forEach((nome) => {
+    console.warn(`aviso: ${ARQUIVO_INDICE} aponta para "${nome}", que não existe (ignorado)`);
+  });
+
+  const indexadas = ordemDoIndice.filter((nome) => existentes.includes(nome));
+  const foraDoIndice = existentes.filter((nome) => !indexadas.includes(nome));
+  if (ordemDoIndice.length > 0) {
+    foraDoIndice.forEach((nome) => {
+      console.warn(`aviso: "${nome}" não está no ${ARQUIVO_INDICE}; inclua-o no índice`);
+    });
+  }
+  return [...indexadas, ...foraDoIndice];
+}
+
+/**
+ * Junta os arquivos de `regras/` em um texto único, na ordem do `regras/INDEX.md`
+ * (o próprio índice fica de fora; sem índice, ordem alfabética).
  * @returns {string} Texto unificado das regras globais.
  */
 function montarUnificado() {
-  const nomes = readdirSync(PASTA_REGRAS).filter((nome) => nome.endsWith('.md')).sort();
+  const nomes = listarArquivosDeRegras();
   const partes = nomes.map((nome) => readFileSync(join(PASTA_REGRAS, nome), 'utf8').trim());
   const cabecalho = '# Regras globais de IA (fonte: C:/fontes/rules-ai/regras)\n\n'
     + 'Valem em todos os projetos. A regra do projeto (`AGENTS.md`/`CLAUDE.md`) vale no projeto; '
-    + 'divergências entre projetos ficam em `C:/fontes/rules-ai/CONFLITOS.md` até o usuário decidir.';
+    + 'divergências entre projetos ficam em `C:/fontes/rules-ai/CONFLITOS.md` '
+    + 'até o usuário decidir.';
   return `${cabecalho}\n\n${partes.join('\n\n---\n\n')}\n`;
 }
 

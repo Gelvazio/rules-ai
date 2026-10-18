@@ -6,6 +6,7 @@ Regras de IA **globais**, para todos os projetos de `C:\fontes` e todas as IAs.
 
 ```
 regras/*.md            ← fonte única das regras globais (editar só aqui)
+regras/INDEX.md        ← ordem de leitura e ordem no dist (o índice não entra no dist)
 CONFLITOS.md           ← regras que divergem entre projetos; só entram depois do "sim" do usuário
 scripts/sincronizar.mjs← gera dist/REGRAS-GLOBAIS.md e liga cada IA a ele
 dist/                  ← gerado, fora do Git
@@ -40,5 +41,7 @@ projetos vira linha em `CONFLITOS.md`, e o usuário decide **uma** regra para to
 ## Mudar uma regra
 
 1. Editar o arquivo do assunto em `regras/` (não repetir a regra em outro arquivo).
-2. `node scripts/sincronizar.mjs --aplicar`.
-3. Commit na `main`.
+2. Arquivo novo em `regras/` entra no `regras/INDEX.md` no mesmo commit (o script avisa
+   quando um arquivo fica fora do índice).
+3. `node scripts/sincronizar.mjs --aplicar`.
+4. Commit na `main`.

@@ -43,7 +43,7 @@ existe; e fazer o `dist/REGRAS-GLOBAIS.md` seguir essa ordem em vez da alfabéti
 
 ### INDEX-REGRAS.2 — `sincronizar.mjs` monta o `dist/` na ordem do índice
 
-**Próximo passo:** ajustar `montarUnificado()` no `scripts/sincronizar.mjs` (reservada 2026-10-18 10:34).
+**Próximo passo:** — (entregue 2026-10-18).
 
 - **Nível:** MEDIO — lógica em JS, 1 arquivo.
 - **Modelo:** só Sonnet — nunca outro
@@ -56,10 +56,18 @@ existe; e fazer o `dist/REGRAS-GLOBAIS.md` seguir essa ordem em vez da alfabéti
 - **Critérios de aceitação:** `node --check`; `node scripts/sincronizar.mjs` (sem `--aplicar`)
   gera o `dist/` começando por "Ciclo de uma tarefa" e sem o texto do índice; funções ≤ 45
   linhas, JSDoc, linhas ≤ 100.
+- **Entrega (2026-10-18, Sonnet 5.5 · executor-medio; líder Opus 5.5):** `scripts/sincronizar.mjs`
+  (`ARQUIVO_INDICE`, `PADRAO_LINK_INDICE`, `lerOrdemDoIndice()`, `listarArquivosDeRegras()`;
+  `montarUnificado()` usa a lista) e `README.md` (linha do índice e passo novo em "Mudar uma regra").
+- **Verificação (líder):** `node --check` ok; `node scripts/sincronizar.mjs` sem `--aplicar` (só
+  regrava o `dist/`): primeiro título "🔁 Ciclo de uma tarefa", sem o índice, 16 separadores
+  (17 regras), sem aviso. Prova dos 2 avisos numa cópia na pasta temporária da sessão, com
+  `HOME`/`USERPROFILE`/`APPDATA` numa pasta vazia; arquivos globais reais intactos (datas de
+  2026-10-17). 4 linhas > 100 no README são da tabela antiga de IAs, fora do escopo.
 
 ### INDEX-REGRAS.3 — Levar às IAs (`node scripts/sincronizar.mjs --aplicar`)
 
-**Próximo passo:** esperar a `.2`; o usuário roda o `--aplicar` (as IAs com texto embutido só
+**Próximo passo:** o usuário roda o `--aplicar` (as IAs com texto embutido só
 veem a ordem nova depois dele; o Claude Code lê o `dist/` direto pelo `@import`).
 
 - **Nível:** —
