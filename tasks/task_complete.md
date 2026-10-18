@@ -144,3 +144,4 @@
 | **UPDATE-REPOS** | **Script `UPDATE.py`: atualizar as pastas `dashboard-ai-*` e `aulas-senai-*` com a `main`** | 🟡 Média | — | Nenhuma | ✅ Concluído | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | JEV-RULES-AI.1 | Cliente Jev: HTTP, retry, timeout, chave, custo e log | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
 | JEV-RULES-AI.2 | Coletor de estado cego e decisão de nível/effort/modelo | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.1 | ✅ Concluído | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
+| JEV-RULES-AI.4 | Guardrails de escopo e critérios de aceite | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.1 | ✅ Concluído | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |

@@ -228,7 +228,7 @@ Cuidados de implementação:
 
 ### JEV-RULES-AI.4 — Guardrails de escopo e critérios de aceite
 
-**Próximo passo:** implementar os dois guardrails com entradas do Git e 20 casos sintéticos cada.
+**Próximo passo:** nenhum — ✅ concluída.
 - **Nível:** MEDIO — lógica em 2–3 arquivos.
 - **Modelo:** só Sonnet — nunca outro.
 - **Effort:** medium
@@ -238,6 +238,8 @@ Cuidados de implementação:
 - **Critérios de Aceitação:** 20 casos de escopo (5 fora, 5 ambíguos, 10 dentro) e 20 de aceite; nenhum falso bloqueio; ações coerentes; sem segredo no log.
 - **Verificação:** `node scripts/jev/testes/guardrails-escopo.mjs`; revisão manual de 5 saídas.
 - **Estimativa:** 2 h.
+- **Entrega:** commit `feat(JEV-RULES-AI.4)` — `guardrails/avisos.mjs`, `escopo.mjs`, `aceite.mjs`, `testes/guardrails-escopo.mjs`; executor jev4 (Sonnet 5.5). Ação máxima `revisar` (nunca bloqueia); falha do Jev → `revisar`.
+- **Verificação (líder):** `node --check` ok; `guardrails-escopo.mjs` ok (20 escopo + 20 aceite) também com o `redigir.mjs` real da .5; sem segredo no log.
 
 ### JEV-RULES-AI.5 — Guardrails de segredo/PII, pasta proibida, comando destrutivo e aprovação indevida
 
