@@ -865,7 +865,9 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
 
 ### RULES-LOCAL-GLOBAL.5 — Levar a regra nova às IAs (`--aplicar`)
 
-**Próximo passo:** esperar a `.3`; o usuário roda `node scripts/sincronizar.mjs --aplicar`.
+**Próximo passo:** — (feito pelo usuário em 2026-10-18).
+
+- **Verificação:** `rules-local` presente no `dist/REGRAS-GLOBAIS.md`, no `~/.gemini/GEMINI.md` e no `~/.codex/AGENTS.md` (23 ocorrências cada); `~/.claude` e `~/.claude-contaC` importam o `dist/`.
 
 - **Nível:** —
 - **Modelo:** Usuário
