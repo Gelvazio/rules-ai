@@ -60,11 +60,18 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | NIVEL-DEEPSEEK.2 | Matriz da skill global `classificar-tarefa` | 🟢 Baixa | LEVE · effort low | NIVEL-DEEPSEEK.1 | ⬜ Pendente | — | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
 | **INDEX-REGRAS** | **🌐 GLOBAL — Índice de leitura das regras (`regras/INDEX.md`) e `dist/` na mesma ordem** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
 | INDEX-REGRAS.3 | 🌐 Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | INDEX-REGRAS.2 | ⬜ Pendente | — | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
+| **RULES-LOCAL-GLOBAL** | **🌐 GLOBAL — Regras globais em `rules-local/` conferidas pela `VERSAO.md` no início de cada sessão, em todos os projetos** | 🟠 Alta | — | Nenhuma | 👀 Aguardando o usuário (perguntas e plano) | — (não reservável) | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
+| RULES-LOCAL-GLOBAL.1 | 🌐 `VERSAO.md` no `rules-ai`, gerada pelo `sincronizar.mjs` | 🟠 Alta | MEDIO · só Sonnet · effort medium | Nenhuma | ⬜ Pendente (espera o "sim") | — | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
+| RULES-LOCAL-GLOBAL.2 | 🌐 Script de sessão: comparar versões e listar o que mudou, entrou ou saiu | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | RULES-LOCAL-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
+| RULES-LOCAL-GLOBAL.3 | 🌐 Regra global da sessão e da sincronização de tasks (`regras/rules-local.md`) | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | RULES-LOCAL-GLOBAL.2 | ⬜ Pendente | — | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
+| RULES-LOCAL-GLOBAL.4 | 🌐 Instalar em todos os projetos do escopo (piloto primeiro) | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | RULES-LOCAL-GLOBAL.3 | ⬜ Pendente | — | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
+| RULES-LOCAL-GLOBAL.5 | 🌐 Levar a regra nova às IAs (`--aplicar`) | 🟠 Alta | Usuário | RULES-LOCAL-GLOBAL.3 | ⬜ Pendente | — | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 10:38 | RULES-LOCAL-GLOBAL registrada como tarefa grande (`PESADO`, spec C34 na etapa 019): execução só depois das 5 perguntas fechadas e do "sim" ao plano | Gelvazio | "CRIE 1 TAREFA QUE IMPORTE AS REGRAS GLOBAIS SEMPRE NO INICIO DE CADA SESSAO..." |
 | 2026-10-18 10:23 | INDEX-REGRAS: `regras/INDEX.md` vira a porta de entrada das regras globais (ordem de leitura) e o `dist/` passa a seguir essa ordem | Gelvazio | "faça isso,crie este regras/index.md" |
 | 2026-10-18 08:52 | NIVEL-DEEPSEEK (C35): o DeepSeek passa a pegar `PESADO`; a C22 continua valendo no resto (cada IA só pega o seu nível) | Gelvazio | "mude a regra C22, e libere deepseek PESADO tambem" |
 | 2026-10-18 08:56 | ESPEC-GLOBAL.1 e .3 entregues (C34): `regras/espec.md` + exceção de teste em `PESADO` + gate `spec/verificar-spec.mjs` | DeepSeek (Flash) | C34 aprovada na etapa 016 |
