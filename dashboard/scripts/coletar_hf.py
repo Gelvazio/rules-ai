@@ -31,6 +31,8 @@ def consultar(tarefa):
         "sort": "downloads",
         "direction": -1,
         "limit": LIMITE_POR_TAREFA,
+        # sem full=true a lista omite author/lastModified/gated
+        "full": "true",
     })
     pedido = urllib.request.Request(
         f"{URL_API}?{parametros}",

@@ -783,7 +783,7 @@ export const DADOS_FERRAMENTAS = {
     }
   ],
   "modelos_3d_abertos": {
-    "data_consulta": "2026-10-18T13:58",
+    "data_consulta": "2026-10-18T14:09",
     "fonte": "https://huggingface.co/models?pipeline_tag=text-to-3d",
     "api": "https://huggingface.co/api/models",
     "tarefas": [
@@ -794,7 +794,7 @@ export const DADOS_FERRAMENTAS = {
       {
         "id": "microsoft/TRELLIS-image-large",
         "url": "https://huggingface.co/microsoft/TRELLIS-image-large",
-        "autor": null,
+        "autor": "microsoft",
         "tarefas": [
           "image-to-3d"
         ],
@@ -804,13 +804,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "mit",
         "biblioteca": "trellis",
         "criado_em": "2024-12-02T13:02:21.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2024-12-06T16:39:24.000Z",
         "gated": false
       },
       {
         "id": "microsoft/TRELLIS.2-4B",
         "url": "https://huggingface.co/microsoft/TRELLIS.2-4B",
-        "autor": null,
+        "autor": "microsoft",
         "tarefas": [
           "image-to-3d"
         ],
@@ -820,13 +820,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "mit",
         "biblioteca": "trellis2",
         "criado_em": "2025-12-01T02:25:40.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2025-12-27T13:21:56.000Z",
         "gated": false
       },
       {
         "id": "facebook/VGGT-1B",
         "url": "https://huggingface.co/facebook/VGGT-1B",
-        "autor": null,
+        "autor": "facebook",
         "tarefas": [
           "image-to-3d"
         ],
@@ -836,13 +836,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "cc-by-nc-4.0",
         "biblioteca": null,
         "criado_em": "2025-03-11T21:59:25.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2025-03-17T12:18:15.000Z",
         "gated": false
       },
       {
         "id": "stabilityai/TripoSR",
         "url": "https://huggingface.co/stabilityai/TripoSR",
-        "autor": null,
+        "autor": "stabilityai",
         "tarefas": [
           "image-to-3d"
         ],
@@ -852,13 +852,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "mit",
         "biblioteca": null,
         "criado_em": "2024-02-29T13:01:16.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2024-08-09T08:52:03.000Z",
         "gated": false
       },
       {
         "id": "yyfz233/Pi3X",
         "url": "https://huggingface.co/yyfz233/Pi3X",
-        "autor": null,
+        "autor": "yyfz233",
         "tarefas": [
           "image-to-3d"
         ],
@@ -868,13 +868,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "cc-by-nc-4.0",
         "biblioteca": null,
         "criado_em": "2025-12-27T11:02:53.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2026-03-11T02:16:49.000Z",
         "gated": false
       },
       {
         "id": "ilintar/trellis2-gguf",
         "url": "https://huggingface.co/ilintar/trellis2-gguf",
-        "autor": null,
+        "autor": "ilintar",
         "tarefas": [
           "image-to-3d"
         ],
@@ -884,13 +884,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "other",
         "biblioteca": "trellis",
         "criado_em": "2026-06-28T14:55:35.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2026-07-27T13:10:24.000Z",
         "gated": false
       },
       {
         "id": "tencent/Hunyuan3D-2",
         "url": "https://huggingface.co/tencent/Hunyuan3D-2",
-        "autor": null,
+        "autor": "tencent",
         "tarefas": [
           "text-to-3d",
           "image-to-3d"
@@ -901,13 +901,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "other",
         "biblioteca": "hunyuan3d-2",
         "criado_em": "2025-01-20T06:55:37.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2025-10-17T10:09:17.000Z",
         "gated": false
       },
       {
         "id": "siyan824/reloc3r-512",
         "url": "https://huggingface.co/siyan824/reloc3r-512",
-        "autor": null,
+        "autor": "siyan824",
         "tarefas": [
           "image-to-3d"
         ],
@@ -917,13 +917,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "nao_declarada",
         "biblioteca": "pytorch",
         "criado_em": "2025-01-06T08:03:44.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2025-06-18T10:10:24.000Z",
         "gated": false
       },
       {
         "id": "facebook/map-anything-apache",
         "url": "https://huggingface.co/facebook/map-anything-apache",
-        "autor": null,
+        "autor": "facebook",
         "tarefas": [
           "image-to-3d"
         ],
@@ -933,13 +933,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "apache-2.0",
         "biblioteca": null,
         "criado_em": "2025-09-08T04:30:56.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2026-02-04T17:08:09.000Z",
         "gated": false
       },
       {
         "id": "yyfz233/Pi3",
         "url": "https://huggingface.co/yyfz233/Pi3",
-        "autor": null,
+        "autor": "yyfz233",
         "tarefas": [
           "image-to-3d"
         ],
@@ -949,13 +949,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "bsd-2-clause",
         "biblioteca": "pytorch",
         "criado_em": "2025-07-14T09:37:03.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2025-07-19T06:42:26.000Z",
         "gated": false
       },
       {
         "id": "depth-anything/DA3-BASE",
         "url": "https://huggingface.co/depth-anything/DA3-BASE",
-        "autor": null,
+        "autor": "depth-anything",
         "tarefas": [
           "image-to-3d"
         ],
@@ -965,13 +965,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "apache-2.0",
         "biblioteca": null,
         "criado_em": "2025-11-13T18:41:45.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2025-11-15T16:34:50.000Z",
         "gated": false
       },
       {
         "id": "naver/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric",
         "url": "https://huggingface.co/naver/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric",
-        "autor": null,
+        "autor": "naver",
         "tarefas": [
           "image-to-3d"
         ],
@@ -981,13 +981,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "nao_declarada",
         "biblioteca": "mast3r",
         "criado_em": "2024-07-09T12:00:35.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2024-07-18T09:09:59.000Z",
         "gated": false
       },
       {
         "id": "tencent/Hunyuan3D-2.1",
         "url": "https://huggingface.co/tencent/Hunyuan3D-2.1",
-        "autor": null,
+        "autor": "tencent",
         "tarefas": [
           "text-to-3d",
           "image-to-3d"
@@ -998,13 +998,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "other",
         "biblioteca": "hunyuan3d-2",
         "criado_em": "2025-06-13T16:10:02.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2025-10-17T10:10:42.000Z",
         "gated": false
       },
       {
         "id": "stabilityai/stable-fast-3d",
         "url": "https://huggingface.co/stabilityai/stable-fast-3d",
-        "autor": null,
+        "autor": "stabilityai",
         "tarefas": [
           "image-to-3d"
         ],
@@ -1014,13 +1014,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "other",
         "biblioteca": null,
         "criado_em": "2024-07-17T08:49:49.000Z",
-        "atualizado_em": null,
-        "gated": false
+        "atualizado_em": "2025-04-08T16:31:08.000Z",
+        "gated": true
       },
       {
         "id": "raven38/pixal3d-sv-q8_0-v1",
         "url": "https://huggingface.co/raven38/pixal3d-sv-q8_0-v1",
-        "autor": null,
+        "autor": "raven38",
         "tarefas": [
           "image-to-3d"
         ],
@@ -1030,13 +1030,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "other",
         "biblioteca": "pixal3d.cpp",
         "criado_em": "2026-09-17T05:59:10.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2026-09-23T16:40:25.000Z",
         "gated": false
       },
       {
         "id": "tencent/Hunyuan3D-2mini",
         "url": "https://huggingface.co/tencent/Hunyuan3D-2mini",
-        "autor": null,
+        "autor": "tencent",
         "tarefas": [
           "text-to-3d",
           "image-to-3d"
@@ -1047,13 +1047,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "other",
         "biblioteca": "hunyuan3d-2",
         "criado_em": "2025-03-12T11:36:01.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2025-10-17T10:11:36.000Z",
         "gated": false
       },
       {
         "id": "gqk/TRELLIS-image-large-fork",
         "url": "https://huggingface.co/gqk/TRELLIS-image-large-fork",
-        "autor": null,
+        "autor": "gqk",
         "tarefas": [
           "image-to-3d"
         ],
@@ -1063,13 +1063,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "mit",
         "biblioteca": "trellis",
         "criado_em": "2025-04-19T06:43:35.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2024-12-06T16:39:24.000Z",
         "gated": false
       },
       {
         "id": "facebook/map-anything",
         "url": "https://huggingface.co/facebook/map-anything",
-        "autor": null,
+        "autor": "facebook",
         "tarefas": [
           "image-to-3d"
         ],
@@ -1079,13 +1079,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "cc-by-nc-4.0",
         "biblioteca": null,
         "criado_em": "2025-09-08T04:32:06.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2026-01-20T22:31:23.000Z",
         "gated": false
       },
       {
         "id": "naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt",
         "url": "https://huggingface.co/naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt",
-        "autor": null,
+        "autor": "naver",
         "tarefas": [
           "image-to-3d"
         ],
@@ -1095,13 +1095,13 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "nao_declarada",
         "biblioteca": "dust3r",
         "criado_em": "2024-06-24T07:49:20.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2024-07-12T12:38:36.000Z",
         "gated": false
       },
       {
         "id": "TencentARC/InstantMesh",
         "url": "https://huggingface.co/TencentARC/InstantMesh",
-        "autor": null,
+        "autor": "TencentARC",
         "tarefas": [
           "image-to-3d"
         ],
@@ -1111,7 +1111,7 @@ export const DADOS_FERRAMENTAS = {
         "licenca": "apache-2.0",
         "biblioteca": "diffusers",
         "criado_em": "2024-04-10T13:16:45.000Z",
-        "atualizado_em": null,
+        "atualizado_em": "2024-04-11T02:56:23.000Z",
         "gated": false
       }
     ],
