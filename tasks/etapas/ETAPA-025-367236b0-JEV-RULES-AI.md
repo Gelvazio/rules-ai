@@ -243,7 +243,7 @@ Cuidados de implementação:
 
 ### JEV-RULES-AI.5 — Guardrails de segredo/PII, pasta proibida, comando destrutivo e aprovação indevida
 
-**Próximo passo:** implementar a camada determinística + Jev dos quatro casos, com mascaramento e bloqueio.
+**Próximo passo:** nenhum — ✅ concluída.
 - **Nível:** PESADO — segurança, segredo e comando destrutivo.
 - **Modelo:** só Opus 5.5+ ou Fable, ou DeepSeek — nunca outro.
 - **Effort:** high
@@ -253,6 +253,8 @@ Cuidados de implementação:
 - **Critérios de Aceitação:** 20 casos de segredo/PII (incluindo falsos positivos), 20 de pasta, 20 de comando, 20 de aprovação; nenhum segredo bruto no log; bloqueios corretos; escape humano documentado.
 - **Verificação:** `node scripts/jev/testes/guardrails-seguranca.mjs`; ler 10 linhas do JSONL e conferir mascaramento.
 - **Estimativa:** 3 h.
+- **Entrega:** commit `feat(JEV-RULES-AI.5)` — `guardrails/redigir.mjs`, `seguranca-base.mjs`, `segredo.mjs`, `pasta-proibida.mjs`, `comando-destrutivo.mjs`, `aprovacao.mjs`, `testes/guardrails-seguranca.mjs`, `testes/segredo.mjs` (INV-2); executor jev5 (Opus 5.5). PII achada por regex bloqueia de forma determinística (R3.2); escape humano só com `confirmacaoHumana` do alvo exato; aprovação indevida sem escape.
+- **Verificação (líder):** `node --check` ok; `guardrails-seguranca.mjs` 94 casos ok; `segredo.mjs` (INV-2) 300 textos ok; 9 avaliações reais com o Jev coerentes (US$ 0,0002); nenhum valor sensível nem chave nos logs.
 
 ### JEV-RULES-AI.6 — CLI e integração com a skill `classificar-tarefa`
 
