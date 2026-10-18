@@ -605,14 +605,15 @@ Divisão: piloto 1 pasta · lote A 5 · lote B 9 · lote C 4 (total 19). O lote 
 
 ### RULES-LOCAL-GLOBAL.13 — Aviso no `AGENTS.md`/`CLAUDE.md`
 
-**Próximo passo:** esperar a `.3`.
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** LEVE — só texto
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** trecho padrão (curto) para o `AGENTS.md`/`CLAUDE.md` dos projetos, mandando as IAs sem gancho rodarem o comando da `.6` no início da sessão; guardado como modelo no `rules-ai` para o instalador e os lotes usarem.
 - **Critérios de aceitação:** texto aponta para `regras/rules-local.md` e traz o comando exato.
-- **Verificação:** leitura.
+- **Entrega:** `scripts/rules-local/aviso-agents.md` (arquivo-modelo, caminho da etapa; aponta para `rules-local/regras/rules-local.md`). Removidos `scripts/modelos/aviso-rules-local.md` e a pasta `scripts/modelos/` (ficou vazia).
+- **Verificação:** leitura do arquivo: traz `node rules-local/sessao.mjs` (F6), cita `rules-local/regras/rules-local.md` e a frase-gatilho `DISPARAR A SINCRONIZAÇÃO DE TASKS` (F5); `ls scripts/modelos` dá "No such file" e `scripts/rules-local/` tem o `aviso-agents.md` ao lado dos `.mjs`.
 
 ### RULES-LOCAL-GLOBAL.14 — Instalar no lote A
 
