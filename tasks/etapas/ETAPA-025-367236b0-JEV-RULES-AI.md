@@ -3,7 +3,7 @@
 **Tarefa:** JEV-RULES-AI · **Pedido em:** 2026-10-18 15:55 · **Criada por:** DeepSeek Harness (lead) (local · main)
 **Pedido:** "crie um plano SUPER DETALHADO de como implementar o JEV no rules-ai, pra decisão de modelo e effot do modelo, e também nestes casos: [escopo, critérios de aceite, segredo/PII, pasta proibida, comando destrutivo, aprovação indevida]. coloque a task no quadro do rules-ai"
 **Objetivo:** usar o Jev como **conselheiro estruturado** do rules-ai — sugerir nível (e, por consequência, modelo e `effort` pela matriz/C21) e servir de segunda camada nos guardrails — sem escrever no quadro, sem reservar e sem decidir no lugar do humano.
-**Situação:** 👀 **plano e spec (C34) aguardando o "sim" do usuário.** Nenhuma subtarefa pode ser reservada antes da aprovação.
+**Situação:** 🔄 **plano aprovado em 2026-10-18 16:45** ("faça esta tarefa" + "faça direto sem modo sugestão"); execução pelo sargento (herdr) com um agente por subtarefa.
 
 ---
 
@@ -179,6 +179,9 @@ Cuidados de implementação:
 | 2026-10-18 | Laya permanece fallback; limiares de confiança separados por backend | DeepSeek Harness (lead) | fórmulas diferentes (`answer_confidence` × `confidence`) |
 | 2026-10-18 | O teste do `PROJETO-JEV-AI` tinha vazamento de rótulo; o benchmark desta etapa será cego | DeepSeek Harness (lead) | 15/15 do Jev não é medida justa sem remover `nivel_atual`/`Nível:` |
 | 2026-10-18 | Nada será aplicado globalmente sem o "sim" e sem `sincronizar.mjs` de simulação | DeepSeek Harness (lead) | regra do `rules-ai` para mudança global |
+| 2026-10-18 16:45 | **Plano e spec aprovados** pelo usuário ("FAÇA ESTA TAREFA *JEV-RULES-AI* USANDO O *PROMPT_PARA_O_LIDER.md*" e "nada disso, faça direto sem modo sugestão, pois até hoje eu nem tinha nada") | Usuário (registrado por Claude Code (Opus 5.5), sargento herdr) | "sim" claro ao plano |
+| 2026-10-18 16:45 | **Mudança de escopo da .8:** sem modo `sugestao` e sem as 2 semanas de medição; o Jev entra **direto ativo** (`JEV_MODO=ativo` padrão, `off` só para rollback). Continua valendo que o Jev **não escreve no quadro, não reserva e não rebaixa nível** (invariantes) | Usuário | não havia classificador automático antes; nada a comparar em sombra |
+| 2026-10-18 16:45 | Chave `TYPESAFE_API_KEY` copiada de `PROJETO-JEV-AI/.env` para o `.env` do `rules-ai` (ignorado pelo Git) | Claude Code (Opus 5.5), sargento herdr | o benchmark real (.3) precisa da chave; nunca versionada |
 
 ### JEV-RULES-AI.1 — Cliente Jev (HTTP, retry, timeout, chave, custo e log)
 
@@ -271,18 +274,18 @@ Cuidados de implementação:
 - **Verificação:** `node scripts/sincronizar.mjs`; leitura do diff; `git diff --check`.
 - **Estimativa:** 1 h.
 
-### JEV-RULES-AI.8 — Rollout controlado, validação final e rollback
+### JEV-RULES-AI.8 — Ativação direta, validação final e rollback
 
-**Próximo passo:** rodar com `JEV_MODO=off`, depois `sugestao`, medir 2 semanas e fechar com rollback testado.
+**Próximo passo:** ligar o Jev ativo (`JEV_MODO=ativo`), rodar a validação geral, testar o rollback (`JEV_MODO=off`) e fechar.
 - **Nível:** MEDIO — operação e validação.
 - **Modelo:** só Sonnet — nunca outro.
 - **Effort:** medium
 - **Depende de:** JEV-RULES-AI.3, JEV-RULES-AI.4, JEV-RULES-AI.5, JEV-RULES-AI.6, JEV-RULES-AI.7.
-- **Descrição:** flag `JEV_MODO=off|sugestao|auto` (início `off`); habilitar `sugestao` só no `rules-ai`; comparar sugestões com decisões reais por 2 semanas; métricas do benchmark; testar rollback (flag off, remover regra, restaurar skill `.bak`); atualizar quadro/`STATUS_PROJETO.md`; pedir o "sim" para `--aplicar` global.
-- **Arquivos:** `scripts/jev/config.mjs` (flag), `regras/jev.md` (seção rollout), `tasks/STATUS.md`/`STATUS_PROJETO.md` (fechamento).
-- **Critérios de Aceitação:** off = comportamento atual; sugestão registrada; rollback completo em < 10 min; relatório final com números; sem segredo em log.
-- **Verificação:** rodar off/on; restaurar backup; `git status`; leitura do relatório.
-- **Estimativa:** 2 h.
+- **Descrição:** (escopo mudado em 2026-10-18 16:45, ver Decisões) flag `JEV_MODO=ativo|off`, padrão `ativo`; sem modo sugestão e sem período de medição. Rodar a validação geral da etapa; testar rollback (flag `off` → skill volta ao fluxo Laya/sinais); registrar números do benchmark na etapa; atualizar `STATUS_PROJETO.md`.
+- **Arquivos:** `scripts/jev/config.mjs` (flag), `regras/jev.md` (seção rollout), etapa e `STATUS_PROJETO.md`.
+- **Critérios de Aceitação:** `ativo` classifica e roda os guardrails; `off` = comportamento antigo; rollback em < 10 min; relatório final com números; sem segredo em log.
+- **Verificação:** rodar `ativo`/`off`; `git status`; leitura do relatório.
+- **Estimativa:** 1 h.
 
 ### Critérios de pronto da tarefa-mãe
 
@@ -324,7 +327,7 @@ Sem navegador. Testes automatizados só os invariantes declarados (PESADO, C34);
 
 ### Aprovação
 
-👀 **Aguardando o "sim" do usuário ao plano e à spec (C34).** Depois do "sim", registrar a aprovação nas Decisões e liberar apenas `JEV-RULES-AI.1`. O `--aplicar` global e a mudança da skill continuam dependendo de confirmação própria.
+✅ **Aprovado pelo usuário em 2026-10-18 16:45** (ver Decisões), com a .8 mudada para ativação direta. O `--aplicar` global do sincronizador continua sendo ação do usuário.
 
 ### Referências
 
