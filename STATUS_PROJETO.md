@@ -1,187 +1,88 @@
-# Status do projeto DASHBOARD-AI
+# Status do projeto rules-ai
 
-**Atualizado em:** 2026-10-16 15:20 (horário de Brasília) · regravado de hora em hora por uma tarefa agendada
-**Fontes:** conversa do projeto, as threads abertas e o quadro `tasks/STATUS.md` na `main` do
-repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
+**Atualizado em:** 2026-10-18 13:45 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
+**Fontes:** quadro `tasks/STATUS.md` + `tasks/task_complete.md` na `main` do repositório `Gelvazio/rules-ai`
+(último commit antes deste: `7370f60`, de 2026-10-18 13:00), a auditoria
+`C:\fontes\ANALISE-DE-FONTES-2026-10-18.md` (2026-10-18 13:34) e a trava `tasks/.sessao-ativa`
+(sessão do lead, DeepSeek Harness, desde 2026-10-18 13:41).
 
-## O que mudou desde a última gravação
+## O que é este projeto
 
-- 2026-10-18 12:32 (Brasília): UPDATE-REPOS registrada (etapa 021): script `scripts/UPDATE.py` para atualizar as 9 pastas `dashboard-ai-*` e as 4 `aulas-senai-*` com a `main`; 14 subtarefas `LEVE · só Haiku 5.5` (1 do script + 1 por pasta), livres.
-- 2026-10-18 12:26 (Brasília): RULES-LOCAL-GLOBAL concluída de novo: `.20` instalou o `rules-local/` no `testes-effort-padaria` (8 remotos no escopo).
-- 2026-10-18 12:26 (Brasília): RULES-LOCAL-GLOBAL.20 entregue: `testes-effort-padaria` instalado (commit 5721e22, versão 2026-10-18-f4bfe8d8) (OP-20, Opus).
-- 2026-10-18 12:18 (Brasília): RULES-LOCAL-GLOBAL concluída: `rules-local/` instalado e conferido pela `VERSAO.md` nos 7 remotos do escopo (19 subtarefas, equipe herdr com líder sargento).
-- 2026-10-18 12:18 (Brasília): RULES-LOCAL-GLOBAL.17 entregue: `gerenciador-de-ia` instalado (commit 290d5e4, versão 2026-10-18-f4bfe8d8; aviso no `CLAUDE.md`) (OP-19, Opus).
-- 2026-10-18 12:17 (Brasília): RULES-LOCAL-GLOBAL.19 entregue: `AGENTS.md` solto (cópia quebrada do `CLAUDE.md`) tirado do `gerenciador-de-ia`, com cópia em `~/.claude/backups/` (hash igual); .17 reservada (OP-19, Opus).
-- 2026-10-18 12:14 (Brasília): RULES-LOCAL-GLOBAL.5 entregue: `--aplicar` feito pelo usuário; regra `rules-local` conferida no `dist/`, no Gemini, no Codex e no import das contas do Claude Code.
-- 2026-10-18 12:11 (Brasília): RULES-LOCAL-GLOBAL.18 entregue: aviso do `sessao.mjs` cita `rules-local/regras/rules-local.md`; os 6 repositórios instalados recebem a cópia nova na próxima reinstalação (SN-18, Sonnet).
-- 2026-10-18 12:10 (Brasília): RULES-LOCAL-GLOBAL.16 entregue: lote C: PLATAFORMA-ENVIO-CURRICULOS (c40785f), REA-APP-CLONES (011b77f) e testes-de-frontend (bd5ab7f) instalados; `gerenciador-de-ia` bloqueado (AGENTS.md fora do Git) e movido para a .17 (OP-16, Opus).
-- 2026-10-18 12:10 (Brasília): RULES-LOCAL-GLOBAL.14 entregue: lote A: `aulasenai` instalado (commit 05b9878d); clones HAIKU, OPUS e SONNET atualizados; OPUS-LIDER pulado (árvore suja) (OP-14, Opus).
-- 2026-10-18 12:09 (Brasília): RULES-LOCAL-GLOBAL.15 entregue: lote B: `dashboard-ai` instalado a partir de `dashboard-ai-codex` (commit 385b9a9); clones hotmail, deepseek, devin e kiro-crew atualizados; senai, qoder, gmail e gemini pulados (árvore suja; gmail e gemini com conflito de outra sessão) (OP-15, Opus).
-- 2026-10-18 12:06 (Brasília): RULES-LOCAL-GLOBAL.4 entregue: piloto `template-inicial-tasks-ia` instalado (commit 4b24b83, versão igual na sessão seguinte) (OP-4, Opus).
-- 2026-10-18 12:05 (Brasília): RULES-LOCAL-GLOBAL.2 entregue: script de sessão `scripts/rules-local/sessao.mjs` (versão igual não grava; versão nova baixa, relata e avisa; trava entre sessões) (OP-2, Opus).
-- 2026-10-18 12:01 (Brasília): DASHBOARD-AGENTES registrada (etapa 020, `PESADO`): a pasta `dashboard/` fica só com a página Agentes ao vivo e o servidor dela. Aguarda 4 respostas e o "sim" do usuário.
-- 2026-10-18 12:00 (Brasília): RULES-LOCAL-GLOBAL.12 entregue: instalador `scripts/instalar-rules-local.mjs` (rules-local + gancho SessionStart + aviso; idempotente) (OP-12, Opus).
-- 2026-10-18 11:59 (Brasília): RULES-LOCAL-GLOBAL.13 entregue: modelo do aviso `scripts/rules-local/aviso-agents.md` (HK-13, Haiku).
-- 2026-10-18 11:58 (Brasília): RULES-LOCAL-GLOBAL.3 entregue: regra global `regras/rules-local.md` + linha no `regras/INDEX.md`; `VERSAO.md` regerada (2026-10-18-ef54a693, 19 regras) (OP-3, Opus).
-- 2026-10-18 11:56 (Brasília): RULES-LOCAL-GLOBAL.1 entregue: `VERSAO.md` na raiz gerada pelo `sincronizar.mjs` (versão 2026-10-18-ff11fc59, 18 regras; códigos conferidos pelo `conferir.mjs`) (SN-1, Sonnet).
-- 2026-10-18 11:56 (Brasília): RULES-LOCAL-GLOBAL.9 entregue: módulo de conferência `scripts/rules-local/conferir.mjs` (SN-9, Sonnet).
-- 2026-10-18 11:56 (Brasília): RULES-LOCAL-GLOBAL.8 entregue: módulo de comparação `scripts/rules-local/comparar.mjs` (SN-8, Sonnet).
-- 2026-10-18 11:56 (Brasília): RULES-LOCAL-GLOBAL.7 entregue: módulo de download `scripts/rules-local/baixar.mjs` (SN-7, Sonnet).
-- 2026-10-18 11:55 (Brasília): RULES-LOCAL-GLOBAL.10 entregue: decisão C36 no CONFLITOS.md (HK-10, Haiku).
-- 2026-10-18 11:52 (Brasília): RULES-LOCAL-GLOBAL.6 entregue (OP-6, Opus): seção "Formato combinado" (F1–F7) na etapa 019. Onda 1 reservada: .1, .7, .8, .9 (Sonnet), .3, .12 (Opus), .10 (Haiku).
-- 2026-10-18 11:48 (Brasília): RULES-LOCAL-GLOBAL.11 entregue (HK-11, Haiku): 19 pastas com GitHub, 7 remotos; piloto `template-inicial-tasks-ia`, lotes A (aulasenai), B (dashboard-ai), C (4 remotos).
-- 2026-10-18 11:42 (Brasília): RULES-LOCAL-GLOBAL dividida em 16 subtarefas para paralelismo (aprovado, "SIM"): `.6` (formato combinado, Opus) e `.11` (lista de repositórios, Haiku) primeiro; depois até 8 agentes em paralelo no herdr.
-- 2026-10-18 13:50 (Brasília): RULES-LOCAL-GLOBAL: plano aprovado pelo usuário ("SIM"). A `.1` (Sonnet) está livre para reserva.
-- 2026-10-18 13:49 (Brasília): RULES-LOCAL-GLOBAL: as 5 perguntas da etapa 019 foram fechadas (1-b, 2-a, 3-a, 4-a, 5-a) e a `VERSAO.md` virou o controlador do `rules-local/` em cada projeto (R2.5–R2.7, R4.2, INV-4). O gate da spec passa. Falta o "sim" do usuário ao plano.
-- 2026-10-18 10:38 (Brasília): RULES-LOCAL-GLOBAL registrada (etapa 019, `PESADO`): regras globais em `rules-local/` de cada projeto, conferidas pela `VERSAO.md` do GitHub no início de cada sessão. Aguarda 5 respostas e o "sim" do usuário.
-- 2026-10-18 10:40 (Brasília): INDEX-REGRAS.2 entregue: `scripts/sincronizar.mjs` monta o `dist/REGRAS-GLOBAIS.md` na ordem do `regras/INDEX.md` (sem o índice; avisa regra fora do índice e link quebrado). Falta o `--aplicar` do usuário (INDEX-REGRAS.3).
-- 2026-10-18 10:33 (Brasília): INDEX-REGRAS.1 entregue: `regras/INDEX.md`, índice de leitura das 17 regras globais (porta de entrada também na nuvem). INDEX-REGRAS.2 reservada (ordem do `dist/`).
-- 2026-10-18 10:05 (Brasília): DASHBOARD-REDE-NEURAL.3 entregue: cena 3D da rede neural em `dashboard/assets/js/cena/` (neurônios, ligações por sinal e tamanho do peso, propagação animada camada a camada, rótulos HTML e clique no neurônio) e `principal.js` ligando modelo → cena, com os eventos `rede:propagada` e `rede:neuronio-selecionado` para o painel da `.4`.
-- 2026-10-17 22:00 (Brasília): ACEITE-GLOBAL.2 entregue e ACEITE-GLOBAL fechada (sem aceite, pela C32): `scripts/sincronizar.mjs` grava também em `~/.claude-contaA`, `~/.claude-contaB` e `~/.claude-contaC`; `--aplicar` criou os 3 `CLAUDE.md` com o import e levou a C32 a todas as IAs.
-- 2026-10-17 21:58 (Brasília): ACEITE-GLOBAL.1 entregue: regra C32 em `regras/ciclo-da-task.md`, `regras/quadro-de-tarefas.md` e `regras/esforco.md` (a IA sempre aceita, sem subtarefa de aceite). Aceites do quadro fechados: ESFORCO-GLOBAL.5 e DASHBOARD-REDE-NEURAL.19 concluídos (fecha a mãe ESFORCO-GLOBAL); GERENCIADOR-GLOBAL.6 e DASHBOARD-REDE-NEURAL.5 dispensados. ACEITE-GLOBAL.2 reservada.
-- 2026-10-17 21:53 (Brasília): ACEITE-GLOBAL registrada (plano aprovado, etapa 014): regra C32, a IA sempre aceita e nunca pede aceite ao usuário; o sincronizador passa a gravar também em `~/.claude-contaA/B/C`. ACEITE-GLOBAL.1 reservada por Claude Code (Opus 5.5).
-- 2026-10-17 18:08 (Brasília): DASHBOARD-REDE-NEURAL.27 entregue: na página Agentes ao vivo, globo menor, agentes mais afastados e um fio fino do globo até cada tarefa em andamento.
-- 2026-10-17 18:07 (Brasília): DASHBOARD-REDE-NEURAL.26 entregue: o menu do `agentes.html` não mostra mais Dashboard, 3D GRAPHS AI e Cena do prompt 04.
-- 2026-10-17 18:05 (Brasília): DASHBOARD-REDE-NEURAL.24 e .25 entregues: o menu de projetos do 3D GRAPHS AI troca o quadro lido (19 projetos de `C:ontes`, sem as pastas `DEMAIS-PROJETOS-*`), e a página Agentes ao vivo virou um mapa mental: globo girando no centro, agentes parados em volta ligados por galhos e tarefas em ramos.
-- 2026-10-17 17:58 (Brasília): DASHBOARD-REDE-NEURAL.23 entregue: o menu das páginas do 3D GRAPHS AI ganhou uma linha em cima com o projeto atual, "Rules Ai".
-- 2026-10-17 17:55 (Brasília): regra do projeto C31 (`AGENTS.md`): quem reserva uma subtarefa escreve ` · NN%` no fim da coluna "Em uso por". DASHBOARD-REDE-NEURAL.22 entregue: a página Agentes ao vivo mostra esse percentual na cabeça de cada agente que trabalha.
-- 2026-10-17 17:49 (Brasília): DASHBOARD-REDE-NEURAL.21 (correção): os rótulos da página Agentes ao vivo passaram a ser HTML (CSS2DRenderer) e ficaram nítidos em qualquer zoom.
-- 2026-10-17 17:41 (Brasília): DASHBOARD-REDE-NEURAL.20 entregue: na página Agentes ao vivo, as pendentes formam um globo no centro, os agentes orbitam em volta com as tarefas que estão fazendo, e as concluídas vão para um anel externo.
-- 2026-10-17 17:37 (Brasília): DASHBOARD-REDE-NEURAL.18 entregue: `dashboard/graphs/agentes.html` mostra em 3D as tarefas reais do `tasks/STATUS.md` (rota `/api/agentes`, atraso padrão de 30 s), com o nome de cada agente sobre o personagem; tela inteira só com o menu; menu único em `graphs/assets/js/menu.js`. `.19` aguarda o aceite do usuário.
-- 2026-10-17 17:12 (Brasília): DASHBOARD-REDE-NEURAL.18 registrada no quadro (só o plano, ⬜ pendente): página `dashboard/graphs/agentes.html` com as tarefas reais do `tasks/STATUS.md` em 3D, atraso configurável (padrão 30 s). `.19` é o aceite do usuário.
-- 2026-10-17 16:57 (Brasília): DASHBOARD-REDE-NEURAL.17: saldo de créditos da Tripo no cabeçalho do 3D GRAPHS AI e da cena.
-- 2026-10-17 16:52 (Brasília): DASHBOARD-REDE-NEURAL.16: o modal da chave avisa quando é colado o client_id (`tcli_`) em vez da chave secreta (`tsk_`).
-- 2026-10-17 16:50 (Brasília): DASHBOARD-REDE-NEURAL.15 (correção): ⚙ da chave também na `graphs/cena.html`; validação da chave aceita qualquer caractere visível sem espaço.
-- 2026-10-17 16:44 (Brasília): DASHBOARD-REDE-NEURAL.14 entregue: cena 3D animada do prompt 04 em `dashboard/graphs/cena.html` (formas simples até gerar os 5 objetos na Tripo) e cliente da Tripo migrado para a API V3.
-- 2026-10-17 16:39 (Brasília): DASHBOARD-REDE-NEURAL.14 criada só com o plano: usar o prompt 04 no 3D GRAPHS AI (objetos 3D gerados na Tripo + cena animada do infográfico). Aguarda respostas e o "sim" do usuário.
-- 2026-10-17 16:38 (Brasília): DASHBOARD-REDE-NEURAL.13: guia `dashboard/graphs/TRIPO_AI_DOCS.md` (API V3 e 5 SDKs da Tripo). Achado: o `graphs/` usa a V2; a migração para a V3 está descrita no guia.
-- 2026-10-17 16:34 (Brasília): DASHBOARD-REDE-NEURAL.12: os 4 prompts de `dashboard/prompts/` ficaram independentes (o 04 foi reescrito inteiro; o 02 não cita mais o 04).
-- 2026-10-17 16:31 (Brasília): DASHBOARD-REDE-NEURAL.11: 4 prompts em `dashboard/prompts/` (`MODELO-3D-REDE-NEURAL-01.md` a `04.md`), um por imagem, para recriar cada tela como página HTML.
-- 2026-10-17 16:21 (Brasília): DASHBOARD-REDE-NEURAL.10: pasta `dashboard/prompts/` criada (com README).
-- 2026-10-17 16:18 (Brasília): DASHBOARD-REDE-NEURAL.9 entregue: ícone ⚙ no 3D GRAPHS AI abre modal para salvar a chave da Tripo no `localStorage` (enviada só ao servidor local em `X-Tripo-Key`; `.env` como alternativa). Corrigido o bloqueio do Cloudflare da Tripo (erro 1010) com User-Agent próprio; URL base e autenticação confirmadas (401 com chave falsa).
-- 2026-10-17 15:53 (Brasília): DASHBOARD-REDE-NEURAL.8 entregue: menu "3D GRAPHS AI" no `dashboard/index.html` abre `dashboard/graphs/` (visualizador Three.js de GLB + geração texto → 3D pela API da Tripo, a mais barata da coleta, via `graphs/servidor.py` com a chave no `.env` fora do Git). Sem chave por enquanto; endpoints da Tripo a conferir na primeira geração.
-- 2026-10-17 15:44 (Brasília): DASHBOARD-REDE-NEURAL.7 entregue: aba "Ferramentas de IA 3D" no `dashboard/index.html` (dados do `coleta.json` e dos reels salvos em `MODELOS-DE-IA/`, gerados por `scripts/gerar_dados_painel.py`). `/graphify --update` rodado: 500 nós, 628 ligações, 45 comunidades; `.graphifyignore` novo tira `MODELOS-DE-IA/` do grafo.
-- 2026-10-17 15:33 (Brasília): `graphify update .` rodado a pedido do usuário; sem mudança de topologia, só o cache (`stat-index.json`, `manifest.json`) foi atualizado.
-- 2026-10-17 15:25 (Brasília): DASHBOARD-REDE-NEURAL.6 entregue: coletor Python em `dashboard/scripts/` (Playwright + AwesomeAPI) dos links do `dashboard/CLAUDE.md`; saída em `dashboard/scripts/saida/coleta.json` (fora do Git). `WEB-SCRAP.md`, `dashboard/README.md` e `.gitignore` atualizados.
-- 2026-10-17 17:25 (Brasília): DASHBOARD-REDE-NEURAL: plano aprovado; `.1` entregue (Haiku): pasta `dashboard/` com `index.html`, CSS e README.
-- 2026-10-17 17:19 (Brasília): tarefa DASHBOARD-REDE-NEURAL (etapa 013) criada no quadro: página em `dashboard/` com a visualização 3D das camadas de uma rede neural (Three.js). Tarefa grande: só o plano; execução depende do "sim" do usuário. Nada foi criado na pasta ainda.
-- 2026-10-17 13:52 (Brasília): regra global nova C30 (`regras/frentes-e-reserva.md`, tarefa PONTO-GLOBAL, etapa 012): mensagem só com `.` = listar em quadro as tarefas pendentes e apontar a próxima livre do seu modelo, sem reservar nem mudar nada. Regras globais sincronizadas.
-- 2026-10-17 13:47 (Brasília): C29 ampliada: o `gerenciador-de-ia` também tem **uma sessão de IA por vez** (seção 10 do `CLAUDE.md` de lá e `.gitignore`, tarefa #5 do quadro dele; PASTA-UNICA-GLOBAL.5).
-- 2026-10-17 13:38 (Brasília): regra do projeto C29 (`AGENTS.md`, PASTA-UNICA-GLOBAL.3): no `rules-ai` trabalha **uma sessão de IA por vez**, com a trava local `tasks/.sessao-ativa` (fora do Git, 60 min sem atualização = abandonada). `gerenciador-de-ia` ainda sem decisão (PASTA-UNICA-GLOBAL.4).
-- 2026-10-17 13:36 (Brasília): PASTA-UNICA-GLOBAL.1 entregue (Opus 5.5): recomendada a cópia por modelo (`<projeto>-CLAUDE-HAIKU/-SONNET/-OPUS`, como no `aulasenai`), com sincronizador só na pasta principal; aguarda a aprovação do usuário (`.2`).
-- 2026-10-17 13:34 (Brasília): GERENCIADOR-GLOBAL.2 entregue: `regras/gerenciador-centralizado.md` (C28, `CONFLITOS.md`). Ordem vigente: disparo automático em pausa (pedido do usuário, 13:30). O automático só para Haiku e Sonnet (16:12) fica para reativação. A regra mantém o modo `ver` como padrão. Sincronizador não rodado (não autorizado nesta subtarefa).
-- 2026-10-17 13:31 (Brasília): GERENCIADOR-GLOBAL: `dashboard-ai-*` voltaram e entram; **disparo automático em pausa** pelo usuário (a `.4` fica ⛔). Tarefa nova PASTA-UNICA-GLOBAL (etapa 011): conflitos de várias sessões na mesma pasta (`rules-ai`, `gerenciador-de-ia`); `.1` (Opus) propõe a solução, `.2` é a aprovação do usuário.
-- 2026-10-17 16:24 (Brasília): GATILHO-GLOBAL.2 concluída: `sincronizar.mjs --aplicar` rodado com a autorização do usuário; gravados Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro; Claude Code igual (importa o `dist`, que já tem o gatilho `;`). Com isso a regra C24 vale nas IAs.
-- 2026-10-17 13:22 (Brasília): GERENCIADOR-GLOBAL.8 entregue (Opus 5.5): respostas de 16:12 conferidas; valem projetos `aulasenai`/`aulas-senai-*` (mesmo quadro), `rules-ai` e `gerenciador-de-ia`, automático para Haiku e Sonnet, 30 s, só Claude Code e mesclagem; pendentes: `dashboard-ai-*` (pastas não existem em `C:\fontes`), limite por hora e custo, e 1 sessão por pasta.
-- 2026-10-17 16:25 (Brasília): gatilho `;` (C24) escrito em `regras/frentes-e-reserva.md` e marcado no `CONFLITOS.md` (GATILHO-GLOBAL.1). A sincronização (GATILHO-GLOBAL.2) ainda não rodou; a regra só chega às outras IAs depois dela.
-- 2026-10-17 13:18 (Brasília): C27 ampliada (`regras/exibicao-de-status.md`, STATUS-QUADRO-GLOBAL.3): todo quadro que fala de tarefa tem a coluna Tarefa (ID), e ao mostrar subtarefas a linha da mãe vem primeiro, em negrito. Regras globais sincronizadas.
-- 2026-10-17 16:12 (Brasília): GERENCIADOR-GLOBAL: respostas do usuário registradas na etapa 009 (projetos: `aulasenai`, `gerenciador-de-ia`, `dashboard-ai-*`, `aulasenai-*`, `rules-ai`; automático só para Haiku e Sonnet; ciclo de 30 s; só Claude Code; mesclar com o `gerenciador-de-tarefas` e atribuir ao Opus pela subtarefa .7). Revoga, nos pontos que divergem, o plano de 13:01. Nada foi disparado.
-- 2026-10-17 13:16 (Brasília): `regras/esforco.md` (C21) limpo: saíram os resultados das conferências (Sonnet, Opus, padaria), que ficam na etapa 002; a regra ficou só com o que a IA precisa fazer. Regras globais sincronizadas (ESFORCO-GLOBAL.6).
-- 2026-10-17 13:12 (Brasília): C21 (`regras/esforco.md`) atualizada com a conferência do Opus 5.5 (CONFEFFORT-GLOBAL.3: `effort` aplicado, +2,3% de tokens e +40% de tempo de `low` a `xhigh`); regras globais sincronizadas (CONFEFFORT-GLOBAL.7).
-- 2026-10-17 13:10 (Brasília): GERENCIADOR-GLOBAL: plano aprovado (só `rules-ai` e `aulasenai`, começa só avisando, volta de 20 s para modelo ocioso e 60 s para ocupado, só Claude Code, fora das `aulas-senai-*`); `.1` entregue (prova de conceito `claude -p --model haiku` ok e desenho na etapa 009). Próximas: `.2` (Haiku) e `.3` (Opus).
-- 2026-10-17 13:05 (Brasília): CONFEFFORT-GLOBAL.3 entregue (Opus 5.5): `effort` aplicado — tokens e tempo crescem de `low` a `xhigh` (39.893 → 40.823 tokens; 19,0 → 26,6 s), todos acertaram. Faltam Haiku (.1), Gemini (.4) e DeepSeek (.5).
-- 2026-10-17 12:59 (Brasília): STATUS-QUADRO-GLOBAL concluída: `sincronizar.mjs --aplicar` rodado com autorização do usuário; a C27 chegou ao Claude Code (via `dist`), Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro.
-- 2026-10-17 12:56 (Brasília): regra global nova C27 (`regras/exibicao-de-status.md`, tarefa STATUS-QUADRO-GLOBAL, etapa 010): todo status (tarefas, frentes, pendências, conferências) é mostrado em quadro (tabela), no terminal e no chat do IDE, em todas as IAs. A regra chega às IAs depois do `sincronizar.mjs --aplicar` (STATUS-QUADRO-GLOBAL.2, aguarda o usuário).
-- 2026-10-17 15:55 (Brasília): tarefa GERENCIADOR-GLOBAL (etapa 009) criada no quadro do `rules-ai`: gerenciador centralizado que chama as tarefas livres de cada modelo. Tarefa grande: só o plano e as perguntas agora; execução depende do "sim" do usuário. Nada foi executado nem disparado.
-- 2026-10-17 12:54 (Brasília): SUBTAREFA-GLOBAL concluída: `sincronizar.mjs --aplicar` rodado com autorização do usuário; a C26 chegou ao Claude Code (via `dist`), Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro.
-- 2026-10-17 12:48 (Brasília): regra global nova C26 (`regras/ciclo-da-task.md`, tarefa SUBTAREFA-GLOBAL, etapa 008): a IA que está numa subtarefa pode criar subtarefas novas **só dentro da mãe atual** (nunca mãe nova) e publica direto no quadro (commit + push, sem aprovação); na equipe do Claude Code quem cria é o líder. A regra chega às IAs depois do `sincronizar.mjs --aplicar` (SUBTAREFA-GLOBAL.2, aguarda o usuário).
-- 2026-10-17 12:30 (Brasília): GRAPHIFY-GLOBAL concluída: `graphify.md` do aulasenai e do REA-APP-CLONES alinhados à C25; `sincronizar.mjs --aplicar` rodado (Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro gravados; Claude Code igual); seção antiga de graphify do `~/.claude/CLAUDE.md` trocada pela C25.
-- 2026-10-17 12:27 (Brasília): regra global de graphify mudou (C25, substitui a C11; `regras/graphify.md`): ler o `GRAPH_REPORT.md` antes de criar e antes de executar cada tarefa; `graphify update .` no início da conversa e ao fim de cada tarefa concluída e retirada do quadro (tarefa GRAPHIFY-GLOBAL, etapa 007). O `graphify.md` do aulasenai e do REA-APP-CLONES será alinhado e o sincronizador será rodado nas subtarefas .2 e .3.
-- 2026-10-17 11:55 (Brasília): tarefa GLOBAL GATILHO-GLOBAL (etapa 006) criada e publicada no quadro:
-  mensagem só com `;` = "pegue a próxima tarefa disponível para o seu modelo" (decisão C24). Subtarefas
-  `.1` (regra em `regras/frentes-e-reserva.md`, C24 e este status) e `.2` (`sincronizar.mjs --aplicar`)
-  são LEVE, só Haiku, e ainda **não foram feitas**: a regra só vale depois da `.2`.
-- 2026-10-17 10:55 (Brasília): tarefa INDEX-FONTES (etapa 005): `C:\fontes\index.html` ganhou 4 cards com modais
-  (raiz, rules-ai, líder Opus e tarefas), com dados gerados por `C:\fontes\scripts\gerar-dados-index.mjs`.
-- 2026-10-17 10:40 (Brasília): nova regra global C23 (`regras/pastas-ignoradas.md`, `CONFLITOS.md`): nada da
-  pasta `DEMAIS-PROJETOS-NAO-MEXER-AGORA` (projetos parados) é lido nas sessões; `C:\fontes\CLAUDE.md` atualizado.
-- 2026-10-16 23:33 (Brasília): `node scripts/sincronizar.mjs --aplicar` rodado (pedido do usuário): `dist/REGRAS-GLOBAIS.md` sem mudança; regras regravadas em Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro; Claude Code já estava igual.
-- 2026-10-16 19:55 (Brasília): tarefas ESFORCO e CONFEFFORT viraram GLOBAIS (`tasks/STATUS.md`, etapa 002); nova regra `regras/esforco.md` (C21).
-- 2026-10-16 17:30 (Brasília): `C:\fontes\CLAUDE.md` (raiz) sem a lista da pasta offline e com a regra C20.
-- 2026-10-16 17:20 (Brasília): nova regra global C20 (`regras/pastas-ignoradas.md`): nunca ler de início a
-  pasta `DEMAIS-PROJETOS-DE-SISTEMAS-MANTER-OFFLINE`.
-- 2026-10-16 17:00 (Brasília): parágrafo "regras globais valem" colocado no CLAUDE.md/AGENTS.md de todos os
-  projetos com Git (e criado onde faltava); divergências C14 a C19 aguardam a decisão do usuário.
-- 2026-10-16 16:30 (Brasília): regra global de git mudou (C13): ao finalizar uma tarefa, commit + push em
-  todos os projetos e IAs (`regras/git-geral.md`, `CONFLITOS.md`); sincronizada nas IAs.
-- Primeira versão deste arquivo, feita a partir do `STATUS-PROJETO.md` das 15:10.
-- Nova thread "Atualizar status a cada hora" criada, com a tarefa agendada desta atualização.
-- A thread "Status do projeto em Markdown" foi encerrada.
-- Nenhum commit novo na `main` do REA (continua em `d4da53a`) e nenhuma resposta nova nas threads
-  "Executar alinhamento" e "Ligar as outras IAs".
+`C:\fontes\rules-ai` é a **fonte única das regras globais de IA** de `C:\fontes`:
+`regras/*.md` → `scripts/sincronizar.mjs` → `dist/REGRAS-GLOBAIS.md` + `VERSAO.md` → arquivo global de
+cada IA (Claude Code, Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro). O `CONFLITOS.md` guarda
+as decisões (C1–C38); o `spec/` guarda os templates e o gate `verificar-spec.mjs` da tarefa PESADA; o
+`dashboard/` tem o dashboard de agentes ao vivo; o `tasks/` é o quadro onde as sessões se encontram —
+`STATUS.md` só com o que está aberto, `task_complete.md` com o histórico e `etapas/` com o plano e o
+detalhe de cada tarefa-mãe.
 
-## Objetivo
+## Estado atual
 
-Fazer várias IAs (Claude Code, Gemini CLI, Codex e outras) trabalharem juntas pelas mesmas regras
-globais (`C:\fontes\rules-ai`), com o quadro de tarefas como ponto de encontro. O repositório de
-trabalho é o `rea-app-clones` (REA), que usa essas regras para clonar o Chaos Code v3.
+| Item | Situação |
+|---|---|
+| Regras globais | 20 regras + `regras/INDEX.md`; `VERSAO.md` em `2026-10-18-988f933e` |
+| Decisões (`CONFLITOS.md`) | C1–C38 registradas; **C14–C19 pendentes** de decisão do usuário (D6 da auditoria) |
+| `rules-local/` | instalado e conferido pela `VERSAO.md` no escopo de 8 remotos (RULES-LOCAL-GLOBAL concluída em 2026-10-18 12:26) |
+| Quadro — tarefas-mãe | **23 mães**: 10 abertas no `tasks/STATUS.md` e 13 concluídas no `tasks/task_complete.md` (22 etapas em `tasks/etapas/`) |
+| Quadro — linhas | 43 linhas abertas no `STATUS.md` e 119 concluídas no `task_complete.md`; **nenhuma linha ✅ no `STATUS.md`** (C4 aplicada) |
+| Etapa 017 (NIVEL-DEEPSEEK) | corrigida em 2026-10-18 13:45: as 3 subtarefas estavam ✅ e a mãe continuava 🔄; virou ✅ e foi para o `task_complete.md` |
+| Sessão (C29) | uma sessão de IA por vez nesta pasta; `tasks/.sessao-ativa` é do lead (DeepSeek Harness) e não é apagado por subagente |
+| Este arquivo | reescrito em 2026-10-18 13:45 (D8 da auditoria): título, fontes e histórico passaram a ser do `rules-ai`; saíram as seções herdadas do REA/DASHBOARD-AI |
 
-## O que espera de você
+## O que espera você (usuário)
 
 | # | O quê | Onde |
-|---|-------|------|
-| 1 | Rodar `git push origin main` em `C:\fontes\rules-ai` (o commit `fix(GLOBAL.8)` já está feito; a rede da nuvem não alcança esse repositório) | Seu computador |
-| 2 | Abrir uma sessão nova do Claude Code e conferir no `/memory` se as regras globais aparecem (a pasta `~/.claude` não pôde ser lida daqui) | Seu computador |
-| 3 | Responder à thread "Executar alinhamento das regras globais": a pergunta dela já está resolvida (ver abaixo), então basta dizer que pode encerrar | Projeto |
-| 4 | Opcional: apagar as travas vencidas `stale-HEAD-lock-claude` e `stale-maintenance-lock-claude` em `C:\fontes\rules-ai\.git` | Seu computador |
-| 5 | Aceites pendentes no quadro do REA: `CLONE.14.3` e `SERVIDOR.54` (só depois que as subtarefas anteriores terminarem) | `tasks/STATUS.md` |
+|---|---|---|
+| 1 | Rodar `node scripts/sincronizar.mjs --aplicar` para levar as regras novas às IAs (MODELO-GLOBAL.2, ESPEC-GLOBAL.4 e INDEX-REGRAS.3 estão 👀) | `C:\fontes\rules-ai` |
+| 2 | Fechar as 4 perguntas e dar o "sim" ao plano da DASHBOARD-AGENTES (a pasta `dashboard/` fica só com os Agentes ao vivo) | `tasks/STATUS.md` · etapa 020 |
+| 3 | Decidir as **C14–C19** (D6), o destino de `C:\fontes\CONFIG-DEEPSEEK` (D7) e a fonte única da skill `gerenciador-de-tarefas` entre `.claude` e `.agents` (D9) | `CONFLITOS.md` · `ANALISE-DE-FONTES-2026-10-18.md` |
+| 4 | Reativar ou manter em pausa o disparo automático do GERENCIADOR-GLOBAL.4 (⛔ desde 2026-10-17 13:30) | `tasks/STATUS.md` |
 
-## Frentes de trabalho
+## Pendências e bloqueios
 
-### 1. Executar alinhamento das regras globais
+| Item | Situação |
+|---|---|
+| GERENCIADOR-GLOBAL.4 | ⛔ disparo automático em pausa pelo usuário (2026-10-17 13:30); o resto da tarefa segue ⬜ |
+| EFFORT-PADARIA.6/.7 e CONFEFFORT-GLOBAL.1/.4/.5 | ⬜ rodadas de Gemini e de DeepSeek |
+| DASHBOARD-AGENTES.1–.6 | ⬜ aguardando o plano aprovado |
+| UPDATE-REPOS.2–.14 | ⬜ rodar o `scripts/UPDATE.py` nas 13 pastas `dashboard-ai-*`/`aulas-senai-*` |
+| C14–C19 | ⬜ revisão das regras que citam pastas inexistentes (D6) |
 
-- **Situação:** parada esperando você, mas **o trabalho já está feito**.
-- **O que a thread perguntou:** se você aprova o plano da ALINHAR.5 e o push direto na `main`.
-- **O que o quadro mostra:** uma sessão Claude Code (Sonnet 5.5) no seu computador já fez a
-  ALINHAR.1 a ALINHAR.5, com o seu "SIM" registrado às 15:15, e você deu o aceite (ALINHAR.6).
-  Os commits estão na `main`, do `78ad585` ao `d4da53a`. A ALINHAR inteira está em
-  `tasks/task_complete.md`.
-- **O que mudou no REA:**
-  - O graphify roda só no início da conversa e o relatório é analisado (C11).
-  - A frase final das tarefas foi alinhada (C1).
-  - A ordem passou a ser criar, publicar e assumir (C9), com a tabela "Frentes de trabalho" (C3).
-  - Cada IA pega primeiro do seu nível e só desce quando não houver livre (C2). A trava do
-    `pre-commit` continua recusando nível acima.
-- **Próximo passo:** encerrar a thread. Não há nada para aplicar.
+## Histórico (ordem cronológica, do mais antigo ao mais recente)
 
-### 2. Ligar as outras IAs às regras globais
-
-- **Situação:** concluída do lado da nuvem; falta o push (item 1 acima).
-- **O que foi feito:**
-  - **Codex:** ok. O `~/.codex/AGENTS.md` bate com as regras atuais, inclusive `graphify.md` e o quadro.
-  - **Gemini CLI:** não lia nada. A versão 0.64.0 recusa `@import` de fora da pasta ("Path traversal
-    attempt"). O script de sincronização passou a colar o texto, como no Codex, e o
-    `~/.gemini/GEMINI.md` foi regravado (o original ficou em `GEMINI.md.bak`).
-  - **Claude Code:** continua com `@import` de caminho absoluto, que ele aceita. Falta só a
-    conferência no `/memory` (item 2 acima).
-  - Tarefa GLOBAL.8 registrada no `task_complete.md` e na etapa do `rules-ai`, com o commit
-    `fix(GLOBAL.8)`.
-
-### 3. Status do projeto em Markdown
-
-- **Situação:** concluída e encerrada. Gerou o `STATUS-PROJETO.md`, base deste arquivo.
-
-### 4. Atualizar status a cada hora
-
-- **Situação:** concluída. Criou a tarefa agendada que regrava este `STATUS_PROJETO.md` de hora em
-  hora (o mínimo permitido no projeto; 5 minutos não é aceito).
-
-## Quadro do REA (`rea-app-clones`)
-
-| Tarefa | Título | Prioridade | Concluídas | Abertas | Aguardando você |
-|--------|--------|-----------|-----------|---------|-----------------|
-| CLONE | Clonar o Chaos Code v3 em Node/TypeScript + Electron | 🟠 Alta | 9 | 100 | `CLONE.14.3` (aceite) |
-| SERVIDOR | Servidor local do clone (Python + FastAPI) | 🟠 Alta | 14 | 40 | `SERVIDOR.54` (aceite) |
-| CONFEFFORT | Conferir o esforço (`effort`) em cada modelo | 🟡 Média | 0 | 5 | — |
-| ALINHAR | Alinhar o REA às regras globais | — | 6 | 0 | ✅ concluída |
-
-- **Ninguém está com reserva agora.** A única frente no quadro (Sonnet 5.5, local) está `⏹️ Encerrada`.
-- **Livres para pegar agora (todas da CLONE):** CLONE.1.3, 1.4, 1.5, 1.6, 1.7 e 1.10 (PESADO,
-  Opus 5.5) e CLONE.7.2 e 10.1 (LEVE, Haiku 5.5).
-- **Ponto de atenção:** o "Registro de decisões" do `STATUS.md` ainda mostra as regras antigas de
-  2026-10-15 ("só o seu nível" e "graphify após cada mudança"). A ALINHAR substituiu as duas, mas
-  essas linhas não ganharam a decisão nova ao lado.
-
-## Histórico recente
-
-- 2026-10-18 12:35 — `scripts/UPDATE.py` criado (UPDATE-REPOS.1). Atualiza as pastas `dashboard-ai-*` e `aulas-senai-*` com a `main` do origin (fetch + pull --rebase --autostash), sem resolver conflitos. Ainda **não** rodado nas pastas: próximo é UPDATE-REPOS.2.
+- **2026-10-16** — Criado o repositório `rules-ai` como fonte única das regras globais: `regras/*.md` → `sincronizar.mjs` → arquivo global de cada IA; escopo de todos os projetos de `C:\fontes` e uma regra única por conflito, decidida pelo usuário.
+- **2026-10-16 16:30** — C13: ao finalizar uma tarefa, commit + push em todos os projetos e IAs.
+- **2026-10-16 17:00** — Parágrafo "as regras globais valem" no `CLAUDE.md`/`AGENTS.md` de todos os projetos com Git; divergências C14–C19 ficaram aguardando decisão.
+- **2026-10-16 17:20** — C20: nunca ler de início a pasta `DEMAIS-PROJETOS-DE-SISTEMAS-MANTER-OFFLINE`.
+- **2026-10-16 17:30** — `CLAUDE.md` da raiz fica sem a lista da pasta offline.
+- **2026-10-16 19:55** — ESFORCO e CONFEFFORT viram GLOBAIS (etapa 002) e nasce a regra `regras/esforco.md` (C21).
+- **2026-10-16 23:33** — `node scripts/sincronizar.mjs --aplicar` leva as regras a Gemini, Codex, Grok, Qoder, opencode, Devin e Kiro.
+- **2026-10-17 10:40** — C23: nada da pasta `DEMAIS-PROJETOS-NAO-MEXER-AGORA` é lido nas sessões.
+- **2026-10-17 10:55** — INDEX-FONTES: `C:\fontes\index.html` ganha 4 cards com modais e o gerador `scripts/gerar-dados-index.mjs`.
+- **2026-10-17 11:55** — GATILHO-GLOBAL (etapa 006): mensagem só com `;` = pegue a próxima tarefa do seu modelo (C24).
+- **2026-10-17 12:27** — C25 (graphify): ler o `GRAPH_REPORT.md` antes de criar e antes de executar tarefa; `graphify update .` ao fim de cada tarefa concluída e retirada do quadro.
+- **2026-10-17 12:48** — C26: a IA cria subtarefas novas só dentro da mãe atual e publica direto no quadro, sem aprovação.
+- **2026-10-17 12:56** — C27 (`regras/exibicao-de-status.md`): todo status é mostrado em quadro; às 13:18 a regra ganha o ID da tarefa e a linha da mãe em negrito.
+- **2026-10-17 13:05** — CONFEFFORT-GLOBAL.3: `effort` conferido no Opus 5.5 (39.893 → 40.823 tokens; 19,0 → 26,6 s) e C21 atualizada.
+- **2026-10-17 13:31** — GERENCIADOR-GLOBAL: disparo automático em pausa a pedido do usuário; nasce a PASTA-UNICA-GLOBAL para decidir sessão única por pasta.
+- **2026-10-17 13:34** — C28 (`regras/gerenciador-centralizado.md`); a ordem vigente é a pausa do disparo automático.
+- **2026-10-17 13:38** — C29: uma sessão por vez no `rules-ai`, com a trava local `tasks/.sessao-ativa` (60 min sem atualização = abandonada).
+- **2026-10-17 13:52** — C30 (PONTO-GLOBAL): mensagem só com `.` = listar as tarefas pendentes e apontar a próxima livre do seu modelo.
+- **2026-10-17 16:12** — Respostas do usuário ao GERENCIADOR-GLOBAL: projetos `aulasenai`, `aulas-senai-*`, `rules-ai`, `gerenciador-de-ia` e `dashboard-ai-*`; automático só para Haiku e Sonnet, ciclo de 30 s, só Claude Code, mesclado com o `gerenciador-de-tarefas`.
+- **2026-10-17 16:14** — Aberta a GERENCIADOR-GLOBAL.8 para conferir as respostas de 16:12 contra o plano de 13:01.
+- **2026-10-17 17:19** — DASHBOARD-REDE-NEURAL registrada (etapa 013) e plano aprovado às 17:21; série de entregas até a `.27` (globo, agentes ao vivo, mapa mental).
+- **2026-10-17 18:08** — DASHBOARD-REDE-NEURAL.27 fecha as melhorias da página "Agentes ao vivo".
+- **2026-10-17 21:50** — C32: a IA sempre aceita e nunca pede aceite ao usuário; o sincronizador passa a gravar também nas contas A, B e C do Claude Code.
+- **2026-10-17 22:00** — ACEITE-GLOBAL fechada sem aceite, pela C32; aceites antigos do quadro foram dispensados (GERENCIADOR-GLOBAL.6 e DASHBOARD-REDE-NEURAL.5).
+- **2026-10-18 08:45** — C34 (ESPEC-GLOBAL): fluxo de spec (EARS, invariantes, perguntas abertas) na etapa de tarefa PESADA, com `spec/templates/` e o gate `spec/verificar-spec.mjs`.
+- **2026-10-18 08:52** — C35: o DeepSeek passa a pegar tarefa `PESADO` (altera a C22); dentro do `PESADO`, o `effort` continua `high`.
+- **2026-10-18 10:33–10:40** — INDEX-REGRAS.1/.2: `regras/INDEX.md` vira porta de entrada das regras e o `dist/` passa a seguir a mesma ordem.
+- **2026-10-18 11:42** — RULES-LOCAL-GLOBAL: perguntas fechadas e plano aprovado pelo usuário ("SIM"); a tarefa é dividida em subtarefas para rodar em paralelo no herdr (líder sargento).
+- **2026-10-18 11:48** — RULES-LOCAL-GLOBAL.11: lista de 19 pastas com GitHub e 7 remotos; lotes A (aulasenai), B (dashboard-ai) e C (4 remotos).
+- **2026-10-18 11:52–12:26** — RULES-LOCAL-GLOBAL entregue em ondas: `VERSAO.md`, regra `rules-local`, instalador, gancho `SessionStart`, lotes A/B/C, `.17` (`gerenciador-de-ia`), `.20` (`testes-effort-padaria`) e mãe concluída.
+- **2026-10-18 12:01** — DASHBOARD-AGENTES registrada (etapa 020) como tarefa PESADA com spec C34; aguarda as 4 perguntas e o "sim" do usuário.
+- **2026-10-18 12:30–13:00** — UPDATE-REPOS: decidido que todas as subtarefas são `LEVE · só Haiku 5.5`; tarefa criada (etapa 021) e `scripts/UPDATE.py` entregue na `.1`.
+- **2026-10-18 12:58** — HERDR-GLOBAL.1: `regras/herdr.md` (C33) criada e indexada; o herdr entra como runtime dos agentes sob pedido do usuário.
+- **2026-10-18 12:59** — NIVEL-QODER.1 (C38): linha **Qoder** na matriz das regras globais, igualando a skill `classificar-tarefa`.
+- **2026-10-18 13:34** — Auditoria de fontes da raiz (`C:\fontes\ANALISE-DE-FONTES-2026-10-18.md`): achados, riscos e pendências D1–D12, incluindo o quadro global (D5) e este arquivo (D8).
+- **2026-10-18 13:45** — D5/D8 aplicados: C4 completa (30 linhas ✅ recortadas do `STATUS.md` para o `task_complete.md`), as 10 tarefas-mãe sem linha restauradas (histórico recuperado dos commits `de2103b` e `f26e0c8`), etapa 017 fechada (NIVEL-DEEPSEEK ✅), RULES-LOCAL-GLOBAL.17/.20 registradas e este `STATUS_PROJETO.md` reescrito como status do `rules-ai`.
