@@ -348,7 +348,8 @@ function gravarSincronizacao(pasta, nuvem, estado) {
   avisar(`VERSÃO NOVA ${estado.versao} -> ${nova} (${mudado.length} mudado, `
     + `${adicionado.length} adicionado, ${removido.length} removido).`);
   avisar(`relatório em rules-local/${ARQUIVO_RELATORIO}.`);
-  avisar('DISPARAR A SINCRONIZAÇÃO DE TASKS (regras/rules-local.md) antes do primeiro pedido.');
+  avisar('DISPARAR A SINCRONIZAÇÃO DE TASKS (rules-local/regras/rules-local.md) '
+    + 'antes do primeiro pedido.');
 }
 
 /**

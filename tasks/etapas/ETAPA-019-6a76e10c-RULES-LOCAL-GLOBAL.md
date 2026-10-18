@@ -844,8 +844,8 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
 
 ### RULES-LOCAL-GLOBAL.18 — Caminho certo da regra no aviso do `sessao.mjs`
 
-**Próximo passo:** reservar (Sonnet); trocar o texto em `scripts/rules-local/sessao.mjs` (perto da
-linha 351) e o líder reinstala nos repositórios já instalados.
+**Próximo passo:** líder conferir e commitar; depois reinstalar nos repositórios já instalados
+(o instalador roda de novo; esta subtarefa não reinstalou nada).
 
 - **Nível:** MEDIO — ajuste de texto em 1 arquivo JS, com reinstalação depois
 - **Modelo:** só Sonnet — nunca outro
@@ -856,6 +856,12 @@ linha 351) e o líder reinstala nos repositórios já instalados.
   instalador rodar de novo neles.
 - **Critérios de aceitação:** o aviso cita `rules-local/regras/rules-local.md`; `node --check`.
 - **Verificação:** rodar o `sessao.mjs` numa cópia com versão diferente e ler o aviso.
+- **Entrega:** `scripts/rules-local/sessao.mjs` linha 351 (aviso agora cita
+  `rules-local/regras/rules-local.md`, quebrado em 2 linhas para caber em 100 colunas; lógica
+  intacta). Era o único texto do script com esse caminho. Reinstalação nos 7 repositórios fica
+  para o líder.
+- **Verificação (feita):** `node --check scripts/rules-local/sessao.mjs` → OK; `grep` confirma só
+  o caminho novo no script. Não rodei o script numa cópia com versão diferente (leitura apenas).
 
 ### RULES-LOCAL-GLOBAL.5 — Levar a regra nova às IAs (`--aplicar`)
 

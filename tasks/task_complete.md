@@ -13,3 +13,4 @@
 | RULES-LOCAL-GLOBAL.15 | 🌐 Instalar no lote B de repositórios | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | RULES-LOCAL-GLOBAL.4 | ✅ Concluído | — | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
 | RULES-LOCAL-GLOBAL.14 | 🌐 Instalar no lote A de repositórios | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | RULES-LOCAL-GLOBAL.4 | ✅ Concluído | — | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
 | RULES-LOCAL-GLOBAL.16 | 🌐 Instalar no lote C de repositórios | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | RULES-LOCAL-GLOBAL.4 | ✅ Concluído | — | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
+| RULES-LOCAL-GLOBAL.18 | 🌐 Aviso do `sessao.mjs` com o caminho certo da regra (`rules-local/regras/rules-local.md`) | 🟡 Média | MEDIO · só Sonnet · effort medium | RULES-LOCAL-GLOBAL.2 | ✅ Concluído | — | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |

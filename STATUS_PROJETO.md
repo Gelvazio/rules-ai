@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-18 12:11 (Brasília): RULES-LOCAL-GLOBAL.18 entregue: aviso do `sessao.mjs` cita `rules-local/regras/rules-local.md`; os 6 repositórios instalados recebem a cópia nova na próxima reinstalação (SN-18, Sonnet).
 - 2026-10-18 12:10 (Brasília): RULES-LOCAL-GLOBAL.16 entregue: lote C: PLATAFORMA-ENVIO-CURRICULOS (c40785f), REA-APP-CLONES (011b77f) e testes-de-frontend (bd5ab7f) instalados; `gerenciador-de-ia` bloqueado (AGENTS.md fora do Git) e movido para a .17 (OP-16, Opus).
 - 2026-10-18 12:10 (Brasília): RULES-LOCAL-GLOBAL.14 entregue: lote A: `aulasenai` instalado (commit 05b9878d); clones HAIKU, OPUS e SONNET atualizados; OPUS-LIDER pulado (árvore suja) (OP-14, Opus).
 - 2026-10-18 12:09 (Brasília): RULES-LOCAL-GLOBAL.15 entregue: lote B: `dashboard-ai` instalado a partir de `dashboard-ai-codex` (commit 385b9a9); clones hotmail, deepseek, devin e kiro-crew atualizados; senai, qoder, gmail e gemini pulados (árvore suja; gmail e gemini com conflito de outra sessão) (OP-15, Opus).
