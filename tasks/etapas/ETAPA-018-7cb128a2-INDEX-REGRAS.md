@@ -16,10 +16,11 @@ existe; e fazer o `dist/REGRAS-GLOBAIS.md` seguir essa ordem em vez da alfabéti
 |---|---|---|---|
 | 2026-10-18 10:23 | O nome do arquivo é `regras/INDEX.md` (maiúsculo, como o `.claude/rules/INDEX.md` do `aulasenai`) | Claude Code (Opus 5.5) | Padrão já usado nos projetos |
 | 2026-10-18 10:23 | O `INDEX.md` **não** entra no `dist/` (é só índice); regra que não estiver no índice entra no fim, em ordem alfabética, com aviso no terminal | Claude Code (Opus 5.5) | Regra nova nunca some do `dist/` por esquecimento |
+| 2026-10-18 10:33 | `comando-ponto.md` e `comando-interrogacao.md` entram no índice (4 e 5); o `.` aparece também em `frentes-e-reserva.md` (C30): duas fontes para o mesmo gatilho, fica como pendência | Claude Code (Opus 5.5) | Fora do escopo desta tarefa |
 
 ### INDEX-REGRAS.1 — `regras/INDEX.md` com a ordem de leitura
 
-**Próximo passo:** criar `regras/INDEX.md`.
+**Próximo passo:** — (entregue 2026-10-18).
 
 - **Nível:** LEVE — só `.md`, sem lógica.
 - **Modelo:** só Haiku — nunca outro
@@ -33,10 +34,16 @@ existe; e fazer o `dist/REGRAS-GLOBAIS.md` seguir essa ordem em vez da alfabéti
   (`Gelvazio/rules-ai`, pasta `regras/`) e que regra nova entra no índice no mesmo commit.
 - **Critérios de aceitação:** os 15 arquivos de `regras/` aparecem uma vez cada; nenhum link para
   arquivo inexistente; linhas ≤ 100; português com acentuação.
+- **Entrega (2026-10-18 10:33, Haiku 5.5 · executor-leve; líder Opus 5.5):** `regras/INDEX.md`
+  com 17 itens em 5 grupos. No caminho apareceram `comando-ponto.md` e `comando-interrogacao.md`
+  (commits `46b5507` e `d069f78`, de outra sessão, às 10:11); entraram como itens 4 e 5, depois de
+  `frentes-e-reserva.md` (decisão do líder: são gatilhos de mensagem curta).
+- **Verificação (líder):** script Python: numeração 1 a 17 sem buraco; os 17 arquivos de `regras/`
+  (fora o índice) aparecem uma vez cada; texto do link = alvo; nenhuma linha > 100.
 
 ### INDEX-REGRAS.2 — `sincronizar.mjs` monta o `dist/` na ordem do índice
 
-**Próximo passo:** esperar a `.1`.
+**Próximo passo:** ajustar `montarUnificado()` no `scripts/sincronizar.mjs` (reservada 2026-10-18 10:34).
 
 - **Nível:** MEDIO — lógica em JS, 1 arquivo.
 - **Modelo:** só Sonnet — nunca outro

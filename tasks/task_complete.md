@@ -67,3 +67,4 @@
 | ACEITE-GLOBAL.2 | 🌐 Sincronizador com as contas A, B e C e `--aplicar` · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable · effort high | ACEITE-GLOBAL.1 | ✅ Concluído | — | [ETAPA-014](etapas/ETAPA-014-3a7ab4ef-ACEITE-GLOBAL.md) |
 | **ACEITE-GLOBAL** | **🌐 GLOBAL — A IA sempre aceita, nunca pede aceite ao usuário (C32) (plano aprovado)** | 🟠 Alta | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-014](etapas/ETAPA-014-3a7ab4ef-ACEITE-GLOBAL.md) |
 | DASHBOARD-REDE-NEURAL.3 | Cena 3D com propagação animada e clique | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | DASHBOARD-REDE-NEURAL.2 | ✅ Concluído (2026-10-18 10:05) | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| INDEX-REGRAS.1 | 🌐 `regras/INDEX.md` com a ordem de leitura | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído (2026-10-18 10:33) | — | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
