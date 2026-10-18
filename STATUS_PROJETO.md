@@ -35,7 +35,7 @@ detalhe de cada tarefa-mãe.
 | # | O quê | Onde |
 |---|---|---|
 | 1 | O `scripts/sincronizar.mjs --aplicar` já foi rodado em 2026-10-18 13:55 (Hermes incluído; os 11 destinos anteriores já estavam iguais). As linhas MODELO-GLOBAL.2, ESPEC-GLOBAL.4 e INDEX-REGRAS.3 seguem 👀 até o usuário fechar | `C:\fontes\rules-ai` |
-| 2 | Fechar as 4 perguntas e dar o "sim" ao plano da DASHBOARD-AGENTES (a pasta `dashboard/` fica só com os Agentes ao vivo) | `tasks/STATUS.md` · etapa 020 |
+| 2 | Dar o "sim" ao plano da DASHBOARD-AGENTES (perguntas fechadas em 15:02; a pasta `dashboard/` fica só com os Agentes ao vivo) | `tasks/STATUS.md` · etapa 020 |
 | 3 | Decidir as **C14–C19** (D6), o destino de `C:\fontes\CONFIG-DEEPSEEK` (D7) e a fonte única da skill `gerenciador-de-tarefas` entre `.claude` e `.agents` (D9) | `CONFLITOS.md` · `ANALISE-DE-FONTES-2026-10-18.md` |
 | 4 | Reativar ou manter em pausa o disparo automático do GERENCIADOR-GLOBAL.4 (⛔ desde 2026-10-17 13:30) | `tasks/STATUS.md` |
 
@@ -91,3 +91,4 @@ detalhe de cada tarefa-mãe.
 - **2026-10-18 14:00** — D2 aplicado fora do repo: os 20 projetos de `C:\fontes` com `rules-local/` sincronizados para `2026-10-18-988f933e` (17 remotos com push; REA só commit local, sem upstream); 2 TASKs `RL-988F933E-NIVEIS-E-MODELOS` criadas (`aulasenai`, `gerenciador-de-ia`). Complemento do D5: seções "🧭 Frentes de trabalho" e "🗂️ Etapas" no `tasks/STATUS.md` e contagem de regras corrigida neste arquivo.
 - **2026-10-18 13:58** — HERMES-GLOBAL (etapa 023): o `scripts/sincronizar.mjs` ganha o destino **Hermes Agent** (`SOUL.md` em `%LOCALAPPDATA%\hermes` no Windows e `~/.hermes` no POSIX, modo `embutir`) e o `README.md` lista a IA; a máquina recebe `SOUL.md` com o bloco das regras globais e `config.yaml` (skills externas em `C:\Users\gelva\.agents\skills`, memória, aprovações, `context_file_max_chars: 80000`), mantendo o MCP do REA. `--aplicar` rodado: os 11 destinos anteriores já estavam iguais e só o Hermes foi gravado; a `VERSAO.md` não mudou. Fora do escopo: linha do Hermes na matriz de níveis (decisão do usuário) e instalação do CLI.
 - **2026-10-18 15:02** — UPDATE-REPOS.2 (hk-update, Haiku 5.5): `UPDATE.py --pasta dashboard-ai-claude-code-gmail` deu "JÁ EM DIA" (`a8a5eb4`); critérios conferidos; sem alteração na pasta. Próxima: UPDATE-REPOS.3.
+- **2026-10-18 15:03** — DASHBOARD-AGENTES: as 4 perguntas da etapa 020 foram fechadas (1-a página vira `dashboard/index.html`; 2-a `git rm`; 3-a DASHBOARD-REDE-NEURAL cancelada e fechada; 4: os 5 PNG e o `coleta.json` versionados em `dashboard/referencias/`, GLB e `MODELOS-DE-IA/` guardados fora do Git). O gate da spec passa; falta o "sim" do usuário ao plano.

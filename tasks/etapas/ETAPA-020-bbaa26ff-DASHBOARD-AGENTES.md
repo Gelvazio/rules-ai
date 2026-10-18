@@ -32,13 +32,19 @@ ferramentas de IA 3D, o coletor Python, o gerador da Tripo e a cena do prompt 04
 - 3D GRAPHS AI e cena do prompt 04: `graphs/index.html`, `graphs/cena.html`, `principal.js`, `cena.js`,
   `chave.js`, `modal-config.js`, `saldo.js`, `cenas/` (JS e JSON), `cliente_tripo.py`,
   `galeria_modelos.py`, `cenas_prompts.py`, `TRIPO_AI_DOCS.md`.
-- Prompts: `prompts/` (os `.md` versionados), salvo o que a pergunta 4 decidir.
+- Prompts: os `.md` de `prompts/` e o `prompts/README.md`.
+
+**Guardado (pergunta 4):**
+- `dashboard/referencias/`: os 5 PNG de `prompts/` (incluindo `modelo.png`, desenho do mapa mental
+  dos agentes) e o `coleta.json`, **versionados**.
+- `dashboard/referencias/fora-do-git/` (no `.gitignore`): os 5 GLB da Tripo e `MODELOS-DE-IA/`.
 
 **Não entra:**
 - Mudar o comportamento dos Agentes ao vivo (globo, personagens, percentual C31, atraso, menu de
   projetos) — só tirar o que não é dele.
-- Arquivos fora de `dashboard/`, exceto o quadro, esta etapa e a linha da C31 no `AGENTS.md`.
-- Apagar do disco arquivos fora do Git sem a resposta da pergunta 4.
+- Arquivos fora de `dashboard/`, exceto o quadro, esta etapa, a linha da C31 no `AGENTS.md`, o
+  `.gitignore` e o `STATUS_PROJETO.md`.
+- Apagar do disco qualquer arquivo fora do Git.
 
 ### Critério de pronto
 
@@ -82,7 +88,7 @@ ferramentas de IA 3D, o coletor Python, o gerador da Tripo e a cena do prompt 04
 | ID | Regra que vale sempre | Domínio da entrada | Como conferir | Teste automatizado |
 |----|----------------------|--------------------|---------------|--------------------|
 | INV-1 | Todo `import`, `href` e `src` local de cada `.html` e `.js` restante aponta para um arquivo que existe | todos os `.html` e `.js` de `dashboard/` depois de cada subtarefa | script de leitura na pasta da sessão (fora do repositório) que resolve cada caminho relativo e lista os que faltam | não: conferência por comando |
-| INV-2 | Nenhum arquivo fora de `dashboard/` muda, exceto o quadro, esta etapa e a linha da C31 no `AGENTS.md` | todos os commits da tarefa | `git diff --name-only <antes>..HEAD` | não: conferência por comando |
+| INV-2 | Nenhum arquivo fora de `dashboard/` muda, exceto o quadro, esta etapa, a linha da C31 no `AGENTS.md`, o `.gitignore` e o `STATUS_PROJETO.md`; nenhum arquivo fora do Git é apagado do disco | todos os commits da tarefa | `git diff --name-only <antes>..HEAD` | não: conferência por comando |
 | INV-3 | O servidor nunca entrega `.env`, arquivo oculto nem código Python | qualquer caminho pedido | leitura de `caminho_proibido` e do `do_GET` | não: leitura |
 
 **Casos de borda que o código precisa sobreviver:**
@@ -95,28 +101,34 @@ ferramentas de IA 3D, o coletor Python, o gerador da Tripo e a cena do prompt 04
 
 | # | Pergunta | Resposta | Fechada em | Quem respondeu |
 |---|----------|----------|------------|----------------|
-| 1 | Onde fica a página: **a)** vira a página principal da pasta (`dashboard/index.html`, servidor em `dashboard/servidor.py`, sem a subpasta `graphs/`) **ou b)** continua em `dashboard/graphs/agentes.html` e só o resto sai? | ⬜ | — | — |
-| 2 | O que sai do Git é **a)** apagado (`git rm`; o histórico guarda) **ou b)** movido para outra pasta? | ⬜ | — | — |
-| 3 | A tarefa DASHBOARD-REDE-NEURAL (falta a `.4`, painel 2D da rede) é **a)** cancelada e fechada, com as linhas ✅ dela movidas para o `task_complete.md`, **ou b)** mantida aberta? | ⬜ | — | — |
-| 4 | Arquivos **fora do Git** em `dashboard/` (5 GLB de ~42 MB em `graphs/modelos/`, os PNG de `prompts/`, `MODELOS-DE-IA/`, `scripts/saida/coleta.json`): **a)** mover para fora do repositório (pasta a combinar), **b)** apagar do disco (sem volta) **ou c)** deixar como estão? E o `prompts/modelo.png` (desenho de referência do mapa mental dos agentes) fica? | ⬜ | — | — |
+| 1 | Onde fica a página: **a)** vira a página principal da pasta (`dashboard/index.html`, servidor em `dashboard/servidor.py`, sem a subpasta `graphs/`) **ou b)** continua em `dashboard/graphs/agentes.html` e só o resto sai? | **a)** vira a página principal da pasta, sem a subpasta `graphs/` | 2026-10-18 15:02 | Gelvazio ("1-a") |
+| 2 | O que sai do Git é **a)** apagado (`git rm`; o histórico guarda) **ou b)** movido para outra pasta? | **a)** apagado com `git rm` | 2026-10-18 15:02 | Gelvazio ("2-a") |
+| 3 | A tarefa DASHBOARD-REDE-NEURAL (falta a `.4`, painel 2D da rede) é **a)** cancelada e fechada, com as linhas ✅ dela movidas para o `task_complete.md`, **ou b)** mantida aberta? | **a)** cancelada e fechada | 2026-10-18 15:02 | Gelvazio ("3-a") |
+| 4 | Arquivos **fora do Git** em `dashboard/` (5 GLB de ~42 MB em `graphs/modelos/`, os PNG de `prompts/`, `MODELOS-DE-IA/`, `scripts/saida/coleta.json`): **a)** mover para fora do repositório (pasta a combinar), **b)** apagar do disco (sem volta) **ou c)** deixar como estão? E o `prompts/modelo.png` (desenho de referência do mapa mental dos agentes) fica? | Os **5 PNG** (incluindo o `modelo.png`) e o **`coleta.json`** ficam e **passam a ser versionados** ("posso usar futuramente"). GLB e `MODELOS-DE-IA/` não foram citados: ficam como estão, fora do Git (ver Decisões) | 2026-10-18 15:02 | Gelvazio ("4-deixe os arquivos png e versione eles assim como o arquivo coleta.json deve ser versionado, poso usar futuramente") |
 
 ### Decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 15:02 | Os 5 PNG e o `coleta.json` vão para `dashboard/referencias/` (versionados); sai do `.gitignore` a linha `dashboard/scripts/saida/`. Os 5 GLB (`graphs/modelos/`, ~210 MB) e `MODELOS-DE-IA/` (páginas salvas do Instagram) **não são apagados nem versionados**: vão para `dashboard/referencias/fora-do-git/`, que entra no `.gitignore` | Claude Code (Opus 5.5) | Pergunta 4: o usuário só citou PNG e `coleta.json`; apagar arquivo fora do Git não tem volta, então o resto é guardado sem versionar |
+| 2026-10-18 15:02 | A mudança local ainda sem commit no `prompts/MODELO-3D-REDE-NEURAL-04.md` é commitada antes do `git rm`, para o histórico guardá-la (resposta 2-a) | Claude Code (Opus 5.5) | Sem commit, o `git rm -f` a perderia de vez |
 | 2026-10-18 11:59 | Registrada como tarefa grande (`PESADO`, spec C34): execução só depois das perguntas fechadas e do "sim" ao plano | Claude Code (Opus 5.5) | Apaga arquivos em massa e mexe em vários arquivos ligados |
 
 ### DASHBOARD-AGENTES.1 — Apagar o que não é dos Agentes ao vivo
 
-**Próximo passo:** esperar as perguntas 1 a 4 e o "sim"; listar os imports dos módulos que ficam
-(INV-1) e só então rodar o `git rm` da lista "Sai" do Escopo.
+**Próximo passo:** esperar o "sim" ao plano (perguntas fechadas em 15:02); listar os imports dos
+módulos que ficam (INV-1) e só então rodar o `git rm` da lista "Sai" do Escopo.
 
 - **Nível:** PESADO — apaga dados em massa (mais de 40 arquivos)
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
-- **Descrição:** `git rm` dos arquivos da lista "Sai"; tratar os arquivos fora do Git conforme a
-  pergunta 4; manter tudo o que algum módulo restante importa.
-- **Critérios de aceitação:** R1.1 (parcial: nada da lista "Sai" no Git); INV-2.
+- **Descrição:** commitar antes a mudança local do `prompts/MODELO-3D-REDE-NEURAL-04.md`; mover os
+  5 PNG e o `coleta.json` para `dashboard/referencias/` e versioná-los (tirar
+  `dashboard/scripts/saida/` do `.gitignore`); mover os GLB e `MODELOS-DE-IA/` para
+  `dashboard/referencias/fora-do-git/` (no `.gitignore`); `git rm` da lista "Sai"; manter tudo o
+  que algum módulo restante importa.
+- **Critérios de aceitação:** R1.1 (parcial: nada da lista "Sai" no Git); INV-2; os 5 PNG e o
+  `coleta.json` em `git ls-files dashboard/referencias`.
 
 ### DASHBOARD-AGENTES.2 — Página no lugar definido pela pergunta 1
 
@@ -125,10 +137,10 @@ ferramentas de IA 3D, o coletor Python, o gerador da Tripo e a cena do prompt 04
 - **Nível:** PESADO — move vários arquivos ligados e ajusta caminhos relativos entre eles
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
-- **Descrição:** se a resposta for **a)**: `git mv` da página, dos módulos e do servidor para a raiz
-  de `dashboard/`, ajustar os caminhos relativos (CSS, import map, `PASTA_DASHBOARD`) e o caminho
-  citado na C31 do `AGENTS.md`. Se for **b)**: nada a mover; a subtarefa fecha só com a
-  conferência de INV-1.
+- **Descrição:** (resposta 1-a) `git mv` do `agentes.html` para `dashboard/index.html`, dos
+  módulos, do CSS e dos `.py` de `graphs/` para a raiz de `dashboard/` (sem a subpasta `graphs/`);
+  ajustar os caminhos relativos (CSS, import map, `PASTA_DASHBOARD`, `PASTA_FONTES`,
+  `PROJETO_PADRAO`, `.gitignore` do `.env`) e o caminho citado na C31 do `AGENTS.md`.
 - **Critérios de aceitação:** INV-1; INV-2.
 
 ### DASHBOARD-AGENTES.3 — Servidor só com as rotas dos agentes
@@ -174,6 +186,8 @@ ferramentas de IA 3D, o coletor Python, o gerador da Tripo e a cena do prompt 04
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** reescrever `dashboard/README.md` só para os Agentes ao vivo (como abrir, rotas,
-  `ATRASO_AGENTES`, regra C31); aplicar a resposta da pergunta 3 no quadro.
+  `ATRASO_AGENTES`, regra C31, o que há em `referencias/`); resposta 3-a no quadro: a
+  DASHBOARD-REDE-NEURAL.4 vira cancelada (motivo em "Pendências" do `STATUS.md`) e a mãe
+  DASHBOARD-REDE-NEURAL fecha, com as linhas ✅ dela movidas para o `task_complete.md`.
 - **Critérios de aceitação:** README sem citar o que saiu (`git grep` por "Tripo", "rede neural",
   "coletor" vazio em `dashboard/`); critério de pronto da etapa conferido.
