@@ -82,7 +82,7 @@ mostra as probabilidades da saída.
 
 ### DASHBOARD-REDE-NEURAL.3 — Cena 3D com propagação animada
 
-**Próximo passo:** criar a cena em assets/js/cena/, cores.js e principal.js (reservada 2026-10-17 17:24).
+**Próximo passo:** criar a cena em assets/js/cena/, cores.js e principal.js (reservada 2026-10-17 17:24; retomada 2026-10-18 09:52).
 
 - **Nível:** PESADO — cena 3D inteira, mais de 3 arquivos ligados.
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro
