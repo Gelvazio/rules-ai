@@ -707,7 +707,7 @@ Divisão: piloto 1 pasta · lote A 5 · lote B 9 · lote C 4 (total 19). O lote 
 
 ### RULES-LOCAL-GLOBAL.14 — Instalar no lote A
 
-**Próximo passo:** esperar a `.4`.
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** PESADO — mudança em massa
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
@@ -715,6 +715,32 @@ Divisão: piloto 1 pasta · lote A 5 · lote B 9 · lote C 4 (total 19). O lote 
 - **Descrição:** instalar com o instalador nos repositórios do lote A (lista da `.11`), commit + push em cada um; clones com `git pull --rebase`.
 - **Critérios de aceitação:** R4.1 e R4.2 em cada repositório do lote.
 - **Verificação:** em cada repositório: script dá "versão igual" e `git status --short` vazio.
+- **Entrega (OP-14, 2026-10-18) — `Gelvazio/aulasenai`, instalado em `C:\fontes\aulasenai`:**
+  commit `05b9878d` (push `68f48658..05b9878d`), com `rules-local/` (4 `.mjs`, `.gitattributes`,
+  `.gitignore`, `VERSAO.md`, `RELATORIO.md`, `regras/` com 19 arquivos), `.claude/settings.json`
+  (gancho de F6 no fim do `SessionStart`; o `inicio-da-sessao.js`, os outros ganchos e as
+  permissões intactos) e `AGENTS.md` (bloco `rules-local:inicio/fim` no fim). Nenhuma TASK no
+  quadro do projeto (instalação). No `rules-ai`, só esta seção (sem Git).
+- **Verificação (OP-14, 2026-10-18):** árvore do `aulasenai` já tinha mudanças de outras sessões
+  (`README.md`, `MATERIAIS/…`, `GERADOR-AULAS/…`, `.agents/`, `.codex/`, `tasks/PROMPT_*`…), mas
+  nenhuma em `AGENTS.md`, `CLAUDE.md` ou `.claude/settings.json` → instalação liberada;
+  `git status --short` guardado antes. `git pull --rebase origin main` trouxe 2 commits do quadro
+  (sem arquivo em comum com a árvore suja); o repositório tem `rebase.autoStash=true` no
+  `.git/config`, o autostash foi reaplicado sem conflito e o `git status --short` ficou idêntico ao
+  de antes (`diff`). Instalador → `6 criado, 2 atualizado`, `VERSÃO NOVA nenhuma ->
+  2026-10-18-ef54a693 (19 adicionado)`, `rules-local íntegro`, saída 0. `git diff --cached
+  --name-only` = só `rules-local/`, `.claude/settings.json` e `AGENTS.md`. Visualizador
+  `.claude/rules/index.html` não regenerado: a regra do projeto só pede ao mudar `.claude/rules/`
+  ou encerrar tarefa. **R4.2:** `node rules-local/sessao.mjs` → `versão igual
+  (2026-10-18-ef54a693)` (também de `C:\` com caminho absoluto); `git status --short` = o de antes
+  (nenhum arquivo da instalação sobrando); `HEAD` = `origin/main`; `git ls-files --eol
+  rules-local` → `i/lf w/lf attr/text eol=lf`; 2ª execução do instalador → `0 criado, 0
+  atualizado, 7 igual`.
+- **Clones (regra 6):** `aulas-senai-CLAUDE-HAIKU`, `aulas-senai-CLAUDE-OPUS` e
+  `aulas-senai-CLAUDE-SONNET` estavam limpos → `git pull --rebase origin main` (`b78fb901` →
+  `05b9878d`, = `origin/main`), `sessao.mjs` → `versão igual`, `git status --short` vazio.
+  `aulas-senai-CLAUDE-OPUS-LIDER` → **clone pulado (árvore suja: `.agents/` e `.codex/` fora do
+  Git), recebe no próximo pull**.
 
 ### RULES-LOCAL-GLOBAL.15 — Instalar no lote B
 
@@ -767,14 +793,40 @@ Divisão: piloto 1 pasta · lote A 5 · lote B 9 · lote C 4 (total 19). O lote 
 
 ### RULES-LOCAL-GLOBAL.16 — Instalar no lote C
 
-**Próximo passo:** esperar a `.4`.
+**Próximo passo:** líder conferir e commitar; `gerenciador-de-ia` fica BLOQUEADO até o usuário
+decidir o `AGENTS.md` fora do Git (ver Anotação).
 
 - **Nível:** PESADO — mudança em massa
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
 - **Descrição:** como a `.14`, para o lote C.
 - **Critérios de aceitação:** R4.1 e R4.2 em cada repositório do lote.
-- **Verificação:** como a `.14`.
+- **Entrega (Claude Code (Opus 5.5 · herdr OP-16), 2026-10-18):** 3 de 4 repositórios, cada um
+  com `rules-local/` (4 `.mjs`, `.gitattributes`, `.gitignore`, `VERSAO.md`, `RELATORIO.md`,
+  `regras/` com 19), `.claude/settings.json` e `AGENTS.md` (bloco `rules-local:inicio/fim` no fim):
+
+| Repositório (pasta) | Commit / push | R4.2 | Clones |
+|---|---|---|---|
+| `Gelvazio/PLATAFORMA-ENVIO-CURRICULOS` | `c40785f` (`3d56a02..c40785f`); `.claude/settings.json` **criado** (não existia) | ✅ `versão igual (2026-10-18-ef54a693)`, `git status --short` vazio (já estava vazio antes) | — (sem clones) |
+| `Gelvazio/rea-app-clones` (`REA-APP-CLONES`) | `011b77f` (`ca6a9a6..011b77f`); gancho acrescentado no fim do `SessionStart` | ✅ `versão igual`; `git status --short` **igual ao de antes** (graphify-out, `Usersgelva.claude-contaC/`, `tasks/PROMPT_FINANCEIRO.md` de outra sessão, intactos) | — |
+| `Gelvazio/testes-de-frontend` | `bd5ab7f` (`dfd32ae..bd5ab7f`); gancho acrescentado no fim do `SessionStart` | ✅ `versão igual`; `git status --short` **igual ao de antes** (mudanças de outra sessão em `aulas/` e `projetos-alunos/`, intactas) | — |
+| `Gelvazio/gerenciador-de-ia` | ⛔ **não instalado** | — | — |
+
+- **Verificação:** antes de cada um, `git status --short` guardado e `git fetch` (os 4 em `0 0`
+  com `origin/main`); `git pull --rebase origin main` → "Already up to date"; instalador rodado do
+  `rules-ai` → `VERSÃO NOVA nenhuma -> 2026-10-18-ef54a693 (19 adicionado)`, `rules-local
+  íntegro`, saída 0; `git diff` do `settings.json` só com o item novo e do `AGENTS.md` só com o
+  bloco; `git diff --cached --name-only` = 27 de `rules-local/` + `.claude/settings.json` +
+  `AGENTS.md` (29); push sem recusa do `pre-push`; depois: `node rules-local/sessao.mjs` →
+  `versão igual (2026-10-18-ef54a693); nada a fazer.`, `HEAD` = `origin/main`,
+  `rules-local/VERSAO.md` = `VERSAO.md` do `rules-ai` (`cmp`), `git ls-files --eol rules-local` →
+  27 `i/lf w/lf`. Nenhuma TASK criada nos quadros (instalação = "sem ajuste — instalação").
+- **Anotação — `gerenciador-de-ia` BLOQUEADO:** o `AGENTS.md` está **fora do Git** (`?? AGENTS.md`,
+  gravado em 2026-10-17 20:36, diferente do `CLAUDE.md` versionado) — mudança de outra sessão
+  num arquivo que o instalador toca (ele põe o aviso no `AGENTS.md` quando existe). O projeto
+  também tem a regra "uma sessão por vez" (`CLAUDE.md` §10; sem `tasks/.sessao-ativa` agora).
+  Destrava: o usuário (ou a sessão dona) versionar ou apagar esse `AGENTS.md`; depois rodar o
+  instalador e o mesmo fluxo acima.
 
 ### RULES-LOCAL-GLOBAL.5 — Levar a regra nova às IAs (`--aplicar`)
 
