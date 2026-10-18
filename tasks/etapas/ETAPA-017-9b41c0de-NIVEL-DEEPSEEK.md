@@ -12,8 +12,8 @@
 
 - **Entra:** linha do **DeepSeek** em `regras/niveis-e-modelos.md`; a frase do `PESADO`; **C35** no
   `CONFLITOS.md`; linha no Registro de decisões do `STATUS.md`.
-- **Não entra:** a matriz ferramenta × modelo × nível da skill global `classificar-tarefa`
-  (fora deste repositório → subtarefa .2, pendente).
+- **Não entra:** a matriz ferramenta × modelo × nível da skill global `classificar-tarefa` nem a
+  linha do **OpenCode** — ficam nas subtarefas .2 e .3 (entregues em 2026-10-18).
 
 ### Riscos
 
@@ -42,15 +42,28 @@
   `regras/` afirma que `PESADO` é exclusivo de Opus/Fable; C35 no `CONFLITOS.md`;
   `node scripts/sincronizar.mjs` (simulação) aplica sem erro.
 
-### NIVEL-DEEPSEEK.2 — Matriz da skill `classificar-tarefa`
+### NIVEL-DEEPSEEK.2 — Matriz da skill `classificar-tarefa` (✅ 2026-10-18)
 
-**Próximo passo:** usuário (ou sessão local) edita a skill global.
+**Entregue:** a skill global `~/.agents/skills/classificar-tarefa/SKILL.md` foi alinhada à C35
+(DeepSeek `✅` em `PESADO`) e propagada para as 4 cópias globais do Claude Code (`.claude`,
+`-contaA`, `-contaB`, `-contaC`).
 
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** até Haiku/Flash.
-- **Descrição:** a skill global `~/.agents/skills/classificar-tarefa/SKILL.md` tem a matriz
-  ferramenta × modelo × nível com DeepSeek `⛔` em `PESADO`; alinhar à C35.
-- **Critérios de Aceitação:** a matriz da skill mostra DeepSeek em `PESADO`.
+- **Critérios de Aceitação:** a matriz da skill mostra DeepSeek em `PESADO`. ✅
+
+### NIVEL-DEEPSEEK.3 — OpenCode na matriz, com os modelos DeepSeek (✅ 2026-10-18)
+
+**Pedido:** "adicione na lista de IA que pode assumir tasks, no classificador, o opencode com os
+modelos da deepseek" (Gelvazio, 2026-10-18 12:14). Registro em `CONFLITOS.md` como **C37**.
+
+- **Nível:** LEVE — só `.md`.
+- **Descrição:** linha **OpenCode** na matriz das regras globais (`regras/niveis-e-modelos.md`) e na
+  matriz da skill `classificar-tarefa`:
+  `LEVE` = `deepseek-flash` · `MEDIO` = `deepseek-flash` com thinking ·
+  `PESADO` = `deepseek-v4-pro`.
+- **Critérios de Aceitação:** a linha OpenCode aparece nas duas matrizes; `node
+  scripts/sincronizar.mjs --aplicar` leva o texto aos arquivos globais de todas as IAs. ✅
 
 ---
 
@@ -59,3 +72,5 @@
 | Subtarefa | Commit | Verificação |
 |---|---|---|
 | NIVEL-DEEPSEEK.1 | `feat(NIVEL-DEEPSEEK.1)` | linha DeepSeek com `✅` em `PESADO`; frase do `PESADO` atualizada; C35 no `CONFLITOS.md` |
+| NIVEL-DEEPSEEK.2 | `docs(NIVEL-DEEPSEEK.2)` | matriz da skill com DeepSeek `✅` em `PESADO`; 4 cópias globais atualizadas |
+| NIVEL-DEEPSEEK.3 | `docs(NIVEL-DEEPSEEK.3)` | linha **OpenCode** nas duas matrizes (C37); `sincronizar.mjs --aplicar` aplicado |

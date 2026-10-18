@@ -57,7 +57,8 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | ESPEC-GLOBAL.4 | 🌐 `node scripts/sincronizar.mjs --aplicar` e conferência nas IAs | 🟡 Média | Usuário | ESPEC-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
 | **NIVEL-DEEPSEEK** | **🌐 GLOBAL — DeepSeek também pega `PESADO` (altera a C22)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
 | NIVEL-DEEPSEEK.1 | 🌐 Regra: `PESADO` liberado para o DeepSeek (C35) | 🟠 Alta | PESADO · DeepSeek · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
-| NIVEL-DEEPSEEK.2 | Matriz da skill global `classificar-tarefa` | 🟢 Baixa | LEVE · effort low | NIVEL-DEEPSEEK.1 | ⬜ Pendente | — | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
+| NIVEL-DEEPSEEK.2 | Matriz da skill global `classificar-tarefa` (C35) | 🟢 Baixa | LEVE · effort low | NIVEL-DEEPSEEK.1 | ✅ Concluído | — | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
+| NIVEL-DEEPSEEK.3 | 🌐 OpenCode na matriz (regras globais + skill) com os modelos DeepSeek (C37) | 🟢 Baixa | LEVE · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
 | **INDEX-REGRAS** | **🌐 GLOBAL — Índice de leitura das regras (`regras/INDEX.md`) e `dist/` na mesma ordem** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
 | INDEX-REGRAS.3 | 🌐 Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | INDEX-REGRAS.2 | ⬜ Pendente | — | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
 | **RULES-LOCAL-GLOBAL** | **🌐 GLOBAL — Regras globais em `rules-local/` conferidas pela `VERSAO.md` no início de cada sessão, em todos os projetos (plano aprovado)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
@@ -74,6 +75,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 12:16 | NIVEL-DEEPSEEK.2 e .3 (C37): a matriz ferramenta × modelo × nível ganha a linha **OpenCode** (`deepseek-flash` em `LEVE`/`MEDIO` com thinking; `deepseek-v4-pro` em `PESADO`) e a skill global `classificar-tarefa` é alinhada à C35 (DeepSeek em `PESADO`) | Gelvazio | "adicione na lista de IA que pode assumir tasks, no classificador, o opencode com os modelos da deepseek" |
 | 2026-10-18 11:59 | DASHBOARD-AGENTES registrada como tarefa grande (`PESADO`, spec C34 na etapa 020): a pasta `dashboard/` fica só com os Agentes ao vivo; execução só depois das 4 perguntas fechadas e do "sim" ao plano | Gelvazio | "crie 1 tarefa pra deixar apenas o Fluxo de Dados *3 - Agentes ao vivo*, nesta pasta dashboard" |
 | 2026-10-18 11:48 | RULES-LOCAL-GLOBAL: o escopo da pergunta 4 ("só repositórios com GitHub") são **19 pastas / 7 remotos** (a resposta citava 18 por contagem antiga); vale o critério, não o número | Claude Code (Opus 5.5 · sargento) | Conferido com `git remote get-url origin` |
 | 2026-10-18 11:42 | RULES-LOCAL-GLOBAL dividida em 16 subtarefas (formato combinado primeiro, depois até 8 em paralelo), executadas por agentes em painéis do herdr com líder "sargento", VIGIA e FINANCEIRO (Haiku) | Gelvazio | "VERIFIQUE SE NAO TEM OPÇÃO DE CRIAR MAIS SUBTAREFAS NELA, AUMENTANDO ASSIM O PARALELISMO" → "SIM" |
