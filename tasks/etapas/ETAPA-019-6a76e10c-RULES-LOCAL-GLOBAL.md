@@ -453,7 +453,7 @@ igual). O histórico fica no Git. Exemplo:
 
 ### RULES-LOCAL-GLOBAL.3 — Regra global da sessão e da "sincronização de tasks"
 
-**Próximo passo:** esperar a `.6` (o formato do relatório e o comando do script bastam para escrever a regra). O registro no `CONFLITOS.md` passou para a `.10`.
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** PESADO — regra global nova, vale para todas as IAs e projetos.
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
@@ -463,6 +463,23 @@ igual). O histórico fica no Git. Exemplo:
   como decisão nova no `CONFLITOS.md`.
 - **Critérios de aceitação:** R3.1; regra no índice; o `sincronizar.mjs` não avisa regra fora do
   índice.
+- **Entrega:** `regras/rules-local.md` (novo: o que é o `rules-local/`, início da sessão com a
+  tabela dos avisos de F5, sincronização de tasks em 6 passos, limites) e `regras/INDEX.md` (linha
+  17 nova em "Agentes e ferramentas", `atividades-e-idioma.md` passa a 18, e a frase da nuvem
+  aponta para `rules-local/regras/`). Sem `CONFLITOS.md` (a C36 já está lá, da `.10`), sem
+  `sincronizar.mjs`, sem `--aplicar`. Commit pelo líder.
+- **Verificação:** leitura contra R3.1–R3.3 e F2–F6 (frase-gatilho, textos dos avisos, comandos do
+  gancho e do aviso, commit pela sessão); `node -e` com o mesmo padrão de link do `sincronizar.mjs`
+  (`PADRAO_LINK_INDICE`) no `INDEX.md`: 18 no índice = 18 em `regras/`, nenhuma fora do índice,
+  nenhuma inexistente (o `sincronizar.mjs` não avisa); nenhuma linha acima de 100 caracteres nos
+  2 arquivos. Não rodei o `sincronizar.mjs` (ele grava `dist/` e `VERSAO.md`, que são da `.1`).
+- **Anotação (para o líder conferir):** 3 escolhas feitas na regra, dentro do escopo da `.3`:
+  (1) a sincronização é rotina autorizada pela regra e **não** vira TASK; só os ajustes viram;
+  (2) R3.3 pelo ID determinístico `RL-<código da versão>-<ARQUIVO>` (ex.:
+  `RL-FF11FC59-CICLO-DA-TASK`), procurado no `STATUS.md` e no `task_complete.md`;
+  (3) versão anterior `nenhuma` (instalação) não avalia item a item nem cria TASK — senão a
+  instalação dos lotes criaria 18 TASKs por projeto. ⚠️ Mudar o `INDEX.md` e criar a regra muda a
+  `VERSAO.md` (a `.1` precisa rodar depois deste commit para publicar a versão com a regra nova).
 
 ### RULES-LOCAL-GLOBAL.4 — Instalar no projeto piloto
 

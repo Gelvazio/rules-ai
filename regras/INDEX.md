@@ -3,9 +3,9 @@
 Porta de entrada das regras globais, na ordem de leitura: das que mais mudam o comportamento da IA
 para as de assunto específico. No computador local, as IAs recebem tudo junto pelo
 `dist/REGRAS-GLOBAIS.md`, montado por `scripts/sincronizar.mjs` nesta ordem (este índice não
-entra no `dist/`). Na nuvem, sem `C:\fontes\rules-ai` nem `dist/`, ler a pasta `regras/` do GitHub
-`Gelvazio/rules-ai`, nesta ordem, só para leitura. Regra nova (arquivo novo em `regras/`) entra
-neste índice no mesmo commit.
+entra no `dist/`). Na nuvem, sem `C:\fontes\rules-ai` nem `dist/`, ler a pasta
+`rules-local/regras/` do projeto (sem ela, a pasta `regras/` do GitHub `Gelvazio/rules-ai`), nesta
+ordem, só para leitura. Regra nova (arquivo novo em `regras/`) entra neste índice no mesmo commit.
 
 ## Fluxo de trabalho
 
@@ -34,7 +34,8 @@ neste índice no mesmo commit.
 14. [graphify.md](graphify.md) — Quando ler e atualizar o grafo do projeto (C11, C25)
 15. [gerenciador-centralizado.md](gerenciador-centralizado.md) — Gerenciador de tarefas (C28)
 16. [pastas-ignoradas.md](pastas-ignoradas.md) — Pastas offline e paradas, não lidas (C20, C23)
+17. [rules-local.md](rules-local.md) — Sessão nova: `rules-local/` e sincronização de tasks (C36)
 
 ## Assuntos específicos
 
-17. [atividades-e-idioma.md](atividades-e-idioma.md) — Idioma e atividades sem empresa fictícia
+18. [atividades-e-idioma.md](atividades-e-idioma.md) — Idioma e atividades sem empresa fictícia

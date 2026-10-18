@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-18-ff11fc59
+- **Versão:** 2026-10-18-ef54a693
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -10,7 +10,7 @@
 
 | # | Arquivo | Código |
 |---|---------|--------|
-| 0 | INDEX.md | 19076a4f82247905 |
+| 0 | INDEX.md | e16f7a7fa03798c7 |
 | 1 | ciclo-da-task.md | 0f655a1970c31da1 |
 | 2 | niveis-e-modelos.md | ae07ca7d285ebc14 |
 | 3 | frentes-e-reserva.md | 35dc8d1e8f3c16f0 |
@@ -27,4 +27,5 @@
 | 14 | graphify.md | f31357d0386045d2 |
 | 15 | gerenciador-centralizado.md | c6f5535db0d613a4 |
 | 16 | pastas-ignoradas.md | b33814d65cafd940 |
-| 17 | atividades-e-idioma.md | a37b651279928422 |
+| 17 | rules-local.md | 0b93e56531bf080b |
+| 18 | atividades-e-idioma.md | a37b651279928422 |
