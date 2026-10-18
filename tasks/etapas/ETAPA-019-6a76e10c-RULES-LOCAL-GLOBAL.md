@@ -828,6 +828,35 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
   Destrava: o usuário (ou a sessão dona) versionar ou apagar esse `AGENTS.md`; depois rodar o
   instalador e o mesmo fluxo acima.
 
+### RULES-LOCAL-GLOBAL.17 — Instalar no `gerenciador-de-ia`
+
+**Próximo passo:** o usuário versiona (commit) ou apaga o `AGENTS.md` fora do Git em
+`C:\fontes\gerenciador-de-ia`; depois, instalar como nos lotes (seção da `.16`).
+
+- **Nível:** PESADO — mudança em repositório de outro projeto (mesmo motivo dos lotes)
+- **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
+- **Effort:** high
+- **Descrição:** criada em 2026-10-18 12:10 (C26) pelo líder: o lote C (`.16`) instalou em 3 de 4
+  repositórios; o `gerenciador-de-ia` tem um `AGENTS.md` fora do Git, de outra sessão
+  (2026-10-17 20:36), e o instalador escreveria nele.
+- **Critérios de aceitação:** R4.1 e R4.2 no `gerenciador-de-ia`.
+- **Verificação:** como a `.16`.
+
+### RULES-LOCAL-GLOBAL.18 — Caminho certo da regra no aviso do `sessao.mjs`
+
+**Próximo passo:** reservar (Sonnet); trocar o texto em `scripts/rules-local/sessao.mjs` (perto da
+linha 351) e o líder reinstala nos repositórios já instalados.
+
+- **Nível:** MEDIO — ajuste de texto em 1 arquivo JS, com reinstalação depois
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **Descrição:** criada em 2026-10-18 12:10 (C26) pelo líder: o aviso impresso diz
+  `(regras/rules-local.md)`, mas nos projetos a regra fica em `rules-local/regras/rules-local.md`
+  (anotado pelo OP-4 no piloto). A cópia do script nos 7 repositórios instalados só muda quando o
+  instalador rodar de novo neles.
+- **Critérios de aceitação:** o aviso cita `rules-local/regras/rules-local.md`; `node --check`.
+- **Verificação:** rodar o `sessao.mjs` numa cópia com versão diferente e ler o aviso.
+
 ### RULES-LOCAL-GLOBAL.5 — Levar a regra nova às IAs (`--aplicar`)
 
 **Próximo passo:** esperar a `.3`; o usuário roda `node scripts/sincronizar.mjs --aplicar`.
