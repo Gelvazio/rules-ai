@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-18 12:00 (Brasília): RULES-LOCAL-GLOBAL.12 entregue: instalador `scripts/instalar-rules-local.mjs` (rules-local + gancho SessionStart + aviso; idempotente) (OP-12, Opus).
 - 2026-10-18 11:59 (Brasília): RULES-LOCAL-GLOBAL.13 entregue: modelo do aviso `scripts/rules-local/aviso-agents.md` (HK-13, Haiku).
 - 2026-10-18 11:58 (Brasília): RULES-LOCAL-GLOBAL.3 entregue: regra global `regras/rules-local.md` + linha no `regras/INDEX.md`; `VERSAO.md` regerada (2026-10-18-ef54a693, 19 regras) (OP-3, Opus).
 - 2026-10-18 11:56 (Brasília): RULES-LOCAL-GLOBAL.1 entregue: `VERSAO.md` na raiz gerada pelo `sincronizar.mjs` (versão 2026-10-18-ff11fc59, 18 regras; códigos conferidos pelo `conferir.mjs`) (SN-1, Sonnet).

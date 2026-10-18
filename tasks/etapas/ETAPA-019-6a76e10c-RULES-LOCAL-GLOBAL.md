@@ -594,7 +594,7 @@ Divisão: piloto 1 pasta · lote A 5 · lote B 9 · lote C 4 (total 19). O lote 
 
 ### RULES-LOCAL-GLOBAL.12 — Instalador
 
-**Próximo passo:** esperar a `.6` e a `.11`.
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** PESADO — gravação em vários repositórios e gancho de sessão
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
@@ -602,6 +602,36 @@ Divisão: piloto 1 pasta · lote A 5 · lote B 9 · lote C 4 (total 19). O lote 
 - **Descrição:** script no `rules-ai` que, para um repositório, monta `rules-local/` (script + `VERSAO.md` + regras), acrescenta o gancho `SessionStart` ao `.claude/settings.json` sem apagar o que existe e não faz commit (o commit é de quem instala). Idempotente.
 - **Critérios de aceitação:** rodar 2 vezes numa cópia não muda nada na segunda; `settings.json` existente preservado.
 - **Verificação:** execução numa cópia temporária + `git status --short`.
+- **Entrega:** `scripts/instalar-rules-local.mjs` (novo, só este arquivo de código + esta seção;
+  nenhum projeto de `C:\fontes` foi tocado). Commit pelo líder.
+- **Verificação (feita por Claude Code (Opus 5.5 · herdr OP-12), 2026-10-18):** `node --check` ok;
+  nenhuma linha > 100; funções ≤ 45 linhas. Teste numa pasta temporária da sessão, com um
+  `rules-ai` falso (cópia do instalador + `sessao.mjs`/`conferir.mjs`/`aviso-agents.md` falsos,
+  porque os reais ainda estão sendo escritos) e 7 repositórios `git init` de teste:
+  (1) `settings.json` copiado do `aulasenai` → o `diff` com o original mostra só o item novo no
+  fim do `SessionStart` (permissões e os outros ganchos intactos); (2) sem `settings.json` e só com
+  `CLAUDE.md` → cria o `settings.json` só com o gancho de F6 e põe o aviso no `CLAUDE.md`;
+  (3) `AGENTS.md` com CRLF → bloco gravado em CRLF; (4) bloco antigo no meio do `AGENTS.md` →
+  trocado no lugar, resto intacto; gancho já existente (com `rules-local\sessao.mjs`, barra
+  invertida) → `settings.json` não muda (mesmo md5); (5) **2ª execução** em 3 repositórios depois
+  de um commit, rodando de outra pasta atual (`C:\`) com caminho absoluto → `0 criado, 0
+  atualizado, 7 igual`, `git status --short` vazio e saída 0; `.trava` criada à mão fica ignorada;
+  `git ls-files --eol` → tudo `i/lf w/lf attr/text eol=lf`; (6) erros com saída 1 e **nada
+  gravado**: `settings.json` inválido, marca de início sem a de fim, sem `aviso-agents.md`, sem
+  `sessao.mjs` na fonte, pasta sem `.git`, pasta dentro de `DEMAIS-PROJETOS-*`, a própria raiz do
+  `rules-ai`, sem argumento; (7) com o `conferir.mjs` real da `.9` e uma `VERSAO.md` falsa →
+  "rules-local NÃO íntegro: VERSAO.md corrompida" e saída 1; script da fonte alterado → a nova
+  execução mostra `atualizado rules-local/conferir.mjs` (é assim que correção chega aos projetos).
+- **Anotação (escolhas onde F6 não detalha; nenhuma muda o contrato):** confere tudo **antes** de
+  gravar (erro → nada gravado); só grava arquivo cujo conteúdo muda; os `*.mjs` vão com fim de
+  linha LF (igual ao checkout com `eol=lf`); o `settings.json` só é regravado quando o gancho é
+  acrescentado, com o recuo, o fim de linha e o BOM que ele já tinha; bloco do aviso sem marcas →
+  acrescentado no **fim** do arquivo, depois de uma linha em branco; se o modelo da `.13` já trouxer
+  as marcas, elas são tiradas e repostas; recusa a raiz do `rules-ai`, pastas `DEMAIS-PROJETOS-*`
+  e pastas sem `.git`; no fim confere a pasta com o `conferirPasta` do próprio `rules-local/` e sai
+  com 1 quando não está íntegra (ex.: sem internet), para quem instala ver; não apaga `*.mjs` que
+  saiu da fonte. **Depende da `.13`** (`scripts/rules-local/aviso-agents.md`): sem ele o
+  instalador para com erro — a `.4` já espera a `.13`.
 
 ### RULES-LOCAL-GLOBAL.13 — Aviso no `AGENTS.md`/`CLAUDE.md`
 
