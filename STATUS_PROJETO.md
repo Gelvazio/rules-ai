@@ -6,6 +6,8 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-18 12:18 (Brasília): RULES-LOCAL-GLOBAL concluída: `rules-local/` instalado e conferido pela `VERSAO.md` nos 7 remotos do escopo (19 subtarefas, equipe herdr com líder sargento).
+- 2026-10-18 12:18 (Brasília): RULES-LOCAL-GLOBAL.17 entregue: `gerenciador-de-ia` instalado (commit 290d5e4, versão 2026-10-18-f4bfe8d8; aviso no `CLAUDE.md`) (OP-19, Opus).
 - 2026-10-18 12:17 (Brasília): RULES-LOCAL-GLOBAL.19 entregue: `AGENTS.md` solto (cópia quebrada do `CLAUDE.md`) tirado do `gerenciador-de-ia`, com cópia em `~/.claude/backups/` (hash igual); .17 reservada (OP-19, Opus).
 - 2026-10-18 12:14 (Brasília): RULES-LOCAL-GLOBAL.5 entregue: `--aplicar` feito pelo usuário; regra `rules-local` conferida no `dist/`, no Gemini, no Codex e no import das contas do Claude Code.
 - 2026-10-18 12:11 (Brasília): RULES-LOCAL-GLOBAL.18 entregue: aviso do `sessao.mjs` cita `rules-local/regras/rules-local.md`; os 6 repositórios instalados recebem a cópia nova na próxima reinstalação (SN-18, Sonnet).
