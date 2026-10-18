@@ -58,11 +58,16 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | **NIVEL-DEEPSEEK** | **🌐 GLOBAL — DeepSeek também pega `PESADO` (altera a C22)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
 | NIVEL-DEEPSEEK.1 | 🌐 Regra: `PESADO` liberado para o DeepSeek (C35) | 🟠 Alta | PESADO · DeepSeek · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
 | NIVEL-DEEPSEEK.2 | Matriz da skill global `classificar-tarefa` | 🟢 Baixa | LEVE · effort low | NIVEL-DEEPSEEK.1 | ⬜ Pendente | — | [ETAPA-017](etapas/ETAPA-017-9b41c0de-NIVEL-DEEPSEEK.md) |
+| **INDEX-REGRAS** | **🌐 GLOBAL — Índice de leitura das regras (`regras/INDEX.md`) e `dist/` na mesma ordem** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
+| INDEX-REGRAS.1 | 🌐 `regras/INDEX.md` com a ordem de leitura | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
+| INDEX-REGRAS.2 | 🌐 `sincronizar.mjs` monta o `dist/` na ordem do índice (sem o índice) | 🟡 Média | MEDIO · só Sonnet · effort medium | INDEX-REGRAS.1 | ⬜ Pendente | — | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
+| INDEX-REGRAS.3 | 🌐 Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | INDEX-REGRAS.2 | ⬜ Pendente | — | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 10:23 | INDEX-REGRAS: `regras/INDEX.md` vira a porta de entrada das regras globais (ordem de leitura) e o `dist/` passa a seguir essa ordem | Gelvazio | "faça isso,crie este regras/index.md" |
 | 2026-10-18 08:52 | NIVEL-DEEPSEEK (C35): o DeepSeek passa a pegar `PESADO`; a C22 continua valendo no resto (cada IA só pega o seu nível) | Gelvazio | "mude a regra C22, e libere deepseek PESADO tambem" |
 | 2026-10-18 08:56 | ESPEC-GLOBAL.1 e .3 entregues (C34): `regras/espec.md` + exceção de teste em `PESADO` + gate `spec/verificar-spec.mjs` | DeepSeek (Flash) | C34 aprovada na etapa 016 |
 | 2026-10-18 08:45 | ESPEC-GLOBAL (C34): fluxo de spec em tarefa PESADA vira regra global — requisitos EARS, invariantes e perguntas abertas como seções da **etapa** (plano continua na etapa, C10); exceção de teste de invariante **só em PESADO**; pacote completo em `spec/` (templates + gate) | Gelvazio | "Abrir exceção só para tarefa PESADA" · "Completo: pasta spec/ com templates + gate" · "Sim, seguir o protocolo completo" |
