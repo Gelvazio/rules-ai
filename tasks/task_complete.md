@@ -146,3 +146,4 @@
 | JEV-RULES-AI.2 | Coletor de estado cego e decisão de nível/effort/modelo | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.1 | ✅ Concluído | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
 | JEV-RULES-AI.4 | Guardrails de escopo e critérios de aceite | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.1 | ✅ Concluído | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
 | JEV-RULES-AI.5 | Guardrails de segredo/PII, pasta proibida, comando destrutivo e aprovação indevida | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-RULES-AI.1 | ✅ Concluído | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
+| JEV-RULES-AI.3 | Benchmark dourado e métricas (cego × revisor) | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.2 | ✅ Concluído | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |

@@ -215,7 +215,7 @@ Cuidados de implementação:
 
 ### JEV-RULES-AI.3 — Benchmark dourado e métricas (cego × revisor)
 
-**Próximo passo:** montar `benchmarks/golden.jsonl` com 150–200 casos e rodar `avaliar.mjs` nos dois backends.
+**Próximo passo:** nenhum — ✅ concluída.
 - **Nível:** MEDIO — scripts de avaliação e dados, sem chave.
 - **Modelo:** só Sonnet — nunca outro.
 - **Effort:** medium
@@ -225,6 +225,8 @@ Cuidados de implementação:
 - **Critérios de Aceitação:** ≥150 itens, 1/3 por nível, ≥20 casos de borda, ≥30 auditados; roda Jev e Laya; relatório com recall de PESADO e IC; custo total < R$ 1,00.
 - **Verificação:** `node scripts/jev/avaliar.mjs --backend jev --variante cego --golden scripts/jev/benchmarks/golden.jsonl`; conferir o resumo e o JSONL de auditoria.
 - **Estimativa:** 4 h.
+- **Entrega:** commit `feat(JEV-RULES-AI.3)` — `avaliar.mjs`, `metricas.mjs`, `relatorio-avaliacao.mjs`, `benchmarks/` (golden 180: 60/60/60, 156 reais + 24 de borda, 39 auditados); executor jev3 (Sonnet 5.5). **Resultado cego (jev-1.13.0):** acurácia do nível final 0,606 [0,533; 0,674], recall de PESADO 0,883 [0,778; 0,942]; só o `nivel` sugerido: 0,667; com o rótulo vazando: 0,85 (confirma o vazamento do teste antigo). Sinais de PESADO elevam 44 casos LEVE/MEDIO. Custo total US$ 0,047; p50 240 ms. **Laya fora do ar** (localhost:8000 recusou): comparação Jev × Laya implementada mas não executada.
+- **Verificação (líder):** `node --check` em todos; 180 linhas no golden, sem dado pessoal; saídas ignoradas pelo Git; `agregacao`/`invariantes` continuam ok; nenhuma função > 45 linhas.
 
 ### JEV-RULES-AI.4 — Guardrails de escopo e critérios de aceite
 
