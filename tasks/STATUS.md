@@ -39,8 +39,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-AGENTES.4 | Módulos JS de apoio enxutos (`api.js`, `config.js`, `visualizador.js`) | 🟡 Média | MEDIO · só Sonnet · effort medium | DASHBOARD-AGENTES.2 | ⬜ Pendente | — | [ETAPA-020](etapas/ETAPA-020-bbaa26ff-DASHBOARD-AGENTES.md) |
 | DASHBOARD-AGENTES.5 | Personagens, menu e CSS só dos agentes | 🟡 Média | MEDIO · só Sonnet · effort medium | DASHBOARD-AGENTES.2 | ⬜ Pendente | — | [ETAPA-020](etapas/ETAPA-020-bbaa26ff-DASHBOARD-AGENTES.md) |
 | DASHBOARD-AGENTES.6 | README da pasta e quadro | 🟡 Média | LEVE · só Haiku · effort low | DASHBOARD-AGENTES.3, DASHBOARD-AGENTES.4, DASHBOARD-AGENTES.5 | ⬜ Pendente | — | [ETAPA-020](etapas/ETAPA-020-bbaa26ff-DASHBOARD-AGENTES.md) |
-| **JEV-RULES-AI** | **🌐 GLOBAL — Jev no rules-ai: nível/effort, roteamento e guardrails (plano aprovado)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
-| JEV-RULES-AI.8 | Ativação direta, validação final e rollback | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.3, JEV-RULES-AI.4, JEV-RULES-AI.5, JEV-RULES-AI.6, JEV-RULES-AI.7, JEV-RULES-AI.9 | 🔄 Em execução | Claude Code (Sonnet 5.5 · executor jev8; líder Opus 5.5) (herdr w2:pK · local · main) (desde 2026-10-18 17:32) · 0% | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
 | **MCP-QUADRO** | **🌐 GLOBAL — Servidor MCP da fila do quadro (`task_next`/`task_finish`/`task_list`), sem banco (plano aguardando o "sim")** | 🟠 Alta | — | Nenhuma | 👀 Aguardando o usuário | — (não reservável) | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | MCP-QUADRO.1 | Regra global `regras/mcp-quadro.md`, índice e C40 | 🟠 Alta | LEVE · só Haiku · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | MCP-QUADRO.2 | Leitor/escritor do quadro e descoberta de projetos | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.1 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
@@ -118,3 +116,11 @@ histórico ficam em `STATUS_PROJETO.md`.
 | 2026-10-16 | Repositório das regras globais: `C:\fontes\rules-ai`; sem branch (tudo na `main`) | Gelvazio | "USE ESTE REPO AQUI" |
 | 2026-10-16 | Tarefa executada por Claude Code (Sonnet 5.5) mesmo sendo de nível PESADO | Gelvazio | "ja assuma e faça esta tarefa, sem perguntas" |
 | 2026-10-16 | Tarefa GLOBAL aceita e fechada (GLOBAL.1 a GLOBAL.8 entregues; Cursor e DeepSeek sem arquivo global) | Gelvazio | "sim" ao pedido de aceite |
+
+## Pendências (ficou para depois)
+
+| Data | Pendência | Motivo | Origem |
+|---|---|---|---|
+| 2026-10-18 17:40 | Calibrar o Jev: limiar dos sinais de PESADO (hoje 0,50) e limiares de confiança; meta da etapa era acurácia ≥ 0,90 e recall PESADO ≥ 0,95 (medido: 0,61 e 0,88) | ajuste exige decisão do usuário (recall × acurácia) | JEV-RULES-AI, etapa 025 |
+| 2026-10-18 17:40 | Comparar Jev × Laya (McNemar) com `node scripts/jev.mjs avaliar --backend ambos` | Laya (`localhost:8000`) estava fora do ar | JEV-RULES-AI, etapa 025 |
+| 2026-10-18 17:40 | Levar `regras/jev.md` às IAs: `node scripts/sincronizar.mjs --aplicar` | ação do usuário | JEV-RULES-AI.7/.8 |

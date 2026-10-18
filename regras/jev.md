@@ -52,17 +52,20 @@ humano decidem. Código em `scripts/jev/` (sem dependência npm nova).
 
 ## Estado da implementação
 
-- Pronto: cliente HTTP, coletor cego, perguntas, matriz, agregação, guardrails de escopo, aceite,
-  segredo, pasta proibida, comando destrutivo e aprovação, com testes em `scripts/jev/testes/`.
-- Ainda não pronto: CLI `scripts/jev.mjs`, integração com a skill `classificar-tarefa` e o benchmark
-  dourado (`scripts/jev/benchmarks/`). Até lá, a classificação automática não está ligada na skill.
+- Ativo desde 2026-10-18: cliente, coletor cego, perguntas, matriz, agregação, 6 guardrails, CLI
+  `node scripts/jev.mjs classificar | guardrail | avaliar | custo` e a skill `classificar-tarefa`
+  (tenta o Jev primeiro; sem chave, `off` ou falha segue o fluxo Laya/sinais).
+- Benchmark cego (180 itens, `scripts/jev/benchmarks/`): nível final 0,60–0,61, só `nivel` 0,66–0,67,
+  recall de PESADO 0,883 (final). O "15/15" antigo vazava `nivel_atual` (com ele: 0,85). Laya fora do
+  ar na medição. Uso real: `confianca` < 0,60 pede decisão humana; o Jev não decide sozinho.
 - Se o Jev falhar em PT-BR ou em decisão irreversível, não usar a sugestão sem revisão humana.
 
 ## Rollback
 
-1. Definir `JEV_MODO=off` no ambiente (ou no `.env` local).
-2. Confirmar que a classificação volta ao fluxo de sinais e Laya.
-3. Se for preciso, reverter o commit da integração. Tempo esperado: menos de 10 minutos.
+1. Definir `JEV_MODO=off` no ambiente (ou no `.env` local): o CLI sai com código 2 e a skill segue
+   o fluxo Laya/sinais; guardrails ambíguos viram `revisar`, os determinísticos continuam.
+2. Total: copiar `SKILL.md.bak` sobre `SKILL.md` (fonte `.agents` e cópia `.claude`). Medido: segundos.
+3. Se for preciso, reverter o commit da integração. Prazo: menos de 10 minutos.
 
 ## Limites
 

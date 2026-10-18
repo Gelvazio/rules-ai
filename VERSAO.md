@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-18-384984ac
+- **Versão:** 2026-10-18-87fd6c11
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -29,5 +29,5 @@
 | 16 | pastas-ignoradas.md | b33814d65cafd940 |
 | 17 | rules-local.md | 0b93e56531bf080b |
 | 18 | herdr.md | 0ed9c7e0c2280ae0 |
-| 19 | jev.md | 757d5aa2f18cbd20 |
+| 19 | jev.md | b90c43279598fde8 |
 | 20 | atividades-e-idioma.md | a37b651279928422 |
