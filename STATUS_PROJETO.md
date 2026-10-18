@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-18 11:56 (Brasília): RULES-LOCAL-GLOBAL.9 entregue: módulo de conferência `scripts/rules-local/conferir.mjs` (SN-9, Sonnet).
 - 2026-10-18 11:56 (Brasília): RULES-LOCAL-GLOBAL.8 entregue: módulo de comparação `scripts/rules-local/comparar.mjs` (SN-8, Sonnet).
 - 2026-10-18 11:56 (Brasília): RULES-LOCAL-GLOBAL.7 entregue: módulo de download `scripts/rules-local/baixar.mjs` (SN-7, Sonnet).
 - 2026-10-18 11:55 (Brasília): RULES-LOCAL-GLOBAL.10 entregue: decisão C36 no CONFLITOS.md (HK-10, Haiku).
