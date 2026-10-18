@@ -509,7 +509,7 @@ igual). O histórico fica no Git. Exemplo:
 
 ### RULES-LOCAL-GLOBAL.4 — Instalar no projeto piloto
 
-**Próximo passo:** esperar a `.1`, a `.2`, a `.12` e a `.13`; instalar com o instalador no piloto e conferir R4.2.
+**Próximo passo:** líder conferir e commitar.
 
 > Desde a divisão: esta subtarefa é só o **piloto**; os outros repositórios ficam nos lotes `.14`, `.15` e `.16` (lista da `.11`).
 
@@ -522,6 +522,40 @@ igual). O histórico fica no Git. Exemplo:
   commit + push em cada repositório; os outros clones com `git pull --rebase`.
 - **Critérios de aceitação:** R4.1; em cada projeto, rodar o script dá "versão igual" e
   `git status --short` vazio.
+- **Entrega (piloto `C:\fontes\template-inicial-tasks-ia`):** commit `4b24b83` no
+  `Gelvazio/template-inicial-tasks-ia` (push `1738d53..4b24b83`), com `rules-local/` (4 `.mjs`,
+  `.gitattributes`, `.gitignore`, `VERSAO.md`, `RELATORIO.md`, `regras/` com 19 arquivos),
+  `.claude/settings.json` (gancho de F6 acrescentado no fim do `SessionStart`, o
+  `sincronizar-main.sh` e os outros ganchos intactos) e `AGENTS.md` (bloco
+  `rules-local:inicio/fim` no fim). No `rules-ai`, só esta seção (sem Git).
+- **Verificação (OP-4, 2026-10-18):** `git pull --rebase` no piloto (já em dia); instalador →
+  `6 criado, 2 atualizado`, `VERSÃO NOVA nenhuma -> 2026-10-18-ef54a693 (19 adicionado)`,
+  `rules-local íntegro`, saída 0; `rules-local/VERSAO.md` = `VERSAO.md` da raiz (`cmp`) = a do
+  `raw` (`ef54a693`). Depois do commit + push: `node rules-local/sessao.mjs` → `versão igual
+  (2026-10-18-ef54a693)`; mesmo resultado rodado de `C:\` com caminho absoluto (como o gancho);
+  2ª execução do instalador → nada muda; `git status --short` sem nenhum arquivo da instalação
+  (R4.2); `HEAD` = `origin/main`; `git ls-files --eol rules-local` → `i/lf w/lf eol=lf`. R4.1 até
+  aqui: das pastas de `C:\fontes` (fora `DEMAIS-PROJETOS-*`), só o piloto tem `rules-local/`.
+- **Anotação — ajuste para depois (não alterei o `sessao.mjs`):** confirmado: a linha 3 do aviso
+  "versão nova" (`scripts/rules-local/sessao.mjs:351`, igual ao texto de F5) cita
+  `(regras/rules-local.md)`, mas no projeto o caminho é `rules-local/regras/rules-local.md`.
+  Corrigir F5 + `sessao.mjs` juntos e reinstalar (o script não chega pela `VERSAO.md`).
+- **Anotação — para os lotes `.14`–`.16`:**
+  (1) O piloto já tinha arquivos fora do Git antes da instalação (`.codex/hooks.json`,
+  `.codex/hooks/`, `.vscode/`); não mexi. Em cada repositório, guardar o `git status --short`
+  **antes** e conferir R4.2 como "nenhum arquivo da instalação sobrando", não "saída vazia".
+  (2) A instalação sempre imprime `DISPARAR A SINCRONIZAÇÃO DE TASKS` com versão anterior
+  `nenhuma`: pela regra `rules-local.md` é "sem ajuste — instalação", **nenhuma TASK** no quadro do
+  projeto; o commit é o da instalação (mensagem do líder), com `git add` só de `rules-local/`,
+  `.claude/settings.json` e `AGENTS.md`/`CLAUDE.md`.
+  (3) O `AGENTS.md` do piloto estava em LF no disco: o Git avisa "LF will be replaced by CRLF";
+  é só aviso (o índice fica LF).
+  (4) Repositórios do mesmo modelo têm `pre-push` que faz `git fetch` e recusa se o remoto andou:
+  `git pull --rebase origin main` antes do push. O `pre-commit` só age com `.agents/` no commit.
+  (5) A versão publicada hoje é `2026-10-18-ef54a693` (19 regras, já com `rules-local.md`); se o
+  `rules-ai` publicar outra versão no meio dos lotes, os repositórios ficam com versões diferentes
+  até a próxima sessão de cada um (esperado).
+  (6) Lote B: a pasta de instalação do `dashboard-ai` ainda está "a definir" (`.11`).
 
 ### RULES-LOCAL-GLOBAL.6 — Formato combinado dos arquivos
 
