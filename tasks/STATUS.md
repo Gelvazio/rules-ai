@@ -53,6 +53,8 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | UPDATE-REPOS.12 | Conferir e atualizar `aulas-senai-CLAUDE-OPUS` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.13 | Conferir e atualizar `aulas-senai-CLAUDE-OPUS-LIDER` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.14 | Conferir e atualizar `aulas-senai-CLAUDE-SONNET` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| **KILO-GLOBAL** | **🌐 GLOBAL — Kilo Code recebe as regras globais (`~/.config/kilo/AGENTS.md`)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-024](etapas/ETAPA-024-7930a589-KILO-GLOBAL.md) |
+| KILO-GLOBAL.1 | 🌐 Destino do Kilo Code no `sincronizar.mjs` (`AGENTS.md`) e README · `LEVE · effort low` | 🟡 Média | LEVE · só DeepSeek Flash · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-024](etapas/ETAPA-024-7930a589-KILO-GLOBAL.md) |
 
 ## 🧭 Frentes de trabalho
 
@@ -61,13 +63,14 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 ## 🗂️ Etapas
 
-O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (23 arquivos). O resumo do projeto e o
+O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (24 arquivos). O resumo do projeto e o
 histórico ficam em `STATUS_PROJETO.md`.
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 14:52 | KILO-GLOBAL (etapa 024): o `sincronizar.mjs` ganha o destino **Kilo Code** (`~/.config/kilo/AGENTS.md`, modo `embutir`, `criarPasta`); o `README.md` lista a IA; a máquina recebe o bloco das regras no arquivo global do Kilo. Fora do escopo: a linha do Kilo em `niveis-e-modelos.md` (decisão do usuário) e instalar o CLI. Execução LEVE pelo DeepSeek Harness, por ordem direta | Gelvazio | "aplique a integracao" |
 | 2026-10-18 13:56 | HERMES-GLOBAL (etapa 023): o `sincronizar.mjs` ganha o destino **Hermes Agent** (`SOUL.md` em `%LOCALAPPDATA%\hermes` no Windows e `~/.hermes` no POSIX, modo `embutir`); o `README.md` lista a IA; a máquina recebe `SOUL.md` com o bloco das regras e `config.yaml` (skills externas, memória, aprovações e limite de contexto). Fora do escopo: a linha do Hermes em `niveis-e-modelos.md` (decisão do usuário) e a instalação do CLI. Execução LEVE pelo DeepSeek Harness, por ordem direta | Gelvazio | "sim,faça isso, configure pra que o rules-ai, use o hermes agent" |
 | 2026-10-18 12:58 | HERDR-GLOBAL.1 (C33): `regras/herdr.md` criada e indexada; herdr entra como runtime dos agentes — usar só dentro dele (`HERDR_ENV=1`) e com pedido do usuário; painel = frente com nível/modelo da matriz; nunca responder aprovação no lugar do usuário, fechar painel alheio, parar o servidor ou disparar sessão automática | DeepSeek (Flash) | C33 aprovada na etapa 015 |
 | 2026-10-18 12:30 | UPDATE-REPOS: todas as subtarefas (script e uma por pasta) ficam `LEVE · só Haiku 5.5` | Gelvazio | "atribua ela para o haiku 5.5,pois é tarefa leve so criar script e rodar" |
