@@ -82,7 +82,7 @@ mostra as probabilidades da saída.
 
 ### DASHBOARD-REDE-NEURAL.3 — Cena 3D com propagação animada
 
-**Próximo passo:** criar a cena em assets/js/cena/, cores.js e principal.js (reservada 2026-10-17 17:24; retomada 2026-10-18 09:52).
+**Próximo passo:** — (entregue 2026-10-18).
 
 - **Nível:** PESADO — cena 3D inteira, mais de 3 arquivos ligados.
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro
@@ -92,10 +92,25 @@ mostra as probabilidades da saída.
   com `Raycaster`), `assets/js/config/cores.js` e `assets/js/principal.js` ligando modelo → cena.
 - **Critérios de aceitação:** `node --check` em todos; a cena só lê o modelo (não calcula nada);
   clique emite o neurônio escolhido para o painel.
+- **Entrega (2026-10-18, Claude Code (Opus 5.5) (local · main)):** `assets/js/config/cores.js`,
+  `assets/js/config/cena.js`, `assets/js/cena/` (`tema.js`, `palco.js`, `neuronios.js`,
+  `ligacoes.js`, `animacao.js`, `selecao.js`, `cena-rede.js`), `assets/js/principal.js`,
+  `assets/css/cena.css` e o link dele no `index.html`.
+- **Contrato para o painel (.4):** o `principal.js` dispara em `window` `rede:propagada`
+  (`detail = { rede, resultado }`) e `rede:neuronio-selecionado`
+  (`detail = { indiceCamada, indiceNeuronio, nomeCamada, neuronio }`, com `parcelas`, `vies`, `z`
+  e `ativacao` vindos de `propagar()`); `obterEstado()` devolve o último resultado. O
+  `principal.js` já lê os 4 campos e liga o botão Propagar; o painel só desenha.
+- **Verificação:** `node --check` em todos os `.js` novos; nenhuma linha > 100; grep de
+  chaves/APIs vazio; simulação com `node` (Three.js substituído por um stub, fora do repositório):
+  a entrada acende em 0 ms, a oculta 1 aos 600 ms e a saída aos 1800 ms, os rótulos finais são
+  0,378 · 0,355 · 0,267 (iguais ao modelo, soma 1) e o pulso das ligações volta à opacidade base.
+  Visual (cores, giro e clique) **não** conferido no navegador (regra): o usuário confere com
+  `python -m http.server 8080` em `dashboard/`.
 
 ### DASHBOARD-REDE-NEURAL.4 — Painel 2D (cálculo, entradas e probabilidades)
 
-**Próximo passo:** esperar a `.3`.
+**Próximo passo:** criar `assets/js/tela/painel.js` ouvindo os eventos da `.3` (contrato na seção da `.3`).
 
 - **Nível:** MEDIO — tela em JS, 1 a 3 arquivos.
 - **Modelo:** só Sonnet — nunca outro
