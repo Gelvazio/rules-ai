@@ -864,7 +864,7 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
 
 ### RULES-LOCAL-GLOBAL.19 — Tirar o `AGENTS.md` solto do `gerenciador-de-ia`
 
-**Próximo passo:** OP-19 guarda a cópia de segurança, remove o arquivo e confere.
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** PESADO — remove arquivo de outro projeto (apagar dados)
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
@@ -880,6 +880,16 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
 - **Critérios de aceitação:** cópia de segurança idêntica (mesmo hash); `git status --short` do
   projeto sem `?? AGENTS.md`; nenhum outro arquivo do projeto alterado.
 - **Verificação:** `sha256sum` da cópia = do original antes de remover; `git status --short`.
+- **Entrega (Claude Code (Opus 5.5 · herdr OP-19), 2026-10-18 15:16):** cópia em
+  `C:\Users\gelva\.claude\backups\gerenciador-de-ia-AGENTS.md-2026-10-18.md` (pasta `backups`
+  criada); `C:\fontes\gerenciador-de-ia\AGENTS.md` removido. Nenhum arquivo versionado mudou
+  (sem commit no projeto). Trava `tasks/.sessao-ativa` gravada ao começar (não havia trava).
+- **Verificação (feita):** `diff CLAUDE.md AGENTS.md` → só 10 trechos, todos troca cega
+  (`CLAUDE.md`→`AGENTS.md` no título e na linha 4, "Claude Code"→"Codex" nas linhas 27, 94 e 232,
+  `.claude/rules/`→`.Codex/rules/` nos 5 links das linhas 219–227); o resto idêntico (262 linhas
+  cada, inclusive a §10). `sha256sum` original = cópia =
+  `8e58cc9b3386816499a8dcd5cefd4b5c989233f7ec4fe9c8d40bab8fa59ebad7` e `cmp` sem diferença;
+  depois do `rm`, `git status --short` vazio (saída 0).
 
 ### RULES-LOCAL-GLOBAL.5 — Levar a regra nova às IAs (`--aplicar`)
 
