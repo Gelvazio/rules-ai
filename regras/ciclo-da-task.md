@@ -59,9 +59,14 @@ Na dúvida, é grande. O projeto pode definir exceções (rotinas já autorizada
 
 1. **Subtarefa:** seção com entrega (commit) e verificação; linha com `✅` e "Em uso por" = `—`,
    **movida** do `STATUS.md` para o `tasks/task_complete.md`; linha da frente atualizada.
-2. **Tarefa-mãe:** quando todas as subtarefas estiverem ✅ (a última de tarefa grande é o **aceite**
-   de quem pediu, 👀 até ele confirmar), a linha da mãe vira `✅` e também vai para o
-   `task_complete.md`.
+2. **Tarefa-mãe:** quando todas as subtarefas estiverem ✅, a linha da mãe vira `✅` e também vai
+   para o `task_complete.md`.
+   - ⛔ **Sem aceite do usuário** (C32, 2026-10-17): a IA **sempre aceita** e **nunca pergunta**.
+     Não se cria subtarefa "Aceite do usuário" nem se deixa entrega 👀 esperando confirmação:
+     quem entrega confere (campo Verificação) e fecha. Aceite que já existe no quadro é fechado
+     pela própria IA ao aplicar esta regra.
+   - O 👀 fica só para o que **só o usuário pode fazer** (ação no computador dele, autorização de
+     produção, aprovação do plano de tarefa grande, resposta a uma dúvida). Isso não é aceite.
 3. Pendências que ficaram para depois → "Pendências" do `STATUS.md`, com motivo.
 4. Lição aprendida que vira regra → "Lições aprendidas" do `STATUS.md` (e a regra no lugar certo).
 5. **Um commit por subtarefa entregue**, com o quadro no mesmo commit (e push, conforme a regra

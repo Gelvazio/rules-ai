@@ -56,6 +56,7 @@ C8); cópia em `~/.codex/AGENTS.md.bak`.
 | C28 | Gerenciador centralizado de tarefas | ✅ Regra em `regras/gerenciador-centralizado.md`: modo `ver` por padrão; `disparar` só com ordem explícita do usuário (**em pausa**, decisão de 13:30); quando ligado, só Haiku e Sonnet, ciclo de 30 s, 1 sessão por modelo. **Ordem vigente:** pausa (pedido do usuário em 13:30); o automático só para Haiku e Sonnet (16:12) fica para reativação. Pedido do usuário em 2026-10-17; etapa 009 |
 | C29 | Sessões na mesma pasta (`rules-ai`, `gerenciador-de-ia`) | ✅ **No `rules-ai` e no `gerenciador-de-ia`:** uma sessão de IA por vez, com a trava local `tasks/.sessao-ativa` (fora do Git); regra no `AGENTS.md` do `rules-ai` e na seção 10 do `CLAUDE.md` do `gerenciador-de-ia`. Pedido do usuário em 2026-10-17 |
 | C30 | Gatilho `.` | ✅ Mensagem só com `.` = listar em quadro as tarefas pendentes e apontar a próxima livre do **seu** modelo, sem reservar nem mudar nada; regra em `regras/frentes-e-reserva.md`. Pedido do usuário em 2026-10-17 |
+| C32 | Aceite do usuário (substitui o aceite de tarefa grande do ciclo) | ✅ A IA **sempre aceita** e **nunca pergunta**: sem subtarefa "Aceite do usuário" e sem entrega 👀 esperando confirmação; quem entrega confere e fecha. O 👀 fica só para o que só o usuário pode fazer (aprovação de plano e autorização de produção continuam). Regra em `regras/ciclo-da-task.md` e `regras/quadro-de-tarefas.md`. Pedido do usuário em 2026-10-17 21:50: "1-SEMPRE ACEITE,NUNCA PERGUNTE" |
 
 ## Pendente de decisão
 

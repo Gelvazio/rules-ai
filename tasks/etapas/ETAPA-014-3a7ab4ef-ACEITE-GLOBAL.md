@@ -25,7 +25,7 @@ confere e fecha. E as regras globais passam a carregar também nas contas `~/.cl
 
 ### ACEITE-GLOBAL.1 — Regra C32 nas regras globais
 
-**Próximo passo:** editar as 3 regras, registrar C32 e a decisão.
+**Próximo passo:** — (entregue).
 
 - **Nível:** PESADO — muda regra global de todas as IAs.
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro
@@ -33,7 +33,15 @@ confere e fecha. E as regras globais passam a carregar também nas contas `~/.cl
 - **Descrição:** tirar a subtarefa "Aceite do usuário" do ciclo e do modelo do quadro; o 👀 fica só
   para o que só o usuário pode fazer.
 - **Critérios de Aceitação:** nenhuma regra global manda criar aceite; C32 no `CONFLITOS.md`.
-- **Entrega:** pendente.
+- **Entrega:** commit `feat(ACEITE-GLOBAL.1)`: `regras/ciclo-da-task.md` (item 2 de Encerrar),
+  `regras/quadro-de-tarefas.md` (coluna Modelo e modelo da etapa), `regras/esforco.md`, C32 no
+  `CONFLITOS.md` e Registro de decisões. Aceites deste quadro fechados pela regra: ESFORCO-GLOBAL.5
+  e DASHBOARD-REDE-NEURAL.19 (entregas já feitas) → ✅ Concluído (C32), o que fecha a mãe
+  ESFORCO-GLOBAL (com a .1, que tinha ficado no quadro); GERENCIADOR-GLOBAL.6 e
+  DASHBOARD-REDE-NEURAL.5 (dependências ainda abertas) → ✅ Dispensado (C32). Todas movidas para o
+  `task_complete.md`.
+- **Verificação:** `grep -i aceite regras/` só encontra o texto da C32; linhas conferidas no
+  `task_complete.md`, no fim da tabela.
 
 ### ACEITE-GLOBAL.2 — Sincronizador com as contas A, B e C e `--aplicar`
 

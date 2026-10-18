@@ -56,3 +56,11 @@
 | **PONTO-GLOBAL** | **🌐 GLOBAL — Mensagem `.` = liste as tarefas pendentes (C30)** | 🟡 Média | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-012](etapas/ETAPA-012-PONTO-GLOBAL.md) |
 | DASHBOARD-REDE-NEURAL.1 | Estrutura da pasta `dashboard/` (HTML, CSS, README) | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído (2026-10-17 17:23) | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.2 | Modelo da rede: pesos com semente, ReLU e softmax | 🟡 Média | MEDIO · só Sonnet · effort medium | DASHBOARD-REDE-NEURAL.1 | ✅ Concluído (2026-10-17 17:24) | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| ESFORCO-GLOBAL.5 | 🌐 Aceite do usuário | 🟠 Alta | Usuário · effort low | ESFORCO-GLOBAL.4 | ✅ Concluído (C32) | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
+| DASHBOARD-REDE-NEURAL.19 | Aceite do usuário: conferir a página "Agentes ao vivo" no navegador | 🟡 Média | Usuário · effort low | DASHBOARD-REDE-NEURAL.18 | ✅ Concluído (C32) | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| GERENCIADOR-GLOBAL.6 | 🌐 Aceite do usuário | 🟠 Alta | Usuário | GERENCIADOR-GLOBAL.5 | ✅ Dispensado (C32) | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
+| DASHBOARD-REDE-NEURAL.5 | Aceite do usuário | 🟡 Média | Usuário · effort low | DASHBOARD-REDE-NEURAL.4 | ✅ Dispensado (C32) | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| ESFORCO-GLOBAL.1 | 🌐 Regra global `regras/esforco.md` | 🟡 Média | LEVE | Nenhuma | ✅ Concluído | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
+| ESFORCO-GLOBAL | **🌐 GLOBAL — Esforço (`effort`) por nível, para todos os projetos e IAs** | 🟡 Média | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
+
+| ACEITE-GLOBAL.1 | 🌐 Regra C32 nas regras globais · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-014](etapas/ETAPA-014-3a7ab4ef-ACEITE-GLOBAL.md) |

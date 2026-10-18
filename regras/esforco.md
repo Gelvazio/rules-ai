@@ -18,4 +18,4 @@ IAs.** Conferência por modelo: tarefa `CONFEFFORT-GLOBAL`; resultados nas etapa
 - ⚠️ O agente **não enxerga** o próprio esforço: conferir por fora (tokens, tempo, tamanho da
   resposta), como manda a `CONFEFFORT-GLOBAL`. Nem toda IA tem `effort` (Gemini, DeepSeek): usar a
   configuração equivalente de raciocínio da ferramenta.
-- ✅ **Toda tarefa e subtarefa declara o `effort`** junto do nível no quadro (`LEVE · effort low`, `MEDIO · effort medium`, `PESADO · effort high`), em **todas as IAs**: quem não tem `effort` (Gemini, DeepSeek, Copilot…) simplesmente ignora o campo (decisão do usuário, 2026-10-16 20:40). Aceite do usuário = `effort low`.
+- ✅ **Toda tarefa e subtarefa declara o `effort`** junto do nível no quadro (`LEVE · effort low`, `MEDIO · effort medium`, `PESADO · effort high`), em **todas as IAs**: quem não tem `effort` (Gemini, DeepSeek, Copilot…) simplesmente ignora o campo (decisão do usuário, 2026-10-16 20:40).
