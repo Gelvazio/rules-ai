@@ -10,9 +10,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 | Tarefa | Título | Prioridade | Modelo | Depende de | Status | Em uso por | Etapa |
 |---|---|---|---|---|---|---|---|
-| EFFORT-PADARIA | **🌐 GLOBAL — Testar `low`/`medium`/`high` em todos os modelos com o projeto da padaria** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
-| EFFORT-PADARIA.6 | 🌐 Gemini Pro: 3 níveis de raciocínio | 🟠 Alta | MEDIO · só Gemini CLI · effort medium | EFFORT-PADARIA.2 | ⬜ Pendente | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
-| EFFORT-PADARIA.7 | 🌐 DeepSeek (raciocínio): 3 níveis | 🟠 Alta | MEDIO · só DeepSeek · effort medium | EFFORT-PADARIA.2 | ⬜ Pendente | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | CONFEFFORT-GLOBAL | **🌐 GLOBAL — Conferir o `effort` em cada modelo (todos os projetos e IAs)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | CONFEFFORT-GLOBAL.1 | 🌐 Haiku 5.5: conferir o `effort` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | CONFEFFORT-GLOBAL.4 | 🌐 Gemini Pro: conferir o esforço | 🟡 Média | MEDIO · só Gemini Pro · effort medium | Nenhuma | ⬜ Pendente | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
@@ -59,6 +56,7 @@ histórico ficam em `STATUS_PROJETO.md`.
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 19:00 | EFFORT-PADARIA movida para o quadro do `testes-effort-padaria` (mãe, .6 e .7 abertas; .1–.5, .8 e .9 concluídas). O gabarito **não** foi junto: fica em `gabaritos/EFFORT-PADARIA.md` do `rules-ai` | Usuário (registrado por Claude Code (Opus 5.5)) | "ESTA TAREFA EFFORT-PADARIA, MOVA PARA O PROJETO C:ontes	estes-effort-padaria"; opção "Mover sem o gabarito" |
 | 2026-10-18 18:58 | DASHBOARD-REDE-NEURAL cancelada: a mãe e a subtarefa .4 (painel 2D) saem do quadro e vão para o `task_complete.md` como ❌ Cancelada. O que já foi entregue em `dashboard/` (.1–.3, .6–.27) continua no repositório | Usuário (registrado por Claude Code (Opus 5.5)) | "ESTA TAREFA DASHBOARD-REDE-NEURAL, PODE EXCLUIR" |
 | 2026-10-18 16:19 | MCP-QUADRO (etapa 026): tarefa grande (`PESADO`, spec C34) para servir a fila do quadro por MCP **sem banco** — `task_next`/`task_finish`/`task_list` sobre o `tasks/STATUS.md`, reserva por commit `lock:` + push; regra `regras/mcp-quadro.md` + C40 na `.1`. Plano completo na etapa; execução só depois do "sim" | DeepSeek Harness (lead) | "sim" ao registro proposto (fila via MCP sem Supabase) |
 | 2026-10-18 15:55 | JEV-RULES-AI (etapa 025): tarefa grande (`PESADO`, spec C34) para o Jev sugerir nível (modelo/effort pela matriz + C21) e servir de guardrail em escopo, critérios de aceite, segredo/PII, pasta proibida, comando destrutivo e aprovação indevida. Plano completo na etapa; execução só depois do "sim" | DeepSeek Harness (lead) | "crie um plano SUPER DETALHADO..." + "coloque a task no quadro do rules-ai" |

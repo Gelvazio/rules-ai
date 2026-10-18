@@ -4,6 +4,8 @@
 **Pedido:** "crie 1 tarefa mais complexa, que consiga testar os 3 tipos de effort, em todos os modelos, e pra isso, crie 1 projeto simples de padaria, na pasta testes-effort-padaria, salve ela no quadro e assuma"
 **Objetivo:** um desafio de raciocínio com várias etapas (produção, estoque, compras, descontos e escala de forno) que **não** se resolve com um script de força bruta, para medir se o `effort` muda tokens, tempo e **acerto** em cada modelo.
 
+> 📦 **Movida em 2026-10-18 19:00** para o quadro do projeto `C:/fontes/testes-effort-padaria` (`tasks/STATUS.md`, etapa 001), a pedido do usuário ("ESTA TAREFA EFFORT-PADARIA, MOVA PARA O PROJETO C:ontes	estes-effort-padaria"). Este arquivo fica só como histórico; o gabarito ficou no `rules-ai` (`gabaritos/EFFORT-PADARIA.md`).
+
 > 🌐 **TAREFA GLOBAL** (todos os projetos e IAs). Continua a `CONFEFFORT-GLOBAL` (etapa 002): lá o problema era fácil e os agentes resolveram por script; aqui o agente é proibido de executar código.
 
 ### Escopo
@@ -37,19 +39,7 @@
 - **Nível:** MEDIO — cálculo por script na pasta temporária da sessão; resultado só nesta etapa.
 - **Entrega:** gabarito abaixo (script `gabarito.py` na pasta temporária da sessão, frações exatas; forno por soma de subconjuntos). **Verificação:** ovos 94,5 → 95; leite 6.600 ml; forno 607 min no total, ímpar → ótimo 304.
 
-#### Gabarito (38 itens; nota = itens certos / 38)
-
-```
-P1 fornadas: frances=12 queijo=6 bolo=2 croissant=4 sonho=3
-P1 produzidas: frances=720 queijo=240 bolo=12 croissant=96 sonho=90
-P2 consumo: farinha=41250g acucar=4830g sal=888g fermento=906g polvilho=6000g queijo=3600g ovos=95 leite=6600ml chocolate=1200g manteiga=2400g
-P3 pacotes: farinha=7 acucar=3 sal=0 fermento=2 polvilho=3 queijo=2 ovos=7 leite=3 chocolate=1 manteiga=3
-P3 custo total: R$ 531,50
-P4 liquido: mercado=R$ 342,00 (bruto 360, 5%) escola=R$ 571,50 (bruto 635, 10%) cafe=R$ 416,10 (bruto 438, 5%) balcao=R$ 680,00 total=R$ 2.009,60
-P5 menor tempo: 304 min | cabe em 240: nao
-```
-
-Pontos de armadilha: reserva do pão francês (650 + 65 = 715 → 12 fornadas = 720); consumo sobre o produzido, não o pedido; sal 0 pacote (estoque basta); Escola: 10% vence 8%; forno: 2 fornos não bastam (607/2 → 304).
+> 🔒 Gabarito movido para `gabaritos/EFFORT-PADARIA.md` (raiz do `rules-ai`).
 
 ### EFFORT-PADARIA.3 a .7 — Rodadas por modelo
 
