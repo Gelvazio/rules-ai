@@ -53,6 +53,11 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | UPDATE-REPOS.12 | Conferir e atualizar `aulas-senai-CLAUDE-OPUS` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.13 | Conferir e atualizar `aulas-senai-CLAUDE-OPUS-LIDER` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.14 | Conferir e atualizar `aulas-senai-CLAUDE-SONNET` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| **HERMES-GLOBAL** | **🌐 GLOBAL — Hermes Agent recebe as regras globais (`SOUL.md` no `sincronizar.mjs`) e a configuração local** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-023](etapas/ETAPA-023-57380d59-HERMES-GLOBAL.md) |
+| HERMES-GLOBAL.1 | 🌐 Destino do Hermes no `sincronizar.mjs` (`SOUL.md`) e linha no `README.md` · `LEVE · effort low` | 🟡 Média | LEVE · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-023](etapas/ETAPA-023-57380d59-HERMES-GLOBAL.md) |
+| HERMES-GLOBAL.2 | `SOUL.md` e `config.yaml` do Hermes nesta máquina · `LEVE · effort low` | 🟡 Média | LEVE · effort low | HERMES-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-023](etapas/ETAPA-023-57380d59-HERMES-GLOBAL.md) |
+| HERMES-GLOBAL.3 | 🌐 Rodar `sincronizar.mjs --aplicar` e conferir os destinos · `LEVE · effort low` | 🟡 Média | LEVE · effort low | HERMES-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-023](etapas/ETAPA-023-57380d59-HERMES-GLOBAL.md) |
+| HERMES-GLOBAL.4 | Documentação (`hermes-agent/AGENTS.md`), fechamento do quadro e `STATUS_PROJETO.md` · `LEVE · effort low` | 🟡 Média | LEVE · effort low | HERMES-GLOBAL.2, HERMES-GLOBAL.3 | ⬜ Pendente | — | [ETAPA-023](etapas/ETAPA-023-57380d59-HERMES-GLOBAL.md) |
 
 ## 🧭 Frentes de trabalho
 
@@ -61,13 +66,14 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 ## 🗂️ Etapas
 
-O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (22 arquivos). O resumo do projeto e o
+O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (23 arquivos). O resumo do projeto e o
 histórico ficam em `STATUS_PROJETO.md`.
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 13:56 | HERMES-GLOBAL (etapa 023): o `sincronizar.mjs` ganha o destino **Hermes Agent** (`SOUL.md` em `%LOCALAPPDATA%\hermes` no Windows e `~/.hermes` no POSIX, modo `embutir`); o `README.md` lista a IA; a máquina recebe `SOUL.md` com o bloco das regras e `config.yaml` (skills externas, memória, aprovações e limite de contexto). Fora do escopo: a linha do Hermes em `niveis-e-modelos.md` (decisão do usuário) e a instalação do CLI. Execução LEVE pelo DeepSeek Harness, por ordem direta | Gelvazio | "sim,faça isso, configure pra que o rules-ai, use o hermes agent" |
 | 2026-10-18 12:58 | HERDR-GLOBAL.1 (C33): `regras/herdr.md` criada e indexada; herdr entra como runtime dos agentes — usar só dentro dele (`HERDR_ENV=1`) e com pedido do usuário; painel = frente com nível/modelo da matriz; nunca responder aprovação no lugar do usuário, fechar painel alheio, parar o servidor ou disparar sessão automática | DeepSeek (Flash) | C33 aprovada na etapa 015 |
 | 2026-10-18 12:30 | UPDATE-REPOS: todas as subtarefas (script e uma por pasta) ficam `LEVE · só Haiku 5.5` | Gelvazio | "atribua ela para o haiku 5.5,pois é tarefa leve so criar script e rodar" |
 | 2026-10-18 12:59 | NIVEL-QODER (C38): a matriz das regras globais ganha a linha **Qoder** (`✅` em `LEVE`/`MEDIO`, `⛔` em `PESADO`), igualando a skill global `classificar-tarefa`, que já a tinha; `sincronizar.mjs --aplicar` leva a todas as IAs | Gelvazio | "sim,faca isso" → "resolva o C38" |
