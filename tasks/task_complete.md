@@ -131,3 +131,4 @@
 | UPDATE-REPOS.2 | Conferir e atualizar `dashboard-ai-claude-code-gmail` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ✅ Concluído | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.3 | Conferir e atualizar `dashboard-ai-claude-code-hotmail` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ✅ Concluído | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.4 | Conferir e atualizar `dashboard-ai-claude-code-senai` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ✅ Concluído | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.5 | Conferir e atualizar `dashboard-ai-codex` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ✅ Concluído | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
