@@ -68,11 +68,27 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-AGENTES.4 | Módulos JS de apoio enxutos (`api.js`, `config.js`, `visualizador.js`) | 🟡 Média | MEDIO · só Sonnet · effort medium | DASHBOARD-AGENTES.2 | ⬜ Pendente | — | [ETAPA-020](etapas/ETAPA-020-bbaa26ff-DASHBOARD-AGENTES.md) |
 | DASHBOARD-AGENTES.5 | Personagens, menu e CSS só dos agentes | 🟡 Média | MEDIO · só Sonnet · effort medium | DASHBOARD-AGENTES.2 | ⬜ Pendente | — | [ETAPA-020](etapas/ETAPA-020-bbaa26ff-DASHBOARD-AGENTES.md) |
 | DASHBOARD-AGENTES.6 | README da pasta e quadro | 🟡 Média | LEVE · só Haiku · effort low | DASHBOARD-AGENTES.3, DASHBOARD-AGENTES.4, DASHBOARD-AGENTES.5 | ⬜ Pendente | — | [ETAPA-020](etapas/ETAPA-020-bbaa26ff-DASHBOARD-AGENTES.md) |
+| **UPDATE-REPOS** | **Script `UPDATE.py`: atualizar as pastas `dashboard-ai-*` e `aulas-senai-*` com a `main`** | 🟡 Média | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.1 | Criar o `scripts/UPDATE.py` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.2 | Conferir e atualizar `dashboard-ai-claude-code-gmail` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.3 | Conferir e atualizar `dashboard-ai-claude-code-hotmail` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.4 | Conferir e atualizar `dashboard-ai-claude-code-senai` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.5 | Conferir e atualizar `dashboard-ai-codex` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.6 | Conferir e atualizar `dashboard-ai-deepseek` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.7 | Conferir e atualizar `dashboard-ai-devin` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.8 | Conferir e atualizar `dashboard-ai-gemini` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.9 | Conferir e atualizar `dashboard-ai-kiro-crew` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.10 | Conferir e atualizar `dashboard-ai-qoder` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.11 | Conferir e atualizar `aulas-senai-CLAUDE-HAIKU` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.12 | Conferir e atualizar `aulas-senai-CLAUDE-OPUS` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.13 | Conferir e atualizar `aulas-senai-CLAUDE-OPUS-LIDER` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.14 | Conferir e atualizar `aulas-senai-CLAUDE-SONNET` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 12:30 | UPDATE-REPOS: todas as subtarefas (script e uma por pasta) ficam `LEVE · só Haiku 5.5` | Gelvazio | "atribua ela para o haiku 5.5,pois é tarefa leve so criar script e rodar" |
 | 2026-10-18 12:16 | NIVEL-DEEPSEEK.2 e .3 (C37): a matriz ferramenta × modelo × nível ganha a linha **OpenCode** (`deepseek-flash` em `LEVE`/`MEDIO` com thinking; `deepseek-v4-pro` em `PESADO`) e a skill global `classificar-tarefa` é alinhada à C35 (DeepSeek em `PESADO`) | Gelvazio | "adicione na lista de IA que pode assumir tasks, no classificador, o opencode com os modelos da deepseek" |
 | 2026-10-18 11:59 | DASHBOARD-AGENTES registrada como tarefa grande (`PESADO`, spec C34 na etapa 020): a pasta `dashboard/` fica só com os Agentes ao vivo; execução só depois das 4 perguntas fechadas e do "sim" ao plano | Gelvazio | "crie 1 tarefa pra deixar apenas o Fluxo de Dados *3 - Agentes ao vivo*, nesta pasta dashboard" |
 | 2026-10-18 11:48 | RULES-LOCAL-GLOBAL: o escopo da pergunta 4 ("só repositórios com GitHub") são **19 pastas / 7 remotos** (a resposta citava 18 por contagem antiga); vale o critério, não o número | Claude Code (Opus 5.5 · sargento) | Conferido com `git remote get-url origin` |

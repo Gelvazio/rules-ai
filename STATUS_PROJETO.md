@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-18 12:32 (Brasília): UPDATE-REPOS registrada (etapa 021): script `scripts/UPDATE.py` para atualizar as 9 pastas `dashboard-ai-*` e as 4 `aulas-senai-*` com a `main`; 14 subtarefas `LEVE · só Haiku 5.5` (1 do script + 1 por pasta), livres.
 - 2026-10-18 12:26 (Brasília): RULES-LOCAL-GLOBAL concluída de novo: `.20` instalou o `rules-local/` no `testes-effort-padaria` (8 remotos no escopo).
 - 2026-10-18 12:26 (Brasília): RULES-LOCAL-GLOBAL.20 entregue: `testes-effort-padaria` instalado (commit 5721e22, versão 2026-10-18-f4bfe8d8) (OP-20, Opus).
 - 2026-10-18 12:18 (Brasília): RULES-LOCAL-GLOBAL concluída: `rules-local/` instalado e conferido pela `VERSAO.md` nos 7 remotos do escopo (19 subtarefas, equipe herdr com líder sargento).
