@@ -2,9 +2,9 @@
 
 **Atualizado em:** 2026-10-18 14:00 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
 **Fontes:** quadro `tasks/STATUS.md` + `tasks/task_complete.md` na `main` do repositório `Gelvazio/rules-ai`
-(último commit: `32c27bb`, de 2026-10-18 13:46), a auditoria
-`C:\fontes\ANALISE-DE-FONTES-2026-10-18.md` (2026-10-18 13:34) e a trava `tasks/.sessao-ativa`
-(sessão do lead, DeepSeek Harness, desde 2026-10-18 13:41).
+(último commit: `8219315`, de 2026-10-18 14:00), a auditoria
+`C:\fontes\ANALISE-DE-FONTES-2026-10-18.md` (2026-10-18 13:34) e a sessão do lead (DeepSeek Harness,
+2026-10-18 13:41–14:00).
 
 ## O que é este projeto
 
@@ -26,7 +26,7 @@ detalhe de cada tarefa-mãe.
 | Quadro — tarefas-mãe | **23 mães**: 10 abertas no `tasks/STATUS.md` e 13 concluídas no `tasks/task_complete.md` (22 etapas em `tasks/etapas/`) |
 | Quadro — linhas | 43 linhas abertas no `STATUS.md` e 119 concluídas no `task_complete.md`; **nenhuma linha ✅ no `STATUS.md`** (C4 aplicada) |
 | Etapa 017 (NIVEL-DEEPSEEK) | corrigida em 2026-10-18 13:45: as 3 subtarefas estavam ✅ e a mãe continuava 🔄; virou ✅ e foi para o `task_complete.md` |
-| Sessão (C29) | uma sessão de IA por vez nesta pasta; `tasks/.sessao-ativa` é do lead (DeepSeek Harness) e não é apagado por subagente |
+| Sessão (C29) | nenhuma sessão ativa nesta pasta em 2026-10-18 14:01; a trava do lead (DeepSeek Harness) foi liberada ao fim do D5 |
 | Este arquivo | reescrito em 2026-10-18 13:45 (D8 da auditoria): título, fontes e histórico passaram a ser do `rules-ai`; saíram as seções herdadas do REA/DASHBOARD-AI |
 
 ## O que espera você (usuário)
