@@ -200,7 +200,7 @@ Cuidados de implementação:
 
 ### JEV-RULES-AI.2 — Coletor de estado cego e decisão de nível/effort/modelo
 
-**Próximo passo:** criar `estado.mjs`, `perguntas.mjs`, `modelos.mjs` e `decidir.mjs`; rodar dry-run em 10 subtarefas.
+**Próximo passo:** nenhum — ✅ concluída.
 - **Nível:** MEDIO — lógica em 3–4 arquivos, sem chave.
 - **Modelo:** só Sonnet — nunca outro.
 - **Effort:** medium
@@ -210,6 +210,8 @@ Cuidados de implementação:
 - **Critérios de Aceitação:** 10 subtarefas reais em dry-run; INV-1 e INV-4 passam; nenhum hash do quadro muda; lista de modelos confere com a matriz; saída no formato da seção Arquitetura.
 - **Verificação:** `node --check` nos 4 arquivos; `node scripts/jev.mjs classificar --dry-run --limite 10`; `node scripts/jev/testes/invariantes.mjs`.
 - **Estimativa:** 3 h.
+- **Entrega:** commit `feat(JEV-RULES-AI.2)` — `modelos.mjs`, `perguntas.mjs`, `estado.mjs`, `decidir.mjs`, `testes/agregacao.mjs` (INV-4), `testes/invariantes.mjs` (INV-1); executor jev2 (Sonnet 5.5). Obs.: `risco` (score) é só informativo e vem na escala 0..n−1 do Jev (achado da .5); normalizar se um dia entrar na decisão.
+- **Verificação (líder):** `node --check` ok; `agregacao.mjs` e `invariantes.mjs` ok (INV-1 em 158 subtarefas reais); dry-run real em 10 subtarefas (12.783 tokens, US$ 0,00047); hash de `STATUS.md`/`task_complete.md` igual antes/depois (INV-3); chave ausente de `scripts/jev/`.
 
 ### JEV-RULES-AI.3 — Benchmark dourado e métricas (cego × revisor)
 
