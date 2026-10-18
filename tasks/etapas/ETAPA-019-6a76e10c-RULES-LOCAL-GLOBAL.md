@@ -116,6 +116,7 @@ adicionado ou removido.
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 14:10 | **Formato combinado** (`.6`): código = SHA-256 do texto sem BOM e com LF (16 caracteres por arquivo, 8 na versão); versão `AAAA-MM-DD-<código>` só muda quando o conteúdo muda; item do relatório = 1 arquivo (detalhe pelo `git diff`); 4 scripts em `rules-local/` copiados de `scripts/rules-local/`, sem se atualizarem pela `VERSAO.md`; ver a seção "Formato combinado" | Claude Code (Opus 5.5 · OP-6) | Contrato único para as subtarefas paralelas |
 | 2026-10-18 11:42 | **Divisão para paralelismo** (aprovada, "SIM"): o formato combinado (`.6`) vem primeiro; o script de sessão foi dividido em peças `.7` (download), `.8` (comparação) e `.9` (conferência), juntadas pela `.2`; a `.3` passa a depender só da `.6`; a instalação virou lista de repositórios (`.11`), instalador (`.12`), aviso (`.13`), piloto (`.4`) e 3 lotes (`.14` a `.16`). Escopo, requisitos e invariantes não mudam | Gelvazio | Mais paralelismo (até 8 agentes na onda 1) |
 | 2026-10-18 10:38 | O endereço `https://github.com/Gelvazio/rules-ai/VERSAO.md` é a página do arquivo; o script lê o conteúdo cru em `https://raw.githubusercontent.com/Gelvazio/rules-ai/main/VERSAO.md` | Claude Code (Opus 5.5) | A página do GitHub devolve HTML, não o texto do arquivo |
 | 2026-10-18 10:38 | O repositório `rules-ai` é público (`raw` respondeu 200 em 2026-10-18 10:38): sem chave nem token | Claude Code (Opus 5.5) | Conferido com `curl` |
@@ -124,6 +125,294 @@ adicionado ou removido.
 | 2026-10-18 13:49 | Respostas: 1-b, 2-a, 3-a, 4-a, 5-a; e a `VERSAO.md` é o controlador do `rules-local/` em cada projeto (R2.5–R2.7, R4.2, INV-4) | Gelvazio | `task-sincronizador-local.png` |
 | 2026-10-18 13:49 | A regra nova autoriza a sessão a criar TASK (mãe nova) no quadro do projeto para cada ajuste vindo do relatório — exceção pontual à C26 | Claude Code (Opus 5.5) | Resposta 1-b |
 | 2026-10-18 10:38 | Clones do mesmo repositório (`aulasenai` ×5, `dashboard-ai` ×9) recebem a instalação uma vez por repositório remoto | Claude Code (Opus 5.5) | Evita 14 commits iguais e conflitos |
+
+### Formato combinado
+
+> Contrato da `.6` (2026-10-18). As subtarefas `.1`, `.7`, `.8`, `.9`, `.2`, `.3`, `.10`, `.12` e
+> `.13` seguem só esta seção. Mudar algo daqui = atualizar esta seção + linha em **Decisões**.
+> "Item" do relatório = **1 arquivo de regra**; o detalhe dentro do arquivo vem do
+> `git diff -- rules-local/regras/` (a pasta é versionada, então o texto antigo está no Git).
+
+#### F1. Código do conteúdo (hash) e normalização
+
+- **Normalizar** o texto antes de calcular: tirar o BOM do início (`\uFEFF`) e trocar todo `\r\n`
+  por `\n`. Nada mais (sem `trim`, sem mexer em espaços). Assim o mesmo arquivo dá o mesmo código
+  com `core.autocrlf=true` (Windows) ou sem ele (nuvem).
+- **Código de um arquivo:** SHA-256 (`node:crypto`) do texto normalizado em UTF-8, em hexadecimal
+  minúsculo, **primeiros 16 caracteres** (`TAMANHO_CODIGO_ARQUIVO = 16`).
+- **Código do conteúdo (da versão):** montar uma linha `<arquivo> <código>\n` por regra, **na
+  ordem da tabela da `VERSAO.md`**, juntar tudo (sem separador extra) e calcular o SHA-256 do
+  resultado; **primeiros 8 caracteres** (`TAMANHO_CODIGO_VERSAO = 8`).
+
+```js
+const normalizarTexto = (texto) => texto.replace(/^\uFEFF/, '').replace(/\r\n/g, '\n');
+const calcularCodigo = (texto, tamanho) =>
+  createHash('sha256').update(normalizarTexto(texto), 'utf8').digest('hex').slice(0, tamanho);
+```
+
+- O mesmo algoritmo existe em 2 lugares, de propósito: no `scripts/sincronizar.mjs` (`.1`, quem
+  **gera**) e no `rules-local/conferir.mjs` (`.9`, quem **confere**). Os scripts do `rules-local/`
+  rodam nos outros projetos sem o `rules-ai` por perto, então não importam nada de fora da pasta.
+  A conferência cruzada (códigos da `.1` = códigos calculados pela `.9`) fica na `.2`.
+
+#### F2. `VERSAO.md` (raiz do `rules-ai` e `rules-local/VERSAO.md`)
+
+- **Quem grava na raiz do `rules-ai`:** o `scripts/sincronizar.mjs` (`.1`), em toda execução (com
+  ou sem `--aplicar`, como o `dist/`). **Quem grava no projeto:** só o `rules-local/sessao.mjs`
+  (`.2`), copiando **exatamente** o texto baixado da nuvem.
+- **Quais arquivos entram na tabela, nesta ordem:** `INDEX.md` primeiro (número 0), depois os de
+  `listarArquivosDeRegras()` do `sincronizar.mjs` (os do índice, na ordem dele; depois os que não
+  estão no índice, em ordem alfabética), ou seja, o mesmo conjunto do `dist/` mais o índice.
+  Mudar a ordem no índice muda o código do `INDEX.md` e, portanto, a versão.
+- **Versão:** `AAAA-MM-DD-<código do conteúdo>`. A data é o dia (fuso `America/Sao_Paulo`) em que
+  o código do conteúdo mudou.
+- **Igual byte a byte quando nada muda (R1.2):** antes de gravar, o `.1` lê a `VERSAO.md` que já
+  existe; se a linha `Versão` dela termina com o **mesmo** código do conteúdo calculado agora, **não
+  grava** (mantém a data antiga). Só com código diferente (ou arquivo ausente/corrompido) grava a
+  `VERSAO.md` nova com a data de hoje. A data nunca muda sozinha.
+- **Arquivo:** UTF-8 sem BOM, fim de linha `\n`, termina com `\n`. Sem hora, sem nome de máquina,
+  sem nada que mude entre execuções.
+- **Nome de arquivo válido na tabela:** `^[A-Za-z0-9._-]+\.md$` (sem `/`, sem `\`). Quem lê
+  rejeita o resto (INV-2: nada sai do `rules-local/`).
+
+Exemplo completo (com as regras de 2026-10-18 13:50; os códigos são reais):
+
+```markdown
+# VERSAO — regras globais do rules-ai
+
+<!-- gerado por scripts/sincronizar.mjs; não editar -->
+
+- **Versão:** 2026-10-18-ff11fc59
+- **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
+- **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
+
+## Regras
+
+| # | Arquivo | Código |
+|---|---------|--------|
+| 0 | INDEX.md | 19076a4f82247905 |
+| 1 | ciclo-da-task.md | 0f655a1970c31da1 |
+| 2 | niveis-e-modelos.md | ae07ca7d285ebc14 |
+| 3 | frentes-e-reserva.md | 35dc8d1e8f3c16f0 |
+| 4 | comando-ponto.md | 25fab5e441b75d40 |
+| 5 | comando-interrogacao.md | e81811ae12199f38 |
+| 6 | quadro-de-tarefas.md | 412bac4a23471c1a |
+| 7 | exibicao-de-status.md | 762e831da32bdc80 |
+| 8 | git-geral.md | 9d2938daf92d3efe |
+| 9 | testes-validacao.md | 233579829f757900 |
+| 10 | codigo-limites-nomes.md | ca88cca3360ef918 |
+| 11 | codigo-solid.md | 6f3e1050946d15af |
+| 12 | espec.md | 1cfd3d3f1e4c4742 |
+| 13 | esforco.md | d897c4cb72bd6c76 |
+| 14 | graphify.md | f31357d0386045d2 |
+| 15 | gerenciador-centralizado.md | c6f5535db0d613a4 |
+| 16 | pastas-ignoradas.md | b33814d65cafd940 |
+| 17 | atividades-e-idioma.md | a37b651279928422 |
+```
+
+- **Como ler (`.9`, `lerVersao`):** versão pela linha `^- \*\*Versão:\*\* (\d{4}-\d{2}-\d{2}-[0-9a-f]{8})$`;
+  regras pelas linhas `^\| (\d+) \| ([A-Za-z0-9._-]+\.md) \| ([0-9a-f]{16}) \|$`, na ordem em que
+  aparecem. **Corrompida** (= versão diferente) quando: falta a linha da versão; não há nenhuma
+  regra; um arquivo aparece 2 vezes; ou o código do conteúdo recalculado das linhas não bate com o
+  final da versão. As outras linhas (título, comentário, Algoritmo, Fonte) não são conferidas.
+- **Comparar local × nuvem (R2.5):** iguais ⇔ `normalizarTexto(local) === normalizarTexto(nuvem)`
+  **e** `conferirPasta` íntegro (R2.6). Nenhum outro arquivo decide.
+
+#### F3. Conteúdo do `rules-local/` em cada projeto
+
+| Caminho no projeto | O que é | Quem cria / grava |
+|---|---|---|
+| `rules-local/sessao.mjs` | Script de sessão (entrada; junta as peças) | `.2` escreve; `.12` copia |
+| `rules-local/baixar.mjs` | Download com tempo-limite | `.7` escreve; `.12` copia |
+| `rules-local/comparar.mjs` | Comparação item por item (função pura) | `.8` escreve; `.12` copia |
+| `rules-local/conferir.mjs` | Hash, leitura da `VERSAO.md` e conferência da pasta | `.9` escreve; `.12` copia |
+| `rules-local/VERSAO.md` | Controlador da pasta (cópia exata da nuvem) | `sessao.mjs`, **por último** |
+| `rules-local/regras/<arquivo>.md` | Regras baixadas (texto exato do `raw`), inclusive `INDEX.md` | `sessao.mjs` |
+| `rules-local/RELATORIO.md` | Relatório da última sincronização (F5) | `sessao.mjs` |
+| `rules-local/.gitattributes` | `* text eol=lf` (checkout igual ao `raw` também no Windows) | `.12` |
+| `rules-local/.gitignore` | `.trava` | `.12` |
+| `rules-local/.trava` | Trava de 2 sessões ao mesmo tempo (fora do Git) | `sessao.mjs` cria e apaga |
+
+- **Fonte dos 4 scripts no `rules-ai`:** `scripts/rules-local/*.mjs` (mesmos nomes). O `.12` copia
+  **todos os `*.mjs`** dessa pasta. Os scripts **não** entram na `VERSAO.md` e não se atualizam
+  sozinhos: correção nos scripts chega aos projetos rodando o instalador de novo (`.12`).
+- Os scripts usam só módulos `node:` (Node 18+, por causa do `fetch` e do `AbortSignal.timeout`),
+  `export` nomeado, sem `default`, e acham a própria pasta por
+  `dirname(fileURLToPath(import.meta.url))` (funciona de qualquer pasta atual).
+- **INV-2:** o `sessao.mjs` só grava, apaga ou cria dentro da pasta dele; em `regras/` só apaga
+  `*.md` que não estão na tabela nova. Nunca usa Git.
+
+#### F4. Assinatura dos módulos
+
+**`.7` — `rules-local/baixar.mjs`** (nunca lança exceção; erro vira `{ ok: false }`)
+
+```js
+export const URL_RAW_BASE = 'https://raw.githubusercontent.com/Gelvazio/rules-ai/main';
+export const TEMPO_LIMITE_MS = 5000;
+/** opcoes = { urlBase = URL_RAW_BASE, tempoLimiteMs = TEMPO_LIMITE_MS, buscar = fetch } */
+export async function baixarTexto(caminhoRelativo, opcoes = {})
+//   GET `${urlBase}/${caminhoRelativo}` com AbortSignal.timeout(tempoLimiteMs)
+//   -> { ok: true, texto } | { ok: false, motivo } ; motivo: 'tempo esgotado' | 'HTTP 404' |
+//      'erro de rede: <mensagem>'
+export async function baixarVersao(opcoes = {})          // = baixarTexto('VERSAO.md', opcoes)
+export async function baixarRegras(arquivos, opcoes = {})
+//   arquivos: string[] (nomes da tabela); baixa `regras/<arquivo>` em paralelo (Promise.all)
+//   -> { ok: true, textos: Map<arquivo, texto> } | { ok: false, motivo, arquivo }
+```
+
+**`.8` — `rules-local/comparar.mjs`** (função pura, sem disco nem rede)
+
+```js
+export function compararListas(antiga, nova)
+//   antiga, nova: Map<arquivo, código> (antiga vazia quando não há VERSAO.md local válida)
+//   -> { mudado: string[], adicionado: string[], removido: string[], igual: string[] }
+//   cada lista em ordem alfabética (sort padrão), sem repetir; renomeado = removido + adicionado
+//   INV-3: mudado + adicionado + removido + igual = união das chaves das duas listas
+```
+
+**`.9` — `rules-local/conferir.mjs`** (só leitura)
+
+```js
+export const ARQUIVO_VERSAO = 'VERSAO.md';
+export const PASTA_REGRAS = 'regras';
+export function normalizarTexto(texto)            // F1
+export function calcularCodigo(texto, tamanho = 16)  // F1 (16 = arquivo; 8 = versão)
+export function lerVersao(texto)
+//   -> { ok: true, versao, regras: Map<arquivo, código> } | { ok: false, motivo }
+//   texto null/vazio -> { ok: false, motivo: 'VERSAO.md ausente' }; outros: 'VERSAO.md corrompida'
+export function conferirPasta(pastaRulesLocal)
+//   lê <pasta>/VERSAO.md e confere cada <pasta>/regras/<arquivo> pelo código
+//   -> { integro: true, versao } |
+//      { integro: false, motivo, arquivos: [{ arquivo, problema }] }
+//   problema: 'faltando' | 'diferente' | 'sobrando' (.md em regras/ fora da tabela)
+```
+
+**`.2` — `rules-local/sessao.mjs`** (entrada; termina **sempre** com código 0)
+
+1. `nuvem = await baixarVersao({ urlBase: process.env.RULES_LOCAL_URL_BASE ?? URL_RAW_BASE })`;
+   falhou → aviso "sem acesso" (F5) e sai. `lerVersao(nuvem.texto)` inválida → aviso "nuvem
+   inconsistente" e sai.
+2. Lê a `VERSAO.md` local (ausente = `null`) e roda `conferirPasta`. Texto normalizado igual
+   **e** íntegro → aviso "versão igual" e sai **sem gravar nada** (INV-1; nem a trava).
+3. Diferente: pega a trava (`.trava`, `openSync` com `'wx'`, conteúdo `pid` + hora; trava com mais
+   de `TRAVA_VALIDADE_MS = 120000` é considerada abandonada e trocada). Trava ocupada → aviso
+   "outra sessão sincronizando" e sai.
+4. `baixarRegras([...nuvem.regras.keys()])`; falhou → aviso "sem acesso", solta a trava e sai sem
+   gravar. Confere `calcularCodigo(texto) === código da tabela` de cada uma; algum não bate (cache do
+   `raw` desencontrado) → aviso "nuvem inconsistente", solta a trava e sai sem gravar.
+5. `compararListas(antiga, nuvem.regras)` (antiga = `lerVersao(local).regras` ou `new Map()`).
+6. Grava, nesta ordem: as regras em `regras/`; apaga os `*.md` de `regras/` fora da tabela nova;
+   `RELATORIO.md`; **por último** a `VERSAO.md` (texto exato da nuvem, R2.7). Solta a trava.
+7. Imprime o aviso "versão nova" (F5). Erro inesperado em qualquer ponto → solta a trava, imprime
+   `rules-local: erro inesperado: <mensagem>` e sai com 0.
+
+#### F5. Relatório de mudanças e avisos
+
+**Arquivo:** `rules-local/RELATORIO.md`, regravado a cada sincronização (nunca quando a versão é
+igual). O histórico fica no Git. Exemplo:
+
+```markdown
+# Relatório de mudanças — rules-local
+
+<!-- gerado por rules-local/sessao.mjs; não editar -->
+
+- **Versão anterior:** 2026-10-10-1a2b3c4d
+- **Versão nova:** 2026-10-18-ff11fc59
+- **Gerado em:** 2026-10-18 14:05 (Brasília)
+- **Motivo:** versão diferente
+- **Totais:** 1 mudado · 1 adicionado · 1 removido · 15 igual
+
+## Itens
+
+| Situação | Arquivo | Código anterior | Código novo |
+|---|---|---|---|
+| mudado | ciclo-da-task.md | 9c1d0e2f3a4b5c6d | 0f655a1970c31da1 |
+| adicionado | rules-local.md | — | 7e8f9a0b1c2d3e4f |
+| removido | regra-antiga.md | 5a6b7c8d9e0f1a2b | — |
+
+## Restaurados
+
+| Arquivo | Problema |
+|---|---|
+```
+
+- **Versão anterior:** a da `VERSAO.md` local válida, ou `nenhuma`.
+- **Motivo** (um destes): `versão diferente` · `rules-local ausente` (sem `VERSAO.md` local) ·
+  `VERSAO.md local corrompida` · `conferência falhou` (versão igual, mas arquivo
+  faltando/diferente/sobrando; R2.6).
+- **Itens:** só `mudado`, `adicionado` e `removido`, nessa ordem e, dentro de cada um, em ordem
+  alfabética; o `igual` aparece só nos Totais. Tabela vazia quando não há item.
+- **Restaurados:** os `arquivos` do `conferirPasta` quando ele não está íntegro; tabela vazia nos
+  outros casos.
+
+**Avisos impressos na saída** (prefixo `rules-local:`; é o que a sessão lê):
+
+| Caso | Texto exato (uma linha cada) |
+|---|---|
+| Versão igual | `rules-local: versão igual (<versão>); nada a fazer.` |
+| Sem acesso (R2.4) | `rules-local: sem acesso ao rules-ai (<motivo>); seguindo com a versão local <versão\|nenhuma>.` |
+| Nuvem inconsistente | `rules-local: nuvem inconsistente (<motivo>); nada gravado, tentar na próxima sessão.` |
+| Outra sessão | `rules-local: outra sessão está sincronizando; seguindo com a versão local.` |
+| Versão nova (linha 1) | `rules-local: VERSÃO NOVA <anterior\|nenhuma> -> <nova> (<n> mudado, <n> adicionado, <n> removido).` |
+| Versão nova (linha 2) | `rules-local: relatório em rules-local/RELATORIO.md.` |
+| Versão nova (linha 3) | `rules-local: DISPARAR A SINCRONIZAÇÃO DE TASKS (regras/rules-local.md) antes do primeiro pedido.` |
+
+- A frase-gatilho para a IA é **`DISPARAR A SINCRONIZAÇÃO DE TASKS`** (a `.3` escreve na regra
+  nova: viu essa frase → segue a sincronização de tasks; viu as outras → não faz nada).
+- O script **não** faz commit: o commit do `rules-local/` (com o quadro, quando houver TASK nova) é
+  da sessão, pela regra da `.3`.
+
+#### F6. Comando do gancho e do aviso
+
+- **Comando (aviso do `AGENTS.md`, `.13`, rodado na raiz do projeto):** `node rules-local/sessao.mjs`
+- **Comando do gancho:** `node "$CLAUDE_PROJECT_DIR/rules-local/sessao.mjs"` (mesmo padrão dos
+  ganchos que já existem em `C:\fontes`).
+- **Trecho do `.claude/settings.json`** (o `.12` acrescenta este item ao vetor
+  `hooks.SessionStart` existente, sem apagar os outros; já existe item cujo `command` contém
+  `rules-local/sessao.mjs` → não faz nada; sem arquivo → cria só com isto):
+
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/rules-local/sessao.mjs\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+- **Aviso no `AGENTS.md` (`.13`):** o modelo fica em `scripts/rules-local/aviso-agents.md` (não é
+  `.mjs`, o `.12` não copia para o `rules-local/`); o `.12` coloca o texto entre
+  `<!-- rules-local:inicio -->` e `<!-- rules-local:fim -->` no `AGENTS.md` (sem ele, no
+  `CLAUDE.md`; sem nenhum dos dois, avisa e pula), trocando o bloco se já existir.
+- **Instalador (`.12`):** `node scripts/instalar-rules-local.mjs <pasta-do-projeto>`. Copia os
+  `*.mjs`, grava `.gitattributes` e `.gitignore` (F3), o gancho (acima) e o aviso, e roda o
+  `rules-local/sessao.mjs` do projeto para baixar as regras da nuvem (por isso a `.1` já precisa
+  estar publicada). Não faz commit. Na segunda vez não muda nada.
+
+#### F7. Constantes
+
+| Constante | Valor | Onde fica |
+|---|---|---|
+| `URL_RAW_BASE` | `https://raw.githubusercontent.com/Gelvazio/rules-ai/main` | `baixar.mjs` (exportada) |
+| `TEMPO_LIMITE_MS` | `5000` (por pedido; os de regras vão em paralelo) | `baixar.mjs` (exportada) |
+| `RULES_LOCAL_URL_BASE` | variável de ambiente que troca a `URL_RAW_BASE` (só para simular, R2.4) | lida no `sessao.mjs` |
+| `TAMANHO_CODIGO_ARQUIVO` / `TAMANHO_CODIGO_VERSAO` | `16` / `8` | `conferir.mjs` e `sincronizar.mjs` |
+| `ARQUIVO_VERSAO` · `PASTA_REGRAS` | `'VERSAO.md'` · `'regras'` | `conferir.mjs` (exportadas) |
+| `ARQUIVO_RELATORIO` · `ARQUIVO_TRAVA` | `'RELATORIO.md'` · `'.trava'` | `sessao.mjs` |
+| `TRAVA_VALIDADE_MS` | `120000` | `sessao.mjs` |
+| `PREFIXO_AVISO` | `'rules-local:'` | `sessao.mjs` |
+| `FUSO_HORARIO` | `'America/Sao_Paulo'` (data da versão e "Gerado em") | `sincronizar.mjs` e `sessao.mjs` |
+| Tempo do gancho | `30` segundos | `.claude/settings.json` |
 
 ### RULES-LOCAL-GLOBAL.1 — `VERSAO.md` no `rules-ai`, gerada pelo `sincronizar.mjs`
 
@@ -186,14 +475,22 @@ adicionado ou removido.
 
 ### RULES-LOCAL-GLOBAL.6 — Formato combinado dos arquivos
 
-**Próximo passo:** reservar e escrever a seção "Formato combinado" nesta etapa.
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** PESADO — decide a arquitetura que todas as outras peças seguem
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
 - **Descrição:** escrever nesta etapa, numa seção "Formato combinado": o formato exato da `VERSAO.md` (versão = data + código do conteúdo; lista de regras com o código de cada uma; algoritmo do código), o formato do relatório de mudanças (arquivo, nome, colunas), o conteúdo de `rules-local/` (nomes dos arquivos do script e das regras), a assinatura de cada módulo (`.7` download, `.8` comparação, `.9` conferência) e o comando que o gancho e o aviso chamam.
 - **Critérios de aceitação:** as subtarefas `.1`, `.7`, `.8`, `.9`, `.3`, `.10` e `.12` conseguem trabalhar só com esta seção, sem perguntar.
-- **Verificação:** leitura da seção + `node spec/verificar-spec.mjs tasks/etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md`.
+- **Entrega:** seção "### Formato combinado" (F1 a F7) nesta etapa, antes da `.1`, e linha em
+  **Decisões** (2026-10-18 14:10). Só este arquivo; commit pelo líder.
+- **Verificação:** `node spec/verificar-spec.mjs tasks/etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md`
+  → saída 0 (14 requisitos EARS, 4 invariantes, nenhuma pergunta aberta, 16 subtarefas completas).
+  O exemplo da `VERSAO.md` foi conferido por `node -e` com as próprias regras de leitura de F2: versão
+  `2026-10-18-ff11fc59`, 18 linhas, código do conteúdo recalculado = `ff11fc59` e os 18 códigos
+  iguais aos de `regras/*.md` hoje. O formato do gancho segue o dos `settings.json` que já existem
+  em `C:\fontes` (`node "$CLAUDE_PROJECT_DIR/..."`).
+- **Anotação:** a `.13` (aviso) e a `.12` (instalador) também têm o que precisam em F6.
 
 ### RULES-LOCAL-GLOBAL.7 — Módulo de download com tempo-limite
 
