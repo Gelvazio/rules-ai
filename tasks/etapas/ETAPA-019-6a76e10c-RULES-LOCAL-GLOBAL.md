@@ -119,13 +119,14 @@ adicionado ou removido.
 | 2026-10-18 10:38 | O endereço `https://github.com/Gelvazio/rules-ai/VERSAO.md` é a página do arquivo; o script lê o conteúdo cru em `https://raw.githubusercontent.com/Gelvazio/rules-ai/main/VERSAO.md` | Claude Code (Opus 5.5) | A página do GitHub devolve HTML, não o texto do arquivo |
 | 2026-10-18 10:38 | O repositório `rules-ai` é público (`raw` respondeu 200 em 2026-10-18 10:38): sem chave nem token | Claude Code (Opus 5.5) | Conferido com `curl` |
 | 2026-10-18 10:38 | O próprio `rules-ai` não ganha `rules-local/` (ele é a fonte) | Claude Code (Opus 5.5) | Cópia de si mesmo não acrescenta nada |
+| 2026-10-18 13:50 | **Plano aprovado** ("SIM") — execução liberada, só o escopo desta etapa | Gelvazio | Resposta ao resumo de 13:49 |
 | 2026-10-18 13:49 | Respostas: 1-b, 2-a, 3-a, 4-a, 5-a; e a `VERSAO.md` é o controlador do `rules-local/` em cada projeto (R2.5–R2.7, R4.2, INV-4) | Gelvazio | `task-sincronizador-local.png` |
 | 2026-10-18 13:49 | A regra nova autoriza a sessão a criar TASK (mãe nova) no quadro do projeto para cada ajuste vindo do relatório — exceção pontual à C26 | Claude Code (Opus 5.5) | Resposta 1-b |
 | 2026-10-18 10:38 | Clones do mesmo repositório (`aulasenai` ×5, `dashboard-ai` ×9) recebem a instalação uma vez por repositório remoto | Claude Code (Opus 5.5) | Evita 14 commits iguais e conflitos |
 
 ### RULES-LOCAL-GLOBAL.1 — `VERSAO.md` no `rules-ai`, gerada pelo `sincronizar.mjs`
 
-**Próximo passo:** esperar o "sim" do usuário ao plano (perguntas fechadas em 2026-10-18 13:49).
+**Próximo passo:** reservar (Sonnet) e rodar o gate `node spec/verificar-spec.mjs` antes de mexer no `sincronizar.mjs`.
 
 - **Nível:** MEDIO — lógica em JS em 1 arquivo (`scripts/sincronizar.mjs`) + 1 `.md` gerado.
 - **Modelo:** só Sonnet — nunca outro

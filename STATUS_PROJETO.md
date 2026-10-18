@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-18 13:50 (Brasília): RULES-LOCAL-GLOBAL: plano aprovado pelo usuário ("SIM"). A `.1` (Sonnet) está livre para reserva.
 - 2026-10-18 13:49 (Brasília): RULES-LOCAL-GLOBAL: as 5 perguntas da etapa 019 foram fechadas (1-b, 2-a, 3-a, 4-a, 5-a) e a `VERSAO.md` virou o controlador do `rules-local/` em cada projeto (R2.5–R2.7, R4.2, INV-4). O gate da spec passa. Falta o "sim" do usuário ao plano.
 - 2026-10-18 10:38 (Brasília): RULES-LOCAL-GLOBAL registrada (etapa 019, `PESADO`): regras globais em `rules-local/` de cada projeto, conferidas pela `VERSAO.md` do GitHub no início de cada sessão. Aguarda 5 respostas e o "sim" do usuário.
 - 2026-10-18 10:40 (Brasília): INDEX-REGRAS.2 entregue: `scripts/sincronizar.mjs` monta o `dist/REGRAS-GLOBAIS.md` na ordem do `regras/INDEX.md` (sem o índice; avisa regra fora do índice e link quebrado). Falta o `--aplicar` do usuário (INDEX-REGRAS.3).
