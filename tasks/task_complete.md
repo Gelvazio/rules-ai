@@ -130,3 +130,4 @@
 | KILO-GLOBAL.1 | 🌐 Destino do Kilo Code no `sincronizar.mjs` (`AGENTS.md`) e README · `LEVE · effort low` | 🟡 Média | LEVE · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-024](etapas/ETAPA-024-7930a589-KILO-GLOBAL.md) |
 | UPDATE-REPOS.2 | Conferir e atualizar `dashboard-ai-claude-code-gmail` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ✅ Concluído | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.3 | Conferir e atualizar `dashboard-ai-claude-code-hotmail` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ✅ Concluído | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
+| UPDATE-REPOS.4 | Conferir e atualizar `dashboard-ai-claude-code-senai` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ✅ Concluído | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |

@@ -64,7 +64,7 @@ subtarefa própria.
 - **Entrega:** sem commit nem push na pasta (já estava em dia: `a8a5eb4`); registro no quadro de `rules-ai` (reserva `b5a7979`) · **Verificação:** `UPDATE.py --pasta dashboard-ai-claude-code-hotmail` → "JÁ EM DIA a8a5eb4", saiu com código 0; `git merge-base --is-ancestor origin/main HEAD` ok; sem rebase em andamento; sem conflito (`diff-filter=U` vazio); sem marcador `<<<<<<<`; árvore limpa; `git stash list` vazio. Concluída em 2026-10-18 15:04.
 
 ### UPDATE-REPOS.4 — Conferir e atualizar `dashboard-ai-claude-code-senai`
-**Próximo passo:** rodar `C:\Python314\python.exe scripts/UPDATE.py --pasta dashboard-ai-claude-code-senai` e ler o quadro.
+**Próximo passo:** —  (UPDATE-REPOS.4 entregue; próxima: UPDATE-REPOS.5, pelo Haiku 5.5).
 - **Nível:** LEVE — decisão do usuário (rodar o script e conferir uma pasta)
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
@@ -76,7 +76,7 @@ subtarefa própria.
 - **Critérios de Aceitação:** `git -C C:ontes\dashboard-ai-claude-code-senai log -1 origin/main` contido no `HEAD`
   (`git merge-base --is-ancestor origin/main HEAD`), sem rebase em andamento e sem marcador de
   conflito (`<<<<<<<`) nos arquivos.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** sem commit nem push na pasta (já estava em dia: `a8a5eb4`); registro no quadro de `rules-ai` (reserva `8383cf4`) · **Verificação:** `UPDATE.py --pasta dashboard-ai-claude-code-senai` → "JÁ EM DIA a8a5eb4", saiu com código 0; `git merge-base --is-ancestor origin/main HEAD` ok; sem rebase em andamento; sem conflito (`diff-filter=U` vazio); sem marcador `<<<<<<<`; `git stash list` vazio. Concluída em 2026-10-18 15:06.
 
 ### UPDATE-REPOS.5 — Conferir e atualizar `dashboard-ai-codex`
 **Próximo passo:** rodar `C:\Python314\python.exe scripts/UPDATE.py --pasta dashboard-ai-codex` e ler o quadro.
