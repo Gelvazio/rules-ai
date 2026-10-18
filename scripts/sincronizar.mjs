@@ -62,6 +62,13 @@ const DESTINOS = [
   },
   // Hermes Agent: o único arquivo global é o SOUL.md em HERMES_HOME; sem @import, então embutir
   { ia: 'Hermes Agent', arquivo: join(PASTA_HERMES, 'SOUL.md'), modo: 'embutir' },
+  // Kilo Code: lê ~/.config/kilo/AGENTS.md em toda sessão e não usa o @import do rules-ai
+  {
+    ia: 'Kilo Code',
+    arquivo: join(homedir(), '.config', 'kilo', 'AGENTS.md'),
+    modo: 'embutir',
+    criarPasta: true,
+  },
 ];
 
 /**

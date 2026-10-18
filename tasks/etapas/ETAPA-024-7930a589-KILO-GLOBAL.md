@@ -27,12 +27,12 @@ com `--aplicar`.
 
 ### KILO-GLOBAL.1 — Destino do Kilo Code no `sincronizar.mjs`, README e conferência
 
-**Próximo passo:** conferir o bloco gravado e fechar o quadro.
+**Próximo passo:** concluída.
 - **Nível:** LEVE — configuração simples (um item na lista de destinos + linha na tabela).
 - **Modelo:** só DeepSeek (Flash) — nunca outro.
 - **Descrição:** destino `{ ia: 'Kilo Code', arquivo: join(homedir(), '.config', 'kilo', 'AGENTS.md'), modo: 'embutir', criarPasta: true }`; linha do Kilo na tabela de IAs do `README.md`; rodar `node scripts/sincronizar.mjs` e `--aplicar`; conferir o bloco e a idempotência.
 - **Critérios de Aceitação:** `node scripts/sincronizar.mjs` lista o destino do Kilo; `%USERPROFILE%\.config\kilo\AGENTS.md` com o bloco `<!-- rules-ai:inicio ... -->`; segunda execução `igual` para o Kilo; `VERSAO.md` sem mudança; `README.md` cita a IA e o arquivo.
-- **Entrega:** em andamento · **Verificação:** em andamento
+- **Entrega:** `feat(KILO-GLOBAL.1)` (`f4d9073`) · **Verificação:** prévia com `mudaria Kilo Code`; `--aplicar` com `gravado Kilo Code`; arquivo com 51.525 bytes e as marcas `rules-ai:inicio`/`rules-ai:fim`; 2ª execução `igual`; `VERSAO.md` em `2026-10-18-988f933e` sem mudança; demais IAs `igual`.
 
 ---
 
@@ -40,4 +40,4 @@ com `--aplicar`.
 
 | Subtarefa | Commit | Verificação |
 |---|---|---|
-| KILO-GLOBAL.1 | em andamento | em andamento |
+| KILO-GLOBAL.1 | `feat(KILO-GLOBAL.1)` (`f4d9073`) — destino no `sincronizar.mjs`, linha no `README.md`, quadro fechado | `mudaria`/`gravado` do Kilo; bloco gravado; 2ª execução `igual`; `VERSAO.md` igual |
