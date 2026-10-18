@@ -1,16 +1,16 @@
 # Graph Report - rules-ai  (2026-10-18)
 
 ## Corpus Check
-- 130 files · ~222,743 words
+- 134 files · ~227,882 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1069 nodes · 1554 edges · 91 communities (73 shown, 18 thin omitted)
+- 1137 nodes · 1653 edges · 95 communities (77 shown, 18 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 19 edges (avg confidence: 0.79)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4416bc4e`
+- Built from commit: `5c94a594`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -101,6 +101,10 @@
 - [[_COMMUNITY_Community 84|Community 84]]
 - [[_COMMUNITY_Community 85|Community 85]]
 - [[_COMMUNITY_Community 86|Community 86]]
+- [[_COMMUNITY_Community 91|Community 91]]
+- [[_COMMUNITY_Community 92|Community 92]]
+- [[_COMMUNITY_Community 93|Community 93]]
+- [[_COMMUNITY_Community 94|Community 94]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `$()` - 33 edges
@@ -111,8 +115,8 @@
 6. `Manipulador` - 18 edges
 7. `criar()` - 17 edges
 8. `$()` - 17 edges
-9. `$()` - 15 edges
-10. `Etapa 020-bbaa26ff — DASHBOARD-AGENTES: pasta `dashboard/` só com os Agentes ao vivo` - 14 edges
+9. `Etapa 021-bc3a06ef — UPDATE-REPOS: script `UPDATE.py` que atualiza as pastas `dashboard-ai-*` e `aulas-senai-*` com a `main`` - 16 edges
+10. `$()` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `tasks/STATUS.md — rules-ai` --implements--> `quadro-de-tarefas.md (fonte única)`  [INFERRED]
@@ -134,7 +138,7 @@
 - **Medição do effort por nível e modelo** — task_esforco_global, task_confeffort_global, task_effort_padaria, rule_c21, projeto_testes_effort_padaria [EXTRACTED 1.00]
 - **Gatilhos de mensagem curta (; e .) sobre frentes-e-reserva e níveis** — rule_c24, rule_c30, frentes_e_reserva_md, regras_niveis_e_modelos_doc, exibicao_de_status_md [INFERRED 0.85]
 
-## Communities (91 total, 18 thin omitted)
+## Communities (95 total, 18 thin omitted)
 
 ### Community 1 - "Web scraping dos links do `CLAUDE.md`"
 Cohesion: 0.18
@@ -150,7 +154,7 @@ Nodes (43): criarAnimacao(), criarCenaRede(), criarMarcador(), listarClicaveis()
 
 ### Community 4 - "gerar_dados_painel.py"
 Cohesion: 0.07
-Nodes (56): $(), atualizarContadores(), FORMATO_REAL, ligarControles(), mostrarObjetos(), criarLinhaDoTempo(), reduzirMovimento(), $() (+48 more)
+Nodes (54): $(), atualizarContadores(), FORMATO_REAL, ligarControles(), mostrarObjetos(), criarLinhaDoTempo(), reduzirMovimento(), $() (+46 more)
 
 ### Community 5 - "tasks/task_complete.md — Concluídas"
 Cohesion: 0.25
@@ -181,8 +185,8 @@ Cohesion: 0.17
 Nodes (19): APLICAR, aplicarBloco(), ARQUIVO_UNIFICADO, ARQUIVO_VERSAO, calcularCodigo(), calcularCodigoDoConteudo(), DESTINOS, gravarVersao() (+11 more)
 
 ### Community 12 - "Status do projeto DASHBOARD-AI"
-Cohesion: 0.20
-Nodes (10): 1. Executar alinhamento das regras globais, 2. Ligar as outras IAs às regras globais, 3. Status do projeto em Markdown, 4. Atualizar status a cada hora, Frentes de trabalho, O que espera de você, O que mudou desde a última gravação, Objetivo (+2 more)
+Cohesion: 0.18
+Nodes (11): 1. Executar alinhamento das regras globais, 2. Ligar as outras IAs às regras globais, 3. Status do projeto em Markdown, 4. Atualizar status a cada hora, Frentes de trabalho, Histórico recente, O que espera de você, O que mudou desde a última gravação (+3 more)
 
 ### Community 13 - "Etapa 011 — PASTA-UNICA-GLOBAL: conflitos de várias sessões na mesma pasta (`rules-ai` e `gerenciador-de-ia`)"
 Cohesion: 0.06
@@ -193,8 +197,8 @@ Cohesion: 0.09
 Nodes (28): coletar_links(), coletar_paginas_extras(), gravar(), main(), Coleta o texto público dos links L04 a L10 do dashboard/CLAUDE.md.  Uso: python, Reels do Instagram: não coletados, marcados para coleta manual., Coleta até MAX_LINKS_UTEIS páginas de preço, API ou termos achadas na principal., Percorre os links principais e as páginas extras de cada um. (+20 more)
 
 ### Community 15 - "scripts/sincronizar.mjs"
-Cohesion: 0.16
-Nodes (23): TRILHAS, compararRetratos(), criarFila(), eventoDaMudanca(), indexar(), TIPO_POR_STATUS, $(), atualizarContagem() (+15 more)
+Cohesion: 0.15
+Nodes (25): TRILHAS, compararRetratos(), criarFila(), eventoDaMudanca(), indexar(), TIPO_POR_STATUS, $(), atualizarContagem() (+17 more)
 
 ### Community 16 - "servidor.py"
 Cohesion: 0.13
@@ -408,8 +412,24 @@ Nodes (3): MODELO-3D-REDE-NEURAL-04 — Infográfico animado: a rede do agente t
 Cohesion: 0.67
 Nodes (3): ETAPA-005 INDEX-FONTES, scripts/gerar-dados-index.mjs, Tarefa INDEX-FONTES — cards e modais no C:\fontes\index.html
 
+### Community 91 - "Community 91"
+Cohesion: 0.11
+Nodes (36): ArgumentParser, CompletedProcess, Path, arquivos_em_conflito(), atualizar_pasta(), branch_atual(), classificar_falha(), executar_git() (+28 more)
+
+### Community 92 - "Community 92"
+Cohesion: 0.12
+Nodes (16): Decisões, Etapa 021-bc3a06ef — UPDATE-REPOS: script `UPDATE.py` que atualiza as pastas `dashboard-ai-*` e `aulas-senai-*` com a `main`, UPDATE-REPOS.10 — Conferir e atualizar `dashboard-ai-qoder`, UPDATE-REPOS.11 — Conferir e atualizar `aulas-senai-CLAUDE-HAIKU`, UPDATE-REPOS.12 — Conferir e atualizar `aulas-senai-CLAUDE-OPUS`, UPDATE-REPOS.13 — Conferir e atualizar `aulas-senai-CLAUDE-OPUS-LIDER`, UPDATE-REPOS.14 — Conferir e atualizar `aulas-senai-CLAUDE-SONNET`, UPDATE-REPOS.1 — Criar o `scripts/UPDATE.py` (+8 more)
+
+### Community 93 - "Community 93"
+Cohesion: 0.29
+Nodes (6): Abrir outra IA num painel, 🐑 herdr — agentes em painéis (C33), Instalar (uma vez por máquina), Nunca, O que é, Quando usar
+
+### Community 94 - "Community 94"
+Cohesion: 0.33
+Nodes (5): Decisões, Entregas desta etapa, Escopo, Etapa 022-7c4e2b19 — NIVEL-QODER: Qoder na matriz de níveis (igualar regras globais e skill), NIVEL-QODER.1 — Linha Qoder na matriz das regras globais
+
 ## Knowledge Gaps
-- **387 isolated node(s):** `NOMES_SAIDAS`, `FORMATO_REAL`, `FORMATO_DATA`, `COLUNAS`, `CASAS_COTACAO` (+382 more)
+- **413 isolated node(s):** `NOMES_SAIDAS`, `FORMATO_REAL`, `FORMATO_DATA`, `COLUNAS`, `CASAS_COTACAO` (+408 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -417,16 +437,16 @@ Nodes (3): ETAPA-005 INDEX-FONTES, scripts/gerar-dados-index.mjs, Tarefa INDEX-F
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `$()` connect `scripts/sincronizar.mjs` to `gerar_dados_painel.py`, `rede-neural.js`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+  _High betweenness centrality (0.010) - this node is a cross-community bridge._
 - **Why does `$()` connect `gerar_dados_painel.py` to `regras/ciclo-da-task.md`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
 - **Why does `tasks/STATUS.md — rules-ai` connect `tasks/STATUS.md — rules-ai` to `CONFLITOS.md`, `tasks/task_complete.md — Concluídas`, `regras/git-geral.md`, `Tarefa PASTA-UNICA-GLOBAL — uma sessão por vez na mesma pasta`, `Tarefa GERENCIADOR-GLOBAL — gerenciador centralizado`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+  _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **What connects `NOMES_SAIDAS`, `FORMATO_REAL`, `FORMATO_DATA` to the rest of the system?**
-  _471 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _514 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `coletar.py` be split into smaller, more focused modules?**
   _Cohesion score 0.05608322026232474 - nodes in this community are weakly interconnected._
 - **Should `gerar_dados_painel.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.07033248081841433 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07327001356852103 - nodes in this community are weakly interconnected._
 - **Should `rede-neural.js` be split into smaller, more focused modules?**
   _Cohesion score 0.08549019607843138 - nodes in this community are weakly interconnected._

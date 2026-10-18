@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "CONFLITOS.md": {
-    "mtime": 1792336499.440106,
-    "ast_hash": "a4ed76589e919edb26a21b81a00bf234",
+    "mtime": 1792339198.9846745,
+    "ast_hash": "8884f2b613dcf7ef9006dd2bf655c07c",
     "semantic_hash": ""
   },
   "README.md": {
@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "STATUS_PROJETO.md": {
-    "mtime": 1792337163.1420999,
-    "ast_hash": "a1a770db43fe2ebeec6d59fc7c133d38",
+    "mtime": 1792337750.45983,
+    "ast_hash": "3694f375d078d5004175f101400eeb48",
     "semantic_hash": ""
   },
   "regras/atividades-e-idioma.md": {
@@ -65,8 +65,8 @@
     "semantic_hash": "64537d952eb07ecfe78a01895a80d31f"
   },
   "regras/niveis-e-modelos.md": {
-    "mtime": 1792336469.1155074,
-    "ast_hash": "ed6a31dcdbe0a685133f5a274fd47384",
+    "mtime": 1792339158.1526663,
+    "ast_hash": "fecc82460bb8b6a174441ca2efd8cf3a",
     "semantic_hash": ""
   },
   "regras/pastas-ignoradas.md": {
@@ -85,8 +85,8 @@
     "semantic_hash": ""
   },
   "tasks/STATUS.md": {
-    "mtime": 1792337163.1420999,
-    "ast_hash": "8a7e66082daee4c686a2732310bdf5db",
+    "mtime": 1792339198.9726188,
+    "ast_hash": "17092d885320671536281f05ccaafb0c",
     "semantic_hash": ""
   },
   "tasks/etapas/ETAPA-001-GLOBAL.md": {
@@ -125,8 +125,8 @@
     "semantic_hash": "e63b1817b6b0b8ae12f7936722eff1a7"
   },
   "tasks/task_complete.md": {
-    "mtime": 1792337163.1420999,
-    "ast_hash": "8e59b2a5bed34ccb637734cc28ab307c",
+    "mtime": 1792337750.4588158,
+    "ast_hash": "6841c8f10486f70b83e2d2d9d3141ebf",
     "semantic_hash": ""
   },
   "tasks/etapas/ETAPA-008-SUBTAREFA-GLOBAL.md": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "VERSAO.md": {
-    "mtime": 1792336478.092145,
-    "ast_hash": "5d0e6171c8b7e54f27e9a115337235ea",
+    "mtime": 1792339204.9835708,
+    "ast_hash": "7a1226064a176518970456cc241713e5",
     "semantic_hash": ""
   },
   "dashboard/graphs/agentes.html": {
@@ -595,8 +595,8 @@
     "semantic_hash": ""
   },
   "regras/INDEX.md": {
-    "mtime": 1792335468.3640628,
-    "ast_hash": "fda86af9ff923731b3622e665a2ad1ab",
+    "mtime": 1792339025.7267272,
+    "ast_hash": "ac69444881fd1e492bb08952ad0a0656",
     "semantic_hash": ""
   },
   "regras/comando-interrogacao.md": {
@@ -670,8 +670,8 @@
     "semantic_hash": ""
   },
   "tasks/etapas/ETAPA-015-01ba1632-HERDR-GLOBAL.md": {
-    "mtime": 1792292214.9638338,
-    "ast_hash": "149b1a91f75afdcba29e17a52d06355e",
+    "mtime": 1792338996.9335577,
+    "ast_hash": "30a280c7f33f562b0ddf63678df26213",
     "semantic_hash": ""
   },
   "tasks/etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md": {
@@ -707,6 +707,26 @@
   "task-sincronizador-local.png": {
     "mtime": 1792331188.8283858,
     "ast_hash": "55c3d3cd60c84eb97676757652e4ad21",
+    "semantic_hash": ""
+  },
+  "scripts/UPDATE.py": {
+    "mtime": 1792337728.1493268,
+    "ast_hash": "23baecd92d52c8ca4f58a4b2a37de04b",
+    "semantic_hash": ""
+  },
+  "regras/herdr.md": {
+    "mtime": 1792338996.9026053,
+    "ast_hash": "9bb4f5804283b999b1930098cc921124",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md": {
+    "mtime": 1792337750.4572842,
+    "ast_hash": "82b89a67bcc12800cb75bd802c1ba1da",
+    "semantic_hash": ""
+  },
+  "tasks/etapas/ETAPA-022-7c4e2b19-NIVEL-QODER.md": {
+    "mtime": 1792339192.6463869,
+    "ast_hash": "e21be1dc85b045d4d9509d8e8b8ff9a0",
     "semantic_hash": ""
   }
 }

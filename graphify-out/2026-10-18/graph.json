@@ -1152,7 +1152,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "js_agentes_criarcamadarotulos",
-      "community": 4,
+      "community": 15,
       "norm_label": "criarcamadarotulos()"
     },
     {
@@ -1162,7 +1162,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "js_agentes_prepararbase",
-      "community": 4,
+      "community": 15,
       "norm_label": "prepararbase()"
     },
     {
@@ -4696,6 +4696,376 @@
       "norm_label": "precos da pagina principal e das extras, sem repeticao, do menor ao maior."
     },
     {
+      "label": "UPDATE.py",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_update",
+      "community": 91,
+      "norm_label": "update.py"
+    },
+    {
+      "label": "ResultadoPasta",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "scripts_update_resultadopasta",
+      "community": 91,
+      "norm_label": "resultadopasta"
+    },
+    {
+      "label": "executar_git()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "scripts_update_executar_git",
+      "community": 91,
+      "norm_label": "executar_git()"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "path",
+      "community": 91,
+      "norm_label": "path"
+    },
+    {
+      "label": "CompletedProcess",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "completedprocess",
+      "community": 91,
+      "norm_label": "completedprocess"
+    },
+    {
+      "label": "primeira_linha()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "scripts_update_primeira_linha",
+      "community": 91,
+      "norm_label": "primeira_linha()"
+    },
+    {
+      "label": "listar_pastas()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "scripts_update_listar_pastas",
+      "community": 91,
+      "norm_label": "listar_pastas()"
+    },
+    {
+      "label": "rebase_em_andamento()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L93",
+      "_origin": "ast",
+      "id": "scripts_update_rebase_em_andamento",
+      "community": 91,
+      "norm_label": "rebase_em_andamento()"
+    },
+    {
+      "label": "tem_stash()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L108",
+      "_origin": "ast",
+      "id": "scripts_update_tem_stash",
+      "community": 91,
+      "norm_label": "tem_stash()"
+    },
+    {
+      "label": "arquivos_em_conflito()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L120",
+      "_origin": "ast",
+      "id": "scripts_update_arquivos_em_conflito",
+      "community": 91,
+      "norm_label": "arquivos_em_conflito()"
+    },
+    {
+      "label": "hash_atual()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L133",
+      "_origin": "ast",
+      "id": "scripts_update_hash_atual",
+      "community": 91,
+      "norm_label": "hash_atual()"
+    },
+    {
+      "label": "branch_atual()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L145",
+      "_origin": "ast",
+      "id": "scripts_update_branch_atual",
+      "community": 91,
+      "norm_label": "branch_atual()"
+    },
+    {
+      "label": "ja_esta_em_dia()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L157",
+      "_origin": "ast",
+      "id": "scripts_update_ja_esta_em_dia",
+      "community": 91,
+      "norm_label": "ja_esta_em_dia()"
+    },
+    {
+      "label": "classificar_falha()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L170",
+      "_origin": "ast",
+      "id": "scripts_update_classificar_falha",
+      "community": 91,
+      "norm_label": "classificar_falha()"
+    },
+    {
+      "label": "atualizar_pasta()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L190",
+      "_origin": "ast",
+      "id": "scripts_update_atualizar_pasta",
+      "community": 91,
+      "norm_label": "atualizar_pasta()"
+    },
+    {
+      "label": "formatar_quadro()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L219",
+      "_origin": "ast",
+      "id": "scripts_update_formatar_quadro",
+      "community": 91,
+      "norm_label": "formatar_quadro()"
+    },
+    {
+      "label": "selecionar_pastas()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L239",
+      "_origin": "ast",
+      "id": "scripts_update_selecionar_pastas",
+      "community": 91,
+      "norm_label": "selecionar_pastas()"
+    },
+    {
+      "label": "montar_parser()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L254",
+      "_origin": "ast",
+      "id": "scripts_update_montar_parser",
+      "community": 91,
+      "norm_label": "montar_parser()"
+    },
+    {
+      "label": "ArgumentParser",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L254",
+      "_origin": "ast",
+      "id": "argumentparser",
+      "community": 91,
+      "norm_label": "argumentparser"
+    },
+    {
+      "label": "principal()",
+      "file_type": "code",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L267",
+      "_origin": "ast",
+      "id": "scripts_update_principal",
+      "community": 91,
+      "norm_label": "principal()"
+    },
+    {
+      "label": "Atualiza as pastas dashboard-ai-* e aulas-senai-* com a branch main do origin.",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_1",
+      "community": 91,
+      "norm_label": "atualiza as pastas dashboard-ai-* e aulas-senai-* com a branch main do origin."
+    },
+    {
+      "label": "Resultado da atualiza\u00e7\u00e3o de uma pasta.",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_34",
+      "community": 91,
+      "norm_label": "resultado da atualizacao de uma pasta."
+    },
+    {
+      "label": "Roda um comando git dentro da pasta sem lan\u00e7ar exce\u00e7\u00e3o.      Args:         pasta",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_42",
+      "community": 91,
+      "norm_label": "roda um comando git dentro da pasta sem lancar excecao.      args:         pasta"
+    },
+    {
+      "label": "Devolve a primeira linha n\u00e3o vazia de um texto.      Args:         texto: Texto",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_62",
+      "community": 91,
+      "norm_label": "devolve a primeira linha nao vazia de um texto.      args:         texto: texto"
+    },
+    {
+      "label": "Lista as pastas com prefixo conhecido que s\u00e3o reposit\u00f3rios Git.      Args:",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_75",
+      "community": 91,
+      "norm_label": "lista as pastas com prefixo conhecido que sao repositorios git.      args:"
+    },
+    {
+      "label": "Diz se j\u00e1 existe um rebase parado na pasta.      Args:         pasta: Pasta do r",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L94",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_94",
+      "community": 91,
+      "norm_label": "diz se ja existe um rebase parado na pasta.      args:         pasta: pasta do r"
+    },
+    {
+      "label": "Diz se existe alguma entrada no stash da pasta.      Args:         pasta: Pasta",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L109",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_109",
+      "community": 91,
+      "norm_label": "diz se existe alguma entrada no stash da pasta.      args:         pasta: pasta"
+    },
+    {
+      "label": "Lista os arquivos com conflito n\u00e3o resolvido.      Args:         pasta: Pasta do",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_121",
+      "community": 91,
+      "norm_label": "lista os arquivos com conflito nao resolvido.      args:         pasta: pasta do"
+    },
+    {
+      "label": "Devolve o hash curto do HEAD.      Args:         pasta: Pasta do reposit\u00f3rio.",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L134",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_134",
+      "community": 91,
+      "norm_label": "devolve o hash curto do head.      args:         pasta: pasta do repositorio."
+    },
+    {
+      "label": "Devolve o nome da branch atual.      Args:         pasta: Pasta do reposit\u00f3rio.",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L146",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_146",
+      "community": 91,
+      "norm_label": "devolve o nome da branch atual.      args:         pasta: pasta do repositorio."
+    },
+    {
+      "label": "Diz se a main do origin j\u00e1 est\u00e1 contida no HEAD.      Args:         pasta: Pasta",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_158",
+      "community": 91,
+      "norm_label": "diz se a main do origin ja esta contida no head.      args:         pasta: pasta"
+    },
+    {
+      "label": "Transforma uma falha do pull em situa\u00e7\u00e3o de conflito ou erro.      Args:",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L171",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_171",
+      "community": 91,
+      "norm_label": "transforma uma falha do pull em situacao de conflito ou erro.      args:"
+    },
+    {
+      "label": "Atualiza uma pasta com a main do origin, sem resolver conflitos.      Args:",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L191",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_191",
+      "community": 91,
+      "norm_label": "atualiza uma pasta com a main do origin, sem resolver conflitos.      args:"
+    },
+    {
+      "label": "Monta o quadro em texto puro com Pasta, Situa\u00e7\u00e3o e Detalhe.      Args:         r",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L220",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_220",
+      "community": 91,
+      "norm_label": "monta o quadro em texto puro com pasta, situacao e detalhe.      args:         r"
+    },
+    {
+      "label": "Escolhe as pastas a processar, todas ou uma s\u00f3.      Args:         nome_pasta: N",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L240",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_240",
+      "community": 91,
+      "norm_label": "escolhe as pastas a processar, todas ou uma so.      args:         nome_pasta: n"
+    },
+    {
+      "label": "Monta a leitura dos argumentos da linha de comando.      Returns:         Parser",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L255",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_255",
+      "community": 91,
+      "norm_label": "monta a leitura dos argumentos da linha de comando.      returns:         parser"
+    },
+    {
+      "label": "Executa a atualiza\u00e7\u00e3o e imprime o quadro.      Returns:         0 se nenhuma pas",
+      "file_type": "rationale",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L268",
+      "_origin": "ast",
+      "id": "scripts_update_rationale_268",
+      "community": 91,
+      "norm_label": "executa a atualizacao e imprime o quadro.      returns:         0 se nenhuma pas"
+    },
+    {
       "label": "instalar-rules-local.mjs",
       "file_type": "code",
       "source_file": "scripts/instalar-rules-local.mjs",
@@ -5779,7 +6149,7 @@
       "label": "Pendente de decis\u00e3o",
       "file_type": "document",
       "source_file": "CONFLITOS.md",
-      "source_location": "L65",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "conflitos_pendente_de_decis\u00e3o",
       "community": 58,
@@ -5869,7 +6239,7 @@
       "label": "Objetivo",
       "file_type": "document",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L113",
+      "source_location": "L114",
       "_origin": "ast",
       "id": "status_projeto_objetivo",
       "community": 12,
@@ -5879,7 +6249,7 @@
       "label": "O que espera de voc\u00ea",
       "file_type": "document",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L119",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "status_projeto_o_que_espera_de_voc\u00ea",
       "community": 12,
@@ -5889,7 +6259,7 @@
       "label": "Frentes de trabalho",
       "file_type": "document",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L129",
+      "source_location": "L130",
       "_origin": "ast",
       "id": "status_projeto_frentes_de_trabalho",
       "community": 12,
@@ -5899,7 +6269,7 @@
       "label": "1. Executar alinhamento das regras globais",
       "file_type": "document",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L131",
+      "source_location": "L132",
       "_origin": "ast",
       "id": "status_projeto_1_executar_alinhamento_das_regras_globais",
       "community": 12,
@@ -5909,7 +6279,7 @@
       "label": "2. Ligar as outras IAs \u00e0s regras globais",
       "file_type": "document",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L147",
+      "source_location": "L148",
       "_origin": "ast",
       "id": "status_projeto_2_ligar_as_outras_ias_\u00e0s_regras_globais",
       "community": 12,
@@ -5919,7 +6289,7 @@
       "label": "3. Status do projeto em Markdown",
       "file_type": "document",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L160",
+      "source_location": "L161",
       "_origin": "ast",
       "id": "status_projeto_3_status_do_projeto_em_markdown",
       "community": 12,
@@ -5929,7 +6299,7 @@
       "label": "4. Atualizar status a cada hora",
       "file_type": "document",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L164",
+      "source_location": "L165",
       "_origin": "ast",
       "id": "status_projeto_4_atualizar_status_a_cada_hora",
       "community": 12,
@@ -5939,11 +6309,21 @@
       "label": "Quadro do REA (`rea-app-clones`)",
       "file_type": "document",
       "source_file": "STATUS_PROJETO.md",
-      "source_location": "L169",
+      "source_location": "L170",
       "_origin": "ast",
       "id": "status_projeto_quadro_do_rea_rea_app_clones",
       "community": 12,
       "norm_label": "quadro do rea (`rea-app-clones`)"
+    },
+    {
+      "label": "Hist\u00f3rico recente",
+      "file_type": "document",
+      "source_file": "STATUS_PROJETO.md",
+      "source_location": "L186",
+      "_origin": "ast",
+      "id": "status_projeto_hist\u00f3rico_recente",
+      "community": 12,
+      "norm_label": "historico recente"
     },
     {
       "label": "VERSAO.md",
@@ -6689,7 +7069,7 @@
       "label": "Assuntos espec\u00edficos",
       "file_type": "document",
       "source_file": "regras/INDEX.md",
-      "source_location": "L39",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "regras_index_assuntos_espec\u00edficos",
       "community": 56,
@@ -7276,6 +7656,76 @@
       "norm_label": "falhas"
     },
     {
+      "label": "herdr.md",
+      "file_type": "document",
+      "source_file": "regras/herdr.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_herdr",
+      "community": 93,
+      "norm_label": "herdr.md"
+    },
+    {
+      "label": "\ud83d\udc11 herdr \u2014 agentes em pain\u00e9is (C33)",
+      "file_type": "document",
+      "source_file": "regras/herdr.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "regras_herdr_herdr_agentes_em_pain\u00e9is_c33",
+      "community": 93,
+      "norm_label": "\ud83d\udc11 herdr \u2014 agentes em paineis (c33)"
+    },
+    {
+      "label": "O que \u00e9",
+      "file_type": "document",
+      "source_file": "regras/herdr.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "regras_herdr_o_que_\u00e9",
+      "community": 93,
+      "norm_label": "o que e"
+    },
+    {
+      "label": "Instalar (uma vez por m\u00e1quina)",
+      "file_type": "document",
+      "source_file": "regras/herdr.md",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "regras_herdr_instalar_uma_vez_por_m\u00e1quina",
+      "community": 93,
+      "norm_label": "instalar (uma vez por maquina)"
+    },
+    {
+      "label": "Quando usar",
+      "file_type": "document",
+      "source_file": "regras/herdr.md",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "regras_herdr_quando_usar",
+      "community": 93,
+      "norm_label": "quando usar"
+    },
+    {
+      "label": "Abrir outra IA num painel",
+      "file_type": "document",
+      "source_file": "regras/herdr.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "regras_herdr_abrir_outra_ia_num_painel",
+      "community": 93,
+      "norm_label": "abrir outra ia num painel"
+    },
+    {
+      "label": "Nunca",
+      "file_type": "document",
+      "source_file": "regras/herdr.md",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "regras_herdr_nunca",
+      "community": 93,
+      "norm_label": "nunca"
+    },
+    {
       "label": "niveis-e-modelos.md",
       "file_type": "document",
       "source_file": "regras/niveis-e-modelos.md",
@@ -7319,7 +7769,7 @@
       "label": "Como usar",
       "file_type": "document",
       "source_file": "regras/niveis-e-modelos.md",
-      "source_location": "L38",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "regras_niveis_e_modelos_como_usar",
       "community": 59,
@@ -7329,7 +7779,7 @@
       "label": "Equipe de agentes do Claude Code",
       "file_type": "document",
       "source_file": "regras/niveis-e-modelos.md",
-      "source_location": "L51",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "regras_niveis_e_modelos_equipe_de_agentes_do_claude_code",
       "community": 59,
@@ -7859,7 +8309,7 @@
       "label": "Registro de decis\u00f5es",
       "file_type": "document",
       "source_file": "tasks/STATUS.md",
-      "source_location": "L73",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "tasks_status_registro_de_decis\u00f5es",
       "community": 54,
@@ -9339,7 +9789,7 @@
       "label": "HERDR-GLOBAL.2 \u2014 Levar ao computador do usu\u00e1rio",
       "file_type": "document",
       "source_file": "tasks/etapas/ETAPA-015-01ba1632-HERDR-GLOBAL.md",
-      "source_location": "L51",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "etapas_etapa_015_01ba1632_herdr_global_herdr_global_2_levar_ao_computador_do_usu\u00e1rio",
       "community": 55,
@@ -10114,6 +10564,236 @@
       "id": "etapas_etapa_020_bbaa26ff_dashboard_agentes_dashboard_agentes_6_readme_da_pasta_e_quadro",
       "community": 27,
       "norm_label": "dashboard-agentes.6 \u2014 readme da pasta e quadro"
+    },
+    {
+      "label": "ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos",
+      "community": 92,
+      "norm_label": "etapa-021-bc3a06ef-update-repos.md"
+    },
+    {
+      "label": "Etapa 021-bc3a06ef \u2014 UPDATE-REPOS: script `UPDATE.py` que atualiza as pastas `dashboard-ai-*` e `aulas-senai-*` com a `main`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "community": 92,
+      "norm_label": "etapa 021-bc3a06ef \u2014 update-repos: script `update.py` que atualiza as pastas `dashboard-ai-*` e `aulas-senai-*` com a `main`"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_decis\u00f5es",
+      "community": 92,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "UPDATE-REPOS.1 \u2014 Criar o `scripts/UPDATE.py`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_1_criar_o_scripts_update_py",
+      "community": 92,
+      "norm_label": "update-repos.1 \u2014 criar o `scripts/update.py`"
+    },
+    {
+      "label": "UPDATE-REPOS.2 \u2014 Conferir e atualizar `dashboard-ai-claude-code-gmail`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_2_conferir_e_atualizar_dashboard_ai_claude_code_gmail",
+      "community": 92,
+      "norm_label": "update-repos.2 \u2014 conferir e atualizar `dashboard-ai-claude-code-gmail`"
+    },
+    {
+      "label": "UPDATE-REPOS.3 \u2014 Conferir e atualizar `dashboard-ai-claude-code-hotmail`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_3_conferir_e_atualizar_dashboard_ai_claude_code_hotmail",
+      "community": 92,
+      "norm_label": "update-repos.3 \u2014 conferir e atualizar `dashboard-ai-claude-code-hotmail`"
+    },
+    {
+      "label": "UPDATE-REPOS.4 \u2014 Conferir e atualizar `dashboard-ai-claude-code-senai`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_4_conferir_e_atualizar_dashboard_ai_claude_code_senai",
+      "community": 92,
+      "norm_label": "update-repos.4 \u2014 conferir e atualizar `dashboard-ai-claude-code-senai`"
+    },
+    {
+      "label": "UPDATE-REPOS.5 \u2014 Conferir e atualizar `dashboard-ai-codex`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_5_conferir_e_atualizar_dashboard_ai_codex",
+      "community": 92,
+      "norm_label": "update-repos.5 \u2014 conferir e atualizar `dashboard-ai-codex`"
+    },
+    {
+      "label": "UPDATE-REPOS.6 \u2014 Conferir e atualizar `dashboard-ai-deepseek`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L109",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_6_conferir_e_atualizar_dashboard_ai_deepseek",
+      "community": 92,
+      "norm_label": "update-repos.6 \u2014 conferir e atualizar `dashboard-ai-deepseek`"
+    },
+    {
+      "label": "UPDATE-REPOS.7 \u2014 Conferir e atualizar `dashboard-ai-devin`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L126",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_7_conferir_e_atualizar_dashboard_ai_devin",
+      "community": 92,
+      "norm_label": "update-repos.7 \u2014 conferir e atualizar `dashboard-ai-devin`"
+    },
+    {
+      "label": "UPDATE-REPOS.8 \u2014 Conferir e atualizar `dashboard-ai-gemini`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L143",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_8_conferir_e_atualizar_dashboard_ai_gemini",
+      "community": 92,
+      "norm_label": "update-repos.8 \u2014 conferir e atualizar `dashboard-ai-gemini`"
+    },
+    {
+      "label": "UPDATE-REPOS.9 \u2014 Conferir e atualizar `dashboard-ai-kiro-crew`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L160",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_9_conferir_e_atualizar_dashboard_ai_kiro_crew",
+      "community": 92,
+      "norm_label": "update-repos.9 \u2014 conferir e atualizar `dashboard-ai-kiro-crew`"
+    },
+    {
+      "label": "UPDATE-REPOS.10 \u2014 Conferir e atualizar `dashboard-ai-qoder`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L177",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_10_conferir_e_atualizar_dashboard_ai_qoder",
+      "community": 92,
+      "norm_label": "update-repos.10 \u2014 conferir e atualizar `dashboard-ai-qoder`"
+    },
+    {
+      "label": "UPDATE-REPOS.11 \u2014 Conferir e atualizar `aulas-senai-CLAUDE-HAIKU`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L194",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_11_conferir_e_atualizar_aulas_senai_claude_haiku",
+      "community": 92,
+      "norm_label": "update-repos.11 \u2014 conferir e atualizar `aulas-senai-claude-haiku`"
+    },
+    {
+      "label": "UPDATE-REPOS.12 \u2014 Conferir e atualizar `aulas-senai-CLAUDE-OPUS`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L211",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_12_conferir_e_atualizar_aulas_senai_claude_opus",
+      "community": 92,
+      "norm_label": "update-repos.12 \u2014 conferir e atualizar `aulas-senai-claude-opus`"
+    },
+    {
+      "label": "UPDATE-REPOS.13 \u2014 Conferir e atualizar `aulas-senai-CLAUDE-OPUS-LIDER`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L228",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_13_conferir_e_atualizar_aulas_senai_claude_opus_lider",
+      "community": 92,
+      "norm_label": "update-repos.13 \u2014 conferir e atualizar `aulas-senai-claude-opus-lider`"
+    },
+    {
+      "label": "UPDATE-REPOS.14 \u2014 Conferir e atualizar `aulas-senai-CLAUDE-SONNET`",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L245",
+      "_origin": "ast",
+      "id": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_14_conferir_e_atualizar_aulas_senai_claude_sonnet",
+      "community": 92,
+      "norm_label": "update-repos.14 \u2014 conferir e atualizar `aulas-senai-claude-sonnet`"
+    },
+    {
+      "label": "ETAPA-022-7c4e2b19-NIVEL-QODER.md",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-022-7c4e2b19-NIVEL-QODER.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_022_7c4e2b19_nivel_qoder",
+      "community": 94,
+      "norm_label": "etapa-022-7c4e2b19-nivel-qoder.md"
+    },
+    {
+      "label": "Etapa 022-7c4e2b19 \u2014 NIVEL-QODER: Qoder na matriz de n\u00edveis (igualar regras globais e skill)",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-022-7c4e2b19-NIVEL-QODER.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "etapas_etapa_022_7c4e2b19_nivel_qoder_etapa_022_7c4e2b19_nivel_qoder_qoder_na_matriz_de_n\u00edveis_igualar_regras_globais_e_skill",
+      "community": 94,
+      "norm_label": "etapa 022-7c4e2b19 \u2014 nivel-qoder: qoder na matriz de niveis (igualar regras globais e skill)"
+    },
+    {
+      "label": "Escopo",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-022-7c4e2b19-NIVEL-QODER.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "etapas_etapa_022_7c4e2b19_nivel_qoder_escopo",
+      "community": 94,
+      "norm_label": "escopo"
+    },
+    {
+      "label": "Decis\u00f5es",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-022-7c4e2b19-NIVEL-QODER.md",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "etapas_etapa_022_7c4e2b19_nivel_qoder_decis\u00f5es",
+      "community": 94,
+      "norm_label": "decisoes"
+    },
+    {
+      "label": "NIVEL-QODER.1 \u2014 Linha Qoder na matriz das regras globais",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-022-7c4e2b19-NIVEL-QODER.md",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "etapas_etapa_022_7c4e2b19_nivel_qoder_nivel_qoder_1_linha_qoder_na_matriz_das_regras_globais",
+      "community": 94,
+      "norm_label": "nivel-qoder.1 \u2014 linha qoder na matriz das regras globais"
+    },
+    {
+      "label": "Entregas desta etapa",
+      "file_type": "document",
+      "source_file": "tasks/etapas/ETAPA-022-7c4e2b19-NIVEL-QODER.md",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "etapas_etapa_022_7c4e2b19_nivel_qoder_entregas_desta_etapa",
+      "community": 94,
+      "norm_label": "entregas desta etapa"
     },
     {
       "label": "task_complete.md",
@@ -20391,6 +21071,754 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_arquivos_em_conflito",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L190",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_atualizar_pasta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_branch_atual",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_classificar_falha",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_executar_git",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L219",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_formatar_quadro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_hash_atual",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_ja_esta_em_dia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_listar_pastas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_montar_parser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_primeira_linha",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L267",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_principal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_rebase_em_andamento",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_resultadopasta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L239",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_selecionar_pastas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "scripts_update",
+      "target": "scripts_update_tem_stash",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_1",
+      "target": "scripts_update",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L190",
+      "weight": 1.0,
+      "source": "scripts_update_atualizar_pasta",
+      "target": "scripts_update_resultadopasta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "scripts_update_classificar_falha",
+      "target": "scripts_update_resultadopasta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L219",
+      "weight": 1.0,
+      "source": "scripts_update_formatar_quadro",
+      "target": "scripts_update_resultadopasta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_34",
+      "target": "scripts_update_resultadopasta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L129",
+      "weight": 1.0,
+      "source": "scripts_update_arquivos_em_conflito",
+      "target": "scripts_update_executar_git",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L206",
+      "weight": 1.0,
+      "source": "scripts_update_atualizar_pasta",
+      "target": "scripts_update_executar_git",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "scripts_update_branch_atual",
+      "target": "scripts_update_executar_git",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "scripts_update_executar_git",
+      "target": "completedprocess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "scripts_update_executar_git",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "scripts_update_hash_atual",
+      "target": "scripts_update_executar_git",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "scripts_update_ja_esta_em_dia",
+      "target": "scripts_update_executar_git",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_42",
+      "target": "scripts_update_executar_git",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "scripts_update_tem_stash",
+      "target": "scripts_update_executar_git",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "scripts_update_arquivos_em_conflito",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L190",
+      "weight": 1.0,
+      "source": "scripts_update_atualizar_pasta",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "scripts_update_branch_atual",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "scripts_update_classificar_falha",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "scripts_update_hash_atual",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "scripts_update_ja_esta_em_dia",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "scripts_update_listar_pastas",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "scripts_update_rebase_em_andamento",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L239",
+      "weight": 1.0,
+      "source": "scripts_update_selecionar_pastas",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "scripts_update_tem_stash",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "scripts_update_classificar_falha",
+      "target": "completedprocess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L208",
+      "weight": 1.0,
+      "source": "scripts_update_atualizar_pasta",
+      "target": "scripts_update_primeira_linha",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "scripts_update_classificar_falha",
+      "target": "scripts_update_primeira_linha",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_62",
+      "target": "scripts_update_primeira_linha",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_75",
+      "target": "scripts_update_listar_pastas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L248",
+      "weight": 1.0,
+      "source": "scripts_update_selecionar_pastas",
+      "target": "scripts_update_listar_pastas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L199",
+      "weight": 1.0,
+      "source": "scripts_update_atualizar_pasta",
+      "target": "scripts_update_rebase_em_andamento",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L181",
+      "weight": 1.0,
+      "source": "scripts_update_classificar_falha",
+      "target": "scripts_update_rebase_em_andamento",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_94",
+      "target": "scripts_update_rebase_em_andamento",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L184",
+      "weight": 1.0,
+      "source": "scripts_update_classificar_falha",
+      "target": "scripts_update_tem_stash",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_109",
+      "target": "scripts_update_tem_stash",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L180",
+      "weight": 1.0,
+      "source": "scripts_update_classificar_falha",
+      "target": "scripts_update_arquivos_em_conflito",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_121",
+      "target": "scripts_update_arquivos_em_conflito",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L210",
+      "weight": 1.0,
+      "source": "scripts_update_atualizar_pasta",
+      "target": "scripts_update_hash_atual",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_134",
+      "target": "scripts_update_hash_atual",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L202",
+      "weight": 1.0,
+      "source": "scripts_update_atualizar_pasta",
+      "target": "scripts_update_branch_atual",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L146",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_146",
+      "target": "scripts_update_branch_atual",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L209",
+      "weight": 1.0,
+      "source": "scripts_update_atualizar_pasta",
+      "target": "scripts_update_ja_esta_em_dia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_158",
+      "target": "scripts_update_ja_esta_em_dia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L216",
+      "weight": 1.0,
+      "source": "scripts_update_atualizar_pasta",
+      "target": "scripts_update_classificar_falha",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_171",
+      "target": "scripts_update_classificar_falha",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L278",
+      "weight": 1.0,
+      "source": "scripts_update_principal",
+      "target": "scripts_update_atualizar_pasta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_191",
+      "target": "scripts_update_atualizar_pasta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L279",
+      "weight": 1.0,
+      "source": "scripts_update_principal",
+      "target": "scripts_update_formatar_quadro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L220",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_220",
+      "target": "scripts_update_formatar_quadro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L274",
+      "weight": 1.0,
+      "source": "scripts_update_principal",
+      "target": "scripts_update_selecionar_pastas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L240",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_240",
+      "target": "scripts_update_selecionar_pastas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "scripts_update_montar_parser",
+      "target": "argumentparser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L273",
+      "weight": 1.0,
+      "source": "scripts_update_principal",
+      "target": "scripts_update_montar_parser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L255",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_255",
+      "target": "scripts_update_montar_parser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/UPDATE.py",
+      "source_location": "L268",
+      "weight": 1.0,
+      "source": "scripts_update_rationale_268",
+      "target": "scripts_update_principal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "scripts/instalar-rules-local.mjs",
       "source_location": "L265",
       "weight": 1.0,
@@ -22767,6 +24195,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "STATUS_PROJETO.md",
+      "source_location": "L186",
+      "weight": 1.0,
+      "source": "status_projeto_status_do_projeto_dashboard_ai",
+      "target": "status_projeto_hist\u00f3rico_recente",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "STATUS_PROJETO.md",
       "source_location": "L73",
       "weight": 1.0,
       "_origin": "ast",
@@ -24004,6 +25442,66 @@
       "confidence_score": 1.0,
       "source": "regras_graphify_graphify_grafo_de_conhecimento_do_projeto",
       "target": "regras_graphify_quando_ler_o_graphify_out_graph_report_md"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/herdr.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "regras_herdr",
+      "target": "regras_herdr_herdr_agentes_em_pain\u00e9is_c33",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/herdr.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "regras_herdr_herdr_agentes_em_pain\u00e9is_c33",
+      "target": "regras_herdr_abrir_outra_ia_num_painel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/herdr.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "regras_herdr_herdr_agentes_em_pain\u00e9is_c33",
+      "target": "regras_herdr_instalar_uma_vez_por_m\u00e1quina",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/herdr.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "regras_herdr_herdr_agentes_em_pain\u00e9is_c33",
+      "target": "regras_herdr_nunca",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/herdr.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "regras_herdr_herdr_agentes_em_pain\u00e9is_c33",
+      "target": "regras_herdr_o_que_\u00e9",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "regras/herdr.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "regras_herdr_herdr_agentes_em_pain\u00e9is_c33",
+      "target": "regras_herdr_quando_usar",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -26250,9 +27748,9 @@
       "source_file": "tasks/etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md",
       "source_location": "L913",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "etapas_etapa_019_6a76e10c_rules_local_global_etapa_019_6a76e10c_rules_local_global_regras_globais_importadas_em_rules_local_no_in\u00edcio_de_cada_sess\u00e3o",
-      "target": "etapas_etapa_019_6a76e10c_rules_local_global_rules_local_global_20_instalar_no_testes_effort_padaria",
-      "confidence_score": 1.0
+      "target": "etapas_etapa_019_6a76e10c_rules_local_global_rules_local_global_20_instalar_no_testes_effort_padaria"
     },
     {
       "relation": "contains",
@@ -26543,6 +28041,216 @@
       "confidence_score": 1.0,
       "source": "etapas_etapa_020_bbaa26ff_dashboard_agentes_etapa_020_bbaa26ff_dashboard_agentes_pasta_dashboard_s\u00f3_com_os_agentes_ao_vivo",
       "target": "etapas_etapa_020_bbaa26ff_dashboard_agentes_riscos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_decis\u00f5es",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_10_conferir_e_atualizar_dashboard_ai_qoder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L194",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_11_conferir_e_atualizar_aulas_senai_claude_haiku",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L211",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_12_conferir_e_atualizar_aulas_senai_claude_opus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L228",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_13_conferir_e_atualizar_aulas_senai_claude_opus_lider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L245",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_14_conferir_e_atualizar_aulas_senai_claude_sonnet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_1_criar_o_scripts_update_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_2_conferir_e_atualizar_dashboard_ai_claude_code_gmail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_3_conferir_e_atualizar_dashboard_ai_claude_code_hotmail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_4_conferir_e_atualizar_dashboard_ai_claude_code_senai",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_5_conferir_e_atualizar_dashboard_ai_codex",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_6_conferir_e_atualizar_dashboard_ai_deepseek",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_7_conferir_e_atualizar_dashboard_ai_devin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_8_conferir_e_atualizar_dashboard_ai_gemini",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md",
+      "source_location": "L160",
+      "weight": 1.0,
+      "source": "etapas_etapa_021_bc3a06ef_update_repos_etapa_021_bc3a06ef_update_repos_script_update_py_que_atualiza_as_pastas_dashboard_ai_e_aulas_senai_com_a_main",
+      "target": "etapas_etapa_021_bc3a06ef_update_repos_update_repos_9_conferir_e_atualizar_dashboard_ai_kiro_crew",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-022-7c4e2b19-NIVEL-QODER.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "etapas_etapa_022_7c4e2b19_nivel_qoder",
+      "target": "etapas_etapa_022_7c4e2b19_nivel_qoder_etapa_022_7c4e2b19_nivel_qoder_qoder_na_matriz_de_n\u00edveis_igualar_regras_globais_e_skill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-022-7c4e2b19-NIVEL-QODER.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "etapas_etapa_022_7c4e2b19_nivel_qoder_etapa_022_7c4e2b19_nivel_qoder_qoder_na_matriz_de_n\u00edveis_igualar_regras_globais_e_skill",
+      "target": "etapas_etapa_022_7c4e2b19_nivel_qoder_decis\u00f5es",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-022-7c4e2b19-NIVEL-QODER.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "etapas_etapa_022_7c4e2b19_nivel_qoder_etapa_022_7c4e2b19_nivel_qoder_qoder_na_matriz_de_n\u00edveis_igualar_regras_globais_e_skill",
+      "target": "etapas_etapa_022_7c4e2b19_nivel_qoder_entregas_desta_etapa",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-022-7c4e2b19-NIVEL-QODER.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "etapas_etapa_022_7c4e2b19_nivel_qoder_etapa_022_7c4e2b19_nivel_qoder_qoder_na_matriz_de_n\u00edveis_igualar_regras_globais_e_skill",
+      "target": "etapas_etapa_022_7c4e2b19_nivel_qoder_escopo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tasks/etapas/ETAPA-022-7c4e2b19-NIVEL-QODER.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "etapas_etapa_022_7c4e2b19_nivel_qoder_etapa_022_7c4e2b19_nivel_qoder_qoder_na_matriz_de_n\u00edveis_igualar_regras_globais_e_skill",
+      "target": "etapas_etapa_022_7c4e2b19_nivel_qoder_nivel_qoder_1_linha_qoder_na_matriz_das_regras_globais",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -27454,5 +29162,5 @@
       "source_file": "tasks/etapas/ETAPA-012-PONTO-GLOBAL.md"
     }
   ],
-  "built_at_commit": "4416bc4e926af36781fea083f968a9a7bb2fd0dd"
+  "built_at_commit": "5c94a5949f9d40adba89d0ab8674a2fc58ba354f"
 }
