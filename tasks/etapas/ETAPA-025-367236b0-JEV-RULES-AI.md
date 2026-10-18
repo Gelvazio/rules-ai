@@ -260,7 +260,7 @@ Cuidados de implementação:
 
 ### JEV-RULES-AI.6 — CLI e integração com a skill `classificar-tarefa`
 
-**Próximo passo:** criar `scripts/jev.mjs` e atualizar a skill global com fallback Laya, mantendo o comportamento atual sem chave.
+**Próximo passo:** nenhum — ✅ concluída.
 - **Nível:** MEDIO — CLI + ajuste de skill, sem chave.
 - **Modelo:** só Sonnet — nunca outro.
 - **Effort:** medium
@@ -270,6 +270,8 @@ Cuidados de implementação:
 - **Critérios de Aceitação:** com chave, usa Jev; sem chave, o comportamento atual do Laya continua idêntico; 3 projetos testados; rollback pelo `.bak`.
 - **Verificação:** rodar com e sem `TYPESAFE_API_KEY`; comparar a saída da skill; `node --check scripts/jev.mjs`.
 - **Estimativa:** 2 h.
+- **Entrega:** commit `feat(JEV-RULES-AI.6)` — `scripts/jev.mjs` + `scripts/jev/cli/*` (`classificar | guardrail | avaliar | custo`; códigos 0 ok, 1 erro/sem chave, 2 off, 3 revisar, 4 bloquear, 5 Jev indisponível); skill global `~/.agents/skills/classificar-tarefa/SKILL.md` com passo "Jev primeiro" e fallback Laya/sinais inalterado (backup `SKILL.md.bak`, fora do repositório); executor jev6 (Sonnet 5.5). Guardrails funcionam sem chave (camada determinística + `revisar`).
+- **Verificação (líder):** `node --check` ok; sem chave → código 1; `JEV_MODO=off` → 2; `git reset --hard` → 4 (bloquear); 3 projetos lidos (REA, aulasenai, gerenciador-de-ia) com hash dos quadros igual antes/depois (INV-3); todos os testes de `scripts/jev/testes/` ok; chave ausente de `scripts/` e da skill.
 
 ### JEV-RULES-AI.7 — Regra global `regras/jev.md` + INDEX + C39
 
