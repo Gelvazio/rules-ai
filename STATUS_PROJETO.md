@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-18 12:09 (Brasília): RULES-LOCAL-GLOBAL.15 entregue: lote B: `dashboard-ai` instalado a partir de `dashboard-ai-codex` (commit 385b9a9); clones hotmail, deepseek, devin e kiro-crew atualizados; senai, qoder, gmail e gemini pulados (árvore suja; gmail e gemini com conflito de outra sessão) (OP-15, Opus).
 - 2026-10-18 12:06 (Brasília): RULES-LOCAL-GLOBAL.4 entregue: piloto `template-inicial-tasks-ia` instalado (commit 4b24b83, versão igual na sessão seguinte) (OP-4, Opus).
 - 2026-10-18 12:05 (Brasília): RULES-LOCAL-GLOBAL.2 entregue: script de sessão `scripts/rules-local/sessao.mjs` (versão igual não grava; versão nova baixa, relata e avisa; trava entre sessões) (OP-2, Opus).
 - 2026-10-18 12:01 (Brasília): DASHBOARD-AGENTES registrada (etapa 020, `PESADO`): a pasta `dashboard/` fica só com a página Agentes ao vivo e o servidor dela. Aguarda 4 respostas e o "sim" do usuário.

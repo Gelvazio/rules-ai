@@ -718,14 +718,52 @@ Divisão: piloto 1 pasta · lote A 5 · lote B 9 · lote C 4 (total 19). O lote 
 
 ### RULES-LOCAL-GLOBAL.15 — Instalar no lote B
 
-**Próximo passo:** esperar a `.4`.
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** PESADO — mudança em massa
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
 - **Descrição:** como a `.14`, para o lote B.
 - **Critérios de aceitação:** R4.1 e R4.2 em cada repositório do lote.
-- **Verificação:** como a `.14`.
+- **Pasta de instalação (escolha do OP-15, 2026-10-18):** `dashboard-ai-codex`. Motivo: depois do
+  `git fetch` nas 9 pastas, foi a **única** com árvore limpa e em dia com `origin/main`
+  (`93d93ff`). A proposta da `.11` (`dashboard-ai-claude-code-senai`) estava 7 commits atrás e com
+  4 pastas fora do Git (`.codex/`, `.kiro/`, `dashboard-plataformas-de-ia/`, `laya/`) — não mexi.
+- **Entrega:** commit `385b9a9` no `Gelvazio/dashboard-ai` (push `93d93ff..385b9a9`, feito da
+  pasta `dashboard-ai-codex`), com `rules-local/` (4 `.mjs`, `.gitattributes`, `.gitignore`,
+  `VERSAO.md`, `RELATORIO.md`, `regras/` com 19 arquivos), `.claude/settings.json` (gancho de F6
+  acrescentado no fim do `SessionStart`, depois do `sincronizar-main.sh`; permissões e os outros
+  ganchos intactos) e `AGENTS.md` (bloco `rules-local:inicio/fim` no fim). Nenhuma TASK no quadro
+  do projeto (instalação = "sem ajuste — instalação"). No `rules-ai`, só esta seção (sem Git).
+- **Verificação (OP-15, 2026-10-18):** `git status --short` ANTES vazio; `git pull --rebase` (já
+  em dia); instalador → `6 criado, 2 atualizado`, `VERSÃO NOVA nenhuma -> 2026-10-18-ef54a693
+  (19 adicionado)`, `rules-local íntegro`, saída 0; `git diff` revisto (só o item novo no
+  `settings.json` e o bloco no `AGENTS.md`); `rules-local/VERSAO.md` = `VERSAO.md` do `rules-ai`
+  (`cmp`); `git diff --cached --name-only` = só `rules-local/`, `.claude/settings.json` e
+  `AGENTS.md`; hooks `pre-commit`/`pre-push` passaram. **R4.2** depois do push:
+  `node rules-local/sessao.mjs` → `versão igual (2026-10-18-ef54a693)`, saída 0; igual rodado de
+  `C:\` com caminho absoluto (como o gancho); 2ª execução do instalador → `0 criado, 0 atualizado,
+  7 igual`; `git status --short` vazio; `HEAD` = `origin/main`; `git ls-files --eol rules-local`
+  → 27 arquivos `i/lf w/lf`.
+- **Clones (regra 6: pull só com `git status --short` vazio; nada de stash/reset/checkout):**
+
+| Clone | Árvore | Ação | Resultado |
+|---|---|---|---|
+| `dashboard-ai-claude-code-hotmail` | limpa | `pull --rebase` | em `385b9a9`; `sessao.mjs` → `versão igual`; status vazio |
+| `dashboard-ai-deepseek` | limpa | `pull --rebase` | em `385b9a9`; `sessao.mjs` → `versão igual`; status vazio |
+| `dashboard-ai-devin` | limpa | `pull --rebase` | em `385b9a9`; `sessao.mjs` → `versão igual`; status vazio |
+| `dashboard-ai-kiro-crew` | limpa | `pull --rebase` | em `385b9a9`; `sessao.mjs` → `versão igual`; status vazio |
+| `dashboard-ai-claude-code-senai` | 4 pastas fora do Git (`.codex/`, `.kiro/`, `dashboard-plataformas-de-ia/`, `laya/`) | pulado | clone pulado (árvore suja), recebe no próximo pull |
+| `dashboard-ai-qoder` | `M README.md`, `M database/README.md` | pulado | clone pulado (árvore suja), recebe no próximo pull |
+| `dashboard-ai-claude-code-gmail` | 3 `.gemini/commands/*.toml` modificados + **conflito `UU public/painel.html`** (10 atrás) | pulado | clone pulado (árvore suja), recebe no próximo pull |
+| `dashboard-ai-gemini` | 3 `.gemini/commands/*.toml` modificados + **conflito `UU .claude/settings.json`** (10 atrás) | pulado | clone pulado (árvore suja), recebe no próximo pull |
+
+- **Anotação (para o usuário):** `dashboard-ai-claude-code-gmail` e `dashboard-ai-gemini` estão
+  com conflito não resolvido (`UU`) de outra sessão — no `gemini` é no próprio
+  `.claude/settings.json`, que a instalação mexe. Quando essas sessões resolverem e
+  sincronizarem, o `pull --rebase` traz o `rules-local/` e o gancho; se o conflito do `gemini` for
+  resolvido apagando o item novo do gancho, o `rules-local/` funciona pelo aviso do `AGENTS.md`,
+  mas o gancho some (rodar o instalador de novo nesse clone devolve).
 
 ### RULES-LOCAL-GLOBAL.16 — Instalar no lote C
 
