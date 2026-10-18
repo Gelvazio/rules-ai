@@ -286,13 +286,26 @@ Cuidados de implementação:
 - **Entrega:** commit `feat(JEV-RULES-AI.7)` — `regras/jev.md` (4,0 KB), item 19 do `regras/INDEX.md`, C39 no `CONFLITOS.md`, `VERSAO.md` regenerada pela simulação (`2026-10-18-384984ac`); executor jev7 (Haiku 5.5). A seção "Estado da implementação" da regra é atualizada na .8.
 - **Verificação (líder):** `node scripts/sincronizar.mjs` (simulação) sem erro; nenhum `--aplicar`; regra ≤ 5 KB; C39 com data e frase do pedido; `git diff --check` ok.
 
+### JEV-RULES-AI.9 — Fechar vazamento de rótulo no `estado.mjs` e no detector do INV-1
+
+**Próximo passo:** acrescentar os filtros a `ROTULOS_REMOVIDOS`/`PADROES_ROTULO` do `estado.mjs` e ao detector de `testes/invariantes.mjs`; rodar o INV-1 e o benchmark cego de novo.
+- **Nível:** MEDIO — ajuste de lógica em 2 arquivos, sem chave nova.
+- **Modelo:** só Sonnet — nunca outro.
+- **Effort:** medium
+- **Depende de:** JEV-RULES-AI.2, JEV-RULES-AI.3.
+- **Descrição:** criada em 2026-10-18 17:30 pelo sargento (C26) a partir do achado da .3: o `estado.mjs` ainda deixa passar pistas de nível — linhas `**Entrega (… · executor-leve; líder …):**`, `**Verificação (líder):**`, `executor-(leve|medio|pesado)` e flags `--leve/--medio/--pesado`. O `construir-golden.mjs` já limpa isso; levar o mesmo filtro para o `estado.mjs` e para o detector do INV-1.
+- **Arquivos:** `scripts/jev/estado.mjs`, `scripts/jev/testes/invariantes.mjs`.
+- **Critérios de Aceitação:** INV-1 pega os novos padrões (casos adversariais) e passa nas subtarefas reais; benchmark cego rodado de novo com os números registrados no relatório.
+- **Verificação:** `node scripts/jev/testes/invariantes.mjs`; `node scripts/jev/avaliar.mjs --backend jev --variante cego --golden scripts/jev/benchmarks/golden.jsonl`.
+- **Estimativa:** 1 h.
+
 ### JEV-RULES-AI.8 — Ativação direta, validação final e rollback
 
 **Próximo passo:** ligar o Jev ativo (`JEV_MODO=ativo`), rodar a validação geral, testar o rollback (`JEV_MODO=off`) e fechar.
 - **Nível:** MEDIO — operação e validação.
 - **Modelo:** só Sonnet — nunca outro.
 - **Effort:** medium
-- **Depende de:** JEV-RULES-AI.3, JEV-RULES-AI.4, JEV-RULES-AI.5, JEV-RULES-AI.6, JEV-RULES-AI.7.
+- **Depende de:** JEV-RULES-AI.3, JEV-RULES-AI.4, JEV-RULES-AI.5, JEV-RULES-AI.6, JEV-RULES-AI.7, JEV-RULES-AI.9.
 - **Descrição:** (escopo mudado em 2026-10-18 16:45, ver Decisões) flag `JEV_MODO=ativo|off`, padrão `ativo`; sem modo sugestão e sem período de medição. Rodar a validação geral da etapa; testar rollback (flag `off` → skill volta ao fluxo Laya/sinais); registrar números do benchmark na etapa; atualizar `STATUS_PROJETO.md`.
 - **Arquivos:** `scripts/jev/config.mjs` (flag), `regras/jev.md` (seção rollout), etapa e `STATUS_PROJETO.md`.
 - **Critérios de Aceitação:** `ativo` classifica e roda os guardrails; `off` = comportamento antigo; rollback em < 10 min; relatório final com números; sem segredo em log.
