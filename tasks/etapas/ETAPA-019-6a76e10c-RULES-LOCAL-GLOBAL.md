@@ -116,6 +116,7 @@ adicionado ou removido.
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 11:42 | **Divisão para paralelismo** (aprovada, "SIM"): o formato combinado (`.6`) vem primeiro; o script de sessão foi dividido em peças `.7` (download), `.8` (comparação) e `.9` (conferência), juntadas pela `.2`; a `.3` passa a depender só da `.6`; a instalação virou lista de repositórios (`.11`), instalador (`.12`), aviso (`.13`), piloto (`.4`) e 3 lotes (`.14` a `.16`). Escopo, requisitos e invariantes não mudam | Gelvazio | Mais paralelismo (até 8 agentes na onda 1) |
 | 2026-10-18 10:38 | O endereço `https://github.com/Gelvazio/rules-ai/VERSAO.md` é a página do arquivo; o script lê o conteúdo cru em `https://raw.githubusercontent.com/Gelvazio/rules-ai/main/VERSAO.md` | Claude Code (Opus 5.5) | A página do GitHub devolve HTML, não o texto do arquivo |
 | 2026-10-18 10:38 | O repositório `rules-ai` é público (`raw` respondeu 200 em 2026-10-18 10:38): sem chave nem token | Claude Code (Opus 5.5) | Conferido com `curl` |
 | 2026-10-18 10:38 | O próprio `rules-ai` não ganha `rules-local/` (ele é a fonte) | Claude Code (Opus 5.5) | Cópia de si mesmo não acrescenta nada |
@@ -126,7 +127,7 @@ adicionado ou removido.
 
 ### RULES-LOCAL-GLOBAL.1 — `VERSAO.md` no `rules-ai`, gerada pelo `sincronizar.mjs`
 
-**Próximo passo:** reservar (Sonnet) e rodar o gate `node spec/verificar-spec.mjs` antes de mexer no `sincronizar.mjs`.
+**Próximo passo:** esperar a `.6` (formato da `VERSAO.md`); depois reservar (Sonnet) e rodar o gate `node spec/verificar-spec.mjs`.
 
 - **Nível:** MEDIO — lógica em JS em 1 arquivo (`scripts/sincronizar.mjs`) + 1 `.md` gerado.
 - **Modelo:** só Sonnet — nunca outro
@@ -140,7 +141,9 @@ adicionado ou removido.
 
 ### RULES-LOCAL-GLOBAL.2 — Script de sessão: comparar versões e listar mudanças
 
-**Próximo passo:** esperar a `.1`.
+**Próximo passo:** esperar a `.7`, a `.8` e a `.9`; juntar as peças no script de sessão.
+
+> Desde a divisão: download, comparação e conferência saem prontos da `.7`, `.8` e `.9`; esta subtarefa junta as peças e cuida da gravação (`VERSAO.md` por último, R2.5–R2.7), do relatório, do aviso, de duas sessões ao mesmo tempo e de INV-1, INV-2 e INV-4.
 
 - **Nível:** PESADO — script novo com rede, gravação em massa nos projetos e casos de erro.
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
@@ -154,7 +157,7 @@ adicionado ou removido.
 
 ### RULES-LOCAL-GLOBAL.3 — Regra global da sessão e da "sincronização de tasks"
 
-**Próximo passo:** esperar a `.2`.
+**Próximo passo:** esperar a `.6` (o formato do relatório e o comando do script bastam para escrever a regra). O registro no `CONFLITOS.md` passou para a `.10`.
 
 - **Nível:** PESADO — regra global nova, vale para todas as IAs e projetos.
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
@@ -165,9 +168,11 @@ adicionado ou removido.
 - **Critérios de aceitação:** R3.1; regra no índice; o `sincronizar.mjs` não avisa regra fora do
   índice.
 
-### RULES-LOCAL-GLOBAL.4 — Instalar em todos os projetos do escopo (piloto primeiro)
+### RULES-LOCAL-GLOBAL.4 — Instalar no projeto piloto
 
-**Próximo passo:** esperar a `.3`.
+**Próximo passo:** esperar a `.1`, a `.2`, a `.12` e a `.13`; instalar com o instalador no piloto e conferir R4.2.
+
+> Desde a divisão: esta subtarefa é só o **piloto**; os outros repositórios ficam nos lotes `.14`, `.15` e `.16` (lista da `.11`).
 
 - **Nível:** PESADO — mudança em massa em vários repositórios.
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
@@ -178,6 +183,127 @@ adicionado ou removido.
   commit + push em cada repositório; os outros clones com `git pull --rebase`.
 - **Critérios de aceitação:** R4.1; em cada projeto, rodar o script dá "versão igual" e
   `git status --short` vazio.
+
+### RULES-LOCAL-GLOBAL.6 — Formato combinado dos arquivos
+
+**Próximo passo:** reservar e escrever a seção "Formato combinado" nesta etapa.
+
+- **Nível:** PESADO — decide a arquitetura que todas as outras peças seguem
+- **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
+- **Effort:** high
+- **Descrição:** escrever nesta etapa, numa seção "Formato combinado": o formato exato da `VERSAO.md` (versão = data + código do conteúdo; lista de regras com o código de cada uma; algoritmo do código), o formato do relatório de mudanças (arquivo, nome, colunas), o conteúdo de `rules-local/` (nomes dos arquivos do script e das regras), a assinatura de cada módulo (`.7` download, `.8` comparação, `.9` conferência) e o comando que o gancho e o aviso chamam.
+- **Critérios de aceitação:** as subtarefas `.1`, `.7`, `.8`, `.9`, `.3`, `.10` e `.12` conseguem trabalhar só com esta seção, sem perguntar.
+- **Verificação:** leitura da seção + `node spec/verificar-spec.mjs tasks/etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md`.
+
+### RULES-LOCAL-GLOBAL.7 — Módulo de download com tempo-limite
+
+**Próximo passo:** esperar a `.6`.
+
+- **Nível:** MEDIO — 1 arquivo JS, sem gravação em disco
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **Descrição:** módulo `.mjs` sem dependências (assinatura da `.6`): baixa a `VERSAO.md` e as regras do `raw.githubusercontent.com`, com tempo-limite em constante; erro, 404/500 e tempo esgotado viram resultado "sem acesso", nunca exceção.
+- **Critérios de aceitação:** R2.4 (parte da rede); funções ≤ 45 linhas; `node --check`.
+- **Verificação:** `node --check` + chamada com endereço inválido e com o endereço real.
+
+### RULES-LOCAL-GLOBAL.8 — Comparação item por item
+
+**Próximo passo:** esperar a `.6`.
+
+- **Nível:** MEDIO — função pura em 1 arquivo JS
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **Descrição:** módulo `.mjs` com função pura que recebe as listas antiga e nova (nome → código) e devolve mudado, adicionado, removido e igual; regra renomeada = removida + adicionada.
+- **Critérios de aceitação:** INV-3; funções ≤ 45 linhas; `node --check`.
+- **Verificação:** conferência por `node -e` com os 3 casos (vazio, iguais, disjuntos) e uma renomeação.
+
+### RULES-LOCAL-GLOBAL.9 — Conferência do `rules-local/` contra a `VERSAO.md`
+
+**Próximo passo:** esperar a `.6`.
+
+- **Nível:** MEDIO — 1 arquivo JS, só leitura
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **Descrição:** módulo `.mjs` que lê a `rules-local/VERSAO.md` (vazia ou corrompida conta como diferente) e confere o código de cada arquivo do `rules-local/`; devolve "íntegro" ou a lista dos arquivos que não batem ou faltam. Não grava nada.
+- **Critérios de aceitação:** R2.6 (parte da conferência); funções ≤ 45 linhas; `node --check`.
+- **Verificação:** conferência numa cópia: arquivo editado à mão e arquivo faltando aparecem na lista.
+
+### RULES-LOCAL-GLOBAL.10 — Registro no `CONFLITOS.md`
+
+**Próximo passo:** esperar a `.6`.
+
+- **Nível:** LEVE — só `.md`
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **Descrição:** acrescentar ao `CONFLITOS.md` a decisão nova (regras globais em `rules-local/` por projeto, conferidas pela `VERSAO.md`; exceção pontual à C26 para criar TASK a partir do relatório).
+- **Critérios de aceitação:** linha nova no formato do arquivo, sem mexer nas outras.
+- **Verificação:** leitura do `git diff CONFLITOS.md`.
+
+### RULES-LOCAL-GLOBAL.11 — Lista dos 18 repositórios do escopo
+
+**Próximo passo:** reservar e montar a lista nesta seção.
+
+- **Nível:** LEVE — levantamento, sem código
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **Descrição:** listar as pastas de `C:\fontes` com Git e remoto no GitHub (fora `DEMAIS-PROJETOS-*`, `scripts` e o próprio `rules-ai`), agrupando os clones do mesmo remoto (1 linha por remoto, com as pastas clones), e propor a divisão em piloto + lotes A, B e C.
+- **Critérios de aceitação:** tabela Remoto · Pasta de instalação · Clones · Lote nesta seção; total de remotos confere com a pergunta 4.
+- **Verificação:** `git -C <pasta> remote get-url origin` em cada pasta.
+
+### RULES-LOCAL-GLOBAL.12 — Instalador
+
+**Próximo passo:** esperar a `.6` e a `.11`.
+
+- **Nível:** PESADO — gravação em vários repositórios e gancho de sessão
+- **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
+- **Effort:** high
+- **Descrição:** script no `rules-ai` que, para um repositório, monta `rules-local/` (script + `VERSAO.md` + regras), acrescenta o gancho `SessionStart` ao `.claude/settings.json` sem apagar o que existe e não faz commit (o commit é de quem instala). Idempotente.
+- **Critérios de aceitação:** rodar 2 vezes numa cópia não muda nada na segunda; `settings.json` existente preservado.
+- **Verificação:** execução numa cópia temporária + `git status --short`.
+
+### RULES-LOCAL-GLOBAL.13 — Aviso no `AGENTS.md`/`CLAUDE.md`
+
+**Próximo passo:** esperar a `.3`.
+
+- **Nível:** LEVE — só texto
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **Descrição:** trecho padrão (curto) para o `AGENTS.md`/`CLAUDE.md` dos projetos, mandando as IAs sem gancho rodarem o comando da `.6` no início da sessão; guardado como modelo no `rules-ai` para o instalador e os lotes usarem.
+- **Critérios de aceitação:** texto aponta para `regras/rules-local.md` e traz o comando exato.
+- **Verificação:** leitura.
+
+### RULES-LOCAL-GLOBAL.14 — Instalar no lote A
+
+**Próximo passo:** esperar a `.4`.
+
+- **Nível:** PESADO — mudança em massa
+- **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
+- **Effort:** high
+- **Descrição:** instalar com o instalador nos repositórios do lote A (lista da `.11`), commit + push em cada um; clones com `git pull --rebase`.
+- **Critérios de aceitação:** R4.1 e R4.2 em cada repositório do lote.
+- **Verificação:** em cada repositório: script dá "versão igual" e `git status --short` vazio.
+
+### RULES-LOCAL-GLOBAL.15 — Instalar no lote B
+
+**Próximo passo:** esperar a `.4`.
+
+- **Nível:** PESADO — mudança em massa
+- **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
+- **Effort:** high
+- **Descrição:** como a `.14`, para o lote B.
+- **Critérios de aceitação:** R4.1 e R4.2 em cada repositório do lote.
+- **Verificação:** como a `.14`.
+
+### RULES-LOCAL-GLOBAL.16 — Instalar no lote C
+
+**Próximo passo:** esperar a `.4`.
+
+- **Nível:** PESADO — mudança em massa
+- **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
+- **Effort:** high
+- **Descrição:** como a `.14`, para o lote C.
+- **Critérios de aceitação:** R4.1 e R4.2 em cada repositório do lote.
+- **Verificação:** como a `.14`.
 
 ### RULES-LOCAL-GLOBAL.5 — Levar a regra nova às IAs (`--aplicar`)
 
