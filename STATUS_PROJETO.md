@@ -1,10 +1,10 @@
 # Status do projeto rules-ai
 
-**Atualizado em:** 2026-10-18 13:58 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
-**Fontes:** quadro `tasks/STATUS.md` + `tasks/task_complete.md` na `main` do repositório `Gelvazio/rules-ai`
-(último commit: `aa1c43c`, de 2026-10-18 13:58), a auditoria
+**Atualizado em:** 2026-10-18 15:55 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
+**Fontes:** quadro `tasks/STATUS.md` + `tasks/task_complete.md` na `main` do repositório
+`Gelvazio/rules-ai` (último commit: ver `git log -1`), a auditoria
 `C:\fontes\ANALISE-DE-FONTES-2026-10-18.md` (2026-10-18 13:34) e a sessão do DeepSeek Harness
-(HERMES-GLOBAL, 2026-10-18 13:53–13:58).
+(JEV-RULES-AI, 2026-10-18 15:55).
 
 ## O que é este projeto
 
@@ -24,10 +24,11 @@ detalhe de cada tarefa-mãe.
 | Decisões (`CONFLITOS.md`) | C1–C38 registradas; **C14–C19 pendentes** de decisão do usuário (D6 da auditoria) |
 | `rules-local/` | instalado e conferido pela `VERSAO.md` no escopo de 8 remotos (RULES-LOCAL-GLOBAL concluída em 2026-10-18 12:26); em 2026-10-18 13:44 os **20 projetos** foram sincronizados para `2026-10-18-988f933e` (D2 da auditoria; 2 TASKs `RL-988F933E-NIVEIS-E-MODELOS` criadas: `aulasenai` e `gerenciador-de-ia`) |
 | Hermes Agent | destino novo no `scripts/sincronizar.mjs` (`SOUL.md` em `%LOCALAPPDATA%\hermes` no Windows e `~/.hermes` no POSIX, modo `embutir`) e instância local configurada: `SOUL.md` com o bloco das regras (52.606 bytes) + `config.yaml` (skills externas, memória, aprovações, `context_file_max_chars: 80000`; MCP do REA mantido). O CLI ainda não está instalado |
-| Quadro — tarefas-mãe | **24 mães**: 10 abertas no `tasks/STATUS.md` e 14 concluídas no `tasks/task_complete.md` (23 etapas em `tasks/etapas/`) |
-| Quadro — linhas | 43 linhas abertas no `STATUS.md` e 124 concluídas no `task_complete.md`; **nenhuma linha ✅ no `STATUS.md`** (C4 aplicada) |
+| Quadro — tarefas-mãe | **25 mães** registradas; a nova **JEV-RULES-AI** está 👀 aguardando o "sim" (etapa 025); 25 etapas em `tasks/etapas/` |
+| Quadro — linhas | **38 linhas abertas** na tabela "📌 Tarefas" do `STATUS.md` após a JEV-RULES-AI (+9: mãe e 8 subtarefas); **nenhuma linha ✅ no `STATUS.md`** (C4 aplicada) |
+| JEV-RULES-AI | tarefa grande (`PESADO`, spec C34 na etapa 025) registrada em 2026-10-18 15:55: o Jev sugere nível (modelo/effort pela matriz + C21) e serve de guardrail em escopo, aceite, segredo/PII, pasta proibida, comando destrutivo e aprovação indevida. Plano completo; 8 subtarefas ⬜; nada executa sem o "sim" |
 | Etapa 017 (NIVEL-DEEPSEEK) | corrigida em 2026-10-18 13:45: as 3 subtarefas estavam ✅ e a mãe continuava 🔄; virou ✅ e foi para o `task_complete.md` |
-| Sessão (C29) | nenhuma sessão ativa nesta pasta em 2026-10-18 13:58; a trava do DeepSeek Harness (HERMES-GLOBAL) foi liberada ao fim da tarefa |
+| Sessão (C29) | **DeepSeek Harness (lead) (JEV-RULES-AI) desde 2026-10-18 15:55**; a trava é liberada ao fim da criação da tarefa |
 | Este arquivo | reescrito em 2026-10-18 13:45 (D8 da auditoria) e atualizado em 13:58 com a HERMES-GLOBAL: título, fontes e histórico são do `rules-ai` |
 
 ## O que espera você (usuário)
@@ -104,3 +105,4 @@ detalhe de cada tarefa-mãe.
 - **2026-10-18 15:14** — UPDATE-REPOS.12 (hk-update, Haiku 5.5): `UPDATE.py --pasta aulas-senai-CLAUDE-OPUS` deu "JÁ EM DIA" (`4654a2d9`); critérios conferidos (ancestral, sem rebase, sem conflito, sem stash); sem alteração na pasta. Próxima: UPDATE-REPOS.13.
 - **2026-10-18 15:15** — UPDATE-REPOS.13 (hk-update, Haiku 5.5): `UPDATE.py --pasta aulas-senai-CLAUDE-OPUS-LIDER` deu "JÁ EM DIA" (`4654a2d9`); critérios conferidos (ancestral, sem rebase, sem conflito, sem stash); sem alteração na pasta (`.agents/` e `.codex/` não rastreados, anteriores ao passo). Próxima: UPDATE-REPOS.14 (Sonnet); mãe segue aberta.
 - **2026-10-18 15:13** — UPDATE-REPOS.14 (hk-update, Haiku 5.5): `UPDATE.py --pasta aulas-senai-CLAUDE-SONNET` deu "JÁ EM DIA" (`4654a2d9`); critérios conferidos (ancestral, sem rebase, sem conflito, sem stash); sem alteração na pasta. Subtarefa e mãe UPDATE-REPOS concluídas e movidas para `task_complete.md`.
+- **2026-10-18 15:55** — JEV-RULES-AI (etapa 025) registrada como tarefa grande (`PESADO`, spec C34): plano completo para o Jev sugerir nível (modelo/effort pela matriz + C21) e servir de guardrail em escopo, critérios de aceite, segredo/PII, pasta proibida, comando destrutivo e aprovação indevida. 8 subtarefas ⬜; nada executa antes do "sim". Achado registrado: o teste do `PROJETO-JEV-AI` não era cego (o estado levava `nivel_atual`/`Nível:`), então o benchmark da etapa será cego.

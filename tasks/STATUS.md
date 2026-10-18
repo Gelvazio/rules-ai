@@ -39,6 +39,15 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-AGENTES.4 | Módulos JS de apoio enxutos (`api.js`, `config.js`, `visualizador.js`) | 🟡 Média | MEDIO · só Sonnet · effort medium | DASHBOARD-AGENTES.2 | ⬜ Pendente | — | [ETAPA-020](etapas/ETAPA-020-bbaa26ff-DASHBOARD-AGENTES.md) |
 | DASHBOARD-AGENTES.5 | Personagens, menu e CSS só dos agentes | 🟡 Média | MEDIO · só Sonnet · effort medium | DASHBOARD-AGENTES.2 | ⬜ Pendente | — | [ETAPA-020](etapas/ETAPA-020-bbaa26ff-DASHBOARD-AGENTES.md) |
 | DASHBOARD-AGENTES.6 | README da pasta e quadro | 🟡 Média | LEVE · só Haiku · effort low | DASHBOARD-AGENTES.3, DASHBOARD-AGENTES.4, DASHBOARD-AGENTES.5 | ⬜ Pendente | — | [ETAPA-020](etapas/ETAPA-020-bbaa26ff-DASHBOARD-AGENTES.md) |
+| **JEV-RULES-AI** | **🌐 GLOBAL — Jev no rules-ai: nível/effort, roteamento e guardrails (plano aguardando o "sim")** | 🟠 Alta | — | Nenhuma | 👀 Aguardando o usuário | — (não reservável) | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
+| JEV-RULES-AI.1 | Cliente Jev: HTTP, retry, timeout, chave, custo e log | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
+| JEV-RULES-AI.2 | Coletor de estado cego e decisão de nível/effort/modelo | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.1 | ⬜ Pendente | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
+| JEV-RULES-AI.3 | Benchmark dourado e métricas (cego × revisor) | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.2 | ⬜ Pendente | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
+| JEV-RULES-AI.4 | Guardrails de escopo e critérios de aceite | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.1 | ⬜ Pendente | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
+| JEV-RULES-AI.5 | Guardrails de segredo/PII, pasta proibida, comando destrutivo e aprovação indevida | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-RULES-AI.1 | ⬜ Pendente | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
+| JEV-RULES-AI.6 | CLI e integração com a skill `classificar-tarefa` | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.2, JEV-RULES-AI.3 | ⬜ Pendente | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
+| JEV-RULES-AI.7 | Regra global `regras/jev.md` + INDEX + C39 | 🟠 Alta | LEVE · só Haiku · effort low | JEV-RULES-AI.2, JEV-RULES-AI.5 | ⬜ Pendente | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
+| JEV-RULES-AI.8 | Rollout controlado, validação final e rollback | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.3, JEV-RULES-AI.4, JEV-RULES-AI.5, JEV-RULES-AI.6, JEV-RULES-AI.7 | ⬜ Pendente | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
 ## 🧭 Frentes de trabalho
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
@@ -46,13 +55,14 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 ## 🗂️ Etapas
 
-O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (24 arquivos). O resumo do projeto e o
+O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (25 arquivos). O resumo do projeto e o
 histórico ficam em `STATUS_PROJETO.md`.
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 15:55 | JEV-RULES-AI (etapa 025): tarefa grande (`PESADO`, spec C34) para o Jev sugerir nível (modelo/effort pela matriz + C21) e servir de guardrail em escopo, critérios de aceite, segredo/PII, pasta proibida, comando destrutivo e aprovação indevida. Plano completo na etapa; execução só depois do "sim" | DeepSeek Harness (lead) | "crie um plano SUPER DETALHADO..." + "coloque a task no quadro do rules-ai" |
 | 2026-10-18 14:52 | KILO-GLOBAL (etapa 024): o `sincronizar.mjs` ganha o destino **Kilo Code** (`~/.config/kilo/AGENTS.md`, modo `embutir`, `criarPasta`); o `README.md` lista a IA; a máquina recebe o bloco das regras no arquivo global do Kilo. Fora do escopo: a linha do Kilo em `niveis-e-modelos.md` (decisão do usuário) e instalar o CLI. Execução LEVE pelo DeepSeek Harness, por ordem direta | Gelvazio | "aplique a integracao" |
 | 2026-10-18 13:56 | HERMES-GLOBAL (etapa 023): o `sincronizar.mjs` ganha o destino **Hermes Agent** (`SOUL.md` em `%LOCALAPPDATA%\hermes` no Windows e `~/.hermes` no POSIX, modo `embutir`); o `README.md` lista a IA; a máquina recebe `SOUL.md` com o bloco das regras e `config.yaml` (skills externas, memória, aprovações e limite de contexto). Fora do escopo: a linha do Hermes em `niveis-e-modelos.md` (decisão do usuário) e a instalação do CLI. Execução LEVE pelo DeepSeek Harness, por ordem direta | Gelvazio | "sim,faça isso, configure pra que o rules-ai, use o hermes agent" |
 | 2026-10-18 12:58 | HERDR-GLOBAL.1 (C33): `regras/herdr.md` criada e indexada; herdr entra como runtime dos agentes — usar só dentro dele (`HERDR_ENV=1`) e com pedido do usuário; painel = frente com nível/modelo da matriz; nunca responder aprovação no lugar do usuário, fechar painel alheio, parar o servidor ou disparar sessão automática | DeepSeek (Flash) | C33 aprovada na etapa 015 |
