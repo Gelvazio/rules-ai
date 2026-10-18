@@ -61,8 +61,7 @@ adicionado ou removido.
 
 ### Requisitos
 
-> Formato EARS. "Sincronizar tasks" depende da pergunta 1; os requisitos R3.x serão ajustados à
-> resposta.
+> Formato EARS. Ajustados às respostas de 2026-10-18 13:49 (perguntas 1 a 6).
 
 | ID | Requisito (EARS) | Cobre | Verificação |
 |----|------------------|-------|-------------|
@@ -72,8 +71,14 @@ adicionado ou removido.
 | R2.2 | SE a versão local for igual à da nuvem, ENTÃO O SISTEMA DEVE terminar sem gravar nenhum arquivo | RULES-LOCAL-GLOBAL.2 | `git status --short` vazio depois do script |
 | R2.3 | SE a versão local for diferente da da nuvem (ou não existir), ENTÃO O SISTEMA DEVE baixar as regras para `rules-local/`, gravar a lista de regras mudadas, adicionadas e removidas e avisar a sessão para disparar a sincronização | RULES-LOCAL-GLOBAL.2 | Simular versão antiga numa cópia; ler o relatório e a saída |
 | R2.4 | SE o GitHub não responder no tempo-limite, ENTÃO O SISTEMA DEVE avisar "sem acesso ao rules-ai" e terminar com código 0, sem apagar o `rules-local/` | RULES-LOCAL-GLOBAL.2 | Rodar com endereço inválido numa cópia |
-| R3.1 | QUANDO a sessão receber o aviso de versão diferente, O SISTEMA DEVE executar a sincronização definida na regra nova, avaliando cada item mudado, adicionado ou removido | RULES-LOCAL-GLOBAL.3 | Leitura da regra nova e do relatório de uma simulação |
-| R4.1 | O SISTEMA DEVE ter `rules-local/` e o gancho de sessão em todo projeto do escopo, e em nenhuma pasta fora dele | RULES-LOCAL-GLOBAL.4 | Listagem das pastas de `C:\fontes` com e sem `rules-local/` |
+| R2.5 | O SISTEMA DEVE decidir se sincroniza **só** pela comparação entre a `rules-local/VERSAO.md` e a `VERSAO.md` da nuvem (a `VERSAO.md` local é o arquivo controlador do `rules-local/`) | RULES-LOCAL-GLOBAL.2 | Leitura do código: nenhum outro arquivo decide a sincronização |
+| R2.6 | SE algum arquivo do `rules-local/` não bater com o código registrado para ele na `rules-local/VERSAO.md` (ou faltar), ENTÃO O SISTEMA DEVE tratar como versão diferente e baixar tudo de novo | RULES-LOCAL-GLOBAL.2 | Numa cópia, alterar 1 regra do `rules-local/` à mão e rodar o script: ele restaura e avisa |
+| R2.7 | QUANDO a sincronização baixar as regras, O SISTEMA DEVE gravar a `rules-local/VERSAO.md` **por último**, só depois de todas as regras gravadas e conferidas | RULES-LOCAL-GLOBAL.2 | Leitura do código + simular falha de rede no meio: a `VERSAO.md` local fica a antiga |
+| R3.1 | QUANDO a sessão receber o aviso de versão diferente, O SISTEMA DEVE mostrar o relatório (mudado, adicionado, removido) e avaliar cada item contra o projeto | RULES-LOCAL-GLOBAL.3 | Leitura da regra nova e do relatório de uma simulação |
+| R3.2 | QUANDO um item do relatório exigir ajuste no projeto, O SISTEMA DEVE criar 1 TASK no quadro do projeto (`tasks/STATUS.md` ou `STATUS.md`), com etapa, subtarefa e nível, citando a regra e a versão | RULES-LOCAL-GLOBAL.3 | Simulação numa cópia: 1 regra mudada que exige ajuste ⇒ 1 TASK nova |
+| R3.3 | SE já existir no quadro uma TASK para a mesma regra e a mesma versão, ENTÃO O SISTEMA DEVE não criar outra | RULES-LOCAL-GLOBAL.3 | Rodar a simulação 2 vezes: o quadro tem 1 TASK só |
+| R4.1 | O SISTEMA DEVE ter `rules-local/` (versionada no Git) e o gancho de sessão nos 18 repositórios com GitHub do escopo, e em nenhuma pasta fora dele | RULES-LOCAL-GLOBAL.4 | Listagem das pastas de `C:\fontes` com e sem `rules-local/` |
+| R4.2 | O SISTEMA DEVE ter, em cada projeto do escopo, a `rules-local/VERSAO.md` igual à da nuvem ao fim da instalação | RULES-LOCAL-GLOBAL.4 | Em cada projeto: rodar o script dá "versão igual" e `git status --short` vazio |
 
 **Fora do escopo (não-objetivos):**
 
@@ -86,6 +91,7 @@ adicionado ou removido.
 |----|----------------------|--------------------|---------------|--------------------|
 | INV-1 | Versão igual ⇒ nenhum arquivo do projeto muda | qualquer projeto do escopo, qualquer estado do `rules-local/` com versão igual | `git status --short` vazio depois do script | não: conferência por comando |
 | INV-2 | O script nunca apaga nem escreve fora de `rules-local/` | qualquer resposta da rede (200, 404, erro, tempo esgotado) | leitura do código (todo caminho gravado começa em `rules-local/`) + simulação | não: leitura + comando |
+| INV-4 | `rules-local/VERSAO.md` igual à da nuvem ⇒ todo arquivo do `rules-local/` bate com o código registrado nela (a `VERSAO.md` controla a pasta) | qualquer projeto do escopo, depois de qualquer execução do script (com ou sem falha no meio) | simulação: falha no meio + arquivo editado à mão; conferir códigos contra a `VERSAO.md` | não: conferência por comando |
 | INV-3 | Mudado + adicionado + removido + igual = todas as regras da versão antiga e da nova, sem repetir | quaisquer dois conjuntos de arquivos de regras (vazio, iguais, disjuntos) | simulação com 3 casos numa cópia | não: conferência por comando |
 
 **Casos de borda que o código precisa sobreviver:**
@@ -99,11 +105,12 @@ adicionado ou removido.
 
 | # | Pergunta | Resposta | Fechada em | Quem respondeu |
 |---|----------|----------|------------|----------------|
-| 1 | O que a "tarefa de sincronizar tasks" faz com cada item mudado/adicionado/removido: só mostra o relatório, ou também cria uma TASK no quadro do projeto para ajustar o projeto à regra nova? | ⬜ | — | — |
-| 2 | A pasta `rules-local/` fica versionada no Git de cada projeto (vai junto para a nuvem) ou fica fora do Git (`.gitignore`, baixada a cada sessão)? | ⬜ | — | — |
-| 3 | Como a sessão roda a verificação: gancho automático `SessionStart` no Claude Code + aviso no `AGENTS.md` para as outras IAs, ou só o aviso no `AGENTS.md` para todas? | ⬜ | — | — |
-| 4 | Quais pastas entram: só os repositórios Git com GitHub (18), ou também `testes-effort-padaria` (Git sem remoto), `CONFIG-DEEPSEEK` e `assets` (sem Git), e a `DEMAIS-PROJETOS-DE-SISTEMAS-MANTER-OFFLINE` (C20)? | ⬜ | — | — |
-| 5 | A versão é um número que alguém sobe à mão (ex.: `1.4.0`) ou é gerada sozinha pelo `sincronizar.mjs` a partir do conteúdo das regras (data + código do conteúdo)? | ⬜ | — | — |
+| 1 | O que a "tarefa de sincronizar tasks" faz com cada item mudado/adicionado/removido: só mostra o relatório, ou também cria uma TASK no quadro do projeto para ajustar o projeto à regra nova? | **b)** mostra o relatório **e** cria uma TASK no quadro do projeto para cada ajuste necessário | 2026-10-18 13:49 | Gelvazio (`task-sincronizador-local.png`) |
+| 2 | A pasta `rules-local/` fica versionada no Git de cada projeto (vai junto para a nuvem) ou fica fora do Git (`.gitignore`, baixada a cada sessão)? | **a)** versionada: vai junto para a nuvem e funciona sem internet | 2026-10-18 13:49 | Gelvazio (`task-sincronizador-local.png`) |
+| 3 | Como a sessão roda a verificação: gancho automático `SessionStart` no Claude Code + aviso no `AGENTS.md` para as outras IAs, ou só o aviso no `AGENTS.md` para todas? | **a)** gancho `SessionStart` no Claude Code + aviso no `AGENTS.md` para as outras IAs | 2026-10-18 13:49 | Gelvazio (`task-sincronizador-local.png`) |
+| 4 | Quais pastas entram: só os repositórios Git com GitHub (18), ou também `testes-effort-padaria` (Git sem remoto), `CONFIG-DEEPSEEK` e `assets` (sem Git), e a `DEMAIS-PROJETOS-DE-SISTEMAS-MANTER-OFFLINE` (C20)? | **a)** só os repositórios com GitHub (18 pastas) | 2026-10-18 13:49 | Gelvazio (`task-sincronizador-local.png`) |
+| 5 | A versão é um número que alguém sobe à mão (ex.: `1.4.0`) ou é gerada sozinha pelo `sincronizar.mjs` a partir do conteúdo das regras (data + código do conteúdo)? | **a)** gerada sozinha pelo `sincronizar.mjs` (data + código do conteúdo) | 2026-10-18 13:49 | Gelvazio (`task-sincronizador-local.png`) |
+| 6 | (pedido do usuário, sem pergunta) | **A `VERSAO.md` é o arquivo controlador do `rules-local/` em cada projeto** — "me garanta que isso será feito": virou R2.5, R2.6, R2.7, R4.2 e INV-4 | 2026-10-18 13:49 | Gelvazio (`task-sincronizador-local.png`) |
 
 ### Decisões
 
@@ -112,16 +119,18 @@ adicionado ou removido.
 | 2026-10-18 10:38 | O endereço `https://github.com/Gelvazio/rules-ai/VERSAO.md` é a página do arquivo; o script lê o conteúdo cru em `https://raw.githubusercontent.com/Gelvazio/rules-ai/main/VERSAO.md` | Claude Code (Opus 5.5) | A página do GitHub devolve HTML, não o texto do arquivo |
 | 2026-10-18 10:38 | O repositório `rules-ai` é público (`raw` respondeu 200 em 2026-10-18 10:38): sem chave nem token | Claude Code (Opus 5.5) | Conferido com `curl` |
 | 2026-10-18 10:38 | O próprio `rules-ai` não ganha `rules-local/` (ele é a fonte) | Claude Code (Opus 5.5) | Cópia de si mesmo não acrescenta nada |
+| 2026-10-18 13:49 | Respostas: 1-b, 2-a, 3-a, 4-a, 5-a; e a `VERSAO.md` é o controlador do `rules-local/` em cada projeto (R2.5–R2.7, R4.2, INV-4) | Gelvazio | `task-sincronizador-local.png` |
+| 2026-10-18 13:49 | A regra nova autoriza a sessão a criar TASK (mãe nova) no quadro do projeto para cada ajuste vindo do relatório — exceção pontual à C26 | Claude Code (Opus 5.5) | Resposta 1-b |
 | 2026-10-18 10:38 | Clones do mesmo repositório (`aulasenai` ×5, `dashboard-ai` ×9) recebem a instalação uma vez por repositório remoto | Claude Code (Opus 5.5) | Evita 14 commits iguais e conflitos |
 
 ### RULES-LOCAL-GLOBAL.1 — `VERSAO.md` no `rules-ai`, gerada pelo `sincronizar.mjs`
 
-**Próximo passo:** esperar as perguntas fechadas e o "sim" do usuário ao plano.
+**Próximo passo:** esperar o "sim" do usuário ao plano (perguntas fechadas em 2026-10-18 13:49).
 
 - **Nível:** MEDIO — lógica em JS em 1 arquivo (`scripts/sincronizar.mjs`) + 1 `.md` gerado.
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
-- **Descrição:** o `sincronizar.mjs` grava `VERSAO.md` na raiz (formato conforme a pergunta 5),
+- **Descrição:** o `sincronizar.mjs` grava `VERSAO.md` na raiz (versão gerada: data + código do conteúdo),
   com a versão e a lista das regras e o código do conteúdo de cada uma (é o que permite comparar
   item por item depois); não muda o arquivo se as regras não mudaram. Atualizar o README.
 - **Critérios de aceitação:** R1.1 e R1.2; `node --check`; funções ≤ 45 linhas.
