@@ -79,6 +79,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 11:59 | DASHBOARD-AGENTES registrada como tarefa grande (`PESADO`, spec C34 na etapa 020): a pasta `dashboard/` fica só com os Agentes ao vivo; execução só depois das 4 perguntas fechadas e do "sim" ao plano | Gelvazio | "crie 1 tarefa pra deixar apenas o Fluxo de Dados *3 - Agentes ao vivo*, nesta pasta dashboard" |
 | 2026-10-18 11:48 | RULES-LOCAL-GLOBAL: o escopo da pergunta 4 ("só repositórios com GitHub") são **19 pastas / 7 remotos** (a resposta citava 18 por contagem antiga); vale o critério, não o número | Claude Code (Opus 5.5 · sargento) | Conferido com `git remote get-url origin` |
 | 2026-10-18 11:42 | RULES-LOCAL-GLOBAL dividida em 16 subtarefas (formato combinado primeiro, depois até 8 em paralelo), executadas por agentes em painéis do herdr com líder "sargento", VIGIA e FINANCEIRO (Haiku) | Gelvazio | "VERIFIQUE SE NAO TEM OPÇÃO DE CRIAR MAIS SUBTAREFAS NELA, AUMENTANDO ASSIM O PARALELISMO" → "SIM" |
 | 2026-10-18 10:38 | RULES-LOCAL-GLOBAL registrada como tarefa grande (`PESADO`, spec C34 na etapa 019): execução só depois das 5 perguntas fechadas e do "sim" ao plano | Gelvazio | "CRIE 1 TAREFA QUE IMPORTE AS REGRAS GLOBAIS SEMPRE NO INICIO DE CADA SESSAO..." |
