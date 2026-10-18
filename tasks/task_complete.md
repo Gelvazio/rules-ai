@@ -128,3 +128,4 @@
 | HERMES-GLOBAL.4 | Documentação (`hermes-agent/AGENTS.md`), fechamento do quadro e `STATUS_PROJETO.md` · `LEVE · effort low` | 🟡 Média | LEVE · effort low | HERMES-GLOBAL.2, HERMES-GLOBAL.3 | ✅ Concluído | — | [ETAPA-023](etapas/ETAPA-023-57380d59-HERMES-GLOBAL.md) |
 | **KILO-GLOBAL** | **🌐 GLOBAL — Kilo Code recebe as regras globais (`~/.config/kilo/AGENTS.md`)** | 🟡 Média | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-024](etapas/ETAPA-024-7930a589-KILO-GLOBAL.md) |
 | KILO-GLOBAL.1 | 🌐 Destino do Kilo Code no `sincronizar.mjs` (`AGENTS.md`) e README · `LEVE · effort low` | 🟡 Média | LEVE · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-024](etapas/ETAPA-024-7930a589-KILO-GLOBAL.md) |
+| UPDATE-REPOS.2 | Conferir e atualizar `dashboard-ai-claude-code-gmail` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ✅ Concluído | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |

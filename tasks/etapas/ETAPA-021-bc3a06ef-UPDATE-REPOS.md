@@ -34,7 +34,7 @@ subtarefa própria.
 - **Entrega:** `scripts/UPDATE.py` (commit `feat(scripts): UPDATE.py ...` deste registro) · **Verificação:** `py_compile` sem erro; `--help` saiu com código 0; leitura confirma que só usa `fetch`, `pull --rebase --autostash`, `merge-base --is-ancestor`, `diff --diff-filter=U`, `stash list`, `rev-parse`, `rev-parse --abbrev-ref`; nenhuma pasta foi rodada (como pedido). Concluída em 2026-10-18 12:35.
 
 ### UPDATE-REPOS.2 — Conferir e atualizar `dashboard-ai-claude-code-gmail`
-**Próximo passo:** rodar `C:\Python314\python.exe scripts/UPDATE.py --pasta dashboard-ai-claude-code-gmail` e ler o quadro.
+**Próximo passo:** —  (UPDATE-REPOS.2 entregue; próxima: UPDATE-REPOS.3, pelo Haiku 5.5).
 - **Nível:** LEVE — decisão do usuário (rodar o script e conferir uma pasta)
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
@@ -46,7 +46,7 @@ subtarefa própria.
 - **Critérios de Aceitação:** `git -C C:ontes\dashboard-ai-claude-code-gmail log -1 origin/main` contido no `HEAD`
   (`git merge-base --is-ancestor origin/main HEAD`), sem rebase em andamento e sem marcador de
   conflito (`<<<<<<<`) nos arquivos.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** sem commit nem push na pasta (já estava em dia: `a8a5eb4`); registro no quadro de `rules-ai` (reserva `cbc4955`) · **Verificação:** `UPDATE.py --pasta dashboard-ai-claude-code-gmail` → "JÁ EM DIA a8a5eb4", saiu com código 0; `git merge-base --is-ancestor origin/main HEAD` ok; sem rebase em andamento; sem marcador `<<<<<<<`; árvore limpa; `git stash list` tem só `autostash` de 2026-10-16 16:32 (anterior à execução, não é conflito novo). Concluída em 2026-10-18 15:02.
 
 ### UPDATE-REPOS.3 — Conferir e atualizar `dashboard-ai-claude-code-hotmail`
 **Próximo passo:** rodar `C:\Python314\python.exe scripts/UPDATE.py --pasta dashboard-ai-claude-code-hotmail` e ler o quadro.
