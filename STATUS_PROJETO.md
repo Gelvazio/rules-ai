@@ -1,16 +1,16 @@
 # Status do projeto rules-ai
 
-**Atualizado em:** 2026-10-18 14:00 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
+**Atualizado em:** 2026-10-18 14:06 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
 **Fontes:** quadro `tasks/STATUS.md` + `tasks/task_complete.md` na `main` do repositório `Gelvazio/rules-ai`
-(último commit: `8219315`, de 2026-10-18 14:00), a auditoria
-`C:\fontes\ANALISE-DE-FONTES-2026-10-18.md` (2026-10-18 13:34) e a sessão do lead (DeepSeek Harness,
-2026-10-18 13:41–14:00).
+(último commit: `ac236bf`, de 2026-10-18 14:04), a auditoria
+`C:\fontes\ANALISE-DE-FONTES-2026-10-18.md` (2026-10-18 13:34) e as sessões do DeepSeek Harness
+(2026-10-18 13:41–14:00 e 13:56–14:06, esta última a HERMES-GLOBAL).
 
 ## O que é este projeto
 
 `C:\fontes\rules-ai` é a **fonte única das regras globais de IA** de `C:\fontes`:
 `regras/*.md` → `scripts/sincronizar.mjs` → `dist/REGRAS-GLOBAIS.md` + `VERSAO.md` → arquivo global de
-cada IA (Claude Code, Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro). O `CONFLITOS.md` guarda
+cada IA (Claude Code, Gemini CLI, Codex, Grok, Qoder, opencode, Devin, Kiro e Hermes Agent, via `SOUL.md`). O `CONFLITOS.md` guarda
 as decisões (C1–C38); o `spec/` guarda os templates e o gate `verificar-spec.mjs` da tarefa PESADA; o
 `dashboard/` tem o dashboard de agentes ao vivo; o `tasks/` é o quadro onde as sessões se encontram —
 `STATUS.md` só com o que está aberto, `task_complete.md` com o histórico e `etapas/` com o plano e o
@@ -23,17 +23,18 @@ detalhe de cada tarefa-mãe.
 | Regras globais | 19 regras + `regras/INDEX.md` (20 arquivos); `VERSAO.md` em `2026-10-18-988f933e` |
 | Decisões (`CONFLITOS.md`) | C1–C38 registradas; **C14–C19 pendentes** de decisão do usuário (D6 da auditoria) |
 | `rules-local/` | instalado e conferido pela `VERSAO.md` no escopo de 8 remotos (RULES-LOCAL-GLOBAL concluída em 2026-10-18 12:26); em 2026-10-18 13:44 os **20 projetos** foram sincronizados para `2026-10-18-988f933e` (D2 da auditoria; 2 TASKs `RL-988F933E-NIVEIS-E-MODELOS` criadas: `aulasenai` e `gerenciador-de-ia`) |
-| Quadro — tarefas-mãe | **23 mães**: 10 abertas no `tasks/STATUS.md` e 13 concluídas no `tasks/task_complete.md` (22 etapas em `tasks/etapas/`) |
-| Quadro — linhas | 43 linhas abertas no `STATUS.md` e 119 concluídas no `task_complete.md`; **nenhuma linha ✅ no `STATUS.md`** (C4 aplicada) |
+| Hermes Agent | destino novo no `scripts/sincronizar.mjs` (`SOUL.md` em `%LOCALAPPDATA%\hermes` no Windows e `~/.hermes` no POSIX, modo `embutir`) e instância local configurada: `SOUL.md` com o bloco das regras (52.606 bytes) + `config.yaml` (skills externas, memória, aprovações, `context_file_max_chars: 80000`; MCP do REA mantido). O CLI ainda não está instalado |
+| Quadro — tarefas-mãe | **24 mães**: 10 abertas no `tasks/STATUS.md` e 14 concluídas no `tasks/task_complete.md` (23 etapas em `tasks/etapas/`) |
+| Quadro — linhas | 43 linhas abertas no `STATUS.md` e 124 concluídas no `task_complete.md`; **nenhuma linha ✅ no `STATUS.md`** (C4 aplicada) |
 | Etapa 017 (NIVEL-DEEPSEEK) | corrigida em 2026-10-18 13:45: as 3 subtarefas estavam ✅ e a mãe continuava 🔄; virou ✅ e foi para o `task_complete.md` |
-| Sessão (C29) | nenhuma sessão ativa nesta pasta em 2026-10-18 14:01; a trava do lead (DeepSeek Harness) foi liberada ao fim do D5 |
-| Este arquivo | reescrito em 2026-10-18 13:45 (D8 da auditoria): título, fontes e histórico passaram a ser do `rules-ai`; saíram as seções herdadas do REA/DASHBOARD-AI |
+| Sessão (C29) | nenhuma sessão ativa nesta pasta em 2026-10-18 14:06; a trava do DeepSeek Harness (HERMES-GLOBAL) foi liberada ao fim da tarefa |
+| Este arquivo | reescrito em 2026-10-18 13:45 (D8 da auditoria) e atualizado em 14:06 com a HERMES-GLOBAL: título, fontes e histórico são do `rules-ai` |
 
 ## O que espera você (usuário)
 
 | # | O quê | Onde |
 |---|---|---|
-| 1 | Rodar `node scripts/sincronizar.mjs --aplicar` para levar as regras novas às IAs (MODELO-GLOBAL.2, ESPEC-GLOBAL.4 e INDEX-REGRAS.3 estão 👀) | `C:\fontes\rules-ai` |
+| 1 | O `scripts/sincronizar.mjs --aplicar` já foi rodado em 2026-10-18 14:04 (Hermes incluído; os 11 destinos anteriores já estavam iguais). As linhas MODELO-GLOBAL.2, ESPEC-GLOBAL.4 e INDEX-REGRAS.3 seguem 👀 até o usuário fechar | `C:\fontes\rules-ai` |
 | 2 | Fechar as 4 perguntas e dar o "sim" ao plano da DASHBOARD-AGENTES (a pasta `dashboard/` fica só com os Agentes ao vivo) | `tasks/STATUS.md` · etapa 020 |
 | 3 | Decidir as **C14–C19** (D6), o destino de `C:\fontes\CONFIG-DEEPSEEK` (D7) e a fonte única da skill `gerenciador-de-tarefas` entre `.claude` e `.agents` (D9) | `CONFLITOS.md` · `ANALISE-DE-FONTES-2026-10-18.md` |
 | 4 | Reativar ou manter em pausa o disparo automático do GERENCIADOR-GLOBAL.4 (⛔ desde 2026-10-17 13:30) | `tasks/STATUS.md` |
@@ -47,6 +48,7 @@ detalhe de cada tarefa-mãe.
 | DASHBOARD-AGENTES.1–.6 | ⬜ aguardando o plano aprovado |
 | UPDATE-REPOS.2–.14 | ⬜ rodar o `scripts/UPDATE.py` nas 13 pastas `dashboard-ai-*`/`aulas-senai-*` |
 | C14–C19 | ⬜ revisão das regras que citam pastas inexistentes (D6) |
+| Hermes Agent | ⬜ linha em `regras/niveis-e-modelos.md` (decisão do usuário) e instalação do CLI (fora do Git) |
 
 ## Histórico (ordem cronológica, do mais antigo ao mais recente)
 
@@ -87,3 +89,4 @@ detalhe de cada tarefa-mãe.
 - **2026-10-18 13:34** — Auditoria de fontes da raiz (`C:\fontes\ANALISE-DE-FONTES-2026-10-18.md`): achados, riscos e pendências D1–D12, incluindo o quadro global (D5) e este arquivo (D8).
 - **2026-10-18 13:45** — D5/D8 aplicados: C4 completa (30 linhas ✅ recortadas do `STATUS.md` para o `task_complete.md`), as 10 tarefas-mãe sem linha restauradas (histórico recuperado dos commits `de2103b` e `f26e0c8`), etapa 017 fechada (NIVEL-DEEPSEEK ✅), RULES-LOCAL-GLOBAL.17/.20 registradas e este `STATUS_PROJETO.md` reescrito como status do `rules-ai`.
 - **2026-10-18 14:00** — D2 aplicado fora do repo: os 20 projetos de `C:\fontes` com `rules-local/` sincronizados para `2026-10-18-988f933e` (17 remotos com push; REA só commit local, sem upstream); 2 TASKs `RL-988F933E-NIVEIS-E-MODELOS` criadas (`aulasenai`, `gerenciador-de-ia`). Complemento do D5: seções "🧭 Frentes de trabalho" e "🗂️ Etapas" no `tasks/STATUS.md` e contagem de regras corrigida neste arquivo.
+- **2026-10-18 14:06** — HERMES-GLOBAL (etapa 023): o `scripts/sincronizar.mjs` ganha o destino **Hermes Agent** (`SOUL.md` em `%LOCALAPPDATA%\hermes` no Windows e `~/.hermes` no POSIX, modo `embutir`) e o `README.md` lista a IA; a máquina recebe `SOUL.md` com o bloco das regras globais e `config.yaml` (skills externas em `C:\Users\gelva\.agents\skills`, memória, aprovações, `context_file_max_chars: 80000`), mantendo o MCP do REA. `--aplicar` rodado: os 11 destinos anteriores já estavam iguais e só o Hermes foi gravado; a `VERSAO.md` não mudou. Fora do escopo: linha do Hermes na matriz de níveis (decisão do usuário) e instalação do CLI.

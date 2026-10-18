@@ -70,7 +70,7 @@ trabalhar nos repositórios de `C:\fontes`.
 
 | Subtarefa | Commit | Verificação |
 |---|---|---|
-| HERMES-GLOBAL.1 | `feat(HERMES-GLOBAL.1)` | destino no `sincronizar.mjs`; README com a linha |
+| HERMES-GLOBAL.1 | `feat(HERMES-GLOBAL.1)` (`ac236bf`) | destino no `sincronizar.mjs`; README com a linha |
 | HERMES-GLOBAL.2 | fora do Git (`%LOCALAPPDATA%\hermes`) | `SOUL.md` com bloco; `config.yaml` completo |
 | HERMES-GLOBAL.3 | — (saída do script) | Hermes `gravado`; demais `igual` |
 | HERMES-GLOBAL.4 | `docs(HERMES-GLOBAL.4)` | quadro fechado; `STATUS_PROJETO.md` atualizado |

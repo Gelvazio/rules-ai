@@ -53,11 +53,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | UPDATE-REPOS.12 | Conferir e atualizar `aulas-senai-CLAUDE-OPUS` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.13 | Conferir e atualizar `aulas-senai-CLAUDE-OPUS-LIDER` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.14 | Conferir e atualizar `aulas-senai-CLAUDE-SONNET` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
-| **HERMES-GLOBAL** | **🌐 GLOBAL — Hermes Agent recebe as regras globais (`SOUL.md` no `sincronizar.mjs`) e a configuração local** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-023](etapas/ETAPA-023-57380d59-HERMES-GLOBAL.md) |
-| HERMES-GLOBAL.1 | 🌐 Destino do Hermes no `sincronizar.mjs` (`SOUL.md`) e linha no `README.md` · `LEVE · effort low` | 🟡 Média | LEVE · effort low | Nenhuma | 🔄 Em progresso | DeepSeek Harness (deepseek-flash) (local · main) (desde 2026-10-18 13:57) · 0% | [ETAPA-023](etapas/ETAPA-023-57380d59-HERMES-GLOBAL.md) |
-| HERMES-GLOBAL.2 | `SOUL.md` e `config.yaml` do Hermes nesta máquina · `LEVE · effort low` | 🟡 Média | LEVE · effort low | HERMES-GLOBAL.1 | 🔄 Em progresso | DeepSeek Harness (deepseek-flash) (local · main) (desde 2026-10-18 13:57) · 0% | [ETAPA-023](etapas/ETAPA-023-57380d59-HERMES-GLOBAL.md) |
-| HERMES-GLOBAL.3 | 🌐 Rodar `sincronizar.mjs --aplicar` e conferir os destinos · `LEVE · effort low` | 🟡 Média | LEVE · effort low | HERMES-GLOBAL.1 | 🔄 Em progresso | DeepSeek Harness (deepseek-flash) (local · main) (desde 2026-10-18 13:57) · 0% | [ETAPA-023](etapas/ETAPA-023-57380d59-HERMES-GLOBAL.md) |
-| HERMES-GLOBAL.4 | Documentação (`hermes-agent/AGENTS.md`), fechamento do quadro e `STATUS_PROJETO.md` · `LEVE · effort low` | 🟡 Média | LEVE · effort low | HERMES-GLOBAL.2, HERMES-GLOBAL.3 | 🔄 Em progresso | DeepSeek Harness (deepseek-flash) (local · main) (desde 2026-10-18 13:57) · 0% | [ETAPA-023](etapas/ETAPA-023-57380d59-HERMES-GLOBAL.md) |
 
 ## 🧭 Frentes de trabalho
 
