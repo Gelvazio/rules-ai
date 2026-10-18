@@ -24,6 +24,7 @@ forte fique com as difíceis. Vale para **todas as IAs**. Reserva: `frentes-e-re
 | **DeepSeek** | Flash | raciocínio | ✅ |
 | **OpenCode** | DeepSeek V4.1 Flash (`deepseek-flash`) | DeepSeek V4.1 Flash com thinking (`deepseek-flash`) | **DeepSeek V4 Pro (`deepseek-v4-pro`)** |
 | **Codex** / **Cursor** | ✅ | ✅ | ⛔ |
+| **Qoder** | ✅ | ✅ | ⛔ |
 | **Devin** / **Copilot** | ✅ | ⛔ | ⛔ |
 
 - `PESADO` exige **Claude Code com Opus 5.5 ou superior, Fable, ou DeepSeek** — no **OpenCode**,
