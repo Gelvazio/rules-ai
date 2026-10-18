@@ -154,3 +154,7 @@ dashboard/scripts/saida/
 __pycache__/
 dashboard/graphs/.env
 dashboard/graphs/modelos/
+
+# Logs do cliente Jev (JEV-RULES-AI)
+scripts/jev/saidas/*
+!scripts/jev/saidas/.gitkeep

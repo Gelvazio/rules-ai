@@ -123,7 +123,7 @@ Cuidados de implementação:
 | R3.3 | SE o comando não estiver na allowlist, ENTÃO O SISTEMA DEVE exigir confirmação humana explícita antes de executar | JEV-RULES-AI.5 | casos `git reset --hard`, `rm -rf`, `DROP TABLE` |
 | R3.4 | QUANDO a mensagem do agente responder aprovação no lugar do usuário, O SISTEMA DEVE bloquear o envio | JEV-RULES-AI.5 | 10 mensagens de aprovação e 10 benignas |
 | R4.1 | O SISTEMA DEVE registrar cada decisão em JSONL com modelo, versão, confiança, limiar, tokens, custo e ação | JEV-RULES-AI.1 | conferir uma linha por chamada |
-| R4.2 | O SISTEMA DEVE iniciar com `JEV_MODO=off` e não alterar o comportamento atual enquanto desligado | JEV-RULES-AI.8 | rodar com off e comparar a saída da skill com a versão anterior |
+| R4.2 | QUANDO `JEV_MODO=off`, O SISTEMA DEVE manter o comportamento anterior (sinais + Laya, sem Jev); o padrão é `JEV_MODO=ativo` (mudança de 2026-10-18 16:45) | JEV-RULES-AI.8 | rodar com off e comparar a saída da skill com a versão anterior |
 | R5.1 | QUANDO a integração global for aplicada, O SISTEMA DEVE passar por `node scripts/sincronizar.mjs` (simulação) antes do `--aplicar` | JEV-RULES-AI.7 | rodar a simulação e conferir o diff |
 
 **Não-objetivos:** escrever no quadro, reservar tarefa, escolher ferramenta, trocar a matriz/C21, aprovar plano, responder permissão, substituir Laya, mexer no dashboard.
@@ -185,7 +185,7 @@ Cuidados de implementação:
 
 ### JEV-RULES-AI.1 — Cliente Jev (HTTP, retry, timeout, chave, custo e log)
 
-**Próximo passo:** criar `scripts/jev/config.mjs` e `scripts/jev/cliente.mjs`, com mock HTTP local e log JSONL.
+**Próximo passo:** nenhum — ✅ concluída.
 - **Nível:** PESADO — lida com chave/segredo e chamada externa.
 - **Modelo:** só Opus 5.5+ ou Fable, ou DeepSeek — nunca outro.
 - **Effort:** high
@@ -195,6 +195,8 @@ Cuidados de implementação:
 - **Critérios de Aceitação:** mock responde 200/429/401; 429 repete e sucede; 401 não repete; custo calculado confere; log não contém chave; `node --check` passa.
 - **Verificação:** `node --check scripts/jev/cliente.mjs`; `node scripts/jev/testes/cliente-mock.mjs`; leitura do JSONL de teste.
 - **Estimativa:** 2 h.
+- **Entrega:** commit `feat(JEV-RULES-AI.1)` — `scripts/jev/config.mjs`, `cliente.mjs`, `testes/cliente-mock.mjs`, `saidas/.gitkeep` + `.gitignore` dos logs; executor jev1 (Opus 5.5, herdr w2:pG). Obs.: por erro de caminho no brief, o VIGIA (Haiku) também executou a subtarefa; o jev1 substituiu todos os arquivos pela sua versão (16:59) — vale só a versão do Opus.
+- **Verificação (líder):** `node --check` nos 3 arquivos ok; `node scripts/jev/testes/cliente-mock.mjs` 13 casos ok (200, 429→sucesso, 529 até o limite, 401/422/timeout sem retry, sem chave, `JEV_MODO=off`, limite de tokens por rodada); chamada real `jev-1.13.0` ok (317 tokens, US$ 0,000013); valor da chave ausente de `scripts/jev/`; nenhuma função > 45 linhas.
 
 ### JEV-RULES-AI.2 — Coletor de estado cego e decisão de nível/effort/modelo
 
