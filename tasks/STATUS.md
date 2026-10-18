@@ -10,6 +10,8 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 | Tarefa | Título | Prioridade | Modelo | Depende de | Status | Em uso por | Etapa |
 |---|---|---|---|---|---|---|---|
+| **RULES-LOCAL-GLOBAL** | **🌐 GLOBAL — Regras globais em `rules-local/` conferidas pela `VERSAO.md` no início de cada sessão, em todos os projetos (plano aprovado)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
+| RULES-LOCAL-GLOBAL.20 | 🌐 Instalar no `testes-effort-padaria` (ganhou GitHub em 2026-10-18) | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | 🔄 Em execução | Claude Code (Opus 5.5 · herdr OP-20; líder sargento Opus 5.5) (local · main) (desde 2026-10-18 12:24) | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
 | EFFORT-PADARIA | **🌐 GLOBAL — Testar `low`/`medium`/`high` em todos os modelos com o projeto da padaria** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | EFFORT-PADARIA.6 | 🌐 Gemini Pro: 3 níveis de raciocínio | 🟠 Alta | MEDIO · só Gemini CLI · effort medium | EFFORT-PADARIA.2 | ⬜ Pendente | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | EFFORT-PADARIA.7 | 🌐 DeepSeek (raciocínio): 3 níveis | 🟠 Alta | MEDIO · só DeepSeek · effort medium | EFFORT-PADARIA.2 | ⬜ Pendente | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |

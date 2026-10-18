@@ -910,6 +910,19 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
   `8e58cc9b3386816499a8dcd5cefd4b5c989233f7ec4fe9c8d40bab8fa59ebad7` e `cmp` sem diferença;
   depois do `rm`, `git status --short` vazio (saída 0).
 
+### RULES-LOCAL-GLOBAL.20 — Instalar no `testes-effort-padaria`
+
+**Próximo passo:** OP-20 instala como nos lotes (seção da `.16`).
+
+- **Nível:** PESADO — mudança em repositório de outro projeto (mesmo motivo dos lotes)
+- **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
+- **Effort:** high
+- **Descrição:** criada em 2026-10-18 12:24 a pedido do usuário ("sim"): o `testes-effort-padaria` ganhou o
+  remoto `Gelvazio/testes-effort-padaria` (commit `abf0b11`) e entrou no escopo da pergunta 4
+  (só repositórios com GitHub). A tarefa-mãe foi reaberta para esta subtarefa.
+- **Critérios de aceitação:** R4.1 e R4.2 no `testes-effort-padaria`.
+- **Verificação:** como a `.16`.
+
 ### RULES-LOCAL-GLOBAL.5 — Levar a regra nova às IAs (`--aplicar`)
 
 **Próximo passo:** — (feito pelo usuário em 2026-10-18).
