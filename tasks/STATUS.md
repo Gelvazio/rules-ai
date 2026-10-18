@@ -48,6 +48,9 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | DASHBOARD-REDE-NEURAL.25 | Agentes ao vivo como mapa mental (`dashboard/prompts/modelo.png`): globo girando no centro, agentes parados em volta ligados por galhos e tarefas em ramos | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | DASHBOARD-REDE-NEURAL.20 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.26 | `agentes.html` sem os links Dashboard, 3D GRAPHS AI e Cena do prompt 04 no menu | 🟢 Baixa | LEVE · effort low | DASHBOARD-REDE-NEURAL.24 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | DASHBOARD-REDE-NEURAL.27 | Agentes ao vivo: globo menor, agentes mais afastados e uma linha fina do globo até cada tarefa em andamento | 🟢 Baixa | MEDIO · effort medium | DASHBOARD-REDE-NEURAL.25 | ✅ Concluído | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
+| HERDR-GLOBAL | **🌐 GLOBAL — herdr (agentes em painéis) nas regras globais (C33)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-015](etapas/ETAPA-015-01ba1632-HERDR-GLOBAL.md) |
+| HERDR-GLOBAL.1 | 🌐 Regra C33 (`regras/herdr.md`) | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-015](etapas/ETAPA-015-01ba1632-HERDR-GLOBAL.md) |
+| HERDR-GLOBAL.2 | 🌐 Levar ao computador do usuário (`--aplicar`, herdr, skill e integrações) | 🟡 Média | Usuário | HERDR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-015](etapas/ETAPA-015-01ba1632-HERDR-GLOBAL.md) |
 
 ## Registro de decisões
 
