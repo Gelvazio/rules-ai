@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 21:53 (Brasília): ACEITE-GLOBAL registrada (plano aprovado, etapa 014): regra C32, a IA sempre aceita e nunca pede aceite ao usuário; o sincronizador passa a gravar também em `~/.claude-contaA/B/C`. ACEITE-GLOBAL.1 reservada por Claude Code (Opus 5.5).
 - 2026-10-17 18:08 (Brasília): DASHBOARD-REDE-NEURAL.27 entregue: na página Agentes ao vivo, globo menor, agentes mais afastados e um fio fino do globo até cada tarefa em andamento.
 - 2026-10-17 18:07 (Brasília): DASHBOARD-REDE-NEURAL.26 entregue: o menu do `agentes.html` não mostra mais Dashboard, 3D GRAPHS AI e Cena do prompt 04.
 - 2026-10-17 18:05 (Brasília): DASHBOARD-REDE-NEURAL.24 e .25 entregues: o menu de projetos do 3D GRAPHS AI troca o quadro lido (19 projetos de `C:ontes`, sem as pastas `DEMAIS-PROJETOS-*`), e a página Agentes ao vivo virou um mapa mental: globo girando no centro, agentes parados em volta ligados por galhos e tarefas em ramos.

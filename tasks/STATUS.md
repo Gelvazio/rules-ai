@@ -10,6 +10,9 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 | Tarefa | Título | Prioridade | Modelo | Depende de | Status | Em uso por | Etapa |
 |---|---|---|---|---|---|---|---|
+| **ACEITE-GLOBAL** | **🌐 GLOBAL — A IA sempre aceita, nunca pede aceite ao usuário (C32) (plano aprovado)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-014](etapas/ETAPA-014-3a7ab4ef-ACEITE-GLOBAL.md) |
+| ACEITE-GLOBAL.1 | 🌐 Regra C32 nas regras globais · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable · effort high | Nenhuma | 🔄 Em execução | Claude Code (Opus 5.5) (local · main) (desde 2026-10-17 21:53) · 0% | [ETAPA-014](etapas/ETAPA-014-3a7ab4ef-ACEITE-GLOBAL.md) |
+| ACEITE-GLOBAL.2 | 🌐 Sincronizador com as contas A, B e C e `--aplicar` · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable · effort high | ACEITE-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-014](etapas/ETAPA-014-3a7ab4ef-ACEITE-GLOBAL.md) |
 | EFFORT-PADARIA | **🌐 GLOBAL — Testar `low`/`medium`/`high` em todos os modelos com o projeto da padaria** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | EFFORT-PADARIA.6 | 🌐 Gemini Pro: 3 níveis de raciocínio | 🟠 Alta | MEDIO · só Gemini CLI · effort medium | EFFORT-PADARIA.2 | ⬜ Pendente | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
 | EFFORT-PADARIA.7 | 🌐 DeepSeek (raciocínio): 3 níveis | 🟠 Alta | MEDIO · só DeepSeek · effort medium | EFFORT-PADARIA.2 | ⬜ Pendente | — | [ETAPA-003](etapas/ETAPA-003-EFFORT-PADARIA.md) |
