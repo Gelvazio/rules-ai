@@ -36,7 +36,8 @@ ordem, só para leitura. Regra nova (arquivo novo em `regras/`) entra neste índ
 16. [pastas-ignoradas.md](pastas-ignoradas.md) — Pastas offline e paradas, não lidas (C20, C23)
 17. [rules-local.md](rules-local.md) — Sessão nova: `rules-local/` e sincronização de tasks (C36)
 18. [herdr.md](herdr.md) — herdr: agentes em painéis, quando usar e o que nunca fazer (C33)
+19. [jev.md](jev.md) — Jev: conselheiro de nível e guardrails, modo ativo/off e fallback (C39)
 
 ## Assuntos específicos
 
-19. [atividades-e-idioma.md](atividades-e-idioma.md) — Idioma e atividades sem empresa fictícia
+20. [atividades-e-idioma.md](atividades-e-idioma.md) — Idioma e atividades sem empresa fictícia

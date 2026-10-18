@@ -273,7 +273,7 @@ Cuidados de implementação:
 
 ### JEV-RULES-AI.7 — Regra global `regras/jev.md` + INDEX + C39
 
-**Próximo passo:** escrever a regra e o índice; rodar o sincronizador só em simulação.
+**Próximo passo:** nenhum — ✅ concluída.
 - **Nível:** LEVE — só `.md` e índice.
 - **Modelo:** só Haiku — nunca outro.
 - **Effort:** low
@@ -283,6 +283,8 @@ Cuidados de implementação:
 - **Critérios de Aceitação:** regra na ordem do INDEX; `node scripts/sincronizar.mjs` mostra o bloco sem erro; nenhum `--aplicar` sem o "sim"; C39 registrada com data/quem.
 - **Verificação:** `node scripts/sincronizar.mjs`; leitura do diff; `git diff --check`.
 - **Estimativa:** 1 h.
+- **Entrega:** commit `feat(JEV-RULES-AI.7)` — `regras/jev.md` (4,0 KB), item 19 do `regras/INDEX.md`, C39 no `CONFLITOS.md`, `VERSAO.md` regenerada pela simulação (`2026-10-18-384984ac`); executor jev7 (Haiku 5.5). A seção "Estado da implementação" da regra é atualizada na .8.
+- **Verificação (líder):** `node scripts/sincronizar.mjs` (simulação) sem erro; nenhum `--aplicar`; regra ≤ 5 KB; C39 com data e frase do pedido; `git diff --check` ok.
 
 ### JEV-RULES-AI.8 — Ativação direta, validação final e rollback
 
