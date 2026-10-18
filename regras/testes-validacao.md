@@ -20,3 +20,11 @@ Vale para todas as IAs e para todos os projetos.
 - ✅ Única exceção: a tarefa é **corrigir um bug** — um teste que reproduza a falha é bem-vindo.
 - A suíte que o projeto já tiver pode rodar na validação, mas só quando houver erro específico a
   verificar, o usuário pedir ou para diagnosticar um bug; não rodar só para "validar visualmente".
+
+## Exceção — teste de invariante em tarefa `PESADO` (C34)
+
+- ✅ Em tarefa **`PESADO`** é permitido criar **teste de invariante / propriedade** para uma regra
+  declarada na seção **Invariantes** da etapa, com o comando na **Verificação** da subtarefa.
+- A exceção só **permite**, não obriga: sem invariante que justifique, vale a regra geral.
+- ⛔ Continua proibido "teste de brinde" junto com a feature, teste de exemplo fora de correção de
+  bug, e seguir skill de TDD que mande testar antes. Regra e formato: `espec.md`.
