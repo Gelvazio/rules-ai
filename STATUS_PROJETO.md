@@ -6,6 +6,8 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-18 12:26 (Brasília): RULES-LOCAL-GLOBAL concluída de novo: `.20` instalou o `rules-local/` no `testes-effort-padaria` (8 remotos no escopo).
+- 2026-10-18 12:26 (Brasília): RULES-LOCAL-GLOBAL.20 entregue: `testes-effort-padaria` instalado (commit 5721e22, versão 2026-10-18-f4bfe8d8) (OP-20, Opus).
 - 2026-10-18 12:18 (Brasília): RULES-LOCAL-GLOBAL concluída: `rules-local/` instalado e conferido pela `VERSAO.md` nos 7 remotos do escopo (19 subtarefas, equipe herdr com líder sargento).
 - 2026-10-18 12:18 (Brasília): RULES-LOCAL-GLOBAL.17 entregue: `gerenciador-de-ia` instalado (commit 290d5e4, versão 2026-10-18-f4bfe8d8; aviso no `CLAUDE.md`) (OP-19, Opus).
 - 2026-10-18 12:17 (Brasília): RULES-LOCAL-GLOBAL.19 entregue: `AGENTS.md` solto (cópia quebrada do `CLAUDE.md`) tirado do `gerenciador-de-ia`, com cópia em `~/.claude/backups/` (hash igual); .17 reservada (OP-19, Opus).

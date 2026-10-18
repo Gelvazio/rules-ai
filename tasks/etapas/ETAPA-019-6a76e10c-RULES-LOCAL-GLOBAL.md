@@ -912,7 +912,7 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
 
 ### RULES-LOCAL-GLOBAL.20 — Instalar no `testes-effort-padaria`
 
-**Próximo passo:** OP-20 instala como nos lotes (seção da `.16`).
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** PESADO — mudança em repositório de outro projeto (mesmo motivo dos lotes)
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
@@ -922,6 +922,23 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
   (só repositórios com GitHub). A tarefa-mãe foi reaberta para esta subtarefa.
 - **Critérios de aceitação:** R4.1 e R4.2 no `testes-effort-padaria`.
 - **Verificação:** como a `.16`.
+- **Entrega (Claude Code (Opus 5.5 · herdr OP-20), 2026-10-18):** commit `5721e22` no
+  `Gelvazio/testes-effort-padaria` (push `abf0b11..5721e22`), com `rules-local/` (4 `.mjs`,
+  `.gitattributes`, `.gitignore`, `VERSAO.md`, `RELATORIO.md`, `regras/` com 19),
+  `.claude/settings.json` **criado** (não existia; só o gancho `SessionStart`) e `AGENTS.md`
+  (bloco `rules-local:inicio/fim` no fim). Sem clones. O projeto não tem `tasks/` nem hooks Git
+  próprios. No `rules-ai`, só esta seção (sem Git).
+- **Verificação (feita):** antes: `git status --short` vazio, `git fetch` → `0 0` com
+  `origin/main`, `git pull --rebase` → "Already up to date"; instalador rodado do `rules-ai` →
+  `7 criado, 1 atualizado`, `VERSÃO NOVA nenhuma -> 2026-10-18-f4bfe8d8 (19 adicionado)`,
+  `rules-local íntegro`, saída 0; `git diff` do `AGENTS.md` só com o bloco; `git diff --cached
+  --name-only` = 27 de `rules-local/` + `.claude/settings.json` + `AGENTS.md` (29); push sem
+  recusa. Depois: `node rules-local/sessao.mjs` → `versão igual (2026-10-18-f4bfe8d8); nada a
+  fazer.` (também rodado de `C:\` com caminho absoluto); `git status --short` vazio (R4.2);
+  `HEAD` = `origin/main` (`5721e22`); `rules-local/VERSAO.md` = `VERSAO.md` do `rules-ai`
+  (`cmp`); `git ls-files --eol rules-local` → 27 `i/lf w/lf`; 2ª execução do instalador → nada
+  muda. R4.1: `testes-effort-padaria` agora tem `rules-local/`. Nenhuma TASK criada
+  (instalação = "sem ajuste — instalação"; o projeto nem tem quadro).
 
 ### RULES-LOCAL-GLOBAL.5 — Levar a regra nova às IAs (`--aplicar`)
 
