@@ -38,8 +38,8 @@ roda agentes em painéis) sem furar as regras de quadro, reserva, nível e Git.
 **Próximo passo:** escrever `regras/herdr.md`.
 
 - **Nível:** PESADO — muda regra global de todas as IAs.
-- **Modelo:** só Opus 5.5+ ou Fable — nunca outro
-- **Effort:** high
+- **Modelo:** Opus 5.5+ / Fable — ou DeepSeek, desde a C35 (2026-10-18).
+- **Effort:** high.
 - **Descrição:** o que é o herdr, como instalar a skill e as integrações, quando usar (só dentro do
   herdr, com `HERDR_ENV=1`, e com pedido do usuário), como abrir outra IA num painel como agente de
   equipe (frente com o painel, nível pela matriz, só o líder no Git e no quadro), e o que nunca
@@ -47,6 +47,10 @@ roda agentes em painéis) sem furar as regras de quadro, reserva, nível e Git.
 - **Critérios de Aceitação:** arquivo ≤ 5 KB sem repetir regra de outro arquivo (aponta para
   eles); C33 no `CONFLITOS.md`; linha no Registro de decisões; `node scripts/sincronizar.mjs`
   (simulação) gera o unificado com a C33.
+- **Entrega:** `regras/herdr.md` (commit `feat(HERDR-GLOBAL.1)`), C33 no `CONFLITOS.md`.
+- **Verificação:** `regras/herdr.md` abaixo de 5 KB e sem repetir regra (aponta para `ciclo-da-task.md`,
+  `frentes-e-reserva.md`, `niveis-e-modelos.md`, `git-geral.md`, `gerenciador-centralizado.md`);
+  `node scripts/sincronizar.mjs` (simulação) mostra a C33 no unificado.
 
 ### HERDR-GLOBAL.2 — Levar ao computador do usuário
 

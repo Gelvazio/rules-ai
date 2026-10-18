@@ -35,7 +35,8 @@ ordem, só para leitura. Regra nova (arquivo novo em `regras/`) entra neste índ
 15. [gerenciador-centralizado.md](gerenciador-centralizado.md) — Gerenciador de tarefas (C28)
 16. [pastas-ignoradas.md](pastas-ignoradas.md) — Pastas offline e paradas, não lidas (C20, C23)
 17. [rules-local.md](rules-local.md) — Sessão nova: `rules-local/` e sincronização de tasks (C36)
+18. [herdr.md](herdr.md) — herdr: agentes em painéis, quando usar e o que nunca fazer (C33)
 
 ## Assuntos específicos
 
-18. [atividades-e-idioma.md](atividades-e-idioma.md) — Idioma e atividades sem empresa fictícia
+19. [atividades-e-idioma.md](atividades-e-idioma.md) — Idioma e atividades sem empresa fictícia
