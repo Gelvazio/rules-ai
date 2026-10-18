@@ -199,7 +199,7 @@ subtarefa própria.
 - **Entrega:** sem commit nem push na pasta (já estava em dia: `4654a2d9`); registro no quadro de `rules-ai` (reserva `5f4cd08`) · **Verificação:** `UPDATE.py --pasta aulas-senai-CLAUDE-OPUS` → "JÁ EM DIA 4654a2d9", saiu com código 0; `git merge-base --is-ancestor origin/main HEAD` ok; sem rebase em andamento; sem conflito (`diff-filter=U` vazio); `git stash list` vazio; árvore limpa. Concluída em 2026-10-18 15:14.
 
 ### UPDATE-REPOS.13 — Conferir e atualizar `aulas-senai-CLAUDE-OPUS-LIDER`
-**Próximo passo:** rodar `C:\Python314\python.exe scripts/UPDATE.py --pasta aulas-senai-CLAUDE-OPUS-LIDER` e ler o quadro.
+**Próximo passo:** —  (UPDATE-REPOS.13 entregue; próxima: UPDATE-REPOS.14, pelo Haiku 5.5).
 - **Nível:** LEVE — decisão do usuário (rodar o script e conferir uma pasta)
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
@@ -211,7 +211,7 @@ subtarefa própria.
 - **Critérios de Aceitação:** `git -C C:ontes\aulas-senai-CLAUDE-OPUS-LIDER log -1 origin/main` contido no `HEAD`
   (`git merge-base --is-ancestor origin/main HEAD`), sem rebase em andamento e sem marcador de
   conflito (`<<<<<<<`) nos arquivos.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** sem commit nem push na pasta (já estava em dia: `4654a2d9`); registro no quadro de `rules-ai` (reserva `4f4c684`) · **Verificação:** `UPDATE.py --pasta aulas-senai-CLAUDE-OPUS-LIDER` → "JÁ EM DIA 4654a2d9", saiu com código 0; `git merge-base --is-ancestor origin/main HEAD` ok; sem rebase em andamento; sem conflito (`diff-filter=U` vazio); sem marcador `<<<<<<<`; `git stash list` vazio. Obs.: a pasta tem `.agents/` e `.codex/` não rastreados, anteriores ao passo e fora do escopo. Concluída em 2026-10-18 15:15.
 
 ### UPDATE-REPOS.14 — Conferir e atualizar `aulas-senai-CLAUDE-SONNET`
 **Próximo passo:** rodar `C:\Python314\python.exe scripts/UPDATE.py --pasta aulas-senai-CLAUDE-SONNET` e ler o quadro.
