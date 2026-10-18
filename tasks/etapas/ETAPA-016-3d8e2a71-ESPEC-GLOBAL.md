@@ -72,6 +72,10 @@ abertas fechadas** antes de o agente codar, entregue a todas as IAs pelo `sincro
   `tasks/etapas/ETAPA-*.md`, mais `spec/README.md` explicando o fluxo em 5 linhas e o comando do gate.
 - **Critérios de Aceitação:** os 3 arquivos existem, cada um com o bloco `### …` no formato usado nas
   etapas; nenhum cita `docs/`; `spec/README.md` aponta para `regras/espec.md`.
+- **Entrega:** `spec/README.md` + `spec/templates/{requisitos,invariantes,perguntas-abertas}.md`
+  (commit `feat(ESPEC-GLOBAL.2)`).
+- **Verificação:** leitura dos 4 arquivos; `Get-ChildItem spec -Recurse` lista os 5 caminhos; nenhum
+  arquivo cita `docs/specs`.
 
 ### ESPEC-GLOBAL.3 — Gate `spec/verificar-spec.mjs` (`MEDIO`)
 
