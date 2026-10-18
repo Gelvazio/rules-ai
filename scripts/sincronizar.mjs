@@ -24,6 +24,12 @@ const PASTA_CONFIG_USUARIO = process.env.APPDATA ?? join(homedir(), '.config');
  */
 const DESTINOS = [
   { ia: 'Claude Code', arquivo: join(homedir(), '.claude', 'CLAUDE.md'), modo: 'importar' },
+  // Contas extras do Claude Code (CLAUDE_CONFIG_DIR); sem isto as regras não carregam nelas
+  ...['A', 'B', 'C'].map((conta) => ({
+    ia: `Claude Code (conta${conta})`,
+    arquivo: join(homedir(), `.claude-conta${conta}`, 'CLAUDE.md'),
+    modo: 'importar',
+  })),
   // Gemini CLI recusa @import fora da pasta do GEMINI.md global ("Path traversal attempt")
   { ia: 'Gemini CLI', arquivo: join(homedir(), '.gemini', 'GEMINI.md'), modo: 'embutir' },
   { ia: 'Codex', arquivo: join(homedir(), '.codex', 'AGENTS.md'), modo: 'embutir' },

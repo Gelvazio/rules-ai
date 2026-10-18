@@ -45,7 +45,7 @@ confere e fecha. E as regras globais passam a carregar também nas contas `~/.cl
 
 ### ACEITE-GLOBAL.2 — Sincronizador com as contas A, B e C e `--aplicar`
 
-**Próximo passo:** acrescentar os 3 destinos e rodar `--aplicar`.
+**Próximo passo:** — (entregue).
 
 - **Nível:** PESADO — grava nos arquivos globais de todas as IAs.
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro
@@ -53,4 +53,9 @@ confere e fecha. E as regras globais passam a carregar também nas contas `~/.cl
 - **Descrição:** `~/.claude-contaA/CLAUDE.md`, `~/.claude-contaB/CLAUDE.md` e
   `~/.claude-contaC/CLAUDE.md` com o `@import` do `dist/REGRAS-GLOBAIS.md`.
 - **Critérios de Aceitação:** os 3 arquivos existem com o bloco; o `dist` traz a C32.
-- **Entrega:** pendente.
+- **Entrega:** commit `feat(ACEITE-GLOBAL.2)`: 3 destinos novos em `scripts/sincronizar.mjs`
+  (`Claude Code (contaA/B/C)`, modo `importar`). `--aplicar` gravou os 3 `CLAUDE.md` novos e
+  regravou o bloco de Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro (com `.bak`); o
+  `~/.claude/CLAUDE.md` ficou igual.
+- **Verificação:** `node --check`; simulação antes do `--aplicar`; os 3 arquivos lidos com o
+  bloco `@C:/fontes/rules-ai/dist/REGRAS-GLOBAIS.md`; `grep C32` no `dist`, no Codex e no Gemini.

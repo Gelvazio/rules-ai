@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-17 22:00 (Brasília): ACEITE-GLOBAL.2 entregue e ACEITE-GLOBAL fechada (sem aceite, pela C32): `scripts/sincronizar.mjs` grava também em `~/.claude-contaA`, `~/.claude-contaB` e `~/.claude-contaC`; `--aplicar` criou os 3 `CLAUDE.md` com o import e levou a C32 a todas as IAs.
 - 2026-10-17 21:58 (Brasília): ACEITE-GLOBAL.1 entregue: regra C32 em `regras/ciclo-da-task.md`, `regras/quadro-de-tarefas.md` e `regras/esforco.md` (a IA sempre aceita, sem subtarefa de aceite). Aceites do quadro fechados: ESFORCO-GLOBAL.5 e DASHBOARD-REDE-NEURAL.19 concluídos (fecha a mãe ESFORCO-GLOBAL); GERENCIADOR-GLOBAL.6 e DASHBOARD-REDE-NEURAL.5 dispensados. ACEITE-GLOBAL.2 reservada.
 - 2026-10-17 21:53 (Brasília): ACEITE-GLOBAL registrada (plano aprovado, etapa 014): regra C32, a IA sempre aceita e nunca pede aceite ao usuário; o sincronizador passa a gravar também em `~/.claude-contaA/B/C`. ACEITE-GLOBAL.1 reservada por Claude Code (Opus 5.5).
 - 2026-10-17 18:08 (Brasília): DASHBOARD-REDE-NEURAL.27 entregue: na página Agentes ao vivo, globo menor, agentes mais afastados e um fio fino do globo até cada tarefa em andamento.
