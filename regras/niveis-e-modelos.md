@@ -21,11 +21,12 @@ forte fique com as difíceis. Vale para **todas as IAs**. Reserva: `frentes-e-re
 | **Gemini CLI** | Flash | Pro | ⛔ |
 | **Antigravity** | Gemini Flash | ⛔ | ⛔ |
 | **Grok** | rápido | principal | ⛔ |
-| **DeepSeek** | Flash | raciocínio | ⛔ |
+| **DeepSeek** | Flash | raciocínio | ✅ |
 | **Codex** / **Cursor** | ✅ | ✅ | ⛔ |
 | **Devin** / **Copilot** | ✅ | ⛔ | ⛔ |
 
-- `PESADO` é **só do Claude Code com Opus 5.5 ou superior, ou Fable**.
+- `PESADO` exige **Claude Code com Opus 5.5 ou superior, Fable, ou DeepSeek** (C35, 2026-10-18 —
+  altera a C22: o DeepSeek deixou de ser `⛔` em `PESADO`).
 - ⛔ **NUNCA executar subtarefa que não é do seu modelo** (C2, 2026-10-16 22:53): cada IA só pega
   os níveis marcados na **sua** linha — no Claude Code, Haiku **só** `LEVE`, Sonnet **só** `MEDIO`,
   Opus 5.5+/Fable **só** `PESADO`. Nem acima nem abaixo, e **sem exceção** (nem com autorização).
