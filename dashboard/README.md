@@ -33,10 +33,13 @@ serve o dashboard) e da chave no `graphs/.env`. Detalhes em `graphs/README.md`.
 - `prompts/`: prompts usados no dashboard (um `.md` por prompt).
 - `scripts/`: coletor Python dos links do `CLAUDE.md` (`python dashboard/scripts/coletar.py`,
   saída em `scripts/saida/coleta.json`, fora do Git). Guia: `WEB-SCRAP.md`.
-- Aba **Ferramentas de IA 3D**: `assets/js/ferramentas/` (abas, tabela e cartões) e
+- `scripts/coletar_hf.py`: modelos 3D abertos do **Hugging Face Hub** pela API pública (sem token),
+  saída em `scripts/saida/hf_3d.json` (fora do Git). A aba mostra a seção "Modelos 3D abertos
+  (Hugging Face)"; rode de novo para atualizar downloads/likes.
+- Aba **Ferramentas de IA 3D**: `assets/js/ferramentas/` (abas, tabela, cartões e modelos do HF) e
   `assets/css/ferramentas.css`. Os dados ficam em `assets/js/dados/ferramentas.js`, gerado por
-  `python dashboard/scripts/gerar_dados_painel.py` a partir do `coleta.json` e dos reels salvos
-  em `MODELOS-DE-IA/` (rodar de novo depois de cada coleta; não editar o arquivo à mão).
+  `python dashboard/scripts/gerar_dados_painel.py` a partir do `coleta.json`, do `hf_3d.json` e dos
+  reels salvos em `MODELOS-DE-IA/` (rodar de novo depois de cada coleta; não editar o arquivo à mão).
 
 Tarefa de origem: DASHBOARD-REDE-NEURAL
 (`tasks/etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md`).

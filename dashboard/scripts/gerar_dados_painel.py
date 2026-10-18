@@ -1,7 +1,8 @@
 """Gera assets/js/dados/ferramentas.js para a aba "Ferramentas de IA 3D" do dashboard.
 
-Fontes: scripts/saida/coleta.json (rodar antes o coletar.py) e as páginas de reels salvas em
-MODELOS-DE-IA/. Uso: python dashboard/scripts/gerar_dados_painel.py
+Fontes: scripts/saida/coleta.json (rodar antes o coletar.py), scripts/saida/hf_3d.json
+(rodar antes o coletar_hf.py) e as páginas de reels salvas em MODELOS-DE-IA/.
+Uso: python dashboard/scripts/gerar_dados_painel.py
 """
 import json
 from pathlib import Path
@@ -11,6 +12,8 @@ from leitor_instagram import ler_reels_salvos
 from precos import precos_do_link
 
 ARQUIVO_JS = Path(__file__).resolve().parent.parent / "assets" / "js" / "dados" / "ferramentas.js"
+ARQUIVO_HF = Path(__file__).resolve().parent / "saida" / "hf_3d.json"
+FONTE_HF = "https://huggingface.co/models?pipeline_tag=text-to-3d"
 MAX_TITULOS_ARTIGO = 15
 TAMANHO_MAX_TITULO = 80
 
@@ -76,8 +79,16 @@ def montar_reel(id_link, url, reels_por_codigo):
     return registro
 
 
+def modelos_3d_abertos():
+    """Modelos 3D abertos do Hugging Face (coletar_hf.py); vazio se a coleta não rodou."""
+    if not ARQUIVO_HF.exists():
+        print("aviso: scripts/saida/hf_3d.json não existe; rode python dashboard/scripts/coletar_hf.py")
+        return {"data_consulta": None, "fonte": FONTE_HF, "modelos": []}
+    return json.loads(ARQUIVO_HF.read_text(encoding="utf-8"))
+
+
 def montar_dados(coleta):
-    """Junta reels e sites no formato lido pela aba."""
+    """Junta reels, sites e modelos abertos no formato lido pela aba."""
     cotacao = coleta.get("cotacao_usd_brl", {})
     reels_por_codigo = {r["codigo"]: r for r in ler_reels_salvos() if r.get("codigo")}
     sites = [l for l in coleta["links"] if l["id"] not in LINKS_MANUAIS]
@@ -86,6 +97,7 @@ def montar_dados(coleta):
         "cotacao_usd_brl": cotacao,
         "reels": [montar_reel(i, u, reels_por_codigo) for i, u in LINKS_MANUAIS.items()],
         "sites": [montar_site(l, cotacao.get("valor")) for l in sites],
+        "modelos_3d_abertos": modelos_3d_abertos(),
     }
 
 

@@ -781,5 +781,340 @@ export const DADOS_FERRAMENTAS = {
         }
       ]
     }
-  ]
+  ],
+  "modelos_3d_abertos": {
+    "data_consulta": "2026-10-18T13:58",
+    "fonte": "https://huggingface.co/models?pipeline_tag=text-to-3d",
+    "api": "https://huggingface.co/api/models",
+    "tarefas": [
+      "text-to-3d",
+      "image-to-3d"
+    ],
+    "modelos": [
+      {
+        "id": "microsoft/TRELLIS-image-large",
+        "url": "https://huggingface.co/microsoft/TRELLIS-image-large",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 2296786,
+        "likes": 707,
+        "licenca": "mit",
+        "biblioteca": "trellis",
+        "criado_em": "2024-12-02T13:02:21.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "microsoft/TRELLIS.2-4B",
+        "url": "https://huggingface.co/microsoft/TRELLIS.2-4B",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 2232358,
+        "likes": 1361,
+        "licenca": "mit",
+        "biblioteca": "trellis2",
+        "criado_em": "2025-12-01T02:25:40.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "facebook/VGGT-1B",
+        "url": "https://huggingface.co/facebook/VGGT-1B",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 524711,
+        "likes": 146,
+        "licenca": "cc-by-nc-4.0",
+        "biblioteca": null,
+        "criado_em": "2025-03-11T21:59:25.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "stabilityai/TripoSR",
+        "url": "https://huggingface.co/stabilityai/TripoSR",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 257777,
+        "likes": 676,
+        "licenca": "mit",
+        "biblioteca": null,
+        "criado_em": "2024-02-29T13:01:16.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "yyfz233/Pi3X",
+        "url": "https://huggingface.co/yyfz233/Pi3X",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 248296,
+        "likes": 20,
+        "licenca": "cc-by-nc-4.0",
+        "biblioteca": null,
+        "criado_em": "2025-12-27T11:02:53.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "ilintar/trellis2-gguf",
+        "url": "https://huggingface.co/ilintar/trellis2-gguf",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 147747,
+        "likes": 16,
+        "licenca": "other",
+        "biblioteca": "trellis",
+        "criado_em": "2026-06-28T14:55:35.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "tencent/Hunyuan3D-2",
+        "url": "https://huggingface.co/tencent/Hunyuan3D-2",
+        "autor": null,
+        "tarefas": [
+          "text-to-3d",
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 147244,
+        "likes": 1848,
+        "licenca": "other",
+        "biblioteca": "hunyuan3d-2",
+        "criado_em": "2025-01-20T06:55:37.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "siyan824/reloc3r-512",
+        "url": "https://huggingface.co/siyan824/reloc3r-512",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 103128,
+        "likes": 7,
+        "licenca": "nao_declarada",
+        "biblioteca": "pytorch",
+        "criado_em": "2025-01-06T08:03:44.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "facebook/map-anything-apache",
+        "url": "https://huggingface.co/facebook/map-anything-apache",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 86309,
+        "likes": 45,
+        "licenca": "apache-2.0",
+        "biblioteca": null,
+        "criado_em": "2025-09-08T04:30:56.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "yyfz233/Pi3",
+        "url": "https://huggingface.co/yyfz233/Pi3",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 86257,
+        "likes": 22,
+        "licenca": "bsd-2-clause",
+        "biblioteca": "pytorch",
+        "criado_em": "2025-07-14T09:37:03.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "depth-anything/DA3-BASE",
+        "url": "https://huggingface.co/depth-anything/DA3-BASE",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 80225,
+        "likes": 45,
+        "licenca": "apache-2.0",
+        "biblioteca": null,
+        "criado_em": "2025-11-13T18:41:45.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "naver/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric",
+        "url": "https://huggingface.co/naver/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 79403,
+        "likes": 20,
+        "licenca": "nao_declarada",
+        "biblioteca": "mast3r",
+        "criado_em": "2024-07-09T12:00:35.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "tencent/Hunyuan3D-2.1",
+        "url": "https://huggingface.co/tencent/Hunyuan3D-2.1",
+        "autor": null,
+        "tarefas": [
+          "text-to-3d",
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 72748,
+        "likes": 1286,
+        "licenca": "other",
+        "biblioteca": "hunyuan3d-2",
+        "criado_em": "2025-06-13T16:10:02.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "stabilityai/stable-fast-3d",
+        "url": "https://huggingface.co/stabilityai/stable-fast-3d",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 55133,
+        "likes": 1284,
+        "licenca": "other",
+        "biblioteca": null,
+        "criado_em": "2024-07-17T08:49:49.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "raven38/pixal3d-sv-q8_0-v1",
+        "url": "https://huggingface.co/raven38/pixal3d-sv-q8_0-v1",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 54242,
+        "likes": 0,
+        "licenca": "other",
+        "biblioteca": "pixal3d.cpp",
+        "criado_em": "2026-09-17T05:59:10.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "tencent/Hunyuan3D-2mini",
+        "url": "https://huggingface.co/tencent/Hunyuan3D-2mini",
+        "autor": null,
+        "tarefas": [
+          "text-to-3d",
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 43733,
+        "likes": 146,
+        "licenca": "other",
+        "biblioteca": "hunyuan3d-2",
+        "criado_em": "2025-03-12T11:36:01.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "gqk/TRELLIS-image-large-fork",
+        "url": "https://huggingface.co/gqk/TRELLIS-image-large-fork",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 41173,
+        "likes": 2,
+        "licenca": "mit",
+        "biblioteca": "trellis",
+        "criado_em": "2025-04-19T06:43:35.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "facebook/map-anything",
+        "url": "https://huggingface.co/facebook/map-anything",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 38533,
+        "likes": 106,
+        "licenca": "cc-by-nc-4.0",
+        "biblioteca": null,
+        "criado_em": "2025-09-08T04:32:06.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt",
+        "url": "https://huggingface.co/naver/DUSt3R_ViTLarge_BaseDecoder_512_dpt",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 28703,
+        "likes": 17,
+        "licenca": "nao_declarada",
+        "biblioteca": "dust3r",
+        "criado_em": "2024-06-24T07:49:20.000Z",
+        "atualizado_em": null,
+        "gated": false
+      },
+      {
+        "id": "TencentARC/InstantMesh",
+        "url": "https://huggingface.co/TencentARC/InstantMesh",
+        "autor": null,
+        "tarefas": [
+          "image-to-3d"
+        ],
+        "pipeline_tag": "image-to-3d",
+        "downloads": 22124,
+        "likes": 344,
+        "licenca": "apache-2.0",
+        "biblioteca": "diffusers",
+        "criado_em": "2024-04-10T13:16:45.000Z",
+        "atualizado_em": null,
+        "gated": false
+      }
+    ],
+    "erros": []
+  }
 };

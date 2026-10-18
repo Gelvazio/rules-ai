@@ -1,8 +1,10 @@
-// Monta a aba "Ferramentas de IA 3D": resumo, tabela comparativa, cartões e reels.
+// Monta a aba "Ferramentas de IA 3D": resumo, tabela comparativa, modelos abertos do HF,
+// cartões e reels.
 import { DADOS_FERRAMENTAS } from '../dados/ferramentas.js';
 import { criarCartaoReel, criarCartaoSite } from './cartoes.js';
 import { criar, criarEtiqueta, criarLink } from './elementos.js';
 import { NOMES_TIPOS, dataCurta, dominio, emReais, menorPrecoPago } from './formatar.js';
+import { criarSecaoModelosHf } from './modelos-hf.js';
 
 const COLUNAS = ['Link', 'Ferramenta', 'Tipo', 'Coletou', 'Formatos', 'Menor preço pago', 'Preço em R$ no site'];
 const CASAS_COTACAO = { minimumFractionDigits: 4 };
@@ -91,6 +93,7 @@ export function montarPainelFerramentas(conteiner) {
     criarResumo(dados),
     criarSecao('Comparativo', notaPrecos, criarTabela(dados.sites)),
     criarSecao('Sites (L04 a L10)', '', criarGrade(dados.sites.map(criarCartaoSite))),
+    criarSecaoModelosHf(dados.modelos_3d_abertos),
     criarSecao('Reels do Instagram (L01 a L03)', 'Legendas das páginas salvas em MODELOS-DE-IA.',
       criarGrade(dados.reels.map(criarCartaoReel))),
   );
