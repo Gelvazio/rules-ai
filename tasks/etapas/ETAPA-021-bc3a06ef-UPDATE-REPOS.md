@@ -15,7 +15,7 @@ subtarefa própria.
 | 2026-10-18 12:30 | Atualizar com `git fetch origin main` + `git pull --rebase --autostash origin main` (nunca `git merge`, nunca push, nunca `--force`) | Claude Code (Opus 5.5) | Regra `git-geral.md`; o `--autostash` guarda e devolve as mudanças locais sem commit |
 
 ### UPDATE-REPOS.1 — Criar o `scripts/UPDATE.py`
-**Próximo passo:** escrever o script conforme a descrição e checar com `C:\Python314\python.exe -m py_compile scripts/UPDATE.py`.
+**Próximo passo:** —  (UPDATE-REPOS.1 entregue; próxima: UPDATE-REPOS.2, a primeira pasta, pelo Haiku 5.5).
 - **Nível:** LEVE — decisão do usuário (script curto de comandos Git)
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
@@ -31,7 +31,7 @@ subtarefa própria.
   ≤ 45 linhas, docstrings, constantes no topo).
 - **Critérios de Aceitação:** `py_compile` sem erro; leitura confere que só usa os comandos Git
   acima; quadro final com todas as 13 pastas.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** `scripts/UPDATE.py` (commit `feat(scripts): UPDATE.py ...` deste registro) · **Verificação:** `py_compile` sem erro; `--help` saiu com código 0; leitura confirma que só usa `fetch`, `pull --rebase --autostash`, `merge-base --is-ancestor`, `diff --diff-filter=U`, `stash list`, `rev-parse`, `rev-parse --abbrev-ref`; nenhuma pasta foi rodada (como pedido). Concluída em 2026-10-18 12:35.
 
 ### UPDATE-REPOS.2 — Conferir e atualizar `dashboard-ai-claude-code-gmail`
 **Próximo passo:** rodar `C:\Python314\python.exe scripts/UPDATE.py --pasta dashboard-ai-claude-code-gmail` e ler o quadro.

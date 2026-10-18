@@ -181,3 +181,7 @@ trabalho é o `rea-app-clones` (REA), que usa essas regras para clonar o Chaos C
 - **Ponto de atenção:** o "Registro de decisões" do `STATUS.md` ainda mostra as regras antigas de
   2026-10-15 ("só o seu nível" e "graphify após cada mudança"). A ALINHAR substituiu as duas, mas
   essas linhas não ganharam a decisão nova ao lado.
+
+## Histórico recente
+
+- 2026-10-18 12:35 — `scripts/UPDATE.py` criado (UPDATE-REPOS.1). Atualiza as pastas `dashboard-ai-*` e `aulas-senai-*` com a `main` do origin (fetch + pull --rebase --autostash), sem resolver conflitos. Ainda **não** rodado nas pastas: próximo é UPDATE-REPOS.2.
