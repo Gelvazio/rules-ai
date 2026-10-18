@@ -437,7 +437,7 @@ igual). O histórico fica no Git. Exemplo:
 
 ### RULES-LOCAL-GLOBAL.2 — Script de sessão: comparar versões e listar mudanças
 
-**Próximo passo:** esperar a `.7`, a `.8` e a `.9`; juntar as peças no script de sessão.
+**Próximo passo:** líder conferir e commitar.
 
 > Desde a divisão: download, comparação e conferência saem prontos da `.7`, `.8` e `.9`; esta subtarefa junta as peças e cuida da gravação (`VERSAO.md` por último, R2.5–R2.7), do relatório, do aviso, de duas sessões ao mesmo tempo e de INV-1, INV-2 e INV-4.
 
@@ -450,6 +450,32 @@ igual). O histórico fica no Git. Exemplo:
   grava `rules-local/` e o relatório de mudanças (mudado, adicionado, removido) e imprime o aviso
   para a sessão disparar a sincronização. Tempo-limite e falha de rede sem quebrar a sessão.
 - **Critérios de aceitação:** R2.1 a R2.4; INV-1 a INV-3; casos de borda da seção Invariantes.
+- **Entrega:** `scripts/rules-local/sessao.mjs` (F3/F4/F5/F7; junta `baixar.mjs`, `comparar.mjs`
+  e `conferir.mjs` sem alterá-los). Commit: a cargo do líder.
+- **Verificação (OP-2, 2026-10-18 12:05):** `node --check` ok; 22 funções, maior com 26 linhas;
+  nenhuma linha > 100. **Conferência cruzada F1:** `lerVersao(VERSAO.md da raiz)` ok
+  (`2026-10-18-ef54a693`, 19 regras) e os 19 códigos da `.1` = `calcularCodigo` da `.9` sobre
+  `regras/*.md` (0 divergências, nenhum `.md` fora da tabela). **Simulação** em projeto Git
+  temporário no scratchpad (`core.autocrlf=true` + `.gitattributes`/`.gitignore` do F3), com
+  servidor local no lugar do raw (`RULES_LOCAL_URL_BASE`): (1) sem `rules-local` → "VERSÃO NOVA
+  nenhuma -> …", 19 adicionado; (2) e (4) versão igual → `git status --short` vazio (INV-1, R2.2);
+  (3) versão antiga → 1 mudado, 1 adicionado, 1 removido (renomeação = removido + adicionado),
+  `RELATORIO.md` no formato F5; (5) endereço inválido, HTTP 500, tempo esgotado e 404 →
+  "sem acesso", saída 0, nada mudado (R2.4); (6) regra editada, faltando e `.md` sobrando →
+  motivo "conferência falhou", 3 em Restaurados e pasta restaurada (R2.6); (7) `VERSAO.md` local
+  lixo e vazia → "VERSAO.md local corrompida", anterior "nenhuma"; (8) regra truncada →
+  "nuvem inconsistente", 404 numa regra → "sem acesso", nada gravado; (9) falha no meio da
+  gravação (EISDIR) → "erro inesperado", saída 0, `VERSAO.md` local continua a antiga (R2.7,
+  INV-4); próxima execução restaura e a seguinte dá "versão igual"; (10) duas sessões ao mesmo
+  tempo → uma sincroniza, a outra "outra sessão está sincronizando", trava apagada no fim;
+  (11) trava com 5 min é trocada; trava nova bloqueia. **Raw real:** projeto vazio, rodado de
+  outra pasta atual → baixou `2026-10-18-ef54a693`; 2ª execução "versão igual" e
+  `git status --short` vazio; `rules-local/VERSAO.md` = `VERSAO.md` da raiz. INV-2 por leitura:
+  todo caminho gravado/apagado passa por `caminhoNaPasta` (dentro do `rules-local/`); sem Git.
+- **Anotação:** com a trava na mão o script relê o estado local (outra sessão pode ter acabado de
+  gravar) e, se ficou igual, só avisa "versão igual". Os 3 módulos são importados de forma
+  estática: se faltar um deles no projeto, o Node sai com código 1 antes do script rodar (caso de
+  instalação quebrada; o `.12` copia os 4).
 
 ### RULES-LOCAL-GLOBAL.3 — Regra global da sessão e da "sincronização de tasks"
 

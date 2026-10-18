@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-18 12:05 (Brasília): RULES-LOCAL-GLOBAL.2 entregue: script de sessão `scripts/rules-local/sessao.mjs` (versão igual não grava; versão nova baixa, relata e avisa; trava entre sessões) (OP-2, Opus).
 - 2026-10-18 12:01 (Brasília): DASHBOARD-AGENTES registrada (etapa 020, `PESADO`): a pasta `dashboard/` fica só com a página Agentes ao vivo e o servidor dela. Aguarda 4 respostas e o "sim" do usuário.
 - 2026-10-18 12:00 (Brasília): RULES-LOCAL-GLOBAL.12 entregue: instalador `scripts/instalar-rules-local.mjs` (rules-local + gancho SessionStart + aviso; idempotente) (OP-12, Opus).
 - 2026-10-18 11:59 (Brasília): RULES-LOCAL-GLOBAL.13 entregue: modelo do aviso `scripts/rules-local/aviso-agents.md` (HK-13, Haiku).
