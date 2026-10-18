@@ -416,7 +416,7 @@ igual). O histórico fica no Git. Exemplo:
 
 ### RULES-LOCAL-GLOBAL.1 — `VERSAO.md` no `rules-ai`, gerada pelo `sincronizar.mjs`
 
-**Próximo passo:** esperar a `.6` (formato da `VERSAO.md`); depois reservar (Sonnet) e rodar o gate `node spec/verificar-spec.mjs`.
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** MEDIO — lógica em JS em 1 arquivo (`scripts/sincronizar.mjs`) + 1 `.md` gerado.
 - **Modelo:** só Sonnet — nunca outro
@@ -427,6 +427,13 @@ igual). O histórico fica no Git. Exemplo:
 - **Critérios de aceitação:** R1.1 e R1.2; `node --check`; funções ≤ 45 linhas.
 - **Verificação:** `node spec/verificar-spec.mjs tasks/etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md`
   (gate da C34, antes de começar) + os comandos de R1.1 e R1.2.
+- **Entrega:** `scripts/sincronizar.mjs` (F1/F2: `normalizarTexto`, `calcularCodigo`, `gravarVersao`),
+  `VERSAO.md` (raiz, gerada), `README.md` (explicação). Commit: a cargo do líder.
+- **Verificação (SN-1, 2026-10-18):** gate da spec ✅ (todas as linhas ✅); `node --check` ✅; script
+  sem `--aplicar` 2× seguidas → `VERSAO.md` idêntica (`cmp`) e 2ª saída "versão sem mudança" (R1.2);
+  versão gerada `2026-10-18-ff11fc59` = a do exemplo da F2; em cópia no scratchpad, 1 linha a mais em
+  `git-geral.md` → versão passou a `…-99a89e38` (R1.1). A `VERSAO.md` será regerada pelo líder no fim
+  (a `.3` mexe em `regras/`).
 
 ### RULES-LOCAL-GLOBAL.2 — Script de sessão: comparar versões e listar mudanças
 
@@ -502,6 +509,8 @@ igual). O histórico fica no Git. Exemplo:
 - **Descrição:** módulo `.mjs` sem dependências (assinatura da `.6`): baixa a `VERSAO.md` e as regras do `raw.githubusercontent.com`, com tempo-limite em constante; erro, 404/500 e tempo esgotado viram resultado "sem acesso", nunca exceção.
 - **Critérios de aceitação:** R2.4 (parte da rede); funções ≤ 45 linhas; `node --check`.
 - **Verificação:** `node --check` + chamada com endereço inválido e com o endereço real.
+- **Entrega:** `scripts/rules-local/baixar.mjs` (F3/F4/F7: `URL_RAW_BASE`, `TEMPO_LIMITE_MS`, `baixarTexto`, `baixarVersao`, `baixarRegras`). Sem commit (líder).
+- **Verificação (feita):** `node --check` OK. Endereço inválido → `erro de rede: fetch failed`; IP sem resposta com 300 ms → `tempo esgotado`; `raw` real `nao-existe.md` → `HTTP 404`; `baixarRegras(['INDEX.md'])` real → `ok` com 1 texto; com arquivo inexistente → `{ ok: false, motivo: 'HTTP 404', arquivo }`. `baixarVersao()` real deu `HTTP 404` porque a `VERSAO.md` ainda não foi publicada (`.1`): esperado.
 
 ### RULES-LOCAL-GLOBAL.8 — Comparação item por item
 
@@ -518,7 +527,7 @@ igual). O histórico fica no Git. Exemplo:
 
 ### RULES-LOCAL-GLOBAL.9 — Conferência do `rules-local/` contra a `VERSAO.md`
 
-**Próximo passo:** esperar a `.6`.
+**Próximo passo:** líder conferir e commitar.
 
 - **Nível:** MEDIO — 1 arquivo JS, só leitura
 - **Modelo:** só Sonnet — nunca outro
@@ -526,6 +535,8 @@ igual). O histórico fica no Git. Exemplo:
 - **Descrição:** módulo `.mjs` que lê a `rules-local/VERSAO.md` (vazia ou corrompida conta como diferente) e confere o código de cada arquivo do `rules-local/`; devolve "íntegro" ou a lista dos arquivos que não batem ou faltam. Não grava nada.
 - **Critérios de aceitação:** R2.6 (parte da conferência); funções ≤ 45 linhas; `node --check`.
 - **Verificação:** conferência numa cópia: arquivo editado à mão e arquivo faltando aparecem na lista.
+- **Entrega:** `scripts/rules-local/conferir.mjs` (exports F4: `ARQUIVO_VERSAO`, `PASTA_REGRAS`, `normalizarTexto`, `calcularCodigo`, `lerVersao`, `conferirPasta`; só `node:`; sem gravação).
+- **Verificação feita:** `node --check` ok; nenhuma linha > 100 caracteres; simulação em pasta temporária (fora do repositório): pasta íntegra ⇒ `integro: true`; arquivo editado ⇒ `diferente`, arquivo apagado ⇒ `faltando`, `.md` extra ⇒ `sobrando`; `VERSAO.md` vazia/ausente ⇒ `VERSAO.md ausente`; texto lixo e versão com código errado ⇒ `VERSAO.md corrompida`; BOM e CRLF não mudam o código. Falta a conferência cruzada com a `.1` (fica na `.2`).
 
 ### RULES-LOCAL-GLOBAL.10 — Registro no `CONFLITOS.md`
 

@@ -6,6 +6,7 @@ repositório `Gelvazio/rea-app-clones` (último commit `d4da53a`).
 
 ## O que mudou desde a última gravação
 
+- 2026-10-18 11:56 (Brasília): RULES-LOCAL-GLOBAL.7 entregue: módulo de download `scripts/rules-local/baixar.mjs` (SN-7, Sonnet).
 - 2026-10-18 11:55 (Brasília): RULES-LOCAL-GLOBAL.10 entregue: decisão C36 no CONFLITOS.md (HK-10, Haiku).
 - 2026-10-18 11:52 (Brasília): RULES-LOCAL-GLOBAL.6 entregue (OP-6, Opus): seção "Formato combinado" (F1–F7) na etapa 019. Onda 1 reservada: .1, .7, .8, .9 (Sonnet), .3, .12 (Opus), .10 (Haiku).
 - 2026-10-18 11:48 (Brasília): RULES-LOCAL-GLOBAL.11 entregue (HK-11, Haiku): 19 pastas com GitHub, 7 remotos; piloto `template-inicial-tasks-ia`, lotes A (aulasenai), B (dashboard-ai), C (4 remotos).
