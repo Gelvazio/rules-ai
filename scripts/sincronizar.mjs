@@ -29,6 +29,10 @@ const MARCA_FIM = '<!-- rules-ai:fim -->';
 const APLICAR = process.argv.includes('--aplicar');
 /** Pasta de configuração do usuário: %APPDATA% no Windows, ~/.config nos outros sistemas. */
 const PASTA_CONFIG_USUARIO = process.env.APPDATA ?? join(homedir(), '.config');
+/** Pasta de configuração do Hermes Agent: %LOCALAPPDATA%\hermes no Windows, ~/.hermes nos outros. */
+const PASTA_HERMES = process.env.LOCALAPPDATA
+  ? join(process.env.LOCALAPPDATA, 'hermes')
+  : join(homedir(), '.hermes');
 
 /**
  * Destinos: `importar` usa `@arquivo` (a IA lê o unificado); `embutir` copia o texto.
@@ -56,6 +60,8 @@ const DESTINOS = [
     modo: 'embutir',
     criarPasta: true,
   },
+  // Hermes Agent: o único arquivo global é o SOUL.md em HERMES_HOME; sem @import, então embutir
+  { ia: 'Hermes Agent', arquivo: join(PASTA_HERMES, 'SOUL.md'), modo: 'embutir' },
 ];
 
 /**

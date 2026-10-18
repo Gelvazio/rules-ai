@@ -37,6 +37,7 @@ arquivo global da IA; o resto do arquivo fica como está.
 | opencode | `~/.config/opencode/AGENTS.md` | embutir o texto (não lê `@import`) | ✅ no script |
 | Devin | `%APPDATA%\devin\AGENTS.md` | embutir o texto | ✅ no script |
 | Kiro | `~/.kiro/steering/rules-ai.md` (steering global, sempre incluído) | embutir o texto | ✅ no script |
+| **Hermes Agent** | `%LOCALAPPDATA%\hermes\SOUL.md` no Windows (`~/.hermes/SOUL.md` no POSIX) | embutir o texto (o Hermes não tem `@import`) | ✅ no script |
 | Cursor | — (regras do usuário ficam só em Configurações → Rules) | colar à mão | ⏳ sem arquivo global |
 | DeepSeek | — (nenhum arquivo de regras na instalação) | — | ⏳ sem arquivo global |
 
