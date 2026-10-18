@@ -241,14 +241,28 @@ adicionado ou removido.
 
 ### RULES-LOCAL-GLOBAL.11 — Lista dos 18 repositórios do escopo
 
-**Próximo passo:** reservar e montar a lista nesta seção.
+**Próximo passo:** — (entregue; a pasta de instalação do `dashboard-ai` fica para quem pegar o lote B, que confere qual clone está mais em dia).
 
 - **Nível:** LEVE — levantamento, sem código
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** listar as pastas de `C:\fontes` com Git e remoto no GitHub (fora `DEMAIS-PROJETOS-*`, `scripts` e o próprio `rules-ai`), agrupando os clones do mesmo remoto (1 linha por remoto, com as pastas clones), e propor a divisão em piloto + lotes A, B e C.
 - **Critérios de aceitação:** tabela Remoto · Pasta de instalação · Clones · Lote nesta seção; total de remotos confere com a pergunta 4.
-- **Verificação:** `git -C <pasta> remote get-url origin` em cada pasta.
+- **Entrega:** esta tabela (só esta seção, sem outros arquivos).
+- **Verificação:** `git -C <pasta> remote get-url origin` em cada pasta de `C:\fontes` (fora `DEMAIS-PROJETOS-*`, `scripts`, `rules-ai`). Resultado: **19 pastas com remoto GitHub, 7 remotos**. A pergunta 4 diz 18 pastas; a contagem real é 19 (1 a mais). Não alterei a pergunta: o líder decide.
+- **Pastas sem remoto (fora da lista, conforme pergunta 4):** `CONFIG-DEEPSEEK`, `assets`, `testes-effort-padaria`.
+
+| Remoto | Pasta de instalação | Clones | Lote |
+|--------|---------------------|--------|------|
+| Gelvazio/template-inicial-tasks-ia | template-inicial-tasks-ia | — | **Piloto** (1 pasta; base de projetos, pequena, baixo risco) |
+| Gelvazio/aulasenai | aulasenai | aulas-senai-CLAUDE-HAIKU, aulas-senai-CLAUDE-OPUS-LIDER, aulas-senai-CLAUDE-OPUS, aulas-senai-CLAUDE-SONNET | A (5 pastas) |
+| Gelvazio/dashboard-ai | **a definir** (proposta: dashboard-ai-claude-code-senai; nenhuma pasta sem sufixo) | dashboard-ai-claude-code-gmail, dashboard-ai-claude-code-hotmail, dashboard-ai-codex, dashboard-ai-deepseek, dashboard-ai-devin, dashboard-ai-gemini, dashboard-ai-kiro-crew, dashboard-ai-qoder (+ a proposta acima) | B (9 pastas) |
+| Gelvazio/PLATAFORMA-ENVIO-CURRICULOS | PLATAFORMA-ENVIO-CURRICULOS | — | C (4 pastas, com os 3 abaixo) |
+| Gelvazio/rea-app-clones | REA-APP-CLONES | — | C |
+| Gelvazio/gerenciador-de-ia | gerenciador-de-ia | — | C |
+| Gelvazio/testes-de-frontend | testes-de-frontend | — | C |
+
+Divisão: piloto 1 pasta · lote A 5 · lote B 9 · lote C 4 (total 19). O lote B é o maior por ser o único remoto com 9 pastas; se quiser equilibrar, dá para separar as pastas `dashboard-ai-*` em duas partes, mas isso quebra a regra de um remoto por lote.
 
 ### RULES-LOCAL-GLOBAL.12 — Instalador
 

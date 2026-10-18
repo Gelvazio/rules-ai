@@ -69,3 +69,4 @@
 | DASHBOARD-REDE-NEURAL.3 | Cena 3D com propagação animada e clique | 🟡 Média | PESADO · só Opus 5.5+ ou Fable · effort high | DASHBOARD-REDE-NEURAL.2 | ✅ Concluído (2026-10-18 10:05) | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | INDEX-REGRAS.1 | 🌐 `regras/INDEX.md` com a ordem de leitura | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído (2026-10-18 10:33) | — | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
 | INDEX-REGRAS.2 | 🌐 `sincronizar.mjs` monta o `dist/` na ordem do índice (sem o índice) | 🟡 Média | MEDIO · só Sonnet · effort medium | INDEX-REGRAS.1 | ✅ Concluído (2026-10-18 10:40) | — | [ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md) |
+| RULES-LOCAL-GLOBAL.11 | 🌐 Lista dos 18 repositórios do escopo e dos clones de cada remoto | 🟠 Alta | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-019](etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md) |
