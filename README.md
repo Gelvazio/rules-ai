@@ -8,7 +8,8 @@ Regras de IA **globais**, para todos os projetos de `C:\fontes` e todas as IAs.
 regras/*.md            ← fonte única das regras globais (editar só aqui)
 regras/INDEX.md        ← ordem de leitura e ordem no dist (o índice não entra no dist)
 CONFLITOS.md           ← regras que divergem entre projetos; só entram depois do "sim" do usuário
-scripts/sincronizar.mjs← gera dist/REGRAS-GLOBAIS.md e liga cada IA a ele
+scripts/sincronizar.mjs← gera dist/REGRAS-GLOBAIS.md e a VERSAO.md, e liga cada IA ao unificado
+VERSAO.md              ← gerada pelo sincronizar.mjs (não editar): versão e código de cada regra
 dist/                  ← gerado, fora do Git
 ```
 
@@ -16,6 +17,12 @@ dist/                  ← gerado, fora do Git
 node scripts/sincronizar.mjs            # mostra o que mudaria
 node scripts/sincronizar.mjs --aplicar  # grava (cópia .bak do arquivo original)
 ```
+
+**`VERSAO.md`:** em toda execução (com ou sem `--aplicar`) o script grava a `VERSAO.md` na raiz, com
+a versão `AAAA-MM-DD-<código>` e o código (SHA-256) de cada arquivo de `regras/`, `INDEX.md`
+primeiro. O código do conteúdo só muda quando alguma regra muda; sem mudança, o arquivo fica idêntico
+(a data não muda sozinha). É o que o `rules-local/` dos projetos compara para saber se as regras
+mudaram (etapa 019).
 
 O script só mexe num **bloco marcado** (`<!-- rules-ai:inicio -->` … `<!-- rules-ai:fim -->`) no
 arquivo global da IA; o resto do arquivo fica como está.

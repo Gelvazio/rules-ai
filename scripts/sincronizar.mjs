@@ -1,6 +1,7 @@
 // Liga a pasta `regras/` aos arquivos globais de cada IA (bloco gerenciado, sem tocar no resto).
 // Uso: node scripts/sincronizar.mjs            -> só mostra o que faria (nada é gravado)
 //      node scripts/sincronizar.mjs --aplicar  -> grava, com cópia .bak do arquivo original
+import { createHash } from 'node:crypto';
 import {
   copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync,
 } from 'node:fs';
@@ -11,7 +12,16 @@ import { fileURLToPath } from 'node:url';
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PASTA_REGRAS = join(RAIZ, 'regras');
 const ARQUIVO_UNIFICADO = join(RAIZ, 'dist', 'REGRAS-GLOBAIS.md');
+const ARQUIVO_VERSAO = join(RAIZ, 'VERSAO.md');
 const ARQUIVO_INDICE = 'INDEX.md';
+const TAMANHO_CODIGO_ARQUIVO = 16;
+const TAMANHO_CODIGO_VERSAO = 8;
+const FUSO_DA_VERSAO = 'America/Sao_Paulo';
+const URL_FONTE_REGRAS = 'https://github.com/Gelvazio/rules-ai/tree/main/regras';
+const DESCRICAO_ALGORITMO = 'sha256 do texto (sem BOM, fim de linha LF); '
+  + `${TAMANHO_CODIGO_ARQUIVO} caracteres por arquivo, ${TAMANHO_CODIGO_VERSAO} na versão`;
+/** Linha da versão na `VERSAO.md`: `- **Versão:** AAAA-MM-DD-<código>`. */
+const PADRAO_LINHA_VERSAO = /^- \*\*Versão:\*\* (\d{4}-\d{2}-\d{2}-[0-9a-f]{8})$/m;
 /** Link de regra local no índice: `](nome.md)`, sem barra no nome. */
 const PADRAO_LINK_INDICE = /\]\(([^/()\s]+\.md)\)/g;
 const MARCA_INICIO = '<!-- rules-ai:inicio (gerado por C:/fontes/rules-ai; não editar) -->';
@@ -151,12 +161,98 @@ function sincronizarDestino(destino, unificado) {
   console.log(`gravado  ${destino.ia}: ${destino.arquivo}`);
 }
 
+/**
+ * Normaliza o texto antes do código: sem BOM no início e com fim de linha LF.
+ * @param {string} texto - Texto original.
+ * @returns {string} Texto normalizado.
+ */
+const normalizarTexto = (texto) => texto.replace(/^﻿/, '').replace(/\r\n/g, '\n');
+
+/**
+ * Calcula o código (SHA-256 em hexadecimal) do texto normalizado.
+ * @param {string} texto - Texto original.
+ * @param {number} tamanho - Quantidade de caracteres do código.
+ * @returns {string} Primeiros `tamanho` caracteres do SHA-256.
+ */
+const calcularCodigo = (texto, tamanho) =>
+  createHash('sha256').update(normalizarTexto(texto), 'utf8').digest('hex').slice(0, tamanho);
+
+/**
+ * Lista as regras da `VERSAO.md` com o código de cada uma: o índice primeiro, depois as demais.
+ * @returns {{arquivo: string, codigo: string}[]} Regras na ordem da tabela.
+ */
+function listarCodigosDasRegras() {
+  const nomes = [ARQUIVO_INDICE, ...listarArquivosDeRegras()];
+  return nomes.map((arquivo) => {
+    const texto = readFileSync(join(PASTA_REGRAS, arquivo), 'utf8');
+    return { arquivo, codigo: calcularCodigo(texto, TAMANHO_CODIGO_ARQUIVO) };
+  });
+}
+
+/**
+ * Calcula o código do conteúdo (da versão) a partir das linhas `<arquivo> <código>`.
+ * @param {{arquivo: string, codigo: string}[]} regras - Regras na ordem da tabela.
+ * @returns {string} Código do conteúdo.
+ */
+function calcularCodigoDoConteudo(regras) {
+  const linhas = regras.map(({ arquivo, codigo }) => `${arquivo} ${codigo}\n`).join('');
+  return calcularCodigo(linhas, TAMANHO_CODIGO_VERSAO);
+}
+
+/**
+ * Monta o texto da `VERSAO.md`.
+ * @param {string} versao - Versão `AAAA-MM-DD-<código do conteúdo>`.
+ * @param {{arquivo: string, codigo: string}[]} regras - Regras na ordem da tabela.
+ * @returns {string} Conteúdo do arquivo, terminado em `\n`.
+ */
+function montarVersao(versao, regras) {
+  const linhasRegras = regras.map(
+    ({ arquivo, codigo }, indice) => `| ${indice} | ${arquivo} | ${codigo} |`,
+  );
+  return [
+    '# VERSAO — regras globais do rules-ai',
+    '',
+    '<!-- gerado por scripts/sincronizar.mjs; não editar -->',
+    '',
+    `- **Versão:** ${versao}`,
+    `- **Algoritmo:** ${DESCRICAO_ALGORITMO}`,
+    `- **Fonte:** ${URL_FONTE_REGRAS}`,
+    '',
+    '## Regras',
+    '',
+    '| # | Arquivo | Código |',
+    '|---|---------|--------|',
+    ...linhasRegras,
+    '',
+  ].join('\n');
+}
+
+/**
+ * Grava a `VERSAO.md` na raiz, sem mexer nela se o código do conteúdo não mudou (R1.2).
+ * A data só muda quando o código do conteúdo muda.
+ */
+function gravarVersao() {
+  const regras = listarCodigosDasRegras();
+  const codigoConteudo = calcularCodigoDoConteudo(regras);
+  const atual = existsSync(ARQUIVO_VERSAO) ? readFileSync(ARQUIVO_VERSAO, 'utf8') : '';
+  const versaoAtual = atual.match(PADRAO_LINHA_VERSAO)?.[1] ?? '';
+  if (versaoAtual.endsWith(`-${codigoConteudo}`)) {
+    return console.log(`versão sem mudança: ${versaoAtual}`);
+  }
+
+  const hoje = new Date().toLocaleDateString('en-CA', { timeZone: FUSO_DA_VERSAO });
+  const versao = `${hoje}-${codigoConteudo}`;
+  writeFileSync(ARQUIVO_VERSAO, montarVersao(versao, regras), 'utf8');
+  console.log(`versão gravada: ${versao} (${ARQUIVO_VERSAO})`);
+}
+
 /** Gera o unificado e sincroniza todos os destinos. */
 function principal() {
   const unificado = montarUnificado();
   mkdirSync(dirname(ARQUIVO_UNIFICADO), { recursive: true });
   writeFileSync(ARQUIVO_UNIFICADO, unificado, 'utf8');
   console.log(`unificado: ${ARQUIVO_UNIFICADO}`);
+  gravarVersao();
   DESTINOS.forEach((destino) => sincronizarDestino(destino, unificado));
 }
 
