@@ -53,7 +53,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | HERDR-GLOBAL.2 | 🌐 Levar ao computador do usuário (`--aplicar`, herdr, skill e integrações) | 🟡 Média | Usuário | HERDR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-015](etapas/ETAPA-015-01ba1632-HERDR-GLOBAL.md) |
 | **ESPEC-GLOBAL** | **🌐 GLOBAL — Fluxo de spec (requisitos, invariantes, perguntas abertas) em tarefa PESADA (C34)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
 | ESPEC-GLOBAL.1 | 🌐 Regra C34 (`regras/espec.md`) + exceção de teste de invariante só em PESADO (`testes-validacao.md`) | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
-| ESPEC-GLOBAL.2 | 🌐 Blocos-modelo em `spec/templates/` + `spec/README.md` | 🟡 Média | LEVE · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
+| ESPEC-GLOBAL.2 | 🌐 Blocos-modelo em `spec/templates/` + `spec/README.md` | 🟡 Média | LEVE · effort low | Nenhuma | 🔄 Em execução | DeepSeek (Flash) (local · main) (desde 2026-10-18 08:48) · 0% | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
 | ESPEC-GLOBAL.3 | 🌐 Gate `spec/verificar-spec.mjs` (confere seções, EARS, perguntas fechadas, nível/modelo/effort) | 🟡 Média | MEDIO · effort medium | ESPEC-GLOBAL.2 | ⬜ Pendente | — | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
 | ESPEC-GLOBAL.4 | 🌐 `node scripts/sincronizar.mjs --aplicar` e conferência nas IAs | 🟡 Média | Usuário | ESPEC-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
 
