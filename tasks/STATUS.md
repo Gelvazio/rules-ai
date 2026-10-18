@@ -48,6 +48,14 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | JEV-RULES-AI.6 | CLI e integração com a skill `classificar-tarefa` | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.2, JEV-RULES-AI.3 | ⬜ Pendente | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
 | JEV-RULES-AI.7 | Regra global `regras/jev.md` + INDEX + C39 | 🟠 Alta | LEVE · só Haiku · effort low | JEV-RULES-AI.2, JEV-RULES-AI.5 | ⬜ Pendente | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
 | JEV-RULES-AI.8 | Rollout controlado, validação final e rollback | 🟠 Alta | MEDIO · só Sonnet · effort medium | JEV-RULES-AI.3, JEV-RULES-AI.4, JEV-RULES-AI.5, JEV-RULES-AI.6, JEV-RULES-AI.7 | ⬜ Pendente | — | [ETAPA-025](etapas/ETAPA-025-367236b0-JEV-RULES-AI.md) |
+| **MCP-QUADRO** | **🌐 GLOBAL — Servidor MCP da fila do quadro (`task_next`/`task_finish`/`task_list`), sem banco (plano aguardando o "sim")** | 🟠 Alta | — | Nenhuma | 👀 Aguardando o usuário | — (não reservável) | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
+| MCP-QUADRO.1 | Regra global `regras/mcp-quadro.md`, índice e C40 | 🟠 Alta | LEVE · só Haiku · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
+| MCP-QUADRO.2 | Leitor/escritor do quadro e descoberta de projetos | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.1 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
+| MCP-QUADRO.3 | Trava por Git: reserva atômica, recuperação e dry-run | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | MCP-QUADRO.2 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
+| MCP-QUADRO.4 | Servidor MCP stdio: `task_list` e `task_next` | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | MCP-QUADRO.3 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
+| MCP-QUADRO.5 | `task_finish`: mover para `task_complete.md` e anotar a entrega | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | MCP-QUADRO.4 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
+| MCP-QUADRO.6 | Instalação, documentação e ensaio em 2 projetos | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.4 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
+| MCP-QUADRO.7 | Rollout medido e fechamento | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.5, MCP-QUADRO.6 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 ## 🧭 Frentes de trabalho
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
@@ -55,13 +63,14 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 ## 🗂️ Etapas
 
-O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (25 arquivos). O resumo do projeto e o
+O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (26 arquivos). O resumo do projeto e o
 histórico ficam em `STATUS_PROJETO.md`.
 
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-18 16:19 | MCP-QUADRO (etapa 026): tarefa grande (`PESADO`, spec C34) para servir a fila do quadro por MCP **sem banco** — `task_next`/`task_finish`/`task_list` sobre o `tasks/STATUS.md`, reserva por commit `lock:` + push; regra `regras/mcp-quadro.md` + C40 na `.1`. Plano completo na etapa; execução só depois do "sim" | DeepSeek Harness (lead) | "sim" ao registro proposto (fila via MCP sem Supabase) |
 | 2026-10-18 15:55 | JEV-RULES-AI (etapa 025): tarefa grande (`PESADO`, spec C34) para o Jev sugerir nível (modelo/effort pela matriz + C21) e servir de guardrail em escopo, critérios de aceite, segredo/PII, pasta proibida, comando destrutivo e aprovação indevida. Plano completo na etapa; execução só depois do "sim" | DeepSeek Harness (lead) | "crie um plano SUPER DETALHADO..." + "coloque a task no quadro do rules-ai" |
 | 2026-10-18 14:52 | KILO-GLOBAL (etapa 024): o `sincronizar.mjs` ganha o destino **Kilo Code** (`~/.config/kilo/AGENTS.md`, modo `embutir`, `criarPasta`); o `README.md` lista a IA; a máquina recebe o bloco das regras no arquivo global do Kilo. Fora do escopo: a linha do Kilo em `niveis-e-modelos.md` (decisão do usuário) e instalar o CLI. Execução LEVE pelo DeepSeek Harness, por ordem direta | Gelvazio | "aplique a integracao" |
 | 2026-10-18 13:56 | HERMES-GLOBAL (etapa 023): o `sincronizar.mjs` ganha o destino **Hermes Agent** (`SOUL.md` em `%LOCALAPPDATA%\hermes` no Windows e `~/.hermes` no POSIX, modo `embutir`); o `README.md` lista a IA; a máquina recebe `SOUL.md` com o bloco das regras e `config.yaml` (skills externas, memória, aprovações e limite de contexto). Fora do escopo: a linha do Hermes em `niveis-e-modelos.md` (decisão do usuário) e a instalação do CLI. Execução LEVE pelo DeepSeek Harness, por ordem direta | Gelvazio | "sim,faça isso, configure pra que o rules-ai, use o hermes agent" |

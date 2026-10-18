@@ -1,10 +1,10 @@
 # Status do projeto rules-ai
 
-**Atualizado em:** 2026-10-18 15:55 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
+**Atualizado em:** 2026-10-18 16:30 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
 **Fontes:** quadro `tasks/STATUS.md` + `tasks/task_complete.md` na `main` do repositório
 `Gelvazio/rules-ai` (último commit: ver `git log -1`), a auditoria
 `C:\fontes\ANALISE-DE-FONTES-2026-10-18.md` (2026-10-18 13:34) e a sessão do DeepSeek Harness
-(JEV-RULES-AI, 2026-10-18 15:55).
+(MCP-QUADRO, 2026-10-18 16:19).
 
 ## O que é este projeto
 
@@ -24,11 +24,11 @@ detalhe de cada tarefa-mãe.
 | Decisões (`CONFLITOS.md`) | C1–C38 registradas; **C14–C19 pendentes** de decisão do usuário (D6 da auditoria) |
 | `rules-local/` | instalado e conferido pela `VERSAO.md` no escopo de 8 remotos (RULES-LOCAL-GLOBAL concluída em 2026-10-18 12:26); em 2026-10-18 13:44 os **20 projetos** foram sincronizados para `2026-10-18-988f933e` (D2 da auditoria; 2 TASKs `RL-988F933E-NIVEIS-E-MODELOS` criadas: `aulasenai` e `gerenciador-de-ia`) |
 | Hermes Agent | destino novo no `scripts/sincronizar.mjs` (`SOUL.md` em `%LOCALAPPDATA%\hermes` no Windows e `~/.hermes` no POSIX, modo `embutir`) e instância local configurada: `SOUL.md` com o bloco das regras (52.606 bytes) + `config.yaml` (skills externas, memória, aprovações, `context_file_max_chars: 80000`; MCP do REA mantido). O CLI ainda não está instalado |
-| Quadro — tarefas-mãe | **25 mães** registradas; a nova **JEV-RULES-AI** está 👀 aguardando o "sim" (etapa 025); 25 etapas em `tasks/etapas/` |
-| Quadro — linhas | **38 linhas abertas** na tabela "📌 Tarefas" do `STATUS.md` após a JEV-RULES-AI (+9: mãe e 8 subtarefas); **nenhuma linha ✅ no `STATUS.md`** (C4 aplicada) |
+| Quadro — tarefas-mãe | **26 mães** registradas; **JEV-RULES-AI** (etapa 025) e **MCP-QUADRO** (etapa 026) estão 👀 aguardando o "sim"; 26 etapas em `tasks/etapas/` |
+| Quadro — linhas | **46 linhas abertas** na tabela "📌 Tarefas" do `STATUS.md` após a MCP-QUADRO (+8: mãe e 7 subtarefas); **nenhuma linha ✅ no `STATUS.md`** (C4 aplicada) |
 | JEV-RULES-AI | tarefa grande (`PESADO`, spec C34 na etapa 025) registrada em 2026-10-18 15:55: o Jev sugere nível (modelo/effort pela matriz + C21) e serve de guardrail em escopo, aceite, segredo/PII, pasta proibida, comando destrutivo e aprovação indevida. Plano completo; 8 subtarefas ⬜; nada executa sem o "sim" |
 | Etapa 017 (NIVEL-DEEPSEEK) | corrigida em 2026-10-18 13:45: as 3 subtarefas estavam ✅ e a mãe continuava 🔄; virou ✅ e foi para o `task_complete.md` |
-| Sessão (C29) | **DeepSeek Harness (lead) (JEV-RULES-AI) desde 2026-10-18 15:55**; a trava é liberada ao fim da criação da tarefa |
+| Sessão (C29) | **DeepSeek Harness (lead) (MCP-QUADRO) desde 2026-10-18 16:19**; a trava é liberada ao fim da criação da tarefa |
 | Este arquivo | reescrito em 2026-10-18 13:45 (D8 da auditoria) e atualizado em 13:58 com a HERMES-GLOBAL: título, fontes e histórico são do `rules-ai` |
 
 ## O que espera você (usuário)
@@ -39,6 +39,7 @@ detalhe de cada tarefa-mãe.
 | 2 | Dar o "sim" ao plano da DASHBOARD-AGENTES (perguntas fechadas em 15:02; a pasta `dashboard/` fica só com os Agentes ao vivo) | `tasks/STATUS.md` · etapa 020 |
 | 3 | Decidir as **C14–C19** (D6), o destino de `C:\fontes\CONFIG-DEEPSEEK` (D7) e a fonte única da skill `gerenciador-de-tarefas` entre `.claude` e `.agents` (D9) | `CONFLITOS.md` · `ANALISE-DE-FONTES-2026-10-18.md` |
 | 4 | Reativar ou manter em pausa o disparo automático do GERENCIADOR-GLOBAL.4 (⛔ desde 2026-10-17 13:30) | `tasks/STATUS.md` |
+| 5 | Dar o "sim" ao plano da **MCP-QUADRO** (etapa 026): fila por MCP sobre o quadro, sem banco | `tasks/STATUS.md` · etapa 026 |
 
 ## Pendências e bloqueios
 
@@ -106,3 +107,4 @@ detalhe de cada tarefa-mãe.
 - **2026-10-18 15:15** — UPDATE-REPOS.13 (hk-update, Haiku 5.5): `UPDATE.py --pasta aulas-senai-CLAUDE-OPUS-LIDER` deu "JÁ EM DIA" (`4654a2d9`); critérios conferidos (ancestral, sem rebase, sem conflito, sem stash); sem alteração na pasta (`.agents/` e `.codex/` não rastreados, anteriores ao passo). Próxima: UPDATE-REPOS.14 (Sonnet); mãe segue aberta.
 - **2026-10-18 15:13** — UPDATE-REPOS.14 (hk-update, Haiku 5.5): `UPDATE.py --pasta aulas-senai-CLAUDE-SONNET` deu "JÁ EM DIA" (`4654a2d9`); critérios conferidos (ancestral, sem rebase, sem conflito, sem stash); sem alteração na pasta. Subtarefa e mãe UPDATE-REPOS concluídas e movidas para `task_complete.md`.
 - **2026-10-18 15:55** — JEV-RULES-AI (etapa 025) registrada como tarefa grande (`PESADO`, spec C34): plano completo para o Jev sugerir nível (modelo/effort pela matriz + C21) e servir de guardrail em escopo, critérios de aceite, segredo/PII, pasta proibida, comando destrutivo e aprovação indevida. 8 subtarefas ⬜; nada executa antes do "sim". Achado registrado: o teste do `PROJETO-JEV-AI` não era cego (o estado levava `nivel_atual`/`Nível:`), então o benchmark da etapa será cego.
+- **2026-10-18 16:19** — MCP-QUADRO (etapa 026) registrada como tarefa grande (`PESADO`, spec C34): servidor MCP local (stdio, sem dependência npm) com `task_next`/`task_finish`/`task_list` sobre o `tasks/STATUS.md`; a reserva continua sendo o commit `lock:` + push (o Git é a trava), sem banco, sem React e sem worker. Regra `regras/mcp-quadro.md` + C40 na subtarefa .1. 7 subtarefas ⬜; nada executa antes do "sim" ao plano.
