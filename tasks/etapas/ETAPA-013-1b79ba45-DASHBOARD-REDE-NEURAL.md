@@ -1,5 +1,7 @@
 ## Etapa 013-1b79ba45 — DASHBOARD-REDE-NEURAL: visualização 3D das camadas de uma rede neural
 
+> ❌ **Tarefa cancelada pelo usuário em 2026-10-18 18:58** ("ESTA TAREFA DASHBOARD-REDE-NEURAL, PODE EXCLUIR"). A subtarefa .4 não será feita; o que já foi entregue continua no repositório.
+
 **Tarefa:** DASHBOARD-REDE-NEURAL · **Pedido em:** 2026-10-17 17:19 · **Criada por:** Claude Code (Opus 5.5) (local · main)
 **Pedido:** "crie 1 task, pra criar isso em *rules-ai* numa pasta de nome dashboard", depois da
 análise do reel `instagram.com/techwith.ram/reel/DeIyAuUJ_eb` ("3D visualisation of layers of
@@ -109,6 +111,8 @@ mostra as probabilidades da saída.
   `python -m http.server 8080` em `dashboard/`.
 
 ### DASHBOARD-REDE-NEURAL.4 — Painel 2D (cálculo, entradas e probabilidades)
+
+> ❌ **Cancelada em 2026-10-18 18:58** pelo usuário ("ESTA TAREFA DASHBOARD-REDE-NEURAL, PODE EXCLUIR"), junto com a tarefa-mãe. Não será feita.
 
 **Próximo passo:** criar `assets/js/tela/painel.js` ouvindo os eventos da `.3` (contrato na seção da `.3`).
 
