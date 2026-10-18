@@ -54,7 +54,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | UPDATE-REPOS.13 | Conferir e atualizar `aulas-senai-CLAUDE-OPUS-LIDER` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.14 | Conferir e atualizar `aulas-senai-CLAUDE-SONNET` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | **KILO-GLOBAL** | **🌐 GLOBAL — Kilo Code recebe as regras globais (`~/.config/kilo/AGENTS.md`)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-024](etapas/ETAPA-024-7930a589-KILO-GLOBAL.md) |
-| KILO-GLOBAL.1 | 🌐 Destino do Kilo Code no `sincronizar.mjs` (`AGENTS.md`) e README · `LEVE · effort low` | 🟡 Média | LEVE · só DeepSeek Flash · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-024](etapas/ETAPA-024-7930a589-KILO-GLOBAL.md) |
+| KILO-GLOBAL.1 | 🌐 Destino do Kilo Code no `sincronizar.mjs` (`AGENTS.md`) e README · `LEVE · effort low` | 🟡 Média | LEVE · só DeepSeek Flash · effort low | Nenhuma | 🔄 Em execução | DeepSeek Harness (deepseek-flash) (global · main) (desde 2026-10-18 14:53) | [ETAPA-024](etapas/ETAPA-024-7930a589-KILO-GLOBAL.md) |
 
 ## 🧭 Frentes de trabalho
 
