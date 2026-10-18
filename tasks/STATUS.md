@@ -54,6 +54,16 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | UPDATE-REPOS.13 | Conferir e atualizar `aulas-senai-CLAUDE-OPUS-LIDER` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 | UPDATE-REPOS.14 | Conferir e atualizar `aulas-senai-CLAUDE-SONNET` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | UPDATE-REPOS.1 | ⬜ Pendente | — | [ETAPA-021](etapas/ETAPA-021-bc3a06ef-UPDATE-REPOS.md) |
 
+## 🧭 Frentes de trabalho
+
+| Frente | Tarefa (etapa) | Situação | Atualizado em |
+|---|---|---|---|
+
+## 🗂️ Etapas
+
+O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (22 arquivos). O resumo do projeto e o
+histórico ficam em `STATUS_PROJETO.md`.
+
 ## Registro de decisões
 
 | Data | Decisão | Quem | Por quê |

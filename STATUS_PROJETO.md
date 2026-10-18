@@ -1,8 +1,8 @@
 # Status do projeto rules-ai
 
-**Atualizado em:** 2026-10-18 13:45 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
+**Atualizado em:** 2026-10-18 14:00 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
 **Fontes:** quadro `tasks/STATUS.md` + `tasks/task_complete.md` na `main` do repositório `Gelvazio/rules-ai`
-(último commit antes deste: `7370f60`, de 2026-10-18 13:00), a auditoria
+(último commit: `32c27bb`, de 2026-10-18 13:46), a auditoria
 `C:\fontes\ANALISE-DE-FONTES-2026-10-18.md` (2026-10-18 13:34) e a trava `tasks/.sessao-ativa`
 (sessão do lead, DeepSeek Harness, desde 2026-10-18 13:41).
 
@@ -20,9 +20,9 @@ detalhe de cada tarefa-mãe.
 
 | Item | Situação |
 |---|---|
-| Regras globais | 20 regras + `regras/INDEX.md`; `VERSAO.md` em `2026-10-18-988f933e` |
+| Regras globais | 19 regras + `regras/INDEX.md` (20 arquivos); `VERSAO.md` em `2026-10-18-988f933e` |
 | Decisões (`CONFLITOS.md`) | C1–C38 registradas; **C14–C19 pendentes** de decisão do usuário (D6 da auditoria) |
-| `rules-local/` | instalado e conferido pela `VERSAO.md` no escopo de 8 remotos (RULES-LOCAL-GLOBAL concluída em 2026-10-18 12:26) |
+| `rules-local/` | instalado e conferido pela `VERSAO.md` no escopo de 8 remotos (RULES-LOCAL-GLOBAL concluída em 2026-10-18 12:26); em 2026-10-18 13:44 os **20 projetos** foram sincronizados para `2026-10-18-988f933e` (D2 da auditoria; 2 TASKs `RL-988F933E-NIVEIS-E-MODELOS` criadas: `aulasenai` e `gerenciador-de-ia`) |
 | Quadro — tarefas-mãe | **23 mães**: 10 abertas no `tasks/STATUS.md` e 13 concluídas no `tasks/task_complete.md` (22 etapas em `tasks/etapas/`) |
 | Quadro — linhas | 43 linhas abertas no `STATUS.md` e 119 concluídas no `task_complete.md`; **nenhuma linha ✅ no `STATUS.md`** (C4 aplicada) |
 | Etapa 017 (NIVEL-DEEPSEEK) | corrigida em 2026-10-18 13:45: as 3 subtarefas estavam ✅ e a mãe continuava 🔄; virou ✅ e foi para o `task_complete.md` |
@@ -86,3 +86,4 @@ detalhe de cada tarefa-mãe.
 - **2026-10-18 12:59** — NIVEL-QODER.1 (C38): linha **Qoder** na matriz das regras globais, igualando a skill `classificar-tarefa`.
 - **2026-10-18 13:34** — Auditoria de fontes da raiz (`C:\fontes\ANALISE-DE-FONTES-2026-10-18.md`): achados, riscos e pendências D1–D12, incluindo o quadro global (D5) e este arquivo (D8).
 - **2026-10-18 13:45** — D5/D8 aplicados: C4 completa (30 linhas ✅ recortadas do `STATUS.md` para o `task_complete.md`), as 10 tarefas-mãe sem linha restauradas (histórico recuperado dos commits `de2103b` e `f26e0c8`), etapa 017 fechada (NIVEL-DEEPSEEK ✅), RULES-LOCAL-GLOBAL.17/.20 registradas e este `STATUS_PROJETO.md` reescrito como status do `rules-ai`.
+- **2026-10-18 14:00** — D2 aplicado fora do repo: os 20 projetos de `C:\fontes` com `rules-local/` sincronizados para `2026-10-18-988f933e` (17 remotos com push; REA só commit local, sem upstream); 2 TASKs `RL-988F933E-NIVEIS-E-MODELOS` criadas (`aulasenai`, `gerenciador-de-ia`). Complemento do D5: seções "🧭 Frentes de trabalho" e "🗂️ Etapas" no `tasks/STATUS.md` e contagem de regras corrigida neste arquivo.
