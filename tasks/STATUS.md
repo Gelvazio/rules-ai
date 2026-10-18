@@ -10,6 +10,9 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 | Tarefa | Título | Prioridade | Modelo | Depende de | Status | Em uso por | Etapa |
 |---|---|---|---|---|---|---|---|
+| **HAIKU-COMMIT-GLOBAL** | **🌐 GLOBAL — O Haiku confere, commita e envia as entregas da equipe; problema vira verificação para o Sonnet** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md) |
+| HAIKU-COMMIT-GLOBAL.1 | 🌐 Regra global e decisão C41 · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | 🔄 Em execução | Claude Code (Opus 5.5) (local · main · aulasenai s17) (desde 2026-10-18 20:17) · 0% | [ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md) |
+| HAIKU-COMMIT-GLOBAL.2 | 🌐 Levar às IAs (`sincronizar.mjs --aplicar`) · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | HAIKU-COMMIT-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md) |
 | CONFEFFORT-GLOBAL | **🌐 GLOBAL — Conferir o `effort` em cada modelo (todos os projetos e IAs)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | CONFEFFORT-GLOBAL.1 | 🌐 Haiku 5.5: conferir o `effort` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | CONFEFFORT-GLOBAL.4 | 🌐 Gemini Pro: conferir o esforço | 🟡 Média | MEDIO · só Gemini Pro · effort medium | Nenhuma | ⬜ Pendente | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
@@ -46,10 +49,11 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
 |---|---|---|---|
+| Claude Code (Opus 5.5) (local · main · aulasenai s17) | HAIKU-COMMIT-GLOBAL.1 ([ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md)) | 🔄 Ativa | 2026-10-18 20:17 |
 
 ## 🗂️ Etapas
 
-O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (26 arquivos). O resumo do projeto e o
+O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (27 arquivos). O resumo do projeto e o
 histórico ficam em `STATUS_PROJETO.md`.
 
 ## Registro de decisões
