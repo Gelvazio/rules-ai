@@ -53,10 +53,11 @@ não responde, a classificação usa só os sinais da skill e o guardrail devolv
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
 | 2026-10-19 13:10 | Tarefa criada; aguarda o "sim" ao plano | Claude Code (Opus 5.5) | tarefa grande (regra de todas as IAs) |
+| 2026-10-19 13:05 | Plano aprovado ("sim, aprovo o plano da JEV-SEM-LAYA"); só aprovação, sem executar agora — as subtarefas ficam livres para o modelo de cada uma | Gelvazio | resposta no chat (sessão do `aulasenai`) |
 
 ### JEV-SEM-LAYA.1 — Regra `jev.md` sem o Laya e decisão C42
 
-**Próximo passo:** depois do "sim", tirar o Laya de `regras/jev.md`, escrever a C42 no
+**Próximo passo:** tirar o Laya de `regras/jev.md`, escrever a C42 no
 `CONFLITOS.md` e registrar no `STATUS_PROJETO.md`.
 
 - **Nível:** PESADO — regra de todas as IAs (arquitetura).

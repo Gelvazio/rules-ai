@@ -45,8 +45,8 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | MCP-QUADRO.5 | `task_finish`: mover para `task_complete.md` e anotar a entrega | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | MCP-QUADRO.4 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | MCP-QUADRO.6 | Instalação, documentação e ensaio em 2 projetos | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.4 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | MCP-QUADRO.7 | Rollout medido e fechamento | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.5, MCP-QUADRO.6 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
-| **JEV-SEM-LAYA** | **🌐 GLOBAL — Tirar o Laya da regra do Jev (fica só o Jev; plano aguardando o "sim")** | 🟡 Média | — | Nenhuma | 👀 Aguardando o usuário | — (não reservável) | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
-| JEV-SEM-LAYA.1 | 🌐 Regra `jev.md` sem o Laya e decisão C42 · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | 👀 Aguardando o "sim" | — | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
+| **JEV-SEM-LAYA** | **🌐 GLOBAL — Tirar o Laya da regra do Jev (fica só o Jev; plano aprovado)** | 🟡 Média | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
+| JEV-SEM-LAYA.1 | 🌐 Regra `jev.md` sem o Laya e decisão C42 · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
 | JEV-SEM-LAYA.2 | 🌐 Levar às IAs (`sincronizar.mjs --aplicar`) · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-SEM-LAYA.1 | ⬜ Pendente | — | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
 | JEV-SEM-LAYA.3 | Código `scripts/jev/` sem o Laya · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-SEM-LAYA.1 | ⬜ Pendente | — | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
 ## 🧭 Frentes de trabalho
