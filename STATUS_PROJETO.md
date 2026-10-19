@@ -1,6 +1,6 @@
 # Status do projeto rules-ai
 
-**Atualizado em:** 2026-10-18 19:00 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
+**Atualizado em:** 2026-10-19 23:50 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
 **Fontes:** quadro `tasks/STATUS.md` + `tasks/task_complete.md` na `main` do repositório
 `Gelvazio/rules-ai` (último commit: ver `git log -1`), a auditoria
 `C:\fontes\ANALISE-DE-FONTES-2026-10-18.md` (2026-10-18 13:34) e a sessão do DeepSeek Harness
@@ -114,3 +114,4 @@ detalhe de cada tarefa-mãe.
 - 2026-10-19 13:12 (Brasília): tarefa nova JEV-SEM-LAYA (etapa 028-8fe0b340), pedida na sessão do `aulasenai` (#295): tirar o Laya da regra global `regras/jev.md` (fica só o Jev; reserva pelos sinais da skill e `revisar` no guardrail), decisão C42, sincronizar às IAs e tirar o Laya de `scripts/jev/`. Plano aguardando o "sim" do usuário.
 - 2026-10-19 13:05 (Brasília): JEV-SEM-LAYA com o plano aprovado pelo usuário; subtarefas .1 e .2 (PESADO) e .3 (MEDIO) livres no quadro, nenhuma executada.
 - 2026-10-19 19:21 (Brasília): nova pasta `prompts/` com `VISUAL-FUTURISTA.md`, o prompt de visual cyberpunk (neon ciano, magenta e violeta) usado no painel de coleta do `web-scrapping`, com a tradução para CSS/HTML e as regras de acessibilidade. Fora do quadro: é um prompt de referência, não uma regra global.
+- 2026-10-19 23:50 (Brasília): JEV-SEM-LAYA.1 entregue — `regras/jev.md` sem o Laya (falha do Jev, falta de chave ou `JEV_MODO=off` → só os sinais da skill; guardrail ambíguo devolve `revisar`), decisão **C42** no `CONFLITOS.md` e `regras/INDEX.md` citando C39 e C42. Falta a .2 (`sincronizar.mjs --aplicar`) e a .3 (código `scripts/jev/`, Sonnet).

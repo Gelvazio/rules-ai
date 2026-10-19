@@ -57,18 +57,21 @@ não responde, a classificação usa só os sinais da skill e o guardrail devolv
 
 ### JEV-SEM-LAYA.1 — Regra `jev.md` sem o Laya e decisão C42
 
-**Próximo passo:** tirar o Laya de `regras/jev.md`, escrever a C42 no
-`CONFLITOS.md` e registrar no `STATUS_PROJETO.md`.
+**Próximo passo:** nenhum — entregue em 2026-10-19 23:50.
 
 - **Nível:** PESADO — regra de todas as IAs (arquitetura).
 - **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
 - **Effort:** high
 - **Critérios de aceitação:** R1.1, R1.2, R1.3 (texto); INV-1 e INV-2 continuam no texto.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** commit `feat(JEV-SEM-LAYA.1)` (2026-10-19 23:50) — `regras/jev.md` sem o Laya, C42 no
+  `CONFLITOS.md`, `regras/INDEX.md` (C39, C42) e `STATUS_PROJETO.md`.
+- **Verificação:** `grep -rni laya regras/` sem resultado (R1.1); leitura da seção "Modo, rollback e
+  fallback": falha/sem chave/`off` → só sinais e guardrail `revisar` (R1.2, R1.3); "Nunca `liberar`
+  em silêncio" (INV-1) e "Caráter consultivo" (INV-2) continuam no texto.
 
 ### JEV-SEM-LAYA.2 — Levar às IAs (`sincronizar.mjs --aplicar`)
 
-**Próximo passo:** rodar `node scripts/sincronizar.mjs --aplicar` depois da .1.
+**Próximo passo:** rodar `node scripts/sincronizar.mjs --aplicar` (reservada por Claude Code (Opus 5.5) (local · main · rules-ai) em 2026-10-19 23:50).
 
 - **Nível:** PESADO — grava o arquivo global de todas as IAs (mudança em massa).
 - **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)

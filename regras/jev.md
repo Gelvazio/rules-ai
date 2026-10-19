@@ -1,7 +1,7 @@
 # 🧠 Jev — conselheiro de nível e guardrails (JEV-RULES-AI)
 
-Decidido em 2026-10-18 (etapa 025, JEV-RULES-AI; pedido do usuário registrado na C39). Vale para
-todas as IAs e para todo projeto que use o `rules-ai`. Nível e modelo: `niveis-e-modelos.md`.
+Decidido em 2026-10-18 (etapa 025, JEV-RULES-AI; pedido do usuário registrado na C39); reserva só
+pelos sinais desde 2026-10-19 (C42, etapa 028). Vale para todas as IAs e para todo projeto que use o `rules-ai`. Nível e modelo: `niveis-e-modelos.md`.
 Effort: `esforco.md`. Quadro: `quadro-de-tarefas.md`. Chave e log: só no computador local.
 
 ## O que é
@@ -31,12 +31,14 @@ humano decidem. Código em `scripts/jev/` (sem dependência npm nova).
 
 ## Modo, rollback e fallback
 
-- Variável `JEV_MODO`: `ativo` (padrão) ou `off`. Com `off`, vale o comportamento anterior: sinais
-  e Laya, sem chamada ao Jev. `off` é o **rollback**.
-- Sem `TYPESAFE_API_KEY`, o script sai com erro claro e não liga o modo automático.
-- Falha do Jev (rede, 401, 429, 529, timeout): cai para o Laya (`http://localhost:8000`). Se os dois
-  falharem, o guardrail devolve `revisar`. **Nunca** `liberar` em silêncio.
-- Limiares são separados: Jev usa `confidence`; Laya usa `answer_confidence` (limiar 0,70). Não migram.
+- Variável `JEV_MODO`: `ativo` (padrão) ou `off`. Com `off`, a classificação segue só pelos sinais
+  da skill, sem chamada a nenhum servidor. `off` é o **rollback**.
+- Sem `TYPESAFE_API_KEY`, o script sai com erro claro e não liga o modo automático; a classificação
+  segue só pelos sinais.
+- Falha do Jev (rede, 401, 429, 529, timeout): **não há outro servidor de reserva** (C42). A
+  classificação segue só pelos sinais da skill (na dúvida, sobe o nível) e o guardrail devolve
+  `revisar`. **Nunca** `liberar` em silêncio.
+- Limiar: o Jev usa `confidence`; abaixo de 0,60 a decisão é humana.
 
 ## Chave, privacidade e custo
 
@@ -54,16 +56,15 @@ humano decidem. Código em `scripts/jev/` (sem dependência npm nova).
 
 - Ativo desde 2026-10-18: cliente, coletor cego, perguntas, matriz, agregação, 6 guardrails, CLI
   `node scripts/jev.mjs classificar | guardrail | avaliar | custo` e a skill `classificar-tarefa`
-  (tenta o Jev primeiro; sem chave, `off` ou falha segue o fluxo Laya/sinais).
+  (tenta o Jev primeiro; sem chave, `off` ou falha segue só pelos sinais).
 - Benchmark cego (180 itens, `scripts/jev/benchmarks/`): nível final 0,60–0,61, só `nivel` 0,66–0,67,
-  recall de PESADO 0,883 (final). O "15/15" antigo vazava `nivel_atual` (com ele: 0,85). Laya fora do
-  ar na medição. Uso real: `confianca` < 0,60 pede decisão humana; o Jev não decide sozinho.
+  recall de PESADO 0,883 (final). O "15/15" antigo vazava `nivel_atual` (com ele: 0,85). Uso real: `confianca` < 0,60 pede decisão humana; o Jev não decide sozinho.
 - Se o Jev falhar em PT-BR ou em decisão irreversível, não usar a sugestão sem revisão humana.
 
 ## Rollback
 
 1. Definir `JEV_MODO=off` no ambiente (ou no `.env` local): o CLI sai com código 2 e a skill segue
-   o fluxo Laya/sinais; guardrails ambíguos viram `revisar`, os determinísticos continuam.
+   só pelos sinais; guardrails ambíguos viram `revisar`, os determinísticos continuam.
 2. Total: copiar `SKILL.md.bak` sobre `SKILL.md` (fonte `.agents` e cópia `.claude`). Medido: segundos.
 3. Se for preciso, reverter o commit da integração. Prazo: menos de 10 minutos.
 
