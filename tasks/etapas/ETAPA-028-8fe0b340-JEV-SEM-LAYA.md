@@ -71,13 +71,17 @@ não responde, a classificação usa só os sinais da skill e o guardrail devolv
 
 ### JEV-SEM-LAYA.2 — Levar às IAs (`sincronizar.mjs --aplicar`)
 
-**Próximo passo:** rodar `node scripts/sincronizar.mjs --aplicar` (reservada por Claude Code (Opus 5.5) (local · main · rules-ai) em 2026-10-19 23:50).
+**Próximo passo:** nenhum — entregue em 2026-10-19 23:50.
 
 - **Nível:** PESADO — grava o arquivo global de todas as IAs (mudança em massa).
 - **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
 - **Effort:** high
 - **Critérios de aceitação:** R2.1.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** commit `feat(JEV-SEM-LAYA.2)` (2026-10-19 23:50) — `VERSAO.md` em `2026-10-19-825288c1`; `--aplicar` gravou
+  Gemini CLI, Codex, Grok, Qoder, opencode, Devin, Kiro, Hermes Agent e Kilo Code (Claude Code e
+  contas A/B/C ficam `igual`: importam o `dist/` por `@`).
+- **Verificação:** saída do `node scripts/sincronizar.mjs --aplicar`; `grep -ci laya
+  dist/REGRAS-GLOBAIS.md` = 0 (R2.1) e 0 em `GEMINI.md`, `.codex/AGENTS.md`, `SOUL.md` e Kiro.
 
 ### JEV-SEM-LAYA.3 — Código `scripts/jev/` sem o Laya
 

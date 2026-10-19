@@ -46,14 +46,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | MCP-QUADRO.6 | Instalação, documentação e ensaio em 2 projetos | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.4 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | MCP-QUADRO.7 | Rollout medido e fechamento | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.5, MCP-QUADRO.6 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | **JEV-SEM-LAYA** | **🌐 GLOBAL — Tirar o Laya da regra do Jev (fica só o Jev; plano aprovado)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
-| JEV-SEM-LAYA.2 | 🌐 Levar às IAs (`sincronizar.mjs --aplicar`) · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-SEM-LAYA.1 | 🔄 Em execução | Claude Code (Opus 5.5) (local · main · rules-ai) (desde 2026-10-19 23:50) · 0% | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
 | JEV-SEM-LAYA.3 | Código `scripts/jev/` sem o Laya · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-SEM-LAYA.1 | ⬜ Pendente | — | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
 ## 🧭 Frentes de trabalho
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
 |---|---|---|---|
 | Claude Code (Opus 5.5) (local · main · aulasenai s17) | HAIKU-COMMIT-GLOBAL.1 ([ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md)) | 🔄 Ativa | 2026-10-18 20:17 |
-| Claude Code (Opus 5.5) (local · main · rules-ai) | JEV-SEM-LAYA.2 ([ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md)) | 🔄 Ativa | 2026-10-19 23:50 |
+| Claude Code (Opus 5.5) (local · main · rules-ai) | JEV-SEM-LAYA.1 e .2 entregues; .3 livre para o Sonnet ([ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md)) | ⏹️ Encerrada | 2026-10-19 23:50 |
 
 ## 🗂️ Etapas
 
