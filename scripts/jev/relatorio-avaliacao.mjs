@@ -1,8 +1,8 @@
 // Monta e formata o relatório do benchmark (JSON e Markdown) a partir dos registros de
 // avaliar.mjs. Só cálculo e texto: sem rede e sem chave.
 import {
-  acuracia, bootstrapDiferenca, brierMulticlasse, calcularEce, curvaCoberturaPrecisao,
-  intervaloWilson, macroF1, matrizConfusao, mcnemarExato, metricasDoNivel, percentil,
+  acuracia, brierMulticlasse, calcularEce, curvaCoberturaPrecisao,
+  intervaloWilson, macroF1, matrizConfusao, metricasDoNivel, percentil,
 } from './metricas.mjs';
 import { NIVEIS, ORDEM_NIVEIS } from './modelos.mjs';
 
@@ -102,24 +102,6 @@ function calcularOperacao(registros, uso) {
 }
 
 /**
- * Compara Jev × Laya nos mesmos itens (1ª repetição): McNemar exato e bootstrap pareado.
- * @param {object[]} jev Registros do Jev.
- * @param {object[]} laya Registros do Laya.
- * @param {number} semente Semente do bootstrap.
- * @returns {object|null} Comparação, ou null se faltar um dos backends.
- */
-function compararBackends(jev, laya, semente) {
-  if (!jev || !laya) return null;
-
-  const primeiraDoLaya = new Map(laya.filter((r) => r.repeticao === 1).map((r) => [r.id, r]));
-  const pareados = jev.filter((r) => r.repeticao === 1 && primeiraDoLaya.has(r.id)).map((r) => ({
-    a: r.nivel_final === r.esperado, b: primeiraDoLaya.get(r.id).nivel_final === r.esperado,
-  }));
-  return { itens: pareados.length, mcnemar: mcnemarExato(pareados),
-    bootstrap: bootstrapDiferenca(pareados, semente) };
-}
-
-/**
  * Estabilidade entre repetições: fração de itens com a mesma previsão em todas.
  * @param {object[]} registros Registros (várias repetições).
  * @returns {number|null} Fração estável, ou null com uma só repetição.
@@ -135,7 +117,7 @@ function calcularEstabilidade(registros) {
 /**
  * Monta o relatório completo.
  * @param {{variante: string, golden: object[], registros: Record<string, object[]>,
- *   uso: object, avisos: string[], semente: number, repeticoes: number}} entrada
+ *   uso: object, avisos: string[], repeticoes: number}} entrada
  * @returns {object} Relatório serializável.
  */
 export function montarRelatorio(entrada) {
@@ -160,8 +142,6 @@ export function montarRelatorio(entrada) {
       borda: entrada.golden.filter((i) => i.tags.includes('borda')).length },
     avisos: entrada.avisos,
     backends,
-    comparacao_jev_laya: compararBackends(entrada.registros.jev, entrada.registros.laya,
-      entrada.semente),
   };
 }
 
@@ -225,13 +205,6 @@ export function renderizarMarkdown(r) {
       '| subgrupo (nível final) | itens | acurácia |', '|---|---|---|',
       ...Object.entries(b.subgrupos_final).map(([g, v]) => (
         `| ${g} | ${v.itens} | ${formatar(v.acuracia)} |`)), '');
-  }
-  if (r.comparacao_jev_laya) {
-    const c = r.comparacao_jev_laya;
-    partes.push('### Jev × Laya (pareado, nível final)', '',
-      `Itens ${c.itens} · só Jev acerta ${c.mcnemar.so_a} · só Laya acerta ${c.mcnemar.so_b} · `
-      + `McNemar exato p = ${formatar(c.mcnemar.p_valor)} · diferença de acurácia `
-      + `${formatar(c.bootstrap?.diferenca)} ${formatarIc(c.bootstrap)}`, '');
   }
   return partes.join('\n');
 }

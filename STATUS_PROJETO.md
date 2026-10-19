@@ -1,6 +1,6 @@
 # Status do projeto rules-ai
 
-**Atualizado em:** 2026-10-19 23:50 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
+**Atualizado em:** 2026-10-19 23:53 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
 **Fontes:** quadro `tasks/STATUS.md` + `tasks/task_complete.md` na `main` do repositório
 `Gelvazio/rules-ai` (último commit: ver `git log -1`), a auditoria
 `C:\fontes\ANALISE-DE-FONTES-2026-10-18.md` (2026-10-18 13:34) e a sessão do DeepSeek Harness
@@ -116,3 +116,4 @@ detalhe de cada tarefa-mãe.
 - 2026-10-19 19:21 (Brasília): nova pasta `prompts/` com `VISUAL-FUTURISTA.md`, o prompt de visual cyberpunk (neon ciano, magenta e violeta) usado no painel de coleta do `web-scrapping`, com a tradução para CSS/HTML e as regras de acessibilidade. Fora do quadro: é um prompt de referência, não uma regra global.
 - 2026-10-19 23:50 (Brasília): JEV-SEM-LAYA.1 entregue — `regras/jev.md` sem o Laya (falha do Jev, falta de chave ou `JEV_MODO=off` → só os sinais da skill; guardrail ambíguo devolve `revisar`), decisão **C42** no `CONFLITOS.md` e `regras/INDEX.md` citando C39 e C42. Falta a .2 (`sincronizar.mjs --aplicar`) e a .3 (código `scripts/jev/`, Sonnet).
 - 2026-10-19 23:50 (Brasília): JEV-SEM-LAYA.2 entregue — `node scripts/sincronizar.mjs --aplicar` levou a `jev.md` sem o Laya às IAs (`VERSAO.md` em `2026-10-19-825288c1`); `dist/REGRAS-GLOBAIS.md` e os arquivos globais sem o Laya. Falta só a .3 (código `scripts/jev/`), livre para o Sonnet.
+- 2026-10-19 23:53 (Brasília): JEV-SEM-LAYA.3 entregue pelo executor-medio (Sonnet; líder Opus) — `scripts/jev/` e `scripts/jev.mjs` sem o Laya (benchmark e relatório só com o Jev; textos "só pelos sinais da skill"); **JEV-SEM-LAYA concluída** e movida para o `task_complete.md`. Pendência nova: `testes/invariantes.mjs` já falhava antes (INV-1 acha `modelo Claude` nos quadros reais).

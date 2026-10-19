@@ -12,7 +12,7 @@ export const PASTA_SAIDAS = join(PASTA_JEV, 'saidas');
 const ARQUIVO_ENV_PADRAO = join(RAIZ_RULES_AI, '.env');
 const ARQUIVO_LOG_PADRAO = join(PASTA_SAIDAS, 'chamadas.jsonl');
 
-/** `ativo` usa o Jev; `off` é o rollback (quem chama volta ao fluxo Laya/sinais). */
+/** `ativo` usa o Jev; `off` é o rollback (quem chama segue só pelos sinais da skill). */
 export const MODOS = Object.freeze({ ATIVO: 'ativo', DESLIGADO: 'off' });
 const MODO_PADRAO = MODOS.ATIVO;
 const URL_PADRAO = 'https://api.typesafe.ai';
@@ -28,7 +28,7 @@ const MAXIMO_TOKENS_MINIMO = 1;
 const MAXIMO_REPETICOES = 3;
 /** Espera exponencial: 500 ms, 1 s, 2 s… limitada a 8 s (Retry-After pode aumentar). */
 const ESPERA_BASE_MS = 500;
-const ESPERA_MAXIMA_MS = 8000;
+const ESPERA_MAXIMA_MS = 8_000;
 /** Preço do Jev: US$ 0,042 por milhão de tokens de entrada (a saída não é cobrada). */
 const PRECO_USD_POR_MILHAO_ENTRADA = 0.042;
 /** Nomes aceitos para a chave; o segundo é o alias usado no .env do PROJETO-JEV-AI. */

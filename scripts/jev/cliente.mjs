@@ -36,9 +36,9 @@ const DICAS_HTTP = {
   529: ' (Jev sobrecarregado)',
 };
 const MENSAGEM_CHAVE_AUSENTE = 'TYPESAFE_API_KEY não definida: defina a variável no ambiente '
-  + 'ou no .env da raiz do rules-ai. Sem a chave o Jev não é chamado (o fluxo Laya/sinais '
-  + 'continua; JEV_MODO=off desliga o Jev).';
-const MENSAGEM_DESLIGADO = 'JEV_MODO=off: o Jev está desligado; use o fluxo Laya/sinais.';
+  + 'ou no .env da raiz do rules-ai. Sem a chave o Jev não é chamado (a classificação '
+  + 'segue só pelos sinais da skill; JEV_MODO=off desliga o Jev).';
+const MENSAGEM_DESLIGADO = 'JEV_MODO=off: o Jev está desligado; siga só pelos sinais da skill.';
 const STATE_MINIMO = { teste: 'Conexão mínima do rules-ai com o Jev.' };
 const PERGUNTAS_MINIMAS = {
   conexao: {

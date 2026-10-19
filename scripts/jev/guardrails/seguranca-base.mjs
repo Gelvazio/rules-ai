@@ -93,7 +93,7 @@ export function maiorProbabilidade(respostas, perguntas) {
 }
 
 /**
- * Pergunta aos consultores em ordem (Jev e, se houver, Laya); o primeiro que responder vale.
+ * Pergunta aos consultores em ordem (hoje só o Jev); o primeiro que responder vale.
  * @param {{state: object, perguntas: object, acao: string}} pedido State JÁ mascarado.
  * @param {{nome?: string, perguntar: Function}[]} consultores Clientes no contrato do cliente Jev.
  * @returns {Promise<{respostas: object|null, fonte: string, modelo: string|null,

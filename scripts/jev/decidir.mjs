@@ -9,7 +9,7 @@ import {
 } from './modelos.mjs';
 import { PERGUNTAS, SINAIS_PESADO, montarPerguntas } from './perguntas.mjs';
 
-/** Limiares de confiança do Jev (fórmula `(p_max − 1/n)/(1 − 1/n)`); não valem para o Laya. */
+/** Limiares de confiança do Jev (fórmula `(p_max − 1/n)/(1 − 1/n)`). */
 export const LIMIAR_AUTOMATICO = 0.8;
 export const LIMIAR_REVISAR = 0.6;
 /** Sinal `noul` a partir do qual a tarefa vira PESADO e vai para revisão. */
@@ -158,7 +158,7 @@ function montarSugestaoDeFalha(subtarefa, erro) {
   return {
     ...agregarRespostas({ subtarefa, respostas: {} }),
     acao: ACOES.REVISAR,
-    motivos: [`Jev indisponível (${codigo}); decidir pelo fluxo Laya/sinais ou por um humano`],
+    motivos: [`Jev indisponível (${codigo}); decidir só pelos sinais da skill ou por um humano`],
     erro_codigo: codigo,
   };
 }

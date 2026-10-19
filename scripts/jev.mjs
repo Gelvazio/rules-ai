@@ -1,7 +1,7 @@
 // CLI do Jev no rules-ai: classificar | guardrail | avaliar | custo.
 //   node scripts/jev.mjs classificar [--id ID] [--limite N] [--quadro tasks/STATUS.md] [--json]
 //   node scripts/jev.mjs guardrail <escopo|aceite|segredo|pasta|comando|aprovacao> [opções]
-//   node scripts/jev.mjs avaliar [opções do benchmark: --backend --variante --golden …]
+//   node scripts/jev.mjs avaliar [opções do benchmark: --variante --golden …]
 //   node scripts/jev.mjs custo [--desde AAAA-MM-DD] [--json]
 // O Jev só aconselha: nada aqui escreve no quadro, reserva tarefa ou aprova no lugar do usuário.
 // Códigos: 0 ok · 1 erro (inclui chave ausente, R1.2) · 2 JEV_MODO=off · 3 revisar · 4 bloquear ·
@@ -26,7 +26,7 @@ const AJUDA = `jev.mjs — Jev (TypeSafe) no rules-ai
   guardrail <escopo|aceite|segredo|pasta|comando|aprovacao> [--entrada json|@arquivo] [--json]
       atalhos: --texto --comando --mensagem --pergunta-pendente --caminhos a,b --descricao
       --arquivos-previstos a,b --criterios "a;b"
-  avaliar [--backend jev|laya|ambos] [--variante cego|revisor] [--golden arquivo] [--limite N]
+  avaliar [--variante cego|revisor] [--golden arquivo] [--limite N]
   custo [--desde AAAA-MM-DD] [--json]
 Códigos de saída: 0 ok · 1 erro · 2 JEV_MODO=off · 3 revisar · 4 bloquear · 5 Jev indisponível`;
 

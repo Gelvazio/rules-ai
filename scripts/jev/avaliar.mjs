@@ -1,9 +1,8 @@
-// Benchmark do Jev × Laya (JEV-RULES-AI.3): roda o golden na variante `cego` (state sem rótulo)
+// Benchmark do Jev (JEV-RULES-AI.3): roda o golden na variante `cego` (state sem rótulo)
 // ou `revisor` (state + `nivel_atual`, o vazamento do teste antigo), calcula as métricas e grava
 // JSON, Markdown e auditoria JSONL em scripts/jev/benchmarks/saidas/ (fora do Git).
-// Uso: node scripts/jev/avaliar.mjs --backend jev|laya|ambos --variante cego|revisor
-//        [--golden arquivo] [--repeticoes 1] [--concorrencia 3] [--limite N] [--semente 7]
-// O Laya (http://localhost:8000) é opcional: se não responder, registra e segue só com o Jev.
+// Uso: node scripts/jev/avaliar.mjs --variante cego|revisor
+//        [--golden arquivo] [--repeticoes 1] [--concorrencia 3] [--limite N]
 import { readFileSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
@@ -17,11 +16,7 @@ import { montarRelatorio, renderizarMarkdown } from './relatorio-avaliacao.mjs';
 const PASTA_JEV = dirname(fileURLToPath(import.meta.url));
 const GOLDEN_PADRAO = join(PASTA_JEV, 'benchmarks', 'golden.jsonl');
 const PASTA_SAIDAS = join(PASTA_JEV, 'benchmarks', 'saidas');
-const URL_LAYA = 'http://localhost:8000';
-const TIMEOUT_LAYA_MS = 30000;
-const TIMEOUT_TESTE_LAYA_MS = 3000;
 const CONCORRENCIA_PADRAO = 3;
-const SEMENTE_PADRAO = 7;
 const VARIANTES = Object.freeze({ CEGO: 'cego', REVISOR: 'revisor' });
 
 /**
@@ -73,50 +68,6 @@ function criarBackendJev() {
         latenciaMs: r.latenciaMs };
     },
   };
-}
-
-/**
- * Chama o Laya local (mesmo contrato /v1/systemone, sem chave).
- * @param {object} state State.
- * @param {number} timeoutMs Tempo máximo.
- * @returns {Promise<object>} JSON da resposta.
- */
-async function chamarLaya(state, timeoutMs) {
-  const inicio = performance.now();
-  const resposta = await fetch(new URL('/v1/systemone', URL_LAYA), {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ state, questions: montarPerguntas() }),
-    signal: AbortSignal.timeout(timeoutMs),
-  });
-  if (!resposta.ok) {
-    throw new ErroJev(`HTTP_${resposta.status}`, `Laya respondeu ${resposta.status}`);
-  }
-  const dados = await resposta.json();
-  return { dados, latenciaMs: Math.round(performance.now() - inicio) };
-}
-
-/**
- * Cria o backend Laya, ou null (com o motivo) se o servidor local não responder.
- * @returns {Promise<{backend: object|null, motivo: string|null}>} Backend ou motivo da ausência.
- */
-async function criarBackendLaya() {
-  try {
-    await chamarLaya({ teste: 'conexão' }, TIMEOUT_TESTE_LAYA_MS);
-  } catch (erro) {
-    const motivo = `Laya indisponível em ${URL_LAYA} (${erro.code ?? erro.name})`;
-    return { backend: null, motivo };
-  }
-  return { motivo: null, backend: {
-    nome: 'laya',
-    modelo: 'laya-local',
-    obterUso: () => ({ custoUsd: 0, tokensTotais: 0, chamadas: 0 }),
-    perguntar: async (state) => {
-      const { dados, latenciaMs } = await chamarLaya(state, TIMEOUT_LAYA_MS);
-      return { respostas: dados.answers, tokens: dados.usage?.input_tokens ?? 0, custoUsd: 0,
-        latenciaMs };
-    },
-  } };
 }
 
 /**
@@ -203,27 +154,18 @@ async function gravarSaidas(relatorio, registros) {
  */
 async function principal() {
   const variante = lerArgumento('variante', VARIANTES.CEGO);
-  const escolhido = lerArgumento('backend', 'jev');
   const limite = Number(lerArgumento('limite', '0')) || Infinity;
   const golden = lerGolden(resolve(lerArgumento('golden', GOLDEN_PADRAO))).slice(0, limite);
   const opcoes = { variante, repeticoes: Number(lerArgumento('repeticoes', '1')),
     concorrencia: Number(lerArgumento('concorrencia', String(CONCORRENCIA_PADRAO))) };
-  const backends = [];
-  const avisos = [];
-  if (escolhido !== 'laya') backends.push(criarBackendJev());
-  if (escolhido !== 'jev') {
-    const laya = await criarBackendLaya();
-    if (laya.backend) backends.push(laya.backend);
-    else avisos.push(laya.motivo);
-  }
+  const backends = [criarBackendJev()];
   const registros = {};
   for (const backend of backends) {
     registros[backend.nome] = await avaliarBackend(backend, golden, opcoes);
   }
   const uso = Object.fromEntries(backends.map((b) => [b.nome,
     { modelo: b.modelo, ...b.obterUso() }]));
-  const semente = Number(lerArgumento('semente', String(SEMENTE_PADRAO)));
-  const relatorio = montarRelatorio({ variante, golden, registros, uso, avisos, semente,
+  const relatorio = montarRelatorio({ variante, golden, registros, uso, avisos: [],
     repeticoes: opcoes.repeticoes });
   const prefixo = await gravarSaidas(relatorio, registros);
   console.log(renderizarMarkdown(relatorio));

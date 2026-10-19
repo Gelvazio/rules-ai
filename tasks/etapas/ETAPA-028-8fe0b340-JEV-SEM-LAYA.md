@@ -54,6 +54,7 @@ não responde, a classificação usa só os sinais da skill e o guardrail devolv
 |---|---|---|---|
 | 2026-10-19 13:10 | Tarefa criada; aguarda o "sim" ao plano | Claude Code (Opus 5.5) | tarefa grande (regra de todas as IAs) |
 | 2026-10-19 13:05 | Plano aprovado ("sim, aprovo o plano da JEV-SEM-LAYA"); só aprovação, sem executar agora — as subtarefas ficam livres para o modelo de cada uma | Gelvazio | resposta no chat (sessão do `aulasenai`) |
+| 2026-10-19 23:53 | .1 e .2 pelo Opus; .3 delegada ao executor-medio (Sonnet) a pedido do usuário ("JA CHAME O SONNET PRA FINALIZAR A TAREFA"); mãe concluída | Claude Code (Opus 5.5) | pedido no chat |
 
 ### JEV-SEM-LAYA.1 — Regra `jev.md` sem o Laya e decisão C42
 
@@ -85,11 +86,20 @@ não responde, a classificação usa só os sinais da skill e o guardrail devolv
 
 ### JEV-SEM-LAYA.3 — Código `scripts/jev/` sem o Laya
 
-**Próximo passo:** tirar a chamada ao Laya de `cliente.mjs`, `config.mjs`, `avaliar.mjs` e
-`cli/comando-classificar.mjs`, com reserva pelos sinais / `revisar`.
+**Próximo passo:** nenhum — entregue em 2026-10-19 23:53.
 
 - **Nível:** MEDIO — código com lógica, até 4 arquivos do mesmo módulo, sem banco nem chave nova.
 - **Modelo:** só Sonnet — nunca outro (C22)
 - **Effort:** medium
 - **Critérios de aceitação:** R1.2, R1.3 e R3.1 no código; `node --check` em cada arquivo.
-- **Entrega:** — · **Verificação:** —
+- **Executor:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) (local · main · rules-ai).
+- **Entrega:** commit `feat(JEV-SEM-LAYA.3)` (2026-10-19 23:53) — `avaliar.mjs` só com o backend Jev (sem
+  `--backend`), `relatorio-avaliacao.mjs` sem a comparação Jev × Laya, ajuda do `scripts/jev.mjs`,
+  textos de `cliente.mjs`, `config.mjs` (`8_000`), `cli/comando-classificar.mjs`, `decidir.mjs` e
+  `guardrails/seguranca-base.mjs` = "só pelos sinais da skill". `benchmarks/` não mudou (histórico).
+- **Verificação (conferida pelo líder):** `grep -rniE "laya|8000|answer_confidence" scripts/jev
+  scripts/jev.mjs --include=*.mjs` sem resultado fora de `benchmarks/` (R3.1); `node --check` nos 8
+  arquivos; `JEV_MODO=off node scripts/jev.mjs classificar --dry-run` → mensagem "siga só pelos
+  sinais" e código 2, sem servidor (R1.3); caminhos de falha do Jev → `revisar`, nenhum `liberar`
+  (R1.2, INV-1). `testes/invariantes.mjs` falha **antes e depois** da mudança (acha `modelo Claude`
+  nos quadros reais): problema antigo, fora desta subtarefa (em Pendências).

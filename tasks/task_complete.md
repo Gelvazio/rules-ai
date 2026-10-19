@@ -149,3 +149,5 @@
 | DASHBOARD-REDE-NEURAL.4 | Painel 2D: cálculo do neurônio, entradas e probabilidades | 🟡 Média | MEDIO · só Sonnet · effort medium | DASHBOARD-REDE-NEURAL.3 | ❌ Cancelada pelo usuário | — | [ETAPA-013](etapas/ETAPA-013-1b79ba45-DASHBOARD-REDE-NEURAL.md) |
 | JEV-SEM-LAYA.1 | 🌐 Regra `jev.md` sem o Laya e decisão C42 · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
 | JEV-SEM-LAYA.2 | 🌐 Levar às IAs (`sincronizar.mjs --aplicar`) · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-SEM-LAYA.1 | ✅ Concluído | — | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
+| JEV-SEM-LAYA.3 | Código `scripts/jev/` sem o Laya · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-SEM-LAYA.1 | ✅ Concluído | — | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
+| **JEV-SEM-LAYA** | **🌐 GLOBAL — Tirar o Laya da regra do Jev (fica só o Jev; plano aprovado)** | 🟡 Média | — | Nenhuma | ✅ Concluído | — | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |

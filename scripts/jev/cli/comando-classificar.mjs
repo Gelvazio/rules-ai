@@ -1,6 +1,7 @@
 // Subcomando `classificar`: sugere nível, effort e modelos elegíveis das subtarefas do quadro.
 // Somente leitura: não escreve no quadro, não reserva e não altera nível (INV-3). Exige a chave
-// do Jev (sem chave → código 1, R1.2) e respeita JEV_MODO=off (código 2: use o fluxo Laya/sinais).
+// do Jev (sem chave → código 1, R1.2) e respeita JEV_MODO=off
+// (código 2: siga só pelos sinais da skill).
 import { resolve } from 'node:path';
 import { criarClientePadrao } from '../cliente.mjs';
 import { MODOS, carregarConfiguracao } from '../config.mjs';
@@ -12,7 +13,7 @@ import { lerTexto } from './argumentos.mjs';
 import { CODIGOS_SAIDA, formatarConfianca, imprimir, montarTabela } from './saida.mjs';
 
 const LIMITE_PADRAO = 10;
-const MENSAGEM_DESLIGADO = 'JEV_MODO=off: o Jev está desligado; use o fluxo Laya/sinais da skill '
+const MENSAGEM_DESLIGADO = 'JEV_MODO=off: o Jev está desligado; siga só pelos sinais da skill '
   + 'classificar-tarefa.';
 const COLUNAS = ['Tarefa', 'Nível sugerido', 'Nível final', 'Effort', 'Confiança', 'Ação',
   'Modelos elegíveis', 'Motivos'];

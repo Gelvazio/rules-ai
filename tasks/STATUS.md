@@ -45,14 +45,12 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | MCP-QUADRO.5 | `task_finish`: mover para `task_complete.md` e anotar a entrega | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | MCP-QUADRO.4 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | MCP-QUADRO.6 | Instalação, documentação e ensaio em 2 projetos | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.4 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | MCP-QUADRO.7 | Rollout medido e fechamento | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.5, MCP-QUADRO.6 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
-| **JEV-SEM-LAYA** | **🌐 GLOBAL — Tirar o Laya da regra do Jev (fica só o Jev; plano aprovado)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
-| JEV-SEM-LAYA.3 | Código `scripts/jev/` sem o Laya · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-SEM-LAYA.1 | 🔄 Em execução | Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) (local · main · rules-ai) (desde 2026-10-19 23:51) · 0% | [ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md) |
 ## 🧭 Frentes de trabalho
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
 |---|---|---|---|
 | Claude Code (Opus 5.5) (local · main · aulasenai s17) | HAIKU-COMMIT-GLOBAL.1 ([ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md)) | 🔄 Ativa | 2026-10-18 20:17 |
-| Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) (local · main · rules-ai) | JEV-SEM-LAYA.3 ([ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md)) | 🔄 Ativa | 2026-10-19 23:51 |
+| Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) (local · main · rules-ai) | JEV-SEM-LAYA.3 ([ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md)) | ⏹️ Encerrada | 2026-10-19 23:53 |
 
 ## 🗂️ Etapas
 
@@ -125,6 +123,7 @@ histórico ficam em `STATUS_PROJETO.md`.
 
 | Data | Pendência | Motivo | Origem |
 |---|---|---|---|
+| 2026-10-19 23:53 | `scripts/jev/testes/invariantes.mjs` falha: o INV-1 acha `modelo Claude` nos quadros reais (`conferirQuadrosReais`) | já falhava antes da JEV-SEM-LAYA.3; fora do escopo dela (conferido com `git stash`) | JEV-SEM-LAYA.3 (etapa 028) |
 | 2026-10-18 17:40 | Calibrar o Jev: limiar dos sinais de PESADO (hoje 0,50) e limiares de confiança; meta da etapa era acurácia ≥ 0,90 e recall PESADO ≥ 0,95 (medido: 0,61 e 0,88) | ajuste exige decisão do usuário (recall × acurácia) | JEV-RULES-AI, etapa 025 |
 | 2026-10-18 17:40 | Comparar Jev × Laya (McNemar) com `node scripts/jev.mjs avaliar --backend ambos` | Laya (`localhost:8000`) estava fora do ar | JEV-RULES-AI, etapa 025 |
 | 2026-10-18 17:40 | Levar `regras/jev.md` às IAs: `node scripts/sincronizar.mjs --aplicar` | ação do usuário | JEV-RULES-AI.7/.8 |
