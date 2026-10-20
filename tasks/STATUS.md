@@ -51,6 +51,13 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | JEV-GLOBAL-AI-FINAL.23 | Fechamento: status do projeto e mapa de `C:\fontes` | 🟡 Média | LEVE · só Haiku · effort low | JEV-GLOBAL-AI-FINAL.21, JEV-GLOBAL-AI-FINAL.22 | 👀 Aguardando o usuário (mapa `C:\fontes` e `atualizar-index.cmd` no computador; `STATUS_PROJETO.md` feito) | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
 | **RULES-LOCAL-JEV** | **🌐 GLOBAL — Regras e Jev vivem dentro de cada repositório (rules-local se atualiza sozinho, também na nuvem; plano aprovado)** | 🟠 Alta | — | Nenhuma | 👀 Aguardando o usuário (só o `--aplicar` e a variável no PC) | — (não reservável) | [ETAPA-030](etapas/ETAPA-030-52084fd3-RULES-LOCAL-JEV.md) |
 | RULES-LOCAL-JEV.9 | Levar às IAs e ensaio no PC e na nuvem | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | RULES-LOCAL-JEV.7, RULES-LOCAL-JEV.8 | 👀 Aguardando o usuário (`--aplicar` e a variável `TYPESAFE_API_KEY` no Windows; nuvem ok) | — | [ETAPA-030](etapas/ETAPA-030-52084fd3-RULES-LOCAL-JEV.md) |
+| **MIGRAR-AGENTES-BROADCAST** | **Página "Agentes ao vivo" recebe o quadro por Supabase Broadcast (sem tabela; plano aguardando o "sim")** | 🟡 Média | — | Nenhuma | 👀 Aguardando o usuário | — (não reservável) | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
+| MIGRAR-AGENTES-BROADCAST.1 | Contrato do canal, endpoint confirmado e gate da spec · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
+| MIGRAR-AGENTES-BROADCAST.2 | Publicador Python e workflow do GitHub Actions · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | MIGRAR-AGENTES-BROADCAST.1 | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
+| MIGRAR-AGENTES-BROADCAST.3 | Página assina o canal e recebe o estado inicial · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | MIGRAR-AGENTES-BROADCAST.2 | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
+| MIGRAR-AGENTES-BROADCAST.4 | Fallback quando o canal cai · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | MIGRAR-AGENTES-BROADCAST.3 | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
+| MIGRAR-AGENTES-BROADCAST.5 | Documentação e fechamento · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | MIGRAR-AGENTES-BROADCAST.4 | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
+
 ## 🧭 Frentes de trabalho
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
@@ -60,7 +67,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 ## 🗂️ Etapas
 
-O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (30 arquivos). O resumo do projeto e o
+O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (31 arquivos). O resumo do projeto e o
 histórico ficam em `STATUS_PROJETO.md`.
 
 ## Registro de decisões
