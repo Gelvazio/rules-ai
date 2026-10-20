@@ -95,7 +95,7 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 | # | Pergunta | Resposta | Fechada em | Quem respondeu |
 |---|----------|----------|------------|----------------|
 | 1 | Onde roda o publicador? **Recomendado:** GitHub Actions no push (funciona com o PC desligado; exige um secret no GitHub). Alternativa: gancho local (só com o PC ligado). | ✅ GitHub Actions no push | 2026-10-20 | Usuário (aprovou as recomendações) |
-| 2 | Qual projeto Supabase usar? **Recomendado:** criar um só para os agentes, sem misturar com o `aulasenai`. Alternativa: usar o projeto que já existe. | ✅ Projeto novo, só para os agentes | 2026-10-20 | Usuário (aprovou as recomendações) |
+| 2 | Qual projeto Supabase usar? **Recomendado:** criar um só para os agentes, sem misturar com o `aulasenai`. Alternativa: usar o projeto que já existe. | ✅ ~~Projeto novo~~ → **usar o projeto `AULAS SENAI`** (`hxlvonriearllcmfqeri`), só o canal de Broadcast, sem tabela nem dado (a organização já tem 2 projetos; um 3º no plano gratuito pode ser recusado ou ter custo) | 2026-10-20 08:35 | Gelvazio (chat, mudou a resposta) |
 | 3 | Quais projetos publicam? **Recomendado:** só `rules-ai` nesta etapa. Alternativa: todos os que têm `tasks/STATUS.md` (exige o workflow em cada repositório, em outra aprovação). | ✅ Só `rules-ai` nesta etapa | 2026-10-20 | Usuário (aprovou as recomendações) |
 | 4 | Onde a página "Agentes ao vivo" fica publicada? Se for só no PC, o fallback usa `/api/agentes`. Se for no GitHub Pages, o fallback usa só o GitHub raw. | ✅ Hospedada na Vercel (hospedagem externa; o usuário publica depois). Sem servidor Python, o fallback usa só o GitHub raw | 2026-10-20 | Usuário |
 | 5 | O `rules-ai` é público? **Recomendado:** sim, para a página ler o `STATUS.md` pelo GitHub sem token. Se for privado, o estado inicial passa a depender do servidor local. | ✅ Sim: `gh repo view` confirma `PUBLIC` | 2026-10-20 | Usuário (aprovou as recomendações) e Claude Code (Haiku 5.5) (conferência) |
@@ -108,6 +108,8 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 
 - **Parser:** o publicador reaproveita `dashboard/quadro_tarefas.py` (Python) em vez de portar para Node, para não duplicar a leitura do quadro (plano, 2026-10-20).
 - **Sem tabela:** o Supabase só transmite; nada é guardado (regra `quadro-de-tarefas.md` e MCP-QUADRO).
+- **Execução na nuvem (2026-10-20 08:35):** líder "sargento" Claude Code (Opus 5.5), que só gerencia (`tasks/GERENCIADOR-HERDR/PROMPT_PARA_O_LIDER.md`); sem herdr na nuvem, os "terminais" são subagentes do nível (Opus para PESADO, Sonnet para MEDIO, Haiku para LEVE), com VIGIA e FINANCEIRO (Haiku) e orçamento de 1,5 milhão de tokens de subagentes. Respostas do usuário no chat: "Usar o AULAS SENAI", "Faço o código, você põe o secret", "Sim, adapte com subagentes".
+- **Secret do GitHub (2026-10-20 08:35):** a IA não grava secrets; código, workflow e testes vão para a `main` e o teste ao vivo (push → tela) fica 👀 até o usuário cadastrar o secret.
 - **Tripo fica no servidor local:** gasta créditos e é usada de vez em quando, então o tempo real traz pouco ganho (plano, 2026-10-20).
 - **Atraso de 30 s:** continua valendo no navegador, para a animação dos agentes, como hoje (`ATRASO_AGENTES`).
 
