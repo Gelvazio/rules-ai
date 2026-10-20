@@ -221,7 +221,7 @@ comando `mensagem` e devolve `additionalContext` com nível, modelo, `effort` e 
 - **Effort:** high
 - **Arquivos:** `scripts/sincronizar.mjs`, `settings.json` das 4 contas
 - **Critérios de aceitação:** R1.1; JSON válido antes e depois; ganchos antigos preservados.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Opus 5.5 · líder) — `scripts/jev/ganchos/instalar.mjs` chamado pelo `scripts/sincronizar.mjs`: acrescenta o `UserPromptSubmit` do Jev em `~/.claude/settings.json` e nas contas A, B e C (timeout 10 s), preserva ganchos, grava `.bak`, confere o JSON e pula arquivo inválido · **Verificação (líder):** teste com pasta de usuário falsa: ganchos antigos preservados, `.bak` criado, JSON inválido pulado sem gravar, 2ª rodada `igual`; prévia na nuvem: `mudaria Claude Code (gancho)`. Instalação de verdade = `--aplicar` no computador do usuário (.22)
 
 ### JEV-GLOBAL-AI-FINAL.12 — Gancho do Codex (global)
 
@@ -233,7 +233,7 @@ comando `mensagem` e devolve `additionalContext` com nível, modelo, `effort` e 
 - **Effort:** high
 - **Arquivos:** `scripts/sincronizar.mjs`, `~/.codex/hooks.json`
 - **Critérios de aceitação:** R1.1; JSON válido; ganchos antigos preservados.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Opus 5.5 · líder) — `scripts/jev/ganchos/codex-prompt.mjs` (reaproveita o gancho do Claude Code) e a entrada em `~/.codex/hooks.json` pelo mesmo instalador; aviso quando falta `codex_hooks = true` no `config.toml` (não editado) · **Verificação (líder):** sem chave: contexto "Jev indisponível", código 0; JSON do `hooks.json` validado no teste. Formato do Codex lido só no resumo da busca (PR #14626): conferir na versão instalada
 
 ### JEV-GLOBAL-AI-FINAL.13 — Tabela de IAs com e sem gancho de prompt
 
@@ -281,7 +281,7 @@ e tirar o Laya; commit no repositório do template.
 - **Effort:** medium
 - **Arquivos:** `C:\fontes\template-inicial-tasks-ia\.claude\skills\classificar-tarefa\SKILL.md` (e a fonte `.agents`)
 - **Critérios de aceitação:** R4.2.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `template-inicial-tasks-ia`: `.agents/skills/classificar-tarefa/SKILL.md` com a seção `### Pergunta ao Jev` (texto padrão do líder) e as cópias regeradas; commit `1957f76` no ramo `claude/untitled-session-tevg7e` (falta levar à `main`) · **Verificação (líder):** `sincronizar-agentes.mjs --checar` código 0; `grep -ci laya` = 0 e `jev` = 12 nas cópias (R4.2)
 
 ### JEV-GLOBAL-AI-FINAL.17 — Skill do `REA-APP-CLONES` chamando o Jev
 
@@ -293,7 +293,7 @@ for `.agents`).
 - **Effort:** low
 - **Arquivos:** `C:\fontes\REA-APP-CLONES\.claude\skills\classificar-tarefa\SKILL.md` (e a fonte `.agents`)
 - **Critérios de aceitação:** R4.2.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) — `rea-app-clones`: mesma seção e cópias regeradas; commit `d738997` no ramo `claude/untitled-session-tevg7e` (falta levar à `main`) · **Verificação (líder):** `--checar` código 0; laya 0, jev 12; seção idêntica ao texto padrão (R4.2)
 
 ### JEV-GLOBAL-AI-FINAL.18 — Skill do `testes-de-frontend` chamando o Jev
 
@@ -304,7 +304,7 @@ for `.agents`).
 - **Effort:** low
 - **Arquivos:** `C:\fontes\testes-de-frontend\.claude\skills\classificar-tarefa\SKILL.md` (e a fonte `.agents`)
 - **Critérios de aceitação:** R4.2.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) — `testes-de-frontend`: mesma seção e cópias regeradas; commit `9ad417d` no ramo `claude/untitled-session-tevg7e` (falta levar à `main`) · **Verificação (líder):** `--checar` código 0; laya 0, jev 12; seção idêntica ao texto padrão (R4.2)
 
 ### JEV-GLOBAL-AI-FINAL.19 — Skill do `dashboard-ai-claude-code-senai` chamando o Jev
 
@@ -316,7 +316,7 @@ dashboard dividem o repositório: commitar uma vez e puxar nas outras).
 - **Effort:** high
 - **Arquivos:** `C:\fontes\dashboard-ai-claude-code-senai\.claude\skills\classificar-tarefa\SKILL.md` (e a fonte `.agents`)
 - **Critérios de aceitação:** R4.2.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Opus 5.5 · líder) — `dashboard-ai` (repositório das cópias `dashboard-ai-*`): a seção do Laya Server virou `### Pergunta ao Jev`, limiar 0,7 → 0,60, exemplos `(Jev 0,91)`; também o agente `classificador-tarefas` e a `liderar-equipe` sem o Laya (o código `worker/` do produto não foi tocado); commit `c70369b` no ramo `claude/untitled-session-tevg7e` (falta levar à `main` e puxar nas cópias) · **Verificação (líder):** `--checar` código 0; `grep -ci laya` = 0 na skill, nas cópias e no agente (R4.2)
 
 ### JEV-GLOBAL-AI-FINAL.20 — Corrigir o INV-1 do `testes/invariantes.mjs`
 
