@@ -157,7 +157,7 @@ gancho) e o que fica fora (chave, `codex_hooks`), a C44 no `CONFLITOS.md` e a li
 - **Effort:** high
 - **Arquivos:** `regras/rules-local.md`, `regras/jev.md`, `CONFLITOS.md`, `regras/INDEX.md`
 - **Critérios de aceitação:** o texto cobre R1.1–R3.1 e INV-1–INV-3.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Opus 5.5 · executor-pesado; líder Opus 5.5) — `regras/rules-local.md` (seção `## O que vive no repositório (C44)`: pacote, gancho do projeto, o que fica fora, nuvem; lista de arquivos e limites atualizados), `regras/jev.md` (gancho do projeto, `--aplicar` tira o global, chave só do ambiente na cópia, marca de 10 s, rollback), C44 no `CONFLITOS.md` e `regras/INDEX.md`; o líder corrigiu a hora da aprovação (07:18, apontada pelo próprio executor) · **Verificação (líder):** diff lido pelo líder; `sincronizar.mjs` gerou a versão nova com a C44 no `dist/`; INV-1 ok
 
 ### RULES-LOCAL-JEV.8 — Reinstalar o `rules-local/` nos projetos
 

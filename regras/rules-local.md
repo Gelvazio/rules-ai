@@ -11,11 +11,51 @@ fora `DEMAIS-PROJETOS-*`, `scripts` e o próprio `rules-ai`, que é a fonte).
 - `rules-local/VERSAO.md` é o **arquivo controlador** da pasta: versão (`AAAA-MM-DD-<código>`) e o
   código de cada regra. Só o script grava a pasta; a `VERSAO.md` sai **por último**.
 - Arquivos: `VERSAO.md`, `regras/*.md` (inclui o `INDEX.md`), `RELATORIO.md` (última
-  sincronização) e os scripts `sessao.mjs`, `baixar.mjs`, `comparar.mjs`, `conferir.mjs`.
-- ⛔ **Não editar o `rules-local/` à mão**: o script desfaz na sessão seguinte. Regra nova ou
-  mudada se faz em `C:\fontes\rules-ai\regras\` (e chega aos projetos pela `VERSAO.md`).
+  sincronização), os scripts `sessao.mjs`, `baixar.mjs`, `comparar.mjs`, `conferir.mjs`,
+  `pacote.mjs`, `proxy.mjs`, a pasta `jev/` (código do Jev para o gancho, C44) e o `.gitignore`.
+- ⛔ **Não editar o `rules-local/` à mão** (nem `regras/`, nem os scripts, nem `jev/`): o script
+  restaura na sessão seguinte. Regra nova ou mudada se faz em `C:\fontes\rules-ai\regras\`, e
+  código do Jev em `C:\fontes\rules-ai\scripts\jev\` (chegam aos projetos pela `VERSAO.md`).
 - Na nuvem, sem `C:\fontes\rules-ai` nem `dist/`, as regras globais do projeto são as de
   `rules-local/regras/`, lidas na ordem do `rules-local/regras/INDEX.md`.
+
+## O que vive no repositório (C44)
+
+Decidido em 2026-10-20 (C44; etapa 030 do `rules-ai`, RULES-LOCAL-JEV). Cada projeto com
+`rules-local/` tem no próprio Git tudo o que a sessão precisa, e isso se atualiza sozinho.
+
+- A `VERSAO.md` traz duas tabelas: as **regras** e o **pacote** ("Pacote do rules-local").
+- O **pacote** tem os scripts do próprio `rules-local/` e os arquivos do Jev que o gancho de
+  prompt usa (só os que ele importa; sem testes nem benchmark).
+- O `sessao.mjs` baixa e confere os dois pelo código da `VERSAO.md`. Assim o `rules-local/` se
+  atualiza sozinho, inclusive os próprios scripts.
+- Projeto com `sessao.mjs` antigo continua lendo só as regras. Ele passa a trazer o pacote depois
+  de ser reinstalado **uma vez** pelo `scripts/instalar-rules-local.mjs` do `rules-ai`.
+- Mudou só o pacote → aviso `pacote atualizado (…); regras iguais (…); nada a fazer.`. Esse aviso
+  **não** dispara a sincronização de tasks.
+
+### Gancho do Jev no projeto
+
+- **Claude Code:** `UserPromptSubmit` no `.claude/settings.json` do projeto, com
+  `node "$CLAUDE_PROJECT_DIR/rules-local/jev/ganchos/claude-prompt.mjs"`.
+- **Codex:** `UserPromptSubmit` no `.codex/hooks.json` do projeto, com
+  `node rules-local/jev/ganchos/codex-prompt.mjs`.
+- Quem grava os dois é o `instalar-rules-local.mjs`, sem apagar os outros ganchos do projeto.
+- `rules-local/jev/saidas/` (auditoria e marcas do Jev) fica fora do Git (`rules-local/.gitignore`).
+- O gancho global da conta saiu: o gancho é só do projeto (`jev.md`, C43 e C44).
+
+### O que fica fora do repositório
+
+- A chave `TYPESAFE_API_KEY`: só em variável de ambiente. No PC, variável de ambiente do Windows.
+  Na nuvem, nas configurações do ambiente. ⛔ Nunca num arquivo do projeto, nem num `.env` dele.
+- O `codex_hooks = true` em `[features]` do `~/.codex/config.toml` (configuração do Codex na
+  máquina, ligada à mão).
+
+### Na nuvem
+
+- Quando há `HTTPS_PROXY`, o `sessao.mjs` e o gancho se rodam de novo com `NODE_USE_ENV_PROXY=1`.
+  Motivo: a saída direta da nuvem já entregou uma cópia velha da `main`.
+- O `sessao.mjs` e o gancho nunca falham a sessão nem bloqueiam a mensagem (código 0).
 
 ## Início da sessão
 
@@ -96,5 +136,5 @@ TASK (pergunta 1-b da etapa 019).
 - ⛔ Não criar TASK por item `sem ajuste`, nem por aviso que não seja o da frase-gatilho.
 - ⛔ Não rodar o script em pasta sem `rules-local/` (fora do escopo da C36): quem instala é o
   `scripts/instalar-rules-local.mjs` do `rules-ai`.
-- Correção nos scripts do `rules-local/` não chega pela `VERSAO.md`: chega rodando o instalador de
-  novo no projeto.
+- Correção nos scripts do `rules-local/` chega pela `VERSAO.md` (pacote, C44). Só o projeto com
+  `sessao.mjs` antigo precisa rodar o instalador de novo, uma vez.

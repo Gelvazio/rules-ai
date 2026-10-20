@@ -34,9 +34,9 @@ ordem, só para leitura. Regra nova (arquivo novo em `regras/`) entra neste índ
 14. [graphify.md](graphify.md) — Quando ler e atualizar o grafo do projeto (C11, C25)
 15. [gerenciador-centralizado.md](gerenciador-centralizado.md) — Gerenciador de tarefas (C28)
 16. [pastas-ignoradas.md](pastas-ignoradas.md) — Pastas offline e paradas, não lidas (C20, C23)
-17. [rules-local.md](rules-local.md) — Sessão nova: `rules-local/` e sincronização de tasks (C36)
+17. [rules-local.md](rules-local.md) — `rules-local/`: sessão, tasks (C36), Jev no projeto (C44)
 18. [herdr.md](herdr.md) — herdr: agentes em painéis, quando usar e o que nunca fazer (C33)
-19. [jev.md](jev.md) — Jev: nível, guardrails, mensagens (C43), modo e fallback (C39, C42)
+19. [jev.md](jev.md) — Jev: nível, guardrails, mensagens (C43, C44), modo e fallback (C39, C42)
 
 ## Assuntos específicos
 

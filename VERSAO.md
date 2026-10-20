@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-19-39b490d0
+- **Versão:** 2026-10-20-58881388
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -10,7 +10,7 @@
 
 | # | Arquivo | Código |
 |---|---------|--------|
-| 0 | INDEX.md | a706d814ca39f3eb |
+| 0 | INDEX.md | 75c72606d2c8c7a6 |
 | 1 | ciclo-da-task.md | 0f655a1970c31da1 |
 | 2 | niveis-e-modelos.md | fe4be86777932b52 |
 | 3 | frentes-e-reserva.md | 35dc8d1e8f3c16f0 |
@@ -27,9 +27,9 @@
 | 14 | graphify.md | f31357d0386045d2 |
 | 15 | gerenciador-centralizado.md | c6f5535db0d613a4 |
 | 16 | pastas-ignoradas.md | b33814d65cafd940 |
-| 17 | rules-local.md | 0b93e56531bf080b |
+| 17 | rules-local.md | 39d036270b2def36 |
 | 18 | herdr.md | 0ed9c7e0c2280ae0 |
-| 19 | jev.md | c0135ab6ead21fcb |
+| 19 | jev.md | 23f4adc018284d92 |
 | 20 | atividades-e-idioma.md | a37b651279928422 |
 
 ## Pacote do rules-local (scripts e Jev)

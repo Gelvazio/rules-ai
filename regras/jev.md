@@ -70,8 +70,9 @@ humano decidem. Código em `scripts/jev/` (sem dependência npm nova).
 2. Total: copiar `SKILL.md.bak` sobre `SKILL.md` (fonte `.agents` e cópia `.claude`). Medido: segundos.
 3. Se for preciso, reverter o commit da integração. Prazo: menos de 10 minutos.
 4. Só o gancho de mensagens: `JEV_MENSAGENS=off` desliga só o gancho (a classificação de
-   subtarefas continua). Para tirar o gancho de vez, remover a entrada `UserPromptSubmit` do `jev`
-   do `settings.json` (o `sincronizar.mjs` guarda cópia `.bak`) e do `~/.codex/hooks.json`.
+   subtarefas continua). Para tirar o gancho de vez num projeto, remover a entrada
+   `UserPromptSubmit` do Jev do `.claude/settings.json` e do `.codex/hooks.json` **do projeto**
+   (C44). O `instalar-rules-local.mjs` recoloca a entrada se for rodado de novo.
 
 ## Limites
 
@@ -87,8 +88,13 @@ respostas em 2026-10-20 00:18. Vale para toda mensagem do usuário, em todo proj
 
 ### Quando roda
 
-- Toda mensagem do usuário no Claude Code (todas as contas) e no Codex, pelo gancho de prompt
-  (`UserPromptSubmit`).
+- Toda mensagem do usuário no Claude Code e no Codex, pelo gancho de prompt (`UserPromptSubmit`)
+  **do projeto** (C44). O gancho fica no `.claude/settings.json` e no `.codex/hooks.json` do
+  projeto e roda a cópia `rules-local/jev/` (`rules-local.md`). Não é mais gancho da conta.
+- O `sincronizar.mjs --aplicar` **tira** o gancho global antigo da conta, se ele existir
+  (Claude Code em todas as contas e `~/.codex/hooks.json`; guarda cópia `.bak`).
+- A mesma mensagem não chama o Jev 2 vezes em 10 s: o gancho grava uma marca pelo `hash` dela
+  (em `saidas/`, fora do Git) e a 2ª chamada sai sem chamar o Jev.
 - Nas outras IAs, pela instrução desta regra (tabela abaixo).
 
 ### O que faz
@@ -98,7 +104,8 @@ respostas em 2026-10-20 00:18. Vale para toda mensagem do usuário, em todo proj
 - Roda os guardrails de segredo, pasta proibida, comando destrutivo e aprovação indevida no texto.
   Só **avisa**. Nunca bloqueia nem muda a mensagem (INV-2).
 - Comando: `node scripts/jev.mjs mensagem [--texto …] [--projeto …] [--dry-run] [--json]`.
-- Gancho: `scripts/jev/ganchos/claude-prompt.mjs`.
+- Gancho: `scripts/jev/ganchos/claude-prompt.mjs`, copiado para
+  `rules-local/jev/ganchos/claude-prompt.mjs` de cada projeto.
 
 ### Decisão
 
@@ -129,10 +136,12 @@ respostas em 2026-10-20 00:18. Vale para toda mensagem do usuário, em todo proj
 ### Privacidade
 
 - O texto passa por `redigir.mjs` antes do envio. Segredo bruto nunca vai à API.
-- A auditoria fica em `scripts/jev/saidas/mensagens-AAAA-MM.jsonl` (fora do Git). Guarda só
-  `hash`, nível, custo e ação. Nunca guarda o texto (INV-4).
-- A chave vem só do ambiente ou do `.env` da raiz do `rules-ai`. Nunca é copiada para outro
-  projeto nem impressa.
+- A auditoria fica em `saidas/mensagens-AAAA-MM.jsonl` (`scripts/jev/saidas/` no `rules-ai`,
+  `rules-local/jev/saidas/` no projeto; fora do Git). Guarda só `hash`, nível, custo e ação.
+  Nunca guarda o texto (INV-4).
+- No `rules-ai`, a chave vem do ambiente ou do `.env` da raiz dele. Na cópia do projeto
+  (`rules-local/jev/`), a chave vem **só do ambiente** (C44). Nunca é copiada para outro projeto
+  nem impressa.
 
 ### Fallback
 
@@ -143,8 +152,8 @@ respostas em 2026-10-20 00:18. Vale para toda mensagem do usuário, em todo proj
 
 | IA | Gancho de prompt? | Como o Jev entra | Fonte |
 |----|-------------------|------------------|-------|
-| Claude Code | Sim (`UserPromptSubmit`) | gancho `scripts/jev/ganchos/claude-prompt.mjs`, em todas as contas | `code.claude.com/docs/en/hooks` |
-| Codex | Sim (`UserPromptSubmit` em `~/.codex/hooks.json`; exige `codex_hooks = true` em `[features]` do `~/.codex/config.toml`) | gancho `scripts/jev/ganchos/codex-prompt.mjs`, instalado pelo `sincronizar.mjs` | `openai/codex` PR #14626 (lido só no resumo da busca; conferir na versão instalada) |
+| Claude Code | Sim (`UserPromptSubmit` no `.claude/settings.json` do projeto) | gancho `rules-local/jev/ganchos/claude-prompt.mjs`, gravado pelo `instalar-rules-local.mjs` (C44) | `code.claude.com/docs/en/hooks` |
+| Codex | Sim (`UserPromptSubmit` no `.codex/hooks.json` do projeto; exige `codex_hooks = true` em `[features]` do `~/.codex/config.toml`) | gancho `rules-local/jev/ganchos/codex-prompt.mjs`, gravado pelo `instalar-rules-local.mjs` (C44) | `openai/codex` PR #14626 (lido só no resumo da busca; conferir na versão instalada) |
 | Gemini CLI | não conferido (página não abriu) | instrução da regra (abaixo) | `geminicli.com/docs/hooks/reference` |
 | Grok | não conferido (página não abriu) | instrução da regra (abaixo) | `docs.x.ai/build/features/hooks` |
 | Qoder | não conferido (página não abriu) | instrução da regra (abaixo) | `docs.qoder.com/cli/hooks-reference` |
