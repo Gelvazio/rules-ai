@@ -19,10 +19,11 @@ como conselheiro (C39, C42). Hoje o Jev só roda quando alguém chama `scripts/j
   projetos que a têm (sem o Laya, com o Jev); correção do INV-1 do `testes/invariantes.mjs`; ensaio
   medido; `sincronizar.mjs --aplicar`; `STATUS_PROJETO.md` e o mapa de `C:\fontes`.
 - **Não entra:** trocar o modelo `jev-1.13.0`; benchmark novo de nível; servidor próprio; o Jev
-  decidir, reservar, escrever no quadro ou bloquear a mensagem do usuário; projetos em
+  reservar, escrever no quadro, bloquear a mensagem do usuário ou decidir o nível de subtarefas do quadro
+  (a decisão do Jev vale só na mensagem, pergunta 6); projetos em
   `DEMAIS-PROJETOS-*` (C20, C23).
 - **Número da decisão:** C41 está reservada para a HAIKU-COMMIT-GLOBAL e C42 é a JEV-SEM-LAYA; por
-  isso esta é a **C43**.
+  isso esta é a **C43**, que também muda a C39 na mensagem (o Jev decide com confiança ≥ 0,80).
 
 ### Riscos
 
@@ -32,7 +33,7 @@ como conselheiro (C39, C42). Hoje o Jev só roda quando alguém chama `scripts/j
 | Gancho deixa a IA lenta | tempo máximo por mensagem; passou → segue sem o Jev, sem erro na tela |
 | Segredo do usuário vai para a API | `redigir.mjs` antes de todo envio; auditoria só com `hash` |
 | Gancho quebra o `settings.json` de uma conta | `sincronizar.mjs` só acrescenta o gancho, guarda cópia `.bak` e confere o JSON antes de gravar |
-| Jev erra o nível | sugestão nunca decide (C39); vale o nível mais alto entre Jev e sinais; confiança < 0,60 → humano |
+| Jev erra o nível (benchmark cego: ~60% de acerto no nível final) | decide só com confiança ≥ 0,80 e sem sinal de PESADO; senão vale a matriz e a revisão humana; o ensaio da .21 mede o acerto antes do rollout |
 
 ### Requisitos
 
@@ -48,6 +49,8 @@ como conselheiro (C39, C42). Hoje o Jev só roda quando alguém chama `scripts/j
 | R3.1 | QUANDO um guardrail achar segredo, pasta proibida, comando destrutivo ou aprovação indevida na mensagem, O SISTEMA DEVE avisar no contexto da IA | .4 | rodar o gancho com um exemplo de cada: aviso presente |
 | R4.1 | QUANDO a regra mudar, O SISTEMA DEVE gravar o arquivo global de cada IA | .22 | saída do `sincronizar.mjs --aplicar` |
 | R4.2 | O SISTEMA DEVE ter a skill `classificar-tarefa` sem citar o Laya, na fonte global e nos projetos que a têm | .15, .16, .17, .18, .19 | `grep -ci laya` = 0 em cada `SKILL.md` |
+| R6.1 | QUANDO a confiança do Jev para a mensagem for ≥ 0,80 e não houver sinal de PESADO, O SISTEMA DEVE usar o nível e o modelo sugeridos pelo Jev como decisão para aquela mensagem | JEV-GLOBAL-AI-FINAL.24 | rodar o comando `mensagem` com um caso de confiança alta: saída marca `decisao: jev` |
+| R6.2 | SE a confiança do Jev for menor que 0,80 ou houver sinal de PESADO, ENTÃO O SISTEMA DEVE usar a matriz de níveis (nível mais alto entre Jev e sinais) e marcar revisão humana | JEV-GLOBAL-AI-FINAL.24 | rodar com caso de confiança baixa e com sinal de PESADO: saída marca `decisao: matriz` e `revisar` |
 | R5.1 | O SISTEMA DEVE passar no `node scripts/jev/testes/invariantes.mjs` | .20 | código de saída 0 |
 
 **Fora do escopo:** benchmark novo; servidor próprio; projetos `DEMAIS-PROJETOS-*`.
@@ -60,7 +63,7 @@ como conselheiro (C39, C42). Hoje o Jev só roda quando alguém chama `scripts/j
 | INV-2 | O gancho nunca bloqueia nem altera a mensagem do usuário: só acrescenta contexto | toda mensagem, em toda IA com gancho | leitura do gancho; ensaio da .21 | não: leitura e ensaio |
 | INV-3 | Falha do Jev nunca vira `liberar` | todo caminho de erro do gancho e dos guardrails | `grep -rn liberar scripts/jev --include=*.mjs` + leitura | não: leitura |
 | INV-4 | A chave `TYPESAFE_API_KEY` nunca aparece em log, saída ou arquivo versionado | `scripts/jev/saidas/`, saída do gancho, Git | `grep -rn "tsk_" scripts/jev/saidas` e `git grep -n tsk_` sem resultado | não: grep |
-| INV-5 | O Jev não escreve no quadro, não reserva e não decide nível em `PESADO` | toda execução | leitura; `git diff tasks/` vazio depois do ensaio | não: leitura |
+| INV-5 | O Jev não escreve no quadro e não reserva; só decide o modelo da **mensagem** com confiança ≥ 0,80 e sem sinal de PESADO; um sinal de PESADO nunca é rebaixado | toda execução | leitura de `comando-mensagem.mjs`; `git diff tasks/` vazio depois do ensaio | não: leitura |
 
 **Casos de borda:** mensagem vazia; mensagem só com anexo; mensagem com mais de 4000 caracteres
 (corta antes de enviar); sem internet; projeto sem `tasks/`; duas mensagens seguidas em menos de 1 s.
@@ -69,15 +72,14 @@ como conselheiro (C39, C42). Hoje o Jev só roda quando alguém chama `scripts/j
 
 | # | Pergunta | Resposta | Fechada em | Quem respondeu |
 |---|----------|----------|------------|----------------|
-| 1 | Em quais IAs o gancho roda? | ⬜ Proposta: Claude Code (todas as contas) e Codex; as outras só pela instrução da regra | — | — |
-| 2 | Qual o limite de custo? | ⬜ Proposta: US$ 1,00 por dia e 2.000 tokens por mensagem | — | — |
-| 3 | O guardrail na mensagem bloqueia ou só avisa? | ⬜ Proposta: só avisa (o gancho nunca bloqueia, INV-2) | — | — |
-| 4 | Quais mensagens pulam o Jev? | ⬜ Proposta: até 3 caracteres (`.`, `;`, `?`) e comandos `/` | — | — |
-| 5 | Qual o tempo máximo por mensagem? | ⬜ Proposta: 4 s | — | — |
-| 6 | A sugestão de modelo da mensagem decide quem faz? | ⬜ Proposta: não; é só conselho mostrado à IA (C39); quem decide é a matriz de níveis | — | — |
+| 1 | Em quais IAs o gancho roda? | Claude Code (todas as contas) e Codex; as outras só pela instrução da regra | 2026-10-20 00:18 | Gelvazio (chat) |
+| 2 | Qual o limite de custo? | US$ 1,00 por dia e 2.000 tokens por mensagem | 2026-10-20 00:18 | Gelvazio (chat) |
+| 3 | O guardrail na mensagem bloqueia ou só avisa? | Só avisa (o gancho nunca bloqueia, INV-2) | 2026-10-20 00:18 | Gelvazio (chat) |
+| 4 | Quais mensagens pulam o Jev? | Até 3 caracteres (`.`, `;`, `?`) e comandos `/` | 2026-10-20 00:18 | Gelvazio (chat) |
+| 5 | Qual o tempo máximo por mensagem? | 4 s | 2026-10-20 00:18 | Gelvazio (chat) |
+| 6 | A sugestão de modelo da mensagem decide quem faz? | **Sim, o Jev decide** quando a confiança for ≥ 0,80 e não houver sinal de PESADO; abaixo de 0,80, ou com sinal de PESADO, vale a matriz de níveis (nível mais alto entre Jev e sinais) e a revisão humana. Vale só para a **mensagem**: a classificação de subtarefas do quadro continua conselho (C39). Muda a C39 → decisão **C43** | 2026-10-20 00:18 | Gelvazio (chat) ("O Jev decide" · "Decide só com confiança ≥ 0,80") |
 
-As perguntas fecham com o "sim" do usuário ao plano (ou com a resposta dele a cada uma). Enquanto
-houver `⬜`, nenhuma subtarefa é reservada (C34).
+Todas fechadas em 2026-10-20 00:18 pelas respostas do usuário no chat.
 
 ### Decisões
 
@@ -85,6 +87,7 @@ houver `⬜`, nenhuma subtarefa é reservada (C34).
 |---|---|---|---|
 | 2026-10-20 00:06 | Tarefa criada e publicada sem executar; outra IA pega depois; aguarda o "sim" ao plano | Claude Code (Opus 5.5) | pedido do usuário ("SO PUBLIQUE ESSA TAREFA NO QUADO") e tarefa grande |
 | 2026-10-20 00:10 | Nível das 23 subtarefas sugerido pelo Jev (`jev.mjs classificar --id`, `jev-1.13.0`, custo total US$ 0,001); vale o nível final do Jev + sinais, e o líder só eleva: .12 e .22 de LEVE para PESADO (configuração global e mudança em massa). Ações `humano`/`revisar` conferidas pelo líder (.4, .11, .16, .19, .21 mantidas) | Claude Code (Opus 5.5) | pedido do usuário ("JA USE O *JEV AI* AGORA PRA CLASSIFICAR"); C39 (o Jev sugere, não rebaixa) |
+| 2026-10-20 00:18 | Plano aprovado ("Sim, aprovo") e as 6 perguntas respondidas no chat; a resposta da 6 (o Jev decide com confiança ≥ 0,80) muda o escopo: entram R6.1, R6.2, a subtarefa .24 e a C43 mudando a C39 na mensagem; INV-5 ajustado. Aguarda o novo "sim" a essa mudança | Gelvazio · Claude Code (Opus 5.5) | regra de mudança material de escopo (ciclo-da-task) |
 
 ### JEV-GLOBAL-AI-FINAL.1 — Regra `jev.md`: seção "Classificar mensagens" e decisão C43
 
@@ -95,7 +98,8 @@ tempo máximo, privacidade, fallback, rollback), a C43 no `CONFLITOS.md` e a lin
 - **Modelo:** só Haiku — nunca outro (C22)
 - **Effort:** low
 - **Arquivos:** `regras/jev.md`, `CONFLITOS.md`, `regras/INDEX.md`
-- **Critérios de aceitação:** R1.1 a R3.1 descritos na regra; INV-2 e INV-5 no texto.
+- **Critérios de aceitação:** R1.1 a R3.1, R6.1 e R6.2 descritos na regra; C43 muda a C39 só na
+  mensagem; INV-2 e INV-5 no texto.
 - **Entrega:** — · **Verificação:** —
 
 ### JEV-GLOBAL-AI-FINAL.2 — Subcomando `node scripts/jev.mjs mensagem`
@@ -359,4 +363,17 @@ os arquivos globais.
 - **Effort:** low
 - **Arquivos:** `STATUS_PROJETO.md`, `C:\fontes\CLAUDE.md`, `C:\fontes\AGENTS.md`
 - **Critérios de aceitação:** os dois mapas iguais; portal regravado.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.24 — O Jev decide o modelo da mensagem (confiança ≥ 0,80)
+
+**Próximo passo:** no `comando-mensagem.mjs`, marcar `decisao: jev` quando a confiança for ≥ 0,80 e
+não houver sinal de PESADO; senão `decisao: matriz` (nível mais alto entre Jev e sinais) e
+`revisar`; mostrar a decisão no contexto do gancho.
+
+- **Nível:** MEDIO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.98, ação `sugestao_automatica`
+- **Modelo:** só Sonnet — nunca outro (C22)
+- **Effort:** medium
+- **Arquivos:** `scripts/jev/cli/comando-mensagem.mjs`, `scripts/jev/decidir.mjs`
+- **Critérios de aceitação:** R6.1 e R6.2; INV-5 (sinal de PESADO nunca rebaixado).
 - **Entrega:** — · **Verificação:** —
