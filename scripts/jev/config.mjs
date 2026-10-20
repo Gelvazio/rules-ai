@@ -1,7 +1,10 @@
 // Configuração do cliente Jev (TypeSafe): modo, endpoint, modelo, limites, preço e caminhos.
 // A chave (TYPESAFE_API_KEY) vem do ambiente ou do .env da raiz do rules-ai e nunca é impressa.
 // Variáveis: JEV_MODO (ativo|off), JEV_URL, JEV_MODELO, JEV_TIMEOUT_MS, JEV_MAX_TOKENS, JEV_LOG,
-// JEV_ARQUIVO_ENV. Sem nenhuma delas, valem os padrões abaixo.
+// JEV_ARQUIVO_ENV. Das mensagens (gancho de prompt): JEV_MENSAGENS (ativo|off),
+// JEV_MAX_CUSTO_DIA (US$), JEV_MAX_TOKENS_MENSAGEM, JEV_TEMPO_MAXIMO_MENSAGEM_MS (e, para testes,
+// JEV_AUDITORIA_MENSAGENS: outro arquivo de auditoria; lida em mensagem/classificar.mjs).
+// Sem nenhuma delas, valem os padrões abaixo.
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -31,6 +34,13 @@ const ESPERA_BASE_MS = 500;
 const ESPERA_MAXIMA_MS = 8_000;
 /** Preço do Jev: US$ 0,042 por milhão de tokens de entrada (a saída não é cobrada). */
 const PRECO_USD_POR_MILHAO_ENTRADA = 0.042;
+/** Mensagens do usuário (gancho de prompt): limites padrão (JEV-GLOBAL-AI-FINAL.5, .6, .14). */
+const MAXIMO_CUSTO_DIA_PADRAO_USD = 1;
+const MAXIMO_CUSTO_DIA_MINIMO_USD = 0;
+const MAXIMO_TOKENS_MENSAGEM_PADRAO = 2000;
+const MAXIMO_TOKENS_MENSAGEM_MINIMO = 1;
+const TEMPO_MAXIMO_MENSAGEM_PADRAO_MS = 4000;
+const TEMPO_MAXIMO_MENSAGEM_MINIMO_MS = 100;
 /** Nomes aceitos para a chave; o segundo é o alias usado no .env do PROJETO-JEV-AI. */
 const NOMES_CHAVE = ['TYPESAFE_API_KEY', 'TYPE_SAFE_API_KEY'];
 const PADRAO_LINHA_ENV = /^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$/;
@@ -96,16 +106,45 @@ function lerInteiro(ambiente, nome, limites) {
 }
 
 /**
+ * Lê um número decimal do ambiente (ex.: dólares), com padrão e mínimo; aceita 0 se o mínimo for 0.
+ * @param {Record<string, string|undefined>} ambiente Variáveis de ambiente.
+ * @param {string} nome Nome da variável.
+ * @param {{padrao: number, minimo: number}} limites Padrão e menor valor aceito.
+ * @returns {number} Decimal lido ou o padrão.
+ * @throws {ErroJev} Se o valor não for número finito ou ficar abaixo do mínimo.
+ */
+function lerDecimal(ambiente, nome, limites) {
+  const texto = lerTexto(ambiente, nome, '').replace(',', '.');
+  if (!texto) return limites.padrao;
+
+  const valor = Number(texto);
+  const ehValido = Number.isFinite(valor) && valor >= limites.minimo;
+  if (!ehValido) throw erroConfiguracao(nome, `número ≥ ${limites.minimo}`);
+  return valor;
+}
+
+/**
+ * Lê uma variável de modo (`ativo` por padrão; `off` desliga).
+ * @param {Record<string, string|undefined>} ambiente Variáveis de ambiente.
+ * @param {string} nome Nome da variável (`JEV_MODO` ou `JEV_MENSAGENS`).
+ * @returns {string} Um dos valores de {@link MODOS}.
+ * @throws {ErroJev} Se o valor não for `ativo` nem `off`.
+ */
+function lerModoDe(ambiente, nome) {
+  const modo = lerTexto(ambiente, nome, MODO_PADRAO).toLowerCase();
+  const modosAceitos = Object.values(MODOS);
+  if (!modosAceitos.includes(modo)) throw erroConfiguracao(nome, modosAceitos.join(' ou '));
+  return modo;
+}
+
+/**
  * Lê o modo do Jev (`ativo` por padrão; `off` desliga).
  * @param {Record<string, string|undefined>} ambiente Variáveis de ambiente.
  * @returns {string} Um dos valores de {@link MODOS}.
  * @throws {ErroJev} Se o valor não for `ativo` nem `off`.
  */
 function lerModo(ambiente) {
-  const modo = lerTexto(ambiente, 'JEV_MODO', MODO_PADRAO).toLowerCase();
-  const modosAceitos = Object.values(MODOS);
-  if (!modosAceitos.includes(modo)) throw erroConfiguracao('JEV_MODO', modosAceitos.join(' ou '));
-  return modo;
+  return lerModoDe(ambiente, 'JEV_MODO');
 }
 
 /**
@@ -143,6 +182,30 @@ export function carregarConfiguracao(ambiente = process.env) {
     precoUsdPorMilhaoEntrada: PRECO_USD_POR_MILHAO_ENTRADA,
     arquivoLog: resolve(lerTexto(ambiente, 'JEV_LOG', ARQUIVO_LOG_PADRAO)),
     arquivoEnv: resolve(lerTexto(ambiente, 'JEV_ARQUIVO_ENV', ARQUIVO_ENV_PADRAO)),
+  });
+}
+
+/**
+ * Monta a configuração das mensagens do usuário (gancho de prompt), separada da geral para que
+ * um valor inválido aqui nunca derrube os outros subcomandos.
+ * @param {Record<string, string|undefined>} [ambiente] Variáveis de ambiente (padrão: o processo).
+ * @returns {Readonly<{modo: string, mensagens: string, maximoCustoDiaUsd: number,
+ *   maximoTokensMensagem: number, tempoMaximoMs: number}>} Modos e limites das mensagens.
+ * @throws {ErroJev} Se alguma variável estiver inválida.
+ */
+export function carregarConfiguracaoMensagem(ambiente = process.env) {
+  return Object.freeze({
+    modo: lerModo(ambiente),
+    mensagens: lerModoDe(ambiente, 'JEV_MENSAGENS'),
+    maximoCustoDiaUsd: lerDecimal(ambiente, 'JEV_MAX_CUSTO_DIA', {
+      padrao: MAXIMO_CUSTO_DIA_PADRAO_USD, minimo: MAXIMO_CUSTO_DIA_MINIMO_USD,
+    }),
+    maximoTokensMensagem: lerInteiro(ambiente, 'JEV_MAX_TOKENS_MENSAGEM', {
+      padrao: MAXIMO_TOKENS_MENSAGEM_PADRAO, minimo: MAXIMO_TOKENS_MENSAGEM_MINIMO,
+    }),
+    tempoMaximoMs: lerInteiro(ambiente, 'JEV_TEMPO_MAXIMO_MENSAGEM_MS', {
+      padrao: TEMPO_MAXIMO_MENSAGEM_PADRAO_MS, minimo: TEMPO_MAXIMO_MENSAGEM_MINIMO_MS,
+    }),
   });
 }
 

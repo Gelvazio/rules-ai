@@ -1,6 +1,7 @@
 // Liga a pasta `regras/` aos arquivos globais de cada IA (bloco gerenciado, sem tocar no resto).
 // Uso: node scripts/sincronizar.mjs            -> só mostra o que faria (nada é gravado)
 //      node scripts/sincronizar.mjs --aplicar  -> grava, com cópia .bak do arquivo original
+// Também instala o gancho de prompt do Jev (Claude Code e Codex): scripts/jev/ganchos/instalar.mjs
 import { createHash } from 'node:crypto';
 import {
   copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync,
@@ -8,6 +9,7 @@ import {
 import { homedir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { sincronizarGanchos } from './jev/ganchos/instalar.mjs';
 
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PASTA_REGRAS = join(RAIZ, 'regras');
@@ -259,7 +261,7 @@ function gravarVersao() {
   console.log(`versão gravada: ${versao} (${ARQUIVO_VERSAO})`);
 }
 
-/** Gera o unificado e sincroniza todos os destinos. */
+/** Gera o unificado, sincroniza todos os destinos e o gancho de prompt do Jev (C43). */
 function principal() {
   const unificado = montarUnificado();
   mkdirSync(dirname(ARQUIVO_UNIFICADO), { recursive: true });
@@ -267,6 +269,7 @@ function principal() {
   console.log(`unificado: ${ARQUIVO_UNIFICADO}`);
   gravarVersao();
   DESTINOS.forEach((destino) => sincronizarDestino(destino, unificado));
+  sincronizarGanchos({ aplicar: APLICAR });
 }
 
 principal();

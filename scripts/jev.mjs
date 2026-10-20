@@ -1,5 +1,6 @@
-// CLI do Jev no rules-ai: classificar | guardrail | avaliar | custo.
+// CLI do Jev no rules-ai: classificar | mensagem | guardrail | avaliar | custo.
 //   node scripts/jev.mjs classificar [--id ID] [--limite N] [--quadro tasks/STATUS.md] [--json]
+//   node scripts/jev.mjs mensagem [--texto "..."] [--projeto nome] [--dry-run] [--json]
 //   node scripts/jev.mjs guardrail <escopo|aceite|segredo|pasta|comando|aprovacao> [opções]
 //   node scripts/jev.mjs avaliar [opções do benchmark: --variante --golden …]
 //   node scripts/jev.mjs custo [--desde AAAA-MM-DD] [--json]
@@ -12,10 +13,12 @@ import { executarAvaliar } from './jev/cli/comando-avaliar.mjs';
 import { executarClassificar } from './jev/cli/comando-classificar.mjs';
 import { executarCusto } from './jev/cli/comando-custo.mjs';
 import { executarGuardrail } from './jev/cli/comando-guardrail.mjs';
+import { executarMensagem } from './jev/cli/comando-mensagem.mjs';
 import { CODIGOS_SAIDA } from './jev/cli/saida.mjs';
 
 const COMANDOS = Object.freeze({
   classificar: executarClassificar,
+  mensagem: executarMensagem,
   guardrail: executarGuardrail,
   avaliar: executarAvaliar,
   custo: executarCusto,
@@ -23,6 +26,9 @@ const COMANDOS = Object.freeze({
 const AJUDA = `jev.mjs — Jev (TypeSafe) no rules-ai
   classificar [--id ID] [--limite N] [--todas] [--quadro arquivo] [--dry-run] [--json]
       sugere nível, effort e modelos elegíveis (somente leitura; exige TYPESAFE_API_KEY)
+  mensagem [--texto "..."] [--projeto nome] [--dry-run] [--json]
+      classifica a mensagem do usuário (texto pela entrada padrão se faltar --texto); sai com 0
+      mesmo se o Jev falhar (aí vale só a skill); --dry-run mostra o state mascarado
   guardrail <escopo|aceite|segredo|pasta|comando|aprovacao> [--entrada json|@arquivo] [--json]
       atalhos: --texto --comando --mensagem --pergunta-pendente --caminhos a,b --descricao
       --arquivos-previstos a,b --criterios "a;b"

@@ -57,8 +57,10 @@ humano decidem. Código em `scripts/jev/` (sem dependência npm nova).
 - Ativo desde 2026-10-18: cliente, coletor cego, perguntas, matriz, agregação, 6 guardrails, CLI
   `node scripts/jev.mjs classificar | guardrail | avaliar | custo` e a skill `classificar-tarefa`
   (tenta o Jev primeiro; sem chave, `off` ou falha segue só pelos sinais).
-- Benchmark cego (180 itens, `scripts/jev/benchmarks/`): nível final 0,60–0,61, só `nivel` 0,66–0,67,
-  recall de PESADO 0,883 (final). O "15/15" antigo vazava `nivel_atual` (com ele: 0,85). Uso real: `confianca` < 0,60 pede decisão humana; o Jev não decide sozinho.
+- Benchmark cego (180 itens, `scripts/jev/benchmarks/`): nível final 0,60–0,61, só `nivel`
+  0,66–0,67, recall de PESADO 0,883 (final). O "15/15" antigo vazava `nivel_atual` (com ele:
+  0,85). Uso real: `confianca` < 0,60 pede decisão humana. Nas subtarefas o Jev não decide
+  sozinho; na mensagem, ver C43.
 - Se o Jev falhar em PT-BR ou em decisão irreversível, não usar a sugestão sem revisão humana.
 
 ## Rollback
@@ -67,9 +69,99 @@ humano decidem. Código em `scripts/jev/` (sem dependência npm nova).
    só pelos sinais; guardrails ambíguos viram `revisar`, os determinísticos continuam.
 2. Total: copiar `SKILL.md.bak` sobre `SKILL.md` (fonte `.agents` e cópia `.claude`). Medido: segundos.
 3. Se for preciso, reverter o commit da integração. Prazo: menos de 10 minutos.
+4. Só o gancho de mensagens: `JEV_MENSAGENS=off` desliga só o gancho (a classificação de
+   subtarefas continua). Para tirar o gancho de vez, remover a entrada `UserPromptSubmit` do `jev`
+   do `settings.json` (o `sincronizar.mjs` guarda cópia `.bak`) e do `~/.codex/hooks.json`.
 
 ## Limites
 
-- ⛔ Não usar o Jev para decidir sozinho nível, modelo ou `effort` em tarefa `PESADO`.
+- ⛔ Não usar o Jev para decidir sozinho nível, modelo ou `effort` em subtarefa ou tarefa
+  `PESADO`. Na mensagem, o Jev decide só com confiança ≥ 0,80 e sem sinal de PESADO (C43).
 - ⛔ Não enviar conteúdo de pasta proibida, diff inteiro ou `.env` ao Jev.
 - ⛔ Não trocar `jev-1.13.0` por `jev-latest` sem nova validação no benchmark.
+
+## Classificar mensagens (C43)
+
+Decidido em 2026-10-20 (etapa 029, JEV-GLOBAL-AI-FINAL). Pedido do usuário em 2026-10-20 00:06 e
+respostas em 2026-10-20 00:18. Vale para toda mensagem do usuário, em todo projeto de `C:\fontes`.
+
+### Quando roda
+
+- Toda mensagem do usuário no Claude Code (todas as contas) e no Codex, pelo gancho de prompt
+  (`UserPromptSubmit`).
+- Nas outras IAs, pela instrução desta regra (tabela abaixo).
+
+### O que faz
+
+- Sugere nível, modelo e `effort` para o pedido. A sugestão entra no contexto da IA antes da
+  resposta.
+- Roda os guardrails de segredo, pasta proibida, comando destrutivo e aprovação indevida no texto.
+  Só **avisa**. Nunca bloqueia nem muda a mensagem (INV-2).
+- Comando: `node scripts/jev.mjs mensagem [--texto …] [--projeto …] [--dry-run] [--json]`.
+- Gancho: `scripts/jev/ganchos/claude-prompt.mjs`.
+
+### Decisão
+
+- Confiança ≥ 0,80 e nenhum sinal de PESADO → `decisao: jev`. O Jev decide o modelo daquela
+  mensagem.
+- Senão → `decisao: matriz`. Vale o nível mais alto entre o Jev e os sinais, e a mensagem vai
+  para revisão humana (`revisar`).
+- A decisão vale só para a mensagem. A classificação de subtarefas do quadro continua conselho
+  (C39).
+- ⛔ Um sinal de PESADO nunca é rebaixado (INV-5).
+
+### Mensagens puladas
+
+- Até 3 caracteres (`.`, `;`, `?`).
+- Mensagens que começam com `/` (comandos).
+
+### Custo
+
+- `JEV_MAX_CUSTO_DIA`: US$ 1,00 por dia.
+- `JEV_MAX_TOKENS_MENSAGEM`: 2.000 tokens por mensagem.
+- Estourou o limite do dia → só sinais até o dia seguinte.
+
+### Tempo máximo
+
+- `JEV_TEMPO_MAXIMO_MENSAGEM_MS`: 4 s por mensagem.
+- Passou do tempo → segue sem o Jev, sem erro na tela.
+
+### Privacidade
+
+- O texto passa por `redigir.mjs` antes do envio. Segredo bruto nunca vai à API.
+- A auditoria fica em `scripts/jev/saidas/mensagens-AAAA-MM.jsonl` (fora do Git). Guarda só
+  `hash`, nível, custo e ação. Nunca guarda o texto (INV-4).
+- A chave vem só do ambiente ou do `.env` da raiz do `rules-ai`. Nunca é copiada para outro
+  projeto nem impressa.
+
+### Fallback
+
+- Falha, sem chave, `JEV_MODO=off` ou `JEV_MENSAGENS=off` → só sinais. A mensagem passa.
+- Nenhum caminho de erro vira `liberar` (INV-3).
+
+### Quais IAs têm gancho de prompt
+
+| IA | Gancho de prompt? | Como o Jev entra | Fonte |
+|----|-------------------|------------------|-------|
+| Claude Code | Sim (`UserPromptSubmit`) | gancho `scripts/jev/ganchos/claude-prompt.mjs`, em todas as contas | `code.claude.com/docs/en/hooks` |
+| Codex | Sim (`UserPromptSubmit` em `~/.codex/hooks.json`; exige `codex_hooks = true` em `[features]` do `~/.codex/config.toml`) | gancho `scripts/jev/ganchos/codex-prompt.mjs`, instalado pelo `sincronizar.mjs` | `openai/codex` PR #14626 (lido só no resumo da busca; conferir na versão instalada) |
+| Gemini CLI | não conferido (página não abriu) | instrução da regra (abaixo) | `geminicli.com/docs/hooks/reference` |
+| Grok | não conferido (página não abriu) | instrução da regra (abaixo) | `docs.x.ai/build/features/hooks` |
+| Qoder | não conferido (página não abriu) | instrução da regra (abaixo) | `docs.qoder.com/cli/hooks-reference` |
+| opencode | não conferido (fontes divergem, espelho) | instrução da regra (abaixo) | `mintlify.com/anomalyco/opencode/sdk/plugin-api` |
+| Devin | não conferido (não cita gancho) | instrução da regra (abaixo) | `cli.devin.ai/docs/essential-commands` |
+| Kiro | não conferido (página não abriu) | instrução da regra (abaixo) | `kiro.dev/docs/cli/hooks` |
+| Hermes Agent | não conferido (página não abriu) | instrução da regra (abaixo) | `hermes-agent.nousresearch.com/docs/user-guide/features/hooks` |
+| Kilo Code | não conferido (não é gancho) | instrução da regra (abaixo) | `kilo.ai/docs/features/footgun-prompting` |
+
+"Não conferido" é tratado como **sem gancho** até alguém conferir a página oficial.
+
+### IAs sem gancho de prompt
+
+- Antes de responder pedido que muda algo (código, arquivo, quadro ou comando), rodar
+  `node C:\fontes\rules-ai\scripts\jev.mjs mensagem --texto "<pedido>"` e seguir a linha
+  `decisao`: `jev` → nível e modelo do Jev; `matriz` ou `sinais` → matriz de
+  `niveis-e-modelos.md` e skill `classificar-tarefa`.
+- Se o comando falhar, seguir pelos sinais da skill `classificar-tarefa`, sem bloquear a resposta.
+- Pergunta, conversa e mensagens puladas (até 3 caracteres ou que começam com `/`) não precisam
+  do comando.

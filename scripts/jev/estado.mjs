@@ -230,7 +230,7 @@ function montarDescricao(linhas) {
 export function montarStateCego(item, secao) {
   const linhas = secao ? secao.split(/\r?\n/).slice(1) : [];
   return {
-    subtarefa: item.id,
+    subtarefa: sanitizarTexto(item.id),
     titulo: sanitizarTexto(item.titulo),
     etapa: item.etapa?.rotulo ?? '',
     prioridade: item.prioridade,
