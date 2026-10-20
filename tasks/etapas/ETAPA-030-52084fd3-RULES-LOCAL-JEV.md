@@ -169,7 +169,7 @@ conferir, e depois nos outros da resposta da pergunta 2; um commit por projeto, 
 - **Effort:** high
 - **Arquivos:** `rules-local/`, `.claude/settings.json`, `.codex/hooks.json` dos projetos
 - **Critérios de aceitação:** R1.2, R2.1; `conferir.mjs` ok em cada um.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Opus 5.5 · líder) — `instalar-rules-local.mjs` nos 8 repositórios, na `main`: testes-de-frontend `5ef21e3` (piloto), template-inicial-tasks-ia `32f420a`, dashboard-ai `05c6a24`, PLATAFORMA-ENVIO-CURRICULOS `72193ea`, gerenciador-de-ia `0be7036`, testes-effort-padaria `594a472`, rea-app-clones `51a78c7`, aulasenai `87b058c`; todos em `2026-10-20-58881388`. Sincronização de tasks: 1 TASK nova (`RL-58881388-NIVEIS-E-MODELOS` no REA: matriz da skill desatualizada); no aulasenai o `jev.md` aponta para a #295 que já existe (tirar o Laya); o resto sem ajuste · **Verificação (líder):** 8/8 `rules-local íntegro (versão 2026-10-20-58881388)`; ganchos antigos preservados (diff lido no piloto); 0 `.env`/`saidas` nos commits; clone NOVO do piloto tirado do GitHub: `versão igual` e o gancho do projeto respondeu com o Jev real (R1.2, R2.1)
 
 ### RULES-LOCAL-JEV.9 — Levar às IAs e ensaio no PC e na nuvem
 
@@ -181,4 +181,4 @@ conferir, e depois nos outros da resposta da pergunta 2; um commit por projeto, 
 - **Effort:** high
 - **Arquivos:** `dist/`, `VERSAO.md`, esta etapa
 - **Critérios de aceitação:** R1.1, R2.1, R2.2, R4.1 com números.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Opus 5.5 · líder) — parte da nuvem: `sincronizar.mjs` gerou `2026-10-20-58881388` (C44 no `dist/`); sessão nova num clone novo do piloto atualizou sozinha pelo proxy e o 1º prompt trouxe o contexto do Jev real. Falta no PC: `node scripts/sincronizar.mjs --aplicar` (grava as regras nas IAs e TIRA o gancho global antigo) e a variável `TYPESAFE_API_KEY` no Windows · **Verificação (líder):** nuvem: R1.1 (versão da `main` na hora), R2.1 e R2.2 (marca de 10 s) conferidos; PC: aguardando o usuário

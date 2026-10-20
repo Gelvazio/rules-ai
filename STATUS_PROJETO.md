@@ -143,3 +143,8 @@ detalhe de cada tarefa-mãe.
   PESADO); 👀 aguardando o "sim" e 4 perguntas. A JEV-GLOBAL-AI-FINAL foi levada à `main` nos 5
   repositórios; os ramos `claude/untitled-session-tevg7e` ficam para o usuário apagar (a nuvem
   recusa apagar ramo, HTTP 403).
+- 2026-10-20 08:30 (Brasília): RULES-LOCAL-JEV (etapa 030, C44) feita na nuvem: o `rules-local/`
+  traz o pacote (scripts e Jev) e se atualiza sozinho, inclusive na nuvem (proxy); o gancho do
+  Jev é do projeto; chave só da variável de ambiente. Instalado nos 8 repositórios (versão
+  `2026-10-20-58881388`); 1 TASK nova no REA (matriz da skill). Falta no PC: `--aplicar` (tira
+  o gancho global) e a variável `TYPESAFE_API_KEY` no Windows.
