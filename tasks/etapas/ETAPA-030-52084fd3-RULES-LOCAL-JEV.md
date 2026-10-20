@@ -63,16 +63,17 @@ sozinho no início de cada sessão, no PC e na nuvem. Só a chave (`TYPESAFE_API
 
 | # | Pergunta | Resposta | Fechada em | Quem respondeu |
 |---|----------|----------|------------|----------------|
-| 1 | O gancho **global** da conta (JEV-GLOBAL-AI-FINAL .11) continua para os projetos sem `rules-local/`, ou sai e fica só o do projeto? | — | — | — |
-| 2 | Vale para todos os projetos que já têm `rules-local/` (os 20 da RULES-LOCAL-GLOBAL) ou só para os 5 de hoje? | — | — | — |
-| 3 | A cópia do Jev em cada projeto pode ter ≈ 30 arquivos (só o que o gancho usa)? | — | — | — |
-| 4 | No PC, a chave fica numa variável de ambiente do Windows (vale para todos os projetos) ou só no `.env` do `rules-ai`? | — | — | — |
+| 1 | O gancho **global** da conta (JEV-GLOBAL-AI-FINAL .11) continua para os projetos sem `rules-local/`, ou sai e fica só o do projeto? | **Só o do projeto**: o gancho global da conta sai; o `sincronizar.mjs` deixa de instalá-lo e tira a entrada do Jev se já existir | 2026-10-20 07:18 | Gelvazio (chat) |
+| 2 | Vale para todos os projetos que já têm `rules-local/` (os 20 da RULES-LOCAL-GLOBAL) ou só para os 5 de hoje? | **Todos** os projetos com `rules-local/`: 8 repositórios no GitHub (template-inicial-tasks-ia, aulasenai, dashboard-ai, PLATAFORMA-ENVIO-CURRICULOS, rea-app-clones, gerenciador-de-ia, testes-de-frontend, testes-effort-padaria); os clones de `C:\fontes` recebem pelo `git pull` | 2026-10-20 07:18 | Gelvazio (chat) |
+| 3 | A cópia do Jev em cada projeto pode ter ≈ 30 arquivos (só o que o gancho usa)? | **Sim** (só os arquivos que o gancho importa) | 2026-10-20 07:18 | Gelvazio (chat) |
+| 4 | No PC, a chave fica numa variável de ambiente do Windows (vale para todos os projetos) ou só no `.env` do `rules-ai`? | **Variável de ambiente** do Windows: a cópia do Jev nos projetos lê a chave só do ambiente (nenhum `.env`) | 2026-10-20 07:18 | Gelvazio (chat) |
 
 ### Decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
 | 2026-10-20 07:10 | Tarefa criada com o plano; nível das 9 subtarefas pelo Jev real (`jev.mjs classificar --id`, `jev-1.13.0`, custo US$ 0,0004); o líder só eleva: .3, .4 e .9 para PESADO (configuração e mudança em massa). Ficam 2 MEDIO (.1, .5) e 7 PESADO. Aguarda o "sim" e as 4 respostas | Claude Code (Opus 5.5) | pedido do usuário ("sim, crie a tarefa"); tarefa grande (mudança em massa e chave) |
+| 2026-10-20 07:18 | Plano aprovado ("sim, aprovo; 1 só do projeto, 2 todos, 3 sim, 4 variável"). Desenho: a `VERSAO.md` ganha a tabela dos arquivos do Jev (a lista sai das importações do `ganchos/claude-prompt.mjs`, sem testes nem benchmark) e o código da versão passa a cobri-los; o `sessao.mjs` baixa `scripts/jev/<arquivo>` para `rules-local/jev/<arquivo>`; dentro de `rules-local/jev/` a chave vem só do ambiente e `saidas/` fica fora do Git; na nuvem, o `sessao.mjs` e o gancho se rodam de novo com `NODE_USE_ENV_PROXY=1` quando há `HTTPS_PROXY` (a saída direta da nuvem entregou cópia velha da `main`) | Gelvazio · Claude Code (Opus 5.5) | respostas do usuário no chat; ensaio de 2026-10-20 07:30 (pelo proxy, versão atual na hora) |
 
 ### RULES-LOCAL-JEV.1 — Download atual na nuvem (`baixar.mjs` e `sessao.mjs`)
 
