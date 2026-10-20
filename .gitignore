@@ -152,8 +152,8 @@ dist/
 tasks/.sessao-ativa
 dashboard/scripts/saida/
 __pycache__/
-dashboard/graphs/.env
-dashboard/graphs/modelos/
+dashboard/.env
+dashboard/modelos/
 
 # Logs do cliente Jev (JEV-RULES-AI)
 scripts/jev/saidas/*

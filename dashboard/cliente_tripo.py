@@ -28,7 +28,7 @@ def chamar(metodo, caminho, corpo=None, chave=""):
     """
     chave = chave or chave_tripo()
     if not chave:
-        raise ErroTripo("Chave da Tripo não configurada: use a engrenagem ⚙ ou o graphs/.env")
+        raise ErroTripo("Chave da Tripo não configurada: use a engrenagem ⚙ ou o dashboard/.env")
     dados = json.dumps(corpo).encode("utf-8") if corpo is not None else None
     pedido = urllib.request.Request(URL_BASE_TRIPO + caminho, data=dados, method=metodo)
     pedido.add_header("Authorization", f"Bearer {chave}")

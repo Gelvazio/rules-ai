@@ -1,4 +1,4 @@
-"""Cenas montadas a partir dos prompts (graphs/cenas/*.json) e os GLB gerados para cada objeto."""
+"""Cenas montadas a partir dos prompts (cenas/*.json) e os GLB gerados para cada objeto."""
 import json
 import re
 
@@ -26,7 +26,7 @@ def ler_cena(cena):
 
 
 def com_arquivos(dados):
-    """Acrescenta a cada objeto o caminho do GLB (relativo a graphs/) se ele já existir."""
+    """Acrescenta a cada objeto o caminho do GLB (relativo a dashboard/) se ele já existir."""
     for objeto in dados["objetos"]:
         glb = caminho_glb(dados["id"], objeto["id"])
         objeto["arquivo"] = f"modelos/cenas/{dados['id']}/{objeto['id']}.glb" if glb.exists() else None

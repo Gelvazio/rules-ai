@@ -1,4 +1,4 @@
-"""Modelos gerados salvos em graphs/modelos/ (um .glb e um .json de metadados cada)."""
+"""Modelos gerados salvos em dashboard/modelos/ (um .glb e um .json de metadados cada)."""
 import json
 import re
 from datetime import datetime

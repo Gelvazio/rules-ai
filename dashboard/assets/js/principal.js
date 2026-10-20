@@ -81,9 +81,9 @@ async function aoGerar(evento) {
 }
 
 function descreverEstado(estado) {
-  if (!estado) return 'Abra pelo servidor local (python dashboard/graphs/servidor.py) para gerar e ver a galeria.';
+  if (!estado) return 'Abra pelo servidor local (python dashboard/servidor.py) para gerar e ver a galeria.';
   if (!temChave(estado)) return 'Sem chave da Tripo: clique na engrenagem ⚙ para informar a sua.';
-  const origem = estado.chave_no_pedido ? 'chave deste navegador' : 'chave do graphs/.env';
+  const origem = estado.chave_no_pedido ? 'chave deste navegador' : 'chave do dashboard/.env';
   return `Pronto para gerar (${origem}) · ${estado.geracoes_feitas}/${estado.limite_geracoes} gerações nesta execução.`;
 }
 

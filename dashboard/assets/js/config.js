@@ -1,6 +1,6 @@
 // Constantes da página 3D GRAPHS AI (sem lógica).
 
-/** Rotas do servidor local (graphs/servidor.py). */
+/** Rotas do servidor local (servidor.py). */
 export const ROTAS = Object.freeze({
   estado: '/api/estado',
   modelos: '/api/modelos',

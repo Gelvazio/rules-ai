@@ -149,3 +149,4 @@ detalhe de cada tarefa-mãe.
   `2026-10-20-58881388`); 1 TASK nova no REA (matriz da skill). Falta no PC: `--aplicar` (tira
   o gancho global) e a variável `TYPESAFE_API_KEY` no Windows.
 - 2026-10-20 10:49 (Brasília): `dashboard/` reorganizado — o conteúdo de `dashboard/graphs/` (página "Agentes ao vivo", servidor Python, cliente Tripo, cenas e JS) passou para a raiz do `dashboard/`; corrigido o link do `base.css` no `dashboard/index.html` (`../assets/css/` → `assets/css/`).
+- 2026-10-20 (Brasília): `dashboard/` sem a pasta `graphs/` — `config_graphs.py` usa a pasta do próprio `dashboard` (`.env`, `cenas/`, `modelos/`; `C:\fontes` e o projeto `rules-ai` continuam certos), textos do `servidor.py`, JS, README e `TRIPO_AI_DOCS.md` sem `graphs/`, `.gitignore` com `dashboard/.env` e `dashboard/modelos/`, e as cópias antigas de `graphs/assets/` removidas.

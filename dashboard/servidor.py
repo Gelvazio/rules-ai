@@ -1,7 +1,7 @@
 """Servidor local do dashboard com a API do 3D GRAPHS AI.
 
-Uso: python dashboard/graphs/servidor.py [porta]
-Abre: http://localhost:8080 (dashboard) e http://localhost:8080/graphs/ (3D GRAPHS AI)
+Uso: python dashboard/servidor.py [porta]
+Abre: http://localhost:8080 (dashboard "Agentes ao vivo", com o 3D GRAPHS AI)
 """
 import json
 import re
@@ -152,7 +152,7 @@ def main():
     manipulador = partial(Manipulador, directory=str(PASTA_DASHBOARD))
     servidor = ThreadingHTTPServer((HOST, porta), manipulador)
     situacao = "configurada" if chave_tripo() else "NÃO configurada (só visualização)"
-    print(f"Dashboard: http://localhost:{porta}/  ·  3D GRAPHS AI: http://localhost:{porta}/graphs/")
+    print(f"Dashboard: http://localhost:{porta}/")
     print(f"Chave da Tripo: {situacao}. Ctrl+C para parar.")
     try:
         servidor.serve_forever()

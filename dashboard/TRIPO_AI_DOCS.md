@@ -411,7 +411,7 @@ para o User-Agent padrão do Python (`urllib`). Mande um User-Agent próprio.
 - A página do SDK mostra a mesma URL para global e China; a URL da China não foi confirmada.
 - Prefixo da chave: `tsk_` na página do SDK, `sk-` no início rápido.
 
-## 11. Situação no nosso dashboard (`dashboard/graphs/`)
+## 11. Situação no nosso dashboard (`dashboard/`)
 
 **Atualização (2026-10-17 16:44): o dashboard já foi migrado para a V3** (tabela abaixo mantida como referência).
 

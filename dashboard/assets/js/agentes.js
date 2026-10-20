@@ -83,7 +83,7 @@ async function iniciar() {
     primeiro = await lerAgentes(PROJETO);
   } catch (erro) {
     if (erro instanceof TypeError || /404/.test(erro.message)) {
-      throw new Error('abra pelo servidor local (python dashboard/graphs/servidor.py); '
+      throw new Error('abra pelo servidor local (python dashboard/servidor.py); '
         + 'se ele já estava rodando, reinicie-o para ganhar a rota /api/agentes.');
     }
     throw erro;

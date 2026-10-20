@@ -72,7 +72,7 @@ async function gerarFaltantes(dados, faltam) {
 function textoSemChave(doServidor) {
   return doServidor
     ? 'Para gerar: clique na engrenagem ⚙ e salve a sua chave da Tripo.'
-    : 'Para gerar: abra pelo servidor local (python dashboard/graphs/servidor.py).';
+    : 'Para gerar: abra pelo servidor local (python dashboard/servidor.py).';
 }
 
 /** Consulta o servidor (com a chave do navegador) e liga ou desliga o botão de gerar. */

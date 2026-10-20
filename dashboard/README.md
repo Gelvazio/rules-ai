@@ -29,15 +29,15 @@ Fonte: `dashboard/scripts/saida/coleta.json` (coleta de 2026-10-17).
 2. Rode, a partir de `C:\fontes\rules-ai`:
 
    ```
-   python dashboard/graphs/servidor.py
+   python dashboard/servidor.py
    ```
 
-3. Abra http://localhost:8080/ (dashboard) ou http://localhost:8080/graphs/.
+3. Abra http://localhost:8080/.
 
 O **saldo de créditos** aparece no cabeçalho, ao lado da ⚙ (verde com 10 ou mais créditos, vermelho abaixo disso, e os créditos reservados por gerações em andamento). Ele atualiza ao abrir a página, ao salvar a chave e depois de cada geração.
 
 Cada geração pede confirmação de custo; o servidor aceita no máximo `LIMITE_GERACOES` (padrão 5)
-por execução. Os GLB gerados ficam em `graphs/modelos/` (fora do Git).
+por execução. Os GLB gerados ficam em `modelos/` (fora do Git).
 
 ## Cena do prompt 04 (`cena.html`)
 

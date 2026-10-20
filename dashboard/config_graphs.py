@@ -2,10 +2,9 @@
 import os
 from pathlib import Path
 
-PASTA_GRAPHS = Path(__file__).resolve().parent
-PASTA_DASHBOARD = PASTA_GRAPHS.parent
-PASTA_MODELOS = PASTA_GRAPHS / "modelos"
-ARQUIVO_ENV = PASTA_GRAPHS / ".env"
+PASTA_DASHBOARD = Path(__file__).resolve().parent
+PASTA_MODELOS = PASTA_DASHBOARD / "modelos"
+ARQUIVO_ENV = PASTA_DASHBOARD / ".env"
 
 HOST = "127.0.0.1"
 PORTA_PADRAO = 8080
@@ -20,10 +19,10 @@ CAMPOS_MODELO_SAIDA = ("model_url", "pbr_model", "model")
 CAMPOS_IMAGEM_SAIDA = ("rendered_image_url", "rendered_image")
 STATUS_FINAIS = {"success", "failed", "banned", "expired", "cancelled", "unknown"}
 
-PASTA_CENAS = PASTA_GRAPHS / "cenas"
+PASTA_CENAS = PASTA_DASHBOARD / "cenas"
 PASTA_MODELOS_CENAS = PASTA_MODELOS / "cenas"
 
-# Página "Agentes ao vivo": projetos em C:ontes (cada um com tasks/STATUS.md), o projeto aberto
+# Página "Agentes ao vivo": projetos em C:\fontes (cada um com tasks/STATUS.md), o projeto aberto
 # por padrão e o intervalo de leitura do quadro.
 PASTA_FONTES = PASTA_DASHBOARD.parent.parent
 PROJETO_PADRAO = PASTA_DASHBOARD.parent.name

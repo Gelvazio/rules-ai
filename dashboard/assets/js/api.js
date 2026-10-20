@@ -1,5 +1,5 @@
 // Chamadas ao servidor local. A chave do localStorage vai só para ele (cabeçalho
-// X-Tripo-Key), que a repassa à Tripo; sem ela, o servidor usa o graphs/.env.
+// X-Tripo-Key), que a repassa à Tripo; sem ela, o servidor usa o dashboard/.env.
 import { lerChave } from './chave.js';
 import { INTERVALO_CONSULTA_MS, ROTAS, TEMPO_MAXIMO_MS } from './config.js';
 
