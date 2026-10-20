@@ -1,6 +1,6 @@
 # Status do projeto rules-ai
 
-**Atualizado em:** 2026-10-20 00:19 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
+**Atualizado em:** 2026-10-20 01:10 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
 **Fontes:** quadro `tasks/STATUS.md` + `tasks/task_complete.md` na `main` do repositório
 `Gelvazio/rules-ai` (último commit: ver `git log -1`), a auditoria
 `C:\fontes\ANALISE-DE-FONTES-2026-10-18.md` (2026-10-18 13:34) e a sessão do DeepSeek Harness
@@ -20,8 +20,8 @@ detalhe de cada tarefa-mãe.
 
 | Item | Situação |
 |---|---|
-| Regras globais | 19 regras + `regras/INDEX.md` (20 arquivos); `VERSAO.md` em `2026-10-18-988f933e` |
-| Decisões (`CONFLITOS.md`) | C1–C38 registradas; **C14–C19 pendentes** de decisão do usuário (D6 da auditoria) |
+| Regras globais | 19 regras + `regras/INDEX.md` (20 arquivos); `VERSAO.md` em `2026-10-19-39b490d0` |
+| Decisões (`CONFLITOS.md`) | C1–C43 registradas (C41 reservada à HAIKU-COMMIT-GLOBAL); **C14–C19 pendentes** de decisão do usuário (D6 da auditoria) |
 | `rules-local/` | instalado e conferido pela `VERSAO.md` no escopo de 8 remotos (RULES-LOCAL-GLOBAL concluída em 2026-10-18 12:26); em 2026-10-18 13:44 os **20 projetos** foram sincronizados para `2026-10-18-988f933e` (D2 da auditoria; 2 TASKs `RL-988F933E-NIVEIS-E-MODELOS` criadas: `aulasenai` e `gerenciador-de-ia`) |
 | Hermes Agent | destino novo no `scripts/sincronizar.mjs` (`SOUL.md` em `%LOCALAPPDATA%\hermes` no Windows e `~/.hermes` no POSIX, modo `embutir`) e instância local configurada: `SOUL.md` com o bloco das regras (52.606 bytes) + `config.yaml` (skills externas, memória, aprovações, `context_file_max_chars: 80000`; MCP do REA mantido). O CLI ainda não está instalado |
 | Quadro — tarefas-mãe | **26 mães** registradas; **JEV-RULES-AI** (etapa 025) e **MCP-QUADRO** (etapa 026) estão 👀 aguardando o "sim"; 26 etapas em `tasks/etapas/` |
@@ -30,6 +30,7 @@ detalhe de cada tarefa-mãe.
 | Etapa 017 (NIVEL-DEEPSEEK) | corrigida em 2026-10-18 13:45: as 3 subtarefas estavam ✅ e a mãe continuava 🔄; virou ✅ e foi para o `task_complete.md` |
 | Sessão (C29) | **DeepSeek Harness (lead) (MCP-QUADRO) desde 2026-10-18 16:19**; a trava é liberada ao fim da criação da tarefa |
 | Este arquivo | reescrito em 2026-10-18 13:45 (D8 da auditoria) e atualizado em 13:58 com a HERMES-GLOBAL: título, fontes e histórico são do `rules-ai` |
+| JEV-GLOBAL-AI-FINAL | O Jev classifica cada mensagem: comando `node scripts/jev.mjs mensagem`; gancho `scripts/jev/ganchos/claude-prompt.mjs` (Claude Code) e `codex-prompt.mjs` (Codex), instalados pelo `scripts/sincronizar.mjs`; guardrails só avisam; limite de US$ 1/dia e 4 s por mensagem; auditoria sem o texto; decisão C43 (o Jev decide a mensagem com confiança ≥ 0,80 e sem sinal de PESADO); skills `classificar-tarefa` de template, rea-app-clones, testes-de-frontend e dashboard-ai com o Jev, em ramos `claude/untitled-session-tevg7e` (falta levar à `main`); 7 testes de `scripts/jev/testes/` passando (INV-1 corrigido) |
 
 ## O que espera você (usuário)
 
@@ -40,6 +41,11 @@ detalhe de cada tarefa-mãe.
 | 3 | Decidir as **C14–C19** (D6), o destino de `C:\fontes\CONFIG-DEEPSEEK` (D7) e a fonte única da skill `gerenciador-de-tarefas` entre `.claude` e `.agents` (D9) | `CONFLITOS.md` · `ANALISE-DE-FONTES-2026-10-18.md` |
 | 4 | Reativar ou manter em pausa o disparo automático do GERENCIADOR-GLOBAL.4 (⛔ desde 2026-10-17 13:30) | `tasks/STATUS.md` |
 | 5 | Dar o "sim" ao plano da **MCP-QUADRO** (etapa 026): fila por MCP sobre o quadro, sem banco | `tasks/STATUS.md` · etapa 026 |
+| 6 | Rodar `node scripts/sincronizar.mjs --aplicar` (leva a C43 às IAs e instala o gancho nas 4 contas do Claude Code e no Codex; .11, .12 e .22) | `C:\fontes\rules-ai` |
+| 7 | Ligar `codex_hooks = true` em `[features]` do `~/.codex/config.toml` (a IA não editou) | `~/.codex/config.toml` |
+| 8 | Copiar a seção `### Pergunta ao Jev` para a skill global e tirar dela o Laya (.15) | `C:\Users\gelva\.claude\skills\classificar-tarefa\SKILL.md` |
+| 9 | Levar os ramos `claude/untitled-session-tevg7e` à `main` em `rules-ai`, `template-inicial-tasks-ia`, `rea-app-clones`, `testes-de-frontend` e `dashboard-ai` (e dar `git pull` nas cópias `dashboard-ai-*`) | os 5 repositórios |
+| 10 | Ensaio com a chave real em 2 projetos (o da nuvem usou servidor falso) e citar o gancho no mapa `C:\fontes\CLAUDE.md` e `AGENTS.md` + `atualizar-index.cmd` (.21 e parte da .23) | `C:\fontes` |
 
 ## Pendências e bloqueios
 
@@ -120,3 +126,11 @@ detalhe de cada tarefa-mãe.
 - 2026-10-20 00:10 (Brasília): tarefa nova **JEV-GLOBAL-AI-FINAL** (etapa 029-9a3f2c80), publicada sem executar: o Jev classifica toda mensagem, em todos os projetos (gancho `UserPromptSubmit` no Claude Code e no Codex, guardrails só como aviso, limite de custo e de tempo, auditoria sem o texto). 23 subtarefas com nível sugerido pelo Jev (custo US$ 0,001; .12 e .22 elevadas a PESADO pelo líder): 6 LEVE, 11 MEDIO, 6 PESADO. Spec C34 completa, com 6 perguntas abertas; 👀 aguardando o "sim" ao plano.
 - 2026-10-20 00:18 (Brasília): JEV-GLOBAL-AI-FINAL — plano aprovado e as 6 perguntas respondidas pelo usuário; a 6 muda o escopo (o Jev **decide** o modelo da mensagem com confiança ≥ 0,80 e sem sinal de PESADO; senão vale a matriz): entram R6.1, R6.2 e a subtarefa .24 (MEDIO, pelo Jev, confiança 0,98) e a C43 mudará a C39 na mensagem. Mãe segue 👀 até o novo "sim".
 - 2026-10-20 00:19 (Brasília): JEV-GLOBAL-AI-FINAL com o plano final aprovado pelo usuário (inclui a .24 e o Jev decidindo na mensagem com confiança ≥ 0,80); 24 subtarefas livres para o modelo de cada uma, nenhuma executada.
+- 2026-10-20 01:10 (Brasília): JEV-GLOBAL-AI-FINAL executada na nuvem pela equipe (líder Opus 5.5;
+  Sonnet 5.5 executor-medio; Haiku 5.5 executor-leve). O Jev classifica cada mensagem pelo
+  comando `node scripts/jev.mjs mensagem`, com gancho no Claude Code e no Codex. Guardrails só
+  avisam; limite de US$ 1/dia e 4 s; auditoria sem o texto; decisão C43 (o Jev decide com
+  confiança ≥ 0,80 e sem sinal de PESADO). Entregues: .1 a .10, .13, .14, .16 a .20 e .24; os
+  ramos das skills ainda não estão na `main`. Ficou para o computador do usuário: rodar os
+  instaladores (.11, .12, .22), a skill global (.15), o ensaio com a chave real (.21) e o mapa
+  de `C:\fontes` (.23).
