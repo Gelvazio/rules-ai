@@ -57,4 +57,4 @@ apagar o que é de cada projeto; um commit por projeto na `main`.
 - **Effort:** high
 - **Arquivos:** a skill `liderar-equipe` dos 4 projetos
 - **Critérios de aceitação:** a seção idêntica nos 5; `--checar` 0 onde existe; nada além da skill.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Opus 5.5 · executor-pesado; líder Opus 5.5) — mesma seção nos outros 4: rea-app-clones `fc13d90`, testes-de-frontend `c387adb`, dashboard-ai `5b97029` (sem apagar o que é do projeto), aulasenai `7dc269d` (`.claude/skills`); o líder devolveu 2 correções: ressalva do modo sargento no "Proibido" (achada pelo próprio executor) e a referência do herdr para `rules-local/regras/herdr.md` (feita por um Haiku); template de novo em `170df75` · **Verificação (líder):** `--checar` 0 nos 4 com gerador; `diff` da seção "Líder sargento" contra o template: sem diferença nos 4; só a skill e as cópias mudaram em cada repositório
