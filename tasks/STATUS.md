@@ -45,6 +45,30 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | MCP-QUADRO.5 | `task_finish`: mover para `task_complete.md` e anotar a entrega | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | MCP-QUADRO.4 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | MCP-QUADRO.6 | Instalação, documentação e ensaio em 2 projetos | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.4 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | MCP-QUADRO.7 | Rollout medido e fechamento | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.5, MCP-QUADRO.6 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
+| **JEV-GLOBAL-AI-FINAL** | **🌐 GLOBAL — O Jev classifica toda mensagem, em todos os projetos (plano aguardando o "sim")** | 🟡 Média | — | Nenhuma | 👀 Aguardando o usuário | — (não reservável) | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.1 | 🌐 Regra `jev.md`: seção "Classificar mensagens" e decisão C43 | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.2 | Subcomando `jev.mjs mensagem` | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-GLOBAL-AI-FINAL.1 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.3 | Perguntas do Jev para mensagem e estado cego | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-GLOBAL-AI-FINAL.2 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.4 | Guardrails no texto da mensagem (só avisam) | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GLOBAL-AI-FINAL.2 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.5 | Limite de custo por mensagem e por dia | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-GLOBAL-AI-FINAL.2 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.6 | Tempo máximo e fallback do gancho | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-GLOBAL-AI-FINAL.2 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.7 | Filtro de mensagens triviais | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-GLOBAL-AI-FINAL.2 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.8 | Auditoria das mensagens sem o texto | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-GLOBAL-AI-FINAL.2 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.9 | Chave única do gancho | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GLOBAL-AI-FINAL.2 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.10 | Gancho do Claude Code (`UserPromptSubmit`) | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-GLOBAL-AI-FINAL.2, JEV-GLOBAL-AI-FINAL.6 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.11 | 🌐 Instalar o gancho no Claude Code (4 contas) | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GLOBAL-AI-FINAL.10 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.12 | 🌐 Gancho global do Codex | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GLOBAL-AI-FINAL.10 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.13 | 🌐 Tabela de IAs com e sem gancho de prompt | 🟡 Média | LEVE · só Haiku · effort low | JEV-GLOBAL-AI-FINAL.1 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.14 | Rollback do gancho (`JEV_MENSAGENS=off`) | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-GLOBAL-AI-FINAL.2 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.15 | 🌐 Skill global `classificar-tarefa` sem o Laya | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.16 | Skill do `template-inicial-tasks-ia` com o Jev | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-GLOBAL-AI-FINAL.15 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.17 | Skill do `REA-APP-CLONES` com o Jev | 🟡 Média | LEVE · só Haiku · effort low | JEV-GLOBAL-AI-FINAL.15 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.18 | Skill do `testes-de-frontend` com o Jev | 🟡 Média | LEVE · só Haiku · effort low | JEV-GLOBAL-AI-FINAL.15 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.19 | Skill do `dashboard-ai-claude-code-senai` com o Jev | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GLOBAL-AI-FINAL.15 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.20 | Corrigir o INV-1 do `testes/invariantes.mjs` | 🟡 Média | MEDIO · só Sonnet · effort medium | Nenhuma | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.21 | Ensaio medido em 2 projetos | 🟡 Média | MEDIO · só Sonnet · effort medium | JEV-GLOBAL-AI-FINAL.3, JEV-GLOBAL-AI-FINAL.4, JEV-GLOBAL-AI-FINAL.5, JEV-GLOBAL-AI-FINAL.7, JEV-GLOBAL-AI-FINAL.8, JEV-GLOBAL-AI-FINAL.9, JEV-GLOBAL-AI-FINAL.11, JEV-GLOBAL-AI-FINAL.14 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.22 | 🌐 Levar às IAs (`sincronizar.mjs --aplicar`) | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GLOBAL-AI-FINAL.1, JEV-GLOBAL-AI-FINAL.13, JEV-GLOBAL-AI-FINAL.14 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
+| JEV-GLOBAL-AI-FINAL.23 | Fechamento: status do projeto e mapa de `C:ontes` | 🟡 Média | LEVE · só Haiku · effort low | JEV-GLOBAL-AI-FINAL.21, JEV-GLOBAL-AI-FINAL.22 | ⬜ Pendente | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
 ## 🧭 Frentes de trabalho
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
@@ -54,7 +78,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 ## 🗂️ Etapas
 
-O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (28 arquivos). O resumo do projeto e o
+O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (29 arquivos). O resumo do projeto e o
 histórico ficam em `STATUS_PROJETO.md`.
 
 ## Registro de decisões

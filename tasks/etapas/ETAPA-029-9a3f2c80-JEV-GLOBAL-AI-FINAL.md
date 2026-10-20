@@ -1,0 +1,362 @@
+## Etapa 029-9a3f2c80 — JEV-GLOBAL-AI-FINAL: o Jev classifica toda mensagem, em todos os projetos
+
+**Tarefa:** JEV-GLOBAL-AI-FINAL · **Pedido em:** 2026-10-20 00:06 · **Criada por:** Claude Code (Opus 5.5) (local · main · rules-ai)
+**Pedido:** "O JEV ESTA INSTALADO E RODANDO PRA CLASSIFICAR MENSAGENS EM TODOS OS PROJETOS?" →
+"QUERO QUE CRIE A TAREFA COM O MAXIMO DE SUBTAREFAS POSSIVEIS, MAS QUERO TAMBEM QUE JA USE O *JEV AI*
+AGORA PRA CLASSIFICAR QUAL MODELO DE IA VAI FAZER CADA TAREFA OU SUBTAREFA" · "E AGORA SO PUBLIQUE
+ESSA TAREFA NO QUADO,OUTRA IA VAI PEGAR DEPOIS,COLOQUE O NOME DE *JEV-GLOBAL-AI-FINAL*"
+**Objetivo:** cada mensagem do usuário, em qualquer projeto de `C:\fontes`, passa pelo Jev antes da
+resposta da IA: ele sugere nível, modelo e `effort` do pedido e roda os guardrails no texto, sempre
+como conselheiro (C39, C42). Hoje o Jev só roda quando alguém chama `scripts/jev.mjs` (conferido em
+2026-10-20 00:00: nenhum gancho em nenhum `settings.json`).
+
+### Escopo
+
+- **Entra:** regra `regras/jev.md` (seção de mensagens) e decisão **C43**; subcomando
+  `scripts/jev.mjs mensagem`; perguntas, guardrails, limite de custo, tempo máximo, filtro e
+  auditoria das mensagens em `scripts/jev/`; ganchos de prompt do Claude Code (todas as contas) e do
+  Codex; texto para as IAs sem gancho; rollback do gancho; skill `classificar-tarefa` global e dos
+  projetos que a têm (sem o Laya, com o Jev); correção do INV-1 do `testes/invariantes.mjs`; ensaio
+  medido; `sincronizar.mjs --aplicar`; `STATUS_PROJETO.md` e o mapa de `C:\fontes`.
+- **Não entra:** trocar o modelo `jev-1.13.0`; benchmark novo de nível; servidor próprio; o Jev
+  decidir, reservar, escrever no quadro ou bloquear a mensagem do usuário; projetos em
+  `DEMAIS-PROJETOS-*` (C20, C23).
+- **Número da decisão:** C41 está reservada para a HAIKU-COMMIT-GLOBAL e C42 é a JEV-SEM-LAYA; por
+  isso esta é a **C43**.
+
+### Riscos
+
+| Risco | Plano B |
+|---|---|
+| Custo por mensagem cresce sem controle | limite diário (`JEV_MAX_CUSTO_DIA`) e filtro de mensagens triviais; estourou → só sinais |
+| Gancho deixa a IA lenta | tempo máximo por mensagem; passou → segue sem o Jev, sem erro na tela |
+| Segredo do usuário vai para a API | `redigir.mjs` antes de todo envio; auditoria só com `hash` |
+| Gancho quebra o `settings.json` de uma conta | `sincronizar.mjs` só acrescenta o gancho, guarda cópia `.bak` e confere o JSON antes de gravar |
+| Jev erra o nível | sugestão nunca decide (C39); vale o nível mais alto entre Jev e sinais; confiança < 0,60 → humano |
+
+### Requisitos
+
+| ID | Requisito (EARS) | Cobre | Verificação |
+|----|------------------|-------|-------------|
+| R1.1 | QUANDO o usuário envia uma mensagem no Claude Code ou no Codex, O SISTEMA DEVE acrescentar ao contexto da IA a sugestão de nível, modelo e `effort` do Jev antes da resposta | JEV-GLOBAL-AI-FINAL.2, .3, .10, .11, .12 | ensaio da .21 (contexto aparece na resposta); leitura do gancho |
+| R1.2 | SE o Jev falhar, estiver sem chave, com `JEV_MODO=off`, `JEV_MENSAGENS=off` ou com o limite do dia estourado, ENTÃO O SISTEMA DEVE seguir só pelos sinais da skill sem impedir a mensagem | .5, .6, .14 | rodar o gancho sem chave e com `off`: código 0, mensagem passa |
+| R1.3 | O SISTEMA DEVE gastar no máximo 4 s por mensagem no gancho | .6 | ensaio da .21: maior latência ≤ 4 s |
+| R1.4 | O SISTEMA DEVE pular o Jev em mensagens de até 3 caracteres e nas que começam com `/` | .7 | rodar o gancho com `.`, `;`, `?` e `/model`: nenhuma chamada no registro |
+| R2.1 | O SISTEMA DEVE mascarar segredo e dado pessoal antes de enviar a mensagem ao Jev | .2, .9 | rodar com texto contendo `tsk_…` e CPF de teste: `state` enviado mascarado (`--dry-run`) |
+| R2.2 | O SISTEMA DEVE gravar na auditoria só `hash`, nível, custo e ação, nunca o texto da mensagem | .8 | `grep` do texto de teste em `scripts/jev/saidas/` sem resultado |
+| R2.3 | QUANDO o custo do dia passar de `JEV_MAX_CUSTO_DIA`, O SISTEMA DEVE parar de chamar o Jev até o dia seguinte | .5 | rodar com limite 0: nenhuma chamada, aviso no contexto |
+| R3.1 | QUANDO um guardrail achar segredo, pasta proibida, comando destrutivo ou aprovação indevida na mensagem, O SISTEMA DEVE avisar no contexto da IA | .4 | rodar o gancho com um exemplo de cada: aviso presente |
+| R4.1 | QUANDO a regra mudar, O SISTEMA DEVE gravar o arquivo global de cada IA | .22 | saída do `sincronizar.mjs --aplicar` |
+| R4.2 | O SISTEMA DEVE ter a skill `classificar-tarefa` sem citar o Laya, na fonte global e nos projetos que a têm | .15, .16, .17, .18, .19 | `grep -ci laya` = 0 em cada `SKILL.md` |
+| R5.1 | O SISTEMA DEVE passar no `node scripts/jev/testes/invariantes.mjs` | .20 | código de saída 0 |
+
+**Fora do escopo:** benchmark novo; servidor próprio; projetos `DEMAIS-PROJETOS-*`.
+
+### Invariantes
+
+| ID | Regra que vale sempre | Domínio da entrada | Como conferir | Teste automatizado |
+|----|----------------------|--------------------|---------------|--------------------|
+| INV-1 | O `state` enviado ao Jev nunca traz nível, modelo ou `effort` já decididos | toda mensagem e toda subtarefa | `node scripts/jev/testes/invariantes.mjs` | sim: o teste que já existe (corrigido na .20) |
+| INV-2 | O gancho nunca bloqueia nem altera a mensagem do usuário: só acrescenta contexto | toda mensagem, em toda IA com gancho | leitura do gancho; ensaio da .21 | não: leitura e ensaio |
+| INV-3 | Falha do Jev nunca vira `liberar` | todo caminho de erro do gancho e dos guardrails | `grep -rn liberar scripts/jev --include=*.mjs` + leitura | não: leitura |
+| INV-4 | A chave `TYPESAFE_API_KEY` nunca aparece em log, saída ou arquivo versionado | `scripts/jev/saidas/`, saída do gancho, Git | `grep -rn "tsk_" scripts/jev/saidas` e `git grep -n tsk_` sem resultado | não: grep |
+| INV-5 | O Jev não escreve no quadro, não reserva e não decide nível em `PESADO` | toda execução | leitura; `git diff tasks/` vazio depois do ensaio | não: leitura |
+
+**Casos de borda:** mensagem vazia; mensagem só com anexo; mensagem com mais de 4000 caracteres
+(corta antes de enviar); sem internet; projeto sem `tasks/`; duas mensagens seguidas em menos de 1 s.
+
+### Perguntas abertas
+
+| # | Pergunta | Resposta | Fechada em | Quem respondeu |
+|---|----------|----------|------------|----------------|
+| 1 | Em quais IAs o gancho roda? | ⬜ Proposta: Claude Code (todas as contas) e Codex; as outras só pela instrução da regra | — | — |
+| 2 | Qual o limite de custo? | ⬜ Proposta: US$ 1,00 por dia e 2.000 tokens por mensagem | — | — |
+| 3 | O guardrail na mensagem bloqueia ou só avisa? | ⬜ Proposta: só avisa (o gancho nunca bloqueia, INV-2) | — | — |
+| 4 | Quais mensagens pulam o Jev? | ⬜ Proposta: até 3 caracteres (`.`, `;`, `?`) e comandos `/` | — | — |
+| 5 | Qual o tempo máximo por mensagem? | ⬜ Proposta: 4 s | — | — |
+| 6 | A sugestão de modelo da mensagem decide quem faz? | ⬜ Proposta: não; é só conselho mostrado à IA (C39); quem decide é a matriz de níveis | — | — |
+
+As perguntas fecham com o "sim" do usuário ao plano (ou com a resposta dele a cada uma). Enquanto
+houver `⬜`, nenhuma subtarefa é reservada (C34).
+
+### Decisões
+
+| Data | Decisão | Quem | Por quê |
+|---|---|---|---|
+| 2026-10-20 00:06 | Tarefa criada e publicada sem executar; outra IA pega depois; aguarda o "sim" ao plano | Claude Code (Opus 5.5) | pedido do usuário ("SO PUBLIQUE ESSA TAREFA NO QUADO") e tarefa grande |
+| 2026-10-20 00:10 | Nível das 23 subtarefas sugerido pelo Jev (`jev.mjs classificar --id`, `jev-1.13.0`, custo total US$ 0,001); vale o nível final do Jev + sinais, e o líder só eleva: .12 e .22 de LEVE para PESADO (configuração global e mudança em massa). Ações `humano`/`revisar` conferidas pelo líder (.4, .11, .16, .19, .21 mantidas) | Claude Code (Opus 5.5) | pedido do usuário ("JA USE O *JEV AI* AGORA PRA CLASSIFICAR"); C39 (o Jev sugere, não rebaixa) |
+
+### JEV-GLOBAL-AI-FINAL.1 — Regra `jev.md`: seção "Classificar mensagens" e decisão C43
+
+**Próximo passo:** escrever em `regras/jev.md` a seção de mensagens (quando roda, o que faz, custo,
+tempo máximo, privacidade, fallback, rollback), a C43 no `CONFLITOS.md` e a linha no `regras/INDEX.md`.
+
+- **Nível:** LEVE — Jev `LEVE`, final proposto `LEVE`, confiança 0.89, ação `revisar`
+- **Modelo:** só Haiku — nunca outro (C22)
+- **Effort:** low
+- **Arquivos:** `regras/jev.md`, `CONFLITOS.md`, `regras/INDEX.md`
+- **Critérios de aceitação:** R1.1 a R3.1 descritos na regra; INV-2 e INV-5 no texto.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.2 — Subcomando `node scripts/jev.mjs mensagem`
+
+**Próximo passo:** criar `scripts/jev/cli/comando-mensagem.mjs` (lê o texto pela entrada padrão ou
+`--texto`, mascara com `redigir.mjs`, pergunta ao Jev e devolve resumo de até 3 linhas) e ligar no
+`scripts/jev.mjs`.
+
+- **Nível:** MEDIO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.91, ação `sugestao_automatica`
+- **Modelo:** só Sonnet — nunca outro (C22)
+- **Effort:** medium
+- **Arquivos:** `scripts/jev.mjs`, `scripts/jev/cli/comando-mensagem.mjs` (novo)
+- **Critérios de aceitação:** R2.1; `--dry-run` mostra o `state` mascarado; `node --check`.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.3 — Perguntas do Jev para mensagem e estado cego da mensagem
+
+**Próximo passo:** criar `scripts/jev/perguntas-mensagem.mjs` (é pedido que muda algo? nível? toca
+banco, segurança ou várias partes?) e o montador de `state` da mensagem, sem nomes de modelo.
+
+- **Nível:** MEDIO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.89, ação `sugestao_automatica`
+- **Modelo:** só Sonnet — nunca outro (C22)
+- **Effort:** medium
+- **Arquivos:** `scripts/jev/perguntas-mensagem.mjs` (novo), `scripts/jev/estado.mjs`
+- **Critérios de aceitação:** R1.1; INV-1 vale também para a mensagem.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.4 — Guardrails aplicados ao texto da mensagem
+
+**Próximo passo:** chamar os guardrails `segredo`, `pasta`, `comando` e `aprovacao` sobre o texto da
+mensagem dentro do `comando-mensagem.mjs`, só como aviso (nunca bloqueio).
+
+- **Nível:** PESADO — Jev `PESADO`, final proposto `PESADO`, confiança 0.35, ação `humano`, sinais de PESADO: segredo, mais_de_3_arquivos
+- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
+- **Effort:** high
+- **Arquivos:** `scripts/jev/cli/comando-mensagem.mjs`, `scripts/jev/guardrails/`
+- **Critérios de aceitação:** R3.1; INV-2 e INV-3.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.5 — Limite de custo por mensagem e por dia
+
+**Próximo passo:** criar `JEV_MAX_TOKENS_MENSAGEM` e `JEV_MAX_CUSTO_DIA` em `scripts/jev/config.mjs`
+e o contador diário local em `scripts/jev/saidas/` (fora do Git).
+
+- **Nível:** MEDIO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.89, ação `sugestao_automatica`
+- **Modelo:** só Sonnet — nunca outro (C22)
+- **Effort:** medium
+- **Arquivos:** `scripts/jev/config.mjs`, `scripts/jev/metricas.mjs` ou módulo novo de custo
+- **Critérios de aceitação:** R1.2 e R2.3.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.6 — Tempo máximo e fallback do gancho
+
+**Próximo passo:** criar `JEV_TEMPO_MAXIMO_MENSAGEM_MS` (proposta 4000) e fazer o comando
+`mensagem` sair com código 0 e contexto "só sinais" em qualquer falha, sem erro na tela.
+
+- **Nível:** MEDIO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.97, ação `sugestao_automatica`
+- **Modelo:** só Sonnet — nunca outro (C22)
+- **Effort:** medium
+- **Arquivos:** `scripts/jev/config.mjs`, `scripts/jev/cli/comando-mensagem.mjs`
+- **Critérios de aceitação:** R1.2 e R1.3; INV-2 e INV-3.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.7 — Filtro de mensagens triviais
+
+**Próximo passo:** pular a chamada ao Jev em mensagens de até 3 caracteres e nas que começam com `/`.
+
+- **Nível:** MEDIO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.98, ação `revisar`
+- **Modelo:** só Sonnet — nunca outro (C22)
+- **Effort:** medium
+- **Arquivos:** `scripts/jev/cli/comando-mensagem.mjs`
+- **Critérios de aceitação:** R1.4.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.8 — Auditoria das mensagens sem o texto
+
+**Próximo passo:** gravar em `scripts/jev/saidas/mensagens-AAAA-MM.jsonl` só data, projeto, `hash`,
+nível sugerido, confiança, custo e ação.
+
+- **Nível:** MEDIO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.92, ação `sugestao_automatica`
+- **Modelo:** só Sonnet — nunca outro (C22)
+- **Effort:** medium
+- **Arquivos:** `scripts/jev/cli/comando-mensagem.mjs`, `scripts/jev/saidas/` (fora do Git)
+- **Critérios de aceitação:** R2.2; INV-4.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.9 — Chave única do gancho
+
+**Próximo passo:** garantir que o gancho, rodando em qualquer projeto, lê `TYPESAFE_API_KEY` só do
+ambiente ou de `C:\fontes\rules-ai\.env`, nunca copia a chave para outro projeto e nunca a imprime.
+
+- **Nível:** PESADO — Jev `PESADO`, final proposto `PESADO`, confiança 0.98, ação `revisar`, sinais de PESADO: segredo
+- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
+- **Effort:** high
+- **Arquivos:** `scripts/jev/cliente.mjs`, `scripts/jev/config.mjs`
+- **Critérios de aceitação:** R2.1; INV-4.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.10 — Gancho do Claude Code (`UserPromptSubmit`)
+
+**Próximo passo:** criar `scripts/jev/ganchos/claude-prompt.mjs`, que lê o JSON do gancho, chama o
+comando `mensagem` e devolve `additionalContext` com nível, modelo, `effort` e alertas.
+
+- **Nível:** MEDIO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.95, ação `sugestao_automatica`
+- **Modelo:** só Sonnet — nunca outro (C22)
+- **Effort:** medium
+- **Arquivos:** `scripts/jev/ganchos/claude-prompt.mjs` (novo)
+- **Critérios de aceitação:** R1.1; INV-2 (nunca `decision: block`).
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.11 — Instalar o gancho no Claude Code (todas as contas)
+
+**Próximo passo:** ensinar o `scripts/sincronizar.mjs` a acrescentar o gancho `UserPromptSubmit` em
+`~/.claude/settings.json` e nas contas A, B e C, sem apagar ganchos existentes e com cópia `.bak`.
+
+- **Nível:** PESADO — Jev `MEDIO`, final proposto `PESADO`, confiança 0.48, ação `humano`, sinais de PESADO: massa
+- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
+- **Effort:** high
+- **Arquivos:** `scripts/sincronizar.mjs`, `settings.json` das 4 contas
+- **Critérios de aceitação:** R1.1; JSON válido antes e depois; ganchos antigos preservados.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.12 — Gancho do Codex (global)
+
+**Próximo passo:** acrescentar o mesmo comando ao gancho de prompt global do Codex
+(`~/.codex/hooks.json`), no formato que o Codex aceita.
+
+- **Nível:** PESADO — Jev `LEVE`, final proposto `LEVE`, confiança 0.48, ação `humano`; elevado pelo líder: grava o gancho global do Codex pelo `sincronizar.mjs` (configuração global, como a .11)
+- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
+- **Effort:** high
+- **Arquivos:** `scripts/sincronizar.mjs`, `~/.codex/hooks.json`
+- **Critérios de aceitação:** R1.1; JSON válido; ganchos antigos preservados.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.13 — Tabela de IAs com e sem gancho de prompt
+
+**Próximo passo:** conferir quais IAs (Gemini, Grok, Qoder, opencode, Devin, Kiro, Hermes, Kilo)
+têm gancho de prompt e escrever em `regras/jev.md` a tabela e a instrução para as que não têm.
+
+- **Nível:** LEVE — Jev `LEVE`, final proposto `LEVE`, confiança 0.94, ação `revisar`
+- **Modelo:** só Haiku — nunca outro (C22)
+- **Effort:** low
+- **Arquivos:** `regras/jev.md`
+- **Critérios de aceitação:** tabela com uma linha por IA e a fonte de cada informação.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.14 — Rollback do gancho (`JEV_MENSAGENS=off`)
+
+**Próximo passo:** criar a variável `JEV_MENSAGENS` (`ativo`/`off`), que desliga só o gancho (a
+classificação de subtarefas continua), e escrever o passo a passo de rollback na regra.
+
+- **Nível:** MEDIO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.95, ação `sugestao_automatica`
+- **Modelo:** só Sonnet — nunca outro (C22)
+- **Effort:** medium
+- **Arquivos:** `scripts/jev/config.mjs`, `scripts/jev/cli/comando-mensagem.mjs`, `regras/jev.md`
+- **Critérios de aceitação:** R1.2; com `off` o gancho sai em menos de 100 ms, sem chamada.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.15 — Skill global `classificar-tarefa` sem o Laya
+
+**Próximo passo:** tirar o Laya de `~/.claude/skills/classificar-tarefa/SKILL.md` (e da fonte em
+`.agents`, se houver) e citar o comando `mensagem`.
+
+- **Nível:** LEVE — Jev `LEVE`, final proposto `LEVE`, confiança 0.92, ação `sugestao_automatica`
+- **Modelo:** só Haiku — nunca outro (C22)
+- **Effort:** low
+- **Arquivos:** `C:\Users\gelva\.claude\skills\classificar-tarefa\SKILL.md`
+- **Critérios de aceitação:** R4.2.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.16 — Skill do `template-inicial-tasks-ia` chamando o Jev
+
+**Próximo passo:** na skill `classificar-tarefa` do template, tentar o Jev primeiro (como a global)
+e tirar o Laya; commit no repositório do template.
+
+- **Nível:** MEDIO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.25, ação `humano`
+- **Modelo:** só Sonnet — nunca outro (C22)
+- **Effort:** medium
+- **Arquivos:** `C:\fontes\template-inicial-tasks-ia\.claude\skills\classificar-tarefa\SKILL.md` (e a fonte `.agents`)
+- **Critérios de aceitação:** R4.2.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.17 — Skill do `REA-APP-CLONES` chamando o Jev
+
+**Próximo passo:** mesmo ajuste da .16 no `REA-APP-CLONES` (rodar `npm run sync:agentes` se a fonte
+for `.agents`).
+
+- **Nível:** LEVE — Jev `LEVE`, final proposto `LEVE`, confiança 0.72, ação `revisar`
+- **Modelo:** só Haiku — nunca outro (C22)
+- **Effort:** low
+- **Arquivos:** `C:\fontes\REA-APP-CLONES\.claude\skills\classificar-tarefa\SKILL.md` (e a fonte `.agents`)
+- **Critérios de aceitação:** R4.2.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.18 — Skill do `testes-de-frontend` chamando o Jev
+
+**Próximo passo:** mesmo ajuste da .16 no `testes-de-frontend`.
+
+- **Nível:** LEVE — Jev `LEVE`, final proposto `LEVE`, confiança 0.69, ação `revisar`
+- **Modelo:** só Haiku — nunca outro (C22)
+- **Effort:** low
+- **Arquivos:** `C:\fontes\testes-de-frontend\.claude\skills\classificar-tarefa\SKILL.md` (e a fonte `.agents`)
+- **Critérios de aceitação:** R4.2.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.19 — Skill do `dashboard-ai-claude-code-senai` chamando o Jev
+
+**Próximo passo:** mesmo ajuste da .16 no `dashboard-ai-claude-code-senai` (as 9 cópias do
+dashboard dividem o repositório: commitar uma vez e puxar nas outras).
+
+- **Nível:** PESADO — Jev `LEVE`, final proposto `PESADO`, confiança 0.06, ação `humano`, sinais de PESADO: massa
+- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
+- **Effort:** high
+- **Arquivos:** `C:\fontes\dashboard-ai-claude-code-senai\.claude\skills\classificar-tarefa\SKILL.md` (e a fonte `.agents`)
+- **Critérios de aceitação:** R4.2.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.20 — Corrigir o INV-1 do `testes/invariantes.mjs`
+
+**Próximo passo:** descobrir por que o teste acha `modelo Claude` no `state` dos quadros reais
+(`conferirQuadrosReais`) e corrigir o coletor `estado.mjs` (é correção de bug: teste já existe).
+
+- **Nível:** MEDIO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.98, ação `sugestao_automatica`
+- **Modelo:** só Sonnet — nunca outro (C22)
+- **Effort:** medium
+- **Arquivos:** `scripts/jev/estado.mjs`, `scripts/jev/testes/invariantes.mjs`
+- **Critérios de aceitação:** R5.1; INV-1.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.21 — Ensaio medido em 2 projetos
+
+**Próximo passo:** enviar 20 mensagens reais (10 no `rules-ai`, 10 no `aulasenai`) com o gancho
+ligado e anotar na etapa latência, custo, nível sugerido e alertas de cada uma.
+
+- **Nível:** MEDIO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.31, ação `humano`
+- **Modelo:** só Sonnet — nunca outro (C22)
+- **Effort:** medium
+- **Arquivos:** esta etapa; `scripts/jev/saidas/` (fora do Git)
+- **Critérios de aceitação:** R1.1, R1.3, R1.4 e R2.2 conferidos com números; INV-2 e INV-5.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.22 — Levar às IAs (`sincronizar.mjs --aplicar`)
+
+**Próximo passo:** rodar `node scripts/sincronizar.mjs --aplicar` depois da .1, .13 e .14 e conferir
+os arquivos globais.
+
+- **Nível:** PESADO — Jev `LEVE`, final proposto `LEVE`, confiança 0.40, ação `humano`; elevado pelo líder: grava o arquivo global de todas as IAs (mudança em massa, como a JEV-SEM-LAYA.2)
+- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
+- **Effort:** high
+- **Arquivos:** `dist/REGRAS-GLOBAIS.md`, `VERSAO.md`, arquivos globais das IAs
+- **Critérios de aceitação:** R4.1.
+- **Entrega:** — · **Verificação:** —
+
+### JEV-GLOBAL-AI-FINAL.23 — Fechamento: status do projeto e mapa de `C:\fontes`
+
+**Próximo passo:** registrar no `STATUS_PROJETO.md`, citar o gancho no mapa `C:\fontes\CLAUDE.md` e
+`C:\fontes\AGENTS.md` (os dois iguais) e regravar o portal com `atualizar-index.cmd`.
+
+- **Nível:** LEVE — Jev `LEVE`, final proposto `LEVE`, confiança 0.88, ação `sugestao_automatica`
+- **Modelo:** só Haiku — nunca outro (C22)
+- **Effort:** low
+- **Arquivos:** `STATUS_PROJETO.md`, `C:\fontes\CLAUDE.md`, `C:\fontes\AGENTS.md`
+- **Critérios de aceitação:** os dois mapas iguais; portal regravado.
+- **Entrega:** — · **Verificação:** —
