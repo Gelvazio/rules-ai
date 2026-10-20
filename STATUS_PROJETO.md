@@ -1,6 +1,6 @@
 # Status do projeto rules-ai
 
-**Atualizado em:** 2026-10-20 00:18 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
+**Atualizado em:** 2026-10-20 00:19 (horário de Brasília) · atualizado a cada mudança em `C:\fontes\rules-ai`, como manda a regra do `AGENTS.md` da raiz.
 **Fontes:** quadro `tasks/STATUS.md` + `tasks/task_complete.md` na `main` do repositório
 `Gelvazio/rules-ai` (último commit: ver `git log -1`), a auditoria
 `C:\fontes\ANALISE-DE-FONTES-2026-10-18.md` (2026-10-18 13:34) e a sessão do DeepSeek Harness
@@ -119,3 +119,4 @@ detalhe de cada tarefa-mãe.
 - 2026-10-19 23:53 (Brasília): JEV-SEM-LAYA.3 entregue pelo executor-medio (Sonnet; líder Opus) — `scripts/jev/` e `scripts/jev.mjs` sem o Laya (benchmark e relatório só com o Jev; textos "só pelos sinais da skill"); **JEV-SEM-LAYA concluída** e movida para o `task_complete.md`. Pendência nova: `testes/invariantes.mjs` já falhava antes (INV-1 acha `modelo Claude` nos quadros reais).
 - 2026-10-20 00:10 (Brasília): tarefa nova **JEV-GLOBAL-AI-FINAL** (etapa 029-9a3f2c80), publicada sem executar: o Jev classifica toda mensagem, em todos os projetos (gancho `UserPromptSubmit` no Claude Code e no Codex, guardrails só como aviso, limite de custo e de tempo, auditoria sem o texto). 23 subtarefas com nível sugerido pelo Jev (custo US$ 0,001; .12 e .22 elevadas a PESADO pelo líder): 6 LEVE, 11 MEDIO, 6 PESADO. Spec C34 completa, com 6 perguntas abertas; 👀 aguardando o "sim" ao plano.
 - 2026-10-20 00:18 (Brasília): JEV-GLOBAL-AI-FINAL — plano aprovado e as 6 perguntas respondidas pelo usuário; a 6 muda o escopo (o Jev **decide** o modelo da mensagem com confiança ≥ 0,80 e sem sinal de PESADO; senão vale a matriz): entram R6.1, R6.2 e a subtarefa .24 (MEDIO, pelo Jev, confiança 0,98) e a C43 mudará a C39 na mensagem. Mãe segue 👀 até o novo "sim".
+- 2026-10-20 00:19 (Brasília): JEV-GLOBAL-AI-FINAL com o plano final aprovado pelo usuário (inclui a .24 e o Jev decidindo na mensagem com confiança ≥ 0,80); 24 subtarefas livres para o modelo de cada uma, nenhuma executada.

@@ -88,6 +88,7 @@ Todas fechadas em 2026-10-20 00:18 pelas respostas do usuário no chat.
 | 2026-10-20 00:06 | Tarefa criada e publicada sem executar; outra IA pega depois; aguarda o "sim" ao plano | Claude Code (Opus 5.5) | pedido do usuário ("SO PUBLIQUE ESSA TAREFA NO QUADO") e tarefa grande |
 | 2026-10-20 00:10 | Nível das 23 subtarefas sugerido pelo Jev (`jev.mjs classificar --id`, `jev-1.13.0`, custo total US$ 0,001); vale o nível final do Jev + sinais, e o líder só eleva: .12 e .22 de LEVE para PESADO (configuração global e mudança em massa). Ações `humano`/`revisar` conferidas pelo líder (.4, .11, .16, .19, .21 mantidas) | Claude Code (Opus 5.5) | pedido do usuário ("JA USE O *JEV AI* AGORA PRA CLASSIFICAR"); C39 (o Jev sugere, não rebaixa) |
 | 2026-10-20 00:18 | Plano aprovado ("Sim, aprovo") e as 6 perguntas respondidas no chat; a resposta da 6 (o Jev decide com confiança ≥ 0,80) muda o escopo: entram R6.1, R6.2, a subtarefa .24 e a C43 mudando a C39 na mensagem; INV-5 ajustado. Aguarda o novo "sim" a essa mudança | Gelvazio · Claude Code (Opus 5.5) | regra de mudança material de escopo (ciclo-da-task) |
+| 2026-10-20 00:19 | Mudança da pergunta 6 e subtarefa .24 aprovadas ("S8m,aprovo"); plano final aprovado, subtarefas livres para o modelo de cada uma | Gelvazio | resposta no chat |
 
 ### JEV-GLOBAL-AI-FINAL.1 — Regra `jev.md`: seção "Classificar mensagens" e decisão C43
 
