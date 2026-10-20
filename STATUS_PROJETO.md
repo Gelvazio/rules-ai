@@ -148,3 +148,4 @@ detalhe de cada tarefa-mãe.
   Jev é do projeto; chave só da variável de ambiente. Instalado nos 8 repositórios (versão
   `2026-10-20-58881388`); 1 TASK nova no REA (matriz da skill). Falta no PC: `--aplicar` (tira
   o gancho global) e a variável `TYPESAFE_API_KEY` no Windows.
+- 2026-10-20 10:49 (Brasília): `dashboard/` reorganizado — o conteúdo de `dashboard/graphs/` (página "Agentes ao vivo", servidor Python, cliente Tripo, cenas e JS) passou para a raiz do `dashboard/`; corrigido o link do `base.css` no `dashboard/index.html` (`../assets/css/` → `assets/css/`).

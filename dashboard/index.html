@@ -3,11 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard de IA</title>
+  <title>Agentes ao vivo</title>
   <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/painel.css">
-  <link rel="stylesheet" href="assets/css/cena.css">
-  <link rel="stylesheet" href="assets/css/ferramentas.css">
+  <link rel="stylesheet" href="assets/css/graphs.css">
   <script type="importmap">
   {
     "imports": {
@@ -16,89 +14,38 @@
     }
   }
   </script>
-  <script type="module" src="assets/js/principal.js"></script>
-  <script type="module" src="assets/js/ferramentas/abas.js"></script>
+  <script type="module" src="assets/js/menu.js"></script>
+  <script type="module" src="assets/js/agentes.js"></script>
 </head>
-<body>
-  <header class="cabecalho">
-    <h1 id="titulo-pagina" class="cabecalho__titulo">Rede neural em 3D</h1>
-    <p id="subtitulo-pagina" class="cabecalho__subtitulo">
-      4 entradas → 6 → 5 neurônios ocultos → 3 saídas.
-      Clique num neurônio para ver o cálculo.
-    </p>
-    <nav class="abas" role="tablist" aria-label="Seções do dashboard">
-      <button class="abas__botao" type="button" role="tab" data-aba="rede"
-        aria-controls="aba-rede" aria-selected="true"
-        data-titulo="Rede neural em 3D"
-        data-subtitulo="4 entradas → 6 → 5 neurônios ocultos → 3 saídas. Clique num neurônio para ver o cálculo.">
-        Rede neural 3D
-      </button>
-      <button class="abas__botao" type="button" role="tab" data-aba="ferramentas"
-        aria-controls="aba-ferramentas" aria-selected="false"
-        data-titulo="Ferramentas de IA 3D"
-        data-subtitulo="Dados coletados dos links do CLAUDE.md (coleta.json), dos modelos abertos do Hugging Face (hf_3d.json) e dos reels salvos em MODELOS-DE-IA.">
-        Ferramentas de IA 3D
-      </button>
-      <a class="abas__botao abas__botao--link" href="graphs/index.html">3D GRAPHS AI</a>
-    </nav>
+<body class="tela-cheia">
+  <header class="barra">
+    <nav class="abas abas--barra" aria-label="Navegação" data-menu
+      data-menu-ocultar="../index.html index.html cena.html"></nav>
   </header>
 
-  <main id="aba-rede" class="layout" role="tabpanel">
-    <section id="cena" class="layout__cena" aria-label="Cena 3D da rede neural"></section>
+  <main id="cena" class="tela-cheia__cena" aria-label="Cena 3D com as tarefas reais dos agentes">
+    <section class="sobreposto sobreposto--topo-esquerda transmissao" aria-label="Transmissão">
+      <p id="selo-ao-vivo" class="transmissao__selo">● ao vivo</p>
+      <label class="painel__rotulo" for="atraso">Atraso</label>
+      <select id="atraso" class="painel__campo transmissao__atraso"></select>
+      <p id="estado-leitura" class="transmissao__estado" aria-live="polite">Lendo o quadro…</p>
+      <p id="nota-movimento" class="transmissao__estado" hidden>Movimento reduzido: sem animação.</p>
+    </section>
 
-    <aside id="painel" class="layout__painel painel">
-      <section class="painel__bloco">
-        <h2 class="painel__titulo">Entradas</h2>
-        <form id="form-entradas" class="painel__entradas">
-          <label class="painel__rotulo" for="entrada-0">Entrada 1</label>
-          <input id="entrada-0" class="painel__campo" type="number"
-            step="0.1" min="-1" max="1" value="0.5">
-          <label class="painel__rotulo" for="entrada-1">Entrada 2</label>
-          <input id="entrada-1" class="painel__campo" type="number"
-            step="0.1" min="-1" max="1" value="-0.3">
-          <label class="painel__rotulo" for="entrada-2">Entrada 3</label>
-          <input id="entrada-2" class="painel__campo" type="number"
-            step="0.1" min="-1" max="1" value="0.8">
-          <label class="painel__rotulo" for="entrada-3">Entrada 4</label>
-          <input id="entrada-3" class="painel__campo" type="number"
-            step="0.1" min="-1" max="1" value="0.1">
-          <button id="botao-propagar" class="botao" type="button">Propagar</button>
-        </form>
-      </section>
+    <section class="sobreposto sobreposto--topo-direita" aria-label="Tarefas por status e níveis">
+      <ul id="contagem" class="contagem"></ul>
+      <ul class="legenda" aria-label="Cor do cartão pelo nível">
+        <li><span class="legenda__cor legenda__cor--leve"></span>LEVE</li>
+        <li><span class="legenda__cor legenda__cor--medio"></span>MEDIO</li>
+        <li><span class="legenda__cor legenda__cor--pesado"></span>PESADO</li>
+        <li><span class="legenda__cor legenda__cor--usuario"></span>Usuário</li>
+      </ul>
+    </section>
 
-      <section class="painel__bloco">
-        <h2 class="painel__titulo">Neurônio selecionado</h2>
-        <div id="calculo-neuronio" class="painel__calculo">
-          <p class="painel__dica">
-            Clique num neurônio oculto ou de saída para ver o cálculo.
-          </p>
-        </div>
-      </section>
-
-      <section class="painel__bloco">
-        <h2 class="painel__titulo">Probabilidades da saída</h2>
-        <div id="barras-probabilidade" class="painel__barras"></div>
-      </section>
-
-      <section class="painel__bloco">
-        <h2 class="painel__titulo">Legenda</h2>
-        <ul class="legenda">
-          <li class="legenda__item">
-            <span class="legenda__cor legenda__cor--negativo"></span>Peso negativo
-          </li>
-          <li class="legenda__item">
-            <span class="legenda__cor legenda__cor--positivo"></span>Peso positivo
-          </li>
-          <li class="legenda__item">
-            <span class="legenda__cor legenda__cor--ativo"></span>Neurônio ativo
-          </li>
-        </ul>
-      </section>
-    </aside>
-  </main>
-
-  <main id="aba-ferramentas" class="ferramentas" role="tabpanel" hidden>
-    <div id="conteudo-ferramentas"></div>
+    <section class="sobreposto sobreposto--baixo-esquerda" aria-label="Últimos eventos">
+      <p id="eventos-vazio" class="transmissao__estado">Sem mudanças no quadro desde que a página abriu.</p>
+      <ol id="eventos" class="eventos" aria-live="polite"></ol>
+    </section>
   </main>
 
   <p id="aviso" class="aviso" hidden></p>
