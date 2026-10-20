@@ -45,7 +45,7 @@ detalhe de cada tarefa-mãe.
 | 7 | Ligar `codex_hooks = true` em `[features]` do `~/.codex/config.toml` (a IA não editou) | `~/.codex/config.toml` |
 | 8 | Copiar a seção `### Pergunta ao Jev` para a skill global e tirar dela o Laya (.15) | `C:\Users\gelva\.claude\skills\classificar-tarefa\SKILL.md` |
 | 9 | Levar os ramos `claude/untitled-session-tevg7e` à `main` em `rules-ai`, `template-inicial-tasks-ia`, `rea-app-clones`, `testes-de-frontend` e `dashboard-ai` (e dar `git pull` nas cópias `dashboard-ai-*`) | os 5 repositórios |
-| 10 | Ensaio com a chave real em 2 projetos (o da nuvem usou servidor falso) e citar o gancho no mapa `C:\fontes\CLAUDE.md` e `AGENTS.md` + `atualizar-index.cmd` (.21 e parte da .23) | `C:\fontes` |
+| 10 | Citar o gancho no mapa `C:\fontes\CLAUDE.md` e `AGENTS.md` + `atualizar-index.cmd` (parte da .23; o ensaio real da .21 já foi feito na nuvem) | `C:\fontes` |
 
 ## Pendências e bloqueios
 
@@ -134,3 +134,6 @@ detalhe de cada tarefa-mãe.
   ramos das skills ainda não estão na `main`. Ficou para o computador do usuário: rodar os
   instaladores (.11, .12, .22), a skill global (.15), o ensaio com a chave real (.21) e o mapa
   de `C:\fontes` (.23).
+- 2026-10-20 07:05 (Brasília): JEV-GLOBAL-AI-FINAL.21 com o **Jev real** na nuvem (chave no
+  ambiente): 20 mensagens, nível certo em 16 de 17, máximo 849 ms, custo US$ 0,00057; chave em
+  nenhum arquivo. Na nuvem o Node precisa de `NODE_USE_ENV_PROXY=1` e do CA do proxy.
