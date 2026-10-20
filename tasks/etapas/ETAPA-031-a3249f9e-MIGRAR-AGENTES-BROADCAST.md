@@ -97,12 +97,13 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 | 1 | Onde roda o publicador? **Recomendado:** GitHub Actions no push (funciona com o PC desligado; exige um secret no GitHub). Alternativa: gancho local (só com o PC ligado). | ✅ GitHub Actions no push | 2026-10-20 | Usuário (aprovou as recomendações) |
 | 2 | Qual projeto Supabase usar? **Recomendado:** criar um só para os agentes, sem misturar com o `aulasenai`. Alternativa: usar o projeto que já existe. | ✅ Projeto novo, só para os agentes | 2026-10-20 | Usuário (aprovou as recomendações) |
 | 3 | Quais projetos publicam? **Recomendado:** só `rules-ai` nesta etapa. Alternativa: todos os que têm `tasks/STATUS.md` (exige o workflow em cada repositório, em outra aprovação). | ✅ Só `rules-ai` nesta etapa | 2026-10-20 | Usuário (aprovou as recomendações) |
-| 4 | Onde a página "Agentes ao vivo" fica publicada? Se for só no PC, o fallback usa `/api/agentes`. Se for no GitHub Pages, o fallback usa só o GitHub raw. | ⬜ **Sem recomendação registrada: decisão do usuário** | — | — |
+| 4 | Onde a página "Agentes ao vivo" fica publicada? Se for só no PC, o fallback usa `/api/agentes`. Se for no GitHub Pages, o fallback usa só o GitHub raw. | ✅ Hospedada na Vercel (hospedagem externa; o usuário publica depois). Sem servidor Python, o fallback usa só o GitHub raw | 2026-10-20 | Usuário |
 | 5 | O `rules-ai` é público? **Recomendado:** sim, para a página ler o `STATUS.md` pelo GitHub sem token. Se for privado, o estado inicial passa a depender do servidor local. | ✅ Sim: `gh repo view` confirma `PUBLIC` | 2026-10-20 | Usuário (aprovou as recomendações) e Claude Code (Haiku 5.5) (conferência) |
 
 ### Decisões
 
 - **Aprovação (2026-10-20 10:59):** o usuário aprovou o plano e as recomendações das perguntas 1, 2, 3 e 5. A pergunta 4 segue ⬜ porque não tinha recomendação; ela bloqueia a subtarefa .4 e o gate desta etapa até ser respondida.
+- **Pergunta 4 (2026-10-20):** a página vai para a Vercel. Como a Vercel não roda `servidor.py`, a geração 3D da Tripo continua só no PC, e o fallback de R2.3 usa só o GitHub raw (não `/api/agentes`).
 - **Liberação:** a subtarefa .1 fica disponível só para Opus 5.5+/Fable ou DeepSeek (PESADO). Esta sessão (Haiku 5.5) não executa nenhuma subtarefa desta etapa.
 
 - **Parser:** o publicador reaproveita `dashboard/quadro_tarefas.py` (Python) em vez de portar para Node, para não duplicar a leitura do quadro (plano, 2026-10-20).
@@ -167,7 +168,7 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 - **Modelo:** só Sonnet — nunca outro.
 - **Effort:** medium
 - **Depende de:** MIGRAR-AGENTES-BROADCAST.3.
-- **Descrição:** a fonte do polling depende da resposta à pergunta 4 (servidor local ou GitHub raw).
+- **Descrição:** o polling usa só o GitHub raw, porque a página fica na Vercel (pergunta 4).
 - **Arquivos:** `dashboard/assets/js/agentes.js`.
 - **Critérios de Aceitação:** R2.3 atendido pelo código; sem polling enquanto o canal estiver conectado.
 - **Verificação:** `node --check dashboard/assets/js/agentes.js`; teste na tela pelo usuário (desligar a rede por 40 s).
@@ -200,7 +201,7 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 
 ### Aprovação
 
-👀 **Plano aprovado em 2026-10-20 10:59.** Falta só a pergunta 4 (onde a página fica publicada) para o gate passar. Liberada a subtarefa MIGRAR-AGENTES-BROADCAST.1, para o modelo PESADO. O workflow só vai para outros repositórios depois de aprovação própria (pergunta 3).
+👀 **Plano aprovado em 2026-10-20 10:59.** Todas as 5 perguntas fechadas (a 4: Vercel, com fallback só pelo GitHub raw). Liberada a subtarefa MIGRAR-AGENTES-BROADCAST.1, para o modelo PESADO. O workflow só vai para outros repositórios depois de aprovação própria (pergunta 3).
 
 ### Referências
 
