@@ -2,6 +2,7 @@
 // .24). `classificarMensagem` NUNCA lança e nunca devolve `liberar` (INV-3): qualquer falha vira
 // `decisao: 'sinais'` (a IA classifica pelos sinais da skill). O Jev só aconselha: nada aqui toca
 // o quadro, reserva tarefa ou bloqueia a mensagem (INV-2, INV-5).
+import { performance } from 'node:perf_hooks';
 import { criarCliente } from '../cliente.mjs';
 import {
   ErroJev, MODOS, carregarConfiguracao, carregarConfiguracaoMensagem, lerChave,
@@ -22,6 +23,10 @@ const ACAO_CLIENTE = 'mensagem';
 const MAXIMO_ALERTAS = 5;
 const TAMANHO_PROJETO = 80;
 const CASAS_CUSTO = 9;
+/** Folga para gravar a auditoria, imprimir e encerrar o processo depois da chamada (R1.3). */
+const MARGEM_SAIDA_MS = 150;
+/** Menos que isso de orçamento não adianta chamar o Jev: vira só sinais, sem chamada. */
+const PISO_ORCAMENTO_MS = 100;
 const TAMANHO_MAXIMO_ALERTA = 200;
 const CODIGO_ERRO_INESPERADO = 'ERRO_INESPERADO';
 const MOTIVOS = Object.freeze({
@@ -32,6 +37,18 @@ const ACOES = Object.freeze({
   DECISAO_JEV: 'decisao_jev', REVISAR: 'revisar', SO_SINAIS: 'so_sinais', PULADO: 'pulado',
 });
 const SITUACOES = Object.freeze({ OK: 'ok', ERRO: 'erro', PULADO: 'pulado', LIMITE: 'limite' });
+
+/**
+ * Calcula o orçamento de tempo da chamada: o tempo máximo da mensagem menos o que o processo já
+ * gastou (subida do node e imports, `performance.now()` = ms desde o início do processo) e menos
+ * a margem de saída. Assim o processo inteiro do gancho respeita o tempo máximo (R1.3).
+ * @param {number} tempoMaximoMs `JEV_TEMPO_MAXIMO_MENSAGEM_MS`.
+ * @param {() => number} decorridoMs Milissegundos desde o início do processo.
+ * @returns {number} Orçamento em ms (pode ser menor que o piso: aí não se chama o Jev).
+ */
+function calcularOrcamentoMs(tempoMaximoMs, decorridoMs) {
+  return Math.floor(tempoMaximoMs - decorridoMs() - MARGEM_SAIDA_MS);
+}
 
 /**
  * Cria o resultado no formato do contrato, com os padrões de "só sinais".
@@ -61,7 +78,7 @@ function criarResultado(parcial = {}) {
 
 /**
  * Completa as dependências injetáveis com as reais.
- * @param {{cliente?: object, agora?: Function, arquivoAuditoria?: string,
+ * @param {{cliente?: object, agora?: Function, decorridoMs?: Function, arquivoAuditoria?: string,
  *   ambiente?: Record<string, string|undefined>}} injetadas Dependências de teste.
  * @returns {{cliente: object|null, agora: Function, arquivoAuditoria: string|null,
  *   ambiente: Record<string, string|undefined>}} Dependências completas.
@@ -70,6 +87,7 @@ function completarDependencias(injetadas) {
   return {
     cliente: injetadas.cliente ?? null,
     agora: injetadas.agora ?? (() => new Date()),
+    decorridoMs: injetadas.decorridoMs ?? (() => performance.now()),
     arquivoAuditoria: injetadas.arquivoAuditoria ?? null,
     ambiente: injetadas.ambiente ?? process.env,
   };
@@ -233,9 +251,16 @@ async function executar(entrada, deps) {
   const orcamento = { modelo: carregarConfiguracao(deps.ambiente).modelo,
     maximoTokens: config.maximoTokensMensagem };
   const pedido = prepararPedido({ texto, projeto: entrada.projeto }, orcamento);
-  const alertas = coletarAlertas(texto, config.tempoMaximoMs);
+  const tempoMs = calcularOrcamentoMs(config.tempoMaximoMs, deps.decorridoMs);
+  if (tempoMs < PISO_ORCAMENTO_MS) {
+    return criarResultado({
+      motivo: MOTIVOS.JEV_INDISPONIVEL, erro_codigo: 'TEMPO_ESGOTADO', hash: pedido.hash,
+    });
+  }
+  const limitada = { ...config, tempoMaximoMs: tempoMs };
+  const alertas = coletarAlertas(texto, tempoMs);
   const arquivo = resolverArquivoAuditoria(deps, new Date(deps.agora()));
-  const parcial = await consultarJev(pedido, { config, deps, arquivo });
+  const parcial = await consultarJev(pedido, { config: limitada, deps, arquivo });
   return { ...parcial, alertas: await alertas, hash: pedido.hash };
 }
 

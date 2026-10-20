@@ -111,7 +111,8 @@ function ambienteDe(extra = {}) {
 async function classificar(texto, extra = {}, passo = null) {
   mock.recebidos = [];
   mock.proxima = passo;
-  return classificarMensagem({ texto, projeto: 'projeto-teste' }, { ambiente: ambienteDe(extra) });
+  return classificarMensagem({ texto, projeto: 'projeto-teste' },
+    { ambiente: ambienteDe(extra), decorridoMs: () => 0 });
 }
 
 /**
@@ -204,7 +205,7 @@ async function casoFalhas() {
     assert.equal(mock.recebidos.length, 1, `repetiu em ${JSON.stringify(passo)}`);
   }
   const foraDoAr = await classificarMensagem({ texto: PEDIDO_COMUM, projeto: 'p' },
-    { ambiente: ambienteDe({ JEV_URL: 'http://127.0.0.1:1' }) });
+    { ambiente: ambienteDe({ JEV_URL: 'http://127.0.0.1:1' }), decorridoMs: () => 0 });
   assert.equal(foraDoAr.decisao, 'sinais');
   const invalida = await classificar(PEDIDO_COMUM, { JEV_MAX_CUSTO_DIA: 'abc' });
   assert.equal(invalida.erro_codigo, 'CONFIGURACAO_INVALIDA');
@@ -285,7 +286,10 @@ async function casoR22() {
   assert.equal(linhas[1].pulado, true);
   assert.equal(linhas[1].hash, null);
   const quebrada = await classificarMensagem({ texto: PEDIDO_COMUM, projeto: 'p' },
-    { ambiente: ambienteDe(), arquivoAuditoria: join(ARQUIVO_AUDITORIA, 'nao', 'cabe.jsonl') });
+    {
+      ambiente: ambienteDe(), decorridoMs: () => 0,
+      arquivoAuditoria: join(ARQUIVO_AUDITORIA, 'nao', 'cabe.jsonl'),
+    });
   assert.equal(quebrada.decisao, 'jev', 'falha na auditoria derrubou a mensagem');
   return '2 linhas, só campos permitidos, sem texto nem chave; falha de gravação ignorada';
 }
@@ -431,9 +435,32 @@ async function casoGuardrailReal() {
   return 'git reset --hard e chave -> alertas sem o valor; texto limpo -> []';
 }
 
+/** R1.3 no processo: o gancho inteiro (com subida do node) volta dentro do tempo máximo. */
+async function casoR13Processo() {
+  const tempoMs = 1500;
+  mock.recebidos = [];
+  mock.proxima = { status: 200, corpo: respostaJev(), atrasoMs: 5000 };
+  const evento = JSON.stringify({
+    prompt: PEDIDO_COMUM, cwd: '/x/p', hook_event_name: 'UserPromptSubmit',
+  });
+  const inicio = performance.now();
+  const processo = await rodar([GANCHO], {
+    entrada: evento, env: { JEV_TEMPO_MAXIMO_MENSAGEM_MS: String(tempoMs) },
+  });
+  const gasto = performance.now() - inicio;
+  assert.equal(processo.codigo, 0);
+  assert.ok(gasto <= tempoMs, `processo levou ${Math.round(gasto)} ms (máximo ${tempoMs})`);
+  assert.match(processo.saida, /Jev indisponível/);
+  const semOrcamento = await classificarMensagem({ texto: PEDIDO_COMUM, projeto: 'p' },
+    { ambiente: ambienteDe(), decorridoMs: () => TEMPO_MAXIMO_MS });
+  assert.equal(semOrcamento.decisao, 'sinais');
+  return `gancho em ${Math.round(gasto)} ms (máximo ${tempoMs}); sem orçamento -> sinais`;
+}
+
 const CASOS = [
   ['R1.2 sem chave, JEV_MENSAGENS=off e JEV_MODO=off', casoR12],
   ['R1.3 servidor lento volta no tempo máximo', casoR13],
+  ['R1.3 processo do gancho dentro do tempo máximo', casoR13Processo],
   ['falhas do Jev (5xx, 4xx, JSON ruim, rede) viram só sinais', casoFalhas],
   ['R1.4 mensagens triviais não chamam o Jev', casoR14],
   ['R2.1 dry-run e envio mascarados', casoR21],

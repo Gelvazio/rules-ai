@@ -344,7 +344,7 @@ ligado e anotar na etapa latência, custo, nível sugerido e alertas de cada uma
 - **Effort:** medium
 - **Arquivos:** esta etapa; `scripts/jev/saidas/` (fora do Git)
 - **Critérios de aceitação:** R1.1, R1.3, R1.4 e R2.2 conferidos com números; INV-2 e INV-5.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — ensaio de 20 mensagens (10 `rules-ai`, 10 `aulasenai`) pelo gancho de verdade, com servidor Jev FALSO (sem chave nem rede para a API na nuvem): mediana 647 ms, máximo 3873 ms, triviais 55–57 ms sem requisição; decisões jev 10, matriz 5, sinais 5 (3 puladas e 2 lentas). O ensaio achou o processo em 4074 ms; o líder devolveu ao Sonnet e o orçamento passou a descontar a subida do node (`MARGEM_SAIDA_MS`). Falta o ensaio com a chave real (acerto de nível do Jev não medido) · **Verificação (líder):** R1.3 ≤ 4000 ms (3873); R1.4 0 requisições; R2.2/INV-4 0 trechos e 0 `tsk_` na auditoria; INV-2 20/20 código 0 sem `block`; INV-5 4 sinais de PESADO → PESADO (2 com Jev LEVE 0,95); `strace` sem escrita em `tasks/`. Observação para o usuário: comando destrutivo e pasta proibida só avisam, não elevam o nível (C43)
 
 ### JEV-GLOBAL-AI-FINAL.22 — Levar às IAs (`sincronizar.mjs --aplicar`)
 
@@ -368,7 +368,7 @@ ligado e anotar na etapa latência, custo, nível sugerido e alertas de cada uma
 - **Effort:** low
 - **Arquivos:** `STATUS_PROJETO.md`, `C:\fontes\CLAUDE.md`, `C:\fontes\AGENTS.md`
 - **Critérios de aceitação:** os dois mapas iguais; portal regravado.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) — `STATUS_PROJETO.md`: estado, itens 6–10 do que espera o usuário e histórico de 2026-10-20 01:10. Falta o mapa `C:\fontes\CLAUDE.md`/`AGENTS.md` e o `atualizar-index.cmd` (só no computador) · **Verificação (líder):** diff lido pelo líder
 
 ### JEV-GLOBAL-AI-FINAL.24 — O Jev decide o modelo da mensagem (confiança ≥ 0,80)
 
