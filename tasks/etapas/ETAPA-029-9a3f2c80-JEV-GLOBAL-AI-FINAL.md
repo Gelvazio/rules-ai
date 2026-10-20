@@ -89,6 +89,9 @@ Todas fechadas em 2026-10-20 00:18 pelas respostas do usuário no chat.
 | 2026-10-20 00:10 | Nível das 23 subtarefas sugerido pelo Jev (`jev.mjs classificar --id`, `jev-1.13.0`, custo total US$ 0,001); vale o nível final do Jev + sinais, e o líder só eleva: .12 e .22 de LEVE para PESADO (configuração global e mudança em massa). Ações `humano`/`revisar` conferidas pelo líder (.4, .11, .16, .19, .21 mantidas) | Claude Code (Opus 5.5) | pedido do usuário ("JA USE O *JEV AI* AGORA PRA CLASSIFICAR"); C39 (o Jev sugere, não rebaixa) |
 | 2026-10-20 00:18 | Plano aprovado ("Sim, aprovo") e as 6 perguntas respondidas no chat; a resposta da 6 (o Jev decide com confiança ≥ 0,80) muda o escopo: entram R6.1, R6.2, a subtarefa .24 e a C43 mudando a C39 na mensagem; INV-5 ajustado. Aguarda o novo "sim" a essa mudança | Gelvazio · Claude Code (Opus 5.5) | regra de mudança material de escopo (ciclo-da-task) |
 | 2026-10-20 00:19 | Mudança da pergunta 6 e subtarefa .24 aprovadas ("S8m,aprovo"); plano final aprovado, subtarefas livres para o modelo de cada uma | Gelvazio | resposta no chat |
+| 2026-10-20 00:27 | Execução na nuvem (`claude/untitled-session-tevg7e`) pela equipe: líder Opus 5.5 com as PESADAS (.4, .9, .11, .12, .19), Sonnet 5.5 nas MEDIO e Haiku 5.5 nas LEVE (C22). O que só existe no computador (contas do Claude Code, `~/.codex`, skill global, `--aplicar`, chave real) fica 👀 para o usuário | Claude Code (Opus 5.5) | pedido do usuário ("Faça JEV-GLOBAL-AI-FINAL, chame outros agentes se precisar, cobre eles como um líder, e prossiga sem parar") |
+| 2026-10-20 00:45 | Guardrails da mensagem só na camada determinística (sem consultar o Jev): o orçamento de 4 s e US$ 1/dia é da classificação; menção ambígua de pasta vira aviso de conferência | Claude Code (Opus 5.5) | R1.3, R2.3 e INV-2 |
+| 2026-10-20 00:50 | Skills dos outros projetos commitadas em ramos `claude/untitled-session-tevg7e` (não direto na `main` de outro repositório); na .19 também o agente `classificador-tarefas` e a `liderar-equipe` do `dashboard-ai` saem do Laya (o código `worker/` do produto fica como está) | Claude Code (Opus 5.5) | ramo designado da sessão; a skill nova contradiria o agente |
 
 ### JEV-GLOBAL-AI-FINAL.1 — Regra `jev.md`: seção "Classificar mensagens" e decisão C43
 
@@ -213,8 +216,8 @@ comando `mensagem` e devolve `additionalContext` com nível, modelo, `effort` e 
 
 ### JEV-GLOBAL-AI-FINAL.11 — Instalar o gancho no Claude Code (todas as contas)
 
-**Próximo passo:** ensinar o `scripts/sincronizar.mjs` a acrescentar o gancho `UserPromptSubmit` em
-`~/.claude/settings.json` e nas contas A, B e C, sem apagar ganchos existentes e com cópia `.bak`.
+**Próximo passo:** (usuário, no computador) rodar `node scripts/sincronizar.mjs` (prévia) e depois `--aplicar`;
+conferir `UserPromptSubmit` do Jev em `~/.claude/settings.json` e nas contas A, B e C.
 
 - **Nível:** PESADO — Jev `MEDIO`, final proposto `PESADO`, confiança 0.48, ação `humano`, sinais de PESADO: massa
 - **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
@@ -225,8 +228,8 @@ comando `mensagem` e devolve `additionalContext` com nível, modelo, `effort` e 
 
 ### JEV-GLOBAL-AI-FINAL.12 — Gancho do Codex (global)
 
-**Próximo passo:** acrescentar o mesmo comando ao gancho de prompt global do Codex
-(`~/.codex/hooks.json`), no formato que o Codex aceita.
+**Próximo passo:** (usuário, no computador) ligar `codex_hooks = true` em `[features]` do `~/.codex/config.toml`,
+rodar o `--aplicar` e conferir a sugestão do Jev numa mensagem do Codex.
 
 - **Nível:** PESADO — Jev `LEVE`, final proposto `LEVE`, confiança 0.48, ação `humano`; elevado pelo líder: grava o gancho global do Codex pelo `sincronizar.mjs` (configuração global, como a .11)
 - **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
@@ -261,8 +264,9 @@ classificação de subtarefas continua), e escrever o passo a passo de rollback 
 
 ### JEV-GLOBAL-AI-FINAL.15 — Skill global `classificar-tarefa` sem o Laya
 
-**Próximo passo:** tirar o Laya de `~/.claude/skills/classificar-tarefa/SKILL.md` (e da fonte em
-`.agents`, se houver) e citar o comando `mensagem`.
+**Próximo passo:** (usuário, no computador) copiar a seção `### Pergunta ao Jev` de
+`template-inicial-tasks-ia/.agents/skills/classificar-tarefa/SKILL.md` para
+`C:\Users\gelva\.claude\skills\classificar-tarefa\SKILL.md`, tirar o Laya e conferir `grep -ci laya` = 0.
 
 - **Nível:** LEVE — Jev `LEVE`, final proposto `LEVE`, confiança 0.92, ação `sugestao_automatica`
 - **Modelo:** só Haiku — nunca outro (C22)
@@ -344,8 +348,8 @@ ligado e anotar na etapa latência, custo, nível sugerido e alertas de cada uma
 
 ### JEV-GLOBAL-AI-FINAL.22 — Levar às IAs (`sincronizar.mjs --aplicar`)
 
-**Próximo passo:** rodar `node scripts/sincronizar.mjs --aplicar` depois da .1, .13 e .14 e conferir
-os arquivos globais.
+**Próximo passo:** (usuário, no computador) `node scripts/sincronizar.mjs --aplicar` e conferir os arquivos globais
+(a prévia da nuvem gerou `VERSAO.md` `2026-10-19-39b490d0` com a seção C43 no `dist/`).
 
 - **Nível:** PESADO — Jev `LEVE`, final proposto `LEVE`, confiança 0.40, ação `humano`; elevado pelo líder: grava o arquivo global de todas as IAs (mudança em massa, como a JEV-SEM-LAYA.2)
 - **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
