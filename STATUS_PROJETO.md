@@ -137,3 +137,9 @@ detalhe de cada tarefa-mãe.
 - 2026-10-20 07:05 (Brasília): JEV-GLOBAL-AI-FINAL.21 com o **Jev real** na nuvem (chave no
   ambiente): 20 mensagens, nível certo em 16 de 17, máximo 849 ms, custo US$ 0,00057; chave em
   nenhum arquivo. Na nuvem o Node precisa de `NODE_USE_ENV_PROXY=1` e do CA do proxy.
+- 2026-10-20 07:20 (Brasília): tarefa nova **RULES-LOCAL-JEV** (etapa 030-52084fd3): regras e Jev
+  vivem dentro de cada repositório (o `rules-local/` traz também o código do Jev e o gancho do
+  projeto; corrige o download velho na nuvem). 9 subtarefas com nível pelo Jev real (2 MEDIO, 7
+  PESADO); 👀 aguardando o "sim" e 4 perguntas. A JEV-GLOBAL-AI-FINAL foi levada à `main` nos 5
+  repositórios; os ramos `claude/untitled-session-tevg7e` ficam para o usuário apagar (a nuvem
+  recusa apagar ramo, HTTP 403).

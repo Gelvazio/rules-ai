@@ -408,7 +408,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 
 **Status:** ✅ entregue 2026-10-17 18:05.
 
-- **Servidor:** `/api/projetos` lista as pastas de `C:ontes` com `tasks\STATUS.md` (nunca as
+- **Servidor:** `/api/projetos` lista as pastas de `C:\fontes` com `tasks\STATUS.md` (nunca as
   `DEMAIS-PROJETOS-*`, regras C20 e C23), com nome legível ("rules-ai" → "Rules Ai"); 19 projetos
   hoje. `/api/agentes?projeto=<pasta>` lê o quadro do projeto pedido (padrão: `rules-ai`); id fora
   da lista é recusado (testado com `../rules-ai` e `DEMAIS-PROJETOS-NAO-MEXER-AGORA`).

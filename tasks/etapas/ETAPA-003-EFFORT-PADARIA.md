@@ -4,7 +4,7 @@
 **Pedido:** "crie 1 tarefa mais complexa, que consiga testar os 3 tipos de effort, em todos os modelos, e pra isso, crie 1 projeto simples de padaria, na pasta testes-effort-padaria, salve ela no quadro e assuma"
 **Objetivo:** um desafio de raciocínio com várias etapas (produção, estoque, compras, descontos e escala de forno) que **não** se resolve com um script de força bruta, para medir se o `effort` muda tokens, tempo e **acerto** em cada modelo.
 
-> 📦 **Movida em 2026-10-18 19:00** para o quadro do projeto `C:/fontes/testes-effort-padaria` (`tasks/STATUS.md`, etapa 001), a pedido do usuário ("ESTA TAREFA EFFORT-PADARIA, MOVA PARA O PROJETO C:ontes	estes-effort-padaria"). Este arquivo fica só como histórico; o gabarito ficou no `rules-ai` (`gabaritos/EFFORT-PADARIA.md`).
+> 📦 **Movida em 2026-10-18 19:00** para o quadro do projeto `C:/fontes/testes-effort-padaria` (`tasks/STATUS.md`, etapa 001), a pedido do usuário ("ESTA TAREFA EFFORT-PADARIA, MOVA PARA O PROJETO C:\fontes	estes-effort-padaria"). Este arquivo fica só como histórico; o gabarito ficou no `rules-ai` (`gabaritos/EFFORT-PADARIA.md`).
 
 > 🌐 **TAREFA GLOBAL** (todos os projetos e IAs). Continua a `CONFEFFORT-GLOBAL` (etapa 002): lá o problema era fácil e os agentes resolveram por script; aqui o agente é proibido de executar código.
 
