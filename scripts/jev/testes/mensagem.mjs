@@ -5,7 +5,7 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
@@ -36,6 +36,7 @@ const pasta = mkdtempSync(join(tmpdir(), 'jev-mensagem-'));
 const ARQUIVO_AUDITORIA = join(pasta, 'mensagens-teste.jsonl');
 const ARQUIVO_ENV_INEXISTENTE = join(pasta, 'sem.env');
 const mock = { proxima: null, recebidos: [] };
+let contadorMarcas = 0;
 
 /**
  * Monta as respostas do Jev para a mensagem.
@@ -111,8 +112,11 @@ function ambienteDe(extra = {}) {
 async function classificar(texto, extra = {}, passo = null) {
   mock.recebidos = [];
   mock.proxima = passo;
-  return classificarMensagem({ texto, projeto: 'projeto-teste' },
-    { ambiente: ambienteDe(extra), decorridoMs: () => 0 });
+  contadorMarcas += 1;
+  return classificarMensagem({ texto, projeto: 'projeto-teste' }, {
+    ambiente: ambienteDe(extra), decorridoMs: () => 0,
+    pastaMarcas: join(pasta, `marcas-${contadorMarcas}`),
+  });
 }
 
 /**
@@ -122,7 +126,11 @@ async function classificar(texto, extra = {}, passo = null) {
  * @returns {Promise<{codigo: number, saida: string, erro: string}>} Resultado do processo.
  */
 function rodar(argumentos, opcoes = {}) {
-  const env = { PATH: process.env.PATH, HOME: pasta, ...ambienteDe(), ...opcoes.env };
+  contadorMarcas += 1;
+  const marcas = join(pasta, `marcas-${contadorMarcas}`);
+  const env = {
+    PATH: process.env.PATH, HOME: pasta, ...ambienteDe(), JEV_PASTA_MARCAS: marcas, ...opcoes.env,
+  };
   const filho = spawn(process.execPath, argumentos, { env, stdio: ['pipe', 'pipe', 'pipe'] });
   const saida = [];
   const erro = [];
@@ -292,6 +300,30 @@ async function casoR22() {
     });
   assert.equal(quebrada.decisao, 'jev', 'falha na auditoria derrubou a mensagem');
   return '2 linhas, só campos permitidos, sem texto nem chave; falha de gravação ignorada';
+}
+
+/** R2.2 (RULES-LOCAL-JEV.5): a mesma mensagem duas vezes seguidas chama o Jev uma vez só. */
+async function casoUmaChamadaPorMensagem() {
+  const pastaMarcas = join(pasta, 'marcas-repetida');
+  const dependencias = { ambiente: ambienteDe(), decorridoMs: () => 0, pastaMarcas };
+  mock.recebidos = [];
+  mock.proxima = null;
+  const primeira = await classificarMensagem({ texto: PEDIDO_COMUM, projeto: 'p' }, dependencias);
+  const segunda = await classificarMensagem({ texto: PEDIDO_COMUM, projeto: 'p' }, dependencias);
+  assert.equal(primeira.pulado, false);
+  assert.equal(segunda.pulado, true);
+  assert.equal(segunda.motivo, 'repetida');
+  assert.equal(mock.recebidos.length, 1, 'mesma mensagem chamou o Jev duas vezes');
+  const outra = await classificarMensagem({ texto: `${PEDIDO_COMUM} e mais um ajuste`,
+    projeto: 'p' }, dependencias);
+  assert.equal(outra.pulado, false);
+  assert.equal(mock.recebidos.length, 2, 'texto diferente deveria chamar o Jev');
+  const marcaQuebrada = join(pasta, 'marcas-repetida', 'nao', 'cabe');
+  writeFileSync(join(pasta, 'arquivo-no-caminho'), 'x');
+  const semMarca = await classificarMensagem({ texto: `${PEDIDO_COMUM} terceira`, projeto: 'p' },
+    { ...dependencias, pastaMarcas: join(pasta, 'arquivo-no-caminho', marcaQuebrada) });
+  assert.equal(semMarca.pulado, false, 'falha ao gravar a marca derrubou a mensagem');
+  return '2 chamadas iguais -> 1 requisição; texto diferente chama; falha na marca ignorada';
 }
 
 /** R2.3: limite 0 não chama; e o gasto do dia (da própria auditoria) trava a chamada seguinte. */
@@ -466,6 +498,7 @@ const CASOS = [
   ['R2.1 dry-run e envio mascarados', casoR21],
   ['corte em 4000 caracteres e teto de tokens', casoCorte],
   ['R2.2 auditoria sem texto e sem chave', casoR22],
+  ['R2.2 uma chamada ao Jev por mensagem repetida', casoUmaChamadaPorMensagem],
   ['R2.3 limite de custo do dia', casoR23],
   ['R6.1 confiança alta sem sinal -> jev', casoR61],
   ['R6.2 confiança baixa ou sinal de PESADO -> matriz + revisar', casoR62],

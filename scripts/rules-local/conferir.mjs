@@ -1,5 +1,6 @@
 // Conferência do rules-local/ contra a VERSAO.md (formato combinado F1/F2/F3/F4).
-// Só leitura: este módulo nunca grava, apaga nem usa a rede.
+// Só leitura: este módulo nunca grava, apaga nem usa a rede. Também confere o pacote (scripts do
+// `rules-local/` e Jev, RULES-LOCAL-JEV.2) quando a VERSAO.md tem a seção dele.
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -18,6 +19,10 @@ const PROBLEMA_SOBRANDO = 'sobrando';
 const REGEX_VERSAO = /^- \*\*Versão:\*\* (\d{4}-\d{2}-\d{2}-[0-9a-f]{8})$/m;
 const REGEX_LINHA_REGRA = /^\| (\d+) \| ([A-Za-z0-9._-]+\.md) \| ([0-9a-f]{16}) \|$/;
 const REGEX_ARQUIVO_MD = /\.md$/;
+/** Seção do pacote (RULES-LOCAL-JEV.2): código e linhas `| n | <caminho>.mjs | código |`. */
+const REGEX_CODIGO_PACOTE = /^- \*\*Código do pacote:\*\* ([0-9a-f]{8})$/m;
+const REGEX_LINHA_PACOTE = /^\| (\d+) \| ((?:jev\/)?[A-Za-z0-9._/-]+\.mjs) \| ([0-9a-f]{16}) \|$/;
+const REGEX_CAMINHO_INSEGURO = /(?:^|\/)\.\.(?:\/|$)|^\//;
 
 /**
  * Tira o BOM do início e troca CRLF por LF (F1).
@@ -58,6 +63,37 @@ function extrairRegras(texto) {
 }
 
 /**
+ * Extrai a tabela do pacote (scripts do `rules-local/` e arquivos do Jev).
+ * @param {string} texto VERSAO.md já normalizada.
+ * @returns {Map<string, string>|null} caminho → código (vazio sem a seção), ou null se houver
+ *   caminho repetido ou inseguro (`..` ou absoluto).
+ */
+function extrairPacote(texto) {
+  const pacote = new Map();
+  for (const linha of texto.split('\n')) {
+    const achado = REGEX_LINHA_PACOTE.exec(linha);
+    if (!achado) continue;
+    const ehInvalido = pacote.has(achado[2]) || REGEX_CAMINHO_INSEGURO.test(achado[2]);
+    if (ehInvalido) return null;
+    pacote.set(achado[2], achado[3]);
+  }
+  return pacote;
+}
+
+/**
+ * Confere o código do pacote declarado na VERSAO.md (seção ausente = pacote vazio, válido).
+ * @param {string} texto VERSAO.md já normalizada.
+ * @param {Map<string, string>|null} pacote Tabela do pacote.
+ * @returns {boolean} true quando o pacote é válido.
+ */
+function pacoteValido(texto, pacote) {
+  if (pacote === null) return false;
+  const codigoDeclarado = REGEX_CODIGO_PACOTE.exec(texto)?.[1];
+  if (pacote.size === 0) return codigoDeclarado === undefined;
+  return codigoDeclarado === calcularCodigoConteudo(pacote);
+}
+
+/**
  * Recalcula o código do conteúdo (da versão) a partir das regras, na ordem da tabela (F1).
  * @param {Map<string, string>} regras arquivo → código.
  * @returns {string} Código de 8 caracteres.
@@ -71,8 +107,8 @@ function calcularCodigoConteudo(regras) {
 /**
  * Lê o texto da VERSAO.md (F2).
  * @param {string|null|undefined} texto Conteúdo da VERSAO.md.
- * @returns {{ok: true, versao: string, regras: Map<string, string>}
- *   |{ok: false, motivo: string}} Resultado da leitura.
+ * @returns {{ok: true, versao: string, regras: Map<string, string>,
+ *   pacote: Map<string, string>}|{ok: false, motivo: string}} Resultado da leitura.
  */
 export function lerVersao(texto) {
   if (typeof texto !== 'string' || texto.trim() === '') {
@@ -87,7 +123,9 @@ export function lerVersao(texto) {
   if (!versao.endsWith(`-${calcularCodigoConteudo(regras)}`)) {
     return { ok: false, motivo: MOTIVO_CORROMPIDA };
   }
-  return { ok: true, versao, regras };
+  const pacote = extrairPacote(normalizado);
+  if (!pacoteValido(normalizado, pacote)) return { ok: false, motivo: MOTIVO_CORROMPIDA };
+  return { ok: true, versao, regras, pacote };
 }
 
 /**
@@ -105,8 +143,9 @@ function lerArquivoOuNulo(caminho) {
 }
 
 /**
- * Compara cada regra da tabela com o arquivo gravado em `regras/`.
- * @param {string} pastaRegras Caminho de `rules-local/regras`.
+ * Compara cada arquivo da tabela com o gravado na pasta (regras em `regras/`; pacote na raiz
+ * de `rules-local/`, com `jev/…`).
+ * @param {string} pastaRegras Pasta base dos caminhos da tabela.
  * @param {Map<string, string>} regras arquivo → código esperado.
  * @returns {{arquivo: string, problema: string}[]} Problemas encontrados.
  */
@@ -152,6 +191,7 @@ export function conferirPasta(pastaRulesLocal) {
   const arquivos = [
     ...conferirRegras(pastaRegras, leitura.regras),
     ...listarSobrando(pastaRegras, leitura.regras),
+    ...conferirRegras(pastaRulesLocal, leitura.pacote),
   ];
   if (arquivos.length > 0) return { integro: false, motivo: MOTIVO_NAO_INTEGRO, arquivos };
   return { integro: true, versao: leitura.versao };

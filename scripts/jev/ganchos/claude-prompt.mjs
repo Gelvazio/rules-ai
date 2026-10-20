@@ -6,6 +6,7 @@
 // A chave vem de config.mjs (ambiente ou .env da raiz do rules-ai): este arquivo não a lê nem a
 // imprime. Roda a partir de qualquer pasta de projeto.
 import { basename } from 'node:path';
+import { rodarComProxySePreciso } from '../proxy.mjs';
 
 const EVENTO = 'UserPromptSubmit';
 const TEMPO_LEITURA_MS = 3000;
@@ -65,6 +66,10 @@ async function montarSaida(evento) {
  */
 async function principal() {
   try {
+    if (await rodarComProxySePreciso()) {
+      process.exitCode = 0;
+      return;
+    }
     const evento = lerEvento(await lerEntrada());
     const saida = evento ? await montarSaida(evento) : '';
     if (saida) process.stdout.write(`${saida}\n`);

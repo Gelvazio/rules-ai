@@ -85,7 +85,7 @@ os arquivos por ele; se houver `HTTPS_PROXY` sem `NODE_USE_ENV_PROXY`, usar o pr
 - **Effort:** medium
 - **Arquivos:** `scripts/rules-local/baixar.mjs`, `scripts/rules-local/sessao.mjs`
 - **Critérios de aceitação:** R1.1; INV-2 (sem rede → `sem acesso`, código 0).
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `scripts/rules-local/proxy.mjs` (e cópia `scripts/jev/proxy.mjs`): com `HTTPS_PROXY` e sem `NODE_USE_ENV_PROXY`, o `sessao.mjs` e o gancho se rodam de novo com o proxy ligado; no PC nada muda · **Verificação (líder):** cópia do `rules-local/` do `dashboard-ai` na nuvem: `VERSÃO NOVA 2026-10-18-988f933e -> 2026-10-19-39b490d0` (antes vinha a cópia velha `825288c1`); gancho com o Jev real: código 0, stderr vazio (R1.1, INV-2)
 
 ### RULES-LOCAL-JEV.2 — `rules-local/jev/`: o código do Jev conferido pela `VERSAO.md`
 
@@ -97,7 +97,7 @@ Jev usados pelo gancho, com código, e fazer o `sessao.mjs` baixar e conferir es
 - **Effort:** high
 - **Arquivos:** `scripts/sincronizar.mjs`, `scripts/rules-local/sessao.mjs`, `scripts/rules-local/conferir.mjs`
 - **Critérios de aceitação:** R1.2; INV-3.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Opus 5.5 · líder) — `scripts/pacote-rules-local.mjs` (lista os scripts do `rules-local/` e os arquivos do Jev pelas importações dos ganchos: 30 arquivos), tabela "Pacote do rules-local" na `VERSAO.md` pelo `sincronizar.mjs` (fora do código da versão, para os scripts antigos continuarem lendo), `conferir.mjs` lê e confere o pacote, `scripts/rules-local/pacote.mjs` baixa/confere/grava e põe `jev/saidas/` no `.gitignore`; o `sessao.mjs` integra tudo · **Verificação (líder):** projeto falso servido do `rules-ai` local: regras + 30 arquivos gravados, 2ª sessão `versão igual`, `conferirPasta` íntegro; arquivo do Jev editado à mão é restaurado; `sessao.mjs` ANTIGO do `dashboard-ai` com a `VERSAO.md` nova: lê as regras e ignora o pacote (R1.2, INV-3)
 
 ### RULES-LOCAL-JEV.3 — Gancho do Claude Code no `.claude/settings.json` do projeto
 
@@ -109,7 +109,7 @@ Jev usados pelo gancho, com código, e fazer o `sessao.mjs` baixar e conferir es
 - **Effort:** high
 - **Arquivos:** `scripts/instalar-rules-local.mjs`, `.claude/settings.json` dos projetos
 - **Critérios de aceitação:** R2.1; JSON válido; ganchos existentes preservados.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Opus 5.5 · líder) — `scripts/instalar-rules-local.mjs`: `GANCHOS_CLAUDE` (SessionStart + `UserPromptSubmit` com `node "$CLAUDE_PROJECT_DIR/rules-local/jev/ganchos/claude-prompt.mjs"`, timeout 10) acrescentados sem apagar ganchos; resposta 1: `scripts/jev/ganchos/instalar.mjs` agora só REMOVE o gancho global da conta · **Verificação (líder):** instalação num projeto falso (cópia do `testes-de-frontend`): `settings.json` com SessionStart 2, UserPromptSubmit 2, PreToolUse 1 (antigos preservados); gancho do projeto respondeu com o Jev real (MEDIO, 0,80); pasta de usuário falsa: só o Jev global saiu, `.bak` gravado, 2ª rodada `igual` (R2.1)
 
 ### RULES-LOCAL-JEV.4 — Gancho do Codex no `.codex/hooks.json` do projeto
 
@@ -121,7 +121,7 @@ projeto); conferir o formato na versão instalada do Codex.
 - **Effort:** high
 - **Arquivos:** `scripts/instalar-rules-local.mjs`, `.codex/hooks.json` dos projetos
 - **Critérios de aceitação:** R2.1; JSON válido.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Opus 5.5 · líder) — `GANCHOS_CODEX` no instalador: `.codex/hooks.json` do projeto com `node rules-local/jev/ganchos/codex-prompt.mjs` (o Codex roda na raiz do projeto); o global do Codex sai pelo `sincronizar.mjs` · **Verificação (líder):** `.codex/hooks.json` criado e JSON válido no projeto falso; formato do Codex conferido só pelo resumo da busca (PR #14626): conferir no Codex instalado (R2.1)
 
 ### RULES-LOCAL-JEV.5 — Uma chamada ao Jev por mensagem
 
@@ -133,7 +133,7 @@ para a 2ª chamada da mesma mensagem em poucos segundos sair sem chamar o Jev.
 - **Effort:** medium
 - **Arquivos:** `scripts/jev/mensagem/classificar.mjs`, `scripts/jev/testes/mensagem.mjs`
 - **Critérios de aceitação:** R2.2; INV-2.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `scripts/jev/mensagem/repetida.mjs` (`JANELA_REPETIDA_MS = 10000`, marca por `hash` em `saidas/`) usado no `classificar.mjs`: a mesma mensagem não chama o Jev 2 vezes · **Verificação (líder):** caso novo no `testes/mensagem.mjs`: 2 chamadas iguais → 1 requisição; texto diferente chama; falha da marca não derruba; com o Jev real, a 2ª execução igual não imprimiu nada (R2.2)
 
 ### RULES-LOCAL-JEV.6 — Chave só do ambiente ou do `.env` do `rules-ai`
 
@@ -145,7 +145,7 @@ para a 2ª chamada da mesma mensagem em poucos segundos sair sem chamar o Jev.
 - **Effort:** high
 - **Arquivos:** `scripts/jev/config.mjs`, `.gitignore` dos projetos
 - **Critérios de aceitação:** R3.1; INV-1.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Opus 5.5 · líder) — `scripts/jev/config.mjs`: na cópia do projeto (`…/rules-local/jev/`) a chave vem SÓ do ambiente (`ESTA_EM_PROJETO`; nenhum `.env`), resposta 4 do usuário; `jev/saidas/` fora do Git · **Verificação (líder):** gancho do projeto sem a variável → "Jev indisponível", código 0; com a variável → Jev real; chave em 0 arquivos do projeto falso; `git status --ignored` mostra `rules-local/jev/saidas/` ignorada (R3.1, INV-1)
 
 ### RULES-LOCAL-JEV.7 — Regra `rules-local.md` e decisão C44
 

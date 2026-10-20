@@ -10,6 +10,7 @@ import { homedir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sincronizarGanchos } from './jev/ganchos/instalar.mjs';
+import { montarPacote } from './pacote-rules-local.mjs';
 
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PASTA_REGRAS = join(RAIZ, 'regras');
@@ -215,12 +216,47 @@ function calcularCodigoDoConteudo(regras) {
 }
 
 /**
+ * Lista o pacote do `rules-local/` (scripts e Jev) com o código de cada arquivo
+ * (RULES-LOCAL-JEV.2).
+ * @returns {{arquivo: string, codigo: string}[]} Caminho no projeto (relativo a `rules-local/`).
+ */
+function listarCodigosDoPacote() {
+  return montarPacote().map(({ destino, fonte }) => ({
+    arquivo: destino, codigo: calcularCodigo(readFileSync(fonte, 'utf8'), TAMANHO_CODIGO_ARQUIVO),
+  }));
+}
+
+/**
+ * Monta a seção do pacote da `VERSAO.md`. Fica fora do código da versão (que cobre só as regras)
+ * para os `sessao.mjs` antigos dos projetos continuarem lendo a `VERSAO.md`; eles ignoram as
+ * linhas com `/` e ressincronizam porque o texto mudou.
+ * @param {{arquivo: string, codigo: string}[]} pacote - Arquivos do pacote.
+ * @returns {string[]} Linhas da seção.
+ */
+function montarSecaoPacote(pacote) {
+  const linhas = pacote.map(
+    ({ arquivo, codigo }, indice) => `| ${indice} | ${arquivo} | ${codigo} |`,
+  );
+  return [
+    '## Pacote do rules-local (scripts e Jev)',
+    '',
+    `- **Código do pacote:** ${calcularCodigoDoConteudo(pacote)}`,
+    '',
+    '| # | Arquivo | Código |',
+    '|---|---------|--------|',
+    ...linhas,
+    '',
+  ];
+}
+
+/**
  * Monta o texto da `VERSAO.md`.
  * @param {string} versao - Versão `AAAA-MM-DD-<código do conteúdo>`.
  * @param {{arquivo: string, codigo: string}[]} regras - Regras na ordem da tabela.
+ * @param {{arquivo: string, codigo: string}[]} pacote - Pacote do `rules-local/`.
  * @returns {string} Conteúdo do arquivo, terminado em `\n`.
  */
-function montarVersao(versao, regras) {
+function montarVersao(versao, regras, pacote) {
   const linhasRegras = regras.map(
     ({ arquivo, codigo }, indice) => `| ${indice} | ${arquivo} | ${codigo} |`,
   );
@@ -239,25 +275,29 @@ function montarVersao(versao, regras) {
     '|---|---------|--------|',
     ...linhasRegras,
     '',
+    ...montarSecaoPacote(pacote),
   ].join('\n');
 }
 
 /**
- * Grava a `VERSAO.md` na raiz, sem mexer nela se o código do conteúdo não mudou (R1.2).
- * A data só muda quando o código do conteúdo muda.
+ * Grava a `VERSAO.md` na raiz, sem mexer nela se nada mudou (R1.2). A data e o código da versão
+ * só mudam quando as regras mudam; mudança só no pacote regrava a tabela com a versão atual.
  */
 function gravarVersao() {
   const regras = listarCodigosDasRegras();
   const codigoConteudo = calcularCodigoDoConteudo(regras);
+  const pacote = listarCodigosDoPacote();
   const atual = existsSync(ARQUIVO_VERSAO) ? readFileSync(ARQUIVO_VERSAO, 'utf8') : '';
   const versaoAtual = atual.match(PADRAO_LINHA_VERSAO)?.[1] ?? '';
-  if (versaoAtual.endsWith(`-${codigoConteudo}`)) {
+  const regrasIguais = versaoAtual.endsWith(`-${codigoConteudo}`);
+  const textoComVersaoAtual = montarVersao(versaoAtual, regras, pacote);
+  if (regrasIguais && textoComVersaoAtual === atual) {
     return console.log(`versão sem mudança: ${versaoAtual}`);
   }
 
   const hoje = new Date().toLocaleDateString('en-CA', { timeZone: FUSO_DA_VERSAO });
-  const versao = `${hoje}-${codigoConteudo}`;
-  writeFileSync(ARQUIVO_VERSAO, montarVersao(versao, regras), 'utf8');
+  const versao = regrasIguais ? versaoAtual : `${hoje}-${codigoConteudo}`;
+  writeFileSync(ARQUIVO_VERSAO, montarVersao(versao, regras, pacote), 'utf8');
   console.log(`versão gravada: ${versao} (${ARQUIVO_VERSAO})`);
 }
 

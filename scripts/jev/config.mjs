@@ -1,5 +1,6 @@
 // Configuração do cliente Jev (TypeSafe): modo, endpoint, modelo, limites, preço e caminhos.
-// A chave (TYPESAFE_API_KEY) vem do ambiente ou do .env da raiz do rules-ai e nunca é impressa.
+// A chave (TYPESAFE_API_KEY) vem do ambiente ou do .env da raiz do rules-ai e nunca é impressa;
+// na cópia de um projeto (`rules-local/jev/`), só do ambiente.
 // Variáveis: JEV_MODO (ativo|off), JEV_URL, JEV_MODELO, JEV_TIMEOUT_MS, JEV_MAX_TOKENS, JEV_LOG,
 // JEV_ARQUIVO_ENV. Das mensagens (gancho de prompt): JEV_MENSAGENS (ativo|off),
 // JEV_MAX_CUSTO_DIA (US$), JEV_MAX_TOKENS_MENSAGEM, JEV_TEMPO_MAXIMO_MENSAGEM_MS (e, para testes,
@@ -12,7 +13,12 @@ import { fileURLToPath } from 'node:url';
 const PASTA_JEV = dirname(fileURLToPath(import.meta.url));
 export const RAIZ_RULES_AI = resolve(PASTA_JEV, '..', '..');
 export const PASTA_SAIDAS = join(PASTA_JEV, 'saidas');
-const ARQUIVO_ENV_PADRAO = join(RAIZ_RULES_AI, '.env');
+/**
+ * Cópia do Jev dentro de um projeto (`<projeto>/rules-local/jev/`, RULES-LOCAL-JEV.6): lá a chave
+ * vem SÓ da variável de ambiente (decisão do usuário, 2026-10-20), nunca de um `.env` do projeto.
+ */
+const ESTA_EM_PROJETO = PASTA_JEV.endsWith(join('rules-local', 'jev'));
+const ARQUIVO_ENV_PADRAO = ESTA_EM_PROJETO ? null : join(RAIZ_RULES_AI, '.env');
 const ARQUIVO_LOG_PADRAO = join(PASTA_SAIDAS, 'chamadas.jsonl');
 
 /** `ativo` usa o Jev; `off` é o rollback (quem chama segue só pelos sinais da skill). */
@@ -160,6 +166,17 @@ function lerUrl(ambiente) {
 }
 
 /**
+ * Lê o `.env` a usar: o de `JEV_ARQUIVO_ENV`, o da raiz do rules-ai, ou nenhum dentro de projeto.
+ * @param {Record<string, string|undefined>} ambiente Variáveis de ambiente.
+ * @returns {string|null} Caminho absoluto, ou null (chave só do ambiente).
+ */
+function lerArquivoEnv(ambiente) {
+  const escolhido = lerTexto(ambiente, 'JEV_ARQUIVO_ENV', '');
+  if (escolhido) return resolve(escolhido);
+  return ARQUIVO_ENV_PADRAO;
+}
+
+/**
  * Monta a configuração do cliente a partir do ambiente (sem a chave).
  * @param {Record<string, string|undefined>} [ambiente] Variáveis de ambiente (padrão: o processo).
  * @returns {Readonly<object>} Modo, URL, modelo, limites, preço e caminhos de log e `.env`.
@@ -181,7 +198,7 @@ export function carregarConfiguracao(ambiente = process.env) {
     esperaMaximaMs: ESPERA_MAXIMA_MS,
     precoUsdPorMilhaoEntrada: PRECO_USD_POR_MILHAO_ENTRADA,
     arquivoLog: resolve(lerTexto(ambiente, 'JEV_LOG', ARQUIVO_LOG_PADRAO)),
-    arquivoEnv: resolve(lerTexto(ambiente, 'JEV_ARQUIVO_ENV', ARQUIVO_ENV_PADRAO)),
+    arquivoEnv: lerArquivoEnv(ambiente),
   });
 }
 
@@ -223,11 +240,11 @@ function removerAspas(valor) {
 
 /**
  * Procura a chave no arquivo `.env`, sem imprimir nada.
- * @param {string} arquivo Caminho do `.env`.
+ * @param {string|null} arquivo Caminho do `.env` (null = não ler arquivo nenhum).
  * @returns {string|null} Valor da chave ou null se não houver arquivo ou chave.
  */
 function lerChaveDoArquivoEnv(arquivo) {
-  if (!existsSync(arquivo)) return null;
+  if (!arquivo || !existsSync(arquivo)) return null;
 
   const valores = new Map();
   for (const linha of readFileSync(arquivo, 'utf8').split(/\r?\n/)) {

@@ -1,19 +1,15 @@
-// Instala o gancho de prompt do Jev (JEV-GLOBAL-AI-FINAL.11 e .12) no Claude Code (conta padrão e
-// contas A, B e C) e no Codex. Chamado pelo `scripts/sincronizar.mjs`: sem --aplicar só mostra o
-// que faria. Só ACRESCENTA a entrada do Jev em `UserPromptSubmit`: ganchos existentes ficam como
-// estão, o arquivo antigo vira `.bak` e o JSON novo é conferido antes de gravar. JSON inválido no
-// arquivo atual → pula sem gravar. Nenhuma chave vai para os arquivos: o gancho lê a chave do
-// ambiente ou do `.env` da raiz do rules-ai (config.mjs).
+// Tira o gancho de prompt GLOBAL do Jev do Claude Code (conta padrão e contas A, B e C) e do Codex.
+// Desde a C44 (RULES-LOCAL-JEV, resposta 1 do usuário em 2026-10-20: "só do projeto") o gancho
+// vive no `.claude/settings.json` e no `.codex/hooks.json` de cada projeto, gravados pelo
+// `scripts/instalar-rules-local.mjs`; o global da JEV-GLOBAL-AI-FINAL.11/.12 não é mais instalado.
+// Chamado pelo `scripts/sincronizar.mjs`: sem --aplicar só mostra o que faria. Só REMOVE a entrada
+// do Jev: os outros ganchos ficam como estão, o arquivo antigo vira `.bak` e o JSON novo é
+// conferido antes de gravar. JSON inválido → pula sem gravar.
 import { copyFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, resolve } from 'node:path';
 
-const PASTA_GANCHOS = dirname(fileURLToPath(import.meta.url));
 const EVENTO = 'UserPromptSubmit';
-const TIPO_COMANDO = 'command';
-/** Folga do Claude Code sobre o tempo máximo interno do gancho (4 s, R1.3). */
-const TIMEOUT_CLAUDE_SEGUNDOS = 10;
 const INDENTACAO_JSON = 2;
 const CONTAS_EXTRAS_CLAUDE = ['A', 'B', 'C'];
 const PADRAO_FLAG_CODEX = /^\s*codex_hooks\s*=\s*true\b/m;
@@ -21,22 +17,13 @@ const AVISO_FLAG_CODEX = 'aviso    Codex: ganchos exigem `codex_hooks = true` em
   + '~/.codex/config.toml (não editado aqui; ligue à mão)';
 
 /**
- * Monta o comando que roda um gancho, com barras normais (funciona no Windows e no Linux).
- * @param {string} arquivo Nome do script em `scripts/jev/ganchos/`.
- * @returns {string} Comando `node "<caminho>"`.
- */
-function montarComando(arquivo) {
-  return `node "${join(PASTA_GANCHOS, arquivo).replaceAll('\\', '/')}"`;
-}
-
-/**
- * Lista os destinos dos ganchos: Claude Code (4 contas) e Codex.
+ * Lista os destinos onde o gancho global pode ter ficado: Claude Code (4 contas) e Codex.
+ * A marca é o trecho do caminho do script global no `rules-ai` (o do projeto é
+ * `rules-local/jev/ganchos/…` e não casa com ela).
  * @param {string} [pastaUsuario] Pasta do usuário (injetável para teste).
- * @returns {{ia: string, arquivo: string, pasta: string, entrada: object, marca: string}[]}
+ * @returns {{ia: string, arquivo: string, marca: string}[]}
  */
 export function listarDestinosDeGancho(pastaUsuario = homedir()) {
-  const claude = { type: TIPO_COMANDO, command: montarComando('claude-prompt.mjs'),
-    timeout: TIMEOUT_CLAUDE_SEGUNDOS };
   const pastasClaude = [
     ['Claude Code', '.claude'],
     ...CONTAS_EXTRAS_CLAUDE.map(
@@ -44,49 +31,56 @@ export function listarDestinosDeGancho(pastaUsuario = homedir()) {
     ),
   ];
   const destinosClaude = pastasClaude.map(([ia, pasta]) => ({
-    ia, pasta: join(pastaUsuario, pasta), arquivo: join(pastaUsuario, pasta, 'settings.json'),
-    entrada: claude, marca: 'scripts/jev/ganchos/claude-prompt.mjs',
+    ia, arquivo: join(pastaUsuario, pasta, 'settings.json'),
+    marca: 'scripts/jev/ganchos/claude-prompt.mjs',
   }));
   const codex = {
-    ia: 'Codex', pasta: join(pastaUsuario, '.codex'),
-    arquivo: join(pastaUsuario, '.codex', 'hooks.json'),
-    entrada: { type: TIPO_COMANDO, command: montarComando('codex-prompt.mjs') },
+    ia: 'Codex', arquivo: join(pastaUsuario, '.codex', 'hooks.json'),
     marca: 'scripts/jev/ganchos/codex-prompt.mjs',
   };
   return [...destinosClaude, codex];
 }
 
 /**
- * Diz se um grupo de ganchos já tem a entrada do Jev (pela marca no comando).
- * @param {{hooks?: {command?: string}[]}} grupo Grupo do evento.
+ * Diz se um gancho chama o script global do Jev (pela marca no comando).
+ * @param {{command?: string}} gancho Item de `hooks`.
  * @param {string} marca Trecho do caminho do script do Jev.
- * @returns {boolean} true quando o grupo chama o gancho do Jev.
+ * @returns {boolean} true quando é o gancho global do Jev.
  */
-function grupoTemJev(grupo, marca) {
-  return (grupo?.hooks ?? []).some(
-    (gancho) => String(gancho?.command ?? '').replaceAll('\\', '/').includes(marca),
-  );
+function ehGanchoDoJev(gancho, marca) {
+  return String(gancho?.command ?? '').replaceAll('\\', '/').includes(marca);
 }
 
 /**
- * Acrescenta (ou atualiza) a entrada do Jev no evento, sem tocar nos outros ganchos.
- * @param {object} configuracao JSON atual (objeto).
- * @param {{entrada: object, marca: string}} destino Entrada e marca do Jev.
- * @returns {object} JSON novo (cópia).
- * @throws {Error} Se `hooks` ou o evento não tiverem o formato esperado.
+ * Tira de um grupo os ganchos do Jev.
+ * @param {{hooks?: object[]}} grupo Grupo do evento.
+ * @param {string} marca Trecho do caminho do script do Jev.
+ * @returns {object} Grupo sem o Jev (os outros ganchos ficam).
  */
-export function acrescentarGancho(configuracao, destino) {
-  const novo = structuredClone(configuracao);
-  novo.hooks ??= {};
-  novo.hooks[EVENTO] ??= [];
-  const grupos = novo.hooks[EVENTO];
-  const formatoValido = typeof novo.hooks === 'object' && Array.isArray(grupos);
-  if (!formatoValido) throw new Error(`"hooks.${EVENTO}" não é uma lista`);
+function tirarJevDoGrupo(grupo, marca) {
+  const ganchos = Array.isArray(grupo?.hooks) ? grupo.hooks : [];
+  return { ...grupo, hooks: ganchos.filter((gancho) => !ehGanchoDoJev(gancho, marca)) };
+}
 
-  const indice = grupos.findIndex((grupo) => grupoTemJev(grupo, destino.marca));
-  const grupoJev = { hooks: [destino.entrada] };
-  if (indice < 0) grupos.push(grupoJev);
-  else grupos[indice] = grupoJev;
+/**
+ * Tira a entrada do Jev do evento, sem tocar nos outros ganchos (grupo que fica vazio sai; evento
+ * que fica vazio sai).
+ * @param {object} configuracao JSON atual (objeto).
+ * @param {{marca: string}} destino Marca do Jev no comando.
+ * @returns {object} JSON novo (cópia); igual ao atual quando não havia o Jev.
+ * @throws {Error} Se `hooks.<evento>` existir sem ser uma lista.
+ */
+export function removerGancho(configuracao, destino) {
+  const novo = structuredClone(configuracao);
+  const grupos = novo.hooks?.[EVENTO];
+  if (grupos === undefined) return novo;
+  if (!Array.isArray(grupos)) throw new Error(`"hooks.${EVENTO}" não é uma lista`);
+
+  const semJev = grupos
+    .map((grupo) => tirarJevDoGrupo(grupo, destino.marca))
+    .filter((grupo) => grupo.hooks.length > 0);
+  if (semJev.length > 0) novo.hooks[EVENTO] = semJev;
+  else delete novo.hooks[EVENTO];
   return novo;
 }
 
@@ -105,13 +99,16 @@ function lerJson(arquivo) {
 
 /**
  * Monta o texto novo do destino, conferindo que é JSON válido antes de devolver.
- * @param {{arquivo: string, entrada: object, marca: string}} destino Destino.
+ * @param {{arquivo: string, marca: string}} destino Destino.
  * @returns {{atual: string, novo: string}} Texto atual e texto novo.
  * @throws {Error} Se o JSON atual for inválido ou o formato de `hooks` não for o esperado.
  */
 function montarTextoNovo(destino) {
   const { texto, objeto } = lerJson(destino.arquivo);
-  const novo = `${JSON.stringify(acrescentarGancho(objeto, destino), null, INDENTACAO_JSON)}\n`;
+  const semJev = removerGancho(objeto, destino);
+  const mudou = JSON.stringify(semJev) !== JSON.stringify(objeto);
+  if (!mudou) return { atual: texto, novo: texto };
+  const novo = `${JSON.stringify(semJev, null, INDENTACAO_JSON)}\n`;
   JSON.parse(novo);
   return { atual: texto, novo };
 }
@@ -124,7 +121,7 @@ function montarTextoNovo(destino) {
  */
 function sincronizarGancho(destino, aplicar) {
   const rotulo = `${destino.ia} (gancho)`;
-  if (!existsSync(destino.pasta)) return console.log(`pulado   ${rotulo}: pasta não existe`);
+  if (!existsSync(destino.arquivo)) return console.log(`pulado   ${rotulo}: arquivo não existe`);
 
   let textos;
   try {
@@ -132,12 +129,14 @@ function sincronizarGancho(destino, aplicar) {
   } catch (erro) {
     return console.warn(`pulado   ${rotulo}: ${destino.arquivo} (${erro.message}; nada gravado)`);
   }
-  if (textos.novo === textos.atual) return console.log(`igual    ${rotulo}: ${destino.arquivo}`);
-  if (!aplicar) return console.log(`mudaria  ${rotulo}: ${destino.arquivo} (use --aplicar)`);
+  if (textos.novo === textos.atual) return console.log(`igual    ${rotulo}: sem o Jev global`);
+  if (!aplicar) {
+    return console.log(`mudaria  ${rotulo}: tiraria o Jev global de ${destino.arquivo}`);
+  }
 
   if (textos.atual) copyFileSync(destino.arquivo, `${destino.arquivo}.bak`);
   writeFileSync(destino.arquivo, textos.novo, 'utf8');
-  console.log(`gravado  ${rotulo}: ${destino.arquivo}`);
+  console.log(`gravado  ${rotulo}: Jev global removido de ${destino.arquivo}`);
 }
 
 /**
@@ -154,7 +153,7 @@ function avisarFlagDoCodex(pastaUsuario) {
 }
 
 /**
- * Sincroniza o gancho do Jev em todos os destinos.
+ * Tira o gancho global do Jev de todos os destinos (o do projeto vem do `rules-local/`).
  * @param {{aplicar: boolean, pastaUsuario?: string}} opcoes Gravar ou só mostrar.
  * @returns {void}
  */

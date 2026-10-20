@@ -1,7 +1,8 @@
 // Script de sessão do rules-local (formato combinado F3/F4/F5 da ETAPA-019).
 // Uso, na raiz do projeto: node rules-local/sessao.mjs.
 // Versão igual à da nuvem e pasta íntegra -> não grava nada; diferente -> baixa as regras,
-// grava regras/ e RELATORIO.md e, por último, a VERSAO.md.
+// grava regras/, o pacote (scripts do rules-local/ e jev/), RELATORIO.md e, por último, a
+// VERSAO.md.
 // Termina sempre com código 0, só grava dentro da própria pasta e nunca usa Git.
 import {
   closeSync, mkdirSync, openSync, readFileSync, readdirSync, statSync, unlinkSync,
@@ -14,6 +15,8 @@ import { compararListas } from './comparar.mjs';
 import {
   ARQUIVO_VERSAO, PASTA_REGRAS, calcularCodigo, conferirPasta, lerVersao, normalizarTexto,
 } from './conferir.mjs';
+import { baixarPacoteConferido, gravarPacote } from './pacote.mjs';
+import { rodarComProxySePreciso } from './proxy.mjs';
 
 const PASTA_RULES_LOCAL = dirname(fileURLToPath(import.meta.url));
 const ARQUIVO_RELATORIO = 'RELATORIO.md';
@@ -326,7 +329,8 @@ function avisoNuvemInconsistente(motivo) {
 /**
  * Grava a sincronização: regras, relatório e, por último, a VERSAO.md (R2.3/R2.7), e avisa.
  * @param {string} pasta Pasta `rules-local`.
- * @param {{texto: string, leitura: object, textos: Map<string, string>}} nuvem Dados da nuvem.
+ * @param {{texto: string, leitura: object, textos: Map<string, string>,
+ *   textosPacote: Map<string, string>}} nuvem Dados da nuvem (regras e pacote baixados).
  * @param {object} estado Estado local lido com a trava na mão.
  */
 function gravarSincronizacao(pasta, nuvem, estado) {
@@ -338,6 +342,7 @@ function gravarSincronizacao(pasta, nuvem, estado) {
   const nova = nuvem.leitura.versao;
 
   gravarRegras(pasta, nuvem.textos, regrasNova);
+  gravarPacote(pasta, nuvem.textosPacote, nuvem.leitura.pacote);
   const relatorio = montarRelatorio({
     anterior: estado.versao, nova, motivo, comparacao, antiga, regrasNova, restaurados,
   });
@@ -345,6 +350,13 @@ function gravarSincronizacao(pasta, nuvem, estado) {
   writeFileSync(caminhoNaPasta(pasta, ARQUIVO_VERSAO), nuvem.texto, 'utf8');
 
   const { mudado, adicionado, removido } = comparacao;
+  const semMudancaNasRegras = mudado.length + adicionado.length + removido.length === 0
+    && restaurados.length === 0 && estado.leitura.ok;
+  if (semMudancaNasRegras) {
+    avisar(`pacote atualizado (${nuvem.leitura.pacote.size} arquivos: scripts e Jev); `
+      + `regras iguais (${nova}); nada a fazer.`);
+    return;
+  }
   avisar(`VERSÃO NOVA ${estado.versao} -> ${nova} (${mudado.length} mudado, `
     + `${adicionado.length} adicionado, ${removido.length} removido).`);
   avisar(`relatório em rules-local/${ARQUIVO_RELATORIO}.`);
@@ -354,7 +366,7 @@ function gravarSincronizacao(pasta, nuvem, estado) {
 
 /**
  * Sincroniza com a trava na mão: relê o local (outra sessão pode ter acabado de gravar),
- * baixa e confere as regras e grava tudo.
+ * baixa e confere as regras e o pacote (scripts e Jev) e grava tudo.
  * @param {string} pasta Pasta `rules-local`.
  * @param {{texto: string, leitura: object}} nuvem VERSAO.md da nuvem, já lida.
  * @param {{urlBase: string}} opcoes Opções de download.
@@ -373,7 +385,17 @@ async function sincronizarComTrava(pasta, nuvem, opcoes) {
     avisar(aviso);
     return;
   }
-  gravarSincronizacao(pasta, { ...nuvem, textos: regras.textos }, estado);
+  const pacote = await baixarPacoteConferido(nuvem.leitura.pacote, opcoes);
+  if (!pacote.ok) {
+    const aviso = pacote.semAcesso
+      ? avisoSemAcesso(pacote.motivo, estado.versao)
+      : avisoNuvemInconsistente(pacote.motivo);
+    avisar(aviso);
+    return;
+  }
+  gravarSincronizacao(pasta, {
+    ...nuvem, textos: regras.textos, textosPacote: pacote.textos,
+  }, estado);
 }
 
 /**
@@ -408,5 +430,7 @@ async function executarSessao(pasta) {
   }
 }
 
-await executarSessao(PASTA_RULES_LOCAL);
-process.exitCode = 0;
+if (!(await rodarComProxySePreciso())) {
+  await executarSessao(PASTA_RULES_LOCAL);
+  process.exitCode = 0;
+}

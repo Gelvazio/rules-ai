@@ -2,6 +2,7 @@
 // .24). `classificarMensagem` NUNCA lança e nunca devolve `liberar` (INV-3): qualquer falha vira
 // `decisao: 'sinais'` (a IA classifica pelos sinais da skill). O Jev só aconselha: nada aqui toca
 // o quadro, reserva tarefa ou bloqueia a mensagem (INV-2, INV-5).
+import { dirname } from 'node:path';
 import { performance } from 'node:perf_hooks';
 import { criarCliente } from '../cliente.mjs';
 import {
@@ -16,6 +17,7 @@ import { montarContexto } from './contexto.mjs';
 import { DECISOES, decidirMensagem } from './decisao.mjs';
 import { prepararPedido } from './estado.mjs';
 import { comTempoMaximo, ehMensagemTrivial, estourouLimiteDia } from './limite.mjs';
+import { ehMensagemRepetida, marcarMensagem } from './repetida.mjs';
 
 export { montarContexto };
 
@@ -31,7 +33,7 @@ const TAMANHO_MAXIMO_ALERTA = 200;
 const CODIGO_ERRO_INESPERADO = 'ERRO_INESPERADO';
 const MOTIVOS = Object.freeze({
   OK: 'ok', TRIVIAL: 'trivial', DESLIGADO: 'desligado', LIMITE_DIA: 'limite_dia',
-  JEV_INDISPONIVEL: 'jev_indisponivel',
+  JEV_INDISPONIVEL: 'jev_indisponivel', REPETIDA: 'repetida',
 });
 const ACOES = Object.freeze({
   DECISAO_JEV: 'decisao_jev', REVISAR: 'revisar', SO_SINAIS: 'so_sinais', PULADO: 'pulado',
@@ -79,7 +81,8 @@ function criarResultado(parcial = {}) {
 /**
  * Completa as dependências injetáveis com as reais.
  * @param {{cliente?: object, agora?: Function, decorridoMs?: Function, arquivoAuditoria?: string,
- *   ambiente?: Record<string, string|undefined>}} injetadas Dependências de teste.
+ *   pastaMarcas?: string, ambiente?: Record<string, string|undefined>}} injetadas Dependências
+ *   de teste.
  * @returns {{cliente: object|null, agora: Function, arquivoAuditoria: string|null,
  *   ambiente: Record<string, string|undefined>}} Dependências completas.
  */
@@ -89,6 +92,7 @@ function completarDependencias(injetadas) {
     agora: injetadas.agora ?? (() => new Date()),
     decorridoMs: injetadas.decorridoMs ?? (() => performance.now()),
     arquivoAuditoria: injetadas.arquivoAuditoria ?? null,
+    pastaMarcas: injetadas.pastaMarcas ?? null,
     ambiente: injetadas.ambiente ?? process.env,
   };
 }
@@ -235,6 +239,22 @@ function resultadoPulado(motivo) {
 }
 
 /**
+ * Confere a marca da mensagem: repetida dentro da janela vira "pulado"; senão grava a marca.
+ * @param {{hash: string}} pedido Pedido com o hash da mensagem.
+ * @param {string} arquivo Arquivo de auditoria (a marca fica na mesma pasta, salvo injeção).
+ * @param {object} deps Dependências completas.
+ * @returns {boolean} true se a mensagem é repetida e não deve chamar o Jev.
+ */
+function conferirMarca(pedido, arquivo, deps) {
+  const doAmbiente = String(deps.ambiente.JEV_PASTA_MARCAS ?? '').trim();
+  const pasta = deps.pastaMarcas ?? (doAmbiente || dirname(arquivo));
+  const agoraMs = new Date(deps.agora()).getTime();
+  if (ehMensagemRepetida(pasta, pedido.hash, agoraMs)) return true;
+  marcarMensagem(pasta, pedido.hash, agoraMs);
+  return false;
+}
+
+/**
  * Executa a classificação (pode lançar; quem chama captura).
  * @param {{texto?: string, projeto?: string}} entrada Mensagem e projeto.
  * @param {object} deps Dependências completas.
@@ -257,9 +277,12 @@ async function executar(entrada, deps) {
       motivo: MOTIVOS.JEV_INDISPONIVEL, erro_codigo: 'TEMPO_ESGOTADO', hash: pedido.hash,
     });
   }
+  const arquivo = resolverArquivoAuditoria(deps, new Date(deps.agora()));
+  if (conferirMarca(pedido, arquivo, deps)) {
+    return { ...resultadoPulado(MOTIVOS.REPETIDA), hash: pedido.hash };
+  }
   const limitada = { ...config, tempoMaximoMs: tempoMs };
   const alertas = coletarAlertas(texto, tempoMs);
-  const arquivo = resolverArquivoAuditoria(deps, new Date(deps.agora()));
   const parcial = await consultarJev(pedido, { config: limitada, deps, arquivo });
   return { ...parcial, alertas: await alertas, hash: pedido.hash };
 }

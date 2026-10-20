@@ -92,6 +92,7 @@ Todas fechadas em 2026-10-20 00:18 pelas respostas do usuário no chat.
 | 2026-10-20 00:27 | Execução na nuvem (`claude/untitled-session-tevg7e`) pela equipe: líder Opus 5.5 com as PESADAS (.4, .9, .11, .12, .19), Sonnet 5.5 nas MEDIO e Haiku 5.5 nas LEVE (C22). O que só existe no computador (contas do Claude Code, `~/.codex`, skill global, `--aplicar`, chave real) fica 👀 para o usuário | Claude Code (Opus 5.5) | pedido do usuário ("Faça JEV-GLOBAL-AI-FINAL, chame outros agentes se precisar, cobre eles como um líder, e prossiga sem parar") |
 | 2026-10-20 00:45 | Guardrails da mensagem só na camada determinística (sem consultar o Jev): o orçamento de 4 s e US$ 1/dia é da classificação; menção ambígua de pasta vira aviso de conferência | Claude Code (Opus 5.5) | R1.3, R2.3 e INV-2 |
 | 2026-10-20 00:50 | Skills dos outros projetos commitadas em ramos `claude/untitled-session-tevg7e` (não direto na `main` de outro repositório); na .19 também o agente `classificador-tarefas` e a `liderar-equipe` do `dashboard-ai` saem do Laya (o código `worker/` do produto fica como está) | Claude Code (Opus 5.5) | ramo designado da sessão; a skill nova contradiria o agente |
+| 2026-10-20 08:00 | .11 e .12 substituídas pela C44 (RULES-LOCAL-JEV, etapa 030): o gancho vive no `.claude/settings.json` e no `.codex/hooks.json` de cada projeto; o `sincronizar.mjs --aplicar` agora tira o gancho global | Gelvazio · Claude Code (Opus 5.5) | resposta 1 do usuário ("só do projeto") |
 
 ### JEV-GLOBAL-AI-FINAL.1 — Regra `jev.md`: seção "Classificar mensagens" e decisão C43
 

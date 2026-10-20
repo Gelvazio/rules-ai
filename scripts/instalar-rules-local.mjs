@@ -1,7 +1,8 @@
 // Instala as regras globais em `rules-local/` de um projeto (RULES-LOCAL-GLOBAL.12, F6).
 // Uso: node scripts/instalar-rules-local.mjs <pasta-do-projeto>
 // Copia os `*.mjs` de scripts/rules-local/, grava `.gitattributes` e `.gitignore`, o gancho
-// SessionStart no `.claude/settings.json` e o aviso no AGENTS.md (ou CLAUDE.md), e roda o
+// SessionStart e o de prompt do Jev (UserPromptSubmit) no `.claude/settings.json`, o de prompt
+// no `.codex/hooks.json` (RULES-LOCAL-JEV.3/.4) e o aviso no AGENTS.md (ou CLAUDE.md), e roda o
 // `rules-local/sessao.mjs` do projeto para baixar as regras. Não faz commit. Idempotente:
 // confere tudo antes de gravar e só grava o que mudou.
 import { spawnSync } from 'node:child_process';
@@ -19,20 +20,45 @@ const SCRIPT_SESSAO = 'sessao.mjs';
 const SCRIPT_CONFERIR = 'conferir.mjs';
 const EXTENSAO_SCRIPT = '.mjs';
 /** Arquivos fixos do `rules-local/` (F3). */
-const ARQUIVOS_FIXOS = { '.gitattributes': '* text eol=lf\n', '.gitignore': '.trava\n' };
-const ARQUIVO_CONFIGURACAO = join('.claude', 'settings.json');
-/** Trecho que identifica o gancho já instalado (F6), com `/` ou `\`. */
-const TRECHO_COMANDO_GANCHO = 'rules-local/sessao.mjs';
-const ITEM_GANCHO = {
-  matcher: 'startup',
-  hooks: [
-    {
-      type: 'command',
-      command: 'node "$CLAUDE_PROJECT_DIR/rules-local/sessao.mjs"',
-      timeout: 30,
-    },
-  ],
+const ARQUIVOS_FIXOS = {
+  '.gitattributes': '* text eol=lf\n', '.gitignore': '.trava\njev/saidas/\n',
 };
+const ARQUIVO_CONFIGURACAO = join('.claude', 'settings.json');
+/**
+ * Ganchos do projeto: o de início de sessão (F6) e o de prompt do Jev (RULES-LOCAL-JEV.3, C44).
+ * `trecho` identifica o gancho já instalado (com `/` ou `\`); o item só é acrescentado se faltar.
+ */
+const GANCHOS_CLAUDE = [
+  {
+    evento: 'SessionStart',
+    trecho: 'rules-local/sessao.mjs',
+    item: {
+      matcher: 'startup',
+      hooks: [{ type: 'command', command: 'node "$CLAUDE_PROJECT_DIR/rules-local/sessao.mjs"',
+        timeout: 30 }],
+    },
+  },
+  {
+    evento: 'UserPromptSubmit',
+    trecho: 'rules-local/jev/ganchos/claude-prompt.mjs',
+    item: {
+      hooks: [{ type: 'command',
+        command: 'node "$CLAUDE_PROJECT_DIR/rules-local/jev/ganchos/claude-prompt.mjs"',
+        timeout: 10 }],
+    },
+  },
+];
+/** Gancho de prompt do Codex no projeto (RULES-LOCAL-JEV.4): o Codex roda na raiz do projeto. */
+const ARQUIVO_GANCHOS_CODEX = join('.codex', 'hooks.json');
+const GANCHOS_CODEX = [
+  {
+    evento: 'UserPromptSubmit',
+    trecho: 'rules-local/jev/ganchos/codex-prompt.mjs',
+    item: {
+      hooks: [{ type: 'command', command: 'node rules-local/jev/ganchos/codex-prompt.mjs' }],
+    },
+  },
+];
 /** Onde vai o aviso: o primeiro que existir na raiz do projeto. */
 const ARQUIVOS_AVISO = ['AGENTS.md', 'CLAUDE.md'];
 const MARCA_INICIO = '<!-- rules-local:inicio -->';
@@ -141,13 +167,15 @@ function detectarEstilo(texto) {
 }
 
 /**
- * Lê o `.claude/settings.json` e confere a parte de ganchos.
+ * Lê um JSON de ganchos (`.claude/settings.json` ou `.codex/hooks.json`) e confere a parte de
+ * ganchos.
  * @param {string|null} texto Conteúdo atual, ou null quando o arquivo não existe.
- * @param {string} caminho Usado só nas mensagens de erro.
+ * @param {{caminho: string, eventos: string[]}} alvo Caminho (só nas mensagens) e eventos usados.
  * @returns {object} Configuração lida (vazia sem arquivo).
- * @throws {Error} JSON inválido ou `hooks`/`hooks.SessionStart` com tipo errado.
+ * @throws {Error} JSON inválido ou `hooks`/`hooks.<evento>` com tipo errado.
  */
-function lerConfiguracao(texto, caminho) {
+function lerConfiguracao(texto, alvo) {
+  const { caminho } = alvo;
   if (texto === null) return {};
 
   let dados;
@@ -160,42 +188,48 @@ function lerConfiguracao(texto, caminho) {
   if (dados.hooks !== undefined && !ehObjeto(dados.hooks)) {
     throw new Error(`"hooks" não é objeto em ${caminho}`);
   }
-  const ganchosDeInicio = dados.hooks?.SessionStart;
-  if (ganchosDeInicio !== undefined && !Array.isArray(ganchosDeInicio)) {
-    throw new Error(`"hooks.SessionStart" não é vetor em ${caminho}`);
-  }
+  const eventoInvalido = alvo.eventos.find(
+    (evento) => dados.hooks?.[evento] !== undefined && !Array.isArray(dados.hooks[evento]),
+  );
+  if (eventoInvalido) throw new Error(`"hooks.${eventoInvalido}" não é vetor em ${caminho}`);
   return dados;
 }
 
 /**
- * Diz se algum item de `hooks.SessionStart` já chama o `rules-local/sessao.mjs` (F6).
+ * Diz se algum item do evento já chama o script do gancho (F6).
  * @param {object} dados Configuração lida.
+ * @param {{evento: string, trecho: string}} gancho Evento e trecho do comando.
  * @returns {boolean}
  */
-function temGanchoRulesLocal(dados) {
-  const comandos = (dados.hooks?.SessionStart ?? [])
+function temGancho(dados, gancho) {
+  const comandos = (dados.hooks?.[gancho.evento] ?? [])
     .flatMap((item) => (Array.isArray(item?.hooks) ? item.hooks : []))
-    .map((gancho) => (typeof gancho?.command === 'string' ? gancho.command : ''));
-  return comandos.some((comando) => comando.replace(/\\/g, '/').includes(TRECHO_COMANDO_GANCHO));
+    .map((item) => (typeof item?.command === 'string' ? item.command : ''));
+  return comandos.some((comando) => comando.replace(/\\/g, '/').includes(gancho.trecho));
 }
 
 /**
- * Planeja o gancho SessionStart: acrescenta o item de F6 ao vetor existente, sem apagar
- * nada; já existe → nada a fazer; sem arquivo → cria só com o gancho.
+ * Planeja os ganchos de um arquivo: acrescenta os que faltam ao vetor do evento, sem apagar
+ * nada; todos já existem → nada a fazer; sem arquivo → cria só com os ganchos.
  * @param {string} projeto Pasta do projeto.
- * @returns {{caminho: string, texto: string}|null} Operação, ou null se o gancho já existe.
+ * @param {{arquivo: string, ganchos: object[]}} alvo Arquivo relativo e ganchos desejados.
+ * @returns {{caminho: string, texto: string}|null} Operação, ou null se nada falta.
  * @throws {Error} Configuração inválida (ver `lerConfiguracao`).
  */
-function planejarGancho(projeto) {
-  const caminho = join(projeto, ARQUIVO_CONFIGURACAO);
+function planejarGanchos(projeto, alvo) {
+  const caminho = join(projeto, alvo.arquivo);
   const atual = lerTextoOuNulo(caminho);
-  const dados = lerConfiguracao(atual, caminho);
-  if (temGanchoRulesLocal(dados)) return null;
+  const eventos = alvo.ganchos.map((gancho) => gancho.evento);
+  const dados = lerConfiguracao(atual, { caminho, eventos });
+  const faltando = alvo.ganchos.filter((gancho) => !temGancho(dados, gancho));
+  if (faltando.length === 0) return null;
 
   const novo = structuredClone(dados);
   novo.hooks ??= {};
-  novo.hooks.SessionStart ??= [];
-  novo.hooks.SessionStart.push(structuredClone(ITEM_GANCHO));
+  for (const gancho of faltando) {
+    novo.hooks[gancho.evento] ??= [];
+    novo.hooks[gancho.evento].push(structuredClone(gancho.item));
+  }
 
   const estilo = detectarEstilo(atual);
   const corpo = JSON.stringify(novo, null, estilo.recuo).replace(/\n/g, estilo.fimDeLinha);
@@ -321,10 +355,16 @@ async function principal() {
   const projeto = validarProjeto(process.argv[2]);
   const pastaRulesLocal = join(projeto, PASTA_DESTINO);
   const scripts = planejarScripts(pastaRulesLocal);
-  const gancho = planejarGancho(projeto);
+  const ganchoClaude = planejarGanchos(projeto, {
+    arquivo: ARQUIVO_CONFIGURACAO, ganchos: GANCHOS_CLAUDE,
+  });
+  const ganchoCodex = planejarGanchos(projeto, {
+    arquivo: ARQUIVO_GANCHOS_CODEX, ganchos: GANCHOS_CODEX,
+  });
   const aviso = planejarAviso(projeto);
-  if (!gancho) console.log(`${PREFIXO} gancho SessionStart já existe em ${ARQUIVO_CONFIGURACAO}`);
-  const operacoes = [...scripts, gancho, aviso].filter(Boolean);
+  if (!ganchoClaude) console.log(`${PREFIXO} ganchos já existem em ${ARQUIVO_CONFIGURACAO}`);
+  if (!ganchoCodex) console.log(`${PREFIXO} gancho já existe em ${ARQUIVO_GANCHOS_CODEX}`);
+  const operacoes = [...scripts, ganchoClaude, ganchoCodex, aviso].filter(Boolean);
 
   const contagem = { [SITUACAO_CRIADO]: 0, [SITUACAO_ATUALIZADO]: 0, [SITUACAO_IGUAL]: 0 };
   operacoes.forEach((operacao) => {
