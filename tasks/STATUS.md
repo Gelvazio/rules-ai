@@ -58,8 +58,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | MIGRAR-AGENTES-BROADCAST.4 | Fallback quando o canal cai · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | MIGRAR-AGENTES-BROADCAST.3 | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
 | MIGRAR-AGENTES-BROADCAST.5 | Documentação e fechamento · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | MIGRAR-AGENTES-BROADCAST.4 | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
 | **LIDERAR-EQUIPE-SARGENTO** | **🌐 Skill `liderar-equipe` com o líder "sargento", o VIGIA e o FINANCEIRO (5 projetos; aprovada no chat)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-032](etapas/ETAPA-032-385270f3-LIDERAR-EQUIPE-SARGENTO.md) |
-| LIDERAR-EQUIPE-SARGENTO.1 | Texto da seção "Líder sargento" na skill do template | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | 🔄 Em progresso | Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) (nuvem · main) (desde 2026-10-20 08:35) · 0% | [ETAPA-032](etapas/ETAPA-032-385270f3-LIDERAR-EQUIPE-SARGENTO.md) |
-| LIDERAR-EQUIPE-SARGENTO.2 | Levar a seção aos outros 4 projetos | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | LIDERAR-EQUIPE-SARGENTO.1 | ⬜ Pendente | — | [ETAPA-032](etapas/ETAPA-032-385270f3-LIDERAR-EQUIPE-SARGENTO.md) |
+| LIDERAR-EQUIPE-SARGENTO.2 | Levar a seção aos outros 4 projetos | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | LIDERAR-EQUIPE-SARGENTO.1 | 🔄 Em progresso | Claude Code (Opus 5.5 · executor-pesado; líder Opus 5.5) (nuvem · main) (desde 2026-10-20 08:37) · 0% | [ETAPA-032](etapas/ETAPA-032-385270f3-LIDERAR-EQUIPE-SARGENTO.md) |
 
 ## 🧭 Frentes de trabalho
 

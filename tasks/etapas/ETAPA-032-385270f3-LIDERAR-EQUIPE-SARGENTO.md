@@ -44,7 +44,7 @@ dois prompts, com a versão PC (herdr) e a versão nuvem (subagentes), e rodar `
 - **Critérios de aceitação:** a seção cobre: só gerencia; agentes do nível em paralelo sem dois nos
   mesmos arquivos; VIGIA; FINANCEIRO com limite e "salvar status"; formato do
   `STATUS_TAREFAS_ANDAMENTO.md`; `--checar` com código 0.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) — `template-inicial-tasks-ia` `feb00eb`: seção `## Líder sargento: equipe em paralelo, VIGIA e FINANCEIRO` (só gerencia, paralelo sem arquivos em comum, herdr no PC e subagentes na nuvem, VIGIA 10 min, FINANCEIRO 85% e `STATUS_TAREFAS_ANDAMENTO.md`, retomar), 2 linhas na tabela "Quem é quem" e o `description`; cópias regeradas · **Verificação (líder):** diff lido pelo líder; `sincronizar-agentes.mjs --checar` código 0; linhas novas ≤ 100 caracteres
 
 ### LIDERAR-EQUIPE-SARGENTO.2 — Levar a seção aos outros 4 projetos
 
