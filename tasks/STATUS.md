@@ -66,8 +66,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | JEV-GRAVA-NIVEL.2 | CLI `classificar --gravar` e gravador | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GRAVA-NIVEL.1 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
 | JEV-GRAVA-NIVEL.3 | Sincronizar, STATUS_PROJETO e rollback | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GRAVA-NIVEL.2, JEV-GRAVA-NIVEL.4 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
 | JEV-GRAVA-NIVEL.4 | Python que marca `JEV-AI-SUGGESTION: NAO` em todas as subtarefas | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GRAVA-NIVEL.1 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
-| **SONNET-PESADO-GLOBAL** | **🌐 GLOBAL — O Sonnet pode pegar tarefa PESADO (altera a C22; plano aguardando o "sim")** | 🟠 Alta | — | Nenhuma | 👀 Aguardando o usuário | — (não reservável) | [ETAPA-036](etapas/ETAPA-036-5b2c8e41-SONNET-PEGA-PESADO.md) |
-| SONNET-PESADO-GLOBAL.1 | Regra global e decisão C48 · `MEDIO · effort medium` | 🟠 Alta | MEDIO · só Sonnet · effort medium | Nenhuma | 👀 Aguardando o "sim" ao plano | — | [ETAPA-036](etapas/ETAPA-036-5b2c8e41-SONNET-PEGA-PESADO.md) |
+| **SONNET-PESADO-GLOBAL** | **🌐 GLOBAL — O Sonnet pode pegar tarefa PESADO (altera a C22; plano aprovado em 2026-10-22)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-036](etapas/ETAPA-036-5b2c8e41-SONNET-PEGA-PESADO.md) |
 | SONNET-PESADO-GLOBAL.2 | Levar aos projetos e à trava do aulasenai · `MEDIO · effort medium` | 🟠 Alta | MEDIO · só Sonnet · effort medium | SONNET-PESADO-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-036](etapas/ETAPA-036-5b2c8e41-SONNET-PEGA-PESADO.md) |
 
 ## 🧭 Frentes de trabalho

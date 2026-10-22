@@ -22,7 +22,8 @@
 ### Decisões
 
 - 2026-10-22: o usuário escolheu "Sonnet pega qualquer PESADO" (pergunta de escopo, sessão `aulasenai`).
-  **Falta o "sim" ao plano** (tarefa grande: mexe em regra global de todos os projetos).
+  
+- 2026-10-22: o usuário disse "sim" ao plano (sessão `aulasenai`).
 
 ### SONNET-PESADO-GLOBAL.1 — Regra global e decisão C48
 
@@ -32,7 +33,7 @@
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **Critérios de aceitação:** matriz com Sonnet em `PESADO`; C48 no `CONFLITOS.md`; `sincronizar.mjs` sem divergência.
-- **Entrega:** — · **Verificação:** leitura dos arquivos e `node scripts/sincronizar.mjs` (sem `--aplicar`).
+- **Entrega:** `niveis-e-modelos.md`, C48 no `CONFLITOS.md`, skill `classificar-tarefa` (commit desta entrega) · **Verificação:** `git diff` lido; `node scripts/sincronizar.mjs` gravou a versão `2026-10-22-6637f9d5` e mostrou `mudaria` nas IAs.
 
 ### SONNET-PESADO-GLOBAL.2 — Levar aos projetos e à trava do aulasenai
 
