@@ -44,4 +44,4 @@
 - **Effort:** medium
 - **Depende de:** SONNET-PESADO-GLOBAL.1
 - **Critérios de aceitação:** `node --check` do hook; reserva de Sonnet em subtarefa PESADO não é bloqueada.
-- **Entrega:** — · **Verificação:** `node --check` e leitura do diff.
+- **Entrega:** `sincronizar.mjs --aplicar` (IAs atualizadas); no `aulasenai`: `niveis.md`, `verificar-modelo.js`, `HISTORICO-REGRAS.md` · **Verificação:** `node --check` ok; a reserva do Sonnet na #347.1 (PESADO) passou pela trava.
