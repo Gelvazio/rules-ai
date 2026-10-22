@@ -50,5 +50,11 @@ N/A — mudança só de texto de regra, sem código nem dado; a conferência é 
 - **Descrição:** escrever a regra, C45, índice, sincronizar; ajustar as regras do `aulasenai`;
   atualizar o `rules-local/` dos 3 projetos e commitar + push em cada um.
 - **Critérios de aceitação:** R1–R3 com a verificação feita.
-- **Entrega:** —
-- **Verificação:** —
+- **Entrega:** `rules-ai` `edeebc6` (regra, índice, C45, versão `2026-10-22-00769678`, `dist/`
+  e arquivos globais das IAs pelo `sincronizar.mjs --aplicar`); `aulasenai` `f73057e8` (#341:
+  regras, comandos, skills e hook alinhados + `rules-local/`); `dashboard-ai` `4417f49` e
+  `REA-APP-CLONES` `8f2e82a` (`rules-local/`; C45 sem ajuste: o visualizador lê os `.md` ao abrir)
+  — 2026-10-22 07:40
+- **Verificação:** R1 `grep -c C45 dist/REGRAS-GLOBAIS.md` = 2; R2 `grep -rn gerar_visualizador`
+  no `aulasenai` só no bloco "Quando pedido" de `visualizador-regras.md`; R3
+  `rules-local/regras/visualizador-gerado.md` presente nos 3 repositórios (commits acima).

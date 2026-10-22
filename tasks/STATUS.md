@@ -57,8 +57,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | MIGRAR-AGENTES-BROADCAST.3 | Página assina o canal e recebe o estado inicial · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | MIGRAR-AGENTES-BROADCAST.2 | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
 | MIGRAR-AGENTES-BROADCAST.4 | Fallback quando o canal cai · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | MIGRAR-AGENTES-BROADCAST.3 | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
 | MIGRAR-AGENTES-BROADCAST.5 | Documentação e fechamento · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | MIGRAR-AGENTES-BROADCAST.4 | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
-| **VISUALIZADOR-SO-PEDIDO** | **🌐 GLOBAL — Visualizador gerado só com pedido explícito, só no local (C45)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-033](etapas/ETAPA-033-5c1e9a47-VISUALIZADOR-SO-PEDIDO.md) |
-| VISUALIZADOR-SO-PEDIDO.1 | Regra global C45 e aplicação no aulasenai, dashboard-ai e REA | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | 🔄 Em progresso | Claude Code (Opus 5.5) (local · main · aulasenai s35) (desde 2026-10-22 07:10) · 50% | [ETAPA-033](etapas/ETAPA-033-5c1e9a47-VISUALIZADOR-SO-PEDIDO.md) |
 
 ## 🧭 Frentes de trabalho
 
