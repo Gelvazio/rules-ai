@@ -37,6 +37,7 @@ ordem, só para leitura. Regra nova (arquivo novo em `regras/`) entra neste índ
 17. [rules-local.md](rules-local.md) — `rules-local/`: sessão, tasks (C36), Jev no projeto (C44)
 18. [herdr.md](herdr.md) — herdr: agentes em painéis, quando usar e o que nunca fazer (C33)
 19. [jev.md](jev.md) — Jev: nível, guardrails, mensagens (C43, C44), modo e fallback (C39, C42)
+20. [visualizador-gerado.md](visualizador-gerado.md) — Visualizador gerado: só com pedido explícito, só no local (C45)
 
 ## Assuntos específicos
 
