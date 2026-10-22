@@ -76,7 +76,7 @@ passo manual, com a segurança de que confiança baixa ou falha do Jev nunca gra
 | 2026-10-22 | As três decisões do bloco acima | Usuário | pedido |
 | 2026-10-22 | A execução (`.1`–`.3`) é `PESADO`; o Sonnet só criou o plano | Claude Code (Sonnet 5.5) | `niveis-e-modelos.md` |
 | 2026-10-22 | Campo `JEV-AI-SUGGESTION: SIM/NAO` em cada subtarefa e Python que deixa tudo `NAO` (R10, R11, .4) | Usuário (mensagem no meio da tarefa) | tarefas ainda não classificadas pelo Jev |
-| 2026-10-22 | Aprovação do plano | — | **aguarda o "sim" do usuário** |
+| 2026-10-22 | Aprovação do plano, incluindo as propostas das perguntas 4, 5 e 7 | Usuário ("sim" em chat) | plano de tarefa PESADO; execução só por Opus 5.5+/Fable ou DeepSeek |
 
 ### JEV-GRAVA-NIVEL.1 — Regra global C47 (texto, C47, registro de decisão)
 
