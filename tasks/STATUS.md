@@ -57,6 +57,10 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | MIGRAR-AGENTES-BROADCAST.3 | Página assina o canal e recebe o estado inicial · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | MIGRAR-AGENTES-BROADCAST.2 | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
 | MIGRAR-AGENTES-BROADCAST.4 | Fallback quando o canal cai · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | MIGRAR-AGENTES-BROADCAST.3 | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
 | MIGRAR-AGENTES-BROADCAST.5 | Documentação e fechamento · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | MIGRAR-AGENTES-BROADCAST.4 | ⬜ Pendente | — | [ETAPA-031](etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md) |
+| **VERCEL-SEM-DEPLOY-DE-CONTROLE** | **🌐 GLOBAL — `tasks/` e `rules-local/` nunca geram deploy na Vercel (C46; plano aprovado no pedido)** | 🟡 Média | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md) |
+| VERCEL-SEM-DEPLOY-DE-CONTROLE.1 | Regra global C46 (texto, índice, C46, sincronização) | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md) |
+| VERCEL-SEM-DEPLOY-DE-CONTROLE.2 | Aplicar no `aulasenai` (`ignoreCommand` e `.vercelignore`) | 🟡 Média | MEDIO · só Sonnet · effort medium | VERCEL-SEM-DEPLOY-DE-CONTROLE.1 | ⬜ Pendente | — | [ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md) |
+| VERCEL-SEM-DEPLOY-DE-CONTROLE.3 | Aplicar no `dashboard-ai` (`ignoreCommand` e `.vercelignore`) | 🟡 Média | MEDIO · só Sonnet · effort medium | VERCEL-SEM-DEPLOY-DE-CONTROLE.1 | ⬜ Pendente | — | [ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md) |
 
 ## 🧭 Frentes de trabalho
 
@@ -67,7 +71,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 ## 🗂️ Etapas
 
-O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (33 arquivos). O resumo do projeto e o
+O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (34 arquivos). O resumo do projeto e o
 histórico ficam em `STATUS_PROJETO.md`.
 
 ## Registro de decisões

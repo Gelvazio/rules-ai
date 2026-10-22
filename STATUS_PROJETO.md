@@ -1,2 +1,2 @@
 
-- 2026-10-22 07:40 (Brasília): VISUALIZADOR-SO-PEDIDO concluída: C45 aplicada no `aulasenai` (#341, `f73057e8`), `dashboard-ai` (`4417f49`) e `REA-APP-CLONES` (`8f2e82a`), todos com `rules-local` em `2026-10-22-00769678`.
+- 2026-10-22 07:30 (Brasília): tarefa nova VERCEL-SEM-DEPLOY-DE-CONTROLE (etapa 034, C46), pedida pelo usuário: `tasks/` e `rules-local/` nunca geram deploy na Vercel, em todo projeto que publica lá (`ignoreCommand` e `.vercelignore`). Spec C34 passa no gate; `.1` (regra global) é `PESADO`, `.2` (`aulasenai`) e `.3` (`dashboard-ai`) são `MEDIO`. Nada executado ainda.
