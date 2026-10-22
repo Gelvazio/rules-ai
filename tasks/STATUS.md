@@ -61,6 +61,11 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | VERCEL-SEM-DEPLOY-DE-CONTROLE.1 | Regra global C46 (texto, índice, C46, sincronização) | 🟡 Média | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md) |
 | VERCEL-SEM-DEPLOY-DE-CONTROLE.2 | Aplicar no `aulasenai` (`ignoreCommand` e `.vercelignore`) | 🟡 Média | MEDIO · só Sonnet · effort medium | VERCEL-SEM-DEPLOY-DE-CONTROLE.1 | ⬜ Pendente | — | [ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md) |
 | VERCEL-SEM-DEPLOY-DE-CONTROLE.3 | Aplicar no `dashboard-ai` (`ignoreCommand` e `.vercelignore`) | 🟡 Média | MEDIO · só Sonnet · effort medium | VERCEL-SEM-DEPLOY-DE-CONTROLE.1 | ⬜ Pendente | — | [ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md) |
+| **JEV-GRAVA-NIVEL** | **🌐 GLOBAL — O Jev classifica e grava nível, modelo e effort das subtarefas (≥ 0,80; sobe e baixa; plano aguardando o "sim")** | 🟠 Alta | — | Nenhuma | 👀 Aguardando o usuário | — (não reservável) | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
+| JEV-GRAVA-NIVEL.1 | Regra global C47 (jev.md, niveis-e-modelos.md, CONFLITOS) | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
+| JEV-GRAVA-NIVEL.2 | CLI `classificar --gravar` e gravador | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GRAVA-NIVEL.1 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
+| JEV-GRAVA-NIVEL.3 | Sincronizar, STATUS_PROJETO e rollback | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GRAVA-NIVEL.2, JEV-GRAVA-NIVEL.4 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
+| JEV-GRAVA-NIVEL.4 | Python que marca `JEV-AI-SUGGESTION: NAO` em todas as subtarefas | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GRAVA-NIVEL.1 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
 
 ## 🧭 Frentes de trabalho
 
@@ -71,7 +76,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 ## 🗂️ Etapas
 
-O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (34 arquivos). O resumo do projeto e o
+O detalhe de cada tarefa-mãe fica em `tasks/etapas/` (35 arquivos). O resumo do projeto e o
 histórico ficam em `STATUS_PROJETO.md`.
 
 ## Registro de decisões
