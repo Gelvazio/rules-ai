@@ -63,7 +63,7 @@
 
 ### API-QUADRO-JSON-SERVER.3 — Conferir a API no ar
 
-**Próximo passo:** executor-medio (Sonnet) sobe `npm start` em `api/`, confere as consultas com `curl`, compara as contagens com o quadro e derruba o servidor.
+**Próximo passo:** concluída; segue a .4 (documentação).
 
 - **Nível:** MEDIO — sobe o servidor e confere a saída por comando
 - **Modelo:** só Sonnet — nunca outro
@@ -72,6 +72,8 @@
 - **Descrição:** subir `npm start` em `api/`, consultar `/tarefas`, `/tarefas?concluida=true`, `/tarefas?disponivel=true` e `/tarefas?statusCodigo=em_execucao` por `curl` e comparar as contagens com o quadro; confirmar que a porta responde só em `127.0.0.1`; derrubar o servidor.
 - **Critérios de Aceitação:** contagens iguais às do quadro; sem resposta fora do localhost.
 - **Depende de:** API-QUADRO-JSON-SERVER.2
+- **Entrega:** nenhuma mudança de código (só conferência)
+- **Verificação:** API no ar em 127.0.0.1:3333; /tarefas 218 = 85 STATUS.md + 133 task_complete.md; ?concluida=true 116; ?disponivel=true 7; em_execucao 18; bloqueado 9; aguardando_usuario 14; cancelada 9; /frentes 39; CORS com Origin http://localhost:8080 ok; escuta só em 127.0.0.1; servidor derrubado e porta livre (contagens do quadro conferidas de forma independente pelo Sonnet)
 
 ### API-QUADRO-JSON-SERVER.4 — Documentar e fechar
 
