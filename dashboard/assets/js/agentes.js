@@ -17,6 +17,8 @@ const PROJETO = new URLSearchParams(window.location.search).get('projeto') ?? ''
 
 /** Valores que o GitHub raw não traz (iguais aos do servidor: atraso 30 s, coleta a cada 10 s). */
 const PADROES_RAW = Object.freeze({ atraso_padrao: 30, intervalo: 10 });
+/** Tempo com o canal caído antes de voltar ao polling (R2.3). */
+const ATRASO_QUEDA_MS = 30000;
 
 function avisar(texto) {
   $('aviso').textContent = texto;
@@ -58,7 +60,7 @@ function criarAplicador(primeiro, fila) {
   };
 }
 
-/** Lê o quadro pela fonte que funcionou na abertura, a cada intervalo. */
+/** Lê o quadro pela fonte da abertura, a cada intervalo; liga e desliga sob demanda. */
 function vigiarQuadro(primeiro, aplicar, fila, fonte) {
   const ler = async () => {
     try {
@@ -67,7 +69,48 @@ function vigiarQuadro(primeiro, aplicar, fila, fonte) {
       marcarLeitura(fila.pendentes, erro.message);
     }
   };
-  window.setInterval(ler, primeiro.intervalo * 1000);
+  let timer = null;
+  return {
+    iniciar() {
+      if (timer === null) timer = window.setInterval(ler, primeiro.intervalo * 1000);
+    },
+    parar() {
+      window.clearInterval(timer);
+      timer = null;
+    },
+  };
+}
+
+/**
+ * Reage ao estado do canal (R2.3): conectado = sem polling; caído por mais de ATRASO_QUEDA_MS =
+ * polling a cada intervalo até reconectar.
+ */
+function criarFallback(vigia) {
+  let espera = null;
+  const cancelar = () => {
+    window.clearTimeout(espera);
+    espera = null;
+  };
+  return (conectado) => {
+    if (conectado) {
+      cancelar();
+      vigia.parar();
+      avisar('');
+    } else if (espera === null) {
+      espera = window.setTimeout(vigia.iniciar, ATRASO_QUEDA_MS);
+    }
+  };
+}
+
+/** Sem canal (sem chave ou raw indisponível) o polling fica ligado; com canal, só no fallback. */
+async function ligarCanal(aplicar, primeiro, vigia) {
+  if (!CANAL.chavePublicavel) return vigia.iniciar();
+  const aoConexao = criarFallback(vigia);
+  aoConexao(false);
+  const cliente = await iniciarCanal({
+    aoEstado: aplicar, aoAviso: avisar, aoConexao, inicial: primeiro,
+  });
+  if (!cliente) vigia.iniciar();
 }
 
 /** Estado inicial pelo GitHub raw (projeto do canal) ou, se falhar, pelo servidor local. */
@@ -121,8 +164,9 @@ async function iniciar() {
   fila.definirAtraso(ligarAtraso(primeiro.atraso_padrao, (segundos) => fila.definirAtraso(segundos)));
   marcarLeitura(0);
   const aplicar = criarAplicador(primeiro, fila);
-  vigiarQuadro(primeiro, aplicar, fila, fonte);
-  if (raw) iniciarCanal({ aoEstado: aplicar, aoAviso: avisar, inicial: primeiro });
+  const vigia = vigiarQuadro(primeiro, aplicar, fila, fonte);
+  if (raw) ligarCanal(aplicar, primeiro, vigia);
+  else vigia.iniciar();
   animar(base, cenaAgentes, fila);
 }
 

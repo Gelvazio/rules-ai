@@ -21,13 +21,14 @@ export async function lerEstadoInicial() {
   return { versao: CANAL.versaoContrato, projeto: CANAL.projeto, sequencia: 0, tarefas };
 }
 
-async function assinar(aoMensagem, aoAviso) {
+async function assinar(aoMensagem, aoAviso, aoConexao) {
   const { createClient } = await import(CANAL.urlCliente);
   const cliente = createClient(CANAL.url, CANAL.chavePublicavel);
   cliente
     .channel(`quadro:${CANAL.projeto}`)
     .on('broadcast', { event: CANAL.evento }, (m) => aoMensagem(m.payload))
     .subscribe((situacao) => {
+      aoConexao(situacao === 'SUBSCRIBED');
       if (situacao !== 'SUBSCRIBED') aoAviso(`Canal: ${situacao}`);
     });
   return cliente;
@@ -38,7 +39,9 @@ async function assinar(aoMensagem, aoAviso) {
  * Falha em qualquer etapa vira aviso; nunca lança.
  * @returns {Promise<object|null>} Cliente do Supabase, ou null sem chave/sem canal.
  */
-export async function iniciarCanal({ aoEstado, aoAviso = () => {}, inicial = null }) {
+export async function iniciarCanal({
+  aoEstado, aoAviso = () => {}, aoConexao = () => {}, inicial = null,
+}) {
   let ultima = 0;
   if (!inicial) {
     try {
@@ -54,7 +57,7 @@ export async function iniciarCanal({ aoEstado, aoAviso = () => {}, inicial = nul
     aoEstado(carga);
   };
   try {
-    return await assinar(aplicar, aoAviso);
+    return await assinar(aplicar, aoAviso, aoConexao);
   } catch (erro) {
     aoAviso(`Canal indisponível: ${erro.message}`);
     return null;

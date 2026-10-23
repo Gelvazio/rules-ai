@@ -319,7 +319,7 @@ canal
 
 ### MIGRAR-AGENTES-BROADCAST.4 — Fallback quando o canal cai
 
-**Próximo passo:** detectar a queda do canal, aguardar 30 s e voltar ao polling de 10 s até reconectar.
+**Próximo passo:** nenhum — entregue.
 - **Nível:** MEDIO — lógica de reconexão em 1 arquivo.
 - **Modelo:** só Sonnet — nunca outro.
 - **Effort:** medium
@@ -327,7 +327,8 @@ canal
 - **Descrição:** o polling usa só o GitHub raw, porque a página fica na Vercel (pergunta 4).
 - **Arquivos:** `dashboard/assets/js/agentes.js`.
 - **Critérios de Aceitação:** R2.3 atendido pelo código; sem polling enquanto o canal estiver conectado.
-- **Verificação:** `node --check dashboard/assets/js/agentes.js`; teste na tela pelo usuário (desligar a rede por 40 s).
+- **Entrega:** fallback em dashboard/assets/js/agentes.js e agentes/canal.js: com o canal fora (ou sem chave publicável) a página lê o STATUS.md pelo GitHub raw em intervalo e avisa; volta ao canal quando ele reconecta (commit desta entrega), feito por sn1 (Sonnet 5.5, herdr w2:pZ, conta D).
+- **Verificação:** node --check ok nos dois arquivos (conferido pelo líder). Não testado: R2.3 com a rede desligada por 40 s (conferência na tela, AGENTES-REALTIME.29). /api/agentes ainda é o fallback do modo servidor local; sai na AGENTES-REALTIME.15.
 - **Estimativa:** 1 h.
 - **JEV-AI-SUGGESTION:** NAO
 
