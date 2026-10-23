@@ -38,6 +38,7 @@
 - 2026-10-23 11:02: **decisão A da .36 (usuário): captura só no Claude Code por enquanto; Codex, Gemini, Devin, Antigravity, Kimi, OpenCode e DeepSeek ficam sem captura até nova ordem.** Isso substitui a resposta 6 (todas as IAs). Canceladas: .31, .32, .33 (hooks nas outras IAs) e .17 (ensaio Claude → Codex, que precisaria do hook no Codex). A .34 passa a auditar só o Claude Code; a .25 não depende mais da .17. Reabrir as outras IAs exige nova tarefa, já com a matriz da .30 (`docs/AI-MEMORY-HOOKS-POR-IA.md`) pronta.
 - 2026-10-23: a pedido do usuário, abertas as subtarefas pendentes .37 a .41 para usar hooks em **todas** as IAs depois do piloto do Claude Code (a decisão A da .36 vale até lá). A .37 é do usuário: escolher o modo de captura (allowlist recomendado). Não altera a decisão A.
 - 2026-10-23 12:12: a .14 achou vazamento real no `ignore_paths` (formas da raiz); o líder abriu a .43 (correção + padrões da .20) e a .16 passou a depender dela.
+- 2026-10-23 12:14: a .35 achou que `MATERIAIS/` do aulasenai não está no `ignore_paths`; o líder ampliou os Arquivos da .35 para incluir `scripts/instalar-ai-memory.mjs` (só acrescentar `MATERIAIS/**` e `**/MATERIAIS/**`). A .34 ficou 👀: decisão do usuário sobre segredo digitado no prompt.
 - 2026-10-23 11:53: o usuário aceitou o token do ai-memory em `%LOCALAPPDATA%i-memoryuth-token` (arquivo fora do Git) no lugar da variável de ambiente pedida na .4; a .3 documenta essa forma. Também autorizou a equipe herdr: conta C, `--dangerously-skip-permissions`, Sonnet nas `PESADO` (.3, .13, .21).
 
 ### Requisitos
@@ -582,7 +583,7 @@
 
 ### AI-MEMORY-INTEGRATION.34 — Auditoria de captura do Claude Code: respeita `ignore_paths` e não vaza segredo
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** 👀 o usuário decide o que fazer com o segredo digitado no prompt (ver Anotação); depois, aplicar a decisão e fechar.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -594,6 +595,7 @@
 - **Critérios de Aceitação:** Nenhuma IA grava caminho proibido nem segredo; achados corrigidos antes dos clones.
 - **Depende de:** AI-MEMORY-INTEGRATION.13, AI-MEMORY-INTEGRATION.14
 - **Verificação:** a preencher na entrega.
+- **Anotação (2026-10-23 12:14, w-a12 Sonnet 5.5, herdr w2:pR):** `ai-memory hook --check-capture` com o marker do instalador numa pasta temporária: 9 caminhos proibidos e 3 comandos Bash com `disposition=drop` (até `ls src`: o Bash parece cair inteiro); `src/app.js` e `docs/x.md` ficam só com metadados; `post-tool-use` sobre `.env` também cai. **Achado:** `user-prompt-submit` com texto `sk-FAKE…` sai com `disposition=keep`: o ai-memory não filtra segredo digitado no prompt (o `ignore_paths` só cobre caminhos). Opções: (A) não ligar a captura de `UserPromptSubmit` no piloto; (B) aceitar o risco e contar com a auditoria periódica; (C) investigar redação própria do ai-memory. Nenhum arquivo alterado.
 
 ### AI-MEMORY-INTEGRATION.35 — Piloto no `aulasenai`: proteger `scripts/variaveis.js` (service_role) e dados de alunos antes de ligar
 
@@ -605,7 +607,7 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Fonte:** sinais
 - **Descrição:** Conferir `ignore_paths` do projeto real e rodar a auditoria só na pasta base antes de liberar os clones.
-- **Arquivos:** `aulasenai/.ai-memory.toml`, `docs/AI-MEMORY-PRIVACIDADE.md`
+- **Arquivos:** `aulasenai/.ai-memory.toml`, `docs/AI-MEMORY-PRIVACIDADE.md`, `scripts/instalar-ai-memory.mjs` (só `MATERIAIS/`, decisão do líder)
 - **Critérios de Aceitação:** Auditoria da pasta base sem achados; `variaveis.js`, `MATERIAIS/` e listas de alunos fora da memória.
 - **Depende de:** AI-MEMORY-INTEGRATION.6, AI-MEMORY-INTEGRATION.20
 - **Verificação:** a preencher na entrega.
