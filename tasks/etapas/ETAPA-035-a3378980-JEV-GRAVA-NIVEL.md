@@ -90,6 +90,7 @@ passo manual, com a segurança de que confiança baixa ou falha do Jev nunca gra
 - **Effort:** high
 - **Critérios de aceitação:** R8 (texto).
 - **Entrega:** commit "feat(regras): C47 Jev grava nível" (jev.md, niveis-e-modelos.md, CONFLITOS.md, STATUS.md) · **Verificação:** `grep -n C47 regras/jev.md regras/niveis-e-modelos.md CONFLITOS.md`; `dist/` sai na .3 · **Anotação:** executada por Sonnet 5.5 por exceção do usuário
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GRAVA-NIVEL.2 — CLI `classificar --gravar` e gravador
 
@@ -103,6 +104,7 @@ de invariante INV-1/INV-2 (exceção C34).
 - **Depende de:** JEV-GRAVA-NIVEL.1
 - **Critérios de aceitação:** R1–R7, R9, INV-1 a INV-4.
 - **Entrega:** — · **Verificação:** —
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GRAVA-NIVEL.4 — Python que marca `JEV-AI-SUGGESTION: NAO` em todas as subtarefas
 
@@ -115,7 +117,8 @@ antes da `.2` (não depende do gravador); o campo vira `SIM` só pelo gravador (
 - **Effort:** high
 - **Depende de:** JEV-GRAVA-NIVEL.1
 - **Critérios de aceitação:** R10, R11.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** `scripts/marcar_jev_ai_suggestion.py` + 198 seções marcadas em 37 etapas · **Verificação:** dry-run 198/37; `--aplicar` 198/37; 2ª execução 0/0; `git diff` só com linhas `JEV-AI-SUGGESTION: NAO`
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GRAVA-NIVEL.3 — Sincronizar, `STATUS_PROJETO.md` e rollback documentado
 
@@ -128,3 +131,4 @@ atualizar `STATUS_PROJETO.md` e documentar o rollback (`JEV_MODO=off`, `git reve
 - **Depende de:** JEV-GRAVA-NIVEL.2
 - **Critérios de aceitação:** R8.
 - **Entrega:** — · **Verificação:** —
+- **JEV-AI-SUGGESTION:** NAO

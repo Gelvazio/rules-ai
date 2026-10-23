@@ -41,6 +41,7 @@ roda agentes em painéis) sem furar as regras de quadro, reserva, nível e Git.
 - **Modelo:** Opus 5.5+ / Fable — ou DeepSeek, desde a C35 (2026-10-18).
 - **Effort:** high.
 - **Descrição:** o que é o herdr, como instalar a skill e as integrações, quando usar (só dentro do
+- **JEV-AI-SUGGESTION:** NAO
   herdr, com `HERDR_ENV=1`, e com pedido do usuário), como abrir outra IA num painel como agente de
   equipe (frente com o painel, nível pela matriz, só o líder no Git e no quadro), e o que nunca
   fazer (responder aprovação sozinho, fechar o que não abriu, parar o servidor, disparo automático).
@@ -59,6 +60,7 @@ roda agentes em painéis) sem furar as regras de quadro, reserva, nível e Git.
 - **Nível:** — (ação no computador do usuário)
 - **Modelo:** Usuário
 - **Descrição:** no Windows, em `C:\fontes\rules-ai`: `git pull --rebase origin main` e
+- **JEV-AI-SUGGESTION:** NAO
   `node scripts/sincronizar.mjs --aplicar`; instalar o herdr
   (`powershell -ExecutionPolicy Bypass -c "irm https://herdr.dev/install.ps1 | iex"`), a skill
   (`npx skills add Gelvazio/herdr --skill herdr -g`) e as integrações dos agentes usados

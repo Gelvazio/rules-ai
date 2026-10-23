@@ -21,6 +21,7 @@ modelo fica gravado em toda tarefa (coluna Modelo + linha na etapa).
 - **Nível:** LEVE — só `.md` (feita pela sessão Opus autorizada só para esta regra, Q4).
 - **Modelo:** só Haiku — nunca outro (exceção única do Q4, registrada acima).
 - **Entrega:** `regras/niveis-e-modelos.md`, `frentes-e-reserva.md`, `ciclo-da-task.md`,
+- **JEV-AI-SUGGESTION:** NAO
   `quadro-de-tarefas.md` (coluna Modelo obrigatória e linha `- **Modelo:**` no modelo da etapa);
   C2 → B e C22 no `CONFLITOS.md`. · **Verificação:** leitura dos 5 arquivos.
 
@@ -31,3 +32,4 @@ quadros dos outros projetos recebem a coluna Modelo quando cada projeto alinhar 
 
 - **Nível:** Usuário.
 - **Modelo:** Usuário.
+- **JEV-AI-SUGGESTION:** NAO

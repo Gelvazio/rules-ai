@@ -86,6 +86,7 @@ os arquivos por ele; se houver `HTTPS_PROXY` sem `NODE_USE_ENV_PROXY`, usar o pr
 - **Arquivos:** `scripts/rules-local/baixar.mjs`, `scripts/rules-local/sessao.mjs`
 - **Critérios de aceitação:** R1.1; INV-2 (sem rede → `sem acesso`, código 0).
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `scripts/rules-local/proxy.mjs` (e cópia `scripts/jev/proxy.mjs`): com `HTTPS_PROXY` e sem `NODE_USE_ENV_PROXY`, o `sessao.mjs` e o gancho se rodam de novo com o proxy ligado; no PC nada muda · **Verificação (líder):** cópia do `rules-local/` do `dashboard-ai` na nuvem: `VERSÃO NOVA 2026-10-18-988f933e -> 2026-10-19-39b490d0` (antes vinha a cópia velha `825288c1`); gancho com o Jev real: código 0, stderr vazio (R1.1, INV-2)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-JEV.2 — `rules-local/jev/`: o código do Jev conferido pela `VERSAO.md`
 
@@ -98,6 +99,7 @@ Jev usados pelo gancho, com código, e fazer o `sessao.mjs` baixar e conferir es
 - **Arquivos:** `scripts/sincronizar.mjs`, `scripts/rules-local/sessao.mjs`, `scripts/rules-local/conferir.mjs`
 - **Critérios de aceitação:** R1.2; INV-3.
 - **Entrega:** Claude Code (Opus 5.5 · líder) — `scripts/pacote-rules-local.mjs` (lista os scripts do `rules-local/` e os arquivos do Jev pelas importações dos ganchos: 30 arquivos), tabela "Pacote do rules-local" na `VERSAO.md` pelo `sincronizar.mjs` (fora do código da versão, para os scripts antigos continuarem lendo), `conferir.mjs` lê e confere o pacote, `scripts/rules-local/pacote.mjs` baixa/confere/grava e põe `jev/saidas/` no `.gitignore`; o `sessao.mjs` integra tudo · **Verificação (líder):** projeto falso servido do `rules-ai` local: regras + 30 arquivos gravados, 2ª sessão `versão igual`, `conferirPasta` íntegro; arquivo do Jev editado à mão é restaurado; `sessao.mjs` ANTIGO do `dashboard-ai` com a `VERSAO.md` nova: lê as regras e ignora o pacote (R1.2, INV-3)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-JEV.3 — Gancho do Claude Code no `.claude/settings.json` do projeto
 
@@ -110,6 +112,7 @@ Jev usados pelo gancho, com código, e fazer o `sessao.mjs` baixar e conferir es
 - **Arquivos:** `scripts/instalar-rules-local.mjs`, `.claude/settings.json` dos projetos
 - **Critérios de aceitação:** R2.1; JSON válido; ganchos existentes preservados.
 - **Entrega:** Claude Code (Opus 5.5 · líder) — `scripts/instalar-rules-local.mjs`: `GANCHOS_CLAUDE` (SessionStart + `UserPromptSubmit` com `node "$CLAUDE_PROJECT_DIR/rules-local/jev/ganchos/claude-prompt.mjs"`, timeout 10) acrescentados sem apagar ganchos; resposta 1: `scripts/jev/ganchos/instalar.mjs` agora só REMOVE o gancho global da conta · **Verificação (líder):** instalação num projeto falso (cópia do `testes-de-frontend`): `settings.json` com SessionStart 2, UserPromptSubmit 2, PreToolUse 1 (antigos preservados); gancho do projeto respondeu com o Jev real (MEDIO, 0,80); pasta de usuário falsa: só o Jev global saiu, `.bak` gravado, 2ª rodada `igual` (R2.1)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-JEV.4 — Gancho do Codex no `.codex/hooks.json` do projeto
 
@@ -122,6 +125,7 @@ projeto); conferir o formato na versão instalada do Codex.
 - **Arquivos:** `scripts/instalar-rules-local.mjs`, `.codex/hooks.json` dos projetos
 - **Critérios de aceitação:** R2.1; JSON válido.
 - **Entrega:** Claude Code (Opus 5.5 · líder) — `GANCHOS_CODEX` no instalador: `.codex/hooks.json` do projeto com `node rules-local/jev/ganchos/codex-prompt.mjs` (o Codex roda na raiz do projeto); o global do Codex sai pelo `sincronizar.mjs` · **Verificação (líder):** `.codex/hooks.json` criado e JSON válido no projeto falso; formato do Codex conferido só pelo resumo da busca (PR #14626): conferir no Codex instalado (R2.1)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-JEV.5 — Uma chamada ao Jev por mensagem
 
@@ -134,6 +138,7 @@ para a 2ª chamada da mesma mensagem em poucos segundos sair sem chamar o Jev.
 - **Arquivos:** `scripts/jev/mensagem/classificar.mjs`, `scripts/jev/testes/mensagem.mjs`
 - **Critérios de aceitação:** R2.2; INV-2.
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `scripts/jev/mensagem/repetida.mjs` (`JANELA_REPETIDA_MS = 10000`, marca por `hash` em `saidas/`) usado no `classificar.mjs`: a mesma mensagem não chama o Jev 2 vezes · **Verificação (líder):** caso novo no `testes/mensagem.mjs`: 2 chamadas iguais → 1 requisição; texto diferente chama; falha da marca não derruba; com o Jev real, a 2ª execução igual não imprimiu nada (R2.2)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-JEV.6 — Chave só do ambiente ou do `.env` do `rules-ai`
 
@@ -146,6 +151,7 @@ para a 2ª chamada da mesma mensagem em poucos segundos sair sem chamar o Jev.
 - **Arquivos:** `scripts/jev/config.mjs`, `.gitignore` dos projetos
 - **Critérios de aceitação:** R3.1; INV-1.
 - **Entrega:** Claude Code (Opus 5.5 · líder) — `scripts/jev/config.mjs`: na cópia do projeto (`…/rules-local/jev/`) a chave vem SÓ do ambiente (`ESTA_EM_PROJETO`; nenhum `.env`), resposta 4 do usuário; `jev/saidas/` fora do Git · **Verificação (líder):** gancho do projeto sem a variável → "Jev indisponível", código 0; com a variável → Jev real; chave em 0 arquivos do projeto falso; `git status --ignored` mostra `rules-local/jev/saidas/` ignorada (R3.1, INV-1)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-JEV.7 — Regra `rules-local.md` e decisão C44
 
@@ -158,6 +164,7 @@ gancho) e o que fica fora (chave, `codex_hooks`), a C44 no `CONFLITOS.md` e a li
 - **Arquivos:** `regras/rules-local.md`, `regras/jev.md`, `CONFLITOS.md`, `regras/INDEX.md`
 - **Critérios de aceitação:** o texto cobre R1.1–R3.1 e INV-1–INV-3.
 - **Entrega:** Claude Code (Opus 5.5 · executor-pesado; líder Opus 5.5) — `regras/rules-local.md` (seção `## O que vive no repositório (C44)`: pacote, gancho do projeto, o que fica fora, nuvem; lista de arquivos e limites atualizados), `regras/jev.md` (gancho do projeto, `--aplicar` tira o global, chave só do ambiente na cópia, marca de 10 s, rollback), C44 no `CONFLITOS.md` e `regras/INDEX.md`; o líder corrigiu a hora da aprovação (07:18, apontada pelo próprio executor) · **Verificação (líder):** diff lido pelo líder; `sincronizar.mjs` gerou a versão nova com a C44 no `dist/`; INV-1 ok
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-JEV.8 — Reinstalar o `rules-local/` nos projetos
 
@@ -170,6 +177,7 @@ conferir, e depois nos outros da resposta da pergunta 2; um commit por projeto, 
 - **Arquivos:** `rules-local/`, `.claude/settings.json`, `.codex/hooks.json` dos projetos
 - **Critérios de aceitação:** R1.2, R2.1; `conferir.mjs` ok em cada um.
 - **Entrega:** Claude Code (Opus 5.5 · líder) — `instalar-rules-local.mjs` nos 8 repositórios, na `main`: testes-de-frontend `5ef21e3` (piloto), template-inicial-tasks-ia `32f420a`, dashboard-ai `05c6a24`, PLATAFORMA-ENVIO-CURRICULOS `72193ea`, gerenciador-de-ia `0be7036`, testes-effort-padaria `594a472`, rea-app-clones `51a78c7`, aulasenai `87b058c`; todos em `2026-10-20-58881388`. Sincronização de tasks: 1 TASK nova (`RL-58881388-NIVEIS-E-MODELOS` no REA: matriz da skill desatualizada); no aulasenai o `jev.md` aponta para a #295 que já existe (tirar o Laya); o resto sem ajuste · **Verificação (líder):** 8/8 `rules-local íntegro (versão 2026-10-20-58881388)`; ganchos antigos preservados (diff lido no piloto); 0 `.env`/`saidas` nos commits; clone NOVO do piloto tirado do GitHub: `versão igual` e o gancho do projeto respondeu com o Jev real (R1.2, R2.1)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-JEV.9 — Levar às IAs e ensaio no PC e na nuvem
 
@@ -182,3 +190,4 @@ conferir, e depois nos outros da resposta da pergunta 2; um commit por projeto, 
 - **Arquivos:** `dist/`, `VERSAO.md`, esta etapa
 - **Critérios de aceitação:** R1.1, R2.1, R2.2, R4.1 com números.
 - **Entrega:** Claude Code (Opus 5.5 · líder) — parte da nuvem: `sincronizar.mjs` gerou `2026-10-20-58881388` (C44 no `dist/`); sessão nova num clone novo do piloto atualizou sozinha pelo proxy e o 1º prompt trouxe o contexto do Jev real. Falta no PC: `node scripts/sincronizar.mjs --aplicar` (grava as regras nas IAs e TIRA o gancho global antigo) e a variável `TYPESAFE_API_KEY` no Windows · **Verificação (líder):** nuvem: R1.1 (versão da `main` na hora), R2.1 e R2.2 (marca de 10 s) conferidos; PC: aguardando o usuário
+- **JEV-AI-SUGGESTION:** NAO

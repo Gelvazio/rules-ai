@@ -124,6 +124,7 @@ módulos que ficam (INV-1) e só então rodar o `git rm` da lista "Sai" do Escop
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
 - **Descrição:** commitar antes a mudança local do `prompts/MODELO-3D-REDE-NEURAL-04.md`; mover os
+- **JEV-AI-SUGGESTION:** NAO
   5 PNG e o `coleta.json` para `dashboard/referencias/` e versioná-los (tirar
   `dashboard/scripts/saida/` do `.gitignore`); mover os GLB e `MODELOS-DE-IA/` para
   `dashboard/referencias/fora-do-git/` (no `.gitignore`); `git rm` da lista "Sai"; manter tudo o
@@ -139,6 +140,7 @@ módulos que ficam (INV-1) e só então rodar o `git rm` da lista "Sai" do Escop
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
 - **Descrição:** (resposta 1-a) `git mv` do `agentes.html` para `dashboard/index.html`, dos
+- **JEV-AI-SUGGESTION:** NAO
   módulos, do CSS e dos `.py` de `graphs/` para a raiz de `dashboard/` (sem a subpasta `graphs/`);
   ajustar os caminhos relativos (CSS, import map, `PASTA_DASHBOARD`, `PASTA_FONTES`,
   `PROJETO_PADRAO`, `.gitignore` do `.env`) e o caminho citado na C31 do `AGENTS.md`.
@@ -152,6 +154,7 @@ módulos que ficam (INV-1) e só então rodar o `git rm` da lista "Sai" do Escop
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **Descrição:** tirar do `servidor.py` as rotas e imports da Tripo, da galeria e das cenas (fica
+- **JEV-AI-SUGGESTION:** NAO
   `/api/agentes`, `/api/projetos` e `caminho_proibido`); tirar do `config_graphs.py` as constantes
   e funções da Tripo; `.env.example` só com `ATRASO_AGENTES`.
 - **Critérios de aceitação:** R1.2 (parte Python), R2.1, R2.2, R2.3; INV-3.
@@ -164,6 +167,7 @@ módulos que ficam (INV-1) e só então rodar o `git rm` da lista "Sai" do Escop
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **Descrição:** `api.js` só com `lerAgentes` (sem `chave.js`); `config.js` só com o que os
+- **JEV-AI-SUGGESTION:** NAO
   agentes usam; `visualizador.js` só com `criarBase` e `ajustarTamanho` (sem `GLTFLoader`).
 - **Critérios de aceitação:** R1.2 (parte JS), R3.1; INV-1; `node --check` nos 3 arquivos.
 
@@ -175,6 +179,7 @@ módulos que ficam (INV-1) e só então rodar o `git rm` da lista "Sai" do Escop
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **Descrição:** trazer para os agentes a forma simples que o `personagens.js` usa de
+- **JEV-AI-SUGGESTION:** NAO
   `cenas/formas.js` (sem `GLTFLoader`) e apagar `cenas/formas.js`; `ITENS_MENU` só com "Agentes ao
   vivo" (sem `data-menu-ocultar` na página); `graphs.css` sem os estilos das páginas apagadas.
 - **Critérios de aceitação:** R3.1, R3.2; INV-1; `node --check`.
@@ -187,6 +192,7 @@ módulos que ficam (INV-1) e só então rodar o `git rm` da lista "Sai" do Escop
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** reescrever `dashboard/README.md` só para os Agentes ao vivo (como abrir, rotas,
+- **JEV-AI-SUGGESTION:** NAO
   `ATRASO_AGENTES`, regra C31, o que há em `referencias/`); resposta 3-a no quadro: a
   DASHBOARD-REDE-NEURAL.4 vira cancelada (motivo em "Pendências" do `STATUS.md`) e a mãe
   DASHBOARD-REDE-NEURAL fecha, com as linhas ✅ dela movidas para o `task_complete.md`.

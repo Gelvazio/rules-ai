@@ -59,6 +59,7 @@ para o Haiku; problema na conferência vira subtarefa de verificação para o So
 - **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
 - **Effort:** high
 - **Entrega:** — · **Verificação:** —
+- **JEV-AI-SUGGESTION:** NAO
 
 ### HAIKU-COMMIT-GLOBAL.2 — Levar às IAs (`sincronizar.mjs --aplicar`)
 
@@ -68,3 +69,4 @@ para o Haiku; problema na conferência vira subtarefa de verificação para o So
 - **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
 - **Effort:** high
 - **Entrega:** — · **Verificação:** —
+- **JEV-AI-SUGGESTION:** NAO

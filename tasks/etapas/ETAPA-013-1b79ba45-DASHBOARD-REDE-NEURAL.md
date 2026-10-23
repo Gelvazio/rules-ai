@@ -60,6 +60,7 @@ mostra as probabilidades da saída.
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** `dashboard/index.html` (import map do `three@0.170.0` e addons, áreas da cena e do
+- **JEV-AI-SUGGESTION:** NAO
   painel, sem CSS/JS inline), `dashboard/assets/css/base.css` (tokens `:root`, layout),
   `dashboard/assets/css/painel.css` e `dashboard/README.md` (o que é e como abrir).
 - **Critérios de aceitação:** sem `style=""`/`onclick`; versão exata do Three.js; README com o
@@ -75,6 +76,7 @@ mostra as probabilidades da saída.
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **Descrição:** `assets/js/config/rede.js` (tamanhos das camadas, semente, constantes) e
+- **JEV-AI-SUGGESTION:** NAO
   `assets/js/rede/rede-neural.js` (gerador com semente, pesos/vieses, `propagar(entradas)` que
   devolve, por camada e por neurônio, `z`, ativação e as parcelas `entrada × peso`; ReLU e
   softmax).
@@ -90,6 +92,7 @@ mostra as probabilidades da saída.
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro
 - **Effort:** high
 - **Descrição:** `assets/js/cena/` (renderer, câmera, luzes, `OrbitControls`, neurônios, ligações,
+- **JEV-AI-SUGGESTION:** NAO
   rótulos `CSS2DRenderer`, animação camada a camada com `requestAnimationFrame`, seleção por clique
   com `Raycaster`), `assets/js/config/cores.js` e `assets/js/principal.js` ligando modelo → cena.
 - **Critérios de aceitação:** `node --check` em todos; a cena só lê o modelo (não calcula nada);
@@ -120,6 +123,7 @@ mostra as probabilidades da saída.
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **Descrição:** `assets/js/tela/painel.js`: campos dos 4 valores de entrada, botão Propagar,
+- **JEV-AI-SUGGESTION:** NAO
   cálculo detalhado do neurônio clicado (`Σ(entrada × peso) + viés = z → ativação`) e barras de
   probabilidade das saídas.
 - **Critérios de aceitação:** sem regra de cálculo no painel (usa o resultado do modelo); números
@@ -132,6 +136,7 @@ mostra as probabilidades da saída.
 - **Nível:** —
 - **Modelo:** Usuário · effort low
 - **Descrição:** conferir no navegador cores, animação, clique e probabilidades.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### DASHBOARD-REDE-NEURAL.6 — Coletor Python dos links do `dashboard/CLAUDE.md`
 
@@ -141,6 +146,7 @@ mostra as probabilidades da saída.
 - **Modelo:** executada pelo Opus 5.5 a pedido do usuário
 - **Effort:** medium
 - **Descrição:** `dashboard/scripts/` com `config_coleta.py`, `extrator_pagina.py`, `cotacao.py`,
+- **JEV-AI-SUGGESTION:** NAO
   `coletar.py` e `requirements.txt`; Playwright para os sites em JavaScript (L04–L10), mais as
   páginas de preço/API/termos achadas; cotação USD-BRL da AwesomeAPI. L01–L03 (Instagram) ficam
   `nao_verificado` (coleta manual). Saída em `dashboard/scripts/saida/coleta.json` (fora do Git).
@@ -155,6 +161,7 @@ mostra as probabilidades da saída.
 - **Modelo:** executada pelo Opus 5.5 a pedido do usuário
 - **Effort:** medium
 - **Descrição:** `scripts/gerar_dados_painel.py` lê `scripts/saida/coleta.json` e as páginas salvas em
+- **JEV-AI-SUGGESTION:** NAO
   `MODELOS-DE-IA/` e grava `assets/js/dados/ferramentas.js` (sem o texto bruto das páginas);
   `assets/js/ferramentas/` desenha a aba (cards por link, preços em US$ e R$, formatos, reels).
   A aba da rede neural continua igual.
@@ -169,6 +176,7 @@ mostra as probabilidades da saída.
 - **Modelo:** Opus 5.5 (a pedido do usuário)
 - **Effort:** high
 - **Descrição:** botão "3D GRAPHS AI" no cabeçalho do `index.html` (link na mesma aba) para
+- **JEV-AI-SUGGESTION:** NAO
   `graphs/index.html`: visualizador Three.js 0.170.0 de GLB, campo de prompt e botão Gerar
   (texto → 3D na API da Tripo, a mais barata da coleta: 1 crédito = US$ 0,01, 10–20 créditos por
   modelo), progresso e galeria. `graphs/servidor.py` (biblioteca padrão) serve o dashboard e
@@ -188,6 +196,7 @@ mostra as probabilidades da saída.
 - **Modelo:** Opus 5.5 (a pedido do usuário)
 - **Effort:** medium
 - **Descrição:** engrenagem no cabeçalho de `graphs/index.html` abre um `<dialog>` para salvar,
+- **JEV-AI-SUGGESTION:** NAO
   mostrar/ocultar e remover a chave da Tripo no `localStorage`. O front manda a chave no
   cabeçalho `X-Tripo-Key` só para o servidor local, que a repassa à Tripo; sem ela, vale o `.env`.
 - **Critérios de aceitação:** `py_compile` e `node --check` passam; o servidor usa a chave do
@@ -199,6 +208,7 @@ mostra as probabilidades da saída.
 
 - **Nível:** LEVE — 1 pasta com README (o Git não versiona pasta vazia).
 - **Descrição:** pasta para guardar os prompts do dashboard, um `.md` por prompt.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### DASHBOARD-REDE-NEURAL.11 — Um prompt por imagem em `dashboard/prompts/`
 
@@ -206,6 +216,7 @@ mostra as probabilidades da saída.
 
 - **Nível:** MEDIO — ler 4 imagens e escrever 4 prompts.
 - **Descrição:** `MODELO-3D-REDE-NEURAL-01.md` a `04.md`, cada um com a descrição da imagem e um
+- **JEV-AI-SUGGESTION:** NAO
   prompt pronto para recriar a tela como página HTML: 01 orquestrador de agentes em anel; 02
   infográfico "1 agente no lugar de 25 assentos"; 03 painel de robô com toro 3D de partículas
   (Three.js); 04 animação do infográfico 02. Nomes genéricos e dados fictícios com aviso. As
@@ -217,6 +228,7 @@ mostra as probabilidades da saída.
 
 - **Nível:** LEVE — ajuste de 2 prompts e do README da pasta.
 - **Descrição:** nenhum prompt cita outro prompt nem outra imagem. O 04 foi reescrito como
+- **JEV-AI-SUGGESTION:** NAO
   infográfico completo com foco na animação da rede do agente; o 02 perdeu a menção ao 04.
 
 ### DASHBOARD-REDE-NEURAL.13 — Guia `graphs/TRIPO_AI_DOCS.md`
@@ -225,6 +237,7 @@ mostra as probabilidades da saída.
 
 - **Nível:** MEDIO — leitura de 8 páginas da documentação e escrita do guia.
 - **Descrição:** como obter a chave, fluxo REST V3 (criar, consultar, baixar), os 5 SDKs (JS,
+- **JEV-AI-SUGGESTION:** NAO
   Python, Go, Rust, Java), endpoints, versões, créditos, limites, erros e divergências da
   documentação. Não lidas (só abrem com JavaScript): "Texto para modelo 3D" e "Modelos".
 - **Achado:** a API atual é a V3 (`https://openapi.tripo3d.ai/v3`); o `graphs/` usa a V2. A
@@ -237,6 +250,7 @@ mostra as probabilidades da saída.
 **Status:** ✅ entregue 2026-10-17 16:44. Cena 3D do prompt 04 em `graphs/cena.html` com formas simples; cliente migrado para a V3 (401 com chave falsa nas 3 rotas); geração dos 5 objetos pronta, mas não executada (decisão do usuário: formas primeiro). Plano original abaixo: (criada 2026-10-17 16:39).
 
 - **Nível:** PESADO — leitor de prompts no servidor, geração em lote na Tripo, cena 3D nova com
+- **JEV-AI-SUGGESTION:** NAO
   animação; vários arquivos ligados e gasto de créditos.
 - **Modelo:** só Opus 5.5+ ou Fable · **Effort:** high
 - **Depende de:** `.9` (chave no navegador) e `.13` (guia da API; decidir V2 ou V3).
@@ -284,6 +298,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 **Status:** ✅ entregue 2026-10-17 16:50.
 
 - **Problema:** o botão Gerar não habilitava. O servidor local não estava rodando, a `cena.html`
+- **JEV-AI-SUGGESTION:** NAO
   não tinha a ⚙, e a validação da chave (`[\w.-]{8,200}`) recusaria chaves com `+`, `/` ou `=`.
 - **Correção:** ⚙ e modal na `cena.html` (o botão "Gerar os que faltam" liga ao salvar a chave,
   sem recarregar); validação no modal e no servidor trocada por ASCII visível sem espaço
@@ -295,6 +310,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 
 - **Nível:** MEDIO — rota do servidor + módulo `saldo.js` nas duas páginas.
 - **Descrição:** `/api/saldo` devolve `{saldo, congelado}` (lidos de `balance` e `frozen` da V3);
+- **JEV-AI-SUGGESTION:** NAO
   `assets/js/saldo.js` mostra "Saldo: N créditos" ao lado da ⚙ em `index.html` e `cena.html`,
   com o valor em US$ no título; atualiza ao abrir, ao salvar a chave e depois de cada geração.
   Testado sem chave e com chave falsa; o formato com saldo real depende de uma conta com créditos.
@@ -305,6 +321,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 
 - **Nível:** PESADO — só Opus 5.5+ ou Fable · effort high.
 - **Objetivo:** mostrar na interface 3D o trabalho real dos agentes, ligado às tarefas do
+- **JEV-AI-SUGGESTION:** NAO
   `rules-ai/tasks/STATUS.md`, "ao vivo" com atraso configurável (padrão 30 s).
 - **Back-end (Python, biblioteca padrão):**
   - `graphs/quadro_tarefas.py` novo: `ler_quadro(caminho)` lê a tabela "📌 Tarefas" e devolve
@@ -353,6 +370,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 
 - **Nível:** PESADO — só Opus 5.5+ ou Fable · effort high.
 - **Pedido:** "as tarefas pendentes devem ser um globo no centro, e os agentes devem ficar ao redor,
+- **JEV-AI-SUGGESTION:** NAO
   como que orbitando esta esfera maior, com as tarefas que estão fazendo".
 - **Entregue:** `assets/js/agentes/cena-agentes.js` reescrito (mesma interface: `sincronizar`,
   `aplicarEvento`, `desenhar`, `contagem`). Globo translúcido girando, com as pendentes
@@ -368,6 +386,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 **Status:** ✅ entregue 2026-10-17 17:49.
 
 - **Problema:** "os textos estão foscos". Os rótulos eram texturas de canvas (512×128) esticadas
+- **JEV-AI-SUGGESTION:** NAO
   em sprites; com a distância e o zoom, o texto borrava.
 - **Correção:** `assets/js/agentes/rotulos.js` passa a criar `CSS2DObject` (HTML); `agentes.js`
   ganha a camada `CSS2DRenderer` sobre o canvas (sem capturar o mouse) e a desenha a cada quadro;
@@ -380,6 +399,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 **Status:** ✅ entregue 2026-10-17 17:55.
 
 - **Pedido:** "colocar na cabeça de cada agente que está trabalhando, o percentual que já fez da
+- **JEV-AI-SUGGESTION:** NAO
   tarefa". O quadro não guardava percentual; decisão do usuário: o agente escreve no quadro, regra
   só do `rules-ai`.
 - **Regra C31 (`AGENTS.md`):** ` · NN%` no fim da célula "Em uso por" (0% ao reservar, atualizar a
@@ -398,6 +418,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 
 - **Nível:** LEVE · effort low.
 - **Entregue:** `assets/js/menu.js` ganha a lista `PROJETOS` (hoje só "Rules Ai", o atual) e põe
+- **JEV-AI-SUGGESTION:** NAO
   uma linha nova acima do menu das páginas, nas 3 páginas, com o projeto atual em destaque. Para
   outro projeto, basta uma linha em `PROJETOS`. O `graphs.css` deixou de usar alturas fixas de
   cabeçalho (`--altura-cabecalho`, `--altura-barra`): o corpo virou coluna flexível e a área
@@ -409,6 +430,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 **Status:** ✅ entregue 2026-10-17 18:05.
 
 - **Servidor:** `/api/projetos` lista as pastas de `C:\fontes` com `tasks\STATUS.md` (nunca as
+- **JEV-AI-SUGGESTION:** NAO
   `DEMAIS-PROJETOS-*`, regras C20 e C23), com nome legível ("rules-ai" → "Rules Ai"); 19 projetos
   hoje. `/api/agentes?projeto=<pasta>` lê o quadro do projeto pedido (padrão: `rules-ai`); id fora
   da lista é recusado (testado com `../rules-ai` e `DEMAIS-PROJETOS-NAO-MEXER-AGORA`).
@@ -424,6 +446,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 **Status:** ✅ entregue 2026-10-17 18:05.
 
 - **Pedido:** seguir `dashboard/prompts/modelo.png` (mapa mental): globo girando no centro e os
+- **JEV-AI-SUGGESTION:** NAO
   agentes espalhados em volta; "os agentes não giram, apenas apontam para o globo".
 - **Entregue:** `assets/js/agentes/galhos.js` (novo) com a geometria do mapa: agentes parados numa
   elipse em volta do globo (o primeiro em cima, à esquerda), galho grosso e curvo da cor do agente
@@ -438,6 +461,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 
 - **Nível:** LEVE · effort low.
 - **Entregue:** `menu.js` aceita `data-menu-ocultar="<href> <href>"` no `<nav data-menu>`; o
+- **JEV-AI-SUGGESTION:** NAO
   `agentes.html` esconde Dashboard, 3D GRAPHS AI e Cena do prompt 04 (fica a linha dos projetos e
   "Agentes ao vivo"). `index.html` e `cena.html` seguem com o menu completo.
 - **Conferido:** `node --check`.
@@ -447,6 +471,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 **Status:** ✅ entregue 2026-10-17 18:08.
 
 - **Entregue:** globo com raio 2 (era 3) e anel das concluídas com raio 2,9 (era 4,2); agentes
+- **JEV-AI-SUGGESTION:** NAO
   numa elipse maior (9,6 × 5,8, era 7,2 × 4,4) e ramos de 2,4; câmera recuada (z = 23). Cada tarefa
   em andamento ganha um fio fino e claro (`criarFio`/`atualizarFio` em `galhos.js`) da superfície do
   globo até ela, além do ramo do agente. Com o globo menor, o limite de rótulos no globo caiu para
@@ -454,6 +479,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
 - **Conferido:** `node --check`.
 
 ### DASHBOARD-REDE-NEURAL.19 — Aceite do usuário
+- **JEV-AI-SUGGESTION:** NAO
 
 **Status:** 👀 aguardando o usuário (reiniciar o `servidor.py` antes). O usuário abre `http://localhost:8080/graphs/agentes.html`, muda o status
 de uma tarefa no quadro e confere a animação cerca de 30 s depois.

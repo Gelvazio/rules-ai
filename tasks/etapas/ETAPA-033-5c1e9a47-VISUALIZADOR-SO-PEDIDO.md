@@ -48,6 +48,7 @@ N/A — mudança só de texto de regra, sem código nem dado; a conferência é 
 - **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro
 - **Effort:** high
 - **Descrição:** escrever a regra, C45, índice, sincronizar; ajustar as regras do `aulasenai`;
+- **JEV-AI-SUGGESTION:** NAO
   atualizar o `rules-local/` dos 3 projetos e commitar + push em cada um.
 - **Critérios de aceitação:** R1–R3 com a verificação feita.
 - **Entrega:** `rules-ai` `edeebc6` (regra, índice, C45, versão `2026-10-22-00769678`, `dist/`

@@ -18,6 +18,7 @@ SEREM GLOBAIS PRA TODAS AS IAS … ESCOPO: TODOS OS PROJETOS DA PASTA FONTES …
 ### GLOBAL.4 — Confirmar os conflitos (concluída)
 
 - **Entrega:** commit `feat(GLOBAL.4)` · **Verificação:** respostas do usuário (C1=A, C2=A, C3=A,
+- **JEV-AI-SUGGESTION:** NAO
   C4=B, C5=B, C6=A, C7=A, C8=A, C9=juntar, C10=juntar A e B) aplicadas em `regras/`; script
   rodado com `--aplicar` e depois "igual" nos 3 destinos (Claude Code, Gemini CLI, Codex).
 - **Anotação:** do `~/.codex/AGENTS.md` foram removidas as seções de testes, worktree/merge,
@@ -26,6 +27,7 @@ SEREM GLOBAIS PRA TODAS AS IAS … ESCOPO: TODOS OS PROJETOS DA PASTA FONTES …
 ### GLOBAL.5 — Demais IAs (concluída)
 
 - **Nível:** MEDIO — achar o caminho de cada IA na documentação e estender o script ·
+- **JEV-AI-SUGGESTION:** NAO
   **Modelo:** Claude Code Sonnet 5.5 (ou superior)
 - **Descrição:** caminhos tirados da documentação oficial de cada IA: Grok lê `~/.grok/`
   (docs.x.ai, "Project rules"); Qoder `~/.qoder/AGENTS.md` (docs.qoder.com, "Memory"); opencode
@@ -43,6 +45,7 @@ SEREM GLOBAIS PRA TODAS AS IAS … ESCOPO: TODOS OS PROJETOS DA PASTA FONTES …
 ### GLOBAL.6 — Decidir C11 e C12 (concluída)
 
 - **Entrega:** commit `feat(GLOBAL.6)` · **Verificação:** `regras/graphify.md` criado; script com
+- **JEV-AI-SUGGESTION:** NAO
   `--aplicar` e depois "igual" nos 3 destinos; `~/.claude/CLAUDE.md` sem a regra antiga "só quando o
   usuário pedir"; `~/.codex/AGENTS.md` sem o caminho fixo de `professor-senai`. Tarefas abertas nos
   quadros do REA (`ALINHAR`) e do aulasenai (`#202`).
@@ -50,6 +53,7 @@ SEREM GLOBAIS PRA TODAS AS IAS … ESCOPO: TODOS OS PROJETOS DA PASTA FONTES …
   conversa (a regra manda esperar a próxima).
 
 ### GLOBAL.7 — Acompanhar o alinhamento dos projetos
+- **JEV-AI-SUGGESTION:** NAO
 
 **Próximo passo:** o usuário confere quando as subtarefas `ALINHAR.*` (REA) e `#202.*` (aulasenai)
 estiverem ✅; cada uma é de um nível/modelo (Haiku, Sonnet ou Opus).
@@ -57,6 +61,7 @@ estiverem ✅; cada uma é de um nível/modelo (Haiku, Sonnet ou Opus).
 ### GLOBAL.8 — Gemini CLI lendo as regras de verdade (concluída)
 
 - **Nível:** MEDIO — ajuste pequeno no script, mas exige entender o carregador do Gemini ·
+- **JEV-AI-SUGGESTION:** NAO
   **Modelo:** Claude Code Sonnet 5.5 (ou superior)
 - **Descrição:** no `@google/gemini-cli-core` 0.64.0 (`utils/memoryImportProcessor.js`), o GEMINI.md
   global é lido sem `projectRoot`, então `validateImportPath` recusa qualquer `@import` e grava

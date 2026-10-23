@@ -29,6 +29,7 @@
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** (1) no fim de `regras/frentes-e-reserva.md`, uma linha em branco e o bloco acima;
+- **JEV-AI-SUGGESTION:** NAO
   (2) em `CONFLITOS.md`, no fim da tabela "Decididos depois", a linha
   `| C30 | Gatilho `.` | ✅ Mensagem só com `.` = listar em quadro as tarefas pendentes e apontar a próxima livre do **seu** modelo, sem reservar nem mudar nada; regra em `regras/frentes-e-reserva.md`. Pedido do usuário em 2026-10-17 |`;
   (3) nova linha no topo de "O que mudou desde a última gravação" do `STATUS_PROJETO.md`;

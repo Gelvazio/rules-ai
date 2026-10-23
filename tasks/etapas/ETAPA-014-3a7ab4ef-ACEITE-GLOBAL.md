@@ -31,6 +31,7 @@ confere e fecha. E as regras globais passam a carregar também nas contas `~/.cl
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro
 - **Effort:** high
 - **Descrição:** tirar a subtarefa "Aceite do usuário" do ciclo e do modelo do quadro; o 👀 fica só
+- **JEV-AI-SUGGESTION:** NAO
   para o que só o usuário pode fazer.
 - **Critérios de Aceitação:** nenhuma regra global manda criar aceite; C32 no `CONFLITOS.md`.
 - **Entrega:** commit `feat(ACEITE-GLOBAL.1)`: `regras/ciclo-da-task.md` (item 2 de Encerrar),
@@ -51,6 +52,7 @@ confere e fecha. E as regras globais passam a carregar também nas contas `~/.cl
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro
 - **Effort:** high
 - **Descrição:** `~/.claude-contaA/CLAUDE.md`, `~/.claude-contaB/CLAUDE.md` e
+- **JEV-AI-SUGGESTION:** NAO
   `~/.claude-contaC/CLAUDE.md` com o `@import` do `dist/REGRAS-GLOBAIS.md`.
 - **Critérios de Aceitação:** os 3 arquivos existem com o bloco; o `dist` traz a C32.
 - **Entrega:** commit `feat(ACEITE-GLOBAL.2)`: 3 destinos novos em `scripts/sincronizar.mjs`

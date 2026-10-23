@@ -14,3 +14,4 @@
 - **Descrição:** `PREFIXOS_PASTAS` sai; entra `PASTAS_IGNORADAS = ("DEMAIS-PROJETOS-NAO-MEXER-AGORA", "rules-ai", ".vscode", ".agents", ".claude")`. `listar_pastas` pega toda subpasta de `C:\fontes` com `.git` que não esteja na lista. Docstring, `--help` e exemplo atualizados.
 - **Critérios de aceitação:** `py_compile` ok; o script lista só repositórios Git de `C:\fontes`; `DEMAIS-PROJETOS-NAO-MEXER-AGORA` e `rules-ai` nunca aparecem; nada é lido dentro da pasta ignorada (C23).
 - **Entrega:** `scripts/UPDATE.py` (`PASTAS_IGNORADAS` no lugar de `PREFIXOS_PASTAS`; commit desta entrega) · **Verificação:** `py_compile -W error` ok; `listar_pastas` devolve DASHBOARD-AI-PRINCIPAL, REA-APP-CLONES, ai-memory, aulasenai, projeto-frontend-com-testes e testes-de-frontend (sem `rules-ai`, `.claude` e `DEMAIS-PROJETOS-NAO-MEXER-AGORA`). O script não foi rodado de novo (faz pull nas pastas).
+- **JEV-AI-SUGGESTION:** NAO

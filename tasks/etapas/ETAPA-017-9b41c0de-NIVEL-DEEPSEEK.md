@@ -36,6 +36,7 @@
 - **Modelo:** DeepSeek (raciocínio) ou Claude Code Opus 5.5+ / Fable.
 - **Effort:** high.
 - **Descrição:** trocar `| **DeepSeek** | Flash | raciocínio | ⛔ |` por `✅`; ajustar a frase do
+- **JEV-AI-SUGGESTION:** NAO
   `PESADO` para "`PESADO` exige Claude Code Opus 5.5+/Fable **ou** DeepSeek (raciocínio)"; manter
   intacta a C22 na parte que proíbe pegar nível **acima do seu** para os outros modelos.
 - **Critérios de Aceitação:** a linha DeepSeek tem `✅` na coluna `PESADO`; nenhum arquivo de
@@ -51,6 +52,7 @@
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** até Haiku/Flash.
 - **Critérios de Aceitação:** a matriz da skill mostra DeepSeek em `PESADO`. ✅
+- **JEV-AI-SUGGESTION:** NAO
 
 ### NIVEL-DEEPSEEK.3 — OpenCode na matriz, com os modelos DeepSeek (✅ 2026-10-18)
 
@@ -59,6 +61,7 @@ modelos da deepseek" (Gelvazio, 2026-10-18 12:14). Registro em `CONFLITOS.md` co
 
 - **Nível:** LEVE — só `.md`.
 - **Descrição:** linha **OpenCode** na matriz das regras globais (`regras/niveis-e-modelos.md`) e na
+- **JEV-AI-SUGGESTION:** NAO
   matriz da skill `classificar-tarefa`:
   `LEVE` = `deepseek-flash` · `MEDIO` = `deepseek-flash` com thinking ·
   `PESADO` = `deepseek-v4-pro`.

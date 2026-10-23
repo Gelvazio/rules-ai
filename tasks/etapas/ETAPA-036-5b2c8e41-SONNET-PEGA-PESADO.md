@@ -34,6 +34,7 @@
 - **Effort:** medium
 - **Critérios de aceitação:** matriz com Sonnet em `PESADO`; C48 no `CONFLITOS.md`; `sincronizar.mjs` sem divergência.
 - **Entrega:** `niveis-e-modelos.md`, C48 no `CONFLITOS.md`, skill `classificar-tarefa` (commit desta entrega) · **Verificação:** `git diff` lido; `node scripts/sincronizar.mjs` gravou a versão `2026-10-22-6637f9d5` e mostrou `mudaria` nas IAs.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### SONNET-PESADO-GLOBAL.2 — Levar aos projetos e à trava do aulasenai
 
@@ -45,3 +46,4 @@
 - **Depende de:** SONNET-PESADO-GLOBAL.1
 - **Critérios de aceitação:** `node --check` do hook; reserva de Sonnet em subtarefa PESADO não é bloqueada.
 - **Entrega:** `sincronizar.mjs --aplicar` (IAs atualizadas); no `aulasenai`: `niveis.md`, `verificar-modelo.js`, `HISTORICO-REGRAS.md` · **Verificação:** `node --check` ok; a reserva do Sonnet na #347.1 (PESADO) passou pela trava.
+- **JEV-AI-SUGGESTION:** NAO

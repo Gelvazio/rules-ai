@@ -25,12 +25,14 @@ nível de agente (ESFORCO) e a conferência de que o `effort` é aplicado em cad
 - **Nível:** LEVE — só `.md` · **Modelo:** Claude Code Sonnet 5.5 pega por não haver subtarefa MEDIO livre para esta frente sem violar "1 por frente"; registrado.
 - **Critérios de aceitação:** regra sincronizada nas IAs; `CONFLITOS.md` com a decisão (C21).
 - **Entrega:** `regras/esforco.md`, C21 em `CONFLITOS.md`, sincronizada nas IAs · **Verificação:** `sincronizar.mjs --aplicar` gravou as IAs e o unificado inclui `esforco.md`.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### ESFORCO-GLOBAL.2 — Aceite do usuário
 
 **Próximo passo:** 👀 depois da .1.
 
 - **Nível:** LEVE — conferência do usuário.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### CONFEFFORT-GLOBAL — Subtarefas por modelo
 
@@ -60,6 +62,7 @@ Ressalva: o problema pode ser fácil demais para o Sonnet gastar raciocínio ext
 - **Nível:** MEDIO · **Modelo:** só Claude Code Sonnet 5.5. Pedido do usuário ("sim") depois de a rodada 1 não mostrar diferença.
 - **Problema:** 9 pessoas A–I com 9 restrições cruzadas; gabarito 77 (força bruta em Python). Critério: tokens/tempo crescem de `low` a `high`, `effort` ignorado ou só `high` muda.
 - **Entrega:** — · **Verificação:** —
+- **JEV-AI-SUGGESTION:** NAO
 
 #### CONFEFFORT-GLOBAL.6 — resultado (2026-10-16 20:25, Claude Code Sonnet 5.5, local · main)
 
@@ -102,6 +105,7 @@ Ressalvas: amostra de 3 por nível; o problema foi resolvido por força bruta (p
 - **Effort:** low
 - **Pedido:** "sim, abra a subtarefa e atualize a C21" (2026-10-17 13:11); criada no caminho (C26).
 - **Descrição:** (1) em `regras/esforco.md`, trocar a linha que começa com "- Conferência do Sonnet
+- **JEV-AI-SUGGESTION:** NAO
   5.5 (CONFEFFORT-GLOBAL.2 e .6)" por:
   `- Conferência por modelo: **Sonnet 5.5** (CONFEFFORT-GLOBAL.2 e .6): `low` e `medium` sem diferença mensurável; só `high` mostrou efeito pequeno. **Opus 5.5** (CONFEFFORT-GLOBAL.3, 2026-10-17): `effort` aplicado — tokens e tempo crescem de `low` a `xhigh` (+2,3% de tokens, +40% de tempo), todos com a resposta certa. Faltam Haiku, Gemini e DeepSeek.`;
   (2) em `STATUS_PROJETO.md`, nova linha no topo de "O que mudou desde a última gravação";
@@ -142,6 +146,7 @@ Ressalvas: amostra de 3 por nível; o problema foi resolvido por força bruta (p
 - **Effort:** low
 - **Pedido:** "sim, abra a subtarefa e limpe o esforco.md" (2026-10-17 13:15); criada no caminho (C26).
 - **Motivo:** os resultados das conferências são histórico, não mudam o que a IA faz e entram no
+- **JEV-AI-SUGGESTION:** NAO
   contexto de toda sessão de todas as IAs (via `dist/REGRAS-GLOBAIS.md`).
 - **Descrição:** em `regras/esforco.md`: (1) apagar a linha que começa com "- Conferência por
   modelo: **Sonnet 5.5**" e a linha que começa com "- Teste da padaria (EFFORT-PADARIA"; (2) trocar

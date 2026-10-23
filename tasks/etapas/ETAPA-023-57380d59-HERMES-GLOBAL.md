@@ -30,6 +30,7 @@ trabalhar nos repositórios de `C:\fontes`.
 - **Nível:** LEVE — configuração simples (constante + item na lista), sem lógica nova.
 - **Modelo:** DeepSeek (Flash).
 - **Descrição:** constante `PASTA_HERMES` (`%LOCALAPPDATA%\hermes` no Windows, `~/.hermes` no POSIX) e
+- **JEV-AI-SUGGESTION:** NAO
   destino `{ ia: 'Hermes Agent', arquivo: join(PASTA_HERMES, 'SOUL.md'), modo: 'embutir' }`; linha do
   Hermes na tabela de IAs do `README.md`.
 - **Critérios de Aceitação:** `node scripts/sincronizar.mjs` lista o destino do Hermes; `README.md`
@@ -40,6 +41,7 @@ trabalhar nos repositórios de `C:\fontes`.
 - **Nível:** LEVE — configuração simples.
 - **Modelo:** DeepSeek (Flash).
 - **Descrição:** escrever o preâmbulo do workspace em `%LOCALAPPDATA%\hermes\SOUL.md` e deixar o
+- **JEV-AI-SUGGESTION:** NAO
   `sincronizar.mjs` inserir o bloco das regras globais; completar `config.yaml` com
   `context_file_max_chars`, `terminal`, `approvals`, `skills.external_dirs`
   (`C:\Users\gelva\.agents\skills`), `memory`, mantendo `mcp_servers.rea`.
@@ -51,6 +53,7 @@ trabalhar nos repositórios de `C:\fontes`.
 - **Nível:** LEVE.
 - **Modelo:** DeepSeek (Flash).
 - **Descrição:** rodar `node scripts/sincronizar.mjs --aplicar` e conferir: Hermes gravado; demais
+- **JEV-AI-SUGGESTION:** NAO
   destinos iguais; `VERSAO.md` sem mudança.
 - **Critérios de Aceitação:** saída do script mostra o Hermes `gravado` e os demais `igual`; `SOUL.md`
   com o bloco completo. ✅
@@ -60,6 +63,7 @@ trabalhar nos repositórios de `C:\fontes`.
 - **Nível:** LEVE — `.md`.
 - **Modelo:** DeepSeek (Flash).
 - **Descrição:** atualizar `C:\fontes\hermes-agent\AGENTS.md` (estado "aplicado"), fechar as
+- **JEV-AI-SUGGESTION:** NAO
   subtarefas no `STATUS.md`, mover para `task_complete.md` e registrar no `STATUS_PROJETO.md`.
 - **Critérios de Aceitação:** quadro sem linhas abertas da HERMES-GLOBAL; `STATUS_PROJETO.md` com o
   registro; commits + push. ✅

@@ -34,6 +34,7 @@ subtarefa livre **do seu modelo**, executa e entrega, sem perguntar.
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** só Haiku — nunca outro (regra C22, sem exceção; o pedido veio a uma sessão Sonnet).
 - **Descrição:** (1) acrescentar o "Texto da regra" acima ao fim de `regras/frentes-e-reserva.md`
+- **JEV-AI-SUGGESTION:** NAO
   (o arquivo fica com menos de 5 KB); (2) em `CONFLITOS.md`, na tabela "Decididos depois", a linha
   `| C24 | Gatilho `;` | ✅ Mensagem só com `;` = pegar a próxima subtarefa livre do **seu** modelo; regra em `regras/frentes-e-reserva.md`. Pedido do usuário em 2026-10-17 |`
   logo depois da C23; (3) em `STATUS_PROJETO.md`, nova linha no topo de "O que mudou desde a última
@@ -49,6 +50,7 @@ subtarefa livre **do seu modelo**, executa e entrega, sem perguntar.
 - **Nível:** LEVE — só roda o script existente, sem escrever código.
 - **Modelo:** só Haiku — nunca outro.
 - **Descrição:** na pasta `C:\fontes\rules-ai`, rodar `node scripts/sincronizar.mjs` (confere o que
+- **JEV-AI-SUGGESTION:** NAO
   mudaria) e depois `node scripts/sincronizar.mjs --aplicar`. **O usuário pediu esta execução** nesta
   tarefa (a `MODELO-GLOBAL.2` deixou o `--aplicar` com o usuário; aqui ele autorizou a IA). O script
   grava `dist/REGRAS-GLOBAIS.md` e o bloco marcado do arquivo global de cada IA (com cópia `.bak`).

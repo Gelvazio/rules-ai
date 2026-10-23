@@ -65,6 +65,7 @@ não responde, a classificação usa só os sinais da skill e o guardrail devolv
 - **Effort:** high
 - **Critérios de aceitação:** R1.1, R1.2, R1.3 (texto); INV-1 e INV-2 continuam no texto.
 - **Entrega:** commit `feat(JEV-SEM-LAYA.1)` (2026-10-19 23:50) — `regras/jev.md` sem o Laya, C42 no
+- **JEV-AI-SUGGESTION:** NAO
   `CONFLITOS.md`, `regras/INDEX.md` (C39, C42) e `STATUS_PROJETO.md`.
 - **Verificação:** `grep -rni laya regras/` sem resultado (R1.1); leitura da seção "Modo, rollback e
   fallback": falha/sem chave/`off` → só sinais e guardrail `revisar` (R1.2, R1.3); "Nunca `liberar`
@@ -79,6 +80,7 @@ não responde, a classificação usa só os sinais da skill e o guardrail devolv
 - **Effort:** high
 - **Critérios de aceitação:** R2.1.
 - **Entrega:** commit `feat(JEV-SEM-LAYA.2)` (2026-10-19 23:50) — `VERSAO.md` em `2026-10-19-825288c1`; `--aplicar` gravou
+- **JEV-AI-SUGGESTION:** NAO
   Gemini CLI, Codex, Grok, Qoder, opencode, Devin, Kiro, Hermes Agent e Kilo Code (Claude Code e
   contas A/B/C ficam `igual`: importam o `dist/` por `@`).
 - **Verificação:** saída do `node scripts/sincronizar.mjs --aplicar`; `grep -ci laya
@@ -94,6 +96,7 @@ não responde, a classificação usa só os sinais da skill e o guardrail devolv
 - **Critérios de aceitação:** R1.2, R1.3 e R3.1 no código; `node --check` em cada arquivo.
 - **Executor:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) (local · main · rules-ai).
 - **Entrega:** commit `feat(JEV-SEM-LAYA.3)` (2026-10-19 23:53) — `avaliar.mjs` só com o backend Jev (sem
+- **JEV-AI-SUGGESTION:** NAO
   `--backend`), `relatorio-avaliacao.mjs` sem a comparação Jev × Laya, ajuda do `scripts/jev.mjs`,
   textos de `cliente.mjs`, `config.mjs` (`8_000`), `cli/comando-classificar.mjs`, `decidir.mjs` e
   `guardrails/seguranca-base.mjs` = "só pelos sinais da skill". `benchmarks/` não mudou (histórico).

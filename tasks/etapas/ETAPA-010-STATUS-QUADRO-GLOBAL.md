@@ -39,6 +39,7 @@ PowerShell, bash) e no chat do Claude Code no IDE.
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** (1) criar `regras/exibicao-de-status.md` com o texto acima; (2) em `CONFLITOS.md`,
+- **JEV-AI-SUGGESTION:** NAO
   na tabela "Decididos depois", acrescentar no fim a linha
   `| C27 | Exibição de status | ✅ Todo status (tarefas, frentes, pendências, conferências) é mostrado em **quadro** (tabela), no terminal e no chat do IDE, com o emoji da legenda; nunca em texto corrido ou lista solta. Pedido do usuário em 2026-10-17; regra em `regras/exibicao-de-status.md` |`;
   (3) em `STATUS_PROJETO.md`, nova linha no topo de "O que mudou desde a última gravação" com data
@@ -56,6 +57,7 @@ PowerShell, bash) e no chat do Claude Code no IDE.
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** a regra só chega às IAs depois do `--aplicar`; conferir que
+- **JEV-AI-SUGGESTION:** NAO
   `dist/REGRAS-GLOBAIS.md` contém "Todo status é mostrado em quadro".
 - **Entrega (2026-10-17 12:59, Haiku · executor-leve; líder Opus 5.5):** `sincronizar.mjs --aplicar` sem erro (saída 0); gravado em Gemini CLI, Codex, Grok, Qoder, opencode, Devin e Kiro; Claude Code igual (usa o `@import` do `dist`).
 - **Verificação (líder):** a frase está em `dist/REGRAS-GLOBAIS.md`, `~/.gemini/GEMINI.md`, `~/.codex/AGENTS.md` e `~/.kiro/steering/rules-ai.md`.
@@ -78,6 +80,7 @@ PowerShell, bash) e no chat do Claude Code no IDE.
 - **Effort:** low
 - **Pedido:** "sim, abra a subtarefa e atualize a C27" (2026-10-17 13:17), depois de "NESTE QUADRO ACIMA,N TEM O ID DA TAREFA E DAS SUBTASKS?".
 - **Descrição:** (1) em `regras/exibicao-de-status.md`, trocar as 2 linhas do item que começa com
+- **JEV-AI-SUGGESTION:** NAO
   "- Colunas mínimas para tarefas: **Tarefa · Título · Modelo · Status**" (termina em
   "(ex.: Item · Situação · Detalhe).") pelo bloco abaixo, sem mudar; (2) em `CONFLITOS.md`, no fim
   da linha C27 (antes do último ` |`), acrescentar

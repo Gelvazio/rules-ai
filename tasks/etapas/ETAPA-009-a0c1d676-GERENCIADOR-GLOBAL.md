@@ -52,6 +52,7 @@
 - **Critérios de Aceitação:** desenho escrito nesta seção; decisões das perguntas registradas; nenhum arquivo de projeto alterado.
 - **Entrega (2026-10-17 13:10, Claude Code Opus 5.5):** prova de conceito e desenho abaixo.
 - **Verificação:** `claude --help` (2.1.302) tem `-p/--print`, `--model`, `--effort`,
+- **JEV-AI-SUGGESTION:** NAO
   `--output-format json`, `--max-budget-usd` e `--permission-mode`; prova de conceito numa pasta
   temporária: `claude -p "<pergunta>" --model haiku --output-format json` → saída 0, 5,4 s,
   `is_error: false`, `modelUsage` = `claude-haiku-5-5`, US$ 0,006. Nenhum quadro alterado.
@@ -85,6 +86,7 @@
 - **Descrição:** regra de quem pode ser disparado, quando, com que limites e como parar.
 - **Critérios de Aceitação:** regra escrita e linkada no registro de decisões; sincronizador rodado só com autorização.
 - **Entrega:** commit `docs(regras): regra do gerenciador centralizado (C28)` (`regras/gerenciador-centralizado.md`; C28 no `CONFLITOS.md`; registro na etapa) · **Verificação:** conferência por leitura do texto contra as decisões de 13:30 e 16:12. **Ordem vigente:** pausa do disparo automático (pedido do usuário, registrado em 13:30). O automático só para Haiku e Sonnet (16:12) fica para quando o usuário reativar; a regra já escreve o modo `ver` como padrão. **Anotação:** sincronizador não rodado (não autorizado nesta subtarefa).
+- **JEV-AI-SUGGESTION:** NAO
 
 ### GERENCIADOR-GLOBAL.3 — Script central de leitura do quadro
 
@@ -95,6 +97,7 @@
 - **Descrição:** imprime, para cada projeto e modelo, as subtarefas livres e com dependências prontas.
 - **Critérios de Aceitação:** a saída bate com a conferência manual do quadro de cada projeto; nenhum quadro é escrito.
 - **Entrega:** — · **Verificação:** — · **Anotação:** —
+- **JEV-AI-SUGGESTION:** NAO
 
 ### GERENCIADOR-GLOBAL.4 — Disparo de sessões por modelo
 
@@ -105,6 +108,7 @@
 - **Descrição:** disparo, registro de cada disparo, limite por hora, arquivo `PARAR` que interrompe.
 - **Critérios de Aceitação:** em modo "só ver", nenhum disparo; com o limite em 1, no máximo um disparo por hora; o registro mostra cada disparo.
 - **Entrega:** — · **Verificação:** — · **Anotação:** —
+- **JEV-AI-SUGGESTION:** NAO
 
 ### GERENCIADOR-GLOBAL.5 — Vigilância periódica
 
@@ -115,6 +119,7 @@
 - **Descrição:** execução no intervalo aprovado, sem duplicar execuções.
 - **Critérios de Aceitação:** uma execução por intervalo; nenhuma execução paralela.
 - **Entrega:** — · **Verificação:** — · **Anotação:** —
+- **JEV-AI-SUGGESTION:** NAO
 
 ### GERENCIADOR-GLOBAL.6 — Aceite do usuário
 
@@ -125,6 +130,7 @@
 - **Descrição:** aceite e liberação do disparo automático.
 - **Critérios de Aceitação:** o usuário responde "sim" com a configuração escolhida.
 - **Entrega:** — · **Verificação:** — · **Anotação:** —
+- **JEV-AI-SUGGESTION:** NAO
 
 ### GERENCIADOR-GLOBAL.8 — Conferir as respostas de 16:12
 
@@ -137,6 +143,7 @@
 - **Entrega (2026-10-17 13:22, Claude Code Opus 5.5):** conferência abaixo.
 - **Verificação:** `Test-Path` e `git remote` nas pastas de `C:\fontes` (sem entrar em `DEMAIS-PROJETOS-*`); leitura do plano de 13:01, do desenho da `.1` e da `.7`. Nenhuma sessão disparada, nenhum outro projeto alterado.
 - **Anotação:** a afirmação "`gerenciador-de-ia` não existe" (plano de 13:01) estava **errada**: a pasta existe, só falta no mapa `C:\fontes\CLAUDE.md`.
+- **JEV-AI-SUGGESTION:** NAO
 
 #### Conferência das respostas de 16:12
 
@@ -162,3 +169,4 @@
 - **Descrição:** (a) mesclar as regras do `gerenciador-de-tarefas` ao central e dizer o que sai; (b) revisar a .1: lista de projetos, automático só para Haiku e Sonnet, ciclo de 30 s por projeto, modelo ocioso = sem linha `🔄` dele e sem processo vivo; (c) cobrir o risco de 30 s com disparo automático: no máximo 1 sessão ativa por modelo e limite de disparos por hora; (d) evitar disputa com o líder nas pastas `aulas-senai-*` (uma trava por pasta).
 - **Critérios de Aceitação:** desenho da .1 revisado, com a lista do que mudou; regras mescladas listadas nesta seção; nenhuma sessão disparada por esta etapa.
 - **Entrega:** — · **Verificação:** — · **Anotação:** —
+- **JEV-AI-SUGGESTION:** NAO

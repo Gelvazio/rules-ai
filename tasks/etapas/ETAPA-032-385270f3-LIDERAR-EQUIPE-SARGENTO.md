@@ -42,6 +42,7 @@ dois prompts, com a versão PC (herdr) e a versão nuvem (subagentes), e rodar `
 - **Effort:** low
 - **Arquivos:** `template-inicial-tasks-ia/.agents/skills/liderar-equipe/SKILL.md` (e as cópias)
 - **Critérios de aceitação:** a seção cobre: só gerencia; agentes do nível em paralelo sem dois nos
+- **JEV-AI-SUGGESTION:** NAO
   mesmos arquivos; VIGIA; FINANCEIRO com limite e "salvar status"; formato do
   `STATUS_TAREFAS_ANDAMENTO.md`; `--checar` com código 0.
 - **Entrega:** Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) — `template-inicial-tasks-ia` `feb00eb`: seção `## Líder sargento: equipe em paralelo, VIGIA e FINANCEIRO` (só gerencia, paralelo sem arquivos em comum, herdr no PC e subagentes na nuvem, VIGIA 10 min, FINANCEIRO 85% e `STATUS_TAREFAS_ANDAMENTO.md`, retomar), 2 linhas na tabela "Quem é quem" e o `description`; cópias regeradas · **Verificação (líder):** diff lido pelo líder; `sincronizar-agentes.mjs --checar` código 0; linhas novas ≤ 100 caracteres
@@ -58,3 +59,4 @@ apagar o que é de cada projeto; um commit por projeto na `main`.
 - **Arquivos:** a skill `liderar-equipe` dos 4 projetos
 - **Critérios de aceitação:** a seção idêntica nos 5; `--checar` 0 onde existe; nada além da skill.
 - **Entrega:** Claude Code (Opus 5.5 · executor-pesado; líder Opus 5.5) — mesma seção nos outros 4: rea-app-clones `fc13d90`, testes-de-frontend `c387adb`, dashboard-ai `5b97029` (sem apagar o que é do projeto), aulasenai `7dc269d` (`.claude/skills`); o líder devolveu 2 correções: ressalva do modo sargento no "Proibido" (achada pelo próprio executor) e a referência do herdr para `rules-local/regras/herdr.md` (feita por um Haiku); template de novo em `170df75` · **Verificação (líder):** `--checar` 0 nos 4 com gerador; `diff` da seção "Líder sargento" contra o template: sem diferença nos 4; só a skill e as cópias mudaram em cada repositório
+- **JEV-AI-SUGGESTION:** NAO

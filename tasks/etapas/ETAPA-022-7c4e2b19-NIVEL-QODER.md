@@ -25,6 +25,7 @@
 - **Modelo:** até Haiku/Flash.
 - **Descrição:** inserir `| **Qoder** | ✅ | ✅ | ⛔ |` depois da linha `Codex / Cursor`.
 - **Critérios de Aceitação:** a linha Qoder existe na matriz; a C38 está no `CONFLITOS.md`;
+- **JEV-AI-SUGGESTION:** NAO
   `node scripts/sincronizar.mjs --aplicar` leva o texto aos arquivos globais de todas as IAs. ✅
 
 ---

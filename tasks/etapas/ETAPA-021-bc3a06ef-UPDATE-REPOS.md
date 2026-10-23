@@ -20,6 +20,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** script Python (só biblioteca padrão, `subprocess`) que, para cada pasta
+- **JEV-AI-SUGGESTION:** NAO
   `C:\fontes\dashboard-ai-*` e `C:\fontesulas-senai-*` com `.git`: confere que a branch é `main`
   (se não for, pula e avisa); roda `git fetch origin main` e `git pull --rebase --autostash origin main`;
   se o rebase parar em conflito, **não** resolve sozinho: deixa o rebase parado e marca a pasta como
@@ -39,6 +40,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\dashboard-ai-claude-code-gmail`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.
@@ -54,6 +56,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\dashboard-ai-claude-code-hotmail`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.
@@ -69,6 +72,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\dashboard-ai-claude-code-senai`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.
@@ -84,6 +88,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\dashboard-ai-codex`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.
@@ -99,6 +104,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\dashboard-ai-deepseek`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.
@@ -114,6 +120,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\dashboard-ai-devin`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.
@@ -129,6 +136,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\dashboard-ai-gemini`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.
@@ -144,6 +152,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\dashboard-ai-kiro-crew`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.
@@ -159,6 +168,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\dashboard-ai-qoder`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.
@@ -174,6 +184,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\aulas-senai-CLAUDE-HAIKU`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.
@@ -189,6 +200,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\aulas-senai-CLAUDE-OPUS`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.
@@ -204,6 +216,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\aulas-senai-CLAUDE-OPUS-LIDER`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.
@@ -219,6 +232,7 @@ subtarefa própria.
 - **Modelo:** só Haiku 5.5 — nunca outro
 - **Effort:** low
 - **Descrição:** rodar o script para `C:\fontes\aulas-senai-CLAUDE-SONNET`. Situação `ATUALIZADA` ou `JÁ EM DIA` → só
+- **JEV-AI-SUGGESTION:** NAO
   registrar. Situação `CONFLITO` → abrir cada arquivo em conflito, manter as mudanças dos dois lados
   (as do remoto e as locais), `git add <arquivo>` e `git rebase --continue` até terminar; conflito em
   que não dá para saber qual lado vale → `git rebase --abort`, marcar ⛔ e perguntar ao usuário.

@@ -33,6 +33,7 @@
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro
 - **Effort:** high
 - **Opções a comparar:** (A) **trava por pasta**: uma sessão por vez, com lock no quadro (commit +
+- **JEV-AI-SUGGESTION:** NAO
   push) e as outras esperam; (B) **cópia por modelo**: `rules-ai-CLAUDE-HAIKU`, `-SONNET`, `-OPUS`
   (clones do mesmo repositório, como no `aulasenai`), cada sessão na sua; (C) mista: arquivos
   compartilhados (`STATUS.md`, `STATUS_PROJETO.md`) só pelo líder, o resto livre.
@@ -73,6 +74,7 @@ gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` j
 - **Effort:** low
 - **Critérios de Aceitação:** "sim" claro com a opção escolhida, registrado em Decisões.
 - **Entrega (2026-10-17 13:37):** `rules-ai` = **(A) uma sessão por vez**, só neste projeto. · **Verificação:** resposta do usuário em Decisões.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### PASTA-UNICA-GLOBAL.3 — Regra do `rules-ai`: uma sessão por vez
 
@@ -82,6 +84,7 @@ gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` j
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** (1) no fim de `AGENTS.md` (depois do bloco `rules-ai:global`), uma linha em branco e
+- **JEV-AI-SUGGESTION:** NAO
   a seção abaixo, sem mudar; (2) no fim do `.gitignore`, a linha `tasks/.sessao-ativa`; (3) em
   `CONFLITOS.md`, no fim da tabela "Decididos depois", a linha
   `| C29 | Sessões na mesma pasta (`rules-ai`) | ✅ **Só no `rules-ai`:** uma sessão de IA por vez, com a trava local `tasks/.sessao-ativa` (fora do Git); regra no `AGENTS.md` do projeto. `gerenciador-de-ia` ainda sem decisão (PASTA-UNICA-GLOBAL.4). Pedido do usuário em 2026-10-17 |`;
@@ -118,6 +121,7 @@ gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` j
 - **Modelo:** Usuário — nunca outro
 - **Effort:** low
 - **Entrega (2026-10-17 13:44):** `gerenciador-de-ia` = **(A) uma sessão por vez**. · **Verificação:** resposta do usuário em Decisões.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### PASTA-UNICA-GLOBAL.5 — Levar a regra ao `gerenciador-de-ia`
 
@@ -131,6 +135,7 @@ gerenciador abre a sessão na pasta do modelo, como o `gerenciador-de-tarefas` j
 - **Critério de pronto:** regra nos dois projetos; C29 cobre os dois.
 - **Entrega (2026-10-17 13:46, Haiku · executor-leve; líder Opus 5.5):** `gerenciador-de-ia` commit da #5.1 (`CLAUDE.md` seção 10 e `.gitignore`); `CONFLITOS.md` (C29) e `STATUS_PROJETO.md` aqui.
 - **Verificação (líder):** seção 10 igual ao bloco da etapa 005 de lá; `git check-ignore` nos dois projetos; C29 cita os dois.
+- **JEV-AI-SUGGESTION:** NAO
 
 ## Decisões
 

@@ -48,6 +48,7 @@ abertas fechadas** antes de o agente codar, entregue a todas as IAs pelo `sincro
 - **Modelo:** só Opus 5.5+ ou Fable.
 - **Effort:** high.
 - **Descrição:** `regras/espec.md` (≤ 4 KB, sem repetir regra de outro arquivo, apontando para eles)
+- **JEV-AI-SUGGESTION:** NAO
   com: quando vale (tarefa `PESADO`, conforme `ciclo-da-task.md`), e as **3 seções obrigatórias na
   etapa** antes de executar a primeira subtarefa — `### Requisitos` (cada requisito com critério
   **EARS**: `QUANDO… O SISTEMA DEVE…`), `### Invariantes` (regra que vale para toda entrada ou `N/A`
@@ -69,6 +70,7 @@ abertas fechadas** antes de o agente codar, entregue a todas as IAs pelo `sincro
 - **Modelo:** até Haiku/Flash.
 - **Effort:** low.
 - **Descrição:** os 3 blocos-modelo copiáveis para dentro da etapa, no formato do
+- **JEV-AI-SUGGESTION:** NAO
   `tasks/etapas/ETAPA-*.md`, mais `spec/README.md` explicando o fluxo em 5 linhas e o comando do gate.
 - **Critérios de Aceitação:** os 3 arquivos existem, cada um com o bloco `### …` no formato usado nas
   etapas; nenhum cita `docs/`; `spec/README.md` aponta para `regras/espec.md`.
@@ -85,6 +87,7 @@ abertas fechadas** antes de o agente codar, entregue a todas as IAs pelo `sincro
 - **Modelo:** DeepSeek (raciocínio) ou Sonnet.
 - **Effort:** medium.
 - **Descrição:** lê a etapa (`node spec/verificar-spec.mjs <arquivo>` ou `--todas`) e confere, em
+- **JEV-AI-SUGGESTION:** NAO
   **quadro** (C27): existe `### Requisitos` com ≥ 1 critério EARS; existe `### Invariantes` (ou `N/A`
   justificado); nenhuma pergunta aberta com ⬜; toda subtarefa tem `- **Nível:**`, `- **Modelo:**` e
   `- **Effort:**`. Sai com código 1 quando algo falta. ⛔ Não roda nem cria teste.
@@ -98,6 +101,7 @@ abertas fechadas** antes de o agente codar, entregue a todas as IAs pelo `sincro
 - **Nível:** — (ação no computador do usuário).
 - **Modelo:** Usuário.
 - **Descrição:** em `C:\fontes\rules-ai`: `git pull --rebase origin main` e
+- **JEV-AI-SUGGESTION:** NAO
   `node scripts/sincronizar.mjs --aplicar`.
 - **Critérios de Aceitação:** `dist/REGRAS-GLOBAIS.md` contém a C34; o bloco está nos arquivos globais
   de Claude Code, Codex, Grok, Qoder, opencode, Devin e Kiro.

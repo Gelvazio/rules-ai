@@ -33,11 +33,13 @@
 
 - **Nível:** MEDIO — vários arquivos de dados ligados entre si, sem código.
 - **Entrega:** commit `4411bcf` em `testes-effort-padaria` (repositório local, sem remoto) e linha no mapa `C:/fontes/CLAUDE.md` · **Verificação:** os 7 arquivos conferidos contra o gabarito (todos os números usados existem nos dados).
+- **JEV-AI-SUGGESTION:** NAO
 
 ### EFFORT-PADARIA.2 — Gabarito
 
 - **Nível:** MEDIO — cálculo por script na pasta temporária da sessão; resultado só nesta etapa.
 - **Entrega:** gabarito abaixo (script `gabarito.py` na pasta temporária da sessão, frações exatas; forno por soma de subconjuntos). **Verificação:** ovos 94,5 → 95; leite 6.600 ml; forno 607 min no total, ímpar → ótimo 304.
+- **JEV-AI-SUGGESTION:** NAO
 
 > 🔒 Gabarito movido para `gabaritos/EFFORT-PADARIA.md` (raiz do `rules-ai`).
 
@@ -47,6 +49,7 @@
 - **Nível:** .3 LEVE, .4 MEDIO, .5 PESADO, .6 e .7 MEDIO (nível do modelo medido).
 
 ### EFFORT-PADARIA.8 — Relatório comparativo · EFFORT-PADARIA.9 — Aceite do usuário
+- **JEV-AI-SUGGESTION:** NAO
 
 #### EFFORT-PADARIA.3 — Haiku 5.5 — resultado (2026-10-16 20:15, líder Claude Code Opus 5.5)
 

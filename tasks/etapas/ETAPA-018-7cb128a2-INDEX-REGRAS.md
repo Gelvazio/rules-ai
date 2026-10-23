@@ -26,6 +26,7 @@ existe; e fazer o `dist/REGRAS-GLOBAIS.md` seguir essa ordem em vez da alfabéti
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** lista numerada com um link Markdown por arquivo de `regras/`
+- **JEV-AI-SUGGESTION:** NAO
   (`[ciclo-da-task.md](ciclo-da-task.md)`), cada um com 1 linha do que trata, nesta ordem:
   `ciclo-da-task`, `niveis-e-modelos`, `frentes-e-reserva`, `quadro-de-tarefas`,
   `exibicao-de-status`, `git-geral`, `testes-validacao`, `codigo-limites-nomes`, `codigo-solid`,
@@ -49,6 +50,7 @@ existe; e fazer o `dist/REGRAS-GLOBAIS.md` seguir essa ordem em vez da alfabéti
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **Descrição:** `montarUnificado()` lê a ordem dos links `(<nome>.md)` do `regras/INDEX.md`;
+- **JEV-AI-SUGGESTION:** NAO
   deixa o `INDEX.md` de fora do `dist/`; arquivo de `regras/` fora do índice entra no fim, em
   ordem alfabética, com aviso no terminal; link do índice para arquivo que não existe gera aviso
   e é ignorado; sem `INDEX.md`, volta à ordem alfabética. Atualizar o README (seção "Mudar uma
@@ -73,3 +75,4 @@ veem a ordem nova depois dele; o Claude Code lê o `dist/` direto pelo `@import`
 - **Nível:** —
 - **Modelo:** Usuário
 - **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO

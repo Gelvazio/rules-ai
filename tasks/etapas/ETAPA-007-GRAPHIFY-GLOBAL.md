@@ -57,6 +57,7 @@ update .`). Sem perguntar.
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** só Haiku — nunca outro
 - **Descrição:** (1) substituir `regras/graphify.md` pelo texto acima; (2) em `CONFLITOS.md`, na
+- **JEV-AI-SUGGESTION:** NAO
   tabela "Decididos depois", acrescentar no fim a linha
   `| C25 | Graphify: ler antes de criar/executar tarefa e atualizar ao fim (substitui a C11) | ✅ Ler o `GRAPH_REPORT.md` antes de criar e antes de executar cada tarefa; `graphify update .` no início da conversa e ao fim de cada tarefa concluída e retirada do quadro. Pedido do usuário em 2026-10-17; regra em `regras/graphify.md` |`
   e, no fim da linha C11, acrescentar ` · **Substituída pela C25 (2026-10-17).**`; (3) em
@@ -74,6 +75,7 @@ update .`). Sem perguntar.
 - **Nível:** LEVE — só `.md`.
 - **Modelo:** só Haiku — nunca outro
 - **Descrição:** `C:\fontes\aulasenai\.claude\rules\graphify.md` e
+- **JEV-AI-SUGGESTION:** NAO
   `C:\fontes\REA-APP-CLONES\.claude\rules\graphify.md` contradizem a regra nova ("⛔ não rodar ao
   finalizar tarefas"); passam a só apontar para a global e manter o que é do projeto. As pastas
   `aulas-senai-CLAUDE-*` são cópias do repositório do aulasenai e recebem pelo `git pull`.
@@ -92,6 +94,7 @@ update .`). Sem perguntar.
 - **Nível:** LEVE — rodar um script já existente.
 - **Modelo:** só Haiku — nunca outro
 - **Descrição:** `node scripts/sincronizar.mjs --aplicar` (autorizado pelo usuário: "sincronize as
+- **JEV-AI-SUGGESTION:** NAO
   regras globais"); conferir que `dist/REGRAS-GLOBAIS.md` tem o texto novo.
 - **Entrega (2026-10-17 12:30, Haiku · executor-leve; líder Opus 5.5):** `node scripts/sincronizar.mjs
   --aplicar` sem erro: `dist/REGRAS-GLOBAIS.md` regerado; gravado em Gemini CLI, Codex, Grok,

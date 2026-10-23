@@ -23,6 +23,7 @@ globais, o CLAUDE.md do líder Opus e o quadro do `rules-ai`.
 - **Modelo:** só Opus 5.5+ ou Fable — nunca outro.
 - **Descrição:** 4 cards (2 por linha) no topo do `index.html`, cada um abre um modal estilizado.
 - **Critérios de Aceitação:** os 4 modais mostram o conteúdo certo; o corpo da página mostra o
+- **JEV-AI-SUGGESTION:** NAO
   `CLAUDE.md` da raiz e as regras do `rules-ai`; abre com duplo clique.
 - **Entrega:** `C:\fontes\index.html`, `assets/css/estilo.css`, `assets/js/` (`markdown.js`,
   `modal.js`, `tarefas.js`, `pagina.js`, `dados.js` gerado), `scripts/gerar-dados-index.mjs` e

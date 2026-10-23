@@ -168,6 +168,7 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 - **Critérios de Aceitação:** regra ≤ 5 KB, indexada, C40 com data e frase do pedido; simulação do sincronizador sem erro e sem gravar; `--aplicar` continua sendo ação do usuário.
 - **Verificação:** `node scripts/sincronizar.mjs` (saída sem erro; `git status` sem mudança nos arquivos globais das IAs).
 - **Estimativa:** 1 h.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### MCP-QUADRO.2 — Leitor/escritor do quadro e descoberta de projetos
 
@@ -181,6 +182,7 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 - **Critérios de Aceitação:** lê os 2 formatos; grava e relê sem mudar colunas (INV-2); pasta proibida nunca aparece; `node --check` passa.
 - **Verificação:** `node mcp/testes/quadro.mjs`; ler o diff do quadro sintético.
 - **Estimativa:** 3 h.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### MCP-QUADRO.3 — Trava por Git: reserva atômica, recuperação e dry-run
 
@@ -194,6 +196,7 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 - **Critérios de Aceitação:** dois `task_next` concorrentes → só um reserva (INV-3); push recusado → retry e sucesso; quadro sujo → recusa sem tocar em nada; nenhum `--force`/merge/`reset --hard`.
 - **Verificação:** `node mcp/testes/concorrencia.mjs`; `node mcp/testes/git.mjs`; conferir `git log` do repo temporário.
 - **Estimativa:** 4 h.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### MCP-QUADRO.4 — Servidor MCP stdio: `task_list` e `task_next`
 
@@ -207,6 +210,7 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 - **Critérios de Aceitação:** `task_list` devolve o quadro real sem alterar hash; `task_next` nunca devolve nível errado; log sem segredo; `node --check` nos dois arquivos.
 - **Verificação:** `node mcp/testes/niveis.mjs`; `node mcp/testes/log.mjs`; chamada manual pelo cliente de teste.
 - **Estimativa:** 3 h.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### MCP-QUADRO.5 — `task_finish`: mover para `task_complete.md` e anotar a entrega
 
@@ -220,6 +224,7 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 - **Critérios de Aceitação:** linha movida e não duplicada; etapa anotada; commit único; reserva de outra frente é recusada; fechamento da mãe sinalizado.
 - **Verificação:** `node mcp/testes/entrega.mjs`; conferir `git log` e os dois quadros no repo temporário.
 - **Estimativa:** 3 h.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### MCP-QUADRO.6 — Instalação, documentação e ensaio em 2 projetos
 
@@ -233,6 +238,7 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 - **Critérios de Aceitação:** MCP responde `task_list` nas 2 IAs registradas; `--dry-run` não altera quadro; README reproduzível do zero.
 - **Verificação:** chamar `task_list` por cada IA; `git status` limpo depois do dry-run.
 - **Estimativa:** 2 h.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### MCP-QUADRO.7 — Rollout medido e fechamento
 
@@ -246,6 +252,7 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 - **Critérios de Aceitação:** 3 reservas e 3 entregas sem corrupção; nenhum invariante falhou; números registrados; mãe fechada; `--aplicar` pedido ao usuário.
 - **Verificação:** `git log` das entregas; leitura dos quadros; `node mcp/testes/invariantes.mjs` (todos).
 - **Estimativa:** 2 h.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### Critérios de pronto da tarefa-mãe
 

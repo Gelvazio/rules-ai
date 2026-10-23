@@ -67,6 +67,7 @@ listar no `INDEX.md`, registrar a C46 no `CONFLITOS.md` e rodar `node scripts/si
 - **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro
 - **Effort:** high
 - **Descrição:** regra com: o que é arquivo de controle (`tasks/`, `rules-local/`), o
+- **JEV-AI-SUGGESTION:** NAO
   `ignoreCommand` padrão, `rules-local/` no `.vercelignore`, quando aplicar (todo projeto com
   `vercel.json`; projeto que passar a publicar na Vercel já nasce com os dois), o que não entra e
   como conferir.
@@ -83,6 +84,7 @@ listar no `INDEX.md`, registrar a C46 no `CONFLITOS.md` e rodar `node scripts/si
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **Descrição:** o `aulasenai` já tem o `ignoreCommand` só com `tasks/` (#337); acrescentar
+- **JEV-AI-SUGGESTION:** NAO
   `rules-local/` e a linha no `.vercelignore`; depois do push, conferir com `list_deployments`
   e com o URL `/rules-local/VERSAO.md`.
 - **Critérios de aceitação:** R2, R3, R4 e R5 no `aulasenai`.
@@ -99,6 +101,7 @@ o `.vercelignore` com `rules-local/`.
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **Descrição:** o `dashboard-ai` tem `vercel.json` (`functions` e `rewrites`) sem
+- **JEV-AI-SUGGESTION:** NAO
   `ignoreCommand` e sem `.vercelignore`; acrescentar sem mexer no resto; o pre-push do projeto
   exige `npm run check:agentes` em dia.
 - **Critérios de aceitação:** R2 e R3 no `dashboard-ai`.

@@ -104,6 +104,7 @@ tempo máximo, privacidade, fallback, rollback), a C43 no `CONFLITOS.md` e a lin
 - **Effort:** low
 - **Arquivos:** `regras/jev.md`, `CONFLITOS.md`, `regras/INDEX.md`
 - **Critérios de aceitação:** R1.1 a R3.1, R6.1 e R6.2 descritos na regra; C43 muda a C39 só na
+- **JEV-AI-SUGGESTION:** NAO
   mensagem; INV-2 e INV-5 no texto.
 - **Entrega:** Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) — seção `## Classificar mensagens (C43)` e passo 4 do rollback em `regras/jev.md`, C43 no `CONFLITOS.md`, linha do `regras/INDEX.md`; líder devolveu 4 correções (instrução das IAs sem gancho, tabela, fontes, linha longa) e acrescentou `sinais` · **Verificação (líder):** diff lido; R1.1–R3.1, R6.1, R6.2, INV-2 e INV-5 no texto
 
@@ -119,6 +120,7 @@ tempo máximo, privacidade, fallback, rollback), a C43 no `CONFLITOS.md` e a lin
 - **Arquivos:** `scripts/jev.mjs`, `scripts/jev/cli/comando-mensagem.mjs` (novo)
 - **Critérios de aceitação:** R2.1; `--dry-run` mostra o `state` mascarado; `node --check`.
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `scripts/jev/cli/comando-mensagem.mjs`, `scripts/jev/mensagem/` (classificar, estado, perguntas, decisao, limite, auditoria, contexto) e o subcomando no `scripts/jev.mjs` · **Verificação (líder):** `--dry-run` com `tsk_…` e CPF mostra `[CHAVE]` e `[CPF]` (R2.1); `node --check` ok
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.3 — Perguntas do Jev para mensagem e estado cego da mensagem
 
@@ -131,6 +133,7 @@ banco, segurança ou várias partes?) e o montador de `state` da mensagem, sem n
 - **Arquivos:** `scripts/jev/perguntas-mensagem.mjs` (novo), `scripts/jev/estado.mjs`
 - **Critérios de aceitação:** R1.1; INV-1 vale também para a mensagem.
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `scripts/jev/mensagem/perguntas.mjs` (`muda_algo`, nível, 4 sinais) e `mensagem/estado.mjs` (state `{projeto, mensagem}` cego, cortado em 4000 caracteres e no teto de tokens) · **Verificação (líder):** `testes/mensagem.mjs` ok; INV-1 vale também na mensagem (`removerRotulos`)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.4 — Guardrails aplicados ao texto da mensagem
 
@@ -143,6 +146,7 @@ mensagem dentro do `comando-mensagem.mjs`, só como aviso (nunca bloqueio).
 - **Arquivos:** `scripts/jev/cli/comando-mensagem.mjs`, `scripts/jev/guardrails/`
 - **Critérios de aceitação:** R3.1; INV-2 e INV-3.
 - **Entrega:** Claude Code (Opus 5.5 · líder) — `scripts/jev/guardrails/mensagem.mjs`: segredo, pasta, comando e aprovação só na camada determinística, só avisos, erro vira aviso de revisão (INV-3) · **Verificação (líder):** um exemplo de cada guardrail gera aviso sem o valor achado, texto limpo sem aviso, cada um < 20 ms; caso R3.1 no `testes/mensagem.mjs`
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.5 — Limite de custo por mensagem e por dia
 
@@ -155,6 +159,7 @@ e o contador diário local em `scripts/jev/saidas/` (fora do Git).
 - **Arquivos:** `scripts/jev/config.mjs`, `scripts/jev/metricas.mjs` ou módulo novo de custo
 - **Critérios de aceitação:** R1.2 e R2.3.
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `JEV_MAX_CUSTO_DIA` (US$ 1,00) e `JEV_MAX_TOKENS_MENSAGEM` (2000) em `config.mjs` (`carregarConfiguracaoMensagem`); soma do dia pela auditoria · **Verificação (líder):** limite 0 e limite acumulado → nenhuma chamada, contexto "limite do dia" (R2.3)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.6 — Tempo máximo e fallback do gancho
 
@@ -167,6 +172,7 @@ e o contador diário local em `scripts/jev/saidas/` (fora do Git).
 - **Arquivos:** `scripts/jev/config.mjs`, `scripts/jev/cli/comando-mensagem.mjs`
 - **Critérios de aceitação:** R1.2 e R1.3; INV-2 e INV-3.
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `JEV_TEMPO_MAXIMO_MENSAGEM_MS` (4000), cliente sem repetições e `comTempoMaximo`; toda falha vira `decisao: sinais` · **Verificação (líder):** servidor lento volta no tempo máximo; 500/401/429/JSON ruim/rede → só sinais, código 0 (R1.2, R1.3)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.7 — Filtro de mensagens triviais
 
@@ -178,6 +184,7 @@ e o contador diário local em `scripts/jev/saidas/` (fora do Git).
 - **Arquivos:** `scripts/jev/cli/comando-mensagem.mjs`
 - **Critérios de aceitação:** R1.4.
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — filtro `ehMensagemTrivial` (até 3 caracteres, `/`) · **Verificação (líder):** `.`, `;`, `?`, `/model` → pulado, 0 requisições (R1.4); ensaio do líder: 76–81 ms sem chamada
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.8 — Auditoria das mensagens sem o texto
 
@@ -190,6 +197,7 @@ nível sugerido, confiança, custo e ação.
 - **Arquivos:** `scripts/jev/cli/comando-mensagem.mjs`, `scripts/jev/saidas/` (fora do Git)
 - **Critérios de aceitação:** R2.2; INV-4.
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `mensagem/auditoria.mjs`: `scripts/jev/saidas/mensagens-AAAA-MM.jsonl` só com data, projeto, hash, decisão, nível, confiança, custo, latência e ação · **Verificação (líder):** texto e chave de teste ausentes da auditoria (R2.2, INV-4); `git check-ignore` confirma `saidas/` fora do Git
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.9 — Chave única do gancho
 
@@ -202,6 +210,7 @@ ambiente ou de `C:\fontes\rules-ai\.env`, nunca copia a chave para outro projeto
 - **Arquivos:** `scripts/jev/cliente.mjs`, `scripts/jev/config.mjs`
 - **Critérios de aceitação:** R2.1; INV-4.
 - **Entrega:** Claude Code (Opus 5.5 · líder) — conferência: o gancho lê a chave só por `config.mjs` (ambiente ou `.env` da raiz do rules-ai, achado pelo caminho do script, de qualquer pasta); a chave não vai para `settings.json`/`hooks.json` · **Verificação (líder):** gancho rodado de `/tmp` sem chave → contexto "Jev indisponível", código 0; `git grep tsk_` só acha chaves falsas de teste; `scripts/jev/saidas` sem `tsk_` (INV-4)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.10 — Gancho do Claude Code (`UserPromptSubmit`)
 
@@ -214,6 +223,7 @@ comando `mensagem` e devolve `additionalContext` com nível, modelo, `effort` e 
 - **Arquivos:** `scripts/jev/ganchos/claude-prompt.mjs` (novo)
 - **Critérios de aceitação:** R1.1; INV-2 (nunca `decision: block`).
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `scripts/jev/ganchos/claude-prompt.mjs` (`hookSpecificOutput.additionalContext`, nunca `decision`) · **Verificação (líder):** ensaio do líder com servidor falso: `decisao jev` (MEDIO) e `matriz` (PESADO por sinal de banco, com alerta de `git reset --hard`), ~150 ms; JSON inválido → código 0 sem saída (INV-2)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.11 — Instalar o gancho no Claude Code (todas as contas)
 
@@ -226,6 +236,7 @@ conferir `UserPromptSubmit` do Jev em `~/.claude/settings.json` e nas contas A, 
 - **Arquivos:** `scripts/sincronizar.mjs`, `settings.json` das 4 contas
 - **Critérios de aceitação:** R1.1; JSON válido antes e depois; ganchos antigos preservados.
 - **Entrega:** Claude Code (Opus 5.5 · líder) — `scripts/jev/ganchos/instalar.mjs` chamado pelo `scripts/sincronizar.mjs`: acrescenta o `UserPromptSubmit` do Jev em `~/.claude/settings.json` e nas contas A, B e C (timeout 10 s), preserva ganchos, grava `.bak`, confere o JSON e pula arquivo inválido · **Verificação (líder):** teste com pasta de usuário falsa: ganchos antigos preservados, `.bak` criado, JSON inválido pulado sem gravar, 2ª rodada `igual`; prévia na nuvem: `mudaria Claude Code (gancho)`. Instalação de verdade = `--aplicar` no computador do usuário (.22)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.12 — Gancho do Codex (global)
 
@@ -238,6 +249,7 @@ rodar o `--aplicar` e conferir a sugestão do Jev numa mensagem do Codex.
 - **Arquivos:** `scripts/sincronizar.mjs`, `~/.codex/hooks.json`
 - **Critérios de aceitação:** R1.1; JSON válido; ganchos antigos preservados.
 - **Entrega:** Claude Code (Opus 5.5 · líder) — `scripts/jev/ganchos/codex-prompt.mjs` (reaproveita o gancho do Claude Code) e a entrada em `~/.codex/hooks.json` pelo mesmo instalador; aviso quando falta `codex_hooks = true` no `config.toml` (não editado) · **Verificação (líder):** sem chave: contexto "Jev indisponível", código 0; JSON do `hooks.json` validado no teste. Formato do Codex lido só no resumo da busca (PR #14626): conferir na versão instalada
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.13 — Tabela de IAs com e sem gancho de prompt
 
@@ -250,6 +262,7 @@ têm gancho de prompt e escrever em `regras/jev.md` a tabela e a instrução par
 - **Arquivos:** `regras/jev.md`
 - **Critérios de aceitação:** tabela com uma linha por IA e a fonte de cada informação.
 - **Entrega:** Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) — tabela `### Quais IAs têm gancho de prompt` e `### IAs sem gancho de prompt` em `regras/jev.md` · **Verificação (líder):** Claude Code e Codex com gancho; as outras 8 "não conferido" (as páginas não abriram na nuvem) → instrução da regra
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.14 — Rollback do gancho (`JEV_MENSAGENS=off`)
 
@@ -262,6 +275,7 @@ classificação de subtarefas continua), e escrever o passo a passo de rollback 
 - **Arquivos:** `scripts/jev/config.mjs`, `scripts/jev/cli/comando-mensagem.mjs`, `regras/jev.md`
 - **Critérios de aceitação:** R1.2; com `off` o gancho sai em menos de 100 ms, sem chamada.
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `JEV_MENSAGENS` (`ativo`/`off`); texto do rollback pelo Haiku na .1 · **Verificação (líder):** `JEV_MENSAGENS=off` e `JEV_MODO=off` → pulado, sem chamada nem auditoria (R1.2)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.15 — Skill global `classificar-tarefa` sem o Laya
 
@@ -275,6 +289,7 @@ classificação de subtarefas continua), e escrever o passo a passo de rollback 
 - **Arquivos:** `C:\Users\gelva\.claude\skills\classificar-tarefa\SKILL.md`
 - **Critérios de aceitação:** R4.2.
 - **Entrega:** — · **Verificação:** —
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.16 — Skill do `template-inicial-tasks-ia` chamando o Jev
 
@@ -287,6 +302,7 @@ e tirar o Laya; commit no repositório do template.
 - **Arquivos:** `C:\fontes\template-inicial-tasks-ia\.claude\skills\classificar-tarefa\SKILL.md` (e a fonte `.agents`)
 - **Critérios de aceitação:** R4.2.
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `template-inicial-tasks-ia`: `.agents/skills/classificar-tarefa/SKILL.md` com a seção `### Pergunta ao Jev` (texto padrão do líder) e as cópias regeradas; commit `1957f76` no ramo `claude/untitled-session-tevg7e` (falta levar à `main`) · **Verificação (líder):** `sincronizar-agentes.mjs --checar` código 0; `grep -ci laya` = 0 e `jev` = 12 nas cópias (R4.2)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.17 — Skill do `REA-APP-CLONES` chamando o Jev
 
@@ -299,6 +315,7 @@ for `.agents`).
 - **Arquivos:** `C:\fontes\REA-APP-CLONES\.claude\skills\classificar-tarefa\SKILL.md` (e a fonte `.agents`)
 - **Critérios de aceitação:** R4.2.
 - **Entrega:** Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) — `rea-app-clones`: mesma seção e cópias regeradas; commit `d738997` no ramo `claude/untitled-session-tevg7e` (falta levar à `main`) · **Verificação (líder):** `--checar` código 0; laya 0, jev 12; seção idêntica ao texto padrão (R4.2)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.18 — Skill do `testes-de-frontend` chamando o Jev
 
@@ -310,6 +327,7 @@ for `.agents`).
 - **Arquivos:** `C:\fontes\testes-de-frontend\.claude\skills\classificar-tarefa\SKILL.md` (e a fonte `.agents`)
 - **Critérios de aceitação:** R4.2.
 - **Entrega:** Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) — `testes-de-frontend`: mesma seção e cópias regeradas; commit `9ad417d` no ramo `claude/untitled-session-tevg7e` (falta levar à `main`) · **Verificação (líder):** `--checar` código 0; laya 0, jev 12; seção idêntica ao texto padrão (R4.2)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.19 — Skill do `dashboard-ai-claude-code-senai` chamando o Jev
 
@@ -322,6 +340,7 @@ dashboard dividem o repositório: commitar uma vez e puxar nas outras).
 - **Arquivos:** `C:\fontes\dashboard-ai-claude-code-senai\.claude\skills\classificar-tarefa\SKILL.md` (e a fonte `.agents`)
 - **Critérios de aceitação:** R4.2.
 - **Entrega:** Claude Code (Opus 5.5 · líder) — `dashboard-ai` (repositório das cópias `dashboard-ai-*`): a seção do Laya Server virou `### Pergunta ao Jev`, limiar 0,7 → 0,60, exemplos `(Jev 0,91)`; também o agente `classificador-tarefas` e a `liderar-equipe` sem o Laya (o código `worker/` do produto não foi tocado); commit `c70369b` no ramo `claude/untitled-session-tevg7e` (falta levar à `main` e puxar nas cópias) · **Verificação (líder):** `--checar` código 0; `grep -ci laya` = 0 na skill, nas cópias e no agente (R4.2)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.20 — Corrigir o INV-1 do `testes/invariantes.mjs`
 
@@ -334,6 +353,7 @@ dashboard dividem o repositório: commitar uma vez e puxar nas outras).
 - **Arquivos:** `scripts/jev/estado.mjs`, `scripts/jev/testes/invariantes.mjs`
 - **Critérios de aceitação:** R5.1; INV-1.
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `estado.mjs`: `subtarefa: sanitizarTexto(item.id)` (o ID `HAIKU-COMMIT-GLOBAL.1` vazava "Haiku") · **Verificação (líder):** `node scripts/jev/testes/invariantes.mjs` código 0 (179 subtarefas reais) (R5.1)
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.21 — Ensaio medido em 2 projetos
 
@@ -346,6 +366,7 @@ ligado e anotar na etapa latência, custo, nível sugerido e alertas de cada uma
 - **Arquivos:** esta etapa; `scripts/jev/saidas/` (fora do Git)
 - **Critérios de aceitação:** R1.1, R1.3, R1.4 e R2.2 conferidos com números; INV-2 e INV-5.
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — 1º ensaio com servidor falso (o líder devolveu a falha de 4074 ms; corrigida com `MARGEM_SAIDA_MS`); 2º ensaio com o **Jev REAL** (`jev-1.13.0`, 2026-10-20 10:02 UTC): 20 mensagens pelo gancho (10 `rules-ai`, 10 `aulasenai`), processo mediana 590 ms e máximo 849 ms, Jev mediana 521 ms; nível certo em 16 de 17 (94%; o erro foi um pedido ambíguo, LEVE com confiança 0,64, que foi para revisão); decisões jev 7, matriz 10, sinais 3; custo real US$ 0,00057 (≈ US$ 0,000034 por mensagem). Na nuvem o Node precisa de `NODE_USE_ENV_PROXY=1`, `NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt` e `NODE_NO_WARNINGS=1` (no Windows local, nada disso) · **Verificação (líder):** R1.1 17/17 com contexto; R1.3 máx. 849 ms; R1.4 0 chamadas nos triviais; R2.2 0 trechos na auditoria; INV-2 20/20 código 0 sem `block`; INV-4 o líder conferiu: a chave real em 0 arquivos (ensaio, repositório e Git); INV-5 6 sinais de PESADO → PESADO e `tasks/` intacto
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.22 — Levar às IAs (`sincronizar.mjs --aplicar`)
 
@@ -358,6 +379,7 @@ ligado e anotar na etapa latência, custo, nível sugerido e alertas de cada uma
 - **Arquivos:** `dist/REGRAS-GLOBAIS.md`, `VERSAO.md`, arquivos globais das IAs
 - **Critérios de aceitação:** R4.1.
 - **Entrega:** — · **Verificação:** —
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.23 — Fechamento: status do projeto e mapa de `C:\fontes`
 
@@ -370,6 +392,7 @@ ligado e anotar na etapa latência, custo, nível sugerido e alertas de cada uma
 - **Arquivos:** `STATUS_PROJETO.md`, `C:\fontes\CLAUDE.md`, `C:\fontes\AGENTS.md`
 - **Critérios de aceitação:** os dois mapas iguais; portal regravado.
 - **Entrega:** Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) — `STATUS_PROJETO.md`: estado, itens 6–10 do que espera o usuário e histórico de 2026-10-20 01:10. Falta o mapa `C:\fontes\CLAUDE.md`/`AGENTS.md` e o `atualizar-index.cmd` (só no computador) · **Verificação (líder):** diff lido pelo líder
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.24 — O Jev decide o modelo da mensagem (confiança ≥ 0,80)
 
@@ -383,3 +406,4 @@ não houver sinal de PESADO; senão `decisao: matriz` (nível mais alto entre Je
 - **Arquivos:** `scripts/jev/cli/comando-mensagem.mjs`, `scripts/jev/decidir.mjs`
 - **Critérios de aceitação:** R6.1 e R6.2; INV-5 (sinal de PESADO nunca rebaixado).
 - **Entrega:** Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) — `mensagem/decisao.mjs`: `jev` com confiança ≥ 0,80 e sem sinal; senão `matriz` + `revisar`; PESADO nunca rebaixado; líder pediu a troca do ternário aninhado · **Verificação (líder):** R6.1 e R6.2 no `testes/mensagem.mjs`; ensaio: Jev LEVE + sinal de banco → PESADO `matriz` (INV-5)
+- **JEV-AI-SUGGESTION:** NAO

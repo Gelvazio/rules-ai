@@ -198,6 +198,7 @@ Cuidados de implementação:
 - **Estimativa:** 2 h.
 - **Entrega:** commit `feat(JEV-RULES-AI.1)` — `scripts/jev/config.mjs`, `cliente.mjs`, `testes/cliente-mock.mjs`, `saidas/.gitkeep` + `.gitignore` dos logs; executor jev1 (Opus 5.5, herdr w2:pG). Obs.: por erro de caminho no brief, o VIGIA (Haiku) também executou a subtarefa; o jev1 substituiu todos os arquivos pela sua versão (16:59) — vale só a versão do Opus.
 - **Verificação (líder):** `node --check` nos 3 arquivos ok; `node scripts/jev/testes/cliente-mock.mjs` 13 casos ok (200, 429→sucesso, 529 até o limite, 401/422/timeout sem retry, sem chave, `JEV_MODO=off`, limite de tokens por rodada); chamada real `jev-1.13.0` ok (317 tokens, US$ 0,000013); valor da chave ausente de `scripts/jev/`; nenhuma função > 45 linhas.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-RULES-AI.2 — Coletor de estado cego e decisão de nível/effort/modelo
 
@@ -213,6 +214,7 @@ Cuidados de implementação:
 - **Estimativa:** 3 h.
 - **Entrega:** commit `feat(JEV-RULES-AI.2)` — `modelos.mjs`, `perguntas.mjs`, `estado.mjs`, `decidir.mjs`, `testes/agregacao.mjs` (INV-4), `testes/invariantes.mjs` (INV-1); executor jev2 (Sonnet 5.5). Obs.: `risco` (score) é só informativo e vem na escala 0..n−1 do Jev (achado da .5); normalizar se um dia entrar na decisão.
 - **Verificação (líder):** `node --check` ok; `agregacao.mjs` e `invariantes.mjs` ok (INV-1 em 158 subtarefas reais); dry-run real em 10 subtarefas (12.783 tokens, US$ 0,00047); hash de `STATUS.md`/`task_complete.md` igual antes/depois (INV-3); chave ausente de `scripts/jev/`.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-RULES-AI.3 — Benchmark dourado e métricas (cego × revisor)
 
@@ -228,6 +230,7 @@ Cuidados de implementação:
 - **Estimativa:** 4 h.
 - **Entrega:** commit `feat(JEV-RULES-AI.3)` — `avaliar.mjs`, `metricas.mjs`, `relatorio-avaliacao.mjs`, `benchmarks/` (golden 180: 60/60/60, 156 reais + 24 de borda, 39 auditados); executor jev3 (Sonnet 5.5). **Resultado cego (jev-1.13.0):** acurácia do nível final 0,606 [0,533; 0,674], recall de PESADO 0,883 [0,778; 0,942]; só o `nivel` sugerido: 0,667; com o rótulo vazando: 0,85 (confirma o vazamento do teste antigo). Sinais de PESADO elevam 44 casos LEVE/MEDIO. Custo total US$ 0,047; p50 240 ms. **Laya fora do ar** (localhost:8000 recusou): comparação Jev × Laya implementada mas não executada.
 - **Verificação (líder):** `node --check` em todos; 180 linhas no golden, sem dado pessoal; saídas ignoradas pelo Git; `agregacao`/`invariantes` continuam ok; nenhuma função > 45 linhas.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-RULES-AI.4 — Guardrails de escopo e critérios de aceite
 
@@ -243,6 +246,7 @@ Cuidados de implementação:
 - **Estimativa:** 2 h.
 - **Entrega:** commit `feat(JEV-RULES-AI.4)` — `guardrails/avisos.mjs`, `escopo.mjs`, `aceite.mjs`, `testes/guardrails-escopo.mjs`; executor jev4 (Sonnet 5.5). Ação máxima `revisar` (nunca bloqueia); falha do Jev → `revisar`.
 - **Verificação (líder):** `node --check` ok; `guardrails-escopo.mjs` ok (20 escopo + 20 aceite) também com o `redigir.mjs` real da .5; sem segredo no log.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-RULES-AI.5 — Guardrails de segredo/PII, pasta proibida, comando destrutivo e aprovação indevida
 
@@ -258,6 +262,7 @@ Cuidados de implementação:
 - **Estimativa:** 3 h.
 - **Entrega:** commit `feat(JEV-RULES-AI.5)` — `guardrails/redigir.mjs`, `seguranca-base.mjs`, `segredo.mjs`, `pasta-proibida.mjs`, `comando-destrutivo.mjs`, `aprovacao.mjs`, `testes/guardrails-seguranca.mjs`, `testes/segredo.mjs` (INV-2); executor jev5 (Opus 5.5). PII achada por regex bloqueia de forma determinística (R3.2); escape humano só com `confirmacaoHumana` do alvo exato; aprovação indevida sem escape.
 - **Verificação (líder):** `node --check` ok; `guardrails-seguranca.mjs` 94 casos ok; `segredo.mjs` (INV-2) 300 textos ok; 9 avaliações reais com o Jev coerentes (US$ 0,0002); nenhum valor sensível nem chave nos logs.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-RULES-AI.6 — CLI e integração com a skill `classificar-tarefa`
 
@@ -273,6 +278,7 @@ Cuidados de implementação:
 - **Estimativa:** 2 h.
 - **Entrega:** commit `feat(JEV-RULES-AI.6)` — `scripts/jev.mjs` + `scripts/jev/cli/*` (`classificar | guardrail | avaliar | custo`; códigos 0 ok, 1 erro/sem chave, 2 off, 3 revisar, 4 bloquear, 5 Jev indisponível); skill global `~/.agents/skills/classificar-tarefa/SKILL.md` com passo "Jev primeiro" e fallback Laya/sinais inalterado (backup `SKILL.md.bak`, fora do repositório); executor jev6 (Sonnet 5.5). Guardrails funcionam sem chave (camada determinística + `revisar`).
 - **Verificação (líder):** `node --check` ok; sem chave → código 1; `JEV_MODO=off` → 2; `git reset --hard` → 4 (bloquear); 3 projetos lidos (REA, aulasenai, gerenciador-de-ia) com hash dos quadros igual antes/depois (INV-3); todos os testes de `scripts/jev/testes/` ok; chave ausente de `scripts/` e da skill.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-RULES-AI.7 — Regra global `regras/jev.md` + INDEX + C39
 
@@ -288,6 +294,7 @@ Cuidados de implementação:
 - **Estimativa:** 1 h.
 - **Entrega:** commit `feat(JEV-RULES-AI.7)` — `regras/jev.md` (4,0 KB), item 19 do `regras/INDEX.md`, C39 no `CONFLITOS.md`, `VERSAO.md` regenerada pela simulação (`2026-10-18-384984ac`); executor jev7 (Haiku 5.5). A seção "Estado da implementação" da regra é atualizada na .8.
 - **Verificação (líder):** `node scripts/sincronizar.mjs` (simulação) sem erro; nenhum `--aplicar`; regra ≤ 5 KB; C39 com data e frase do pedido; `git diff --check` ok.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-RULES-AI.9 — Fechar vazamento de rótulo no `estado.mjs` e no detector do INV-1
 
@@ -303,6 +310,7 @@ Cuidados de implementação:
 - **Estimativa:** 1 h.
 - **Entrega:** commit `feat(JEV-RULES-AI.9)` — `estado.mjs` descarta linhas `Entrega/Verificação (…)` e troca `executor-<nível>`/`--<nível>`; `testes/invariantes.mjs` com 3 detectores e 7 casos adversariais; executor jev9 (Sonnet 5.5). Benchmark cego refeito: final 0,600, sugerido 0,667, recall PESADO 0,883 — o vazamento não mudava o resultado.
 - **Verificação (líder):** `node --check` ok; INV-1 ok em 159 subtarefas reais + 7 adversariais; `agregacao` ok; benchmark cego 180 itens sem erro (US$ 0,009).
+- **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-RULES-AI.8 — Ativação direta, validação final e rollback
 
@@ -318,6 +326,7 @@ Cuidados de implementação:
 - **Estimativa:** 1 h.
 - **Entrega:** commit `feat(JEV-RULES-AI.8)` — `regras/jev.md` (estado da implementação e rollback, 4,4 KB), `golden.jsonl` regravado, `STATUS_PROJETO.md`, `VERSAO.md` (simulação `2026-10-18-87fd6c11`); cópia da skill do Claude Code alinhada à fonte `.agents` (backup `.bak`, fora do repositório); executor jev8 (Sonnet 5.5). Jev ativo por padrão (`JEV_MODO` ausente → `ativo`).
 - **Verificação (líder):** Validação geral: gate da spec 4/4; `node --check` em 34 arquivos; todos os testes de `scripts/jev/testes/` ok; `classificar --dry-run --limite 10` somente leitura (INV-3); rollback `JEV_MODO=off` → código 2, guardrail determinístico continua bloqueando `rm -rf`, skill volta ao fluxo Laya/sinais, tempo << 10 min; benchmark cego final 0,611 / sugerido 0,661 / recall PESADO 0,883; nenhuma chave em logs/arquivos; nenhum `--aplicar`.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### Critérios de pronto da tarefa-mãe
 

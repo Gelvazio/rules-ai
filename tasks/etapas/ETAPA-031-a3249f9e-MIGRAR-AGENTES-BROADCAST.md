@@ -136,6 +136,7 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 - **Critérios de Aceitação:** endpoint e chave publicável confirmados com link da documentação; contrato escrito; gate da spec passa.
 - **Verificação:** `node spec/verificar-spec.mjs tasks/etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md` sai com código 0.
 - **Estimativa:** 1 h.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### MIGRAR-AGENTES-BROADCAST.2 — Publicador e workflow do GitHub Actions
 
@@ -149,6 +150,7 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 - **Critérios de Aceitação:** `--simular` imprime o payload sem enviar; INV-1 a INV-4 passam; workflow só lê o secret do GitHub.
 - **Verificação:** `python dashboard/testes/invariantes_broadcast.py` passa; `python dashboard/publicar_quadro.py --simular` mostra o payload; `git status` igual antes e depois do modo `--simular`.
 - **Estimativa:** 3 h.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### MIGRAR-AGENTES-BROADCAST.3 — Página assina o canal e recebe o estado inicial
 
@@ -162,6 +164,7 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 - **Critérios de Aceitação:** sem a chave secreta em nenhum arquivo (R3.1); tela atualiza com a mensagem; sem erro de sintaxe.
 - **Verificação:** `node --check dashboard/assets/js/agentes.js`; `grep` por `service_role` e `sb_secret` em `dashboard/` vazio. Teste na tela: aviso ao usuário (não abrir navegador).
 - **Estimativa:** 2 h.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### MIGRAR-AGENTES-BROADCAST.4 — Fallback quando o canal cai
 
@@ -175,6 +178,7 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 - **Critérios de Aceitação:** R2.3 atendido pelo código; sem polling enquanto o canal estiver conectado.
 - **Verificação:** `node --check dashboard/assets/js/agentes.js`; teste na tela pelo usuário (desligar a rede por 40 s).
 - **Estimativa:** 1 h.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### MIGRAR-AGENTES-BROADCAST.5 — Documentação e fechamento
 
@@ -188,6 +192,7 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 - **Critérios de Aceitação:** README descreve o fluxo sem citar chave.
 - **Verificação:** leitura do README; `grep` por chaves reais no README vazio.
 - **Estimativa:** 30 min.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### Critérios de pronto da tarefa-mãe
 

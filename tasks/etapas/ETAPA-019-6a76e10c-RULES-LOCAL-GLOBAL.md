@@ -422,6 +422,7 @@ igual). O histórico fica no Git. Exemplo:
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **Descrição:** o `sincronizar.mjs` grava `VERSAO.md` na raiz (versão gerada: data + código do conteúdo),
+- **JEV-AI-SUGGESTION:** NAO
   com a versão e a lista das regras e o código do conteúdo de cada uma (é o que permite comparar
   item por item depois); não muda o arquivo se as regras não mudaram. Atualizar o README.
 - **Critérios de aceitação:** R1.1 e R1.2; `node --check`; funções ≤ 45 linhas.
@@ -445,6 +446,7 @@ igual). O histórico fica no Git. Exemplo:
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
 - **Descrição:** script Node sem dependências (vai dentro de `rules-local/`, para rodar também na
+- **JEV-AI-SUGGESTION:** NAO
   nuvem): baixa a `VERSAO.md` da nuvem; igual → sai sem gravar; diferente ou ausente → baixa as
   regras do `regras/INDEX.md`, compara com as locais (por arquivo e por item de cada arquivo),
   grava `rules-local/` e o relatório de mudanças (mudado, adicionado, removido) e imprime o aviso
@@ -485,6 +487,7 @@ igual). O histórico fica no Git. Exemplo:
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
 - **Descrição:** `regras/rules-local.md` (o que a IA faz no início da sessão, o que fazer com o
+- **JEV-AI-SUGGESTION:** NAO
   aviso de versão diferente, conforme a pergunta 1) e a linha nova no `regras/INDEX.md`; registro
   como decisão nova no `CONFLITOS.md`.
 - **Critérios de aceitação:** R3.1; regra no índice; o `sincronizar.mjs` não avisa regra fora do
@@ -517,6 +520,7 @@ igual). O histórico fica no Git. Exemplo:
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
 - **Descrição:** em 1 projeto piloto, depois nos outros (uma vez por repositório remoto):
+- **JEV-AI-SUGGESTION:** NAO
   `rules-local/` (script + `VERSAO.md` + regras), gancho `SessionStart` em `.claude/settings.json`
   (conforme a pergunta 3), aviso no `AGENTS.md`/`CLAUDE.md`, `.gitignore` conforme a pergunta 2;
   commit + push em cada repositório; os outros clones com `git pull --rebase`.
@@ -567,6 +571,7 @@ igual). O histórico fica no Git. Exemplo:
 - **Descrição:** escrever nesta etapa, numa seção "Formato combinado": o formato exato da `VERSAO.md` (versão = data + código do conteúdo; lista de regras com o código de cada uma; algoritmo do código), o formato do relatório de mudanças (arquivo, nome, colunas), o conteúdo de `rules-local/` (nomes dos arquivos do script e das regras), a assinatura de cada módulo (`.7` download, `.8` comparação, `.9` conferência) e o comando que o gancho e o aviso chamam.
 - **Critérios de aceitação:** as subtarefas `.1`, `.7`, `.8`, `.9`, `.3`, `.10` e `.12` conseguem trabalhar só com esta seção, sem perguntar.
 - **Entrega:** seção "### Formato combinado" (F1 a F7) nesta etapa, antes da `.1`, e linha em
+- **JEV-AI-SUGGESTION:** NAO
   **Decisões** (2026-10-18 14:10). Só este arquivo; commit pelo líder.
 - **Verificação:** `node spec/verificar-spec.mjs tasks/etapas/ETAPA-019-6a76e10c-RULES-LOCAL-GLOBAL.md`
   → saída 0 (14 requisitos EARS, 4 invariantes, nenhuma pergunta aberta, 16 subtarefas completas).
@@ -588,6 +593,7 @@ igual). O histórico fica no Git. Exemplo:
 - **Verificação:** `node --check` + chamada com endereço inválido e com o endereço real.
 - **Entrega:** `scripts/rules-local/baixar.mjs` (F3/F4/F7: `URL_RAW_BASE`, `TEMPO_LIMITE_MS`, `baixarTexto`, `baixarVersao`, `baixarRegras`). Sem commit (líder).
 - **Verificação (feita):** `node --check` OK. Endereço inválido → `erro de rede: fetch failed`; IP sem resposta com 300 ms → `tempo esgotado`; `raw` real `nao-existe.md` → `HTTP 404`; `baixarRegras(['INDEX.md'])` real → `ok` com 1 texto; com arquivo inexistente → `{ ok: false, motivo: 'HTTP 404', arquivo }`. `baixarVersao()` real deu `HTTP 404` porque a `VERSAO.md` ainda não foi publicada (`.1`): esperado.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-GLOBAL.8 — Comparação item por item
 
@@ -601,6 +607,7 @@ igual). O histórico fica no Git. Exemplo:
 - **Verificação:** conferência por `node -e` com os 3 casos (vazio, iguais, disjuntos) e uma renomeação.
 - **Entrega:** `scripts/rules-local/comparar.mjs` (`compararListas(antiga, nova)`, F4; sem commit — do líder).
 - **Verificação feita:** `node --check` ok; `node -e` com 6 casos (vazio×vazio, vazio×nova, iguais, disjuntos, 1 mudado, renomeação): resultado conforme F4 e INV-3 (soma das 4 listas = união das chaves) verdadeira em todos.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-GLOBAL.9 — Conferência do `rules-local/` contra a `VERSAO.md`
 
@@ -614,6 +621,7 @@ igual). O histórico fica no Git. Exemplo:
 - **Verificação:** conferência numa cópia: arquivo editado à mão e arquivo faltando aparecem na lista.
 - **Entrega:** `scripts/rules-local/conferir.mjs` (exports F4: `ARQUIVO_VERSAO`, `PASTA_REGRAS`, `normalizarTexto`, `calcularCodigo`, `lerVersao`, `conferirPasta`; só `node:`; sem gravação).
 - **Verificação feita:** `node --check` ok; nenhuma linha > 100 caracteres; simulação em pasta temporária (fora do repositório): pasta íntegra ⇒ `integro: true`; arquivo editado ⇒ `diferente`, arquivo apagado ⇒ `faltando`, `.md` extra ⇒ `sobrando`; `VERSAO.md` vazia/ausente ⇒ `VERSAO.md ausente`; texto lixo e versão com código errado ⇒ `VERSAO.md corrompida`; BOM e CRLF não mudam o código. Falta a conferência cruzada com a `.1` (fica na `.2`).
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-GLOBAL.10 — Registro no `CONFLITOS.md`
 
@@ -626,6 +634,7 @@ igual). O histórico fica no Git. Exemplo:
 - **Critérios de aceitação:** linha nova no formato do arquivo, sem mexer nas outras.
 - **Entrega:** `CONFLITOS.md` (1 linha nova, `C36`, na tabela "Decididos depois (2026-10-16)", antes de "Pendente de decisão"). Usei `C36` porque `C31` e `C33` não existem e a última é `C35`.
 - **Verificação:** `git diff --stat CONFLITOS.md` = 1 inserção, nenhum outro arquivo tocado (aviso de CRLF do Git é só aviso de checkout).
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-GLOBAL.11 — Lista dos 18 repositórios do escopo
 
@@ -639,6 +648,7 @@ igual). O histórico fica no Git. Exemplo:
 - **Entrega:** esta tabela (só esta seção, sem outros arquivos).
 - **Verificação:** `git -C <pasta> remote get-url origin` em cada pasta de `C:\fontes` (fora `DEMAIS-PROJETOS-*`, `scripts`, `rules-ai`). Resultado: **19 pastas com remoto GitHub, 7 remotos**. A pergunta 4 diz 18 pastas; a contagem real é 19 (1 a mais). Não alterei a pergunta: o líder decide.
 - **Pastas sem remoto (fora da lista, conforme pergunta 4):** `CONFIG-DEEPSEEK`, `assets`, `testes-effort-padaria`.
+- **JEV-AI-SUGGESTION:** NAO
 
 | Remoto | Pasta de instalação | Clones | Lote |
 |--------|---------------------|--------|------|
@@ -663,6 +673,7 @@ Divisão: piloto 1 pasta · lote A 5 · lote B 9 · lote C 4 (total 19). O lote 
 - **Critérios de aceitação:** rodar 2 vezes numa cópia não muda nada na segunda; `settings.json` existente preservado.
 - **Verificação:** execução numa cópia temporária + `git status --short`.
 - **Entrega:** `scripts/instalar-rules-local.mjs` (novo, só este arquivo de código + esta seção;
+- **JEV-AI-SUGGESTION:** NAO
   nenhum projeto de `C:\fontes` foi tocado). Commit pelo líder.
 - **Verificação (feita por Claude Code (Opus 5.5 · herdr OP-12), 2026-10-18):** `node --check` ok;
   nenhuma linha > 100; funções ≤ 45 linhas. Teste numa pasta temporária da sessão, com um
@@ -704,6 +715,7 @@ Divisão: piloto 1 pasta · lote A 5 · lote B 9 · lote C 4 (total 19). O lote 
 - **Critérios de aceitação:** texto aponta para `regras/rules-local.md` e traz o comando exato.
 - **Entrega:** `scripts/rules-local/aviso-agents.md` (arquivo-modelo, caminho da etapa; aponta para `rules-local/regras/rules-local.md`). Removidos `scripts/modelos/aviso-rules-local.md` e a pasta `scripts/modelos/` (ficou vazia).
 - **Verificação:** leitura do arquivo: traz `node rules-local/sessao.mjs` (F6), cita `rules-local/regras/rules-local.md` e a frase-gatilho `DISPARAR A SINCRONIZAÇÃO DE TASKS` (F5); `ls scripts/modelos` dá "No such file" e `scripts/rules-local/` tem o `aviso-agents.md` ao lado dos `.mjs`.
+- **JEV-AI-SUGGESTION:** NAO
 
 ### RULES-LOCAL-GLOBAL.14 — Instalar no lote A
 
@@ -716,6 +728,7 @@ Divisão: piloto 1 pasta · lote A 5 · lote B 9 · lote C 4 (total 19). O lote 
 - **Critérios de aceitação:** R4.1 e R4.2 em cada repositório do lote.
 - **Verificação:** em cada repositório: script dá "versão igual" e `git status --short` vazio.
 - **Entrega (OP-14, 2026-10-18) — `Gelvazio/aulasenai`, instalado em `C:\fontes\aulasenai`:**
+- **JEV-AI-SUGGESTION:** NAO
   commit `05b9878d` (push `68f48658..05b9878d`), com `rules-local/` (4 `.mjs`, `.gitattributes`,
   `.gitignore`, `VERSAO.md`, `RELATORIO.md`, `regras/` com 19 arquivos), `.claude/settings.json`
   (gancho de F6 no fim do `SessionStart`; o `inicio-da-sessao.js`, os outros ganchos e as
@@ -752,6 +765,7 @@ Divisão: piloto 1 pasta · lote A 5 · lote B 9 · lote C 4 (total 19). O lote 
 - **Descrição:** como a `.14`, para o lote B.
 - **Critérios de aceitação:** R4.1 e R4.2 em cada repositório do lote.
 - **Pasta de instalação (escolha do OP-15, 2026-10-18):** `dashboard-ai-codex`. Motivo: depois do
+- **JEV-AI-SUGGESTION:** NAO
   `git fetch` nas 9 pastas, foi a **única** com árvore limpa e em dia com `origin/main`
   (`93d93ff`). A proposta da `.11` (`dashboard-ai-claude-code-senai`) estava 7 commits atrás e com
   4 pastas fora do Git (`.codex/`, `.kiro/`, `dashboard-plataformas-de-ia/`, `laya/`) — não mexi.
@@ -802,6 +816,7 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
 - **Descrição:** como a `.14`, para o lote C.
 - **Critérios de aceitação:** R4.1 e R4.2 em cada repositório do lote.
 - **Entrega (Claude Code (Opus 5.5 · herdr OP-16), 2026-10-18):** 3 de 4 repositórios, cada um
+- **JEV-AI-SUGGESTION:** NAO
   com `rules-local/` (4 `.mjs`, `.gitattributes`, `.gitignore`, `VERSAO.md`, `RELATORIO.md`,
   `regras/` com 19), `.claude/settings.json` e `AGENTS.md` (bloco `rules-local:inicio/fim` no fim):
 
@@ -836,6 +851,7 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
 - **Descrição:** criada em 2026-10-18 12:10 (C26) pelo líder: o lote C (`.16`) instalou em 3 de 4
+- **JEV-AI-SUGGESTION:** NAO
   repositórios; o `gerenciador-de-ia` tem um `AGENTS.md` fora do Git, de outra sessão
   (2026-10-17 20:36), e o instalador escreveria nele.
 - **Critérios de aceitação:** R4.1 e R4.2 no `gerenciador-de-ia`.
@@ -869,6 +885,7 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **Descrição:** criada em 2026-10-18 12:10 (C26) pelo líder: o aviso impresso diz
+- **JEV-AI-SUGGESTION:** NAO
   `(regras/rules-local.md)`, mas nos projetos a regra fica em `rules-local/regras/rules-local.md`
   (anotado pelo OP-4 no piloto). A cópia do script nos 7 repositórios instalados só muda quando o
   instalador rodar de novo neles.
@@ -889,6 +906,7 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
 - **Descrição:** criada em 2026-10-18 12:15 pelo líder, a pedido do usuário ("FACA A SUA SUGESTAO -> CRIE 1
+- **JEV-AI-SUGGESTION:** NAO
   SUB-TAREFA PRA RESOLVER O PROBLEMA"). O `C:\fontes\gerenciador-de-ia\AGENTS.md` (fora do Git,
   2026-10-17 20:36) é uma cópia do `CLAUDE.md` versionado em que "Claude Code" virou "Codex" por
   troca cega: links quebrados (`.Codex/rules/tasks/...`), frente e tabela de níveis erradas. As
@@ -918,6 +936,7 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
 - **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
 - **Effort:** high
 - **Descrição:** criada em 2026-10-18 12:24 a pedido do usuário ("sim"): o `testes-effort-padaria` ganhou o
+- **JEV-AI-SUGGESTION:** NAO
   remoto `Gelvazio/testes-effort-padaria` (commit `abf0b11`) e entrou no escopo da pergunta 4
   (só repositórios com GitHub). A tarefa-mãe foi reaberta para esta subtarefa.
 - **Critérios de aceitação:** R4.1 e R4.2 no `testes-effort-padaria`.
@@ -945,6 +964,7 @@ decidir o `AGENTS.md` fora do Git (ver Anotação).
 **Próximo passo:** — (feito pelo usuário em 2026-10-18).
 
 - **Verificação:** `rules-local` presente no `dist/REGRAS-GLOBAIS.md`, no `~/.gemini/GEMINI.md` e no `~/.codex/AGENTS.md` (23 ocorrências cada); `~/.claude` e `~/.claude-contaC` importam o `dist/`.
+- **JEV-AI-SUGGESTION:** NAO
 
 - **Nível:** —
 - **Modelo:** Usuário

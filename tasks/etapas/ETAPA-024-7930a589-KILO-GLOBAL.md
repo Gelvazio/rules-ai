@@ -33,6 +33,7 @@ com `--aplicar`.
 - **Descrição:** destino `{ ia: 'Kilo Code', arquivo: join(homedir(), '.config', 'kilo', 'AGENTS.md'), modo: 'embutir', criarPasta: true }`; linha do Kilo na tabela de IAs do `README.md`; rodar `node scripts/sincronizar.mjs` e `--aplicar`; conferir o bloco e a idempotência.
 - **Critérios de Aceitação:** `node scripts/sincronizar.mjs` lista o destino do Kilo; `%USERPROFILE%\.config\kilo\AGENTS.md` com o bloco `<!-- rules-ai:inicio ... -->`; segunda execução `igual` para o Kilo; `VERSAO.md` sem mudança; `README.md` cita a IA e o arquivo.
 - **Entrega:** `feat(KILO-GLOBAL.1)` (`f4d9073`) · **Verificação:** prévia com `mudaria Kilo Code`; `--aplicar` com `gravado Kilo Code`; arquivo com 51.525 bytes e as marcas `rules-ai:inicio`/`rules-ai:fim`; 2ª execução `igual`; `VERSAO.md` em `2026-10-18-988f933e` sem mudança; demais IAs `igual`.
+- **JEV-AI-SUGGESTION:** NAO
 
 ---
 

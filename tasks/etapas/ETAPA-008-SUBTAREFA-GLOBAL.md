@@ -32,6 +32,7 @@ modelo**…" (2 linhas), inserir este item, sem mudar:
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** (1) inserir o item acima em `regras/ciclo-da-task.md`; (2) em `CONFLITOS.md`, na
+- **JEV-AI-SUGGESTION:** NAO
   tabela "Decididos depois", acrescentar no fim a linha
   `| C26 | IA cria subtarefas no caminho | ✅ Só **subtarefas dentro da mãe atual** (nunca mãe nova), com nível, modelo e `effort`, publicadas direto (commit + push, sem aprovação); não reserva a nova; na equipe do Claude Code quem cria é o líder. Pedido do usuário em 2026-10-17; regra em `regras/ciclo-da-task.md` |`;
   (3) em `STATUS_PROJETO.md`, nova linha no topo de "O que mudou desde a última gravação" com data
@@ -50,6 +51,7 @@ modelo**…" (2 linhas), inserir este item, sem mudar:
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **Descrição:** a regra só chega às IAs depois do `--aplicar`; conferir que
+- **JEV-AI-SUGGESTION:** NAO
   `dist/REGRAS-GLOBAIS.md` contém "Trabalho novo descoberto no caminho".
 - **Entrega (2026-10-17 12:54, Haiku · executor-leve; líder Opus 5.5):** `node scripts/sincronizar.mjs
   --aplicar` sem erro (saída 0): `dist/REGRAS-GLOBAIS.md` regerado; gravado em Claude Code, Gemini
