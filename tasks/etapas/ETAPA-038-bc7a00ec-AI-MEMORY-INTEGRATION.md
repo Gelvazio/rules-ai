@@ -42,6 +42,7 @@
 - 2026-10-23 12:19: **o usuário decidiu (.34): opção A — não capturar `UserPromptSubmit` (o que se digita no prompt) no piloto; e tirar o hook global do ai-memory, deixando só o hook do projeto.** O líder fechou a .34 e abriu a .45 para aplicar; a .16 passou a depender da .45.
 - 2026-10-23 12:26: **o usuário mudou o escopo do rollout: "INSTALE APENAS NO aulasenai e dashboard-ai por enquanto, o resto farei depois".** A .24 (REA-APP-CLONES, projeto-frontend-com-testes, testes-de-frontend) fica ⛔ adiada pelo usuário; destrava com novo pedido dele. A .25 passa a depender da .23 e mede só aulasenai e DASHBOARD-AI-PRINCIPAL.
 - 2026-10-23 12:30: a .23 achou lacunas no `ignore_paths` do dashboard (`.mcp.json`, `laya/`, `dashboard-plataformas-de-ia/`); o líder abriu a .46 e segurou o commit no dashboard até ela.
+- 2026-10-23 12:34: **decisões do usuário: (1) opção A, a .25 fecha só com o método e a linha de base, e a contagem das 10 retomadas vai para as Pendências do STATUS; (2) regra de decisão confirmada (7 ou mais = adotar, 4 a 6 = ajustar, 3 ou menos = desligar); (3) apagar os projetos de teste `scratch` e `x` do servidor.**
 - 2026-10-23 11:53: o usuário aceitou o token do ai-memory em `%LOCALAPPDATA%i-memoryuth-token` (arquivo fora do Git) no lugar da variável de ambiente pedida na .4; a .3 documenta essa forma. Também autorizou a equipe herdr: conta C, `--dangerously-skip-permissions`, Sonnet nas `PESADO` (.3, .13, .21).
 
 ### Requisitos
@@ -453,7 +454,7 @@
 
 ### AI-MEMORY-INTEGRATION.25 — Medir o efeito: retomadas com e sem a memória
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -464,7 +465,8 @@
 - **Arquivos:** `docs/AI-MEMORY-MEDICAO.md`
 - **Critérios de Aceitação:** Relatório com no mínimo 10 retomadas e a conclusão (adotar, ajustar ou desligar).
 - **Depende de:** AI-MEMORY-INTEGRATION.24
-- **Verificação:** a preencher na entrega.
+- **Entrega:** docs/AI-MEMORY-MEDICAO.md com método, linha de base de hoje, tabela das 10 retomadas e regra de decisão (commit desta entrega), feito por w-a21 (Haiku 5.5, herdr w2:pT, conta B).
+- **Verificação:** linha de base só com números: 0 de 10 retomadas (nenhum dado inventado), dashboard com 1 sessão capturada pelo Claude Code, aulasenai com 25 sessões de Codex e OpenCode sem captura (decisão A da .36). Decisão do usuário em 2026-10-23 12:34: fechar a .25 só com o método e deixar a contagem como pendência; regra de decisão confirmada: 7 ou mais retomadas sem reexplicar = adotar, 4 a 6 = ajustar, 3 ou menos = desligar. Os projetos de teste scratch e x foram apagados do servidor com purge-project, com autorização do usuário (dry-run antes; restaram gelvazio-aulasenai, gelvazio-dashboard-ai e gelvazio-rules-ai).
 
 ### AI-MEMORY-INTEGRATION.26 — Procedimento de rollback (desligar a memória sem perder o quadro)
 
