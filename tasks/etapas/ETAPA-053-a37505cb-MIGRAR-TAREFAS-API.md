@@ -157,7 +157,7 @@
 
 ### MIGRAR-TAREFAS-API.6 — Estratégia de concorrência e reserva atômica (conforme P4)
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** concluída; a implementação (middleware, lançador com trava, recarregar, mtime) está na .13.
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -166,6 +166,9 @@
 - **Descrição:** O json-server grava o arquivo inteiro e não tem compare-and-set: escolher e documentar como duas frentes não reservam a mesma subtarefa (INV-3).
 - **Critérios de Aceitação:** estratégia escrita, com o caso de duas reservas simultâneas descrito e a verificação definida.
 - **Depende de:** MIGRAR-TAREFAS-API.4
+- **Entrega:** commit "chore(MIGRAR-TAREFAS-API.6)" (api/CONCORRENCIA.md)
+- **Verificação:** trechos do json-server conferidos em node_modules (FileAsync, db.write não aguardado); experimento descartável do executor: 10 reservas simultâneas, 1 sucesso e 9 conflitos (controle com await: 7 sucessos); sem segredo; sem processo de experimento sobrando
+- **Anotação:** o npm start ainda tem --watch (a .13 tira); o serializador entra no lugar do db.write(); recarregar e checagem de mtime viraram parte da .13; fora da proteção: várias máquinas, nuvem, dois clones no mesmo PC e escrita direta no arquivo
 
 ### MIGRAR-TAREFAS-API.7 — Carga inicial das tarefas abertas (`STATUS.md`)
 
