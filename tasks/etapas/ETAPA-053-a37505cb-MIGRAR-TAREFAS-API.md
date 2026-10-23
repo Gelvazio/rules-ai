@@ -141,7 +141,7 @@
 
 ### MIGRAR-TAREFAS-API.5 — Versionar `api/db.json` (tirar do `.gitignore`) com formato estável
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** concluída; segue a .7 e a .12 (o layout final dos arquivos depende da decisão B da .53).
 
 - **Nível:** MEDIO — código com lógica, poucos arquivos
 - **Modelo:** só Sonnet — nunca outro
@@ -150,6 +150,9 @@
 - **Descrição:** Revogar a P3 da etapa 049 (conforme a resposta P2 daqui); chaves em ordem fixa e fim de linha LF para o diff do Git ser legível.
 - **Critérios de Aceitação:** `db.json` entra no Git sem diff de ruído ao regerar.
 - **Depende de:** MIGRAR-TAREFAS-API.4
+- **Entrega:** commit "feat(MIGRAR-TAREFAS-API.5)" (api/serializador.mjs, api/.gitattributes, db.json versionado)
+- **Verificação:** node --check ok; geração duas vezes seguidas com o mesmo hash; db.json não ignorado, só LF; serializador com JSDoc
+- **Anotação:** o gerar-db.mjs ainda produz o formato antigo da etapa 049; a migração de campos para o schema novo e o caminho final (api/dados/<projeto>.json, opção B da .53) ficam para a .7
 
 ### MIGRAR-TAREFAS-API.6 — Estratégia de concorrência e reserva atômica (conforme P4)
 

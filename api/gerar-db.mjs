@@ -1,7 +1,8 @@
 // Gera api/db.json (copia so de leitura) a partir do quadro. Nunca altera o quadro.
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { gravarSeMudou } from './serializador.mjs';
 
 const PASTA_API = dirname(fileURLToPath(import.meta.url));
 const RAIZ = join(PASTA_API, '..');
@@ -224,8 +225,9 @@ function montarBanco() {
  */
 function principal() {
   const banco = montarBanco();
-  writeFileSync(CAMINHO_SAIDA, JSON.stringify(banco, null, 2) + '\n', 'utf8');
-  process.stdout.write(`db.json gerado: ${JSON.stringify(banco.meta[0])}\n`);
+  const gravou = gravarSeMudou(CAMINHO_SAIDA, banco);
+  const situacao = gravou ? 'gerado' : 'sem mudanca (nao regravado)';
+  process.stdout.write(`db.json ${situacao}: ${JSON.stringify(banco.meta[0])}\n`);
 }
 
 principal();

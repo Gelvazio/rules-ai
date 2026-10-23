@@ -25,8 +25,8 @@ Dependência única: `json-server` 0.17.4 (versão fixa).
 npm run gerar
 ```
 
-O script `gerar-db.mjs` lê o quadro e grava `api/db.json`. Ele entra na subtarefa
-API-QUADRO-JSON-SERVER.2; até lá, o `db.json` é só o esqueleto vazio.
+O script `gerar-db.mjs` lê o quadro e grava `api/db.json`, que fica versionado no Git. O arquivo é
+gerado: não editar à mão, só regerar com `npm run gerar`.
 
 ## Como subir
 
@@ -50,5 +50,9 @@ Sobe em `http://127.0.0.1:3333`, **só no localhost**. Não expor a porta em out
 
 - `package.json`: scripts `start` e `gerar`, e a dependência json-server.
 - `gerar-db.mjs`: gerador do `db.json` (Node puro, sem dependência npm).
-- `db.json`: cópia gerada do quadro (fora do Git, ver `.gitignore`).
-- `.gitignore`: ignora `node_modules/` e `db.json`.
+- `serializador.mjs`: grava o `db.json` em formato estável (chaves em ordem fixa, LF) e só se
+  o conteúdo mudou.
+- `db.json`: cópia gerada do quadro, **versionada no Git**. Regerar com `npm run gerar`; nunca
+  editar à mão. Regerar sem mudança no quadro não altera o arquivo.
+- `.gitattributes`: força fim de linha LF no `db.json`.
+- `.gitignore`: ignora `node_modules/` e arquivos `*.tmp`.
