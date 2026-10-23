@@ -104,7 +104,7 @@
 
 ### AI-MEMORY-INTEGRATION.3 — Guia de instalação do ai-memory no Windows (servidor local, token em variável de ambiente)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -115,7 +115,8 @@
 - **Arquivos:** `docs/AI-MEMORY-INSTALACAO.md`
 - **Critérios de Aceitação:** Guia com os comandos exatos, onde fica o token e como conferir o servidor no ar; nenhuma chave no texto.
 - **Depende de:** Nenhuma
-- **Verificação:** a preencher na entrega.
+- **Entrega:** docs/AI-MEMORY-INSTALACAO.md (commit desta entrega), feito por w-a3 (Sonnet 5.5, herdr w2:pP, conta B).
+- **Verificação:** guia escrito pelo que foi feito na .4 (setup, token em arquivo, decisão do usuário); ai-memory status ok; GET /healthz responde 200 (existe rota de saúde, o que corrige a anotação da .4); nenhuma chave no texto (grep de pepper/sk-/tsk_/hex longo só acha o nome token_pepper). ai-memory doctor citado, não rodado.
 
 ### AI-MEMORY-INTEGRATION.4 — Instalar e subir o servidor ai-memory no computador do usuário
 
