@@ -103,6 +103,7 @@ reescrever o histórico do Git.
 | 2026-10-23 11:15 | Registrada como tarefa grande (`PESADO`, spec C34): apaga arquivos e reescreve histórico em massa; execução só depois das perguntas fechadas e do "sim" ao plano. Nada foi apagado | Claude Code (Sonnet 5.5) | Regra do ciclo da task (tarefa grande exige aprovação) |
 | 2026-10-23 11:21 | O usuário respondeu 1-a, 2-a e 3-b e disse SIM ao plano. `.1` e `.2` entregues. Achado: `graphify-out/` é versionado e tem ~700 menções à Tripo (snapshots de 17 a 19/10 + grafo atual); entra na `.5`: regenerar o grafo e apagar os snapshots datados que citam a Tripo ("TUDO") | Gelvazio / Claude Code (Sonnet 5.5) | Pedido "remover Tripo de tudo" |
 | 2026-10-23 11:26 | `.3` e `.4` entregues. Nota: "git grep vazio" é impossível ao pé da letra (a própria tarefa se chama REMOVER-TRIPO); a exceção ficou escrita no critério de pronto e em R1.1 | Claude Code (Sonnet 5.5) | Coerência do critério de pronto |
+| 2026-10-23 11:27 | `.5` entregue; achado: o `graphify-out/` não sai com `update` de código. Criada a `.7` (Usuário) dentro desta mãe (C26) em vez de apagar os instantâneos de histórico sem ordem direta | Claude Code (Sonnet 5.5) | O grafo é gerado por LLM nos documentos e os instantâneos são histórico |
 | 2026-10-23 11:15 | Levantamento: `task_complete.md` não cita a Tripo; a história dela está no Registro de decisões do `STATUS.md` e nas etapas 013, 020 e 031 | Claude Code (Sonnet 5.5) | `grep -i tripo` na pasta, excluindo `.git`, `node_modules` e `graphify-out` |
 
 ### REMOVER-TRIPO.1 — Fechar as perguntas abertas e aprovar o plano
@@ -187,3 +188,15 @@ reescrever o histórico do Git.
   `localStorage` do navegador; opcionalmente revogar a chave no painel da Tripo.
 - **Critérios de Aceitação:** chave removida dos dois lugares.
 - **Depende de:** REMOVER-TRIPO.2
+
+### REMOVER-TRIPO.7 — Regenerar o `graphify-out/` completo e apagar os instantâneos antigos que citam o serviço
+
+**Próximo passo:** o usuário roda `/graphify --update` no assistente dele e decide sobre os instantâneos.
+
+- **Nível:** Usuário — só o usuário pode fazer (a atualização com documentos usa o assistente e LLM, e apagar instantâneos de histórico é decisão dele)
+- **Modelo:** Usuário
+- **Effort:** — (ação do usuário)
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** o `graphify-out/` é versionado e tem ~700 menções ao serviço: `graph.json`, `graph.html`, `GRAPH_REPORT.md`, `.graphify_labels.json` (rótulos curados "Tripo AI…" e "ErroTripo"), o cache e os instantâneos datados de 2026-10-17, 18 e 19. O `python -m graphify update .` (só código) não limpa os nós de documentos nem os rótulos. Fazer `/graphify --update`, corrigir os rótulos curados e decidir se os 3 instantâneos datados são apagados (`git rm`; o Git guarda).
+- **Critérios de Aceitação:** `git grep -i tripo -- graphify-out` vazio (ou instantâneos mantidos por decisão registrada).
+- **Depende de:** REMOVER-TRIPO.5
