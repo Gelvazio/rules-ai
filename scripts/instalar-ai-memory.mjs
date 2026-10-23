@@ -39,6 +39,22 @@ const IGNORE_PATHS = [
   '*.pdf', '**/*.pdf',
   'node_modules/**', '**/node_modules/**',
   'DEMAIS-PROJETOS-*/**',
+  // Formas da raiz (AI-MEMORY-INTEGRATION.43): `**` + `/` exige ao menos uma pasta.
+  'variaveis.js', 'gabarito*/**', '*gabarito*',
+  '*alunos*.csv', '*alunos*.xlsx', '*alunos*.json',
+  // Privacidade (docs/AI-MEMORY-PRIVACIDADE.md): currículos, alunos, chamada, documentos.
+  '*curriculo*', '**/*curriculo*', '*currículo*', '**/*currículo*',
+  '*curriculum*', '**/*curriculum*', '*cv*.docx', '**/*cv*.docx',
+  'PLATAFORMA-ENVIO-CURRICULOS/**',
+  '*alunos*.xls', '**/*alunos*.xls', '*alunos*.md', '**/*alunos*.md',
+  '*alunos*.txt', '**/*alunos*.txt',
+  '*chamada*', '**/*chamada*', '*matricula*', '**/*matricula*',
+  '*notas*.csv', '**/*notas*.csv', '*notas*.xlsx', '**/*notas*.xlsx',
+  'projetos-alunos/**', '**/projetos-alunos/**',
+  '*.docx', '**/*.docx', '*.xlsx', '**/*.xlsx',
+  '*cpf*', '**/*cpf*',
+  // `*rg*.*` do doc pegaria "merge.js"; só rg como palavra do nome.
+  'rg.*', '**/rg.*', '*-rg.*', '**/*-rg.*', '*_rg.*', '**/*_rg.*',
 ];
 
 /**

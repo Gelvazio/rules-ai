@@ -707,7 +707,7 @@
 
 ### AI-MEMORY-INTEGRATION.43 — Corrigir o `ignore_paths` do instalador: formas da raiz e padrões de privacidade da .20
 
-**Próximo passo:** acrescentar em `IGNORE_PATHS` as formas da raiz e os padrões extras de `docs/AI-MEMORY-PRIVACIDADE.md`; rodar o teste de invariante até sair 0.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — segurança (vazamento de segredo e de dados de alunos); aberta pelo líder a partir do achado da .14 (C26)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -717,4 +717,5 @@
 - **Arquivos:** `scripts/instalar-ai-memory.mjs` (e o teste só se a lista esperada mudar)
 - **Critérios de Aceitação:** `node scripts/testes/ai-memory-invariantes.mjs` sai com código 0; nenhum padrão antigo some; marker já gravado continua sem ser sobrescrito.
 - **Depende de:** AI-MEMORY-INTEGRATION.14, AI-MEMORY-INTEGRATION.20
-- **Verificação:** a preencher na entrega.
+- **Entrega:** IGNORE_PATHS de scripts/instalar-ai-memory.mjs com as formas da raiz e os padrões da .20, cerca de 61 padrões, abaixo do limite de 128 (commit desta entrega), feito por w-a13 (Sonnet 5.5, herdr w2:pS, conta B).
+- **Verificação:** node --check ok; node scripts/testes/ai-memory-invariantes.mjs saiu 0 (conferido pelo líder); nenhum padrão antigo removido; marker existente não é sobrescrito. Desvio: **/*rg*.* virou rg.*, *-rg.*, *_rg.* (o original pegaria merge.js). Pendências: *.docx/*.xlsx ficam fora da captura em todo projeto; marker já gravado não se atualiza sozinho (nenhum foi gravado até agora); padrão com acento (currículo) não conferido no ai-memory.
