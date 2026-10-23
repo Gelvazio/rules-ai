@@ -31,6 +31,7 @@ const EVENTOS_HOOK = {
 
 const IGNORE_PATHS = [
   '.env', '**/.env', '.env.*', '**/.env.*',
+  '.mcp.json', '**/.mcp.json',
   'scripts/variaveis.js', '**/variaveis.js',
   'tasks/**', 'rules-local/**', 'graphify-out/**',
   '**/gabarito*/**', '**/*gabarito*',

@@ -422,7 +422,7 @@
 
 ### AI-MEMORY-INTEGRATION.23 — Rollout no `dashboard-ai` (pasta `DASHBOARD-AI-PRINCIPAL`, 1 repositório)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -433,7 +433,8 @@
 - **Arquivos:** `DASHBOARD-AI-PRINCIPAL/.ai-memory.toml`
 - **Critérios de Aceitação:** `.ai-memory.toml` e hooks no projeto; auditoria sem achados.
 - **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20, AI-MEMORY-INTEGRATION.34, AI-MEMORY-INTEGRATION.35
-- **Verificação:** a preencher na entrega.
+- **Entrega:** DASHBOARD-AI-PRINCIPAL: .ai-memory.toml (project gelvazio-dashboard-ai) e hooks SessionStart e PostToolUse do ai-memory no .claude/settings.json (commit 5cd83ea  no dashboard-ai, junto com a .46), feito por w-a13 (Sonnet 5.5, herdr w2:pS, conta B).
+- **Verificação:** reexecução sem mudança; JSON válido; diff do settings.json só com linhas acrescentadas (os outros hooks iguais, conferido pelo líder); sessão claude -p respondeu normal; doctor: marker válido e Claude Code capturado; auditoria: 6 páginas, 0 achados. Pendências: o usuário precisa confiar a pasta no Claude (46 permissions.allow ignoradas no claude -p); 2 eventos presos no spool.
 
 ### AI-MEMORY-INTEGRATION.24 — Rollout nos demais projetos de `C:\fontes` (`REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`)
 
@@ -764,7 +765,7 @@
 
 ### AI-MEMORY-INTEGRATION.46 — Cobrir `.mcp.json`, `laya/` e `dashboard-plataformas-de-ia/` no `ignore_paths`
 
-**Próximo passo:** acrescentar `.mcp.json` e `**/.mcp.json` em `IGNORE_PATHS` do instalador; no `.ai-memory.toml` do dashboard acrescentar esses dois e `laya/**` e `dashboard-plataformas-de-ia/**`; conferir com `--check-capture`.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — segurança (arquivo que pode ter chave, repositório aninhado); aberta pelo líder a partir do achado da .23 (C26)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -774,4 +775,5 @@
 - **Arquivos:** `scripts/instalar-ai-memory.mjs`, `DASHBOARD-AI-PRINCIPAL/.ai-memory.toml`
 - **Critérios de Aceitação:** `ai-memory hook --check-capture` dá `drop` para `.mcp.json`, `laya/x` e `dashboard-plataformas-de-ia/x` no dashboard; teste de invariante sai 0; auditoria sem achados.
 - **Depende de:** AI-MEMORY-INTEGRATION.23
-- **Verificação:** a preencher na entrega.
+- **Entrega:** '.mcp.json' e '**/.mcp.json' no IGNORE_PATHS do instalador (commit desta entrega) e no .ai-memory.toml do dashboard, com laya/** e dashboard-plataformas-de-ia/** (commit 5cd83ea  no dashboard-ai), feito por w-a13 (Sonnet 5.5, herdr w2:pS, conta B).
+- **Verificação:** ai-memory hook --check-capture no dashboard: .mcp.json, laya/x.md e dashboard-plataformas-de-ia/x.md = drop; src/App.tsx = keep; teste de invariante código 0 e auditoria com 6 páginas e 0 achados (conferidos pelo líder); o conteúdo do .mcp.json não foi lido. O marker do aulasenai não tem .mcp.json, mas o aulasenai não tem esse arquivo.
