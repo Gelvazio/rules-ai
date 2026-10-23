@@ -10,7 +10,7 @@
 
 ### LIDER-SEM-MONITORES.1 — Tirar o VIGIA e o FINANCEIRO de `PROMPT_PARA_O_LIDER.md` e apagar o `PROMPT_FINANCEIRO.md`
 
-**Próximo passo:** editar o prompt do líder e apagar o arquivo do FINANCEIRO.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — só `.md`
 - **Modelo:** só Haiku — nunca outro
@@ -20,4 +20,5 @@
 - **Arquivos:** `tasks/GERENCIADOR-HERDR/PROMPT_PARA_O_LIDER.md`, `tasks/GERENCIADOR-HERDR/PROMPT_FINANCEIRO.md`
 - **Critérios de Aceitação:** `git grep -i "vigia\|financeiro" -- tasks/GERENCIADOR-HERDR` vazio; o resto do prompt igual.
 - **Depende de:** Nenhuma
-- **Verificação:** a preencher na entrega.
+- **Entrega:** `PROMPT_PARA_O_LIDER.md` sem o parágrafo do VIGIA e sem a linha do `PROMPT_FINANCEIRO.md`; `PROMPT_FINANCEIRO.md` apagado (commit desta entrega), feito por h1 (Haiku 5.5, herdr w2:pY, conta D), 2026-10-23 13:25.
+- **Verificação:** `git grep -n -i "vigia\|financeiro" -- tasks/GERENCIADOR-HERDR` vazio; o resto do prompt igual (conferido pelo líder com cat -n).
