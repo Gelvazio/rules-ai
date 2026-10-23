@@ -1,12 +1,12 @@
 # Dashboard — Agentes ao vivo
 
-Mostra em 3D o trabalho real dos agentes, lido do `tasks/STATUS.md` do projeto escolhido no menu de
-projetos (`/api/projetos` e `/api/agentes?projeto=<pasta>`, só leitura; padrão `rules-ai`).
+Mostra em 3D o trabalho real dos agentes. O quadro vem do `tasks/STATUS.md` do projeto escolhido no
+menu (padrão `rules-ai`), lido pelo canal de Broadcast do Supabase ou direto do GitHub raw. A lista
+de projetos vem de `dashboard/projetos.json`. Só leitura.
 
 ## Como usar
 
-Não há mais servidor Python (`servidor.py` e `config_graphs.py` foram aposentados). Sirva a pasta
-estática, a partir de `C:\fontes\rules-ai`:
+Não há mais servidor Python. Sirva a pasta estática, a partir de `C:\fontes\rules-ai`:
 
 ```
 python -m http.server 8080 --directory dashboard
@@ -49,11 +49,27 @@ estáticos (por exemplo `python -m http.server` na pasta `dashboard`).
 página, basta uma linha em `ITENS_MENU`; uma página esconde links com `data-menu-ocultar`. Acima dele
 fica a linha dos projetos (`PROJETOS`), com o projeto atual em destaque.
 
+## Configurar
+
+- `CANAL.chavePublicavel`, em `assets/js/config.js`: chave publicável do Supabase
+  (`sb_publishable_…`), pública por desenho; preenchida pelo usuário (.12). Vazia, o canal
+  não liga e vale só o fallback do GitHub raw.
+- `SUPABASE_SECRET_KEY`: secret do repositório no GitHub, lido só pelo workflow
+  `.github/workflows/publicar-quadro.yml`. Nunca vai para o navegador nem para o repositório.
+
 ## Arquivos
 
-- `publicar_quadro.py`: publica o quadro no canal de Broadcast (`ATRASO_PADRAO_SEGUNDOS` e
-  `INTERVALO_FALLBACK_SEGUNDOS` do envelope espelham o `assets/js/config.js`).
-- `quadro_tarefas.py`: lê a tabela do `tasks/STATUS.md` para `/api/agentes`.
-- `index.html`, `assets/js/agentes.js` e `assets/js/agentes/` (fila com atraso, cena, personagens,
-  rótulos, painéis).
+- `publicar_quadro.py`: publica o quadro no canal `quadro:<projeto>`; roda pelo workflow
+  `.github/workflows/publicar-quadro.yml`, na raiz do `rules-ai`. `ATRASO_PADRAO_SEGUNDOS` e
+  `INTERVALO_FALLBACK_SEGUNDOS` do envelope espelham o `assets/js/config.js`.
+- `privacidade_quadro.py`: filtra os campos e redige segredo e dados pessoais antes de publicar.
+- `quadro_tarefas.py`: lê a tabela do `tasks/STATUS.md` em Python; usado por `publicar_quadro.py` e
+  pelo teste de paridade.
+- `gerar_projetos.py` e `projetos.json`: gera e guarda a lista de projetos do menu (`--verificar`
+  confere se o arquivo está em dia).
+- `LIMITES-REALTIME.md`: medição dos limites do Realtime frente à frequência dos pushes.
+- `testes/`: invariantes `invariante_paridade_quadro.py`, `invariante_payload_quadro.py` e
+  `invariantes_broadcast.py`, e o medidor `medir_latencia.mjs` (instrumento, não teste).
+- `index.html`, `assets/js/agentes.js` e `assets/js/agentes/` (`canal.js` assina o Broadcast;
+  `quadro.js` lê o GitHub raw; fila com atraso, cena, personagens, rótulos, painéis).
 - `assets/js/` (`config.js`, `visualizador.js`, `menu.js`) e `assets/css/`.
