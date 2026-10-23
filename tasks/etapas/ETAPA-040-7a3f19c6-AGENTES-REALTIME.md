@@ -548,7 +548,7 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.17 — Indicador de conexão na tela (ao vivo, reconectando, offline)
 
-**Próximo passo:** esperar MIGRAR-AGENTES-BROADCAST.3.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -557,6 +557,9 @@ usuário decide ao cadastrar.
 - **Descrição:** Mostrar no HUD o estado do canal Realtime.
 - **Critérios de Aceitação:** Três estados visíveis no código do HUD.
 - **Depende de:** MIGRAR-AGENTES-BROADCAST.3
+- **Entrega:** `dashboard/assets/js/agentes/hud-agentes.js` ganhou o mapa `CONEXAO` (`aovivo`, `reconectando`, `offline`), os textos de cada estado e `marcarConexao(estado)`, que escreve por `textContent` (regra da `.10`) e troca a classe do elemento; `dashboard/index.html` ganhou o `<p id="estado-conexao">` dentro do HUD, com `aria-live="polite"` e o padrão `offline`; `dashboard/assets/css/graphs.css` ganhou a classe e os três modificadores, e `dashboard/assets/css/base.css` o token `--cor-ao-vivo`; em `dashboard/assets/js/agentes.js`, o `criarFallback` passa a marcar `AO_VIVO` quando o canal conecta, `RECONECTANDO` na queda e `OFFLINE` quando a espera vence e o polling liga. Feito por sn2 (Sonnet 5.5, herdr w2:p11, conta D).
+- **Verificação:** `node --input-type=module --check` ok nos três `.js`; `estado-conexao` aparece uma única vez no `index.html`; cor por token (`var(--cor-ao-vivo)`, `--cor-ativo`, `--cor-texto-suave`), nenhum hexadecimal novo solto; nenhuma linha acima de 100 caracteres criada (comparado com o `HEAD` anterior arquivo por arquivo; o `agentes.js` até perdeu uma). O caso "sem chave publicável" cai no padrão `offline` do próprio HTML, porque esse caminho não chama `marcarConexao` (conferido pelo líder). A conferência na tela é do usuário (`.29`).
+- **Anotação:** entregue no mesmo commit da `.19` porque as duas mexeram em `agentes.js` em paralelo, em zonas combinadas (a `.19` no cabeçalho/`PADROES_RAW`, a `.17` no `criarFallback`), e os trechos ficaram intercalados no mesmo arquivo.
 
 ### AGENTES-REALTIME.18 — Reconexão com estado completo e descarte de mensagem fora de ordem
 
@@ -574,7 +577,7 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.19 — Fallback sem Supabase e sem servidor (GitHub raw a cada 30 s)
 
-**Próximo passo:** esperar MIGRAR-AGENTES-BROADCAST.4, AGENTES-REALTIME.5.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -583,10 +586,13 @@ usuário decide ao cadastrar.
 - **Descrição:** Se o canal cai e não há servidor local, a página lê o `STATUS.md` do GitHub a cada 30 s com o leitor JS.
 - **Critérios de Aceitação:** Fallback documentado e ativado só após a queda do canal.
 - **Depende de:** MIGRAR-AGENTES-BROADCAST.4, AGENTES-REALTIME.5
+- **Entrega:** `dashboard/assets/js/config.js` — `INTERVALO_FALLBACK_SEGUNDOS` passou de 10 para **30** (o 10 era o intervalo do servidor aposentado); `dashboard/assets/js/agentes.js` — o `intervalo` saiu do `PADROES_RAW` (ninguém mais o lê do payload) e o cabeçalho do arquivo não fala mais em servidor local; `dashboard/README.md` ganhou a seção "De onde vem o quadro (três modos)": canal ao vivo, fallback do GitHub raw a cada 30 s e sem rede, deixando escrito que não existe mais servidor Python para isso e que basta `python -m http.server`. Feito por sn1 (Sonnet 5.5, herdr w2:pZ, conta D).
+- **Verificação:** `node --input-type=module --check` ok; por leitura, o polling de 30 s liga em **dois** caminhos — `ligarCanal` quando não há `CANAL.chavePublicavel`, e o `setTimeout` de `ATRASO_QUEDA_MS` (30 s) quando o canal está caído — e **para** em `criarFallback` assim que `conectado` volta a ser verdadeiro (`vigia.parar()` + `cancelar()`); `git grep "\.intervalo"` em `dashboard/assets` vazio (nenhum resto lendo o campo do payload); nenhuma linha acima de 100 caracteres criada, e o `README.md` perdeu uma das antigas (conferido pelo líder).
+- **Anotação:** entregue no mesmo commit da `.17` (mesmo arquivo `agentes.js`, zonas combinadas e trechos intercalados).
 
 ### AGENTES-REALTIME.20 — Tirar `/api/agentes` e `/api/projetos` do `servidor.py` (conforme a pergunta 4)
 
-**Próximo passo:** esperar AGENTES-REALTIME.15, AGENTES-REALTIME.16, AGENTES-REALTIME.19.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -595,6 +601,9 @@ usuário decide ao cadastrar.
 - **Descrição:** Remover `rota_agentes` e `rota_projetos` e os imports de `quadro_tarefas`; o servidor devolve 404 nessas rotas ou é aposentado.
 - **Critérios de Aceitação:** Resposta da pergunta 4 aplicada; `py_compile` ok.
 - **Depende de:** AGENTES-REALTIME.15, AGENTES-REALTIME.16, AGENTES-REALTIME.19
+- **Entrega:** `dashboard/servidor.py` sem `rota_agentes`, `rota_projetos`, o mapa de rotas do `do_GET`, o helper `executar`, o `do_POST` e o import de `quadro_tarefas`; do `config_graphs` sobrou só `HOST`, `PASTA_DASHBOARD` e `PORTA_PADRAO`. O que ficou é um servidor de arquivos estáticos com a guarda `caminho_proibido` (que **não** era das rotas: ela impede servir `.env`, `.py`, `.pyc`, ocultos e `__pycache__`). Apagar o arquivo é a `.21`. Commit desta entrega. Feito por sn1 (Sonnet 5.5, herdr w2:pZ, conta D).
+- **Verificação:** `python -m py_compile dashboard/servidor.py` ok; `git grep -n "/api/agentes\|/api/projetos" -- dashboard/ ':!dashboard/README.md'` **vazio** (nenhum código cita as rotas); os três nomes importados existem no `config_graphs.py` (linhas 5, 8 e 9); nenhuma linha acima de 100 caracteres (conferido pelo líder).
+- **Anotação:** achado para a `.21` — o `config_graphs.py` **não** é só do servidor: o `dashboard/publicar_quadro.py` importa dele `INTERVALO_COLETA_SEGUNDOS` e `atraso_agentes()` e usa os dois no envelope (`intervalo` e `atraso_padrao`). Apagar o `config_graphs.py` quebraria o publicador; a `.21` tem de mover esses dois valores antes.
 
 ### AGENTES-REALTIME.21 — Aposentar `servidor.py`, `config_graphs.py` e o `.env` do dashboard (se a pergunta 4 for a)
 
