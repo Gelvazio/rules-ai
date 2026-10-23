@@ -289,7 +289,7 @@ canal
 
 ### MIGRAR-AGENTES-BROADCAST.2 — Publicador e workflow do GitHub Actions
 
-**Próximo passo:** criar `dashboard/publicar_quadro.py` com `--simular`, depois `.github/workflows/publicar-quadro.yml`, e escrever `dashboard/testes/invariantes_broadcast.py` (INV-1 a INV-4).
+**Próximo passo:** nenhum — entregue.
 - **Nível:** PESADO — segredo, workflow e envio externo; mais de 3 arquivos.
 - **Modelo:** só Opus 5.5+ ou Fable ou DeepSeek — nunca outro.
 - **Effort:** high
@@ -297,7 +297,8 @@ canal
 - **Descrição:** o publicador lê o quadro, monta o payload e envia; falha encerra com erro sem gravar nada. O workflow roda no push que altera o `STATUS.md` e usa o secret.
 - **Arquivos:** `dashboard/publicar_quadro.py`, `dashboard/testes/invariantes_broadcast.py`, `.github/workflows/publicar-quadro.yml`.
 - **Critérios de Aceitação:** `--simular` imprime o payload sem enviar; INV-1 a INV-4 passam; workflow só lê o secret do GitHub.
-- **Verificação:** `python dashboard/testes/invariantes_broadcast.py` passa; `python dashboard/publicar_quadro.py --simular` mostra o payload; `git status` igual antes e depois do modo `--simular`.
+- **Entrega:** dashboard/publicar_quadro.py, dashboard/testes/invariantes_broadcast.py (teste de invariante, C34) e .github/workflows/publicar-quadro.yml (commit desta entrega), feito por op1 (Opus 5.5, herdr w2:pX, conta D).
+- **Verificação:** python -B dashboard/testes/invariantes_broadcast.py: 0 falhas; publicar_quadro.py --simular sai 0 com o payload (≈ 32 KB); sem a chave e sem --simular sai 1 com erro claro; workflow válido (yaml.safe_load) e pula com aviso enquanto o secret SUPABASE_SECRET_KEY não existir; git grep de service_role/sb_secret_ vazio (conferido pelo líder). Pendências: teste ao vivo (R1.1) depois do secret (AGENTES-REALTIME.12); plano B de envio em lote não implementado; o teste INV-3 pode dar falso negativo se outra sessão gravar arquivos ao mesmo tempo.
 - **Estimativa:** 3 h.
 - **JEV-AI-SUGGESTION:** NAO
 
