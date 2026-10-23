@@ -65,7 +65,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | **RECLASSIFICAR-PESADO-OPUS** | **🌐 GLOBAL — Subtarefas `PESADO` que estão só com Opus 5.5+/Fable passam para Sonnet, exceto o que precisa do Opus (pedido do usuário em 2026-10-23)** | 🟠 Alta | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
 | RECLASSIFICAR-PESADO-OPUS.3 | Decidir a matriz `regras/niveis-e-modelos.md` (P3) | 🟠 Alta | Usuário | RECLASSIFICAR-PESADO-OPUS.2 | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
 | **API-QUADRO-JSON-SERVER** | **API em `api/` com as tarefas (completas, disponíveis e status), só com json-server (pedido do usuário em 2026-10-23; aprovado em 2026-10-23 19:32)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-049](etapas/ETAPA-049-1c48e4b2-API-QUADRO-JSON-SERVER.md) |
-| API-QUADRO-JSON-SERVER.1 | Criar `api/` com `package.json` (json-server), `.gitignore` e `README.md` · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | 🔄 Em execução | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · rules-ai · api) (desde 2026-10-23 19:32) · 0% | [ETAPA-049](etapas/ETAPA-049-1c48e4b2-API-QUADRO-JSON-SERVER.md) |
 | API-QUADRO-JSON-SERVER.2 | Script que gera `api/db.json` a partir de `STATUS.md` e `task_complete.md` · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | API-QUADRO-JSON-SERVER.1 | ⬜ Pendente | — | [ETAPA-049](etapas/ETAPA-049-1c48e4b2-API-QUADRO-JSON-SERVER.md) |
 | API-QUADRO-JSON-SERVER.3 | Subir a API e conferir as consultas contra o quadro · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | API-QUADRO-JSON-SERVER.2 | ⬜ Pendente | — | [ETAPA-049](etapas/ETAPA-049-1c48e4b2-API-QUADRO-JSON-SERVER.md) |
 | API-QUADRO-JSON-SERVER.4 | Documentar (README, regra, `STATUS_PROJETO.md`) e fechar · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | API-QUADRO-JSON-SERVER.3 | ⬜ Pendente | — | [ETAPA-049](etapas/ETAPA-049-1c48e4b2-API-QUADRO-JSON-SERVER.md) |
@@ -79,7 +78,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
 |---|---|---|---|
-| Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · rules-ai · api) | API-QUADRO-JSON-SERVER.1 ([ETAPA-049](etapas/ETAPA-049-1c48e4b2-API-QUADRO-JSON-SERVER.md)) | 🔄 Ativa | 2026-10-23 19:32 |
+| Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · rules-ai · api) | API-QUADRO-JSON-SERVER.1 ([ETAPA-049](etapas/ETAPA-049-1c48e4b2-API-QUADRO-JSON-SERVER.md)) | ⏹️ Encerrada | 2026-10-23 19:33 |
 | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · rules-ai) | PONTO-SUBAGENTES-HAIKU.4 ([ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md)) | 🔄 Ativa | 2026-10-23 19:27 |
 | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · rules-ai) | PONTO-SUBAGENTES-HAIKU.1 ([ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md)) | ⏹️ Encerrada | 2026-10-23 19:05 |
 | Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | INDEX-REGRAS.4 ([ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md)) | 🔄 Ativa | 2026-10-23 20:40 |

@@ -33,7 +33,7 @@
 
 ### API-QUADRO-JSON-SERVER.1 — Criar `api/` com json-server
 
-**Próximo passo:** executor-leve (Haiku) cria `api/package.json`, `api/.gitignore` e `api/README.md` e roda `npm install` em `api/`.
+**Próximo passo:** concluída; segue a .2 (gerador do db.json).
 
 - **Nível:** LEVE — arquivos de configuração e texto, sem lógica
 - **Modelo:** só Haiku — nunca outro
@@ -43,6 +43,8 @@
 - **Arquivos:** `api/package.json`, `api/.gitignore`, `api/README.md`
 - **Critérios de Aceitação:** `api/` existe com json-server como única dependência; o `npm start` sobe só em 127.0.0.1.
 - **Depende de:** Nenhuma
+- **Entrega:** commit desta mensagem "feat(API-QUADRO-JSON-SERVER.1)"
+- **Verificação:** arquivos conferidos; json-server 0.17.4 única dependência; package.json válido; package-lock.json versionado (decisão do líder: lock de dependência fixa vai no Git); db.json e node_modules ficam fora do Git
 
 ### API-QUADRO-JSON-SERVER.2 — Gerar o `db.json` a partir do quadro
 
