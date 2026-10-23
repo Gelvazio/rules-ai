@@ -29,8 +29,8 @@
 - 2026-10-23: etapa criada e publicada; plano aguardando o 'sim' do usuário (tarefa grande).
 
 - 2026-10-23 10:00: as 6 perguntas foram respondidas pelo usuário (tabela acima). Mudanças de escopo: piloto passa a ser o `aulasenai` (base primeiro; clones só depois da auditoria sem achados); captura em todas as IAs com hook (não só Claude Code); LLM de consolidação fica em aberto até a investigação do TypeSafe (.29). O 'sim' ao plano ainda é da .1.
-- 2026-10-23 10:12: o usuário disse **SIM** ao plano. Ele pediu primeiro 'apenas no `aulasenai`' e logo depois corrigiu: **'deve ser pra todos os projetos'**. Vale a última instrução: escopo = todos os projetos de `C:ontes` (menos `DEMAIS-PROJETOS-*` e `rules-ai`), com o `aulasenai` como piloto (base primeiro, depois clones, `dashboard-ai` e demais). Regra `memoria-ai.md` volta a ser global. Nenhuma subtarefa foi cancelada.
-- 2026-10-23 10:30: conferido com `ls C:ontes`: as 4 pastas `aulas-senai-CLAUDE-*` e as 9 `dashboard-ai-*` **não existem mais** (o mapa `C:ontes\CLAUDE.md` estava desatualizado). Alvos reais do rollout: `aulasenai` (piloto), `DASHBOARD-AI-PRINCIPAL`, `REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`. Fora: `rules-ai` (fonte), `ai-memory` (repositório do próprio ai-memory), `CONSERTO-ELANTRA-2.0` (sem Git) e `DEMAIS-PROJETOS-*`. Cancelada a .22; .23 e .24 reapontadas.
+- 2026-10-23 10:12: o usuário disse **SIM** ao plano. Ele pediu primeiro 'apenas no `aulasenai`' e logo depois corrigiu: **'deve ser pra todos os projetos'**. Vale a última instrução: escopo = todos os projetos de `C:\fontes` (menos `DEMAIS-PROJETOS-*` e `rules-ai`), com o `aulasenai` como piloto (base primeiro, depois clones, `dashboard-ai` e demais). Regra `memoria-ai.md` volta a ser global. Nenhuma subtarefa foi cancelada.
+- 2026-10-23 10:30: conferido com `ls C:\fontes`: as 4 pastas `aulas-senai-CLAUDE-*` e as 9 `dashboard-ai-*` **não existem mais** (o mapa `C:\fontes\CLAUDE.md` estava desatualizado). Alvos reais do rollout: `aulasenai` (piloto), `DASHBOARD-AI-PRINCIPAL`, `REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`. Fora: `rules-ai` (fonte), `ai-memory` (repositório do próprio ai-memory), `CONSERTO-ELANTRA-2.0` (sem Git) e `DEMAIS-PROJETOS-*`. Cancelada a .22; .23 e .24 reapontadas.
 
 ### Requisitos
 
@@ -386,7 +386,7 @@
 - **Arquivos:** `aulasenai/.ai-memory.toml`, `aulasenai/.claude/settings.json`
 - **Critérios de Aceitação:** 5 pastas com o mesmo `project`; `ignore_paths` inclui `scripts/variaveis.js`; auditoria sem achados.
 - **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.17, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20, AI-MEMORY-INTEGRATION.34, AI-MEMORY-INTEGRATION.35
-- **Verificação:** cancelada, não executada: `ls C:ontes` em 2026-10-23 10:30 não lista `aulas-senai-CLAUDE-*`.
+- **Verificação:** cancelada, não executada: `ls C:\fontes` em 2026-10-23 10:30 não lista `aulas-senai-CLAUDE-*`.
 
 ### AI-MEMORY-INTEGRATION.23 — Rollout no `dashboard-ai` (pasta `DASHBOARD-AI-PRINCIPAL`, 1 repositório)
 
@@ -403,7 +403,7 @@
 - **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.17, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20, AI-MEMORY-INTEGRATION.34, AI-MEMORY-INTEGRATION.35
 - **Verificação:** a preencher na entrega.
 
-### AI-MEMORY-INTEGRATION.24 — Rollout nos demais projetos de `C:\fontes` (menos `DEMAIS-PROJETOS-*` e `rules-ai`)
+### AI-MEMORY-INTEGRATION.24 — Rollout nos demais projetos de `C:\fontes` (`REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`)
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
