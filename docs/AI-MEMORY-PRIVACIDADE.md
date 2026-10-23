@@ -87,7 +87,32 @@ dado de aluno em páginas. As observações brutas (26 no `gelvazio-aulasenai`) 
 inspecionadas por conteúdo, por respeito à privacidade: a conferência fina fica com a
 auditoria (`ai-memory-auditar.mjs`) e com o usuário.
 
-## 6. Limites
+## 6. Proteção do piloto `aulasenai` (AI-MEMORY-INTEGRATION.35)
+
+Conferência de 2026-10-23, antes de ligar o piloto (nada gravado no `aulasenai`; o conteúdo
+de `scripts/variaveis.js` não foi lido).
+
+| Item | Resultado |
+|---|---|
+| `node scripts/instalar-ai-memory.mjs C:\fontes\aulasenai --dry-run` | gera o marker com `project = "gelvazio-aulasenai"` e os `ignore_paths` da seção 2 |
+| `scripts/variaveis.js` (service_role) | coberto por `scripts/variaveis.js`, `**/variaveis.js` e `variaveis.js` |
+| Listas de alunos, currículos, chamada, matrícula, notas, `*.pdf`, `*.docx`, `*.xlsx` | cobertos por padrão de nome |
+| `git check-ignore` em `scripts/variaveis.js` no `aulasenai` | ignorado pelo `.gitignore` (linha 4) |
+| `node scripts/ai-memory-auditar.mjs` (wiki atual) | 4 páginas, 0 achados, código 0 |
+| `.ai-memory.toml` no `aulasenai` | ainda não existe (é gravado na .16) |
+
+**`MATERIAIS/` coberta:** `scripts/instalar-ai-memory.mjs` tem `MATERIAIS/**` e
+`**/MATERIAIS/**` em `IGNORE_PATHS` (conferido no `--dry-run`, linhas 42 e 43 do marker).
+Isso cobre também `AUTOMATIZACAO-WHATSAPP`, que tem sessões do Baileys.
+
+**Limites da conferência:**
+- O `ignore_paths` age só no caminho. Se a service_role for colada num prompt, ela chega
+  à memória; o ai-memory mascara só padrões conhecidos de chave. Rotacionar a chave
+  (pendência D1 do mapa) continua necessário.
+- A auditoria olha o wiki, que hoje não tem páginas do `aulasenai`. Rodar de novo depois da
+  .16 e antes de liberar outros projetos.
+
+## 7. Limites
 
 - ⛔ Não abrir arquivos de alunos ou currículos para "conferir": trabalhar por nome e padrão.
 - ⛔ Não rodar `purge-project --confirm`, `reset` nem `restore` sem pedido do usuário.

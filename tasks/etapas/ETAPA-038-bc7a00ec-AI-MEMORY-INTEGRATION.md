@@ -599,7 +599,7 @@
 
 ### AI-MEMORY-INTEGRATION.35 — Piloto no `aulasenai`: proteger `scripts/variaveis.js` (service_role) e dados de alunos antes de ligar
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -610,7 +610,8 @@
 - **Arquivos:** `aulasenai/.ai-memory.toml`, `docs/AI-MEMORY-PRIVACIDADE.md`, `scripts/instalar-ai-memory.mjs` (só `MATERIAIS/`, decisão do líder)
 - **Critérios de Aceitação:** Auditoria da pasta base sem achados; `variaveis.js`, `MATERIAIS/` e listas de alunos fora da memória.
 - **Depende de:** AI-MEMORY-INTEGRATION.6, AI-MEMORY-INTEGRATION.20
-- **Verificação:** a preencher na entrega.
+- **Entrega:** seção 6 "Proteção do piloto aulasenai" em docs/AI-MEMORY-PRIVACIDADE.md e MATERIAIS/** + **/MATERIAIS/** no IGNORE_PATHS de scripts/instalar-ai-memory.mjs (commit desta entrega), feito por w-a3 (Sonnet 5.5, herdr w2:pP, conta B). O aulasenai/.ai-memory.toml é gravado na .16.
+- **Verificação:** --dry-run no aulasenai gera o marker com variaveis.js (3 formas), .env*, MATERIAIS/, listas de alunos, currículos, chamada, matrícula, notas, pdf/docx/xlsx e CPF/RG; git check-ignore confirma variaveis.js ignorado no aulasenai; auditoria do wiki: 4 páginas, 0 achados; teste de invariante sai 0 (conferido pelo líder); variaveis.js não foi lido. Pendência: a service_role continua no disco e precisa de rotação; segredo colado no prompt é a decisão da .34.
 
 ### AI-MEMORY-INTEGRATION.36 — Decidir a captura nas IAs sem escopo por projeto
 

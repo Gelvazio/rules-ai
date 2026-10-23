@@ -46,6 +46,7 @@ const IGNORE_PATHS = [
   '*curriculo*', '**/*curriculo*', '*currículo*', '**/*currículo*',
   '*curriculum*', '**/*curriculum*', '*cv*.docx', '**/*cv*.docx',
   'PLATAFORMA-ENVIO-CURRICULOS/**',
+  'MATERIAIS/**', '**/MATERIAIS/**',
   '*alunos*.xls', '**/*alunos*.xls', '*alunos*.md', '**/*alunos*.md',
   '*alunos*.txt', '**/*alunos*.txt',
   '*chamada*', '**/*chamada*', '*matricula*', '**/*matricula*',
