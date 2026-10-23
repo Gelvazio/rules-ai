@@ -90,13 +90,38 @@
 
 ### GERENCIADOR-GLOBAL.3 — Script central de leitura do quadro
 
-**Próximo passo:** depois do .1, criar `scripts/gerenciador.py` (ou `.mjs`, conforme o .1) só com a leitura: lista de projetos, `git fetch`, leitura do `tasks/STATUS.md` do `origin/main` e cálculo das tarefas livres por modelo, sem disparar nada.
+**Próximo passo:** ✅ entregue em 2026-10-23; a .4 (disparo) é do Opus e fica parada.
 
 - **Nível:** PESADO — mais de 3 arquivos ligados e lógica de leitura do quadro de vários projetos.
 - **Modelo:** só Sonnet — nunca outro. (trocado do Opus em 2026-10-23, RECLASSIFICAR-PESADO-OPUS.2)
 - **Descrição:** imprime, para cada projeto e modelo, as subtarefas livres e com dependências prontas.
 - **Critérios de Aceitação:** a saída bate com a conferência manual do quadro de cada projeto; nenhum quadro é escrito.
-- **Entrega:** — · **Verificação:** — · **Anotação:** —
+- **Entrega (2026-10-23, Claude Code Sonnet 5.5 · agente; sem commit, o Haiku confere e commita):**
+  `scripts/gerenciador.mjs` (CLI, modo `ver`), `scripts/gerenciador.config.json` (projetos,
+  modelos, matriz nível→modelo, política de dependência) e módulos em `scripts/gerenciador/`:
+  `quadro.mjs` (lê a tabela pelos NOMES das colunas, calcula livres/ocupação; funções puras),
+  `repositorio.mjs` (`git fetch origin main` + `git show origin/main:<arquivo>`; só leitura) e
+  `saida.mjs` (tabelas em texto puro). Opções: `--projeto`, `--sem-fetch`, `--json`, `--limite`,
+  `--tudo`, `--config`; o modo `disparar` é recusado (código 2). Sem `PARAR` nem trava de
+  instância: o plano da .1 os põe no laço/disparo (.4 e .5), não na leitura de uma volta.
+- **Verificação:** `node --check` limpo nos 4 `.mjs`; `node scripts/gerenciador.mjs` leu
+  `rules-ai` (d6e1a7c), `aulasenai` (26791e98) e `DASHBOARD-AI-PRINCIPAL` (5cd83ea). Conferência
+  manual independente do `origin/main`: `rules-ai` livres Sonnet 1 (DASHBOARD-AGENTES.1), Opus 1 e
+  Fable 1 (GERENCIADOR-GLOBAL.7), Haiku 0 — igual à saída; `DASHBOARD-AI-PRINCIPAL` Haiku 2
+  (RL-4F19D945-NIVEIS-E-MODELOS.1, JEV-NAO.1) e Sonnet 3 (SUB-45.18, SUB-62.1, SUB-62.2) — igual;
+  `aulasenai` (script próprio de contagem, outra lógica) Haiku 5, Sonnet 66, Opus 67 — igual
+  (1481 linhas lidas nos dois). `--modo disparar` sai com 2; `--projeto zzz` sai com 1. Nenhum
+  quadro escrito (só `git fetch`/`git show`; nenhum arquivo de projeto alterado).
+- **Anotação:** (a) `gerenciador-de-ia` e `aulas-senai-*` não existem hoje em `C:\fontes`: saem
+  como `ausente` no relatório, sem erro; `dashboard-ai-*` casa `DASHBOARD-AI-PRINCIPAL`; clones do
+  mesmo `origin` são lidos uma vez (`duplicado`). (b) Dependência que não está nem no `STATUS.md`
+  nem no `task_complete.md` (ex.: `GERENCIADOR-GLOBAL.1`, `#33`) é tratada como pronta
+  (`dependenciaAusente: "pronta"` na config; `"bloqueia"` inverte) e aparece na coluna Obs.
+  (c) Projeto sem coluna Modelo (dashboard) tem o modelo derivado do nível pela matriz da config
+  (`LEVE`→Haiku, `MEDIO`→Sonnet, `PESADO`→Sonnet/Opus/Fable), marcado "modelo pelo nível". (d)
+  Modelo ocupado = linha `🔄` cujo primeiro modelo citado em "Em uso por" é ele (não conta
+  "líder X"); a checagem de processo vivo é da .4. (e) Fora da lista: `Usuário`, "sem nível",
+  mãe, `(nuvem)`, modelos não configurados (DeepSeek, Gemini).
 - **JEV-AI-SUGGESTION:** NAO
 
 ### GERENCIADOR-GLOBAL.4 — Disparo de sessões por modelo
