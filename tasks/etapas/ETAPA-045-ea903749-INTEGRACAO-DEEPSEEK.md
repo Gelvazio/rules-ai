@@ -27,9 +27,9 @@
 
 ### Perguntas abertas
 
-- ⬜ **P1.** Quais tarefas vão para o DeepSeek: só `LEVE`, ou também `MEDIO`? Muda o R2.
-- ⬜ **P2.** Limite de custo por dia (US$) e por chamada (tokens)? Muda o R3.
-- ⬜ **P3.** A chamada do DeepSeek fica só no `rules-ai` (scripts) ou também no `consumo-ia`? Muda o escopo da .2.
+- ✅ **P1.** Respondida em 2026-10-23: `LEVE` **e** `MEDIO` vão para o DeepSeek (R1 e R2).
+- ✅ **P2.** Respondida em 2026-10-23: limite de **US$ 2 por dia** (R3). O limite por chamada (tokens) não foi respondido: o executor da .4 propõe o valor e o usuário confirma antes de gravar.
+- ✅ **P3.** Respondida em 2026-10-23: o cliente fica **só no `rules-ai`** (`scripts/deepseek/`).
 
 ### Riscos
 
@@ -40,10 +40,13 @@
 ### Decisões
 
 - 2026-10-23: tarefa criada a pedido do usuário; plano aguarda o "sim" dele; nenhuma subtarefa reservada.
+- 2026-10-23: **plano aprovado pelo usuário** ("Aprovo o plano da INTEGRACAO-DEEPSEEK").
+- 2026-10-23: **P1** — `LEVE` e `MEDIO` vão para o DeepSeek. **P2** — limite de **US$ 2 por dia**; por chamada, a definir (ver P2). **P3** — cliente só no `rules-ai`.
+- 2026-10-23: a `.1` foi concluída; a `.2` (PESADO) está livre para o modelo dela (Sonnet, Opus 5.5+/Fable ou DeepSeek). Este registro não reserva nada.
 
 ### INTEGRACAO-DEEPSEEK.1 — Responder P1, P2 e P3 (decisões do usuário)
 
-**Próximo passo:** o usuário responde as perguntas abertas.
+**Próximo passo:** ✅ concluída em 2026-10-23 (respostas em Decisões).
 
 - **Nível:** Usuário — só o usuário decide
 - **Modelo:** Usuário
@@ -57,7 +60,7 @@
 
 ### INTEGRACAO-DEEPSEEK.2 — Cliente da API da DeepSeek com chave só em variável de ambiente
 
-**Próximo passo:** começar depois do "sim" ao plano e da P3.
+**Próximo passo:** começar; plano aprovado e P3 respondida (só no `rules-ai`).
 
 - **Nível:** PESADO — chave e segredo (sinal mais restritivo)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -94,7 +97,7 @@
 - **Effort:** high
 - **JEV-AI-SUGGESTION:** NAO
 - **Fonte:** manual
-- **Descrição:** Aplicar o limite de P2, o modo `DEEPSEEK_MODO=off` e o tempo máximo por chamada. Acima do limite, só a matriz.
+- **Descrição:** Aplicar o limite de US$ 2 por dia (P2), o modo `DEEPSEEK_MODO=off` e o tempo máximo por chamada. Acima do limite, só a matriz.
 - **Arquivos:** `scripts/deepseek/limites.mjs`
 - **Critérios de Aceitação:** R3 atendida; `off` desliga a chamada sem apagar o código.
 - **Depende de:** INTEGRACAO-DEEPSEEK.3

@@ -104,3 +104,4 @@
 | AGENTES-REALTIME.21 | Aposentar `servidor.py`, `config_graphs.py` e o `.env` do dashboard (se a pergunta 4 for a) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | AGENTES-REALTIME.20 | ✅ Concluído | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AGENTES-REALTIME.27 | Atualizar menções a `/api/agentes` em `AGENTS.md` e docs · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | AGENTES-REALTIME.20 | ✅ Concluído | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AGENTES-REALTIME.26 | Documentar o fluxo no `README.md` do dashboard · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | AGENTES-REALTIME.20 | ✅ Concluído | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
+| INTEGRACAO-DEEPSEEK.1 | Responder P1, P2 e P3 (decisões do usuário) | 🟡 Média | Usuário | Nenhuma | ✅ Concluído | — | [ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md) |
