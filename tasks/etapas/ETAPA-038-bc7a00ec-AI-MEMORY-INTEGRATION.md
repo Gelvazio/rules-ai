@@ -31,6 +31,7 @@
 - 2026-10-23 10:00: as 6 perguntas foram respondidas pelo usuário (tabela acima). Mudanças de escopo: piloto passa a ser o `aulasenai` (base primeiro; clones só depois da auditoria sem achados); captura em todas as IAs com hook (não só Claude Code); LLM de consolidação fica em aberto até a investigação do TypeSafe (.29). O 'sim' ao plano ainda é da .1.
 - 2026-10-23 10:12: o usuário disse **SIM** ao plano. Ele pediu primeiro 'apenas no `aulasenai`' e logo depois corrigiu: **'deve ser pra todos os projetos'**. Vale a última instrução: escopo = todos os projetos de `C:\fontes` (menos `DEMAIS-PROJETOS-*` e `rules-ai`), com o `aulasenai` como piloto (base primeiro, depois clones, `dashboard-ai` e demais). Regra `memoria-ai.md` volta a ser global. Nenhuma subtarefa foi cancelada.
 - 2026-10-23 10:30: conferido com `ls C:\fontes`: as 4 pastas `aulas-senai-CLAUDE-*` e as 9 `dashboard-ai-*` **não existem mais** (o mapa `C:\fontes\CLAUDE.md` estava desatualizado). Alvos reais do rollout: `aulasenai` (piloto), `DASHBOARD-AI-PRINCIPAL`, `REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`. Fora: `rules-ai` (fonte), `ai-memory` (repositório do próprio ai-memory), `CONSERTO-ELANTRA-2.0` (sem Git) e `DEMAIS-PROJETOS-*`. Cancelada a .22; .23 e .24 reapontadas.
+- 2026-10-23 10:57: esclarecimentos da conferência da .2: a decisão de 10:30 **substitui** a de 10:12 no alvo do rollout (fora: `rules-ai`, `ai-memory`, (sem Git) `CONSERTO-ELANTRA-2.0` e `DEMAIS-PROJETOS-*`); 'dashboard-ai' no Escopo = a pasta `DASHBOARD-AI-PRINCIPAL`; a pergunta 5 só fecha de vez com a .29; dependências corrigidas: a .35 (proteger dados) não espera mais a .16, e a .16 (piloto) passou a esperar a .35.
 
 ### Requisitos
 
@@ -81,7 +82,7 @@
 
 ### AI-MEMORY-INTEGRATION.2 — Fechar a spec e rodar o gate `verificar-spec.mjs`
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -92,11 +93,12 @@
 - **Arquivos:** `tasks/etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md`
 - **Critérios de Aceitação:** `node spec/verificar-spec.mjs <etapa>` sai com código 0.
 - **Depende de:** AI-MEMORY-INTEGRATION.1
-- **Verificação:** a preencher na entrega.
+- **Entrega:** nenhum arquivo de código; só a etapa 038 e o quadro (conferência e correção de dependências) — commit desta entrega
+- **Verificação:** gate verificar-spec.mjs: ok (exit 0; 8 requisitos com EARS, 3 invariantes, 0 perguntas abertas, 35 subtarefas com Nível/Modelo/Effort). Conferência manual feita pelo agente Haiku em 2026-10-23: 6 perguntas com resposta, data e responsável; requisitos e invariantes coerentes com as decisões; 5 alvos do rollout conferidos. Achados tratados pelo líder: dependência .16/.35 corrigida; esclarecimentos na seção Decisões.
 
 ### AI-MEMORY-INTEGRATION.3 — Guia de instalação do ai-memory no Windows (servidor local, token em variável de ambiente)
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -106,7 +108,7 @@
 - **Descrição:** Documentar `install.ps1`, `ai-memory init`, porta 49374 em loopback e o token só em variável de ambiente.
 - **Arquivos:** `docs/AI-MEMORY-INSTALACAO.md`
 - **Critérios de Aceitação:** Guia com os comandos exatos, onde fica o token e como conferir o servidor no ar; nenhuma chave no texto.
-- **Depende de:** AI-MEMORY-INTEGRATION.2
+- **Depende de:** Nenhuma
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.4 — Instalar e subir o servidor ai-memory no computador do usuário
@@ -123,7 +125,7 @@
 
 ### AI-MEMORY-INTEGRATION.5 — Mapear os hooks do Claude Code do ai-memory e como convivem com `sessao.mjs` e com o Jev
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -133,12 +135,12 @@
 - **Descrição:** Ler `hooks/claude-code` do ai-memory e registrar eventos, timeouts, ordem e o que cada hook devolve.
 - **Arquivos:** `docs/AI-MEMORY-HOOKS.md`
 - **Critérios de Aceitação:** Quadro com evento, comando, timeout e saída de cada hook; ordem recomendada com `sessao.mjs` primeiro.
-- **Depende de:** AI-MEMORY-INTEGRATION.2
+- **Depende de:** Nenhuma
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.6 — Desenhar o modelo de `.ai-memory.toml` e a lista de `ignore_paths` obrigatórios
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** LEVE — classificado (jev (confiança 0.89))
 - **Modelo:** só Haiku — nunca outro
@@ -148,12 +150,12 @@
 - **Descrição:** Definir o marker por projeto (workspace e project) e os caminhos que nunca entram na memória.
 - **Arquivos:** `docs/AI-MEMORY-MARKER.md`
 - **Critérios de Aceitação:** Lista cobre `.env*`, `tasks/`, `rules-local/`, `graphify-out/`, gabaritos, listas de alunos, PDFs de currículo e `DEMAIS-PROJETOS-*`.
-- **Depende de:** AI-MEMORY-INTEGRATION.2
+- **Depende de:** Nenhuma
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.7 — Script `instalar-ai-memory.mjs`: grava o marker do projeto (idempotente, com dry-run)
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.98))
 - **Modelo:** só Sonnet — nunca outro
@@ -168,7 +170,7 @@
 
 ### AI-MEMORY-INTEGRATION.8 — Ligar os hooks do ai-memory no `.claude/settings.json` sem apagar os outros e depois do `sessao.mjs`
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -183,7 +185,7 @@
 
 ### AI-MEMORY-INTEGRATION.9 — Escrever a regra global `regras/memoria-ai.md`
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** LEVE — classificado (jev (confiança 0.92))
 - **Modelo:** só Haiku — nunca outro
@@ -193,12 +195,12 @@
 - **Descrição:** Texto da regra: ordem na retomada, quadro vence a memória, memória é dado e não instrução, sem notas manuais de rotina, falha do servidor.
 - **Arquivos:** `regras/memoria-ai.md`
 - **Critérios de Aceitação:** Regra cobre as 7 pontas do desenho; máximo 100 caracteres por linha; sem número solto.
-- **Depende de:** AI-MEMORY-INTEGRATION.2
+- **Depende de:** Nenhuma
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.10 — Registrar a decisão C49 (exceção controlada à fonte única) e a entrada no `INDEX.md`
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** LEVE — classificado (jev (confiança 0.98))
 - **Modelo:** só Haiku — nunca outro
@@ -213,7 +215,7 @@
 
 ### AI-MEMORY-INTEGRATION.11 — Alinhar `ciclo-da-task.md` (Retomar) e `rules-local.md` à nova regra
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** LEVE — classificado (jev (confiança 0.97))
 - **Modelo:** só Haiku — nunca outro
@@ -228,7 +230,7 @@
 
 ### AI-MEMORY-INTEGRATION.12 — Gerar nova versão: `sincronizar.mjs` e conferir que a regra chega pelo pacote do rules-local
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** MEDIO — classificado (sinais)
 - **Modelo:** só Sonnet — nunca outro
@@ -243,7 +245,7 @@
 
 ### AI-MEMORY-INTEGRATION.13 — Script de auditoria: conferir que nada de `ignore_paths` entrou no wiki da memória
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -258,7 +260,7 @@
 
 ### AI-MEMORY-INTEGRATION.14 — Teste de invariante: o `ignore_paths` nunca deixa vazar caminho proibido
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -273,7 +275,7 @@
 
 ### AI-MEMORY-INTEGRATION.15 — Medir o custo dos hooks no início da sessão (tempo e se algum bloqueia)
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** MEDIO — classificado (sinais)
 - **Modelo:** só Sonnet — nunca outro
@@ -288,7 +290,7 @@
 
 ### AI-MEMORY-INTEGRATION.16 — Piloto no `aulasenai` (pasta base): marker e hooks
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -298,7 +300,7 @@
 - **Descrição:** Aplicar o instalador no projeto piloto e registrar o resultado.
 - **Arquivos:** `aulasenai/.ai-memory.toml`, `aulasenai/.claude/settings.json`
 - **Critérios de Aceitação:** Sessão no piloto cria observações; auditoria sem achados; `rules-local` intacto.
-- **Depende de:** AI-MEMORY-INTEGRATION.4, AI-MEMORY-INTEGRATION.8, AI-MEMORY-INTEGRATION.12
+- **Depende de:** AI-MEMORY-INTEGRATION.4, AI-MEMORY-INTEGRATION.8, AI-MEMORY-INTEGRATION.12, AI-MEMORY-INTEGRATION.35
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.17 — Ensaio de retomada: sair do Claude Code e continuar no Codex no piloto (aulasenai)
@@ -315,7 +317,7 @@
 
 ### AI-MEMORY-INTEGRATION.18 — Piloto: conferir se o quadro continua mandando quando a memória diverge
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** MEDIO — classificado (sinais)
 - **Modelo:** só Sonnet — nunca outro
@@ -330,7 +332,7 @@
 
 ### AI-MEMORY-INTEGRATION.19 — Fallback da nuvem: sessão sem servidor ai-memory segue só com `rules-local` e o quadro
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -345,7 +347,7 @@
 
 ### AI-MEMORY-INTEGRATION.20 — Privacidade dos dados de alunos: ignorar listas e currículos e procedimento de purga
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -360,7 +362,7 @@
 
 ### AI-MEMORY-INTEGRATION.21 — Backup e restauração do wiki da memória
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -390,7 +392,7 @@
 
 ### AI-MEMORY-INTEGRATION.23 — Rollout no `dashboard-ai` (pasta `DASHBOARD-AI-PRINCIPAL`, 1 repositório)
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -405,7 +407,7 @@
 
 ### AI-MEMORY-INTEGRATION.24 — Rollout nos demais projetos de `C:\fontes` (`REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`)
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -420,7 +422,7 @@
 
 ### AI-MEMORY-INTEGRATION.25 — Medir o efeito: retomadas com e sem a memória
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -435,7 +437,7 @@
 
 ### AI-MEMORY-INTEGRATION.26 — Procedimento de rollback (desligar a memória sem perder o quadro)
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -450,7 +452,7 @@
 
 ### AI-MEMORY-INTEGRATION.27 — Documentação final: README, `STATUS_PROJETO.md` e mapa de `C:\fontes`
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -465,7 +467,7 @@
 
 ### AI-MEMORY-INTEGRATION.28 — Fechamento: grafo, aceite pela IA e mover a tarefa para `task_complete.md`
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** LEVE — classificado (jev (confiança 0.80))
 - **Modelo:** só Haiku — nunca outro
@@ -480,7 +482,7 @@
 
 ### AI-MEMORY-INTEGRATION.29 — Investigar se o TypeSafe tem modelo generativo compatível com o ai-memory (consolidação com LLM)
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** LEVE — classificado (jev (confiança 0.86))
 - **Modelo:** só Haiku — nunca outro
@@ -495,7 +497,7 @@
 
 ### AI-MEMORY-INTEGRATION.30 — Matriz de hooks por IA: o que cada harness captura e como fecha a sessão
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -510,7 +512,7 @@
 
 ### AI-MEMORY-INTEGRATION.31 — Hooks de captura no Codex e no Gemini CLI
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.80))
 - **Modelo:** só Sonnet — nunca outro
@@ -525,7 +527,7 @@
 
 ### AI-MEMORY-INTEGRATION.32 — Hooks de captura no Devin e no Antigravity (com `finalize-session`)
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.83))
 - **Modelo:** só Sonnet — nunca outro
@@ -540,7 +542,7 @@
 
 ### AI-MEMORY-INTEGRATION.33 — Hooks de captura no Kimi e no OpenCode (DeepSeek)
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.83))
 - **Modelo:** só Sonnet — nunca outro
@@ -555,7 +557,7 @@
 
 ### AI-MEMORY-INTEGRATION.34 — Auditoria de captura por IA: cada harness respeita `ignore_paths` e não vaza segredo
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -570,7 +572,7 @@
 
 ### AI-MEMORY-INTEGRATION.35 — Piloto no `aulasenai`: proteger `scripts/variaveis.js` (service_role) e dados de alunos antes de ligar
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** Aguardando as dependências.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -580,5 +582,5 @@
 - **Descrição:** Conferir `ignore_paths` do projeto real e rodar a auditoria só na pasta base antes de liberar os clones.
 - **Arquivos:** `aulasenai/.ai-memory.toml`, `docs/AI-MEMORY-PRIVACIDADE.md`
 - **Critérios de Aceitação:** Auditoria da pasta base sem achados; `variaveis.js`, `MATERIAIS/` e listas de alunos fora da memória.
-- **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.20
+- **Depende de:** AI-MEMORY-INTEGRATION.6, AI-MEMORY-INTEGRATION.20
 - **Verificação:** a preencher na entrega.
