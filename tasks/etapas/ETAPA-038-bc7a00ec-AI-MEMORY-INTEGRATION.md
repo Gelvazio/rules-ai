@@ -165,7 +165,7 @@
 
 ### AI-MEMORY-INTEGRATION.7 — Script `instalar-ai-memory.mjs`: grava o marker do projeto (idempotente, com dry-run)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.98))
 - **Modelo:** só Sonnet — nunca outro
@@ -176,7 +176,8 @@
 - **Arquivos:** `scripts/instalar-ai-memory.mjs`
 - **Critérios de Aceitação:** Rodar duas vezes não muda o arquivo; `--dry-run` não grava; projeto em `DEMAIS-PROJETOS-*` é recusado.
 - **Depende de:** AI-MEMORY-INTEGRATION.6
-- **Verificação:** a preencher na entrega.
+- **Entrega:** scripts/instalar-ai-memory.mjs (commit desta entrega), feito por w-a7 (Sonnet 5.5, herdr w2:pQ, conta B).
+- **Verificação:** node --check ok; 0 linhas >100; --dry-run em aulasenai mostra o marker e não grava; caminho em DEMAIS-PROJETOS-* recusado com código 1; rodar duas vezes numa pasta temporária deixa o arquivo igual (sha256). Conferido pelo líder.
 
 ### AI-MEMORY-INTEGRATION.8 — Ligar os hooks do ai-memory no `.claude/settings.json` sem apagar os outros e depois do `sessao.mjs`
 
