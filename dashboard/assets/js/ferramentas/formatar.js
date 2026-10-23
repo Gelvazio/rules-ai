@@ -57,7 +57,7 @@ export function textoPreco(preco) {
 /**
  * Domínio de uma URL, para rótulos curtos.
  * @param {string} url - Endereço completo.
- * @returns {string} Ex.: "tripo3d.ai".
+ * @returns {string} Ex.: "exemplo.com".
  */
 export function dominio(url) {
   try {

@@ -11,7 +11,6 @@ Reels do Instagram:
 
 Sites de modelos 3D:
 - L04: https://hyper3d.ai/pt
-- L05: https://www.tripo3d.ai/pt
 - L06: https://www.hi3d.ai/pt
 - L07: https://v2fun.ai/pt-BR/features/ai-3d-model-generator
 - L08: https://www.kimi.ai/pt-br/resources/best-ai-3d-image-generators

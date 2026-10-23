@@ -196,100 +196,6 @@ export const DADOS_FERRAMENTAS = {
       ]
     },
     {
-      "id": "L05",
-      "url": "https://www.tripo3d.ai/pt",
-      "tipo": "gerador_modelo_3d",
-      "tipo_natureza": "fato",
-      "acessou": true,
-      "erro": null,
-      "titulo": "Gerador de modelos 3D com Tripo AI | De prompts e imagens para 3D",
-      "descricao": "Crie modelos 3D gratuitos com o Tripo AI — transforme prompts ou imagens em modelos 3D de alta precisão, prontos para jogos, impressão 3D e animações",
-      "formatos": [
-        "3MF",
-        "FBX",
-        "GLB",
-        "OBJ",
-        "STL"
-      ],
-      "precos": [
-        {
-          "texto": "$0.01",
-          "moeda": "USD",
-          "valor": 0.01,
-          "fonte": "https://developers.tripo3d.ai/",
-          "valor_brl": 0.05
-        },
-        {
-          "texto": "$0.05",
-          "moeda": "USD",
-          "valor": 0.05,
-          "fonte": "https://developers.tripo3d.ai/",
-          "valor_brl": 0.25
-        },
-        {
-          "texto": "$0.10",
-          "moeda": "USD",
-          "valor": 0.1,
-          "fonte": "https://developers.tripo3d.ai/",
-          "valor_brl": 0.51
-        },
-        {
-          "texto": "5 créditos",
-          "moeda": "creditos",
-          "valor": 5.0,
-          "fonte": "https://developers.tripo3d.ai/"
-        },
-        {
-          "texto": "10 créditos",
-          "moeda": "creditos",
-          "valor": 10.0,
-          "fonte": "https://developers.tripo3d.ai/"
-        },
-        {
-          "texto": "20 créditos",
-          "moeda": "creditos",
-          "valor": 20.0,
-          "fonte": "https://developers.tripo3d.ai/"
-        },
-        {
-          "texto": "25 créditos",
-          "moeda": "creditos",
-          "valor": 25.0,
-          "fonte": "https://developers.tripo3d.ai/"
-        },
-        {
-          "texto": "30 créditos",
-          "moeda": "creditos",
-          "valor": 30.0,
-          "fonte": "https://developers.tripo3d.ai/"
-        },
-        {
-          "texto": "50 créditos",
-          "moeda": "creditos",
-          "valor": 50.0,
-          "fonte": "https://developers.tripo3d.ai/"
-        }
-      ],
-      "ferramentas_citadas": [],
-      "paginas_extras": [
-        {
-          "url": "https://www.tripo3d.ai/pt/pricing",
-          "acessou": false,
-          "titulo": "Um momento…"
-        },
-        {
-          "url": "https://www.tripo3d.ai/pt/terms",
-          "acessou": false,
-          "titulo": "Um momento…"
-        },
-        {
-          "url": "https://developers.tripo3d.ai/",
-          "acessou": true,
-          "titulo": "Tripo Developers — API de geração 3D com IA"
-        }
-      ]
-    },
-    {
       "id": "L06",
       "url": "https://www.hi3d.ai/pt",
       "tipo": "gerador_modelo_3d",
@@ -533,7 +439,6 @@ export const DADOS_FERRAMENTAS = {
         "Kimi Build",
         "SupaVoxel",
         "Meshy AI",
-        "Tripo AI",
         "Canva",
         "PrintPal",
         "AI3DGen",
@@ -837,22 +742,6 @@ export const DADOS_FERRAMENTAS = {
         "biblioteca": null,
         "criado_em": "2025-03-11T21:59:25.000Z",
         "atualizado_em": "2025-03-17T12:18:15.000Z",
-        "gated": false
-      },
-      {
-        "id": "stabilityai/TripoSR",
-        "url": "https://huggingface.co/stabilityai/TripoSR",
-        "autor": "stabilityai",
-        "tarefas": [
-          "image-to-3d"
-        ],
-        "pipeline_tag": "image-to-3d",
-        "downloads": 257777,
-        "likes": 676,
-        "licenca": "mit",
-        "biblioteca": null,
-        "criado_em": "2024-02-29T13:01:16.000Z",
-        "atualizado_em": "2024-08-09T08:52:03.000Z",
         "gated": false
       },
       {

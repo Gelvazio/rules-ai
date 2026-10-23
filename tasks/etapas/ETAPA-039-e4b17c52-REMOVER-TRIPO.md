@@ -92,20 +92,21 @@ reescrever o histórico do Git.
 
 | # | Pergunta | Resposta | Fechada em | Quem respondeu |
 |---|----------|----------|------------|----------------|
-| 1 | A ETAPA-020 (DASHBOARD-AGENTES, aprovada, ainda pendente) também tira a Tripo do `dashboard/`. **a)** esta tarefa faz já a parte da Tripo e a DASHBOARD-AGENTES.3, .4 e .5 deixam de tratá-la (recomendado) **ou b)** esta tarefa espera a DASHBOARD-AGENTES e cuida só do quadro, das etapas e do `golden.jsonl`? | ⬜ aberta | — | — |
-| 2 | Para o histórico (decisões do `STATUS.md` e etapas 013, 020, 031): **a)** apagar as linhas e trechos que citam a Tripo (recomendado; o Git guarda) **ou b)** trocar o nome por "gerador 3D removido" e manter a história? | ⬜ aberta | — | — |
-| 3 | A ETAPA-013 (DASHBOARD-REDE-NEURAL, 22 menções, tarefa já encerrada) é **a)** apagada inteira, junto das linhas dela no `task_complete.md`, **ou b)** só tem os trechos da Tripo removidos? | ⬜ aberta | — | — |
+| 1 | A ETAPA-020 (DASHBOARD-AGENTES, aprovada, ainda pendente) também tira a Tripo do `dashboard/`. **a)** esta tarefa faz já a parte da Tripo e a DASHBOARD-AGENTES.3, .4 e .5 deixam de tratá-la (recomendado) **ou b)** esta tarefa espera a DASHBOARD-AGENTES e cuida só do quadro, das etapas e do `golden.jsonl`? | **a)** esta tarefa faz já a parte da Tripo | 2026-10-23 11:21 | Gelvazio ("1-a") |
+| 2 | Para o histórico (decisões do `STATUS.md` e etapas 013, 020, 031): **a)** apagar as linhas e trechos que citam a Tripo (recomendado; o Git guarda) **ou b)** trocar o nome por "gerador 3D removido" e manter a história? | **a)** apagar as linhas e trechos | 2026-10-23 11:21 | Gelvazio ("2-a") |
+| 3 | A ETAPA-013 (DASHBOARD-REDE-NEURAL, 22 menções, tarefa já encerrada) é **a)** apagada inteira, junto das linhas dela no `task_complete.md`, **ou b)** só tem os trechos da Tripo removidos? | **b)** só os trechos da Tripo | 2026-10-23 11:21 | Gelvazio ("3-b") |
 
 ### Decisões
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
 | 2026-10-23 11:15 | Registrada como tarefa grande (`PESADO`, spec C34): apaga arquivos e reescreve histórico em massa; execução só depois das perguntas fechadas e do "sim" ao plano. Nada foi apagado | Claude Code (Sonnet 5.5) | Regra do ciclo da task (tarefa grande exige aprovação) |
+| 2026-10-23 11:21 | O usuário respondeu 1-a, 2-a e 3-b e disse SIM ao plano. `.1` e `.2` entregues. Achado: `graphify-out/` é versionado e tem ~700 menções à Tripo (snapshots de 17 a 19/10 + grafo atual); entra na `.5`: regenerar o grafo e apagar os snapshots datados que citam a Tripo ("TUDO") | Gelvazio / Claude Code (Sonnet 5.5) | Pedido "remover Tripo de tudo" |
 | 2026-10-23 11:15 | Levantamento: `task_complete.md` não cita a Tripo; a história dela está no Registro de decisões do `STATUS.md` e nas etapas 013, 020 e 031 | Claude Code (Sonnet 5.5) | `grep -i tripo` na pasta, excluindo `.git`, `node_modules` e `graphify-out` |
 
 ### REMOVER-TRIPO.1 — Fechar as perguntas abertas e aprovar o plano
 
-**Próximo passo:** o usuário responde as 3 perguntas e diz "sim" ao plano; a IA registra em Decisões.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** Usuário — só o usuário pode fazer (resposta e aprovação do plano de tarefa grande)
 - **Modelo:** Usuário
@@ -113,10 +114,11 @@ reescrever o histórico do Git.
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** fechar as perguntas 1 a 3 e dar o "sim" ao plano desta etapa.
 - **Critérios de Aceitação:** nenhum `⬜` em Perguntas abertas; "sim" registrado em Decisões.
+- **Verificação:** respostas 1-a, 2-a e 3-b e "sim" ao plano registrados em Decisões (2026-10-23 11:21).
 
 ### REMOVER-TRIPO.2 — Dashboard: apagar a Tripo do código, das rotas, da chave e dos docs
 
-**Próximo passo:** esperar a `.1`; listar os imports dos módulos que ficam (INV-1) e só então rodar o `git rm`.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — apaga arquivos em massa e muda vários arquivos ligados (servidor, JS, config)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -128,6 +130,8 @@ reescrever o histórico do Git.
 - **Critérios de Aceitação:** R1.1 (parte `dashboard/`), R1.2, R2.1, R2.2; INV-1; INV-2; `node --check` e
   `python -m py_compile`.
 - **Depende de:** REMOVER-TRIPO.1
+- **Entrega:** commit "chore(dashboard): remove a Tripo do dashboard (REMOVER-TRIPO.2)".
+- **Verificação:** `git grep -i tripo -- dashboard` vazio; `py_compile` em `servidor.py`, `config_graphs.py` e `config_coleta.py`; `node --check` em `api.js`, `config.js`, `menu.js`, `ferramentas.js`, `formatar.js`; import do `servidor` ok com só `rota_agentes` e `rota_projetos`; `quadro` devolve `tarefas` e `atualizado_em` e 6 projetos; INV-1 sem caminho local faltando (os `three/addons/...` são do import map). Removidos: `cliente_tripo.py`, `galeria_modelos.py`, `cenas_prompts.py`, `TRIPO_AI_DOCS.md`, `cenas/prompt-04.json`, `chave.js`, `saldo.js`, `modal-config.js`, `principal.js`, `cena.js`, `cenas/{hud,linha-do-tempo,prompt-04}.js`; blocos L05 e TripoSR tirados de `dados/ferramentas.js`; links "3D GRAPHS AI" e "Cena do prompt 04" tirados do menu. Não rodei as rotas pelo navegador.
 
 ### REMOVER-TRIPO.3 — Quadro e etapas: tirar a Tripo das tarefas e do histórico
 

@@ -20,7 +20,6 @@ preços, planos, API, licença comercial etc.).
 |---|---|---|---|
 | L01–L03 | Instagram (reels) | `reel` | Coleta manual (ver seção 5) |
 | L04 | hyper3d.ai | `gerador_modelo_3d` | Playwright (site em JavaScript) |
-| L05 | tripo3d.ai | `gerador_modelo_3d` | Playwright |
 | L06 | hi3d.ai | `gerador_modelo_3d` | Playwright |
 | L07 | v2fun.ai | `gerador_modelo_3d` | Playwright |
 | L08 | kimi.ai (artigo) | `artigo_comparativo` | `requests` + BeautifulSoup |
@@ -70,7 +69,6 @@ from playwright.sync_api import sync_playwright
 
 LINKS = {
     "L04": "https://hyper3d.ai/pt",
-    "L05": "https://www.tripo3d.ai/pt",
     "L06": "https://www.hi3d.ai/pt",
     "L07": "https://v2fun.ai/pt-BR/features/ai-3d-model-generator",
     "L08": "https://www.kimi.ai/pt-br/resources/best-ai-3d-image-generators",

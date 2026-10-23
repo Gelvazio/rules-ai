@@ -10,8 +10,6 @@ const PROJETOS_PADRAO = Object.freeze({ padrao: 'rules-ai', projetos: [{ id: 'ru
 
 const ITENS_MENU = Object.freeze([
   { texto: 'Dashboard', href: '../index.html' },
-  { texto: '3D GRAPHS AI', href: 'index.html' },
-  { texto: 'Cena do prompt 04', href: 'cena.html' },
   { texto: 'Agentes ao vivo', href: 'agentes.html' },
 ]);
 
