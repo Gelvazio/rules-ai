@@ -8,7 +8,7 @@
 
 - **Entra:** regra global `memoria-ai.md`; decisão C49; instalador do marker e dos hooks; auditoria e teste de invariante;
   piloto, rollout em `aulasenai`, `dashboard-ai` e demais projetos; medição; rollback; documentação.
-- **Entra (acrescentado em 2026-10-23):** hooks de captura em todas as IAs com suporte (Codex, Gemini, Devin, Antigravity, Kimi, OpenCode/DeepSeek); investigação do TypeSafe como provedor generativo.
+- **Entra (acrescentado em 2026-10-23; reduzido pela decisão A da .36):** captura só no Claude Code; as outras IAs ficam fora até nova ordem; investigação do TypeSafe como provedor generativo.
 - **Não entra:** substituir o `tasks/STATUS.md`; gravar status, nível ou reserva a partir da memória; mexer em
   `DEMAIS-PROJETOS-*`; alterar o código do ai-memory (é de terceiros); disparo automático de sessões (C28).
 - **Nível:** tarefa grande (`PESADO`, spec C34): plano na própria etapa e execução só depois do 'sim'.
@@ -35,6 +35,7 @@
 - 2026-10-23: pergunta 5 fecha de vez com a .29: o TypeSafe/Jev NÃO serve para consolidar memória (só classifica por perguntas fechadas). O ai-memory segue sem LLM; qualquer provedor generativo futuro (Anthropic, OpenAI etc.) é decisão nova do usuário.
 - 2026-10-23: achado da .5 para a .8: nem o ai-memory nem o Claude Code documentam a ordem de execução entre hooks do mesmo evento; a .8 deve medir a ordem na prática (e não presumir) e tratar o fato de o aulasenai ter inicio-da-sessao.js antes do sessao.mjs.
 - 2026-10-23: achado da .30: apenas o Claude Code aceita --scope project; nas demais IAs o hook fica global e, sem .ai-memory.toml, o repositório é capturado por padrão. Aberta a subtarefa .36 (decisão do usuário) e as .31, .32 e .33 passam a depender dela.
+- 2026-10-23 11:02: **decisão A da .36 (usuário): captura só no Claude Code por enquanto; Codex, Gemini, Devin, Antigravity, Kimi, OpenCode e DeepSeek ficam sem captura até nova ordem.** Isso substitui a resposta 6 (todas as IAs). Canceladas: .31, .32, .33 (hooks nas outras IAs) e .17 (ensaio Claude → Codex, que precisaria do hook no Codex). A .34 passa a auditar só o Claude Code; a .25 não depende mais da .17. Reabrir as outras IAs exige nova tarefa, já com a matriz da .30 (`docs/AI-MEMORY-HOOKS-POR-IA.md`) pronta.
 
 ### Requisitos
 
@@ -310,7 +311,7 @@
 
 ### AI-MEMORY-INTEGRATION.17 — Ensaio de retomada: sair do Claude Code e continuar no Codex no piloto (aulasenai)
 
-**Próximo passo:** Ação do usuário no computador dele.
+**Próximo passo:** nenhum — cancelada (decisão A da .36).
 
 - **Nível:** Usuário — só o usuário pode fazer (ação no computador ou resposta)
 - **Modelo:** Usuário
@@ -318,7 +319,7 @@
 - **Descrição:** Fazer uma tarefa curta no Claude, encerrar, abrir o Codex e conferir o handoff.
 - **Critérios de Aceitação:** Codex recebe o brief; a ordem Quadro primeiro, memória depois foi seguida; resultado anotado.
 - **Depende de:** AI-MEMORY-INTEGRATION.16
-- **Verificação:** a preencher na entrega.
+- **Verificação:** cancelada, não executada: a decisão A da .36 deixa as outras IAs sem captura até nova ordem do usuário (2026-10-23).
 
 ### AI-MEMORY-INTEGRATION.18 — Piloto: conferir se o quadro continua mandando quando a memória diverge
 
@@ -519,7 +520,7 @@
 
 ### AI-MEMORY-INTEGRATION.31 — Hooks de captura no Codex e no Gemini CLI
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — cancelada (decisão A da .36).
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.80))
 - **Modelo:** só Sonnet — nunca outro
@@ -530,11 +531,11 @@
 - **Arquivos:** `scripts/instalar-ai-memory.mjs`, `.codex/hooks.json`, config do Gemini
 - **Critérios de Aceitação:** Os dois capturam no piloto; reexecução não duplica; nenhum hook bloqueia a mensagem.
 - **Depende de:** AI-MEMORY-INTEGRATION.30, AI-MEMORY-INTEGRATION.7, AI-MEMORY-INTEGRATION.36
-- **Verificação:** a preencher na entrega.
+- **Verificação:** cancelada, não executada: a decisão A da .36 deixa as outras IAs sem captura até nova ordem do usuário (2026-10-23).
 
 ### AI-MEMORY-INTEGRATION.32 — Hooks de captura no Devin e no Antigravity (com `finalize-session`)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — cancelada (decisão A da .36).
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.83))
 - **Modelo:** só Sonnet — nunca outro
@@ -545,11 +546,11 @@
 - **Arquivos:** `scripts/instalar-ai-memory.mjs`, `docs/AI-MEMORY-HOOKS.md`
 - **Critérios de Aceitação:** Os dois capturam; sessão do Antigravity é fechada pelo comando; resultado registrado.
 - **Depende de:** AI-MEMORY-INTEGRATION.30, AI-MEMORY-INTEGRATION.7, AI-MEMORY-INTEGRATION.36
-- **Verificação:** a preencher na entrega.
+- **Verificação:** cancelada, não executada: a decisão A da .36 deixa as outras IAs sem captura até nova ordem do usuário (2026-10-23).
 
 ### AI-MEMORY-INTEGRATION.33 — Hooks de captura no Kimi e no OpenCode (DeepSeek)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — cancelada (decisão A da .36).
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.83))
 - **Modelo:** só Sonnet — nunca outro
@@ -560,9 +561,9 @@
 - **Arquivos:** `scripts/instalar-ai-memory.mjs`, `docs/AI-MEMORY-HOOKS.md`
 - **Critérios de Aceitação:** Kimi e OpenCode capturam; caminho do DeepSeek documentado.
 - **Depende de:** AI-MEMORY-INTEGRATION.30, AI-MEMORY-INTEGRATION.7, AI-MEMORY-INTEGRATION.36
-- **Verificação:** a preencher na entrega.
+- **Verificação:** cancelada, não executada: a decisão A da .36 deixa as outras IAs sem captura até nova ordem do usuário (2026-10-23).
 
-### AI-MEMORY-INTEGRATION.34 — Auditoria de captura por IA: cada harness respeita `ignore_paths` e não vaza segredo
+### AI-MEMORY-INTEGRATION.34 — Auditoria de captura do Claude Code: respeita `ignore_paths` e não vaza segredo
 
 **Próximo passo:** Aguardando as dependências.
 
@@ -571,10 +572,10 @@
 - **Effort:** high
 - **JEV-AI-SUGGESTION:** NAO
 - **Fonte:** sinais
-- **Descrição:** Rodar a auditoria e o teste de invariante com eventos de cada IA instalada.
+- **Descrição:** Rodar a auditoria e o teste de invariante com eventos do Claude Code (única IA com captura, decisão A da .36).
 - **Arquivos:** `scripts/ai-memory-auditar.mjs`, `scripts/testes/ai-memory-invariantes.mjs`
 - **Critérios de Aceitação:** Nenhuma IA grava caminho proibido nem segredo; achados corrigidos antes dos clones.
-- **Depende de:** AI-MEMORY-INTEGRATION.31, AI-MEMORY-INTEGRATION.32, AI-MEMORY-INTEGRATION.33, AI-MEMORY-INTEGRATION.13, AI-MEMORY-INTEGRATION.14
+- **Depende de:** AI-MEMORY-INTEGRATION.13, AI-MEMORY-INTEGRATION.14
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.35 — Piloto no `aulasenai`: proteger `scripts/variaveis.js` (service_role) e dados de alunos antes de ligar
@@ -594,7 +595,7 @@
 
 ### AI-MEMORY-INTEGRATION.36 — Decidir a captura nas IAs sem escopo por projeto
 
-**Próximo passo:** o usuário escolhe uma das opções abaixo; depois liberam-se as .31, .32 e .33.
+**Próximo passo:** nenhum — decidido.
 
 - **Nível:** Usuário — só o usuário decide
 - **Modelo:** Usuário
@@ -602,4 +603,4 @@
 - **Descrição:** a .30 mostrou que só o Claude Code aceita `--scope project`. Nas demais IAs o hook fica na configuração global do usuário e, sem `.ai-memory.toml`, o repositório é capturado por padrão (inclusive pastas fora de `C:/fontes`). Opções: (A) capturar só o Claude Code por enquanto; (B) ligar as outras IAs com `install-hooks --capture-mode allowlist` (captura só repositórios com `.ai-memory.toml`); (C) ligar global sem allowlist (não recomendado).
 - **Critérios de Aceitação:** uma opção escolhida e registrada em Decisões da etapa.
 - **Depende de:** Nenhuma
-- **Verificação:** a preencher na entrega.
+- **Verificação:** decisão A registrada pelo usuário em 2026-10-23 11:02 (captura só do Claude Code por enquanto).
