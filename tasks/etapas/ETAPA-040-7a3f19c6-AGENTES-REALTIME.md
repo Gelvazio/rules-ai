@@ -519,7 +519,7 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.15 — Página sem o `setInterval` do servidor
 
-**Próximo passo:** esperar MIGRAR-AGENTES-BROADCAST.3, AGENTES-REALTIME.3.
+**Próximo passo:** reservada em 2026-10-23 14:15 para sn1 (Sonnet 5.5, herdr w2:pZ): tirar `lerAgentes`/`ROTAS.agentes` do fluxo, mover `atraso_padrao`/`intervalo` para constantes do `config.js` e reescrever a mensagem de erro que manda reiniciar o `servidor.py`.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -629,7 +629,7 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.24 — Medir a latência do `push` até o evento recebido
 
-**Próximo passo:** esperar MIGRAR-AGENTES-BROADCAST.2, MIGRAR-AGENTES-BROADCAST.3.
+**Próximo passo:** reservada em 2026-10-23 14:15 para sn2 (Sonnet 5.5, herdr w2:p11): escrever o medidor de latência em Node (assina o canal, mede do `publicado_em`/push até a mensagem) e registrar o resultado; sem a chave publicável (.12) a medição real fica pendente.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -641,7 +641,7 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.25 — Conferir os limites do plano Supabase contra a frequência de pushes
 
-**Próximo passo:** esperar AGENTES-REALTIME.14.
+**Próximo passo:** reservada em 2026-10-23 14:15 para sn3 (Sonnet 5.5, herdr w2:p12): contar os pushes reais da `main` por dia/mês no histórico e comparar com os limites do plano gratuito do Realtime; registrar a folga ou o plano B.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
