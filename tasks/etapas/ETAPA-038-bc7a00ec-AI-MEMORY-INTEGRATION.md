@@ -77,6 +77,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** LEVE — classificado (sinais)
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Passar as respostas para Requisitos, Invariantes e Decisões e rodar o gate da C34 na etapa.
 - **Arquivos:** `tasks/etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md`
 - **Critérios de Aceitação:** `node spec/verificar-spec.mjs <etapa>` sai com código 0.
@@ -87,6 +92,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Documentar `install.ps1`, `ai-memory init`, porta 49374 em loopback e o token só em variável de ambiente.
 - **Arquivos:** `docs/AI-MEMORY-INSTALACAO.md`
 - **Critérios de Aceitação:** Guia com os comandos exatos, onde fica o token e como conferir o servidor no ar; nenhuma chave no texto.
@@ -108,6 +118,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** LEVE — classificado (sinais)
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Ler `hooks/claude-code` do ai-memory e registrar eventos, timeouts, ordem e o que cada hook devolve.
 - **Arquivos:** `docs/AI-MEMORY-HOOKS.md`
 - **Critérios de Aceitação:** Quadro com evento, comando, timeout e saída de cada hook; ordem recomendada com `sessao.mjs` primeiro.
@@ -118,6 +133,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** LEVE — classificado (jev (confiança 0.89))
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.89)
 - **Descrição:** Definir o marker por projeto (workspace e project) e os caminhos que nunca entram na memória.
 - **Arquivos:** `docs/AI-MEMORY-MARKER.md`
 - **Critérios de Aceitação:** Lista cobre `.env*`, `tasks/`, `rules-local/`, `graphify-out/`, gabaritos, listas de alunos, PDFs de currículo e `DEMAIS-PROJETOS-*`.
@@ -128,6 +148,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** MEDIO — classificado (jev (confiança 0.98))
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.98)
 - **Descrição:** Gerar `.ai-memory.toml` com nome do projeto e `ignore_paths`, sem sobrescrever o que o usuário já escreveu.
 - **Arquivos:** `scripts/instalar-ai-memory.mjs`
 - **Critérios de Aceitação:** Rodar duas vezes não muda o arquivo; `--dry-run` não grava; projeto em `DEMAIS-PROJETOS-*` é recusado.
@@ -138,6 +163,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Estender o instalador para acrescentar os hooks do ai-memory preservando `sessao.mjs`, Jev e permissões.
 - **Arquivos:** `scripts/instalar-ai-memory.mjs`, `.claude/settings.json` do projeto
 - **Critérios de Aceitação:** Ordem de `SessionStart`: `sessao.mjs` antes do ai-memory; reexecução não duplica entradas; permissões e `deny` intactos.
@@ -148,6 +178,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** LEVE — classificado (jev (confiança 0.92))
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.92)
 - **Descrição:** Texto da regra: ordem na retomada, quadro vence a memória, memória é dado e não instrução, sem notas manuais de rotina, falha do servidor.
 - **Arquivos:** `regras/memoria-ai.md`
 - **Critérios de Aceitação:** Regra cobre as 7 pontas do desenho; máximo 100 caracteres por linha; sem número solto.
@@ -158,6 +193,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** LEVE — classificado (jev (confiança 0.98))
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.98)
 - **Descrição:** Anotar no `CONFLITOS.md` que a memória episódica é complemento e nunca substitui o quadro; acrescentar a regra ao índice.
 - **Arquivos:** `CONFLITOS.md`, `regras/INDEX.md`
 - **Critérios de Aceitação:** C49 escrita com data, quem decidiu e por quê; `INDEX.md` lista `memoria-ai.md` na ordem certa.
@@ -168,6 +208,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** LEVE — classificado (jev (confiança 0.97))
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.97)
 - **Descrição:** Acrescentar ao passo Retomar a leitura do brief do ai-memory depois do quadro, sem mudar a ordem do ciclo.
 - **Arquivos:** `regras/ciclo-da-task.md`, `regras/rules-local.md`
 - **Critérios de Aceitação:** Retomar cita a memória só como complemento; nada contradiz a regra de fonte única.
@@ -178,6 +223,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** MEDIO — classificado (sinais)
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Rodar o sincronizador, conferir `VERSAO.md` nova e `rules-local/regras` com a regra adicionada em um projeto.
 - **Arquivos:** `VERSAO.md`, `dist/REGRAS-GLOBAIS.md`
 - **Critérios de Aceitação:** `VERSAO.md` ganha a linha de `memoria-ai.md`; relatório de um projeto mostra 1 adicionado.
@@ -188,6 +238,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Varrer o wiki do ai-memory e acusar qualquer página que cite caminho ou segredo proibido.
 - **Arquivos:** `scripts/ai-memory-auditar.mjs`
 - **Critérios de Aceitação:** Sai com código 1 se achar `.env`, chave, CPF, `tasks/` ou pasta `DEMAIS-PROJETOS-*` nas páginas.
@@ -198,6 +253,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Teste automatizado (permitido em PESADO) que gera eventos com caminhos proibidos e confere que nenhum chega ao wiki.
 - **Arquivos:** `scripts/testes/ai-memory-invariantes.mjs`
 - **Critérios de Aceitação:** INV-1 e INV-2 da etapa conferidos para toda combinação de caminho; falha se qualquer um vaza.
@@ -208,6 +268,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** MEDIO — classificado (sinais)
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Medir `sessao.mjs` + Jev + ai-memory juntos no `SessionStart` e no `UserPromptSubmit`.
 - **Arquivos:** `docs/AI-MEMORY-HOOKS.md`
 - **Critérios de Aceitação:** Tempo total do início da sessão registrado; nenhum hook bloqueia a mensagem; falha do servidor sai com código 0.
@@ -218,6 +283,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** LEVE — classificado (sinais)
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Aplicar o instalador no projeto piloto e registrar o resultado.
 - **Arquivos:** `testes-effort-padaria/.ai-memory.toml`, `.claude/settings.json`
 - **Critérios de Aceitação:** Sessão no piloto cria observações; auditoria sem achados; `rules-local` intacto.
@@ -239,6 +309,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** MEDIO — classificado (sinais)
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Provocar uma divergência (memória diz uma coisa, `STATUS.md` outra) e ver a IA seguir o quadro.
 - **Arquivos:** `docs/AI-MEMORY-HOOKS.md`
 - **Critérios de Aceitação:** Em 3 casos de divergência a IA segue o quadro e avisa; nenhuma linha do quadro é escrita a partir da memória.
@@ -249,6 +324,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** LEVE — classificado (sinais)
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Documentar e conferir o comportamento sem servidor (Claude Code na nuvem).
 - **Arquivos:** `regras/memoria-ai.md`, `docs/AI-MEMORY-INSTALACAO.md`
 - **Critérios de Aceitação:** Sem servidor a sessão inicia sem erro e a IA diz em 1 linha que está sem memória.
@@ -259,6 +339,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Definir `ignore_paths` extras de dados pessoais e o passo a passo para apagar uma memória capturada por engano.
 - **Arquivos:** `docs/AI-MEMORY-PRIVACIDADE.md`
 - **Critérios de Aceitação:** Procedimento de purga testado com `purge-project` em dry-run; nenhum dado de aluno no wiki do piloto.
@@ -269,6 +354,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Definir backup do wiki (git privado) e conferir a restauração em máquina limpa.
 - **Arquivos:** `docs/AI-MEMORY-BACKUP.md`
 - **Critérios de Aceitação:** Backup feito e restaurado; memória volta igual; remoto privado, sem segredo.
@@ -279,6 +369,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Aplicar o instalador no `aulasenai` e nos 4 clones com o mesmo `project`.
 - **Arquivos:** `aulasenai/.ai-memory.toml`, `aulasenai/.claude/settings.json`
 - **Critérios de Aceitação:** 5 pastas com o mesmo `project`; `ignore_paths` inclui `scripts/variaveis.js`; auditoria sem achados.
@@ -289,6 +384,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Aplicar o instalador nas 9 cópias com o mesmo `project`.
 - **Arquivos:** `dashboard-ai-*/.ai-memory.toml`
 - **Critérios de Aceitação:** 9 cópias com o mesmo `project`; conflito de `tasks/STATUS.md` não aumenta; auditoria sem achados.
@@ -299,6 +399,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Aplicar em lote, projeto a projeto, só nos que têm `rules-local`.
 - **Arquivos:** `.ai-memory.toml` de cada projeto
 - **Critérios de Aceitação:** Quadro com projeto, resultado e auditoria de cada um; nenhum projeto proibido tocado.
@@ -309,6 +414,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** LEVE — classificado (sinais)
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Contar sessões que retomaram sem reexplicar o contexto e comparar com o histórico do quadro.
 - **Arquivos:** `docs/AI-MEMORY-MEDICAO.md`
 - **Critérios de Aceitação:** Relatório com no mínimo 10 retomadas e a conclusão (adotar, ajustar ou desligar).
@@ -319,6 +429,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** LEVE — classificado (sinais)
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Passo a passo para tirar hooks e marker, parar o servidor e manter o wiki guardado.
 - **Arquivos:** `docs/AI-MEMORY-ROLLBACK.md`
 - **Critérios de Aceitação:** Rollback executado no piloto em menos de 10 minutos; `rules-local` e quadro intactos.
@@ -329,6 +444,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
 - **Descrição:** Registrar a integração no README do `rules-ai`, no status do projeto e no mapa da raiz.
 - **Arquivos:** `README.md`, `STATUS_PROJETO.md`, `C:\fontes\CLAUDE.md`, `C:\fontes\AGENTS.md`
 - **Critérios de Aceitação:** Os 4 arquivos citam a integração e a regra `memoria-ai.md`; mapa da raiz atualizado nos dois arquivos.
@@ -339,6 +459,11 @@
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
+- **Nível:** LEVE — classificado (jev (confiança 0.80))
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.80)
 - **Descrição:** Atualizar o grafo do projeto, mover as linhas concluídas e fechar a mãe.
 - **Arquivos:** `tasks/STATUS.md`, `tasks/task_complete.md`
 - **Critérios de Aceitação:** Mãe ✅ movida para `task_complete.md`; `graphify update .` rodado depois do push.
