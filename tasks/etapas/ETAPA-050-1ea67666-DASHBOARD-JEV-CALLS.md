@@ -44,3 +44,14 @@
 - **Descrição:** Uma seção curta no `dashboard/README.md` (o que mostra, de onde lê, que só funciona servindo a raiz do `rules-ai` em localhost e que o texto das mensagens nunca é exibido) e entrada no `STATUS_PROJETO.md`.
 - **Critérios de Aceitação:** README correto e coerente com a página entregue.
 - **Depende de:** DASHBOARD-JEV-CALLS.1
+### DASHBOARD-JEV-CALLS.3 — Garantir que CHAMADAS JEV AI abre em nova janela
+
+**Próximo passo:** ver se o `criarLink` do `menu.js` no HEAD já trata `novaAba`.
+
+- **Nível:** MEDIO — código com lógica em `menu.js`
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** A .1 entregou o item com `novaAba: true`, mas o `criarLink` do `menu.js` commitado só lê `{ texto, href }`; a versão do working tree (alteração de outra frente, não commitada) já faz `target="_blank"`. Ver o estado do Git: se a outra frente já commitou o `menu.js`, só confirmar; senão, commitar apenas o trecho de `criarLink` que trata `novaAba`.
+- **Critérios de Aceitação:** o `menu.js` commitado põe `target="_blank"` e `rel="noopener"` em item com `novaAba`; `node --check` passa.
+- **Depende de:** DASHBOARD-JEV-CALLS.1
