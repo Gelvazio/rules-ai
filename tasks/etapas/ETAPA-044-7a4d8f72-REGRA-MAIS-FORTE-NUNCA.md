@@ -25,7 +25,7 @@
 
 ### REGRA-MAIS-FORTE-NUNCA.2 — Gerar a nova versão das regras
 
-**Próximo passo:** aguardando a .1.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — roda o sincronizador (script) e confere a saída
 - **Modelo:** só Sonnet — nunca outro
@@ -35,4 +35,5 @@
 - **Arquivos:** `VERSAO.md`, `dist/REGRAS-GLOBAIS.md`
 - **Critérios de Aceitação:** `VERSAO.md` com versão nova e `regra-maior.md`; a regra é o 1º bloco do `dist/`.
 - **Depende de:** REGRA-MAIS-FORTE-NUNCA.1
-- **Verificação:** a preencher na entrega.
+- **Entrega:** VERSAO.md na versão 2026-10-23-265a119a com regra-maior.md (commit desta entrega; dist/ fora do Git), feito por sn1 (Sonnet 5.5, herdr w2:pZ, conta D).
+- **Verificação:** node scripts/sincronizar.mjs --aplicar; VERSAO.md com a linha 1 regra-maior.md f0c7e50ae85c602b; dist/REGRAS-GLOBAIS.md começa pela regra maior logo depois do cabeçalho (conferido pelo líder). Os projetos recebem a regra pelo rules-local na próxima sessão de cada um.

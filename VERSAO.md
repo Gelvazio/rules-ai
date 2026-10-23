@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-23-a7fe983a
+- **Versão:** 2026-10-23-265a119a
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -10,29 +10,30 @@
 
 | # | Arquivo | Código |
 |---|---------|--------|
-| 0 | INDEX.md | fd01fcb7f16a4758 |
-| 1 | ciclo-da-task.md | 5e7983c54b011633 |
-| 2 | niveis-e-modelos.md | e563d4c406d280c2 |
-| 3 | frentes-e-reserva.md | 35dc8d1e8f3c16f0 |
-| 4 | comando-ponto.md | 25fab5e441b75d40 |
-| 5 | comando-interrogacao.md | e81811ae12199f38 |
-| 6 | quadro-de-tarefas.md | 412bac4a23471c1a |
-| 7 | exibicao-de-status.md | 762e831da32bdc80 |
-| 8 | git-geral.md | 9d2938daf92d3efe |
-| 9 | testes-validacao.md | 233579829f757900 |
-| 10 | codigo-limites-nomes.md | ca88cca3360ef918 |
-| 11 | codigo-solid.md | 6f3e1050946d15af |
-| 12 | espec.md | 1cfd3d3f1e4c4742 |
-| 13 | esforco.md | d897c4cb72bd6c76 |
-| 14 | graphify.md | f31357d0386045d2 |
-| 15 | gerenciador-centralizado.md | c6f5535db0d613a4 |
-| 16 | pastas-ignoradas.md | b33814d65cafd940 |
-| 17 | rules-local.md | c324790daa1a3a05 |
-| 18 | herdr.md | 0ed9c7e0c2280ae0 |
-| 19 | jev.md | 1500944d066573c9 |
-| 20 | visualizador-gerado.md | bced4974cd78dc89 |
-| 21 | memoria-ai.md | c9be07bdd8570bd9 |
-| 22 | atividades-e-idioma.md | a37b651279928422 |
+| 0 | INDEX.md | 930839c285dcd4f9 |
+| 1 | regra-maior.md | f0c7e50ae85c602b |
+| 2 | ciclo-da-task.md | 5e7983c54b011633 |
+| 3 | niveis-e-modelos.md | d04a0eebd7f950aa |
+| 4 | frentes-e-reserva.md | 35dc8d1e8f3c16f0 |
+| 5 | comando-ponto.md | 25fab5e441b75d40 |
+| 6 | comando-interrogacao.md | e81811ae12199f38 |
+| 7 | quadro-de-tarefas.md | 412bac4a23471c1a |
+| 8 | exibicao-de-status.md | 762e831da32bdc80 |
+| 9 | git-geral.md | 9d2938daf92d3efe |
+| 10 | testes-validacao.md | 233579829f757900 |
+| 11 | codigo-limites-nomes.md | ca88cca3360ef918 |
+| 12 | codigo-solid.md | 6f3e1050946d15af |
+| 13 | espec.md | 1cfd3d3f1e4c4742 |
+| 14 | esforco.md | d897c4cb72bd6c76 |
+| 15 | graphify.md | f31357d0386045d2 |
+| 16 | gerenciador-centralizado.md | c6f5535db0d613a4 |
+| 17 | pastas-ignoradas.md | b33814d65cafd940 |
+| 18 | rules-local.md | c324790daa1a3a05 |
+| 19 | herdr.md | 0ed9c7e0c2280ae0 |
+| 20 | jev.md | 1500944d066573c9 |
+| 21 | visualizador-gerado.md | bced4974cd78dc89 |
+| 22 | memoria-ai.md | c9be07bdd8570bd9 |
+| 23 | atividades-e-idioma.md | a37b651279928422 |
 
 ## Pacote do rules-local (scripts e Jev)
 
