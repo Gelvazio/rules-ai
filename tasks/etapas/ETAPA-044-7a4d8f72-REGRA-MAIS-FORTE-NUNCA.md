@@ -10,7 +10,7 @@
 
 ### REGRA-MAIS-FORTE-NUNCA.1 — Escrever a regra e registrar a C50
 
-**Próximo passo:** escrever os arquivos com o texto combinado.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — só `.md`
 - **Modelo:** só Haiku — nunca outro
@@ -20,7 +20,8 @@
 - **Arquivos:** `regras/regra-maior.md`, `regras/INDEX.md`, `CONFLITOS.md`, `regras/niveis-e-modelos.md`, `STATUS_PROJETO.md`
 - **Critérios de Aceitação:** a regra existe, é a 1ª do índice e cita a C50; nada mais muda nos arquivos.
 - **Depende de:** Nenhuma
-- **Verificação:** a preencher na entrega.
+- **Entrega:** regras/regra-maior.md (nova), regras/INDEX.md (item 0, seção "Regra maior"), CONFLITOS.md (C50), regras/niveis-e-modelos.md (aviso no topo) e STATUS_PROJETO.md (commit desta entrega), feito por h1 (Haiku 5.5, herdr w2:pY, conta D).
+- **Verificação:** diff da regra contra o texto combinado: igual; INDEX com a regra antes de "Fluxo de trabalho"; linha C50 com as mesmas 5 colunas da C49; linha de niveis-e-modelos.md corrigida (faltava o nome do arquivo); conferido pelo líder com git diff.
 
 ### REGRA-MAIS-FORTE-NUNCA.2 — Gerar a nova versão das regras
 

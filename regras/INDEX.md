@@ -7,6 +7,10 @@ entra no `dist/`). Na nuvem, sem `C:\fontes\rules-ai` nem `dist/`, ler a pasta
 `rules-local/regras/` do projeto (sem ela, a pasta `regras/` do GitHub `Gelvazio/rules-ai`), nesta
 ordem, só para leitura. Regra nova (arquivo novo em `regras/`) entra neste índice no mesmo commit.
 
+## Regra maior (vence todas)
+
+0. [regra-maior.md](regra-maior.md) — Modelo mais forte NUNCA pega tarefa de modelo mais fraco (C50)
+
 ## Fluxo de trabalho
 
 1. [ciclo-da-task.md](ciclo-da-task.md) — Ciclo da tarefa: criar, publicar, assumir, encerrar

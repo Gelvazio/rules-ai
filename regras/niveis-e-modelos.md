@@ -1,5 +1,7 @@
 # 🎚️ Níveis de tarefa — quem pega o quê
 
+> 🥇 **Regra maior (C50):** modelo mais forte NUNCA pega tarefa de modelo mais fraco — `regra-maior.md`.
+
 Cada subtarefa tem um **nível**, para que modelos mais fracos façam as tarefas simples e o modelo
 forte fique com as difíceis. Vale para **todas as IAs**. Reserva: `frentes-e-reserva.md`.
 
