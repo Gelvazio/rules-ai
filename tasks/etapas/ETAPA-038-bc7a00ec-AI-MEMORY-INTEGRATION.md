@@ -394,7 +394,7 @@
 - **Descrição:** Aplicar o instalador no `aulasenai` e nos 4 clones com o mesmo `project`.
 - **Arquivos:** `aulasenai/.ai-memory.toml`, `aulasenai/.claude/settings.json`
 - **Critérios de Aceitação:** 5 pastas com o mesmo `project`; `ignore_paths` inclui `scripts/variaveis.js`; auditoria sem achados.
-- **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.17, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20, AI-MEMORY-INTEGRATION.34, AI-MEMORY-INTEGRATION.35
+- **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20, AI-MEMORY-INTEGRATION.34, AI-MEMORY-INTEGRATION.35
 - **Verificação:** cancelada, não executada: `ls C:\fontes` em 2026-10-23 10:30 não lista `aulas-senai-CLAUDE-*`.
 
 ### AI-MEMORY-INTEGRATION.23 — Rollout no `dashboard-ai` (pasta `DASHBOARD-AI-PRINCIPAL`, 1 repositório)
@@ -409,7 +409,7 @@
 - **Descrição:** Aplicar o instalador na pasta `DASHBOARD-AI-PRINCIPAL` (as 9 cópias antigas não existem mais).
 - **Arquivos:** `DASHBOARD-AI-PRINCIPAL/.ai-memory.toml`
 - **Critérios de Aceitação:** `.ai-memory.toml` e hooks no projeto; auditoria sem achados.
-- **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.17, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20, AI-MEMORY-INTEGRATION.34, AI-MEMORY-INTEGRATION.35
+- **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20, AI-MEMORY-INTEGRATION.34, AI-MEMORY-INTEGRATION.35
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.24 — Rollout nos demais projetos de `C:\fontes` (`REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`)
