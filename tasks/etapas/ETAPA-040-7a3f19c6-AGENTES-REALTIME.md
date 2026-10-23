@@ -418,7 +418,7 @@ O estado inicial pelo GitHub raw não depende do canal; por isso a mudança é i
 
 ### AGENTES-REALTIME.11 — Segredos do publicador: onde ficam e como rodam
 
-**Próximo passo:** esperar AGENTES-REALTIME.4.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — banco, segurança, segredo ou contrato entre várias partes
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -427,10 +427,61 @@ O estado inicial pelo GitHub raw não depende do canal; por isso a mudança é i
 - **Descrição:** Definir `SUPABASE_URL`, chave publicável e chave secreta: a secreta só em secrets do GitHub e em variável de ambiente local; nunca em arquivo versionado nem no HTML.
 - **Critérios de Aceitação:** Lista de variáveis e de onde cada uma vive; INV-3.
 - **Depende de:** AGENTES-REALTIME.4
+- **Entrega (2026-10-23 17:06, Claude Code (Opus 5.5) (local · main · rules-ai)):** tabela de variáveis e regras da chave secreta (abaixo). Só documentação: nenhum código, workflow ou secret alterado.
+- **Verificação:** leitura de `dashboard/publicar_quadro.py` (a chave vem só de `os.environ["SUPABASE_SECRET_KEY"]`; erros saem só com o código HTTP ou o tipo da exceção, nunca com a chave), de `.github/workflows/publicar-quadro.yml` (secret só no passo "Enviar", gatilho só `push` na `main`, `permissions: contents: read`, `persist-credentials: false`), de `dashboard/assets/js/config.js` (`chavePublicavel` vazia) e do `.gitignore` (`.env`, `.env.*` e `dashboard/.env` ignorados; `dashboard/.env` não existe). INV-3: `git grep -n -E "service_role|sb_secret_|SUPABASE_SERVICE|eyJ…"` só acha padrões de detecção e textos de teste (`privacidade_quadro.py`, `ai-memory-auditar.mjs`, benchmarks e testes do Jev); `git grep` de valor real (`sb_secret_` seguido de 10+ caracteres ou JWT) vazio.
+
+#### Segredos do publicador (AGENTES-REALTIME.11)
+
+> Vale para o projeto **AULAS SENAI** (`hxlvonriearllcmfqeri`, pergunta 5-b), canal público (2-a) e só o
+> `rules-ai` publicando (3-a). Contrato e chaves seguem a seção 7 da ETAPA-031.
+
+##### 1. Variáveis e onde cada uma vive
+
+| Variável | Valor | É segredo? | Onde vive | Nunca em |
+|---|---|---|---|---|
+| `SUPABASE_URL` | `https://hxlvonriearllcmfqeri.supabase.co` | não | constante `URL_PADRAO` do `publicar_quadro.py` e `CANAL.url` do `config.js`; a variável de ambiente só serve para apontar para outro projeto (não cadastrar no GitHub hoje) | — |
+| chave publicável | `sb_publishable_…` | não (pública por desenho) | `CANAL.chavePublicavel` em `dashboard/assets/js/config.js`, preenchida pelo usuário na .12 | — |
+| `SUPABASE_SECRET_KEY` | `sb_secret_…` | **sim** | secret de Actions do repositório `Gelvazio/rules-ai` (Settings → Secrets and variables → Actions) → `env` só do passo "Enviar o quadro ao Broadcast"; no PC, só como variável da sessão do terminal para um teste manual | arquivo versionado, `dashboard/.env` (o publicador não lê `.env`), `config.js`, HTML, log, quadro, etapa, chat, variável de ambiente permanente do Windows |
+| `ATRASO_AGENTES` | `30` | não | `dashboard/.env` (local, ignorado) ou `.env.example` | — |
+| `GITHUB_RUN_NUMBER`, `GITHUB_SHA` | do Actions | não | fornecidas pelo runner (`sequencia` e `commit`) | — |
+
+##### 2. Regras da chave secreta
+
+1. **Chave nova e só desta função:** no painel do AULAS SENAI (Project Settings → API Keys → *Create new
+   secret key*), nome `publicar-quadro-rules-ai`. ⛔ Nunca reaproveitar a `service_role` legada que está em
+   `aulasenai\scripts\variaveis.js` (pendente de rotação): a `sb_secret_` nova pode ser revogada sozinha,
+   sem derrubar o sistema de aulas.
+2. **Privilégio:** toda `sb_secret_` tem acesso total ao banco do projeto (ignora a RLS), inclusive às
+   tabelas de alunos. Por isso ela fica num único secret, num único passo e num workflow que roda só em
+   `push` na `main` (sem `pull_request`, sem `workflow_dispatch` com entrada livre).
+3. **Logs:** o Actions mascara o valor do secret; o publicador nunca o imprime. ⛔ Não acrescentar
+   `set -x`, `env`, `printenv` nem `echo` de variável ao workflow.
+4. **Teste local** (raro; o normal é `--simular`, que não precisa de chave):
+   `$env:SUPABASE_SECRET_KEY = '<colar>'; python -B dashboard/publicar_quadro.py; Remove-Item Env:SUPABASE_SECRET_KEY`
+   — no terminal, nunca em arquivo, nunca no chat da IA.
+5. **Vazou ou suspeita:** revogar a chave no painel → criar outra → trocar o secret no GitHub. Nenhuma
+   mudança de código.
+6. **Outros repositórios (.13):** o workflow reutilizável recebe o secret por nome
+   (`secrets: SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}`), nunca com `secrets: inherit`;
+   cada repositório liberado cadastra o próprio secret. Hoje só o `rules-ai` (3-a).
+
+##### 3. Alternativa para o usuário decidir na .12 (não aplicada)
+
+Como o canal é **público** (.10), o endpoint de Broadcast também aceita envio com a chave **publicável**.
+Usar a publicável no publicador tiraria do GitHub o único segredo com acesso total ao banco do AULAS
+SENAI, sem piorar o canal (qualquer um com a publicável já pode enviar, .10 §2). Custo: muda a decisão
+"chave secreta no publicador" da ETAPA-031 (seções 5 e 7) e o nome do secret; vira subtarefa nova se o
+usuário escolher. Recomendação desta entrega: **manter a secreta** (decisão aprovada) até a .12, e o
+usuário decide ao cadastrar.
+
+##### 4. Para a .23 (auditoria)
+
+- Fixar `actions/checkout@v4` por hash de commit (hoje por etiqueta).
+- Repetir o INV-3 e conferir, com a chave publicável, que nenhuma tabela do AULAS SENAI é lida (`.10`).
 
 ### AGENTES-REALTIME.12 — Criar ou escolher o projeto Supabase e cadastrar os secrets
 
-**Próximo passo:** esperar a resposta do usuário.
+**Próximo passo:** seguir a seção "Segredos do publicador" da .11 (criar a chave nova e dedicada, cadastrar o secret `SUPABASE_SECRET_KEY` no `rules-ai`) e decidir a alternativa do item 3 dela.
 
 - **Nível:** Usuário — só o usuário pode fazer (resposta, conta ou conferência na tela)
 - **Modelo:** Usuário — nunca outro
@@ -554,7 +605,7 @@ O estado inicial pelo GitHub raw não depende do canal; por isso a mudança é i
 
 ### AGENTES-REALTIME.22 — Variáveis e `.gitignore`: `.env.example` e `config.js`
 
-**Próximo passo:** esperar AGENTES-REALTIME.11.
+**Próximo passo:** aplicar a tabela 1 da seção "Segredos do publicador" da .11 (`SUPABASE_URL` e chave publicável vazias; a secreta só como comentário "nunca aqui").
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
