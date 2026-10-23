@@ -26,7 +26,6 @@ const CODIGO_ERRO = 1;
 const SERVIDOR_URL = 'http://127.0.0.1:49374';
 const EVENTOS_HOOK = {
   SessionStart: 'session-start',
-  UserPromptSubmit: 'user-prompt-submit',
   PostToolUse: 'post-tool-use',
 };
 
@@ -218,8 +217,9 @@ function instalarHooks(raiz, { dryRun, mesmoComGlobal }) {
   const configuracao = lerJson(arquivo);
   const resumo = acrescentarHooks(configuracao, lerJson(caminhoSettingsGlobal()), mesmoComGlobal);
   console.log(`ai-memory: hooks — adicionar: ${resumo.adicionados.join(', ') || '—'}; `
-    + `já existem: ${resumo.jaExistem.join(', ') || '—'}; `
-    + `pulados (global já entrega): ${resumo.puladosGlobal.join(', ') || '—'}`);
+    + `já existem: ${resumo.jaExistem.join(', ') || '—'}`
+    + (resumo.puladosGlobal.length
+      ? `; pulados (global já entrega): ${resumo.puladosGlobal.join(', ')}` : ''));
   if (dryRun || resumo.adicionados.length === 0) return 0;
   mkdirSync(join(raiz, '.claude'), { recursive: true });
   writeFileSync(arquivo, `${JSON.stringify(configuracao, null, 2)}\n`, 'utf8');

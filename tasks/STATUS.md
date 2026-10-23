@@ -111,7 +111,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | AGENTES-REALTIME.31 | Fechamento: grafo, `STATUS_PROJETO.md` e mover a tarefa para `task_complete.md` · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | AGENTES-REALTIME.30 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AI-MEMORY-INTEGRATION.41 | Auditoria de captura das outras IAs: respeitam `ignore_paths` e não vazam segredo | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | AI-MEMORY-INTEGRATION.13, AI-MEMORY-INTEGRATION.14, AI-MEMORY-INTEGRATION.38, AI-MEMORY-INTEGRATION.39, AI-MEMORY-INTEGRATION.40 | ⬜ Pendente | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
 | AI-MEMORY-INTEGRATION.42 | Criar o repositório GitHub privado do wiki da memória e ligar o remoto (`git remote add origin`) | 🟡 Média | Usuário | AI-MEMORY-INTEGRATION.21 | 👀 Aguardando o usuário | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
-| AI-MEMORY-INTEGRATION.45 | Aplicar as decisões de 12:19: instalador sem `UserPromptSubmit` e tirar o hook global do ai-memory (com backup) | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | AI-MEMORY-INTEGRATION.34 | 🔄 Em execução | Claude Code (Sonnet 5.5 · herdr w2:pQ; líder Opus 5.5) (local · main · rules-ai) (desde 2026-10-23 12:19) · 0% | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
 
 
 ## 🧭 Frentes de trabalho

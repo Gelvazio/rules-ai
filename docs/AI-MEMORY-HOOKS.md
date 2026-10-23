@@ -18,7 +18,7 @@
 | Evento | Script | O que faz | Timeout | Devolve ao Claude |
 |---|---|---|---|---|
 | SessionStart | session-start.sh | POST + GET do handoff | padrão\* | handoff (contexto) |
-| UserPromptSubmit | user-prompt-submit.sh | POST do prompt | padrão\* | `{}` |
+| UserPromptSubmit | user-prompt-submit.sh | **não instalado** (decisão A: não capturar o prompt digitado) | — | — |
 | PreToolUse | pre-tool-use.sh | POST antes da ferramenta | padrão\* | `{}` |
 | PostToolUse | post-tool-use.sh | POST depois da ferramenta | padrão\* | `{}` |
 | PreCompact | pre-compact.sh | POST antes da compactação | padrão\* | `{}` |
@@ -46,7 +46,9 @@ não foi confirmado nesta leitura (ver seção 4).
    `stop.sh` descarta o evento inteiro e imprime `{}`, porque o fallback por script não
    consegue sanitizar a resposta (`hooks\claude-code\stop.sh`, linhas 16-26). A captura
    completa do Stop exige instalação nativa, segundo o próprio comentário.
-5. **UserPromptSubmit depende de captura de prompts.** Sem a captura ligada, o instalador
+5. **UserPromptSubmit não é instalado (decisão A do usuário, AI-MEMORY-INTEGRATION.45).** O
+   `--hooks` grava só SessionStart e PostToolUse, e o hook global foi removido. Antes, dependia
+   de captura de prompts. Sem a captura ligada, o instalador
    pula esse evento (`install_hooks.rs`, linha 6600). A opção de desligar aparece em
    `docs\install.md`, linha 929 (`--no-capture-prompts`).
 6. **Limites de tempo do envio.** O POST usa `curl --max-time 0.2` (`hooks\_lib.sh`,
@@ -110,9 +112,8 @@ Estado atual (`C:\fontes\aulasenai\.claude\settings.json`, linhas 22-78):
   qualquer contexto. Depois `inicio-da-sessao.js`. O ai-memory fica no escopo de usuário.
   Hoje o `inicio-da-sessao.js` aparece antes do `sessao.mjs` no arquivo do projeto.
   Ele não tem matcher, então dispara em todas as origens; o `sessao.mjs` só em `startup`.
-- **UserPromptSubmit:** Jev primeiro (timeout 10 no arquivo), depois o ai-memory. Pela
-  regra global, a sugestão do Jev entra no contexto antes da resposta. O hook do ai-memory
-  só envia e imprime `{}` (`REGRAS-GLOBAIS.md`, seção "Classificar mensagens (C43)").
+- **UserPromptSubmit:** só o Jev; o ai-memory não captura o prompt (decisão A, .45). Pela
+  regra global, a sugestão do Jev entra no contexto antes da resposta (C43).
 - **Não bloquear a mensagem.** A regra do Jev diz que ele nunca bloqueia nem muda a
   mensagem (INV-2), e que nenhum erro vira `liberar` (INV-3); a falha cai em "só sinais".
   O ai-memory não bloqueia pelo `exit 0` e pelo `|| true`. O Jev tem 4 s de tempo máximo
