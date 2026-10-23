@@ -370,15 +370,29 @@ ligado e anotar na etapa latência, custo, nível sugerido e alertas de cada uma
 
 ### JEV-GLOBAL-AI-FINAL.22 — Levar às IAs (`sincronizar.mjs --aplicar`)
 
-**Próximo passo:** (usuário, no computador) `node scripts/sincronizar.mjs --aplicar` e conferir os arquivos globais
-(a prévia da nuvem gerou `VERSAO.md` `2026-10-19-39b490d0` com a seção C43 no `dist/`).
+**Próximo passo:** ✅ conferido em 2026-10-23; `--aplicar` já feito (duas vezes, com autorização do
+usuário); resta a .23.
 
 - **Nível:** PESADO — Jev `LEVE`, final proposto `LEVE`, confiança 0.40, ação `humano`; elevado pelo líder: grava o arquivo global de todas as IAs (mudança em massa, como a JEV-SEM-LAYA.2)
 - **Modelo:** só Sonnet ou DeepSeek — nunca outro (C22) (trocado do Opus em 2026-10-23, RECLASSIFICAR-PESADO-OPUS.2)
 - **Effort:** high
 - **Arquivos:** `dist/REGRAS-GLOBAIS.md`, `VERSAO.md`, arquivos globais das IAs
 - **Critérios de aceitação:** R4.1.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** `node scripts/sincronizar.mjs --aplicar` rodado em 2026-10-23 (duas vezes, com autorização
+  do usuário): gravou o bloco gerenciado em Gemini CLI, Codex, Grok, Qoder, opencode, Devin, Kiro,
+  Hermes e Kilo; as 4 contas do Claude Code já estavam iguais. Versão `2026-10-23-df176636`
+  (`dist/REGRAS-GLOBAIS.md`, 1444 linhas, com a C43, a C47 e a C46). Conferência feita por Claude Code
+  (Sonnet 5.5), sem gravar nada e sem Git · **Verificação:** (1) `node scripts/sincronizar.mjs`
+  (prévia, sem `--aplicar`): "versão sem mudança: 2026-10-23-df176636" e 13 linhas `igual` (4 contas
+  Claude Code + 9 IAs); (2) o texto entre `rules-ai:inicio` e `rules-ai:fim` de cada um dos 9
+  arquivos globais tem 1444 linhas e o mesmo `sha256` do `dist/REGRAS-GLOBAIS.md` (`eaf44e429574`);
+  (3) `grep -c` em cada um dos 9: seção "Classificar mensagens (C43)" = 1, `decisao: jev` = 1, C47 = 8,
+  C46 = 1, C41/C46 = 6; (4) as 4 contas do Claude Code importam `@C:/fontes/rules-ai/dist/REGRAS-GLOBAIS.md`
+  (que tem a C43) e o `settings.json` das 4 tem 0 ocorrências de `jev`; a prévia diz "sem o Jev
+  global" nas 4; (5) `~/.codex/hooks.json` não existe (sem gancho global antigo). **Fora do R4.1, do
+  usuário:** o aviso da prévia (`codex_hooks = true` em `[features]` do `~/.codex/config.toml`) é
+  ligação à mão do gancho de projeto do Codex (C44), não bloqueia esta subtarefa. Obs.: o cabeçalho
+  dos arquivos globais não traz a versão; ela está em `VERSAO.md` e a igualdade é provada pelo hash.
 - **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GLOBAL-AI-FINAL.23 — Fechamento: status do projeto e mapa de `C:\fontes`

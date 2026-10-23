@@ -181,8 +181,12 @@ conferir, e depois nos outros da resposta da pergunta 2; um commit por projeto, 
 
 ### RULES-LOCAL-JEV.9 — Levar às IAs e ensaio no PC e na nuvem
 
-**Próximo passo:** `sincronizar.mjs --aplicar`; sessão nova na nuvem e no PC num projeto: o
-`rules-local/` atualiza sozinho e a 1ª mensagem traz o contexto do Jev real.
+**Próximo passo:** conferência de 2026-10-23 feita (ver Verificação): `--aplicar` já rodado, gancho
+global antigo fora das 4 contas, `TYPESAFE_API_KEY` já está no Windows (escopo Usuário) e o gancho
+do projeto já responde no PC com o Jev real. A subtarefa pode ser dada como ✅. Único item que só o
+usuário faz, fora dos critérios R1.1/R2.1/R2.2/R4.1 e do Claude Code: ligar `codex_hooks = true`
+em `[features]` do `~/.codex/config.toml` (hoje só existe `[features]`), para o gancho do Codex
+valer; vai para as Pendências do `STATUS.md` (a decidir pelo líder).
 
 - **Nível:** PESADO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.20, ação `humano`; elevado pelo líder: `--aplicar` grava o arquivo global de todas as IAs (mudança em massa, como a JEV-GLOBAL-AI-FINAL.22)
 - **Modelo:** só Sonnet ou DeepSeek — nunca outro (C22) (trocado do Opus em 2026-10-23, RECLASSIFICAR-PESADO-OPUS.2)
@@ -190,4 +194,29 @@ conferir, e depois nos outros da resposta da pergunta 2; um commit por projeto, 
 - **Arquivos:** `dist/`, `VERSAO.md`, esta etapa
 - **Critérios de aceitação:** R1.1, R2.1, R2.2, R4.1 com números.
 - **Entrega:** Claude Code (Opus 5.5 · líder) — parte da nuvem: `sincronizar.mjs` gerou `2026-10-20-58881388` (C44 no `dist/`); sessão nova num clone novo do piloto atualizou sozinha pelo proxy e o 1º prompt trouxe o contexto do Jev real. Falta no PC: `node scripts/sincronizar.mjs --aplicar` (grava as regras nas IAs e TIRA o gancho global antigo) e a variável `TYPESAFE_API_KEY` no Windows · **Verificação (líder):** nuvem: R1.1 (versão da `main` na hora), R2.1 e R2.2 (marca de 10 s) conferidos; PC: aguardando o usuário
+- **Verificação (conferência de 2026-10-23, Claude Code Sonnet 5.5, só leitura):**
+  - R4.1: `node scripts/sincronizar.mjs` (sem `--aplicar`) → `versão sem mudança: 2026-10-23-df176636`
+    e `igual` nas 13 entradas (4 contas do Claude Code, Gemini, Codex, Grok, Qoder, opencode,
+    Devin, Kiro, Hermes, Kilo). Gemini, Codex, Grok, Qoder, opencode, Devin, Kiro, Hermes e Kilo:
+    10 ocorrências de `C44` e 2 de `C46` em cada arquivo. As 4 contas do Claude Code importam
+    `@C:/fontes/rules-ai/dist/REGRAS-GLOBAIS.md`, que tem 10 `C44` e 2 `C46`. `VERSAO.md` local =
+    `origin/main` (`git show origin/main:VERSAO.md`), HEAD = `origin/main` (`92d29ef`).
+  - Gancho global antigo: a prévia diz `sem o Jev global` nas 4 contas; `grep jev|claude-prompt`
+    nos 4 `settings.json` = 0; `~/.codex/hooks.json` não existe (`pulado`).
+  - R2.1 no PC: `aulasenai`, `DASHBOARD-AI-PRINCIPAL` e `testes-de-frontend` têm
+    `rules-local/VERSAO.md`, `rules-local/jev/ganchos/claude-prompt.mjs` e `UserPromptSubmit` no
+    `.claude/settings.json` apontando para `rules-local/jev/ganchos/claude-prompt.mjs` (mais
+    `.codex/hooks.json`; `aulasenai` com `codex-prompt.mjs`). Auditoria do `aulasenai`
+    (`mensagens-2026-10.jsonl`): 211 linhas desde 2026-10-20, última 2026-10-23 16:42Z com
+    `decisao: matriz/jev`, `confianca` e custo reais (ex.: `latencia_ms` ~300, `custo_usd` ~3e-5).
+  - R2.2: no mesmo arquivo, 211 linhas e 183 `hash`; a única repetição em até 10 s é uma linha
+    `pulado/repetida` (custo 0) — 0 chamadas duplicadas ao Jev.
+  - Chave: `TYPESAFE_API_KEY` existe no processo (`true`) e no escopo Usuário do Windows (`true`;
+    Máquina `false`); `.env` da raiz do `rules-ai` existe. `git grep -c -F` da chave nos 3 projetos
+    = 0 (INV-1). O valor nunca foi impresso.
+  - Observação: o `rules-local/VERSAO.md` desses 3 projetos está em versões de 23/10 mais velhas
+    (`4f19d945`, `a7fe983a`, `265a119a`) que a `df176636` de hoje 17:48; atualizam sozinhas na
+    próxima sessão (R1.1/R1.2, `sessao.mjs`), sem ação do usuário.
+  - Não conferível por leitura: `codex_hooks = true` ausente no `~/.codex/config.toml` (só
+    `[features]`) → R2.1 no Codex depende dessa linha, ligada à mão pelo usuário.
 - **JEV-AI-SUGGESTION:** NAO
