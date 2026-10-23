@@ -24,6 +24,9 @@
 - 2026-10-23 19:49: "deixar com status aguardando" foi entendido como registrar `status: aguardando` e `monitorado: false` na coleção `projetos` da API, **sem escrever no quadro do outro projeto** (regra do gerenciador); a pergunta P6 confirma.
 - 2026-10-23 19:49: "demais projetos" foi lido como os projetos que existem em `C:\fontes` com quadro, mais os padrões que ainda estão na lista monitorada; a pergunta P7 confirma a lista.
 
+- 2026-10-23 19:58: **P1 a P8 respondidas pelo usuário** (perguntas fechadas). Resposta da P7: o `aulasenai` **não fica aguardando**: continua monitorado e intocado (subtarefa .34 cancelada); as demais ficam aguardando. Decisões que decorrem: API é a fonte (P1) e `db.json` versionado (P2, revoga a P3 da etapa 049); reserva atômica por middleware mínimo do json-server (P4, 1 arquivo `--middlewares`; o json-server continua sendo a única dependência); etapas em `.md` (P5).
+- O "sim" ao plano ainda **não** foi dado: a .1 segue 👀 até o usuário aprovar.
+
 ### Requisitos
 
 | ID | Requisito (EARS) | Cobre | Verificação |
@@ -35,7 +38,7 @@
 | R3.1 | ENQUANTO a API for a fonte, O SISTEMA DEVE gerar `tasks/STATUS.md` e `tasks/task_complete.md` como espelho de leitura com aviso de arquivo gerado | MIGRAR-TAREFAS-API.16, MIGRAR-TAREFAS-API.32 | ler o topo dos dois arquivos; reimportar o espelho |
 | R3.2 | SE a API estiver fora do ar, ENTÃO OS LEITORES DEVEM usar o espelho do Git, só para leitura | MIGRAR-TAREFAS-API.17, MIGRAR-TAREFAS-API.21, MIGRAR-TAREFAS-API.23 | derrubar a API e rodar `gerenciador.mjs ver` |
 | R4.1 | QUANDO um projeto for removido da lista, O SISTEMA DEVE registrá-lo na coleção `projetos` com `status: aguardando` e `monitorado: false` | MIGRAR-TAREFAS-API.12, MIGRAR-TAREFAS-API.34, MIGRAR-TAREFAS-API.41 | consultar `/projetos` |
-| R4.2 | ONDE um projeto estiver com `monitorado: false`, O SISTEMA DEVE não ler o quadro dele (gerenciador, MCP e dashboard) | MIGRAR-TAREFAS-API.17, MIGRAR-TAREFAS-API.18, MIGRAR-TAREFAS-API.42 | `gerenciador.mjs ver` e `task_list` só mostram o `rules-ai` |
+| R4.2 | ONDE um projeto estiver com `monitorado: false`, O SISTEMA DEVE não ler o quadro dele (gerenciador, MCP e dashboard) | MIGRAR-TAREFAS-API.17, MIGRAR-TAREFAS-API.18, MIGRAR-TAREFAS-API.42 | `gerenciador.mjs ver` e `task_list` só mostram o `rules-ai` e o `aulasenai` |
 | R5.1 | O SISTEMA DEVE permitir voltar ao `STATUS.md` como fonte com um procedimento documentado e ensaiado | MIGRAR-TAREFAS-API.30 | ensaio em cópia do repositório |
 | R5.2 | O SISTEMA DEVE manter `api/db.json` versionado no Git com ordem de chaves fixa | MIGRAR-TAREFAS-API.5 | `git diff` após regerar sem mudança de dados é vazio |
 
@@ -48,7 +51,7 @@
 | INV-3 | Uma subtarefa nunca tem duas reservas ao mesmo tempo | N reservas simultâneas, N de 2 a 10 | disparar reservas em paralelo contra a API e contar `emUsoPor` | sim: script da .13 |
 | INV-4 | O `db.json` não contém segredo nem dado pessoal | todo o arquivo | `grep` por `sk-`, `tsk_`, `Bearer`, `ghp_`, CPF, e-mail | não: conferência por comando na .11 |
 | INV-5 | Rodar a carga N vezes dá o mesmo `db.json` (idempotência) | N de 1 a 5 | comparar o hash do arquivo | sim: script da .11 |
-| INV-6 | A migração não altera nenhum arquivo dos outros projetos | todas as pastas de `C:\fontes` exceto `rules-ai` | `git status` de cada projeto igual antes e depois | não: conferência por comando na .42 |
+| INV-6 | A migração não altera nenhum arquivo dos outros projetos (o `aulasenai` inclusive) | todas as pastas de `C:\fontes` exceto `rules-ai` | `git status` de cada projeto igual antes e depois | não: conferência por comando na .42 |
 
 **Casos de borda que o código precisa sobreviver:**
 
@@ -58,14 +61,14 @@
 
 | # | Pergunta | Resposta | Fechada em | Quem respondeu |
 |---|----------|----------|------------|----------------|
-| P1 | A API vira a **fonte de verdade** do `rules-ai` (o `STATUS.md` e o `task_complete.md` passam a ser espelhos gerados)? Recomendado: sim, é o que "migrar" pede; isso revoga a P1 da etapa 049 | ⬜ | — | — |
-| P2 | `api/db.json` entra no **Git** (necessário para não perder as tarefas)? Recomendado: sim | ⬜ | — | — |
-| P3 | Quem alcança a API? Ela só escuta em `127.0.0.1`: nuvem e outros PCs leem o espelho do Git, só leitura. Recomendado: só local | ⬜ | — | — |
-| P4 | Como evitar duas reservas da mesma subtarefa, já que o json-server não tem compare-and-set? Opções: (a) uma frente escreve por vez, com a trava de sessão; (b) um middleware mínimo do próprio json-server (`--middlewares`, 1 arquivo) que recusa reserva de subtarefa ocupada. Recomendado: (b) | ⬜ | — | — |
-| P5 | O texto longo das **etapas** vai para a API ou continua em `.md` (a API guarda só campos estruturados e o nome do arquivo)? Recomendado: continua em `.md` | ⬜ | — | — |
-| P6 | "Status aguardando" dos outros projetos = `status: aguardando` e `monitorado: false` na coleção `projetos` da API, **sem tocar no quadro deles**? Recomendado: sim | ⬜ | — | — |
-| P7 | A lista de projetos a deixar aguardando está certa (aulasenai, aulas-senai-*, dashboard-ai-*, DASHBOARD-AI-PRINCIPAL, REA-APP-CLONES, projeto-frontend-com-testes, testes-de-frontend, gerenciador-de-ia)? As pastas `aulas-senai-*`, `dashboard-ai-*` e `gerenciador-de-ia` já não existem em `C:\fontes`, então só saem da lista | ⬜ | — | — |
-| P8 | Depois do corte, o `STATUS.md` fica só como espelho gerado e somente leitura? Recomendado: sim | ⬜ | — | — |
+| P1 | A API vira a **fonte de verdade** do `rules-ai` (o `STATUS.md` e o `task_complete.md` passam a ser espelhos gerados)? Recomendado: sim, é o que "migrar" pede; isso revoga a P1 da etapa 049 | ✅ Sim: a API é a fonte; `STATUS.md` e `task_complete.md` viram espelho | 2026-10-23 19:58 | usuário (AskUserQuestion) |
+| P2 | `api/db.json` entra no **Git** (necessário para não perder as tarefas)? Recomendado: sim | ✅ Sim: `api/db.json` entra no Git | 2026-10-23 19:58 | usuário (AskUserQuestion) |
+| P3 | Quem alcança a API? Ela só escuta em `127.0.0.1`: nuvem e outros PCs leem o espelho do Git, só leitura. Recomendado: só local | ✅ Só local; nuvem lê o espelho do Git | 2026-10-23 19:58 | usuário (AskUserQuestion) |
+| P4 | Como evitar duas reservas da mesma subtarefa, já que o json-server não tem compare-and-set? Opções: (a) uma frente escreve por vez, com a trava de sessão; (b) um middleware mínimo do próprio json-server (`--middlewares`, 1 arquivo) que recusa reserva de subtarefa ocupada. Recomendado: (b) | ✅ Middleware mínimo do json-server (`--middlewares`, 1 arquivo) | 2026-10-23 19:58 | usuário (AskUserQuestion) |
+| P5 | O texto longo das **etapas** vai para a API ou continua em `.md` (a API guarda só campos estruturados e o nome do arquivo)? Recomendado: continua em `.md` | ✅ Continua em `.md` | 2026-10-23 19:58 | usuário (AskUserQuestion) |
+| P6 | "Status aguardando" dos outros projetos = `status: aguardando` e `monitorado: false` na coleção `projetos` da API, **sem tocar no quadro deles**? Recomendado: sim | ✅ Sim: só na API (`status: aguardando`, `monitorado: false`), sem tocar nos quadros deles | 2026-10-23 19:58 | usuário (AskUserQuestion) |
+| P7 | A lista de projetos a deixar aguardando está certa (aulasenai, aulas-senai-*, dashboard-ai-*, DASHBOARD-AI-PRINCIPAL, REA-APP-CLONES, projeto-frontend-com-testes, testes-de-frontend, gerenciador-de-ia)? As pastas `aulas-senai-*`, `dashboard-ai-*` e `gerenciador-de-ia` já não existem em `C:\fontes`, então só saem da lista | ✅ Lista da etapa, **menos o `aulasenai`, que não fica aguardando** | 2026-10-23 19:58 | usuário (AskUserQuestion) |
+| P8 | Depois do corte, o `STATUS.md` fica só como espelho gerado e somente leitura? Recomendado: sim | ✅ Sim: espelho só de leitura | 2026-10-23 19:58 | usuário (AskUserQuestion) |
 
 
 ### MIGRAR-TAREFAS-API.1 — Fechar as perguntas abertas e aprovar o plano
@@ -466,7 +469,7 @@
 
 ### MIGRAR-TAREFAS-API.34 — `aulasenai`: deixar com status Aguardando e remover da lista de monitorados
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** ❌ cancelada em 2026-10-23 19:58 (resposta P7: o `aulasenai` não fica aguardando).
 
 - **Nível:** LEVE — só texto e configuração, sem lógica
 - **Modelo:** só Haiku — nunca outro
@@ -560,7 +563,7 @@
 - **Critérios de Aceitação:** projeto fora da lista, `status` aguardando na API, nenhum arquivo do projeto alterado.
 - **Depende de:** MIGRAR-TAREFAS-API.12
 
-### MIGRAR-TAREFAS-API.42 — Conferir a lista de monitorados: só o `rules-ai` ficou
+### MIGRAR-TAREFAS-API.42 — Conferir a lista de monitorados: só `rules-ai` e `aulasenai` ficaram
 
 **Próximo passo:** aguardar as dependências e o sim do usuário.
 
@@ -568,9 +571,9 @@
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** `gerenciador.mjs ver`, `task_list` do MCP e `dashboard/projetos.json` só mostram o `rules-ai`; cada projeto removido aparece na API como `aguardando` (INV-6).
-- **Critérios de Aceitação:** um único projeto monitorado; todos os outros `aguardando`.
-- **Depende de:** MIGRAR-TAREFAS-API.34, MIGRAR-TAREFAS-API.35, MIGRAR-TAREFAS-API.36, MIGRAR-TAREFAS-API.37, MIGRAR-TAREFAS-API.38, MIGRAR-TAREFAS-API.39, MIGRAR-TAREFAS-API.40, MIGRAR-TAREFAS-API.41
+- **Descrição:** `gerenciador.mjs ver`, `task_list` do MCP e `dashboard/projetos.json` só mostram o `rules-ai` e o `aulasenai`; cada projeto removido aparece na API como `aguardando` (INV-6).
+- **Critérios de Aceitação:** só `rules-ai` e `aulasenai` monitorados; todos os outros `aguardando`.
+- **Depende de:** MIGRAR-TAREFAS-API.35, MIGRAR-TAREFAS-API.36, MIGRAR-TAREFAS-API.37, MIGRAR-TAREFAS-API.38, MIGRAR-TAREFAS-API.39, MIGRAR-TAREFAS-API.40, MIGRAR-TAREFAS-API.41
 
 ### MIGRAR-TAREFAS-API.43 — Fechamento: `STATUS_PROJETO.md`, grafo e mover a tarefa para `task_complete.md`
 

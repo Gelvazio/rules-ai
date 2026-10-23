@@ -136,3 +136,4 @@
 | DASHBOARD-JEV-CALLS.1 | Menu CHAMADAS JEV AI e a página JEV-AI-CALLS.html · `MEDIO · effort medium` | 🟠 Alta | MEDIO · só Sonnet · effort medium | Nenhuma | ✅ Concluído | — | [ETAPA-050](etapas/ETAPA-050-1ea67666-DASHBOARD-JEV-CALLS.md) |
 | INDEX-RAIZ-DASHBOARD.1 | Criar o `index.html` da raiz · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-052](etapas/ETAPA-052-af320e5f-INDEX-RAIZ-DASHBOARD.md) |
 | **INDEX-RAIZ-DASHBOARD** | **`index.html` na raiz do `rules-ai` que abre `dashboard/index.html` (pedido do usuário em 2026-10-23)** | 🟡 Média | — | Nenhuma | ✅ Concluído | — | [ETAPA-052](etapas/ETAPA-052-af320e5f-INDEX-RAIZ-DASHBOARD.md) |
+| MIGRAR-TAREFAS-API.34 | `aulasenai`: deixar com status Aguardando e remover da lista de monitorados · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | MIGRAR-TAREFAS-API.12 | ❌ Cancelada | — | [ETAPA-053](etapas/ETAPA-053-a37505cb-MIGRAR-TAREFAS-API.md) |
