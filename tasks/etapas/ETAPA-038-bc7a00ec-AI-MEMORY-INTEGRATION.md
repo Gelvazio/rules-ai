@@ -295,7 +295,7 @@
 
 ### AI-MEMORY-INTEGRATION.15 — Medir o custo dos hooks no início da sessão (tempo e se algum bloqueia)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — classificado (sinais)
 - **Modelo:** só Sonnet — nunca outro
@@ -306,7 +306,8 @@
 - **Arquivos:** `docs/AI-MEMORY-HOOKS.md`
 - **Critérios de Aceitação:** Tempo total do início da sessão registrado; nenhum hook bloqueia a mensagem; falha do servidor sai com código 0.
 - **Depende de:** AI-MEMORY-INTEGRATION.8
-- **Verificação:** a preencher na entrega.
+- **Entrega:** seção 5 de docs/AI-MEMORY-HOOKS.md com a medição (commit desta entrega), feito por w-a7 (Sonnet 5.5, herdr w2:pQ, conta B).
+- **Verificação:** Ordem medida com claude -p num projeto temporário; tempos: ai-memory ~85 ms (SessionStart e UserPromptSubmit, também com servidor fora), sessao.mjs 245–295 ms, Jev 503 ms com chave e ~150–180 ms sem; R4.2 atendido (< 1 s); nenhum hook bloqueia; servidor fora sai 0. Não medidos: inicio-da-sessao.js do aulasenai e sessão real (fica para a .16). A medição mandou ao servidor eventos de uma sessão fictícia medicao-15.
 
 ### AI-MEMORY-INTEGRATION.16 — Piloto no `aulasenai` (pasta base): marker e hooks
 

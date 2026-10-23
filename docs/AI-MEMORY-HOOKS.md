@@ -148,3 +148,43 @@ ordem de execução entre hooks do mesmo evento. A regra fica em "não confirmad
 `install_hooks.rs` (linhas 52-74, 140-200, 240-246, 643, 2186-2276, 2405-2413, 6573-6651,
 6600), o `settings.json` do aulasenai e a seção Jev de `REGRAS-GLOBAIS.md`. O que não foi
 confirmado está na seção 4.
+
+---
+
+## 5. Medição real (AI-MEMORY-INTEGRATION.15, 2026-10-23)
+
+**Como foi medido:** nenhum projeto real foi alterado. Ordem: projeto temporário com 3 hooks
+de `SessionStart` que gravam o horário, aberto com `claude -p --setting-sources project`
+(Claude Code 2.1.309, modelo Haiku). Tempo: cada comando rodado sozinho (`date +%s%N`) com
+payload JSON na entrada, 3 vezes onde indicado; `sessao.mjs` e Jev numa cópia temporária de
+`aulasenai/rules-local`.
+
+**Ordem (resolve o "não confirmado" da seção 4):** os hooks do mesmo evento rodam **em
+paralelo**. Os 3 começaram com diferença de 9 ms (grupo `matcher ""` com 2 hooks + grupo
+`startup`), o hook de 1,5 s não segurou os outros, e terminaram na ordem do tempo de cada um.
+Logo, a posição no array **não** garante que o `sessao.mjs` termine antes do ai-memory; o
+ai-memory não pode depender dele. Hook do ai-memory depois do `sessao.mjs` no arquivo vale
+só como organização.
+
+| Hook | Evento | Tempo | Saída |
+|---|---|---|---|
+| `ai-memory hook` (servidor no ar) | SessionStart | 79, 87, 83 ms | 0 |
+| `ai-memory hook` (servidor fora: porta 1) | SessionStart | 75, 88 ms | 0 |
+| `ai-memory hook` (servidor no ar / fora) | UserPromptSubmit | 86 / 80 ms | 0 |
+| `rules-local/sessao.mjs` (versão igual) | SessionStart | 245, 273, 295 ms | 0 |
+| Jev `claude-prompt.mjs` com chave | UserPromptSubmit | 503 ms | 0 |
+| Jev com `JEV_MODO=off` / sem chave | UserPromptSubmit | 151-163 / 178 ms | 0 |
+
+**Conclusões:**
+- **R4.2 (até 1 s a mais no SessionStart):** atendido. Em paralelo, o ai-memory soma ~0 ao
+  tempo total, que fica no hook mais lento (`sessao.mjs`, ~0,3 s; sem rede). Mesmo em série,
+  seriam ~0,4 s.
+- **Nenhum bloqueio:** com servidor fora do ar o hook sai com código 0 em ~80 ms (envio com
+  `--max-time 0,2` e spool, seção 1, notas 1, 6 e 7). Critério "falha do servidor sai com 0":
+  atendido.
+- **Não medido:** `inicio-da-sessao.js` do aulasenai (script do projeto, pode escrever) e
+  `sessao.mjs` quando há versão nova (rede e Git); o tempo do `SessionStart` inteiro dentro
+  de uma sessão real do aulasenai. O primeiro pedido do `claude -p` levou ~10 s no total
+  (a maior parte é o modelo), e o hook não apareceu como atraso.
+- **Efeito colateral:** os testes com servidor no ar mandaram ao servidor real eventos de uma
+  sessão fictícia `medicao-15` (cwd inexistente). Se aparecer lixo no wiki, é isto.
