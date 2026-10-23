@@ -78,7 +78,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | INTEGRACAO-DEEPSEEK.4 | Limite de custo, modo `off` e fallback de tempo · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | INTEGRACAO-DEEPSEEK.3 | ⬜ Pendente | — | [ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md) |
 | INTEGRACAO-DEEPSEEK.5 | Documentar a integração · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | INTEGRACAO-DEEPSEEK.4 | ⬜ Pendente | — | [ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md) |
 | **RECLASSIFICAR-PESADO-OPUS** | **🌐 GLOBAL — Subtarefas `PESADO` que estão só com Opus 5.5+/Fable passam para Sonnet, exceto o que precisa do Opus (pedido do usuário em 2026-10-23)** | 🟠 Alta | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
-| RECLASSIFICAR-PESADO-OPUS.1 | Inventariar as subtarefas `PESADO` com Opus e propor o destino de cada uma (Sonnet agora) · `PESADO · effort high` | 🟠 Alta | PESADO · só Sonnet · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
+| RECLASSIFICAR-PESADO-OPUS.1 | Inventariar as subtarefas `PESADO` com Opus e propor o destino de cada uma (Sonnet agora) · `PESADO · effort high` | 🟠 Alta | PESADO · só Sonnet · effort high | Nenhuma | 🔄 Em execução | Claude Code (Sonnet 5.5) (local · main · rules-ai) (desde 2026-10-23 16:26) · 0% | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
 | RECLASSIFICAR-PESADO-OPUS.2 | Trocar o Modelo das linhas aprovadas para Sonnet (depende do "sim" à lista, P2) · `PESADO · effort high` | 🟠 Alta | PESADO · só Sonnet · effort high | RECLASSIFICAR-PESADO-OPUS.1, P2 | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
 | RECLASSIFICAR-PESADO-OPUS.3 | Decidir a matriz `regras/niveis-e-modelos.md` (P3) | 🟠 Alta | Usuário | RECLASSIFICAR-PESADO-OPUS.2 | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
 | RECLASSIFICAR-PESADO-OPUS.4 | Conferência final com `grep` · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku · effort low | RECLASSIFICAR-PESADO-OPUS.2 | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
@@ -88,6 +88,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
 |---|---|---|---|
+| Claude Code (Sonnet 5.5) (local · main · rules-ai) | RECLASSIFICAR-PESADO-OPUS.1 ([ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md)) | 🔄 Ativa | 2026-10-23 16:26 |
 | Claude Code (Opus 5.5 · sargento herdr w2:p1) (local · main · rules-ai) | AGENTES-REALTIME: finalizar o que não depende do usuário ([ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md)) | 🔄 Ativa | 2026-10-23 14:15 |
 | Claude Code (Sonnet 5.5 · herdr w2:pZ; líder Opus 5.5 · sargento) (local · main · rules-ai) | AGENTES-REALTIME.15, .18, .19, .20 e .21 entregues; sem subtarefa livre do seu modelo (as que faltam são LEVE ou esperam o usuário) | ⏹️ Encerrada | 2026-10-23 15:25 |
 | Claude Code (Sonnet 5.5 · herdr w2:p11; líder Opus 5.5 · sargento) (local · main · rules-ai) | AGENTES-REALTIME.24, .22 e .17 entregues; sem subtarefa livre do seu modelo | ⏹️ Encerrada | 2026-10-23 15:10 |
