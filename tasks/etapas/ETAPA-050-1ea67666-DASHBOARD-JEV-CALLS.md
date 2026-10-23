@@ -21,7 +21,7 @@
 
 ### DASHBOARD-JEV-CALLS.1 — Menu CHAMADAS JEV AI e a página JEV-AI-CALLS.html
 
-**Próximo passo:** executor-medio (Sonnet) cria o item de menu, a página, o JS e o CSS e confere os totais por comando.
+**Próximo passo:** concluída; segue a .2 (documentação).
 
 - **Nível:** MEDIO — código com lógica, poucos arquivos
 - **Modelo:** só Sonnet — nunca outro
@@ -30,6 +30,8 @@
 - **Descrição:** Acrescentar em `dashboard/assets/js/menu.js` (`ITENS_MENU`) o item `{ texto: 'CHAMADAS JEV AI', href: 'JEV-AI-CALLS.html', novaAba: true }` (abre em nova janela). Criar `dashboard/JEV-AI-CALLS.html` (mesma barra e `<nav data-menu>` do `index.html`, título `CHAMADAS JEV AI`), `dashboard/assets/js/jev-ai-calls.js` e `dashboard/assets/css/jev-ai-calls.css` (tokens do `tema-futurista.css`). A página lê, por `fetch`, o `../scripts/jev/saidas/chamadas.jsonl` (uma linha JSON por chamada ao Jev; servido pelo `python -m http.server` na raiz do `rules-ai`, como diz o README do dashboard), mostra um resumo (total de chamadas, custo em US$, tokens de entrada e saída, latência média, % de `situacao` diferente de `ok`) e uma tabela das chamadas, mais novas primeiro (data, ação, modelo, perguntas, tokens, custo, latência, situação, tentativas, código de erro), com filtro por ação e por situação. Só campos que o registro já tem; o texto da mensagem nunca existe nesse arquivo (guarda só hash). Falha ao ler (arquivo ausente, 404, host que não é local) → mensagem clara na tela, sem quebrar. Linha inválida do jsonl é pulada e contada num aviso. Sem dependência npm nem CDN novo. Respeita `codigo-limites-nomes.md` e `codigo-solid.md` (funções de até 45 linhas, JSDoc, nomes em português sem acento, constantes no topo, linhas de até 100 colunas, sem `style=""` nem `onclick`).
 - **Critérios de Aceitação:** o menu mostra CHAMADAS JEV AI e abre `JEV-AI-CALLS.html` em nova janela; a tabela e o resumo batem com `chamadas.jsonl` (total de linhas válidas, soma de `custo_usd` e de tokens conferidos por comando); `node --check` passa nos JS; nenhum arquivo fora de `dashboard/`.
 - **Depende de:** Nenhuma
+- **Entrega:** commit "feat(DASHBOARD-JEV-CALLS.1)"; menu.js entrou só com a linha do CHAMADAS JEV AI (as demais alterações do menu.js são de outra frente e seguem fora do commit).
+- **Verificação:** node --check ok; JSDoc nas 16 funções; resumo conferido de forma independente sobre chamadas.jsonl (1584 chamadas, custo US$ 0,0801741, 1.908.908 tokens de entrada, 261.223 de saída, latência média 248,2 ms, 0% de erro); DOM só com createElement/textContent; tela não aberta (a IA não abre navegador): o usuário confere com `python -m http.server 8080` na raiz do rules-ai e abrindo http://localhost:8080/dashboard/JEV-AI-CALLS.html
 
 ### DASHBOARD-JEV-CALLS.2 — Documentar a página e fechar
 

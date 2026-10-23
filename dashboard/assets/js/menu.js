@@ -15,6 +15,7 @@ const PROJETOS_PADRAO = Object.freeze({
 const ITENS_MENU = Object.freeze([
   { texto: 'Dashboard', href: '../index.html' },
   { texto: 'Agentes ao vivo', href: 'agentes.html' },
+  { texto: 'CHAMADAS JEV AI', href: 'JEV-AI-CALLS.html', novaAba: true },
 ]);
 
 const parametroProjeto = () => new URLSearchParams(window.location.search).get('projeto') ?? '';
