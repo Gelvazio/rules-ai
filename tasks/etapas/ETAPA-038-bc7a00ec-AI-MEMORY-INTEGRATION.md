@@ -41,6 +41,7 @@
 - 2026-10-23 12:14: a .35 achou que `MATERIAIS/` do aulasenai não está no `ignore_paths`; o líder ampliou os Arquivos da .35 para incluir `scripts/instalar-ai-memory.mjs` (só acrescentar `MATERIAIS/**` e `**/MATERIAIS/**`). A .34 ficou 👀: decisão do usuário sobre segredo digitado no prompt.
 - 2026-10-23 12:19: **o usuário decidiu (.34): opção A — não capturar `UserPromptSubmit` (o que se digita no prompt) no piloto; e tirar o hook global do ai-memory, deixando só o hook do projeto.** O líder fechou a .34 e abriu a .45 para aplicar; a .16 passou a depender da .45.
 - 2026-10-23 12:26: **o usuário mudou o escopo do rollout: "INSTALE APENAS NO aulasenai e dashboard-ai por enquanto, o resto farei depois".** A .24 (REA-APP-CLONES, projeto-frontend-com-testes, testes-de-frontend) fica ⛔ adiada pelo usuário; destrava com novo pedido dele. A .25 passa a depender da .23 e mede só aulasenai e DASHBOARD-AI-PRINCIPAL.
+- 2026-10-23 12:30: a .23 achou lacunas no `ignore_paths` do dashboard (`.mcp.json`, `laya/`, `dashboard-plataformas-de-ia/`); o líder abriu a .46 e segurou o commit no dashboard até ela.
 - 2026-10-23 11:53: o usuário aceitou o token do ai-memory em `%LOCALAPPDATA%i-memoryuth-token` (arquivo fora do Git) no lugar da variável de ambiente pedida na .4; a .3 documenta essa forma. Também autorizou a equipe herdr: conta C, `--dangerously-skip-permissions`, Sonnet nas `PESADO` (.3, .13, .21).
 
 ### Requisitos
@@ -760,3 +761,17 @@
 - **Depende de:** AI-MEMORY-INTEGRATION.34
 - **Entrega:** scripts/instalar-ai-memory.mjs --hooks grava só SessionStart e PostToolUse; docs/AI-MEMORY-HOOKS.md atualizado (commit 67e8411); fora do Git: 9 entradas do ai-memory removidas de C:\Users\gelva\.claude\settings.json, com cópia settings.json.bak-ai-memory (as .claude-contaA a D não tinham). Feito por w-a7 (Sonnet 5.5, herdr w2:pQ, conta B).
 - **Verificação:** node --check ok; teste de invariante código 0; --dry-run --hooks no aulasenai: adicionar SessionStart e PostToolUse, sem "global já entrega"; grep ai-memory = 0 em todos os settings.json globais; JSON válido; diff contra o .bak só com remoções (conferido pelo líder). Pendência: projeto que já tivesse UserPromptSubmit do ai-memory gravado não é limpo pelo instalador (nenhum tinha até agora).
+
+### AI-MEMORY-INTEGRATION.46 — Cobrir `.mcp.json`, `laya/` e `dashboard-plataformas-de-ia/` no `ignore_paths`
+
+**Próximo passo:** acrescentar `.mcp.json` e `**/.mcp.json` em `IGNORE_PATHS` do instalador; no `.ai-memory.toml` do dashboard acrescentar esses dois e `laya/**` e `dashboard-plataformas-de-ia/**`; conferir com `--check-capture`.
+
+- **Nível:** PESADO — segurança (arquivo que pode ter chave, repositório aninhado); aberta pelo líder a partir do achado da .23 (C26)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** a .23 achou que o `ignore_paths` não cobre o `.mcp.json` (pode ter chave), o `laya/` (repositório Git aninhado) nem o `dashboard-plataformas-de-ia/` do `DASHBOARD-AI-PRINCIPAL`. O `.mcp.json` entra no instalador (vale para todo projeto); as duas pastas entram só no marker do dashboard.
+- **Arquivos:** `scripts/instalar-ai-memory.mjs`, `DASHBOARD-AI-PRINCIPAL/.ai-memory.toml`
+- **Critérios de Aceitação:** `ai-memory hook --check-capture` dá `drop` para `.mcp.json`, `laya/x` e `dashboard-plataformas-de-ia/x` no dashboard; teste de invariante sai 0; auditoria sem achados.
+- **Depende de:** AI-MEMORY-INTEGRATION.23
+- **Verificação:** a preencher na entrega.
