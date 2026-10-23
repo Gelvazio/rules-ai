@@ -128,7 +128,7 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 - **Critérios de Aceitação:** Gate sai com código 0.
 - **Depende de:** AGENTES-REALTIME.1
 
-- **Entrega:** conferência da spec feita por h1 (Haiku 5.5, herdr w2:pY, conta D); os 4 ajustes apontados (R2.1/INV-1, INV-3, INV-5, linha solta das Decisões) foram aplicados pelo líder no commit 4ad do quadro.
+- **Entrega:** conferência da spec feita por h1 (Haiku 5.5, herdr w2:pY, conta D); os 4 ajustes apontados (R2.1/INV-1, INV-3, INV-5, linha solta das Decisões) foram aplicados pelo líder no commit f576817.
 - **Verificação:** node spec/verificar-spec.mjs tasks/etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md saiu 0 antes e depois dos ajustes (conferido pelo líder).
 
 ### AGENTES-REALTIME.3 — Inventário do que ainda pede `/api/agentes` e `/api/projetos`
