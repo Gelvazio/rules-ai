@@ -332,7 +332,7 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 
 ### AGENTES-REALTIME.9 — Teste de invariante do payload (campos e projetos permitidos)
 
-**Próximo passo:** esperar AGENTES-REALTIME.8.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — banco, segurança, segredo ou contrato entre várias partes
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -341,6 +341,8 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 - **Descrição:** Script que gera o payload de todos os quadros e confere INV-1 (só campos permitidos) e INV-2 (nenhum projeto proibido). Permitido em PESADO.
 - **Critérios de Aceitação:** Comando passa e fica na Verificação.
 - **Depende de:** AGENTES-REALTIME.8
+- **Entrega:** dashboard/testes/invariante_payload_quadro.py (teste de invariante INV-1 e INV-2, C34; commit desta entrega), feito por op1 (Opus 5.5, herdr w2:pX, conta D).
+- **Verificação:** python -B dashboard/testes/invariante_payload_quadro.py: 22 ok, 0 falhas, código 0 — rodado de novo pelo líder depois da mudança da .14 no publicador. Sem rede, sem gravar e sem imprimir títulos.
 
 ### AGENTES-REALTIME.10 — Autorização do canal (público ou privado) conforme a pergunta 2
 
