@@ -365,7 +365,7 @@
 
 ### AI-MEMORY-INTEGRATION.20 — Privacidade dos dados de alunos: ignorar listas e currículos e procedimento de purga
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -376,7 +376,8 @@
 - **Arquivos:** `docs/AI-MEMORY-PRIVACIDADE.md`
 - **Critérios de Aceitação:** Procedimento de purga testado com `purge-project` em dry-run; nenhum dado de aluno no wiki do piloto.
 - **Depende de:** AI-MEMORY-INTEGRATION.6, AI-MEMORY-INTEGRATION.13
-- **Verificação:** a preencher na entrega.
+- **Entrega:** docs/AI-MEMORY-PRIVACIDADE.md (commit desta entrega), feito por w-a3 (Sonnet 5.5, herdr w2:pP, conta B).
+- **Verificação:** ai-memory purge-project sem --confirm funcionou como dry-run (0 páginas, 1 sessão, 26 observações; nada apagado); list-projects: 0 páginas nos 3 projetos, nenhum dado de aluno em página do wiki. Os padrões extras propostos no guia são aplicados pela .43. As 26 observações brutas não foram abertas (privacidade).
 
 ### AI-MEMORY-INTEGRATION.21 — Backup e restauração do wiki da memória
 
