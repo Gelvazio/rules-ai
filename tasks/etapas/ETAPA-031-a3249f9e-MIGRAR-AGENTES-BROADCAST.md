@@ -334,7 +334,7 @@ canal
 
 ### MIGRAR-AGENTES-BROADCAST.5 — Documentação e fechamento
 
-**Próximo passo:** atualizar `dashboard/README.md` com o fluxo do Broadcast e o que fazer quando o canal cair; avisar o usuário para testar na tela.
+**Próximo passo:** nenhum — entregue. Falta só o teste na tela pelo usuário (R2.1 a R2.3; AGENTES-REALTIME.29).
 - **Nível:** LEVE — só Markdown.
 - **Modelo:** só Haiku — nunca outro.
 - **Effort:** low
@@ -342,7 +342,8 @@ canal
 - **Descrição:** documentar onde está o secret, como rodar `--simular` e como testar o canal.
 - **Arquivos:** `dashboard/README.md`.
 - **Critérios de Aceitação:** README descreve o fluxo sem citar chave.
-- **Verificação:** leitura do README; `grep` por chaves reais no README vazio.
+- **Entrega:** `dashboard/README.md` (seções novas "Publicar o quadro e testar o canal" e "Quando o canal cair"; o restante do README já trazia o fluxo do Broadcast e o secret). Sem commit nesta sessão: o commit fica com o Haiku-comitê, por Claude Code (Haiku 5.5).
+- **Verificação:** `grep -E "service_role|sb_secret_"` e padrões de chave real em `dashboard/README.md`: vazio. README relido: secret, `--simular`, teste do canal e o que fazer quando o canal cai estão descritos. Nenhum outro arquivo de `dashboard/` foi tocado (o README não estava modificado antes da edição).
 - **Estimativa:** 30 min.
 - **JEV-AI-SUGGESTION:** NAO
 
