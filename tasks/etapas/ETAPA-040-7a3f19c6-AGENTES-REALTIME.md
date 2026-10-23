@@ -700,7 +700,7 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.27 — Atualizar menções a `/api/agentes` em `AGENTS.md` e docs
 
-**Próximo passo:** esperar AGENTES-REALTIME.20.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — só texto, configuração simples ou comando de fechamento
 - **Modelo:** só Haiku — nunca outro
@@ -709,6 +709,9 @@ usuário decide ao cadastrar.
 - **Descrição:** `git grep "/api/agentes"` e ajustar o que ficou desatualizado (por exemplo a regra C31).
 - **Critérios de Aceitação:** Só o fallback documentado cita a rota.
 - **Depende de:** AGENTES-REALTIME.20
+- **Entrega:** só texto de comentário e documentação: `dashboard/assets/js/agentes/canal.js` (linha 2) e `dashboard/assets/js/agentes/fila-atrasada.js` (JSDoc de `indexar`) não falam mais em `/api/agentes`, e o `AGENTS.md` (linha 35, seção da C31) passou a apontar `dashboard/index.html` no lugar de `dashboard/graphs/agentes.html`, pasta que não existe mais. Commit desta entrega. Feito por h1 (Haiku 5.5, herdr w2:pY, conta D).
+- **Verificação:** `git grep -n -e '/api/agentes' -e '/api/projetos' -- .` não acha mais nada fora de `tasks/` (histórico), `scripts/jev/benchmarks/golden.jsonl` (dado de teste), `STATUS_PROJETO.md` (registro datado) e `dashboard/README.md` (que é da `.26`); `git grep "graphs/agentes.html"` fora de `tasks/` vazio; `node --input-type=module --check` ok nos dois `.js`; as 2 linhas acima de 100 caracteres do `fila-atrasada.js` já existiam no `HEAD` anterior; a C31 **não** descrevia o percentual como vindo da rota, só o caminho da página estava errado (conferido pelo líder). Nada da pasta `regras/` foi tocado.
+- **Anotação:** a primeira rodada veio incompleta por erro meu na ordem (passei `git grep "a\|b"`, que o `git grep` não casa sem `-e`); refeito com `-e`.
 
 ### AGENTES-REALTIME.28 — Plano de rollback com a chave `FONTE_AGENTES`
 
