@@ -110,7 +110,7 @@
 
 ### INTEGRACAO-DEEPSEEK.5 — Documentar a integração
 
-**Próximo passo:** começar depois da .4.
+**Próximo passo:** ✅ entregue em 2026-10-23; etapa 045 concluída (quadro atualizado na conferência).
 
 - **Nível:** LEVE — só texto e configuração
 - **Modelo:** só Haiku — nunca outro
@@ -121,4 +121,5 @@
 - **Arquivos:** `docs/DEEPSEEK-INTEGRACAO.md`
 - **Critérios de Aceitação:** o doc cita as variáveis `DEEPSEEK_API_KEY`, `DEEPSEEK_MODO` e o limite de P2.
 - **Depende de:** INTEGRACAO-DEEPSEEK.4
-- **Verificação:** a preencher na entrega (leitura do doc contra o código).
+- **Entrega:** `docs/DEEPSEEK-INTEGRACAO.md` (novo; o que é, como ligar, variáveis, como desligar, rotacionar a chave, auditoria, motivos de fallback e o que ainda não foi testado) e `.env.example` (linha opcional `DEEPSEEK_TIMEOUT_MS=30000` acrescentada; nenhuma linha apagada). `regras/niveis-e-modelos.md` não foi editado (pedido do usuário).
+- **Verificação:** leitura do doc contra o código de `scripts/deepseek/`. Cada variável e onde o código a lê: `DEEPSEEK_API_KEY` em `cliente.mjs` (`chamarDeepseek`, lida de `process.env`, não de `.env`); `DEEPSEEK_MODO` em `limites.mjs` (`estaDesligada`, valor `off` sem diferenciar maiúsculas) e reaproveitada em `cliente.mjs` e `roteador.mjs`; `DEEPSEEK_MAX_CUSTO_DIA` em `limites.mjs` (`lerLimites`, padrão 2, decimal), usada em `roteador.mjs` e `auditoria.mjs` (`lerTetoDiario`); `DEEPSEEK_MAX_TOKENS` em `limites.mjs` (padrão 2000, inteiro), usada em `cliente.mjs` (`max_tokens`) e `roteador.mjs` (entrada estimada, 1 token a cada 3 caracteres); `DEEPSEEK_TIMEOUT_MS` em `limites.mjs` (padrão 30000, inteiro), usada em `cliente.mjs` (`enviar`) e `roteador.mjs` (`limitarTempo`, +2 s). Motivos de fallback conferidos em `roteador.mjs`, `cliente.mjs` e `limites.mjs` (ordem das barreiras, ações `usada`, `fallback`, `bloqueada`). Campos da auditoria conferidos em `auditoria.mjs` (`montarLinha`, lista fechada). Nenhuma chamada real à API. Sem teste automatizado (regra do projeto).
