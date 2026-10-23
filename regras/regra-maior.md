@@ -13,7 +13,8 @@ autorização. Detalhe dos níveis e da matriz: `niveis-e-modelos.md`.
 - Na prática:
   - **Opus 5.5+ / Fable** nunca pega subtarefa `LEVE` nem `MEDIO`.
   - **Sonnet** nunca pega subtarefa `LEVE`.
-  - Vale também para o **líder** de uma equipe: o líder reserva, delega, confere e commita, mas
+  - Vale também para o **líder** de uma equipe: o líder reserva, delega e valida (a conferência, o
+    commit e o push da entrega são do Haiku, C41), mas
     **nunca executa** uma subtarefa `LEVE` ou `MEDIO` (nem a de fechamento, nem "porque é rápido").
     Editar o quadro para reservar ou entregar não é executar subtarefa.
 

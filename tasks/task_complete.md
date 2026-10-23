@@ -106,3 +106,4 @@
 | AGENTES-REALTIME.26 | Documentar o fluxo no `README.md` do dashboard · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | AGENTES-REALTIME.20 | ✅ Concluído | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | INTEGRACAO-DEEPSEEK.1 | Responder P1, P2 e P3 (decisões do usuário) | 🟡 Média | Usuário | Nenhuma | ✅ Concluído | — | [ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md) |
 | RECLASSIFICAR-PESADO-OPUS.1 | Inventariar as subtarefas `PESADO` com Opus e propor o destino de cada uma (Sonnet agora) · `PESADO · effort high` | 🟠 Alta | PESADO · só Sonnet · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
+| HAIKU-COMMIT-GLOBAL.1 | 🌐 Regra global e decisão C41 · `PESADO · effort high` | 🟠 Alta | PESADO · só Sonnet ou DeepSeek · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md) |

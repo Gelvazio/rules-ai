@@ -33,7 +33,8 @@ terminais deles (22 CLIs detectados; Apache 2.0). Fonte: <https://herdr.dev>.
    `<IA (modelo)> (herdr <painel>) (desde <data hora>)`.
 2. O **nível** da subtarefa decide o modelo (`niveis-e-modelos.md`); o agente do painel não escolhe
    nível para caber nele.
-3. **Só o líder** usa Git e edita o quadro; o agente do painel entrega e devolve, não commita.
+3. **O líder** edita o quadro e reserva; a conferência, o commit e o push da entrega são do Haiku
+   (C41, `niveis-e-modelos.md`); o agente do painel entrega e devolve, não commita.
 4. Em `rules-ai` e `gerenciador-de-ia` (C29), painéis abertos pelo líder trabalham **sob a trava
    dele** (`tasks/.sessao-ativa`): agente de equipe não conta como sessão nova, mas painel que o
    líder não abriu conta.

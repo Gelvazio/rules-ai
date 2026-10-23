@@ -63,7 +63,17 @@ forte fique com as difíceis. Vale para **todas as IAs**. Reserva: `frentes-e-re
 ## Equipe de agentes do Claude Code
 
 O líder (Opus 5.5+ ou Fable) reserva **uma subtarefa por vez**, delega ao agente do nível
-(`executor-leve` = Haiku, `executor-medio` = Sonnet, `executor-pesado` = Opus), confere, valida
-e commita. Só o líder usa Git e edita o quadro; o `classificador-tarefas` só grava a linha
-`- **Nível:**` nas etapas. Quem **executa** é o agente do nível: na reserva vai o modelo dele, ex.:
+(`executor-leve` = Haiku, `executor-medio` = Sonnet, `executor-pesado` = Opus) e valida a
+entrega. O líder reserva (commit + push da reserva) e edita o quadro; o `classificador-tarefas` só
+grava a linha `- **Nível:**` nas etapas.
+
+**Conferência, commit e push da entrega são do Haiku (C41).** Quando o executor entrega, o Haiku
+(`executor-leve`) confere (arquivos, sintaxe e o registro da Verificação), move a linha para o
+`task_complete.md` no mesmo commit e dá o push. Em entrega `PESADO` ele confere só arquivos,
+sintaxe e Verificação, sem consultar banco. Se achar problema, **não commita** e cria na mesma mãe
+a subtarefa `Verificação: <problema>` (`MEDIO · só Sonnet`, C26). O Haiku continua sem executar
+subtarefa `MEDIO` ou `PESADO` (C22). Sessão que trabalha sozinha, sem equipe, mantém o fluxo
+normal: quem executa commita.
+
+Quem **executa** é o agente do nível: na reserva vai o modelo dele, ex.:
 `Claude Code (Haiku 5.5 · executor-leve; líder Opus 5.5) (<frente>) (desde …)`.

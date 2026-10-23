@@ -54,12 +54,13 @@ para o Haiku; problema na conferência vira subtarefa de verificação para o So
 - 2026-10-23 16:50: **a pedido do usuário** ("HAIKU-COMMIT-GLOBAL deve ir pra Sonnet"), a .1 e a .2 passam de Opus 5.5+/Fable para **Sonnet (ou DeepSeek)**; a reserva parada da .1 (Opus, aulasenai s17, desde 2026-10-18 20:17, 0%) foi liberada pelo usuário. Nível continua PESADO.
 ### HAIKU-COMMIT-GLOBAL.1 — Regra global e decisão C41
 
-**Próximo passo:** escrever a C41 no `CONFLITOS.md` e mudar as regras pela varredura.
+**Próximo passo:** ✅ entregue em 2026-10-23; segue a .2 (`sincronizar.mjs --aplicar`).
 
 - **Nível:** PESADO — regra de todas as IAs (arquitetura).
 - **Modelo:** só Sonnet ou DeepSeek — nunca outro (C22; trocado do Opus a pedido do usuário em 2026-10-23)
 - **Effort:** high
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Sonnet 5.5) (local · main · rules-ai), 2026-10-23: C41 no `CONFLITOS.md`; texto novo em `regras/niveis-e-modelos.md` (Equipe de agentes), `regras/ciclo-da-task.md` (Encerrar, item 5), `regras/herdr.md` (item 3) e `regras/regra-maior.md`.
+- **Verificação:** `grep -rni "só o líder" regras CONFLITOS.md` só acha a linha histórica da C33 e a própria C41 (INV-1 ok); `grep -rln C41 regras CONFLITOS.md` acha os 4 arquivos de regra e o `CONFLITOS.md`; leitura de R1.1 a R1.4 e INV-2 no texto novo. `dist/` e arquivos globais das IAs ficam para a .2.
 - **JEV-AI-SUGGESTION:** NAO
 
 ### HAIKU-COMMIT-GLOBAL.2 — Levar às IAs (`sincronizar.mjs --aplicar`)

@@ -70,7 +70,10 @@ Na dúvida, é grande. O projeto pode definir exceções (rotinas já autorizada
 3. Pendências que ficaram para depois → "Pendências" do `STATUS.md`, com motivo.
 4. Lição aprendida que vira regra → "Lições aprendidas" do `STATUS.md` (e a regra no lugar certo).
 5. **Um commit por subtarefa entregue**, com o quadro no mesmo commit (e push, conforme a regra
-   do projeto).
+   do projeto). Na **equipe de agentes** do Claude Code (C41), quem confere, commita e dá o push da
+   entrega é o **Haiku**; problema na conferência não vira commit, vira a subtarefa
+   `Verificação: <problema>` da mesma mãe (`MEDIO · só Sonnet`). Detalhe em
+   `niveis-e-modelos.md` (Equipe de agentes).
 6. Responder **apenas**: **TAREFA FINALIZADA E SINCRONIZADA!** — sem resumo nem tabela
    (perguntas e bloqueios são respondidos normalmente). O projeto pode pedir algo antes ou depois
    da frase (ex.: a lista de pendentes depois do push).

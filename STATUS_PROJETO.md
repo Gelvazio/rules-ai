@@ -1,3 +1,5 @@
+- 2026-10-23 17:15 (Brasília): HAIKU-COMMIT-GLOBAL.1 entregue pelo Sonnet (etapa 027): decisão C41 no `CONFLITOS.md` e regras atualizadas (`niveis-e-modelos.md`, `ciclo-da-task.md`, `herdr.md`, `regra-maior.md`): na equipe de agentes, o Haiku confere, commita e dá push; problema vira subtarefa de verificação para o Sonnet. Falta a .2 (`sincronizar.mjs --aplicar`, grava os arquivos globais das IAs).
+
 - 2026-10-23 16:50 (Brasília): HAIKU-COMMIT-GLOBAL.1 e .2 passaram de Opus para Sonnet (ou DeepSeek) a pedido do usuário; reserva parada da .1 liberada (etapa 027).
 
 - 2026-10-23 16:40 (Brasília): RECLASSIFICAR-PESADO-OPUS.1 entregue pelo Sonnet (etapa 046): das 13 subtarefas PESADO só com Opus, 9 podem ir para o Sonnet, 3 ficam com o Opus (GERENCIADOR-GLOBAL.4 e .7, MCP-QUADRO.3) e 1 está reservada e não muda. Aguarda o usuário aprovar a lista (P2) para a .2.
