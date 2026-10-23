@@ -101,7 +101,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) (local · main · rules-ai) | JEV-SEM-LAYA.3 ([ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md)) | ⏹️ Encerrada | 2026-10-19 23:53 |
 | Claude Code (Sonnet 5.5) (local · main · rules-ai) | JEV-GRAVA-NIVEL ([ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md)) | ⏹️ Encerrada | 2026-10-23 10:00 |
 | Claude Code (Sonnet 5.5) (local · main · aulasenai) | UPDATE-TODAS-PASTAS.1 ([ETAPA-037](etapas/ETAPA-037-7d41c0e9-UPDATE-TODAS-PASTAS.md)) | ⏹️ Encerrada | 2026-10-23 09:42 |
-| Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · ai-memory) | .5, .6, .29 e .30 ([ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md)) | 🔄 Ativa | 2026-10-23 10:55 |
+| Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · ai-memory) | AI-MEMORY-INTEGRATION.2, .5, .6, .29 e .30 ([ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md)) | ⏹️ Encerrada | 2026-10-23 10:55 |
 
 
 ## 🗂️ Etapas
