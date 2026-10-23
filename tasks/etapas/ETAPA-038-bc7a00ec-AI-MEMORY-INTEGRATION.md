@@ -466,7 +466,7 @@
 
 ### AI-MEMORY-INTEGRATION.26 — Procedimento de rollback (desligar a memória sem perder o quadro)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -477,7 +477,8 @@
 - **Arquivos:** `docs/AI-MEMORY-ROLLBACK.md`
 - **Critérios de Aceitação:** Rollback executado no piloto em menos de 10 minutos; `rules-local` e quadro intactos.
 - **Depende de:** AI-MEMORY-INTEGRATION.16
-- **Verificação:** a preencher na entrega.
+- **Entrega:** docs/AI-MEMORY-ROLLBACK.md (commit desta entrega), feito por w-a21 (Haiku 5.5, herdr w2:pT, conta B).
+- **Verificação:** ensaio numa cópia do .claude/settings.json e do .ai-memory.toml do aulasenai em pasta temporária: 2 entradas do ai-memory removidas, marker apagado em menos de 1 s, os outros 5 hooks e as permissions iguais ao original; o aulasenai real ficou intacto e o servidor não foi parado. Pendências: o ai-memory não tem comando de parada documentado (o passo de parar o servidor só foi descrito, sem medir); não há remoção automática dos hooks no instalador.
 
 ### AI-MEMORY-INTEGRATION.27 — Documentação final: README, `STATUS_PROJETO.md` e mapa de `C:\fontes`
 
