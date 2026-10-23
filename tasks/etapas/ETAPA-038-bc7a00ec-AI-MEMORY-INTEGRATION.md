@@ -744,7 +744,7 @@
 
 ### AI-MEMORY-INTEGRATION.45 — Aplicar as decisões do usuário: instalador sem `UserPromptSubmit` e tirar o hook global
 
-**Próximo passo:** mudar o `--hooks` do instalador para gravar só `SessionStart` e `PostToolUse`; tirar as entradas do ai-memory dos `settings.json` globais, com backup.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — configuração global de segurança (hooks da conta) e captura de segredo (aberta pelo líder, C26)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -754,4 +754,5 @@
 - **Arquivos:** `scripts/instalar-ai-memory.mjs`, `docs/AI-MEMORY-HOOKS.md`; fora do Git: `settings.json` globais (com `.bak`)
 - **Critérios de Aceitação:** `--dry-run --hooks` no aulasenai lista só `SessionStart` e `PostToolUse` e não diz mais "global já entrega"; nenhum `settings.json` global cita `ai-memory`; os outros hooks globais iguais ao `.bak`; teste de invariante sai 0.
 - **Depende de:** AI-MEMORY-INTEGRATION.34
-- **Verificação:** a preencher na entrega.
+- **Entrega:** scripts/instalar-ai-memory.mjs --hooks grava só SessionStart e PostToolUse; docs/AI-MEMORY-HOOKS.md atualizado (commit 67e8411); fora do Git: 9 entradas do ai-memory removidas de C:\Users\gelva\.claude\settings.json, com cópia settings.json.bak-ai-memory (as .claude-contaA a D não tinham). Feito por w-a7 (Sonnet 5.5, herdr w2:pQ, conta B).
+- **Verificação:** node --check ok; teste de invariante código 0; --dry-run --hooks no aulasenai: adicionar SessionStart e PostToolUse, sem "global já entrega"; grep ai-memory = 0 em todos os settings.json globais; JSON válido; diff contra o .bak só com remoções (conferido pelo líder). Pendência: projeto que já tivesse UserPromptSubmit do ai-memory gravado não é limpo pelo instalador (nenhum tinha até agora).
