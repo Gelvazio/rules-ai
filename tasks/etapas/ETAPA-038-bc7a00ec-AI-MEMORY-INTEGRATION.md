@@ -486,7 +486,7 @@
 
 ### AI-MEMORY-INTEGRATION.27 — Documentação final: README, `STATUS_PROJETO.md` e mapa de `C:\fontes`
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -497,7 +497,8 @@
 - **Arquivos:** `README.md`, `STATUS_PROJETO.md`, `C:\fontes\CLAUDE.md`, `C:\fontes\AGENTS.md`
 - **Critérios de Aceitação:** Os 4 arquivos citam a integração e a regra `memoria-ai.md`; mapa da raiz atualizado nos dois arquivos.
 - **Depende de:** AI-MEMORY-INTEGRATION.25, AI-MEMORY-INTEGRATION.26
-- **Verificação:** a preencher na entrega.
+- **Entrega:** README.md e STATUS_PROJETO.md do rules-ai (commit desta entrega); C:\fontes\CLAUDE.md e C:\fontes\AGENTS.md (fora do Git, mudança igual nos dois: bloco na seção do rules-ai e nota no aulasenai e no dashboard-ai), feito por w-a7 (Sonnet 5.5, herdr w2:pQ, conta B).
+- **Verificação:** grep: os 4 arquivos citam a integração e memoria-ai.md; os dois mapas da raiz com as mesmas linhas; nenhum segredo no texto (conferido pelo líder). Pendência: o portal não foi regravado porque C:\fontes\scripts\gerar-dados-index.mjs não existe mais (o atualizar-index.cmd aponta para ele).
 
 ### AI-MEMORY-INTEGRATION.28 — Fechamento: grafo, aceite pela IA e mover a tarefa para `task_complete.md`
 
