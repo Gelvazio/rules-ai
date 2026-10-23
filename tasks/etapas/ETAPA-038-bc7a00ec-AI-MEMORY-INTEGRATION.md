@@ -37,6 +37,7 @@
 - 2026-10-23: achado da .30: apenas o Claude Code aceita --scope project; nas demais IAs o hook fica global e, sem .ai-memory.toml, o repositório é capturado por padrão. Aberta a subtarefa .36 (decisão do usuário) e as .31, .32 e .33 passam a depender dela.
 - 2026-10-23 11:02: **decisão A da .36 (usuário): captura só no Claude Code por enquanto; Codex, Gemini, Devin, Antigravity, Kimi, OpenCode e DeepSeek ficam sem captura até nova ordem.** Isso substitui a resposta 6 (todas as IAs). Canceladas: .31, .32, .33 (hooks nas outras IAs) e .17 (ensaio Claude → Codex, que precisaria do hook no Codex). A .34 passa a auditar só o Claude Code; a .25 não depende mais da .17. Reabrir as outras IAs exige nova tarefa, já com a matriz da .30 (`docs/AI-MEMORY-HOOKS-POR-IA.md`) pronta.
 - 2026-10-23: a pedido do usuário, abertas as subtarefas pendentes .37 a .41 para usar hooks em **todas** as IAs depois do piloto do Claude Code (a decisão A da .36 vale até lá). A .37 é do usuário: escolher o modo de captura (allowlist recomendado). Não altera a decisão A.
+- 2026-10-23 12:12: a .14 achou vazamento real no `ignore_paths` (formas da raiz); o líder abriu a .43 (correção + padrões da .20) e a .16 passou a depender dela.
 - 2026-10-23 11:53: o usuário aceitou o token do ai-memory em `%LOCALAPPDATA%i-memoryuth-token` (arquivo fora do Git) no lugar da variável de ambiente pedida na .4; a .3 documenta essa forma. Também autorizou a equipe herdr: conta C, `--dangerously-skip-permissions`, Sonnet nas `PESADO` (.3, .13, .21).
 
 ### Requisitos
@@ -278,7 +279,7 @@
 
 ### AI-MEMORY-INTEGRATION.14 — Teste de invariante: o `ignore_paths` nunca deixa vazar caminho proibido
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -289,7 +290,8 @@
 - **Arquivos:** `scripts/testes/ai-memory-invariantes.mjs`
 - **Critérios de Aceitação:** INV-1 e INV-2 da etapa conferidos para toda combinação de caminho; falha se qualquer um vaza.
 - **Depende de:** AI-MEMORY-INTEGRATION.13
-- **Verificação:** a preencher na entrega.
+- **Entrega:** scripts/testes/ai-memory-invariantes.mjs (teste de invariante, C34; commit desta entrega), feito por w-a13 (Sonnet 5.5, herdr w2:pS, conta B).
+- **Verificação:** node scripts/testes/ai-memory-invariantes.mjs: INV-1 auditor, INV-2 quadro e INV-3 idempotência ok; o INV de ignore_paths falha de propósito porque achou vazamento real: na raiz do projeto, variaveis.js, gabarito/q1.md, prova-gabarito.md, alunos-turma.csv, lista-alunos.xlsx e alunos.json não são cobertos (o **/ exige uma pasta). Correção aberta como .43; depois dela o teste deve sair 0.
 
 ### AI-MEMORY-INTEGRATION.15 — Medir o custo dos hooks no início da sessão (tempo e se algum bloqueia)
 
@@ -701,4 +703,18 @@
 - **Descrição:** fechar o critério "remoto privado" da .21: o wiki é um repositório Git local; falta o remoto privado (passo a passo em `docs/AI-MEMORY-BACKUP.md`).
 - **Critérios de Aceitação:** `git -C %LOCALAPPDATA%i-memory\wiki remote -v` mostra o repositório privado e o `git push` funciona; nenhum segredo no repositório (o `config.toml` não fica no wiki).
 - **Depende de:** AI-MEMORY-INTEGRATION.21
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.43 — Corrigir o `ignore_paths` do instalador: formas da raiz e padrões de privacidade da .20
+
+**Próximo passo:** acrescentar em `IGNORE_PATHS` as formas da raiz e os padrões extras de `docs/AI-MEMORY-PRIVACIDADE.md`; rodar o teste de invariante até sair 0.
+
+- **Nível:** PESADO — segurança (vazamento de segredo e de dados de alunos); aberta pelo líder a partir do achado da .14 (C26)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** o `**/` do ai-memory exige ao menos uma pasta, então `variaveis.js`, `gabarito*/**`, `*gabarito*`, `*alunos*.csv`, `*alunos*.xlsx` e `*alunos*.json` na raiz do projeto vazam. Incluir as formas da raiz e os padrões extras propostos pela .20 (currículos, projetos-alunos, chamada, matrícula, notas etc.).
+- **Arquivos:** `scripts/instalar-ai-memory.mjs` (e o teste só se a lista esperada mudar)
+- **Critérios de Aceitação:** `node scripts/testes/ai-memory-invariantes.mjs` sai com código 0; nenhum padrão antigo some; marker já gravado continua sem ser sobrescrito.
+- **Depende de:** AI-MEMORY-INTEGRATION.14, AI-MEMORY-INTEGRATION.20
 - **Verificação:** a preencher na entrega.
