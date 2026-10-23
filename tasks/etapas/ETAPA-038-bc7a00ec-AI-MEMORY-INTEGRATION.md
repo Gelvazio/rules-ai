@@ -529,7 +529,7 @@
 - **Descrição:** Aplicar o instalador nos dois harnesses, no projeto, respeitando o gancho do Jev e o `codex_hooks`.
 - **Arquivos:** `scripts/instalar-ai-memory.mjs`, `.codex/hooks.json`, config do Gemini
 - **Critérios de Aceitação:** Os dois capturam no piloto; reexecução não duplica; nenhum hook bloqueia a mensagem.
-- **Depende de:** AI-MEMORY-INTEGRATION.30, AI-MEMORY-INTEGRATION.7
+- **Depende de:** AI-MEMORY-INTEGRATION.30, AI-MEMORY-INTEGRATION.7, AI-MEMORY-INTEGRATION.36
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.32 — Hooks de captura no Devin e no Antigravity (com `finalize-session`)
@@ -544,7 +544,7 @@
 - **Descrição:** Aplicar nos dois e documentar o fechamento explícito do Antigravity (`ai-memory finalize-session`).
 - **Arquivos:** `scripts/instalar-ai-memory.mjs`, `docs/AI-MEMORY-HOOKS.md`
 - **Critérios de Aceitação:** Os dois capturam; sessão do Antigravity é fechada pelo comando; resultado registrado.
-- **Depende de:** AI-MEMORY-INTEGRATION.30, AI-MEMORY-INTEGRATION.7
+- **Depende de:** AI-MEMORY-INTEGRATION.30, AI-MEMORY-INTEGRATION.7, AI-MEMORY-INTEGRATION.36
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.33 — Hooks de captura no Kimi e no OpenCode (DeepSeek)
@@ -559,7 +559,7 @@
 - **Descrição:** Aplicar nos dois e conferir como o DeepSeek (via OpenCode) entra na captura.
 - **Arquivos:** `scripts/instalar-ai-memory.mjs`, `docs/AI-MEMORY-HOOKS.md`
 - **Critérios de Aceitação:** Kimi e OpenCode capturam; caminho do DeepSeek documentado.
-- **Depende de:** AI-MEMORY-INTEGRATION.30, AI-MEMORY-INTEGRATION.7
+- **Depende de:** AI-MEMORY-INTEGRATION.30, AI-MEMORY-INTEGRATION.7, AI-MEMORY-INTEGRATION.36
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.34 — Auditoria de captura por IA: cada harness respeita `ignore_paths` e não vaza segredo
@@ -590,4 +590,16 @@
 - **Arquivos:** `aulasenai/.ai-memory.toml`, `docs/AI-MEMORY-PRIVACIDADE.md`
 - **Critérios de Aceitação:** Auditoria da pasta base sem achados; `variaveis.js`, `MATERIAIS/` e listas de alunos fora da memória.
 - **Depende de:** AI-MEMORY-INTEGRATION.6, AI-MEMORY-INTEGRATION.20
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.36 — Decidir a captura nas IAs sem escopo por projeto
+
+**Próximo passo:** o usuário escolhe uma das opções abaixo; depois liberam-se as .31, .32 e .33.
+
+- **Nível:** Usuário — só o usuário decide
+- **Modelo:** Usuário
+- **Effort:** — (decisão do usuário)
+- **Descrição:** a .30 mostrou que só o Claude Code aceita `--scope project`. Nas demais IAs o hook fica na configuração global do usuário e, sem `.ai-memory.toml`, o repositório é capturado por padrão (inclusive pastas fora de `C:/fontes`). Opções: (A) capturar só o Claude Code por enquanto; (B) ligar as outras IAs com `install-hooks --capture-mode allowlist` (captura só repositórios com `.ai-memory.toml`); (C) ligar global sem allowlist (não recomendado).
+- **Critérios de Aceitação:** uma opção escolhida e registrada em Decisões da etapa.
+- **Depende de:** Nenhuma
 - **Verificação:** a preencher na entrega.
