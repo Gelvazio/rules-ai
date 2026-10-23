@@ -503,7 +503,7 @@
 
 ### AI-MEMORY-INTEGRATION.28 — Fechamento: grafo, aceite pela IA e mover a tarefa para `task_complete.md`
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (jev (confiança 0.80))
 - **Modelo:** só Haiku — nunca outro
@@ -514,7 +514,8 @@
 - **Arquivos:** `tasks/STATUS.md`, `tasks/task_complete.md`
 - **Critérios de Aceitação:** Mãe ✅ movida para `task_complete.md`; `graphify update .` rodado depois do push.
 - **Depende de:** AI-MEMORY-INTEGRATION.27
-- **Verificação:** a preencher na entrega.
+- **Entrega:** quadro: linhas concluídas no task_complete.md e a mãe AI-MEMORY-INTEGRATION ✅ movida (commit desta entrega); o grafo é atualizado com graphify update . depois do push. Feito pelo líder (Opus 5.5 · sargento herdr w2:p1): só edição do quadro, que pela equipe é papel do líder.
+- **Verificação:** nenhuma linha AI-MEMORY-INTEGRATION sobra no STATUS.md (as 7 que dependem do usuário estão na AI-MEMORY-ROLLOUT-2); aceite pela IA (C32); graphify rodado depois do push.
 
 ### AI-MEMORY-INTEGRATION.29 — Investigar se o TypeSafe tem modelo generativo compatível com o ai-memory (consolidação com LLM)
 

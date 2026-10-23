@@ -69,8 +69,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | AI-MEMORY-ROLLOUT-2.5 | Hooks de captura no Kimi Code, no OpenCode e no DeepSeek (DSH) | 🟡 Média | MEDIO · só Sonnet · effort medium | AI-MEMORY-ROLLOUT-2.2 | ⬜ Pendente | — | [ETAPA-041](etapas/ETAPA-041-71e89003-AI-MEMORY-ROLLOUT-2.md) |
 | AI-MEMORY-ROLLOUT-2.6 | Auditoria de captura das outras IAs: respeitam `ignore_paths` e não vazam segredo | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | AI-MEMORY-ROLLOUT-2.3, AI-MEMORY-ROLLOUT-2.4, AI-MEMORY-ROLLOUT-2.5 | ⬜ Pendente | — | [ETAPA-041](etapas/ETAPA-041-71e89003-AI-MEMORY-ROLLOUT-2.md) |
 | AI-MEMORY-ROLLOUT-2.7 | Criar o repositório GitHub privado do wiki da memória e ligar o remoto (`git remote add origin`) | 🟡 Média | Usuário | Nenhuma | 👀 Aguardando o usuário | — | [ETAPA-041](etapas/ETAPA-041-71e89003-AI-MEMORY-ROLLOUT-2.md) |
-| **AI-MEMORY-INTEGRATION** | **Integrar o ai-memory (memória episódica) ao rules-local; o quadro sempre vence (piloto no `aulasenai`, depois todos os projetos; plano aprovado em 2026-10-23)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
-| AI-MEMORY-INTEGRATION.28 | Fechamento: grafo, aceite pela IA e mover a tarefa para `task_complete.md` | 🟡 Média | LEVE · só Haiku · effort low | AI-MEMORY-INTEGRATION.27 | ⬜ Pendente | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
 | **REMOVER-TRIPO** | **Remover a Tripo de tudo: código, rotas, chave, docs, tarefas, etapas e histórico (plano aprovado em 2026-10-23)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-039](etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md) |
 | REMOVER-TRIPO.6 | Apagar a chave da Tripo no `.env` e no navegador (computador do usuário) | 🟡 Média | Usuário | REMOVER-TRIPO.2 | 👀 Aguardando o usuário | — | [ETAPA-039](etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md) |
 | REMOVER-TRIPO.7 | Regenerar o `graphify-out/` completo (`/graphify --update`) e decidir sobre os instantâneos antigos que citam o serviço | 🟡 Média | Usuário | REMOVER-TRIPO.5 | 👀 Aguardando o usuário | — | [ETAPA-039](etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md) |
@@ -120,7 +118,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · ai-memory) | AI-MEMORY-INTEGRATION.2, .5, .6, .29 e .30 ([ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md)) | ⏹️ Encerrada | 2026-10-23 10:55 |
 | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · ai-memory) | AI-MEMORY-INTEGRATION.9 ([ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md)) | ⏹️ Encerrada | 2026-10-23 11:09 |
 | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · ai-memory) | AI-MEMORY-INTEGRATION.10 e .11 ([ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md)) | ⏹️ Encerrada | 2026-10-23 11:18 |
-| Claude Code (Opus 5.5 · sargento herdr w2:p1) (local · main · rules-ai) | AI-MEMORY-INTEGRATION.27 ([ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md)) | 🔄 Ativa | 2026-10-23 11:53 |
+| Claude Code (Opus 5.5 · sargento herdr w2:p1) (local · main · rules-ai) | AI-MEMORY-INTEGRATION (todas as subtarefas; [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md)) | ⏹️ Encerrada | 2026-10-23 12:37 |
 
 
 ## 🗂️ Etapas
