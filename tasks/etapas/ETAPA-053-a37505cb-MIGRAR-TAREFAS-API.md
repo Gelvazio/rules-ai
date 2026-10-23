@@ -8,7 +8,8 @@
 
 - **Entra:** carga das tarefas do `rules-ai` (abertas, concluídas, frentes, decisões, riscos, pendências, lições, recados e os campos das etapas) na API; escrita pela API (reservar, entregar, criar subtarefa); leitura de queda pelo `api/db.json` do Git; adaptar leitores e regras que hoje usam `STATUS.md`; 1 subtarefa por projeto (aulasenai, aulas-senai-*, dashboard-ai-*, DASHBOARD-AI-PRINCIPAL, REA-APP-CLONES, projeto-frontend-com-testes, testes-de-frontend, gerenciador-de-ia) para deixá-lo Aguardando e tirá-lo da lista monitorada; ensaio, corte e rollback.
 - **Entra (pedido de 2026-10-23 20:02):** nenhuma tarefa em markdown no `rules-ai`: as etapas (texto completo) vão para a API e os `.md` de tarefa são apagados depois da conferência de perda zero.
-- **Não entra:** mexer no quadro de outro projeto (cada projeto sincroniza o seu: `gerenciador-centralizado.md`); apagar tarefas; banco, Supabase ou autenticação; publicar a API na internet; as pastas `DEMAIS-PROJETOS-*` (C20, C23); projetos sem quadro (`CONSERTO-ELANTRA-2.0`, `ai-memory`, `consumo-ia`).
+- **Entra (pedido de 2026-10-23 20:10):** os projetos filhos `aulasenai` e `dashboard-ai` também passam a ter as tarefas só na API do `rules-ai` (campo `projeto`), com a mesma regra de nada em markdown; subtarefas .53 a .70, depois do corte do `rules-ai`.
+- **Não entra:** mexer no quadro de outro projeto fora das subtarefas .53 a .70 (cada projeto sincroniza o seu: `gerenciador-centralizado.md`); apagar tarefas; banco, Supabase ou autenticação; publicar a API na internet; as pastas `DEMAIS-PROJETOS-*` (C20, C23); projetos sem quadro (`CONSERTO-ELANTRA-2.0`, `ai-memory`, `consumo-ia`).
 
 ### Riscos
 
@@ -16,6 +17,8 @@
 - **A API só escuta em 127.0.0.1:** sessões de nuvem e outros computadores não a alcançam; plano B = `api/db.json` do Git, JSON, somente leitura.
 - **Concorrência:** o json-server grava o arquivo inteiro e não tem compare-and-set; duas frentes podem reservar a mesma subtarefa. Mitigação nas subtarefas .6 e .13; pergunta P4.
 - **Apagar os `.md` é irreversível fora do Git:** só depois da conferência de perda zero (INV-7), da tag de segurança e do alvo exato confirmado pelo usuário; rollback por `git revert` e reimportação.
+- **Nuvem dos filhos:** o aulasenai usa muitas sessões de nuvem, que não alcançam a API local: só leem o `db.json` do Git e não reservam (.60); isso muda o fluxo deles e precisa de aviso.
+- **Volume do aulasenai** (~1.440 linhas e ~430 etapas): tamanho e diff do `db.json` (.53).
 - **Perda de dados:** `db.json` hoje está fora do Git; sem versionar, a migração perde tudo ao apagar a pasta (pergunta P2).
 - **Muitos leitores** do `STATUS.md` (lista na .3): cada um migra separado; enquanto isso os `.md` continuam valendo até o corte (.32), e só então são apagados (.47).
 - **Arquivos compartilhados:** as subtarefas .34 a .41 editam o mesmo `scripts/gerenciador.config.json` e `dashboard/projetos.json`; reservar uma por vez. `DASHBOARD-LE-API` e `AGENTES-REALTIME.*` mexem em `agentes.js`, `canal.js`, `config.js`: dois escritores nunca ao mesmo tempo.
@@ -29,6 +32,7 @@
 - 2026-10-23 19:58: **P1 a P8 respondidas pelo usuário** (perguntas fechadas). Resposta da P7: o `aulasenai` **não fica aguardando**: continua monitorado e intocado (subtarefa .34 cancelada); as demais ficam aguardando. Decisões que decorrem: API é a fonte (P1) e `db.json` versionado (P2, revoga a P3 da etapa 049); reserva atômica por middleware mínimo do json-server (P4, 1 arquivo `--middlewares`; o json-server continua sendo a única dependência); etapas em `.md` (P5).
 - 2026-10-23 20:00: **aprovação do usuário ao plano** ("1 sim"): pode começar pela .1 e seguir com 1 agente por subtarefa, no nível certo. Escopo aprovado = o desta etapa; mudança material pede nova aprovação.
 - 2026-10-23 20:02: **novo pedido do usuário**: "No projeto rules-ai, deve existir nada de tarefa em markdown, apenas no banco da api". Efeitos: **substitui a P5** (as etapas passam a viver na API, não em `.md`) e a **P8** (não há espelho `.md`); o `db.json` versionado no Git (P2) é a leitura de queda de quem não alcança a API (nuvem), em JSON, sem markdown. Depois do corte não existem em `rules-ai`: `tasks/STATUS.md`, `tasks/task_complete.md`, `tasks/RECADOS.md` nem `tasks/etapas/*.md`. O histórico fica no Git (tag de segurança antes de apagar). O apagamento exige o **alvo exato confirmado pelo usuário** (subtarefa .46). Regras (`regras/*.md`), documentação e os quadros dos outros projetos **não** são tarefas e continuam em markdown.
+- 2026-10-23 20:10: **novo pedido do usuário**: "Nos projetos filho, aulasenai, dashboard-ai, as tarefas tb devem sempre vir de rules-ai". Respostas: filhos = **aulasenai e dashboard-ai** (DASHBOARD-AI-PRINCIPAL e cópias); **nada em markdown nos filhos também**; sessões de nuvem dos filhos **só leem** o `db.json` do Git; ordem: **rules-ai primeiro, filhos depois**. Efeito: `aulasenai` e `dashboard-ai` **não ficam Aguardando** (subtarefas .34, .36 e .37 canceladas); continuam Aguardando e fora da lista só `REA-APP-CLONES`, `testes-de-frontend`, `projeto-frontend-com-testes`, `gerenciador-de-ia` e os clones `aulas-senai-*`. O "sim" do usuário ao plano vale para esta ampliação (pedido explícito, escopo definido por ele); o apagamento nos filhos continua exigindo o alvo confirmado (.62, .68).
 
 ### Requisitos
 
@@ -41,10 +45,11 @@
 | R3.1 | QUANDO o corte terminar, O SISTEMA DEVE não ter nenhum arquivo `.md` de tarefa em `rules-ai` (`tasks/STATUS.md`, `tasks/task_complete.md`, `tasks/RECADOS.md`, `tasks/etapas/*.md`) | MIGRAR-TAREFAS-API.47, MIGRAR-TAREFAS-API.48 | `find tasks -name '*.md'` sem arquivo de tarefa |
 | R3.2 | SE a API estiver fora do ar, ENTÃO OS LEITORES DEVEM ler `api/db.json` do Git, em JSON, só para leitura | MIGRAR-TAREFAS-API.16, MIGRAR-TAREFAS-API.17, MIGRAR-TAREFAS-API.21, MIGRAR-TAREFAS-API.23 | derrubar a API e rodar `gerenciador.mjs ver` |
 | R4.1 | QUANDO um projeto for removido da lista, O SISTEMA DEVE registrá-lo na coleção `projetos` com `status: aguardando` e `monitorado: false` | MIGRAR-TAREFAS-API.12, MIGRAR-TAREFAS-API.34, MIGRAR-TAREFAS-API.41 | consultar `/projetos` |
-| R4.2 | ONDE um projeto estiver com `monitorado: false`, O SISTEMA DEVE não ler o quadro dele (gerenciador, MCP e dashboard) | MIGRAR-TAREFAS-API.17, MIGRAR-TAREFAS-API.18, MIGRAR-TAREFAS-API.42 | `gerenciador.mjs ver` e `task_list` só mostram o `rules-ai` e o `aulasenai` |
+| R4.2 | ONDE um projeto estiver com `monitorado: false`, O SISTEMA DEVE não ler o quadro dele (gerenciador, MCP e dashboard) | MIGRAR-TAREFAS-API.17, MIGRAR-TAREFAS-API.18, MIGRAR-TAREFAS-API.42 | `gerenciador.mjs ver` e `task_list` só mostram o `rules-ai`, o `aulasenai` e o `dashboard-ai` |
 | R5.1 | O SISTEMA DEVE permitir voltar aos `.md` pelo Git (tag de segurança e `git revert`) e reimportar | MIGRAR-TAREFAS-API.30, MIGRAR-TAREFAS-API.44 | ensaio em cópia do repositório |
 | R5.2 | O SISTEMA DEVE manter `api/db.json` versionado no Git com ordem de chaves fixa | MIGRAR-TAREFAS-API.5 | `git diff` após regerar sem mudança de dados é vazio |
 | R6.1 | O SISTEMA DEVE guardar na API o texto completo de cada etapa (seções, subtarefas, decisões, riscos, requisitos) antes de qualquer `.md` ser apagado | MIGRAR-TAREFAS-API.10, MIGRAR-TAREFAS-API.45 | script de perda zero |
+| R7.1 | ONDE um projeto for filho (`aulasenai`, `dashboard-ai`), O SISTEMA DEVE ter as tarefas dele na API do `rules-ai`, com o campo `projeto`, e nenhum `.md` de tarefa nele depois do corte do filho | MIGRAR-TAREFAS-API.54, MIGRAR-TAREFAS-API.63, MIGRAR-TAREFAS-API.65, MIGRAR-TAREFAS-API.69 | consulta por `projeto` e `find tasks -name '*.md'` no filho |
 
 ### Invariantes
 
@@ -55,7 +60,7 @@
 | INV-3 | Uma subtarefa nunca tem duas reservas ao mesmo tempo | N reservas simultâneas, N de 2 a 10 | disparar reservas em paralelo contra a API e contar `emUsoPor` | sim: script da .13 |
 | INV-4 | O `db.json` não contém segredo nem dado pessoal | todo o arquivo | `grep` por `sk-`, `tsk_`, `Bearer`, `ghp_`, CPF, e-mail | não: conferência por comando na .11 |
 | INV-5 | Rodar a carga N vezes dá o mesmo `db.json` (idempotência) | N de 1 a 5 | comparar o hash do arquivo | sim: script da .11 |
-| INV-6 | A migração não altera nenhum arquivo dos outros projetos (o `aulasenai` inclusive) | todas as pastas de `C:\fontes` exceto `rules-ai` | `git status` de cada projeto igual antes e depois | não: conferência por comando na .42 |
+| INV-6 | A migração do `rules-ai` não altera nenhum arquivo dos outros projetos; os filhos só mudam nas subtarefas .54 a .69, depois do corte do `rules-ai` | todas as pastas de `C:ontes` exceto `rules-ai` | `git status` de cada projeto igual antes e depois | não: conferência por comando na .42 |
 | INV-7 | Antes de apagar qualquer `.md` de tarefa, todo o texto dele existe na API (nada se perde) | todos os arquivos de `tasks/` que serão apagados | script que compara cada seção do `.md` com o campo da API | sim: script da .45 |
 
 **Casos de borda que o código precisa sobreviver:**
@@ -505,7 +510,7 @@
 
 ### MIGRAR-TAREFAS-API.36 — `dashboard-ai-*`: deixar com status Aguardando e remover da lista de monitorados
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** ❌ cancelada em 2026-10-23 20:10 (o `dashboard-ai` é filho: tem as tarefas na API, não fica Aguardando).
 
 - **Nível:** LEVE — só texto e configuração, sem lógica
 - **Modelo:** só Haiku — nunca outro
@@ -517,7 +522,7 @@
 
 ### MIGRAR-TAREFAS-API.37 — `DASHBOARD-AI-PRINCIPAL`: deixar com status Aguardando e remover da lista de monitorados
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** ❌ cancelada em 2026-10-23 20:10 (o `dashboard-ai` é filho: tem as tarefas na API, não fica Aguardando).
 
 - **Nível:** LEVE — só texto e configuração, sem lógica
 - **Modelo:** só Haiku — nunca outro
@@ -575,7 +580,7 @@
 - **Critérios de Aceitação:** projeto fora da lista, `status` aguardando na API, nenhum arquivo do projeto alterado.
 - **Depende de:** MIGRAR-TAREFAS-API.12
 
-### MIGRAR-TAREFAS-API.42 — Conferir a lista de monitorados: só `rules-ai` e `aulasenai` ficaram
+### MIGRAR-TAREFAS-API.42 — Conferir a lista de monitorados: só `rules-ai` (mãe), `aulasenai` e `dashboard-ai` (filhos) ficaram
 
 **Próximo passo:** aguardar as dependências e o sim do usuário.
 
@@ -583,9 +588,9 @@
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** `gerenciador.mjs ver`, `task_list` do MCP e `dashboard/projetos.json` só mostram o `rules-ai` e o `aulasenai`; cada projeto removido aparece na API como `aguardando` (INV-6).
-- **Critérios de Aceitação:** só `rules-ai` e `aulasenai` monitorados; todos os outros `aguardando`.
-- **Depende de:** MIGRAR-TAREFAS-API.35, MIGRAR-TAREFAS-API.36, MIGRAR-TAREFAS-API.37, MIGRAR-TAREFAS-API.38, MIGRAR-TAREFAS-API.39, MIGRAR-TAREFAS-API.40, MIGRAR-TAREFAS-API.41
+- **Descrição:** `gerenciador.mjs ver`, `task_list` do MCP e `dashboard/projetos.json` só mostram o `rules-ai`, o `aulasenai` e o `dashboard-ai`; cada projeto removido aparece na API como `aguardando` (INV-6).
+- **Critérios de Aceitação:** só `rules-ai`, `aulasenai` e `dashboard-ai` monitorados; todos os outros `aguardando`.
+- **Depende de:** MIGRAR-TAREFAS-API.35, MIGRAR-TAREFAS-API.38, MIGRAR-TAREFAS-API.39, MIGRAR-TAREFAS-API.40, MIGRAR-TAREFAS-API.41
 
 ### MIGRAR-TAREFAS-API.43 — Fechamento: `STATUS_PROJETO.md`, grafo e mover a tarefa para `task_complete.md`
 
@@ -706,3 +711,219 @@
 - **Descrição:** Depois da .47, remover o gerador que lê o quadro em markdown (a carga `.7` já está feita) e ajustar o README e o `package.json` da `api/`.
 - **Critérios de Aceitação:** `npm run gerar` removido; `api/` só sobe a API.
 - **Depende de:** MIGRAR-TAREFAS-API.47
+
+### MIGRAR-TAREFAS-API.53 — Armazenamento multi-projeto: um `db.json` por projeto ou um só (volume do aulasenai)
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Com base no `api/SCHEMA.md` (.4): decidir e documentar como a API guarda as tarefas de vários projetos (campo `projeto`, ids compostos, um arquivo por projeto ou único), considerando o aulasenai (~1.440 linhas de quadro e ~430 etapas) no tamanho e no diff do Git.
+- **Critérios de Aceitação:** decisão escrita e aprovada; json-server continua a única dependência.
+- **Depende de:** MIGRAR-TAREFAS-API.4
+
+### MIGRAR-TAREFAS-API.54 — `aulasenai`: carga das tarefas abertas (`STATUS.md`) na API do rules-ai
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Importador idempotente do `STATUS.md` do aulasenai para a coleção `tarefas` com `projeto: aulasenai`; só roda depois do corte do `rules-ai` (.48).
+- **Critérios de Aceitação:** todas as linhas abertas do aulasenai na API, ids únicos por projeto.
+- **Depende de:** MIGRAR-TAREFAS-API.48, MIGRAR-TAREFAS-API.53
+
+### MIGRAR-TAREFAS-API.55 — `aulasenai`: carga das tarefas concluídas (`task_complete.md`)
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** MEDIO — código com lógica, poucos arquivos
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Mesma carga para as linhas concluídas.
+- **Critérios de Aceitação:** contagem igual à do `task_complete.md` do aulasenai.
+- **Depende de:** MIGRAR-TAREFAS-API.54
+
+### MIGRAR-TAREFAS-API.56 — `aulasenai`: carga do texto completo das ~430 etapas na API
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Importar cada etapa do aulasenai para a coleção `etapas` (`projeto: aulasenai`), com todas as seções e subtarefas.
+- **Critérios de Aceitação:** toda etapa e subtarefa com texto completo na API.
+- **Depende de:** MIGRAR-TAREFAS-API.54
+
+### MIGRAR-TAREFAS-API.57 — `aulasenai`: conferência de perda zero (paridade, ids, idempotência, texto)
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Script de invariante (INV-1, INV-2, INV-5, INV-7) para o aulasenai antes de qualquer apagamento.
+- **Critérios de Aceitação:** zero diferença; carga repetida não muda nada.
+- **Depende de:** MIGRAR-TAREFAS-API.55, MIGRAR-TAREFAS-API.56
+
+### MIGRAR-TAREFAS-API.58 — `aulasenai`: regras do projeto e hooks passam a usar a API
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Adaptar `AGENTS.md`, `.claude/rules/tasks/*`, `.claude/rules/niveis.md`, `essentials.md` e os hooks `scripts/claude-hooks` (bloqueio de reserva por modelo) para reservar e entregar pela API do `rules-ai`; sem escrever no aulasenai à mão (mudança feita na sessão do aulasenai).
+- **Critérios de Aceitação:** regras do aulasenai sem contradição com as do `rules-ai`; hooks leem a API.
+- **Depende de:** MIGRAR-TAREFAS-API.57
+
+### MIGRAR-TAREFAS-API.59 — `aulasenai`: skills, agentes e scripts (`liderar-equipe`, `proxima-task`, `verify`, `entregar`, `classificar-tarefa`, gerador do visualizador) leem a API
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Trocar a leitura do `STATUS.md` e das etapas pelos endpoints da API (com `db.json` do Git na nuvem).
+- **Critérios de Aceitação:** cada skill e script roda contra a API.
+- **Depende de:** MIGRAR-TAREFAS-API.57
+
+### MIGRAR-TAREFAS-API.60 — `aulasenai`: sessões de nuvem leem o `db.json` do Git do `rules-ai` (só leitura)
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** MEDIO — código com lógica, poucos arquivos
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Definir de onde a nuvem lê (URL do `api/db.json` em `Gelvazio/rules-ai`), que ela não reserva nem entrega, e como avisa o usuário quando precisa de ação local.
+- **Critérios de Aceitação:** nuvem consulta e não grava; texto da regra pronto.
+- **Depende de:** MIGRAR-TAREFAS-API.53
+
+### MIGRAR-TAREFAS-API.61 — `aulasenai`: ensaio do ciclo completo pela API (tarefa de teste)
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Criar, reservar, entregar e fechar uma tarefa de teste do aulasenai só pela API.
+- **Critérios de Aceitação:** ciclo completo sem tocar no `STATUS.md` do aulasenai.
+- **Depende de:** MIGRAR-TAREFAS-API.58, MIGRAR-TAREFAS-API.59
+
+### MIGRAR-TAREFAS-API.62 — `aulasenai`: confirmar a lista exata dos `.md` a apagar
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** LEVE — ação que só o usuário pode fazer
+- **Modelo:** Usuário — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** O usuário confirma o alvo exato (`tasks/STATUS.md`, `task_complete.md`, `RECADOS.md`, `tasks/etapas/*.md` e o que mais o aulasenai tiver de tarefa).
+- **Critérios de Aceitação:** lista confirmada por escrito.
+- **Depende de:** MIGRAR-TAREFAS-API.57
+
+### MIGRAR-TAREFAS-API.63 — `aulasenai`: tag de segurança e apagar os `.md` de tarefa
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Tag `tasks-md-antes-da-api` no aulasenai e apagamento do alvo confirmado, com commit e push; só depois da .57, do ensaio .61 e da confirmação .62.
+- **Critérios de Aceitação:** nenhum `.md` de tarefa no aulasenai; histórico no Git.
+- **Depende de:** MIGRAR-TAREFAS-API.61, MIGRAR-TAREFAS-API.62
+
+### MIGRAR-TAREFAS-API.64 — `aulasenai`: sincronização de tasks do `rules-local` (C36) cria a TASK na API
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** MEDIO — código com lógica, poucos arquivos
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Ajustar `regras/rules-local.md` e o `sessao.mjs` do pacote para criar a TASK `RL-…` na API do `rules-ai` em vez de no `STATUS.md` do projeto.
+- **Critérios de Aceitação:** regra coerente; pacote do rules-local atualizado.
+- **Depende de:** MIGRAR-TAREFAS-API.58
+
+### MIGRAR-TAREFAS-API.65 — `dashboard-ai` (DASHBOARD-AI-PRINCIPAL e cópias): carga das tarefas e etapas na API
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Importar `tasks/STATUS.md`, `task_complete.md` e as etapas do dashboard-ai com `projeto: dashboard-ai`; depois do corte do `rules-ai` (.48).
+- **Critérios de Aceitação:** tudo na API, ids únicos por projeto.
+- **Depende de:** MIGRAR-TAREFAS-API.48, MIGRAR-TAREFAS-API.53
+
+### MIGRAR-TAREFAS-API.66 — `dashboard-ai`: conferência de perda zero
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Mesmo script de invariante para o dashboard-ai.
+- **Critérios de Aceitação:** zero diferença.
+- **Depende de:** MIGRAR-TAREFAS-API.65
+
+### MIGRAR-TAREFAS-API.67 — `dashboard-ai`: `AGENTS.md`, regras, scripts, hooks e worker usam a API
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Adaptar o que lê o quadro no dashboard-ai (`AGENTS.md`, `.claude/rules`, `rules-local`, worker LangGraph, `api/`) para a API do `rules-ai`; avaliar o que o app Supabase do dashboard-ai mostra de tarefas e se passa a ler a API (decisão registrada).
+- **Critérios de Aceitação:** regras e código sem leitura de `tasks/*.md`.
+- **Depende de:** MIGRAR-TAREFAS-API.66
+
+### MIGRAR-TAREFAS-API.68 — `dashboard-ai`: confirmar a lista exata dos `.md` a apagar
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** LEVE — ação que só o usuário pode fazer
+- **Modelo:** Usuário — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** O usuário confirma o alvo exato do apagamento no dashboard-ai.
+- **Critérios de Aceitação:** lista confirmada por escrito.
+- **Depende de:** MIGRAR-TAREFAS-API.66
+
+### MIGRAR-TAREFAS-API.69 — `dashboard-ai`: tag de segurança e apagar os `.md` de tarefa
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Tag `tasks-md-antes-da-api` e apagamento do alvo confirmado, com commit e push.
+- **Critérios de Aceitação:** nenhum `.md` de tarefa no dashboard-ai; histórico no Git.
+- **Depende de:** MIGRAR-TAREFAS-API.67, MIGRAR-TAREFAS-API.68
+
+### MIGRAR-TAREFAS-API.70 — Fechamento dos filhos: monitorados = `rules-ai` (mãe), `aulasenai` e `dashboard-ai` (filhos)
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** MEDIO — código com lógica, poucos arquivos
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Conferir a coleção `projetos`, o `gerenciador.mjs ver`, o MCP e o `dashboard/projetos.json`: os três monitorados, os demais aguardando; nenhuma tarefa em markdown nos três.
+- **Critérios de Aceitação:** listas conferidas por comando.
+- **Depende de:** MIGRAR-TAREFAS-API.42, MIGRAR-TAREFAS-API.63, MIGRAR-TAREFAS-API.69
