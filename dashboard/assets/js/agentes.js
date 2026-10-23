@@ -1,12 +1,14 @@
-// Página "Agentes ao vivo": lê o tasks/STATUS.md pelo servidor local a cada intervalo, guarda as
-// mudanças numa fila e só as anima na cena 3D depois do atraso escolhido.
+// Página "Agentes ao vivo": lê o tasks/STATUS.md do GitHub raw (canal ao vivo ou fallback),
+// guarda as mudanças numa fila e só as anima na cena 3D depois do atraso escolhido.
 import * as THREE from 'three';
 import { CSS2DRenderer } from 'three/addons/renderers/CSS2DRenderer.js';
 import { ATRASO_PADRAO_SEGUNDOS, CANAL, INTERVALO_FALLBACK_SEGUNDOS } from './config.js';
 import { iniciarCanal, lerEstadoInicial } from './agentes/canal.js';
 import { montarCenaAgentes } from './agentes/cena-agentes.js';
 import { compararRetratos, criarFila, indexar } from './agentes/fila-atrasada.js';
-import { atualizarContagem, ligarAtraso, marcarLeitura, registrarEvento } from './agentes/hud-agentes.js';
+import {
+  atualizarContagem, CONEXAO, ligarAtraso, marcarConexao, marcarLeitura, registrarEvento,
+} from './agentes/hud-agentes.js';
 import { ajustarTamanho, criarBase } from './visualizador.js';
 
 const $ = (id) => document.getElementById(id);
@@ -14,11 +16,8 @@ const reduzirMovimento = () => window.matchMedia('(prefers-reduced-motion: reduc
 /** Projeto escolhido no menu de projetos (?projeto=<pasta>); vazio = o publicado no canal. */
 const PROJETO = new URLSearchParams(window.location.search).get('projeto') ?? '';
 
-/** Valores que o GitHub raw não traz (atraso e coleta do fallback). */
-const PADROES_RAW = Object.freeze({
-  atraso_padrao: ATRASO_PADRAO_SEGUNDOS,
-  intervalo: INTERVALO_FALLBACK_SEGUNDOS,
-});
+/** Valor que o GitHub raw não traz (atraso padrão da animação). */
+const PADROES_RAW = Object.freeze({ atraso_padrao: ATRASO_PADRAO_SEGUNDOS });
 /** Tempo com o canal caído antes de voltar ao polling (R2.3). */
 const ATRASO_QUEDA_MS = 30000;
 
@@ -98,8 +97,13 @@ function criarFallback(vigia) {
       cancelar();
       vigia.parar();
       avisar('');
+      marcarConexao(CONEXAO.AO_VIVO);
     } else if (espera === null) {
-      espera = window.setTimeout(vigia.iniciar, ATRASO_QUEDA_MS);
+      marcarConexao(CONEXAO.RECONECTANDO);
+      espera = window.setTimeout(() => {
+        vigia.iniciar();
+        marcarConexao(CONEXAO.OFFLINE);
+      }, ATRASO_QUEDA_MS);
     }
   };
 }

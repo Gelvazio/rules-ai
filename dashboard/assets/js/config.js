@@ -3,8 +3,8 @@
 /** Atraso padrão da animação dos agentes, em segundos (o seletor da tela guarda a escolha). */
 export const ATRASO_PADRAO_SEGUNDOS = 30;
 
-/** Intervalo da leitura de reserva pelo GitHub raw quando o canal está fora, em segundos. */
-export const INTERVALO_FALLBACK_SEGUNDOS = 10;
+/** Intervalo da leitura do GitHub raw (fallback) enquanto o canal está fora, em segundos. */
+export const INTERVALO_FALLBACK_SEGUNDOS = 30;
 
 /**
  * Canal de Broadcast do Supabase (MIGRAR-AGENTES-BROADCAST.3).

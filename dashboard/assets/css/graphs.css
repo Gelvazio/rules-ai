@@ -467,6 +467,23 @@ body {
   color: #fca5a5;
 }
 
+.transmissao__conexao {
+  margin: 0 0 6px;
+  font-size: 0.85em;
+}
+
+.transmissao__conexao--aovivo {
+  color: var(--cor-ao-vivo);
+}
+
+.transmissao__conexao--reconectando {
+  color: var(--cor-ativo);
+}
+
+.transmissao__conexao--offline {
+  color: var(--cor-texto-suave);
+}
+
 .contagem,
 .legenda,
 .eventos {

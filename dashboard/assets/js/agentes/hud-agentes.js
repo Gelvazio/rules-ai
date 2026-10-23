@@ -6,6 +6,17 @@ const $ = (id) => document.getElementById(id);
 const CHAVE_ATRASO = 'agentes-ao-vivo:atraso';
 const OPCOES_ATRASO = [0, 10, 30, 60, 120];
 const MAX_EVENTOS = 8;
+/** Estados da conexão com o canal ao vivo (R3.1); o valor é também o sufixo da classe CSS. */
+export const CONEXAO = Object.freeze({
+  AO_VIVO: 'aovivo',
+  RECONECTANDO: 'reconectando',
+  OFFLINE: 'offline',
+});
+const TEXTOS_CONEXAO = Object.freeze({
+  [CONEXAO.AO_VIVO]: 'Ao vivo: canal conectado',
+  [CONEXAO.RECONECTANDO]: 'Reconectando ao canal…',
+  [CONEXAO.OFFLINE]: 'Offline: lendo do GitHub',
+});
 const VERBOS = Object.freeze({
   reservada: 'reservou',
   concluida: 'concluiu',
@@ -109,4 +120,16 @@ export function registrarEvento(evento) {
   $('eventos-vazio').hidden = true;
   lista.prepend(item);
   while (lista.children.length > MAX_EVENTOS) lista.lastElementChild.remove();
+}
+
+/**
+ * Mostra no HUD se a página recebe dado ao vivo, está reconectando ou lê só do GitHub.
+ * @param {string} estado - Um valor de CONEXAO.
+ */
+export function marcarConexao(estado) {
+  const texto = TEXTOS_CONEXAO[estado];
+  if (!texto) return;
+  const alvo = $('estado-conexao');
+  alvo.className = `transmissao__conexao transmissao__conexao--${estado}`;
+  alvo.textContent = texto;
 }
