@@ -33,6 +33,7 @@
 - 2026-10-23 10:30: conferido com `ls C:\fontes`: as 4 pastas `aulas-senai-CLAUDE-*` e as 9 `dashboard-ai-*` **não existem mais** (o mapa `C:\fontes\CLAUDE.md` estava desatualizado). Alvos reais do rollout: `aulasenai` (piloto), `DASHBOARD-AI-PRINCIPAL`, `REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`. Fora: `rules-ai` (fonte), `ai-memory` (repositório do próprio ai-memory), `CONSERTO-ELANTRA-2.0` (sem Git) e `DEMAIS-PROJETOS-*`. Cancelada a .22; .23 e .24 reapontadas.
 - 2026-10-23 10:57: esclarecimentos da conferência da .2: a decisão de 10:30 **substitui** a de 10:12 no alvo do rollout (fora: `rules-ai`, `ai-memory`, (sem Git) `CONSERTO-ELANTRA-2.0` e `DEMAIS-PROJETOS-*`); 'dashboard-ai' no Escopo = a pasta `DASHBOARD-AI-PRINCIPAL`; a pergunta 5 só fecha de vez com a .29; dependências corrigidas: a .35 (proteger dados) não espera mais a .16, e a .16 (piloto) passou a esperar a .35.
 - 2026-10-23: pergunta 5 fecha de vez com a .29: o TypeSafe/Jev NÃO serve para consolidar memória (só classifica por perguntas fechadas). O ai-memory segue sem LLM; qualquer provedor generativo futuro (Anthropic, OpenAI etc.) é decisão nova do usuário.
+- 2026-10-23: achado da .5 para a .8: nem o ai-memory nem o Claude Code documentam a ordem de execução entre hooks do mesmo evento; a .8 deve medir a ordem na prática (e não presumir) e tratar o fato de o aulasenai ter inicio-da-sessao.js antes do sessao.mjs.
 
 ### Requisitos
 
@@ -126,7 +127,7 @@
 
 ### AI-MEMORY-INTEGRATION.5 — Mapear os hooks do Claude Code do ai-memory e como convivem com `sessao.mjs` e com o Jev
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -137,7 +138,8 @@
 - **Arquivos:** `docs/AI-MEMORY-HOOKS.md`
 - **Critérios de Aceitação:** Quadro com evento, comando, timeout e saída de cada hook; ordem recomendada com `sessao.mjs` primeiro.
 - **Depende de:** Nenhuma
-- **Verificação:** a preencher na entrega.
+- **Entrega:** docs/AI-MEMORY-HOOKS.md (quadro dos 9 eventos do Claude Code, escopo usuário × projeto, convivência com os hooks do aulasenai; commit desta entrega)
+- **Verificação:** lidos hooks/claude-code/*.sh, hooks/_lib.sh, docs/install.md, render_shared.rs, install_hooks.rs e aulasenai/.claude/settings.json. Achados: só o SessionStart injeta contexto; POST com --max-time 0.2 s e spool local em falha; timeout gravado só no SessionEnd (15 s). NÃO CONFIRMADO (seção 4 do arquivo): ordem de execução entre hooks do mesmo evento, timeout padrão do Claude Code, scripts .ps1. Atenção para a .8: no aulasenai o inicio-da-sessao.js vem antes do sessao.mjs. Feita pelo agente Haiku e conferida pelo líder.
 
 ### AI-MEMORY-INTEGRATION.6 — Desenhar o modelo de `.ai-memory.toml` e a lista de `ignore_paths` obrigatórios
 

@@ -16,3 +16,4 @@
 | AI-MEMORY-INTEGRATION.2 | Fechar a spec e rodar o gate `verificar-spec.mjs` | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
 | AI-MEMORY-INTEGRATION.29 | Investigar se o TypeSafe tem modelo generativo compatível com o ai-memory (consolidação com LLM) | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
 | AI-MEMORY-INTEGRATION.6 | Desenhar o modelo de `.ai-memory.toml` e a lista de `ignore_paths` obrigatórios | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
+| AI-MEMORY-INTEGRATION.5 | Mapear os hooks do Claude Code do ai-memory e como convivem com `sessao.mjs` e com o Jev | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
