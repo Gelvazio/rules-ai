@@ -503,7 +503,7 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Fonte:** sinais
 - **Descrição:** Levantar, em `hooks/` do ai-memory, o suporte de Codex, DeepSeek/OpenCode, Devin, Antigravity, Kimi e Gemini (eventos, fim de sessão, exclusões de captura).
-- **Arquivos:** `docs/AI-MEMORY-HOOKS.md`
+- **Arquivos:** `docs/AI-MEMORY-HOOKS-POR-IA.md`
 - **Critérios de Aceitação:** Quadro IA × eventos × fim de sessão × `ignore_paths`; IA sem hook marcada como tal.
 - **Depende de:** AI-MEMORY-INTEGRATION.5
 - **Verificação:** a preencher na entrega.
