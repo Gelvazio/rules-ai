@@ -61,7 +61,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | AGENTES-REALTIME.33 | Rodar a medição de latência ponta a ponta (com a chave da .12) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | AGENTES-REALTIME.12, AGENTES-REALTIME.24 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AGENTES-REALTIME.31 | Fechamento: grafo, `STATUS_PROJETO.md` e mover a tarefa para `task_complete.md` · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | AGENTES-REALTIME.30 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | **INTEGRACAO-DEEPSEEK** | **Chamadas à API da DeepSeek nas tarefas simples (LEVE e MEDIO), com o modelo DeepSeek de cada nível (plano aprovado em 2026-10-23; US$ 2/dia; cliente só no rules-ai)** | 🟡 Média | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md) |
-| INTEGRACAO-DEEPSEEK.4 | Limite de custo, modo `off` e fallback de tempo · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | INTEGRACAO-DEEPSEEK.3 | ⬜ Pendente | — | [ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md) |
+| INTEGRACAO-DEEPSEEK.4 | Limite de custo, modo `off` e fallback de tempo · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | INTEGRACAO-DEEPSEEK.3 | 🔄 Em execução | Claude Code (Sonnet 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) (desde 2026-10-23 20:10) · 0% | [ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md) |
 | INTEGRACAO-DEEPSEEK.5 | Documentar a integração · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | INTEGRACAO-DEEPSEEK.4 | ⬜ Pendente | — | [ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md) |
 | **RECLASSIFICAR-PESADO-OPUS** | **🌐 GLOBAL — Subtarefas `PESADO` que estão só com Opus 5.5+/Fable passam para Sonnet, exceto o que precisa do Opus (pedido do usuário em 2026-10-23)** | 🟠 Alta | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
 | RECLASSIFICAR-PESADO-OPUS.3 | Decidir a matriz `regras/niveis-e-modelos.md` (P3) | 🟠 Alta | Usuário | RECLASSIFICAR-PESADO-OPUS.2 | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
@@ -71,6 +71,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
 |---|---|---|---|
+| Claude Code (Sonnet 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | INTEGRACAO-DEEPSEEK.4 ([ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md)) | 🔄 Ativa | 2026-10-23 20:10 |
 | Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | MCP-QUADRO.8 ([ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md)) | ⏹️ Encerrada | 2026-10-23 19:50 |
 | Claude Code (Sonnet 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | VERCEL-SEM-DEPLOY-DE-CONTROLE.2 ([ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md)) | ⏹️ Encerrada | 2026-10-23 19:30 |
 | Claude Code (Sonnet 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | VERCEL-SEM-DEPLOY-DE-CONTROLE.3 ([ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md)) | ⏹️ Encerrada | 2026-10-23 19:30 |
