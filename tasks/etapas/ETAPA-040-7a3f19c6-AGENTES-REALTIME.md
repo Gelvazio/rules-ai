@@ -318,7 +318,7 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 
 ### AGENTES-REALTIME.8 — Guardrail de privacidade no publicador
 
-**Próximo passo:** esperar AGENTES-REALTIME.4, MIGRAR-AGENTES-BROADCAST.2.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — banco, segurança, segredo ou contrato entre várias partes
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -327,6 +327,8 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 - **Descrição:** O publicador só envia a lista de campos permitida, nunca pastas C20/C23, e passa o texto dos títulos pela redação de segredos/PII (`scripts/jev/redigir.mjs` ou equivalente) antes de enviar.
 - **Critérios de Aceitação:** INV-1 e INV-2 valem; nenhum dado pessoal no payload de exemplo.
 - **Depende de:** AGENTES-REALTIME.4, MIGRAR-AGENTES-BROADCAST.2
+- **Entrega:** dashboard/privacidade_quadro.py (proteger_estado e proteger_indice: só campos permitidos, redige segredo e dado pessoal, recusa DEMAIS-PROJETOS-*) ligado em dashboard/publicar_quadro.py antes de serializar, registrando só a contagem de achados (commit desta entrega), feito por op1 (Opus 5.5, herdr w2:pX, conta D).
+- **Verificação:** invariantes_broadcast.py: 0 falhas; publicar_quadro.py --simular sai 0 com 9 campos no envelope, 82 tarefas e nenhum achado; conferência fora do repositório: 7 casos sensíveis mascarados (idempotente), 3 textos normais intactos, campos extras retirados (conferido pelo líder). O teste versionado das INV-1/INV-2 fica com a .9; o proteger_indice entra quando o evento projetos for publicado.
 
 ### AGENTES-REALTIME.9 — Teste de invariante do payload (campos e projetos permitidos)
 

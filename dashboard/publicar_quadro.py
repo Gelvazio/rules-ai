@@ -5,6 +5,7 @@ Uso: python -B dashboard/publicar_quadro.py [--simular] [--projeto rules-ai]
 - Sem --simular: envia o evento "estado" ao canal "quadro:<projeto>" com a chave secreta lida
   só de SUPABASE_SECRET_KEY (variável de ambiente). A chave nunca é impressa nem gravada.
 Contrato: tasks/etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md (seção da .1).
+Antes de serializar, privacidade_quadro filtra os campos e redige segredo/PII (AGENTES-REALTIME.8).
 """
 import sys
 
@@ -20,6 +21,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
 
+import privacidade_quadro as privacidade
 import quadro_tarefas as quadro
 from config_graphs import INTERVALO_COLETA_SEGUNDOS, atraso_agentes
 
@@ -97,6 +99,13 @@ def enviar(projeto, corpo, chave):
     return codigo
 
 
+def registrar_achados(achados):
+    """Loga em stderr só a contagem de achados por tipo (o texto nunca sai)."""
+    if achados:
+        resumo = ", ".join(f"{tipo}={total}" for tipo, total in sorted(achados.items()))
+        print(f"AVISO: redação de privacidade aplicada nos títulos ({resumo}).", file=sys.stderr)
+
+
 def ler_argumentos(argv):
     parser = argparse.ArgumentParser(description="Publica o quadro no Supabase Broadcast.")
     parser.add_argument("--simular", action="store_true", help="imprime o payload e não envia")
@@ -111,6 +120,8 @@ def main(argv=None):
     try:
         projeto = validar_projeto(argumentos.projeto)
         payload = montar_payload(projeto, argumentos.simular)
+        payload, achados = privacidade.proteger_estado(payload)  # AGENTES-REALTIME.8
+        registrar_achados(achados)
         corpo = serializar(payload)
         if argumentos.simular:
             print(json.dumps(payload, ensure_ascii=False, indent=2))
