@@ -1,3 +1,5 @@
+- 2026-10-23 16:40 (Brasília): RECLASSIFICAR-PESADO-OPUS.1 entregue pelo Sonnet (etapa 046): das 13 subtarefas PESADO só com Opus, 9 podem ir para o Sonnet, 3 ficam com o Opus (GERENCIADOR-GLOBAL.4 e .7, MCP-QUADRO.3) e 1 está reservada e não muda. Aguarda o usuário aprovar a lista (P2) para a .2.
+
 - 2026-10-23 (Brasília): nova tarefa RECLASSIFICAR-PESADO-OPUS (etapa 046, pedido do usuário): subtarefas `PESADO` só com Opus passam para Sonnet, salvo o que precisa do Opus. A `.1` (inventário) é do Sonnet, agora; nada executado ainda.
 
 - 2026-10-23 (Brasília): nova tarefa INTEGRACAO-DEEPSEEK (etapa 045, pedido do usuário): chamadas à API da DeepSeek nas tarefas mais simples, com o modelo DeepSeek de cada nível. Plano de tarefa grande aguardando o "sim" e as perguntas P1 a P3 do usuário; nada executado.

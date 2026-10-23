@@ -41,7 +41,7 @@
 
 ### RECLASSIFICAR-PESADO-OPUS.1 — Inventariar as subtarefas `PESADO` com Opus e propor o destino de cada uma
 
-**Próximo passo:** o Sonnet lista as subtarefas com Modelo só Opus 5.5+/Fable (quadro e etapas), propõe Sonnet ou Opus com a justificativa (R1 e R2) e devolve ao usuário para aprovação.
+**Próximo passo:** ✅ entregue em 2026-10-23. Falta o usuário aprovar a lista abaixo (P2); só então a `.2` troca o Modelo.
 
 - **Nível:** PESADO — mais de 3 arquivos e decisão de modelo
 - **Modelo:** só Sonnet — nunca outro (pedido do usuário: executar agora)
@@ -52,7 +52,30 @@
 - **Arquivos:** nenhum (só leitura); a tabela vai na seção desta subtarefa.
 - **Critérios de Aceitação:** R1 e R2 atendidos; contagem total igual ao `grep`.
 - **Depende de:** Nenhuma
-- **Verificação:** a preencher na entrega (comando `grep` e contagem).
+- **Entrega:** Claude Code (Sonnet 5.5) (local · main · rules-ai), 2026-10-23: tabela abaixo; nenhum arquivo de quadro além desta etapa foi alterado.
+- **Verificação:** `awk -F'|' '/^\| /{m=$5; if (m ~ /Opus|Fable/ && m !~ /Sonnet/) c++} END{print c}' tasks/STATUS.md` → **13** linhas abertas só com Opus/Fable, igual às 13 da tabela. Outras 4 já incluem Sonnet e não mudam: AI-MEMORY-ROLLOUT-2.1, AGENTES-REALTIME.23, INTEGRACAO-DEEPSEEK.2 e .4.
+
+**Resultado do inventário (R1 e R2):** de 13 linhas, 1 não entra (reservada, INV-2), **9 vão para Sonnet** e **3 ficam com o Opus 5.5+**.
+
+| # | Subtarefa | Status | Modelo hoje | Destino | Justificativa (1 frase) |
+|---|---|---|---|---|---|
+| 1 | HAIKU-COMMIT-GLOBAL.1 | 🔄 reservada | só Opus 5.5+/Fable ou DeepSeek | **Fica como está** (INV-2) | Reservada desde 2026-10-18 20:17 (aulasenai s17, 0%); reserva parada é liberada só pelo usuário. |
+| 2 | HAIKU-COMMIT-GLOBAL.2 | ⬜ | só Opus 5.5+/Fable ou DeepSeek | **Sonnet** | Roda o `sincronizar.mjs --aplicar` que já existe, com prévia e `.bak`; sem decisão nova. |
+| 3 | GERENCIADOR-GLOBAL.3 | ⬜ | só Opus 5.5+ ou Fable | **Sonnet** | Só lê os quadros e calcula tarefas livres; nenhum quadro é escrito. |
+| 4 | GERENCIADOR-GLOBAL.4 | ⛔ | só Opus 5.5+ ou Fable | **Opus** | Dispara sessões que alteram projetos sem supervisão (limite, trava, `PARAR`): sinal de segurança e autonomia. |
+| 5 | GERENCIADOR-GLOBAL.7 | ⬜ | só Opus 5.5+ ou Fable | **Opus** | Mescla dois gerenciadores e revisa o desenho da `.1`: decisão de arquitetura e mudança de escopo. |
+| 6 | DASHBOARD-AGENTES.1 | ⬜ | só Opus 5.5+/Fable ou DeepSeek | **Sonnet** | `git rm` de lista fechada, com inventário de imports antes (INV-1) e reversível pelo Git; cuidado só com o que vai para `fora-do-git/`, que o Git não devolve. |
+| 7 | DASHBOARD-AGENTES.2 | ⬜ | só Opus 5.5+/Fable ou DeepSeek | **Sonnet** | `git mv` e ajuste de caminhos relativos, reversível. |
+| 8 | MCP-QUADRO.3 | ⬜ | só Opus 5.5+/Fable ou DeepSeek | **Opus** | Reserva atômica por Git sob concorrência, com rollback e push recusado: erro sutil perde trabalho de outras frentes. |
+| 9 | MCP-QUADRO.4 | ⬜ | só Opus 5.5+/Fable ou DeepSeek | **Sonnet** | Servidor stdio especificado em detalhe, com critérios e testes claros. |
+| 10 | MCP-QUADRO.5 | ⬜ | só Opus 5.5+/Fable ou DeepSeek | **Sonnet** | Escreve quadro e etapa, mas apoiado na trava da `.3` e com teste em repositório temporário. |
+| 11 | JEV-GLOBAL-AI-FINAL.22 | 👀 | só Opus 5.5+/Fable ou DeepSeek | **Sonnet** | `--aplicar` mecânico; espera o usuário rodar no PC. |
+| 12 | RULES-LOCAL-JEV.9 | 👀 | só Opus 5.5+/Fable ou DeepSeek | **Sonnet** | Igual à 11; a parte da nuvem já foi feita, falta o PC. |
+| 13 | VERCEL-SEM-DEPLOY-DE-CONTROLE.1 | ⬜ | só Opus 5.5+/Fable ou DeepSeek | **Sonnet** | Texto da regra com o comando já definido; conferir a prévia antes do `--aplicar`. |
+
+**O que realmente deve ficar com o Opus 5.5+:** GERENCIADOR-GLOBAL.4, GERENCIADOR-GLOBAL.7 e MCP-QUADRO.3. Os três têm sinal do R2 (autonomia sem supervisão, arquitetura, concorrência em Git).
+
+**Como a `.2` deve trocar o texto (R3):** `só Opus 5.5+/Fable ou DeepSeek` → `só Sonnet ou DeepSeek`; `só Opus 5.5+ ou Fable` → `só Sonnet`. Só no quadro e nas seções de subtarefas **abertas**; subtarefas concluídas ficam como estão (o histórico não se apaga).
 
 ### RECLASSIFICAR-PESADO-OPUS.2 — Trocar o Modelo das linhas aprovadas para Sonnet
 
