@@ -61,7 +61,7 @@
 
 ### INTEGRACAO-DEEPSEEK.2 — Cliente da API da DeepSeek com chave só em variável de ambiente
 
-**Próximo passo:** começar; plano aprovado e P3 respondida (só no `rules-ai`).
+**Próximo passo:** ✅ entregue em 2026-10-23; segue a .3 (roteador)
 
 - **Nível:** PESADO — chave e segredo (sinal mais restritivo)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -72,7 +72,8 @@
 - **Arquivos:** módulo novo em `scripts/deepseek/` (cliente), `.env.example` (só nomes de variáveis)
 - **Critérios de Aceitação:** R4 e INV-1 atendidos; sem chave, o cliente sai com erro claro e não chama a API.
 - **Depende de:** INTEGRACAO-DEEPSEEK.1
-- **Verificação:** a preencher na entrega (INV-1 e R4).
+- **Entrega:** `scripts/deepseek/cliente.mjs` (novo; `chamarDeepseek`, `estaDesligada`, `lerLimites`, `TIPOS_ERRO`) e `.env.example` (novo, só nomes: DEEPSEEK_API_KEY, DEEPSEEK_MODO, DEEPSEEK_MAX_TOKENS=2000, DEEPSEEK_MAX_CUSTO_DIA=2). Chave só de `process.env.DEEPSEEK_API_KEY`; redação reutiliza `redigirTexto` de `scripts/jev/guardrails/redigir.mjs`; `DEEPSEEK_TIMEOUT_MS` opcional (padrão 30000). O campo de raciocínio (`thinking: {type: "enabled"}`) fica isolado em `montarCorpo`; a .3 confirma o nome na documentação da DeepSeek.
+- **Verificação:** `node --check scripts/deepseek/cliente.mjs` = ok; `git grep -n "sk-" -- scripts/deepseek .env.example` e `grep -rn` = sem resultado (INV-1, R4); `.env.example` não é ignorado (`!.env.example`) e só tem nomes; simulação com `fetchImpl` injetado (sem chamada real): sem chave e `off` não chamam a API; 401, 429, 500, 400, rede, timeout, resposta inválida e pedido inválido voltam `{ok:false, erro}` sem exceção; mensagem com e-mail sai mascarada no corpo enviado, `max_tokens` = 2000 e erro sem chave nem texto do pedido; maior linha = 98 caracteres.
 
 ### INTEGRACAO-DEEPSEEK.3 — Roteador de modelo por nível (LEVE e MEDIO)
 
