@@ -13,6 +13,7 @@
 ### Decisões
 
 - 2026-10-23 12:37: tarefa criada pelo líder com o "sim" do usuário; nenhuma subtarefa reservada. A .1 (outros projetos) está adiada pelo usuário; a .2 e a .7 são do usuário.
+- 2026-10-23 12:48: **decisão do usuário na .2: opção A — só o Claude Code grava na memória.** Canceladas a .3, a .4, a .5 e a .6 (hooks e auditoria das outras IAs). Reabrir exige novo pedido; a matriz das IAs está em `docs/AI-MEMORY-HOOKS-POR-IA.md`.
 
 ### AI-MEMORY-ROLLOUT-2.1 — Rollout nos demais projetos de `C:\fontes` (`REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`)
 
@@ -32,19 +33,20 @@
 
 ### AI-MEMORY-ROLLOUT-2.2 — Escolher o modo de captura das outras IAs (allowlist recomendado) e liberar o uso de hooks em todas
 
-**Próximo passo:** o usuário escolhe o modo e libera as .38 a .40.
+**Próximo passo:** nenhum — decidido pelo usuário.
 
 - **Nível:** Usuário — só o usuário decide
 - **Modelo:** Usuário
 - **Effort:** — (decisão do usuário)
 - **Descrição:** O usuário quer hooks em todas as IAs. A .30 mostrou que só o Claude Code tem escopo por projeto; nas outras o hook é global. Escolher: (B) `install-hooks --capture-mode allowlist`, que só captura repositórios com `.ai-memory.toml` (recomendado); ou (C) global sem filtro (não recomendado). Registrar a escolha em Decisões.
 - **Critérios de Aceitação:** Modo escolhido e registrado em Decisões da etapa.
-- **Verificação:** a preencher na entrega.
+- **Entrega:** decisão do usuário em 2026-10-23 12:48: **opção A, deixar como está — só o Claude Code grava na memória**; Codex, Gemini CLI, Devin, Antigravity, Kimi Code, OpenCode e DeepSeek continuam sem captura.
+- **Verificação:** resposta do usuário na conversa ("1-a"); confirma a decisão A da AI-MEMORY-INTEGRATION.36.
 - **Origem:** era a AI-MEMORY-INTEGRATION.37 (movida em 2026-10-23 12:37).
 
 ### AI-MEMORY-ROLLOUT-2.3 — Hooks de captura no Codex e no Gemini CLI
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** ❌ cancelada pela decisão A da AI-MEMORY-ROLLOUT-2.2 (2026-10-23 12:48).
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.80))
 - **Modelo:** só Sonnet — nunca outro
@@ -60,7 +62,7 @@
 
 ### AI-MEMORY-ROLLOUT-2.4 — Hooks de captura no Devin e no Antigravity (com `finalize-session`)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** ❌ cancelada pela decisão A da AI-MEMORY-ROLLOUT-2.2 (2026-10-23 12:48).
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.85))
 - **Modelo:** só Sonnet — nunca outro
@@ -76,7 +78,7 @@
 
 ### AI-MEMORY-ROLLOUT-2.5 — Hooks de captura no Kimi Code, no OpenCode e no DeepSeek (DSH)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** ❌ cancelada pela decisão A da AI-MEMORY-ROLLOUT-2.2 (2026-10-23 12:48).
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.85))
 - **Modelo:** só Sonnet — nunca outro
@@ -92,7 +94,7 @@
 
 ### AI-MEMORY-ROLLOUT-2.6 — Auditoria de captura das outras IAs: respeitam `ignore_paths` e não vazam segredo
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** ❌ cancelada pela decisão A da AI-MEMORY-ROLLOUT-2.2 (2026-10-23 12:48).
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
