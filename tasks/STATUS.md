@@ -11,8 +11,8 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | Tarefa | Título | Prioridade | Modelo | Depende de | Status | Em uso por | Etapa |
 |---|---|---|---|---|---|---|---|
 | **HAIKU-COMMIT-GLOBAL** | **🌐 GLOBAL — O Haiku confere, commita e envia as entregas da equipe; problema vira verificação para o Sonnet** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md) |
-| HAIKU-COMMIT-GLOBAL.1 | 🌐 Regra global e decisão C41 · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | Nenhuma | 🔄 Em execução | Claude Code (Opus 5.5) (local · main · aulasenai s17) (desde 2026-10-18 20:17) · 0% | [ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md) |
-| HAIKU-COMMIT-GLOBAL.2 | 🌐 Levar às IAs (`sincronizar.mjs --aplicar`) · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | HAIKU-COMMIT-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md) |
+| HAIKU-COMMIT-GLOBAL.1 | 🌐 Regra global e decisão C41 · `PESADO · effort high` | 🟠 Alta | PESADO · só Sonnet ou DeepSeek · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md) |
+| HAIKU-COMMIT-GLOBAL.2 | 🌐 Levar às IAs (`sincronizar.mjs --aplicar`) · `PESADO · effort high` | 🟠 Alta | PESADO · só Sonnet ou DeepSeek · effort high | HAIKU-COMMIT-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md) |
 | CONFEFFORT-GLOBAL | **🌐 GLOBAL — Conferir o `effort` em cada modelo (todos os projetos e IAs)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | CONFEFFORT-GLOBAL.1 | 🌐 Haiku 5.5: conferir o `effort` | 🟡 Média | LEVE · só Haiku 5.5 · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
 | CONFEFFORT-GLOBAL.4 | 🌐 Gemini Pro: conferir o esforço | 🟡 Média | MEDIO · só Gemini Pro · effort medium | Nenhuma | ⬜ Pendente | — | [ETAPA-002](etapas/ETAPA-002-ESFORCO-GLOBAL.md) |
@@ -93,7 +93,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | Claude Code (Sonnet 5.5 · herdr w2:p11; líder Opus 5.5 · sargento) (local · main · rules-ai) | AGENTES-REALTIME.24, .22 e .17 entregues; sem subtarefa livre do seu modelo | ⏹️ Encerrada | 2026-10-23 15:10 |
 | Claude Code (Sonnet 5.5 · herdr w2:p12; líder Opus 5.5 · sargento) (local · main · rules-ai) | AGENTES-REALTIME.25 entregue; sem subtarefa livre do seu modelo | ⏹️ Encerrada | 2026-10-23 14:50 |
 | Claude Code (Haiku 5.5 · herdr w2:pY; líder Opus 5.5 · sargento) (local · main · rules-ai) | AGENTES-REALTIME.27 e .26 entregues; agora a .28 ([ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md)) | 🔄 Ativa | 2026-10-23 15:45 |
-| Claude Code (Opus 5.5) (local · main · aulasenai s17) | HAIKU-COMMIT-GLOBAL.1 ([ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md)) | 🔄 Ativa | 2026-10-18 20:17 |
+| Claude Code (Opus 5.5) (local · main · aulasenai s17) | HAIKU-COMMIT-GLOBAL.1 ([ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md)) | ⏹️ Encerrada (reserva liberada a pedido do usuário) | 2026-10-23 16:50 |
 | Claude Code (Opus 5.5) (local · main · rules-ai) | AGENTES-REALTIME.11 ([ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md)) entregue; GERENCIADOR-GLOBAL.7 liberada sem entrega, a pedido do usuário | ⏹️ Encerrada | 2026-10-23 17:06 |
 | Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) (local · main · rules-ai) | JEV-SEM-LAYA.3 ([ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md)) | ⏹️ Encerrada | 2026-10-19 23:53 |
 | Claude Code (Sonnet 5.5) (local · main · rules-ai) | REMOVER-TRIPO.1 a .5 e criação da AGENTES-REALTIME ([ETAPA-039](etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md), [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md)) | ⏹️ Encerrada | 2026-10-23 11:28 |

@@ -38,6 +38,7 @@
 
 - 2026-10-23: tarefa criada pelo Haiku a pedido do usuário; execução da `.1` pelo Sonnet, agora.
 - 2026-10-23: a matriz não muda nesta etapa (R4); a decisão de quem pega `PESADO` continua do usuário.
+- 2026-10-23 16:50: por pedido do usuário, HAIKU-COMMIT-GLOBAL.1 (antes reservada, linha 1 da tabela da .1) e .2 já foram para Sonnet ou DeepSeek, com a reserva parada liberada; sobram 11 linhas na lista da .1 (9 para Sonnet menos a .2, mais 3 com Opus).
 
 ### RECLASSIFICAR-PESADO-OPUS.1 — Inventariar as subtarefas `PESADO` com Opus e propor o destino de cada uma
 

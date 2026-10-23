@@ -51,12 +51,13 @@ para o Haiku; problema na conferência vira subtarefa de verificação para o So
 |---|---|---|---|
 | 2026-10-18 20:10 | Plano aprovado ("sim") na sessão do `aulasenai` (#287.1) | Gelvazio | resposta no chat |
 
+- 2026-10-23 16:50: **a pedido do usuário** ("HAIKU-COMMIT-GLOBAL deve ir pra Sonnet"), a .1 e a .2 passam de Opus 5.5+/Fable para **Sonnet (ou DeepSeek)**; a reserva parada da .1 (Opus, aulasenai s17, desde 2026-10-18 20:17, 0%) foi liberada pelo usuário. Nível continua PESADO.
 ### HAIKU-COMMIT-GLOBAL.1 — Regra global e decisão C41
 
 **Próximo passo:** escrever a C41 no `CONFLITOS.md` e mudar as regras pela varredura.
 
 - **Nível:** PESADO — regra de todas as IAs (arquitetura).
-- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
+- **Modelo:** só Sonnet ou DeepSeek — nunca outro (C22; trocado do Opus a pedido do usuário em 2026-10-23)
 - **Effort:** high
 - **Entrega:** — · **Verificação:** —
 - **JEV-AI-SUGGESTION:** NAO
@@ -66,7 +67,7 @@ para o Haiku; problema na conferência vira subtarefa de verificação para o So
 **Próximo passo:** depende da .1.
 
 - **Nível:** PESADO — mexe nos arquivos globais de todas as IAs.
-- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
+- **Modelo:** só Sonnet ou DeepSeek — nunca outro (C22; trocado do Opus a pedido do usuário em 2026-10-23)
 - **Effort:** high
 - **Entrega:** — · **Verificação:** —
 - **JEV-AI-SUGGESTION:** NAO
