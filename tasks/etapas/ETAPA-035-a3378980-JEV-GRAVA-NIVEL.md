@@ -130,5 +130,5 @@ atualizar `STATUS_PROJETO.md` e documentar o rollback (`JEV_MODO=off`, `git reve
 - **Effort:** high
 - **Depende de:** JEV-GRAVA-NIVEL.2
 - **Critérios de aceitação:** R8.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** rollback documentado em `regras/jev.md`; `node scripts/sincronizar.mjs --aplicar` (9 IAs gravadas, Claude Code já igual); `VERSAO.md` 2026-10-23-4f19d945; `STATUS_PROJETO.md` atualizado · **Verificação:** `grep -c C47 dist/REGRAS-GLOBAIS.md` = 7; saída do `--aplicar` sem erro. Os 20 projetos recebem pelo `rules-local/sessao.mjs` na próxima sessão (pull do GitHub, C36) — a sincronização de tasks de cada projeto cria a TASK que couber
 - **JEV-AI-SUGGESTION:** NAO

@@ -86,7 +86,10 @@ quem executa. Vale para **todos os projetos e todas as IAs**.
    só pelos sinais; guardrails ambíguos viram `revisar`, os determinísticos continuam.
 2. Total: copiar `SKILL.md.bak` sobre `SKILL.md` (fonte `.agents` e cópia `.claude`). Medido: segundos.
 3. Se for preciso, reverter o commit da integração. Prazo: menos de 10 minutos.
-4. Só o gancho de mensagens: `JEV_MENSAGENS=off` desliga só o gancho (a classificação de
+4. Só a gravação do nível (C47): sem `--gravar` o `classificar` volta a só sugerir; para desfazer
+   gravações já feitas, `git revert` do commit da gravação (cada gravação é um commit) ou
+   `--reclassificar` a pedido do usuário. `JEV_MODO=off` grava só pelos sinais (PESADO, na dúvida).
+5. Só o gancho de mensagens: `JEV_MENSAGENS=off` desliga só o gancho (a classificação de
    subtarefas continua). Para tirar o gancho de vez num projeto, remover a entrada
    `UserPromptSubmit` do Jev do `.claude/settings.json` e do `.codex/hooks.json` **do projeto**
    (C44). O `instalar-rules-local.mjs` recoloca a entrada se for rodado de novo.
