@@ -48,7 +48,7 @@
 
 ### API-QUADRO-JSON-SERVER.2 — Gerar o `db.json` a partir do quadro
 
-**Próximo passo:** executor-medio (Sonnet) escreve `api/gerar-db.mjs`, roda `npm run gerar` e confere as contagens.
+**Próximo passo:** concluída; segue a .3 (subir a API e conferir).
 
 - **Nível:** MEDIO — script com lógica de leitura de tabela Markdown
 - **Modelo:** só Sonnet — nunca outro
@@ -58,6 +58,8 @@
 - **Arquivos:** `api/gerar-db.mjs`, `api/db.json`
 - **Critérios de Aceitação:** o número de tarefas do `db.json` bate com as linhas dos dois arquivos do quadro; o script não escreve fora de `api/`.
 - **Depende de:** API-QUADRO-JSON-SERVER.1
+- **Entrega:** commit "feat(API-QUADRO-JSON-SERVER.2)"
+- **Verificação:** node --check ok; npm run gerar ok; contagem do db.json conferida contra STATUS.md + task_complete.md (218 tarefas nesta geração = 86 do STATUS + 132 do task_complete; a conta de 194 da geração anterior foi antes de outros agentes acrescentarem linhas; status extra `cancelada` para ❌ Cancelada); script só escreve em api/db.json
 
 ### API-QUADRO-JSON-SERVER.3 — Conferir a API no ar
 
