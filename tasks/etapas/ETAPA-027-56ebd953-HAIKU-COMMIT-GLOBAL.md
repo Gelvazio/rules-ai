@@ -65,10 +65,11 @@ para o Haiku; problema na conferência vira subtarefa de verificação para o So
 
 ### HAIKU-COMMIT-GLOBAL.2 — Levar às IAs (`sincronizar.mjs --aplicar`)
 
-**Próximo passo:** depende da .1.
+**Próximo passo:** ✅ entregue em 2026-10-23; tarefa-mãe concluída.
 
 - **Nível:** PESADO — mexe nos arquivos globais de todas as IAs.
 - **Modelo:** só Sonnet ou DeepSeek — nunca outro (C22; trocado do Opus a pedido do usuário em 2026-10-23)
 - **Effort:** high
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** Claude Code (Sonnet 5.5) (local · main · rules-ai), 2026-10-23 17:30: `node scripts/sincronizar.mjs --aplicar` gravou o bloco gerenciado (com `.bak`) em Gemini CLI, Codex, Grok, Qoder, opencode, Devin, Kiro, Hermes Agent e Kilo Code; as 4 contas do Claude Code já estavam iguais (importam o `dist/`). Versão `2026-10-23-d9c8a839`.
+- **Verificação:** prévia sem `--aplicar` listou 9 `mudaria`; depois do `--aplicar`, `grep -c C41` deu 4 em `dist/REGRAS-GLOBAIS.md` e em `~/.codex/AGENTS.md`, `~/.gemini/GEMINI.md` e `~/.config/kilo/AGENTS.md`. Pendência que não é desta tarefa: Codex pede `codex_hooks = true` em `~/.codex/config.toml`, à mão.
 - **JEV-AI-SUGGESTION:** NAO

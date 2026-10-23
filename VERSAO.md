@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-23-265a119a
+- **Versão:** 2026-10-23-d9c8a839
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -11,9 +11,9 @@
 | # | Arquivo | Código |
 |---|---------|--------|
 | 0 | INDEX.md | 930839c285dcd4f9 |
-| 1 | regra-maior.md | f0c7e50ae85c602b |
-| 2 | ciclo-da-task.md | 5e7983c54b011633 |
-| 3 | niveis-e-modelos.md | d04a0eebd7f950aa |
+| 1 | regra-maior.md | bbf5f654197ffa51 |
+| 2 | ciclo-da-task.md | aeb14258c62f9ff4 |
+| 3 | niveis-e-modelos.md | 1dd656c8425c414a |
 | 4 | frentes-e-reserva.md | 35dc8d1e8f3c16f0 |
 | 5 | comando-ponto.md | 25fab5e441b75d40 |
 | 6 | comando-interrogacao.md | e81811ae12199f38 |
@@ -29,7 +29,7 @@
 | 16 | gerenciador-centralizado.md | c6f5535db0d613a4 |
 | 17 | pastas-ignoradas.md | b33814d65cafd940 |
 | 18 | rules-local.md | c324790daa1a3a05 |
-| 19 | herdr.md | 0ed9c7e0c2280ae0 |
+| 19 | herdr.md | 7d5677aa568db2a8 |
 | 20 | jev.md | 1500944d066573c9 |
 | 21 | visualizador-gerado.md | bced4974cd78dc89 |
 | 22 | memoria-ai.md | c9be07bdd8570bd9 |
