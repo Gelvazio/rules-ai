@@ -197,7 +197,7 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 
 ### AGENTES-REALTIME.5 — Leitor do `STATUS.md` em JavaScript (porta de `quadro_tarefas.py`)
 
-**Próximo passo:** esperar AGENTES-REALTIME.3.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -206,6 +206,8 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 - **Descrição:** Criar `assets/js/agentes/quadro.js` com o mesmo resultado do parser Python, para o estado inicial lido do GitHub sem servidor.
 - **Critérios de Aceitação:** Mesmos campos e valores que o Python em todos os quadros (INV-4); `node --check`.
 - **Depende de:** AGENTES-REALTIME.3
+- **Entrega:** dashboard/assets/js/agentes/quadro.js, lerQuadro(texto) -> { tarefas } (commit desta entrega), feito por sn3 (Sonnet 5.5, herdr w2:p12, conta D).
+- **Verificação:** node --check ok; comparação JS × Python (quadro_tarefas.ler_quadro) no tasks/STATUS.md do rules-ai: IGUAL 85 85 (rodada de novo pelo líder); linhas ≤ 100. Os outros quadros ficam para a .6.
 
 ### AGENTES-REALTIME.6 — Invariante de paridade: parser JS igual ao Python
 
