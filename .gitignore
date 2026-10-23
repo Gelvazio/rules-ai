@@ -161,3 +161,6 @@ scripts/jev/saidas/*
 
 # graphify: grafo local, fora do Git (regras/graphify.md)
 graphify-out/
+
+# Auditoria da DeepSeek (INTEGRACAO-DEEPSEEK): sem texto, mas fora do Git
+scripts/deepseek/saidas/

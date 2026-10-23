@@ -77,7 +77,7 @@
 
 ### INTEGRACAO-DEEPSEEK.3 — Roteador de modelo por nível (LEVE e MEDIO)
 
-**Próximo passo:** começar depois da .2.
+**Próximo passo:** ✅ entregue em 2026-10-23; segue a .4 (limites)
 
 - **Nível:** MEDIO — código com lógica, de 1 a 3 arquivos
 - **Modelo:** só Sonnet ou DeepSeek — nunca outro
@@ -88,7 +88,9 @@
 - **Arquivos:** `scripts/deepseek/roteador.mjs`, `scripts/deepseek/auditoria.mjs`
 - **Critérios de Aceitação:** R1, R2, R3 e R5 atendidos.
 - **Depende de:** INTEGRACAO-DEEPSEEK.2
-- **Verificação:** a preencher na entrega (testes de R1, R2 e R3 pelos comandos do plano).
+- **Entrega:** `scripts/deepseek/roteador.mjs` (novo; `rotearChamada`, `MOTIVOS`, `ACOES`) e `scripts/deepseek/auditoria.mjs` (novo; `registrarChamada`, `somarCustoDoDia`, `lerTetoDiario`, `estimarCusto`, `formatarDia`); `.gitignore` ganhou `scripts/deepseek/saidas/`. Rotas: `LEVE` -> `deepseek-flash` sem raciocínio; `MEDIO` -> `deepseek-flash` com `thinking: {type: "enabled"}`; `PESADO` -> `{ usar: false, motivo: 'pesado-sem-liberacao' }` (R6; a liberação pelo usuário ainda não existe no código: PESADO nunca chama a API). Qualquer falha (erro do cliente, `off`, sem chave, teto do dia, auditoria ilegível, erro interno) devolve `{ usar: false, motivo }` sem lançar (R3, INV-2). Auditoria: 1 linha JSONL por chamada em `scripts/deepseek/saidas/auditoria-AAAA-MM.jsonl` com lista fechada de campos (data, dia, nivel, modelo, raciocinio, tokensEntrada, tokensSaida, custoUsd, acao, motivo), sem texto nem chave (R5). Teto do dia: `DEEPSEEK_MAX_CUSTO_DIA` (padrão US$ 2) comparado com a soma de `custoUsd` do dia na auditoria, antes de cada chamada; a .4 refina limites e tempo.
+- **Verificação:** `node --check` em `roteador.mjs` e `auditoria.mjs` = ok; maior linha = 99 e 97 caracteres; `grep -n "sk-"` nos dois arquivos = sem resultado; `git check-ignore -v scripts/deepseek/saidas/auditoria-2026-10.jsonl` confirma a pasta ignorada. Script descartável fora do repositório (apagado depois), com `fetchImpl` injetado e pasta de auditoria temporária, sem chamada real: R1 (LEVE: modelo `deepseek-flash`, corpo sem `thinking`, linha `usada` com tokens 1000/500 e custo > 0); R2 (`medio` em minúsculas aceito: corpo com `thinking: {type: "enabled"}`, linha com `raciocinio: true`); R6 (PESADO devolve `pesado-sem-liberacao` e não faz nenhuma chamada); R3 (401 `chave-recusada`, 429 `limite-de-taxa`, 500 e 529 `servidor`, rede, timeout com `DEEPSEEK_TIMEOUT_MS=50`, sem chave, `DEEPSEEK_MODO=off` sem chamar, pedido sem mensagens, nível inválido, argumento `undefined`, auditoria ilegível -> todos `{ usar: false, motivo }` sem exceção; falhas deixam linha `fallback` com o motivo); R5 (arquivo bruto não contém o texto do pedido, a resposta nem a chave; campos exatamente os da lista fechada); teto (linha de US$ 2,50 no dia + linha corrompida: soma 2,5, LEVE devolve `limite-diario` sem chamar e audita `bloqueada`; com `DEEPSEEK_MAX_CUSTO_DIA=5` chama; outro dia soma 0). Resultado: TUDO OK.
+- **Dúvidas registradas:** (1) o nome do campo que liga o raciocínio (`thinking: {type: "enabled"}`, em `montarCorpo` do cliente) não pôde ser confirmado na documentação pública sem acesso à rede: segue isolado em `montarCorpo` e deve ser conferido na primeira chamada real da .4/.5. (2) O preço por milhão de tokens usado na estimativa de custo (entrada US$ 0,28 e saída US$ 0,42, constantes `PRECO_ENTRADA_USD`/`PRECO_SAIDA_USD` em `auditoria.mjs`) é uma estimativa da tabela pública e deve ser conferido com a fatura do `deepseek-flash`. (3) Limite conhecido: se a gravação da auditoria falhar sempre (disco), o teto não é percebido; leitura ilegível já bloqueia a chamada.
 
 ### INTEGRACAO-DEEPSEEK.4 — Limite de custo, modo `off` e fallback de tempo
 
