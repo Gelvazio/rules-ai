@@ -1,4 +1,7 @@
-"""Atualiza as pastas dashboard-ai-* e aulas-senai-* com a branch main do origin.
+"""Atualiza com a branch main do origin todo repositório Git de C:/fontes.
+
+Ignora DEMAIS-PROJETOS-NAO-MEXER-AGORA, rules-ai, .vscode, .agents e .claude
+(PASTAS_IGNORADAS).
 
 Uso:
     python scripts/UPDATE.py                  # todas as pastas
@@ -16,7 +19,14 @@ from dataclasses import dataclass
 from pathlib import Path
 
 PASTA_RAIZ = Path(__file__).resolve().parents[2]
-PREFIXOS_PASTAS = ("dashboard-ai-", "aulas-senai-")
+# Fora do escopo: pasta de projetos parados (C23), o próprio rules-ai e pastas de configuração.
+PASTAS_IGNORADAS = (
+    "DEMAIS-PROJETOS-NAO-MEXER-AGORA",
+    "rules-ai",
+    ".vscode",
+    ".agents",
+    ".claude",
+)
 BRANCH_PRINCIPAL = "main"
 REMOTO = "origin"
 
@@ -72,7 +82,7 @@ def primeira_linha(texto: str) -> str:
 
 
 def listar_pastas(pasta_raiz: Path) -> list[Path]:
-    """Lista as pastas com prefixo conhecido que são repositórios Git.
+    """Lista as pastas da raiz que são repositórios Git, menos as ignoradas.
 
     Args:
         pasta_raiz: Pasta que contém os projetos.
@@ -84,7 +94,7 @@ def listar_pastas(pasta_raiz: Path) -> list[Path]:
         item
         for item in pasta_raiz.iterdir()
         if item.is_dir()
-        and item.name.startswith(PREFIXOS_PASTAS)
+        and item.name not in PASTAS_IGNORADAS
         and (item / ".git").exists()
     ]
     return sorted(pastas, key=lambda item: item.name)
@@ -258,9 +268,9 @@ def montar_parser() -> argparse.ArgumentParser:
         Parser configurado.
     """
     parser = argparse.ArgumentParser(
-        description="Atualiza as pastas dashboard-ai-* e aulas-senai-* com a main do origin."
+        description="Atualiza os repositórios de C:\\fontes com a main do origin."
     )
-    parser.add_argument("--pasta", help="nome de uma pasta só, ex.: dashboard-ai-codex")
+    parser.add_argument("--pasta", help="nome de uma pasta só, ex.: aulasenai")
     return parser
 
 
