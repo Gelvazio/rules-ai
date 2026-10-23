@@ -65,13 +65,16 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | **RECLASSIFICAR-PESADO-OPUS** | **🌐 GLOBAL — Subtarefas `PESADO` que estão só com Opus 5.5+/Fable passam para Sonnet, exceto o que precisa do Opus (pedido do usuário em 2026-10-23)** | 🟠 Alta | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
 | RECLASSIFICAR-PESADO-OPUS.3 | Decidir a matriz `regras/niveis-e-modelos.md` (P3) | 🟠 Alta | Usuário | RECLASSIFICAR-PESADO-OPUS.2 | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
 | **PONTO-SUBAGENTES-HAIKU** | **🌐 GLOBAL — O comando `.` dispara 4 subagentes Haiku 5.5 em paralelo (C51; pedido do usuário em 2026-10-23)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
-| PONTO-SUBAGENTES-HAIKU.3 | Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | PONTO-SUBAGENTES-HAIKU.2 | ⬜ Pendente | — | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
+| PONTO-SUBAGENTES-HAIKU.3 | Levar a remoção às IAs (`node scripts/sincronizar.mjs --aplicar`, de novo) | 🟡 Média | Usuário | PONTO-SUBAGENTES-HAIKU.5 | ⬜ Pendente | — | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
+| PONTO-SUBAGENTES-HAIKU.4 | Remover a regra `ponto-subagentes-haiku.md` e os ponteiros (a pedido do usuário: demorou mais que o `.` normal) · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku · effort low | Nenhuma | 🔄 Em execução | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · rules-ai) (desde 2026-10-23 19:27) · 0% | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
+| PONTO-SUBAGENTES-HAIKU.5 | Conferir a nova versão das regras sem a regra (`sincronizar.mjs` sem `--aplicar`) · `MEDIO · effort medium` | 🟠 Alta | MEDIO · só Sonnet · effort medium | PONTO-SUBAGENTES-HAIKU.4 | ⬜ Pendente | — | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
 
 
 ## 🧭 Frentes de trabalho
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
 |---|---|---|---|
+| Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · rules-ai) | PONTO-SUBAGENTES-HAIKU.4 ([ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md)) | 🔄 Ativa | 2026-10-23 19:27 |
 | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · rules-ai) | PONTO-SUBAGENTES-HAIKU.1 ([ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md)) | ⏹️ Encerrada | 2026-10-23 19:05 |
 | Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | INDEX-REGRAS.4 ([ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md)) | 🔄 Ativa | 2026-10-23 20:40 |
 | Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | GERENCIADOR-GLOBAL.9 ([ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md)) | 🔄 Ativa | 2026-10-23 20:40 |
