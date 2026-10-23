@@ -54,6 +54,10 @@ const KIND_COLOR: Record<StepKind, string> = {
   Tool: '#8b8ba7',
 }
 
+// Plan steps in the side pane: a glyph and a colour for each status.
+const STEP_GLYPH: Record<PlanStatus, string> = { pending: '○', in_progress: '◐', completed: '●' }
+const STEP_COLOR: Record<PlanStatus, string> = { pending: '#8b8ba7', in_progress: ACCENT, completed: GOOD }
+
 // ---------- Pets: a pixel Claude crab, one body colour per helper ----------
 
 type Px = [x: number, y: number]
@@ -1122,6 +1126,7 @@ export const register: Register = on => {
     const { value: clk = { tick: 0, now: 0 } } = await $.state.get(CLOCK)
     const { value: view = { open: [], folded: [] } } = await $.state.get(VIEW)
     const { value: cost = { usd: null } } = await $.state.get(COST)
+    const { value: planNow = null } = await $.state.get(PLAN)
     const width = Math.max(32, e.props.bodyColumns)
     // Inside a card: its border and padding take 4 columns, the pet PET_W more.
     const cw = width - 4 - PET_W
@@ -1305,6 +1310,18 @@ export const register: Register = on => {
 
     return (
       <Box flexDirection="column" width={width}>
+        {planNow && planNow.steps.length ? (
+          <Box key="plan" flexDirection="column" width={width} marginBottom={1}>
+            <Text bold color={ACCENT}>
+              {`Plan ${doneCount(planNow.steps)}/${planNow.steps.length} · ${planNow.title}`}
+            </Text>
+            {planNow.steps.map((st, i) => (
+              <Text key={`plan-${i}`} color={STEP_COLOR[st.status]} wrap="truncate-end">
+                {`${STEP_GLYPH[st.status]} ${st.text}`}
+              </Text>
+            ))}
+          </Box>
+        ) : null}
         <Box key="header" flexDirection="row" justifyContent="space-between" gap={1} width={width} marginBottom={1}>
           <Text bold color={running.length ? ACCENT : list.length ? GOOD : undefined}>
             {list.length ? `${list.length} subagent${list.length === 1 ? '' : 's'} in this chat` : 'No subagents yet'}
