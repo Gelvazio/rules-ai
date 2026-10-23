@@ -79,7 +79,7 @@ veem a ordem nova depois dele; o Claude Code lê o `dist/` direto pelo `@import`
 
 ### INDEX-REGRAS.4 — Corrigir a numeração repetida de `regras/INDEX.md`
 
-**Próximo passo:** o Haiku 5.5 executa (subtarefa criada pela C26 a pedido do usuário: teste vira subtarefa nova).
+**Próximo passo:** ✅ entregue em 2026-10-23; os arquivos globais das IAs só mudam no próximo --aplicar (INDEX-REGRAS.3, do usuário).
 
 - **Nível:** LEVE — conferência ou ajuste de texto
 - **Modelo:** só Haiku — nunca outro
@@ -90,4 +90,5 @@ veem a ordem nova depois dele; o Claude Code lê o `dist/` direto pelo `@import`
 - **Arquivos:** `regras/INDEX.md`, `VERSAO.md`
 - **Critérios de Aceitação:** A lista fica 1..N sem repetição; nenhum link mudou; `VERSAO.md` regerada.
 - **Depende de:** INDEX-REGRAS.2
-- **Verificação:** a preencher na entrega.
+- **Entrega:** Claude Code (Haiku 5.5 · agente), 2026-10-23: regras/INDEX.md renumerado; VERSAO.md regerada (2026-10-23-f7fceb58)
+- **Verificação:** links antes e depois iguais (25 links, diff vazio); lista numerada 1..25 sem repetição (o antigo "0." virou "1."); `node scripts/sincronizar.mjs` sem `--aplicar` saiu com código 0, versão df176636 -> f7fceb58, arquivos globais das IAs todos "igual" (nada gravado); o índice não entra no `dist/` (por desenho), então a renumeração não aparece no `dist/REGRAS-GLOBAIS.md`, só no `VERSAO.md` (hash do INDEX).

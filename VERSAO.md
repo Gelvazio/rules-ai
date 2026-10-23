@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-23-df176636
+- **Versão:** 2026-10-23-f7fceb58
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -10,7 +10,7 @@
 
 | # | Arquivo | Código |
 |---|---------|--------|
-| 0 | INDEX.md | faafe8096e511be0 |
+| 0 | INDEX.md | 89ad15eb35aae318 |
 | 1 | regra-maior.md | bbf5f654197ffa51 |
 | 2 | ciclo-da-task.md | aeb14258c62f9ff4 |
 | 3 | niveis-e-modelos.md | 1dd656c8425c414a |
