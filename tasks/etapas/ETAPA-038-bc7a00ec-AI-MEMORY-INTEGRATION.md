@@ -44,6 +44,7 @@
 - 2026-10-23 12:30: a .23 achou lacunas no `ignore_paths` do dashboard (`.mcp.json`, `laya/`, `dashboard-plataformas-de-ia/`); o líder abriu a .46 e segurou o commit no dashboard até ela.
 - 2026-10-23 12:34: **decisões do usuário: (1) opção A, a .25 fecha só com o método e a linha de base, e a contagem das 10 retomadas vai para as Pendências do STATUS; (2) regra de decisão confirmada (7 ou mais = adotar, 4 a 6 = ajustar, 3 ou menos = desligar); (3) apagar os projetos de teste `scratch` e `x` do servidor.**
 - 2026-10-23 11:53: o usuário aceitou o token do ai-memory em `%LOCALAPPDATA%i-memoryuth-token` (arquivo fora do Git) no lugar da variável de ambiente pedida na .4; a .3 documenta essa forma. Também autorizou a equipe herdr: conta C, `--dangerously-skip-permissions`, Sonnet nas `PESADO` (.3, .13, .21).
+- 2026-10-23 12:37: **o usuário escolheu separar o que depende dele: a .24, a .37 a .41 e a .42 foram movidas para a tarefa nova AI-MEMORY-ROLLOUT-2 (ETAPA-041-71e89003-AI-MEMORY-ROLLOUT-2.md), sem execução.** Com isso esta tarefa pode fechar na .28.
 
 ### Requisitos
 
@@ -439,7 +440,7 @@
 
 ### AI-MEMORY-INTEGRATION.24 — Rollout nos demais projetos de `C:\fontes` (`REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`)
 
-**Próximo passo:** ⛔ adiada pelo usuário em 2026-10-23 12:26 ("o resto farei depois"); destrava só com novo pedido dele.
+**Próximo passo:** ⛔ movida para a AI-MEMORY-ROLLOUT-2.1 ([ETAPA-041](ETAPA-041-71e89003-AI-MEMORY-ROLLOUT-2.md)) em 2026-10-23 12:37.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -639,7 +640,7 @@
 
 ### AI-MEMORY-INTEGRATION.37 — Escolher o modo de captura das outras IAs (allowlist recomendado) e liberar o uso de hooks em todas
 
-**Próximo passo:** o usuário escolhe o modo e libera as .38 a .40.
+**Próximo passo:** ⛔ movida para a AI-MEMORY-ROLLOUT-2.2 ([ETAPA-041](ETAPA-041-71e89003-AI-MEMORY-ROLLOUT-2.md)) em 2026-10-23 12:37.
 
 - **Nível:** Usuário — só o usuário decide
 - **Modelo:** Usuário
@@ -650,7 +651,7 @@
 
 ### AI-MEMORY-INTEGRATION.38 — Hooks de captura no Codex e no Gemini CLI
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** ⛔ movida para a AI-MEMORY-ROLLOUT-2.3 ([ETAPA-041](ETAPA-041-71e89003-AI-MEMORY-ROLLOUT-2.md)) em 2026-10-23 12:37.
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.80))
 - **Modelo:** só Sonnet — nunca outro
@@ -665,7 +666,7 @@
 
 ### AI-MEMORY-INTEGRATION.39 — Hooks de captura no Devin e no Antigravity (com `finalize-session`)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** ⛔ movida para a AI-MEMORY-ROLLOUT-2.4 ([ETAPA-041](ETAPA-041-71e89003-AI-MEMORY-ROLLOUT-2.md)) em 2026-10-23 12:37.
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.85))
 - **Modelo:** só Sonnet — nunca outro
@@ -680,7 +681,7 @@
 
 ### AI-MEMORY-INTEGRATION.40 — Hooks de captura no Kimi Code, no OpenCode e no DeepSeek (DSH)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** ⛔ movida para a AI-MEMORY-ROLLOUT-2.5 ([ETAPA-041](ETAPA-041-71e89003-AI-MEMORY-ROLLOUT-2.md)) em 2026-10-23 12:37.
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.85))
 - **Modelo:** só Sonnet — nunca outro
@@ -695,7 +696,7 @@
 
 ### AI-MEMORY-INTEGRATION.41 — Auditoria de captura das outras IAs: respeitam `ignore_paths` e não vazam segredo
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** ⛔ movida para a AI-MEMORY-ROLLOUT-2.6 ([ETAPA-041](ETAPA-041-71e89003-AI-MEMORY-ROLLOUT-2.md)) em 2026-10-23 12:37.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -710,7 +711,7 @@
 
 ### AI-MEMORY-INTEGRATION.42 — Criar o repositório GitHub privado do wiki da memória e ligar o remoto
 
-**Próximo passo:** o usuário cria o repositório privado vazio no GitHub e roda `git remote add origin <url>` dentro de `%LOCALAPPDATA%i-memory\wiki`; depois um `git push` confere.
+**Próximo passo:** ⛔ movida para a AI-MEMORY-ROLLOUT-2.7 ([ETAPA-041](ETAPA-041-71e89003-AI-MEMORY-ROLLOUT-2.md)) em 2026-10-23 12:37.
 
 - **Nível:** Usuário — ação externa no GitHub e no computador do usuário (aberta pela .21, C26)
 - **Modelo:** Usuário
