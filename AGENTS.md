@@ -32,5 +32,5 @@
   cada etapa do trabalho: plano, código, conferência, registro). **Ao concluir:** a célula volta
   para `—`, como sempre.
 - O número é uma estimativa honesta de quem trabalha (0 a 100, sem casas decimais). A página
-  `dashboard/graphs/agentes.html` mostra esse valor na cabeça do agente.
+  `dashboard/index.html` mostra esse valor na cabeça do agente.
 

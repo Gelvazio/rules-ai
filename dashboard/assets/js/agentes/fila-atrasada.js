@@ -11,7 +11,7 @@ const TIPO_POR_STATUS = Object.freeze({
 
 /**
  * Indexa as subtarefas do quadro pelo id (as tarefas-mãe não são reservadas e ficam de fora).
- * @param {Array<object>} tarefas - Tarefas vindas de /api/agentes.
+ * @param {Array<object>} tarefas - Tarefas vindas do canal ou do quadro (GitHub raw).
  * @returns {Map<string, object>} id → tarefa.
  */
 export function indexar(tarefas) {

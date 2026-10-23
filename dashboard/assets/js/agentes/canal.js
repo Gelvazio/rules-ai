@@ -1,5 +1,5 @@
 // Canal de Broadcast + estado inicial pelo GitHub raw (MIGRAR-AGENTES-BROADCAST.3).
-// Uso: iniciarCanal({ aoEstado, aoAviso }); aoEstado recebe o mesmo formato de /api/agentes.
+// Uso: iniciarCanal({ aoEstado, aoAviso }); aoEstado recebe o evento 'estado' do canal.
 import { CANAL } from '../config.js';
 import { lerQuadro } from './quadro.js';
 
