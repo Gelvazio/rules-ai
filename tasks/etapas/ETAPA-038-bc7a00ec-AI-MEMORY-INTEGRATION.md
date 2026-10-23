@@ -32,6 +32,7 @@
 - 2026-10-23 10:12: o usuário disse **SIM** ao plano. Ele pediu primeiro 'apenas no `aulasenai`' e logo depois corrigiu: **'deve ser pra todos os projetos'**. Vale a última instrução: escopo = todos os projetos de `C:\fontes` (menos `DEMAIS-PROJETOS-*` e `rules-ai`), com o `aulasenai` como piloto (base primeiro, depois clones, `dashboard-ai` e demais). Regra `memoria-ai.md` volta a ser global. Nenhuma subtarefa foi cancelada.
 - 2026-10-23 10:30: conferido com `ls C:\fontes`: as 4 pastas `aulas-senai-CLAUDE-*` e as 9 `dashboard-ai-*` **não existem mais** (o mapa `C:\fontes\CLAUDE.md` estava desatualizado). Alvos reais do rollout: `aulasenai` (piloto), `DASHBOARD-AI-PRINCIPAL`, `REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`. Fora: `rules-ai` (fonte), `ai-memory` (repositório do próprio ai-memory), `CONSERTO-ELANTRA-2.0` (sem Git) e `DEMAIS-PROJETOS-*`. Cancelada a .22; .23 e .24 reapontadas.
 - 2026-10-23 10:57: esclarecimentos da conferência da .2: a decisão de 10:30 **substitui** a de 10:12 no alvo do rollout (fora: `rules-ai`, `ai-memory`, (sem Git) `CONSERTO-ELANTRA-2.0` e `DEMAIS-PROJETOS-*`); 'dashboard-ai' no Escopo = a pasta `DASHBOARD-AI-PRINCIPAL`; a pergunta 5 só fecha de vez com a .29; dependências corrigidas: a .35 (proteger dados) não espera mais a .16, e a .16 (piloto) passou a esperar a .35.
+- 2026-10-23: pergunta 5 fecha de vez com a .29: o TypeSafe/Jev NÃO serve para consolidar memória (só classifica por perguntas fechadas). O ai-memory segue sem LLM; qualquer provedor generativo futuro (Anthropic, OpenAI etc.) é decisão nova do usuário.
 
 ### Requisitos
 
@@ -482,7 +483,7 @@
 
 ### AI-MEMORY-INTEGRATION.29 — Investigar se o TypeSafe tem modelo generativo compatível com o ai-memory (consolidação com LLM)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (jev (confiança 0.86))
 - **Modelo:** só Haiku — nunca outro
@@ -493,7 +494,8 @@
 - **Arquivos:** `docs/AI-MEMORY-LLM.md`
 - **Critérios de Aceitação:** Relatório com a conclusão (serve / não serve), custo e política de dados; pergunta 5 fechada de vez.
 - **Depende de:** Nenhuma
-- **Verificação:** a preencher na entrega.
+- **Entrega:** docs/AI-MEMORY-LLM.md (relatório da pesquisa; commit desta entrega)
+- **Verificação:** pesquisa pública em 2026-10-23 (typesafe.ai, docs.typesafe.ai/introduction, política de privacidade) e leitura do ai-memory-llm: o TypeSafe não tem endpoint de chat nem saída de texto livre; o ai-memory exige chat com JSON schema. Conclusão: NÃO SERVE. Chave TYPESAFE_API_KEY não usada, nenhuma chamada à API. Feita pelo agente Haiku e conferida pelo líder.
 
 ### AI-MEMORY-INTEGRATION.30 — Matriz de hooks por IA: o que cada harness captura e como fecha a sessão
 
