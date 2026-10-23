@@ -394,7 +394,7 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 
 ### AGENTES-REALTIME.14 — Coalescer pushes seguidos e ordenar mensagens
 
-**Próximo passo:** esperar AGENTES-REALTIME.4, MIGRAR-AGENTES-BROADCAST.2.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -403,6 +403,8 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 - **Descrição:** No publicador, juntar pushes próximos em uma mensagem e numerar com `sequencia`, para a página descartar mensagem velha.
 - **Critérios de Aceitação:** Duas gravações em 2 s geram uma mensagem; `sequencia` crescente.
 - **Depende de:** AGENTES-REALTIME.4, MIGRAR-AGENTES-BROADCAST.2
+- **Entrega:** dashboard/publicar_quadro.py usa GITHUB_RUN_NUMBER como sequencia (0 em --simular; sem ele e sem --simular sai 1) e .github/workflows/publicar-quadro.yml junta pushes seguidos com concurrency e cancel-in-progress (commit desta entrega), feito por sn2 (Sonnet 5.5, herdr w2:p11, conta D).
+- **Verificação:** invariantes_broadcast.py 0 falhas; --simular com e sem GITHUB_RUN_NUMBER sai 0; workflow válido (yaml.safe_load) (conferido pelo líder). Não testado no Actions de verdade (medição na .24, ponta a ponta na .29). O descarte de sequencia menor ou igual na página é da .18.
 
 ### AGENTES-REALTIME.15 — Página sem o `setInterval` do servidor
 

@@ -54,6 +54,14 @@ def git(*argumentos):
     return resultado.stdout.strip()
 
 
+def sequencia_da_execucao():
+    """Número da execução do workflow (crescente); ValueError se faltar ou for inválido (R3.2)."""
+    bruto = os.environ.get("GITHUB_RUN_NUMBER", "").strip()
+    if not bruto.isdigit() or int(bruto) < 1:
+        raise ValueError("GITHUB_RUN_NUMBER ausente ou inválido: sem sequencia não há envio.")
+    return int(bruto)
+
+
 def montar_payload(projeto, simular):
     """Payload do evento 'estado': campos de GET /api/agentes + commit, publicado_em, etc."""
     caminho = RAIZ.joinpath(*quadro.CAMINHO_QUADRO)
@@ -67,7 +75,7 @@ def montar_payload(projeto, simular):
         "intervalo": INTERVALO_COLETA_SEGUNDOS,
         "commit": os.environ.get("GITHUB_SHA") or git("rev-parse", "HEAD"),
         "publicado_em": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "sequencia": 0 if simular else int(os.environ.get("GITHUB_RUN_NUMBER", "0")),
+        "sequencia": 0 if simular else sequencia_da_execucao(),
         "tarefas": dados["tarefas"],
     }
 

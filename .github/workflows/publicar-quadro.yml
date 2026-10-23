@@ -24,6 +24,10 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      # Janela de coalescência (AGENTES-REALTIME.14): o push seguinte cancela esta execução
+      # (concurrency) durante a espera; só a última envia, com sequencia = GITHUB_RUN_NUMBER.
+      - name: Esperar a janela de 3 s
+        run: sleep 3
       - name: Enviar o quadro ao Broadcast
         env:
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
