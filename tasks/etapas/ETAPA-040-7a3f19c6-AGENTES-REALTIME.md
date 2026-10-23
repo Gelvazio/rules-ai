@@ -102,6 +102,7 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 | 2026-10-23 13:09 | **"Sim" ao plano:** o usuário respondeu "faça tudo recomendado". Perguntas fechadas: 1-a, 2-a, 3-a, 4-a; 5 e 6 seguem as decisões do usuário na ETAPA-031 (projeto AULAS SENAI e Vercel). Também autorizou liberar a reserva parada da MIGRAR-AGENTES-BROADCAST.1 e usar a conta D na equipe herdr | Usuário (registrado pelo líder Opus 5.5) | Destrava a execução (C34) |
 | 2026-10-23 13:25 | Ajustes da conferência da .2 (achados do agente h1): R2.1/INV-1 passam a listar os metadados do envelope (`projeto`, `commit`, `publicado_em`, `sequencia`, `atraso_padrao`, `intervalo`) que a .4 e a .14 exigem; INV-3 com os padrões exatos do `git grep`; INV-5 com o script nomeado; linha solta das Decisões voltou para a tabela | Líder (Opus 5.5 · sargento) | Mudança material de requisito registrada (C34, regra 5); não muda o escopo |
 | 2026-10-23 13:34 | Contrato: `atualizado_em` fica no evento `estado` (como na 031 e no publicador já entregue); R2.1 passa a citar `versao` e `atualizado_em` no envelope | Líder (Opus 5.5 · sargento) | Evita mexer na 031 e no publicador; nada depende de tirar o campo |
+| 2026-10-23 14:30 | **A `.24` foi dividida:** ela entrega o *instrumento* (script de medição, critério "script pronto e verificado") e a medição ponta a ponta virou a **`.33`**, que depende da `.12`. A `.30` passa a depender da `.33`. Mudança material de critério registrada (C34, regra 5) | Líder (Opus 5.5 · sargento) | Sem a chave publicável da `.12` (ação do usuário) não existe canal para medir; deixar a `.24` aberta travaria a `.29` sem motivo |
 
 ### AGENTES-REALTIME.1 — Fechar as 6 perguntas abertas e aprovar o plano
 
@@ -631,15 +632,29 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.24 — Medir a latência do `push` até o evento recebido
 
-**Próximo passo:** reservada em 2026-10-23 14:15 para sn2 (Sonnet 5.5, herdr w2:p11): escrever o medidor de latência em Node (assina o canal, mede do `publicado_em`/push até a mensagem) e registrar o resultado; sem a chave publicável (.12) a medição real fica pendente.
+**Próximo passo:** nenhum — entregue (o instrumento). A medição ponta a ponta ficou na `.33`, que depende da chave da `.12`.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Script Node que assina o canal e mede o tempo entre o push do `STATUS.md` e a mensagem, sem navegador.
-- **Critérios de Aceitação:** Tempo medido e registrado (meta: menos de 10 s).
+- **Critérios de Aceitação:** Script pronto e verificado, com a meta de 10 s codificada. **A medição em si passou para a `.33`** (decisão do líder de 2026-10-23 14:30, registrada nas Decisões: sem a chave publicável da `.12`, que é ação do usuário, não existe canal para medir).
 - **Depende de:** MIGRAR-AGENTES-BROADCAST.2, MIGRAR-AGENTES-BROADCAST.3
+- **Entrega:** `dashboard/testes/medir_latencia.mjs` — assina `quadro:<projeto>` pelo WebSocket nativo do Node (sem pacote, sem navegador), calcula a latência de `publicado_em` até o recebimento, imprime `commit` e `sequencia`, aceita `--projeto`, `--tempo-limite` e `--json`, e sai 0 (mediu), 1 (tempo limite ou falha) ou 2 (falta configuração). A chave vem só de `SUPABASE_PUBLISHABLE_KEY` ou do `config.js`; nenhuma chave no arquivo (commit desta entrega). Feito por sn2 (Sonnet 5.5, herdr w2:p11, conta D).
+- **Verificação:** `node --check dashboard/testes/medir_latencia.mjs` ok; rodado sem a chave, sai com código 2 e a mensagem que aponta a `.12`; nenhuma linha acima de 100 caracteres (conferido pelo líder, Node v24.16.0). ⚠️ A latência real **não** foi medida: falta a chave publicável (`.12`, 👀 do usuário) — por isso a `.33`.
+
+### AGENTES-REALTIME.33 — Rodar a medição de latência ponta a ponta
+
+**Próximo passo:** esperar a `.12` (o usuário cadastrar a chave publicável e o secret); depois rodar `node dashboard/testes/medir_latencia.mjs --tempo-limite 180` numa janela e dar push no `tasks/STATUS.md` na outra.
+
+- **Nível:** MEDIO — roda o instrumento da `.24` e registra o número; sem banco e sem segredo novo (aberta pelo líder a partir da `.24`, C26)
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Com a chave publicável cadastrada, medir a latência do `push` até o evento recebido com o script da `.24` e registrar o número aqui (R1.1, meta de 10 s).
+- **Critérios de Aceitação:** Latência medida e registrada na Verificação, com a data e o `sequencia`/`commit` da mensagem usada; se passar de 10 s, abrir o plano B (janela de coalescência ou plano Pro, `dashboard/LIMITES-REALTIME.md`).
+- **Depende de:** AGENTES-REALTIME.12, AGENTES-REALTIME.24
 
 ### AGENTES-REALTIME.25 — Conferir os limites do plano Supabase contra a frequência de pushes
 
