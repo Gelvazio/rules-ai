@@ -41,6 +41,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | MCP-QUADRO.5 | `task_finish`: mover para `task_complete.md` e anotar a entrega | 🟠 Alta | PESADO · só Sonnet ou DeepSeek · effort high | MCP-QUADRO.4 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | MCP-QUADRO.6 | Instalação, documentação e ensaio em 2 projetos | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.4 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | MCP-QUADRO.7 | Rollout medido e fechamento | 🟠 Alta | MEDIO · só Sonnet · effort medium | MCP-QUADRO.5, MCP-QUADRO.6 | ⬜ Pendente | — | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
+| MCP-QUADRO.8 | Testes da MCP-QUADRO.2 (`mcp/testes/quadro.mjs`): escrever, rodar e confirmar, só Haiku (pedido do usuário) · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku · effort low | MCP-QUADRO.2 | 🔄 Em execução | Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) (desde 2026-10-23 19:20) · 0% | [ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md) |
 | **JEV-GLOBAL-AI-FINAL** | **🌐 GLOBAL — O Jev classifica toda mensagem, em todos os projetos (plano aprovado)** | 🟡 Média | — | Nenhuma | 👀 Aguardando o usuário (tudo na `main`; falta só o `--aplicar`, a skill global e o mapa de `C:\fontes`, no PC) | — (não reservável) | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
 | JEV-GLOBAL-AI-FINAL.15 | 🌐 Skill global `classificar-tarefa` sem o Laya | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | 👀 Aguardando o usuário (skill global fica no computador: copiar a seção `### Pergunta ao Jev`) | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
 | JEV-GLOBAL-AI-FINAL.22 | 🌐 Levar às IAs (`sincronizar.mjs --aplicar`) | 🟡 Média | PESADO · só Sonnet ou DeepSeek · effort high | JEV-GLOBAL-AI-FINAL.1, JEV-GLOBAL-AI-FINAL.13, JEV-GLOBAL-AI-FINAL.14 | 👀 Aguardando o usuário (`--aplicar` no computador; prévia ok na nuvem) | — | [ETAPA-029](etapas/ETAPA-029-9a3f2c80-JEV-GLOBAL-AI-FINAL.md) |
@@ -78,6 +79,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
 |---|---|---|---|
+| Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | MCP-QUADRO.8 ([ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md)) | 🔄 Ativa | 2026-10-23 19:20 |
 | Claude Code (Sonnet 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | VERCEL-SEM-DEPLOY-DE-CONTROLE.2 ([ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md)) | 🔄 Ativa | 2026-10-23 18:55 |
 | Claude Code (Sonnet 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | VERCEL-SEM-DEPLOY-DE-CONTROLE.3 ([ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md)) | 🔄 Ativa | 2026-10-23 18:55 |
 | Claude Code (Sonnet 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | INTEGRACAO-DEEPSEEK.3 ([ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md)) | 🔄 Ativa | 2026-10-23 18:40 |

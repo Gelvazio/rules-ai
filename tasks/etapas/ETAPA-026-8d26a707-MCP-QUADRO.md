@@ -156,6 +156,8 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 | 2026-10-18 | MCP não cria tarefa, não escolhe nível e não aprova nada | DeepSeek Harness (lead) | respeita C26, C22/C35 e C32 |
 | 2026-10-18 | C40 registrada no `CONFLITOS.md`; `regras/mcp-quadro.md` só na subtarefa .1 | DeepSeek Harness (lead) | mudança global só depois do "sim" e com simulação do sincronizador |
 
+- 2026-10-23: **a pedido do usuário**, a MCP-QUADRO.2 libera teste, mas **só pelo Haiku 5.5** (ou Gemini Flash ou DeepSeek Flash), em **subtarefa nova** criada na subtarefa que pede o teste (aqui, MCP-QUADRO.8, C26). O agente Sonnet não escreve teste; o arquivo que ele criou foi removido.
+
 ### MCP-QUADRO.1 — Regra global, índice e C40
 
 **Próximo passo:** o Haiku-comitê confere e commita `regras/mcp-quadro.md` (novo), `regras/INDEX.md`, `dist/REGRAS-GLOBAIS.md` e `VERSAO.md` (regerados pela simulação). Depois, `MCP-QUADRO.2` (Sonnet). `--aplicar` do sincronizador fica para o usuário pedir.
@@ -174,17 +176,34 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 
 ### MCP-QUADRO.2 — Leitor/escritor do quadro e descoberta de projetos
 
-**Próximo passo:** criar `mcp/quadro.mjs`, `mcp/projetos.mjs` e `mcp/config.mjs`, com dois quadros sintéticos de teste.
+**Próximo passo:** ✅ entregue em 2026-10-23; a .3 (Opus) segue parada.
 - **Nível:** MEDIO — lógica em 3 arquivos, sem rede e sem escrita fora de `tasks/`.
 - **Modelo:** só Sonnet — nunca outro.
 - **Effort:** medium
 - **Depende de:** MCP-QUADRO.1.
 - **Descrição:** descoberta de projetos em `C:\fontes` (ignorando `DEMAIS-PROJETOS-*` e ocultas); parser do `STATUS.md` com colunas por nome (com e sem `Modelo`/`Verificado`); leitura da etapa para nível/critérios/dependências; escritor que preserva ordem e formatação da tabela; recusa de caminho fora da allowlist.
-- **Arquivos:** `mcp/quadro.mjs`, `mcp/projetos.mjs`, `mcp/config.mjs`, `mcp/testes/quadro.mjs`.
+- **Arquivos:** `mcp/quadro.mjs`, `mcp/projetos.mjs`, `mcp/config.mjs`.
 - **Critérios de Aceitação:** lê os 2 formatos; grava e relê sem mudar colunas (INV-2); pasta proibida nunca aparece; `node --check` passa.
-- **Verificação:** `node mcp/testes/quadro.mjs`; ler o diff do quadro sintético.
+- **Entrega:** sem commit (o líder commita; esta subtarefa não usa Git). Criados `mcp/config.mjs` (110 linhas: raiz `C:\fontes` ou `MCP_QUADRO_RAIZ`, prefixos ignorados, arquivos permitidos, emojis, códigos de erro e `ErroQuadro`), `mcp/projetos.mjs` (203 linhas: `listarProjetos`, `obterProjeto`, `resolverCaminhoDeTasks`, que só aceita `tasks/STATUS.md`, `tasks/task_complete.md` e `tasks/etapas/*.md` e recusa `..`, absoluto, `.env`, `.git`, `src/`, NUL e link simbólico), `mcp/quadro.mjs` (724 linhas: `lerQuadro`, `serializarQuadro`, `validarQuadro`, `atualizarLinha`, `moverLinha`, `dependenciasPendentes`, leitura da etapa com `lerSubtarefaDaEtapa`/`atualizarCampoDaSubtarefa`, `lerSubtarefa` e `gravarArquivoDeTasks` com gravação atômica e conferência da INV-2) e `mcp/testes/quadro.mjs` (teste da INV-2, declarado na seção Invariantes desta etapa, que é `PESADO`).
+- **Verificação:** `node --check` nos 3 arquivos (`mcp/config.mjs`, `mcp/projetos.mjs`, `mcp/quadro.mjs`) sem erro; leitura SEM gravar dos 6 projetos reais com quadro, relida byte a byte igual (relato do agente Sonnet). O arquivo de teste que o agente Sonnet criou (`mcp/testes/quadro.mjs`) foi **removido** por ordem do usuário: teste só pelo Haiku 5.5, em subtarefa nova (MCP-QUADRO.8).
+- **Anotação:** (1) o `tasks/task_complete.md` do `rules-ai` e do `aulasenai` **não tem cabeçalho** (só linhas); o leitor aceita isso com `aceitarSemCabecalho` e usa as colunas do `STATUS.md` do mesmo projeto, e a .5 deve acrescentar ao fim da tabela do jeito que está. (2) Status `❌ Cancelada` existe nos quadros reais e foi aceito como emoji de status (nunca conta como livre). (3) O escritor só deixa alterar `status`, `emUsoPor`, `verificado` e `etapa`; nível, modelo, prioridade e dependência ficam travados (C22, C26). (4) O fim de linha do arquivo (LF ou CRLF) e o BOM são preservados, em vez de normalizar tudo para LF, para não gerar diff gigante. (5) `dependenciasPendentes` trata dependência que não aparece em nenhum dos dois quadros como pendente. (6) Pendência para a .3/.4: a regra de "livre" do leitor é `⬜` + "Em uso por" vazio/`—` + não ser mãe nem trava especial; a checagem de nível do chamador e das dependências fica no `task_next`.
 - **Estimativa:** 3 h.
 - **JEV-AI-SUGGESTION:** NAO
+
+### MCP-QUADRO.8 — Testes da MCP-QUADRO.2: escrever, rodar e confirmar
+
+**Próximo passo:** o Haiku 5.5 escreve `mcp/testes/quadro.mjs` para a MCP-QUADRO.2 (só repositórios sintéticos na pasta temporária, apagados no fim), roda e confirma.
+
+- **Nível:** LEVE — conferência por teste de um código já entregue
+- **Modelo:** só Haiku — nunca outro (pedido do usuário; podem fazer teste o Haiku 5.5, o Gemini Flash ou o DeepSeek Flash)
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** manual
+- **Descrição:** Testar `mcp/quadro.mjs`, `mcp/projetos.mjs` e `mcp/config.mjs`: lê os 2 formatos de quadro; ler e serializar devolve o mesmo texto (LF, CRLF e BOM); atualizar uma linha mexe só nela; pasta `DEMAIS-PROJETOS-*` e ocultas nunca aparecem; caminho fora de `tasks/` é recusado; gravação que tira coluna é recusada. Não alterar o código da .2: se o teste achar defeito, relatar.
+- **Arquivos:** `mcp/testes/quadro.mjs`
+- **Critérios de Aceitação:** testes rodam com `node mcp/testes/quadro.mjs` e passam; relatório com o que cada teste cobre.
+- **Depende de:** MCP-QUADRO.2
+- **Verificação:** a preencher na entrega (saída do comando).
 
 ### MCP-QUADRO.3 — Trava por Git: reserva atômica, recuperação e dry-run
 
