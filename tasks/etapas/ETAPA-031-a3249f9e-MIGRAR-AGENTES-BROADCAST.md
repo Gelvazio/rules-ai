@@ -124,7 +124,7 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 
 ### MIGRAR-AGENTES-BROADCAST.1 — Contrato do canal, endpoint confirmado e gate da spec
 
-**Próximo passo:** confirmar na documentação do Supabase o endpoint REST de broadcast e a chave publicável; fechar o nome do canal (`quadro:<projeto>`) e o evento `estado`; registrar o contrato nesta seção; rodar o gate.
+**Próximo passo:** nenhum — entregue.
 - **Nível:** PESADO — chaves, endpoint externo e contrato que todas as outras subtarefas usam.
 - **Modelo:** só Opus 5.5+ ou Fable ou DeepSeek — nunca outro.
 - **Effort:** high
@@ -132,11 +132,160 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 - **Descrição:** definir o payload (mesmos campos de `GET /api/agentes`, mais `commit` e `publicado_em`), o canal, o evento e a forma de envio. Sem criar nenhum arquivo no repositório.
 - **Arquivos:** esta etapa (seção de contrato).
 - **Critérios de Aceitação:** endpoint e chave publicável confirmados com link da documentação; contrato escrito; gate da spec passa.
-- **Verificação:** `node spec/verificar-spec.mjs tasks/etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md` sai com código 0.
+- **Entrega:** contrato do canal escrito nesta seção (abaixo), feito por op1 (Opus 5.5, herdr w2:pX, conta D).
+- **Verificação:** endpoint REST de Broadcast e chave publicável conferidos na documentação do Supabase (links no contrato); node spec/verificar-spec.mjs tasks/etapas/ETAPA-031-a3249f9e-MIGRAR-AGENTES-BROADCAST.md saiu 0 (conferido pelo líder). Pendências: canal público aceita envio falso (a página valida versao, projeto e sequencia; bloquear exige canal privado, decisão do usuário); a INV-2 da 031 precisa citar commit, publicado_em, sequencia e versao; o código HTTP de sucesso só se confirma na .2.
 - **Estimativa:** 1 h.
 - **JEV-AI-SUGGESTION:** NAO
 
 - **Anotação (2026-10-23 13:09):** a reserva da sessão na nuvem (desde 2026-10-20 08:35, 0%) foi liberada a pedido do usuário; nada desta subtarefa tinha sido entregue.
+
+#### Contrato do canal (MIGRAR-AGENTES-BROADCAST.1)
+
+> Fechado em 2026-10-23 por Claude Code (Opus 5.5), executor da equipe herdr. Vale também para a
+> AGENTES-REALTIME.4 (ETAPA-040), que só **acrescenta** o evento `projetos` e não muda os campos comuns.
+> Documentação conferida em 2026-10-23 (links no fim desta seção).
+
+#### 1. Projeto e chaves
+
+| Item | Valor |
+|---|---|
+| Projeto Supabase | `AULAS SENAI` — `https://hxlvonriearllcmfqeri.supabase.co` (pergunta 2) |
+| O que se usa | **só Realtime Broadcast**; nenhuma tabela, nenhum `postgres_changes`, nada gravado |
+| Chave de envio (publicador) | chave **secreta** `sb_secret_…`, só no secret do GitHub `SUPABASE_SECRET_KEY` → variável de ambiente do runner; nunca impressa nem gravada (INV-1) |
+| Chave de recepção (página) | chave **publicável** `sb_publishable_…`, em `dashboard/assets/js/config.js` (segura no navegador, segundo a doc) |
+| Como a chave vai na requisição | cabeçalho `apikey: <chave>`; **não** usar `Authorization: Bearer` com as chaves novas (não são JWT) |
+| Chaves legadas | `anon`/`service_role` (JWT `eyJ…`) **não** são usadas: o Supabase as descontinua até o fim de 2026 |
+
+#### 2. Canal e eventos
+
+| Item | Valor |
+|---|---|
+| Canal (topic) | `quadro:<projeto>`, onde `<projeto>` é o nome da pasta (o `id` de `/api/projetos`). Nesta etapa só `quadro:rules-ai` (pergunta 3). Sem prefixo `realtime:` no REST; o topic não pode ser `realtime` |
+| Tipo do canal | **público** (sem `private: true`), decisão da pergunta 2-a da ETAPA-040 |
+| Evento do quadro | `estado` — o quadro inteiro do projeto (nunca diferença parcial) |
+| Evento da lista (ETAPA-040 .4) | `projetos`, no canal `quadro:_indice` (o `_` evita choque com nome de pasta) |
+| Projetos proibidos | nome que comece com `DEMAIS-PROJETOS-` nunca vira canal nem aparece em `projetos` (C20/C23, INV-4) |
+
+#### 3. Payload do evento `estado`
+
+Mesmos campos de `GET /api/agentes` (`dashboard/servidor.py`, `rota_agentes`) mais `commit`,
+`publicado_em`, `sequencia` e `versao`. **Nenhum campo além destes** (INV-2 da 031, INV-1 da 040).
+
+```json
+{
+  "versao": 1,
+  "projeto": "rules-ai",
+  "atualizado_em": "2026-10-23T13:09:00-03:00",
+  "atraso_padrao": 30,
+  "intervalo": 10,
+  "commit": "3870e2f…(40 caracteres)",
+  "publicado_em": "2026-10-23T16:10:05Z",
+  "sequencia": 412,
+  "tarefas": [
+    {
+      "tarefa": "MIGRAR-AGENTES-BROADCAST.1",
+      "titulo": "Contrato do canal…",
+      "pai": "MIGRAR-AGENTES-BROADCAST",
+      "mae": false,
+      "nivel": "PESADO",
+      "status": "andamento",
+      "agente": "Claude Code (Opus 5.5)",
+      "desde": "2026-10-23 13:10",
+      "progresso": 0,
+      "global": false,
+      "indice": 57
+    }
+  ]
+}
+```
+
+| Campo | Tipo | Origem / regra |
+|---|---|---|
+| `versao` | inteiro | versão do contrato; começa em `1`. A página ignora mensagem com versão que não conhece |
+| `projeto` | texto | nome da pasta; igual ao sufixo do canal |
+| `atualizado_em` | texto ISO 8601 | **data do último commit que mexeu no `STATUS.md`** (`git log -1 --format=%cI -- tasks/STATUS.md`). No runner o `mtime` do arquivo é a hora do checkout, por isso não serve |
+| `atraso_padrao` | inteiro (s) | mesmo valor de `atraso_agentes()` do servidor (hoje `ATRASO_AGENTES`, 30 s) |
+| `intervalo` | inteiro (s) | `INTERVALO_COLETA_SEGUNDOS` (10 s); a página usa no fallback (R2.3) |
+| `commit` | texto | SHA completo do push (`GITHUB_SHA`) |
+| `publicado_em` | texto ISO 8601 UTC | hora do envio no runner |
+| `sequencia` | inteiro | `GITHUB_RUN_NUMBER` (cresce a cada execução do workflow, na ordem dos pushes). A página descarta `sequencia` ≤ à última aplicada (R3.2 da 040). Em `--simular` vale `0` |
+| `tarefas[]` | lista | exatamente a saída de `quadro_tarefas.ler_quadro(...)["tarefas"]`, com os 11 campos `tarefa`, `titulo`, `pai`, `mae`, `nivel`, `status`, `agente`, `desde`, `progresso`, `global`, `indice` (R2.1 da 040) |
+
+Limites: o Broadcast aceita até **256 KB** por mensagem e 100 mensagens/s no plano gratuito. O quadro
+atual do `rules-ai` (88 linhas) dá **≈ 25 KB**. Se passar de 200 KB, o publicador falha com erro claro
+(R1.2) em vez de cortar tarefas.
+
+#### 4. Payload do evento `projetos` (canal `quadro:_indice`, ETAPA-040 .4)
+
+Mesmos campos de `GET /api/projetos` mais `versao`, `publicado_em` e `sequencia`:
+
+```json
+{ "versao": 1, "padrao": "rules-ai", "publicado_em": "2026-10-23T16:10:05Z", "sequencia": 412,
+  "projetos": [ { "id": "rules-ai", "nome": "Rules Ai" } ] }
+```
+
+Nesta etapa a lista tem só `rules-ai` (pergunta 3); a forma de gerá-la sem ler `C:\fontes` no runner fica
+com a ETAPA-040.
+
+#### 5. Forma de envio (publicador, `dashboard/publicar_quadro.py`)
+
+Endpoint REST de um evento por chamada (doc "Broadcast → Send messages using REST"):
+
+```
+POST https://hxlvonriearllcmfqeri.supabase.co/realtime/v1/api/broadcast/{topic}/events/{evento}
+apikey: $SUPABASE_SECRET_KEY
+Content-Type: application/json
+
+<payload do evento, como na seção 3>
+```
+
+- `{topic}` vai codificado com `urllib.parse.quote("quadro:rules-ai", safe="")`; `{evento}` = `estado`.
+- Canal público: **sem** `?private=true`.
+- Sucesso = qualquer resposta 2xx (a doc não fixa o código). Outro código, erro de rede ou tempo acima de
+  15 s → sai com código ≠ 0 e mensagem sem a chave (R1.2, INV-1). Sem nova tentativa automática: o
+  próximo push republica o estado inteiro.
+- Plano B, se o endpoint por evento recusar o `:` no caminho: o lote `POST /realtime/v1/api/broadcast`
+  com `{"messages":[{"topic":"quadro:rules-ai","event":"estado","payload":{…}}]}` (a doc diz que ele
+  "continua disponível").
+- Só biblioteca padrão (`urllib.request`, `json`); a chave vem de `os.environ`, nunca de argumento de
+  linha de comando nem de arquivo.
+- `--simular` imprime o payload e não abre conexão.
+- Workflow: `on: push` com `branches: [main]` e `paths: [tasks/STATUS.md]`; `concurrency` com
+  `cancel-in-progress: true` para não publicar fora de ordem; `fetch-depth: 0` (ou ao menos o histórico
+  do `STATUS.md`) para calcular `atualizado_em`.
+
+#### 6. Recepção (página, `dashboard/assets/js/agentes.js`)
+
+```js
+const canal = supabase.channel('quadro:rules-ai')
+canal
+  .on('broadcast', { event: 'estado' }, (mensagem) => aplicarEstado(mensagem.payload))
+  .subscribe()
+```
+
+- O cliente é criado com `createClient(URL, CHAVE_PUBLICAVEL)`.
+- `aplicarEstado` confere `versao`, `projeto` e `sequencia` antes de mexer na tela; mensagem fora do
+  formato é descartada (proteção contra envio falso, ver seção 7).
+- Estado inicial: `STATUS.md` pelo GitHub raw, lido no mesmo formato de `tarefas` (R2.1); a mensagem
+  seguinte só é aplicada se `sequencia` for maior que a última (o estado inicial começa em `0`).
+- Conexão pública só com chave de API dura no máximo **24 h**: a página precisa reassinar quando o canal
+  fechar (a reconexão é da .4 desta etapa e da .17 da 040).
+
+#### 7. Segurança do canal público
+
+- O canal é público: quem tiver a chave publicável pode **ouvir e também enviar** no canal (a doc só aplica
+  RLS a canais `private: true`). Por isso o payload só leva o que já é público no GitHub (repositório
+  público, pergunta 5) e a página valida cada mensagem.
+- Para impedir envio falso seria preciso canal privado + política RLS em `realtime.messages` e desligar
+  "Allow public access" nas configurações do Realtime. Isso **não** é tabela de dados, mas muda a
+  pergunta 2-a da 040: fica como pendência para o usuário.
+
+#### Documentação conferida
+
+- Broadcast (REST, assinatura, topic): https://supabase.com/docs/guides/realtime/broadcast
+- Chaves de API (publicável × secreta, cabeçalho `apikey`, fim das legadas, 24 h no Realtime): https://supabase.com/docs/guides/api/api-keys
+- Limites do Realtime (256 KB, 100 msg/s, 200 conexões no gratuito): https://supabase.com/docs/guides/realtime/limits
+- Autorização (canal privado, "Allow public access"): https://supabase.com/docs/guides/realtime/authorization
 
 ### MIGRAR-AGENTES-BROADCAST.2 — Publicador e workflow do GitHub Actions
 
