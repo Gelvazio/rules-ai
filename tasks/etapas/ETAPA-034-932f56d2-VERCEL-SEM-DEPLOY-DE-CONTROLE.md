@@ -58,10 +58,7 @@ dado do aluno; a conferência é por `grep`, `json.load` e consulta aos deploys 
 
 ### VERCEL-SEM-DEPLOY-DE-CONTROLE.1 — Regra global C46 (texto, índice, C46, sincronização)
 
-**Próximo passo:** reservar por uma sessão Opus 5.5+/Fable ou DeepSeek (`;`); escrever
-`regras/vercel-sem-deploy-de-controle.md` com o comando padrão
-`git diff --quiet ${VERCEL_GIT_PREVIOUS_SHA:-HEAD^} HEAD -- . ':(exclude)tasks/' ':(exclude)rules-local/'`,
-listar no `INDEX.md`, registrar a C46 no `CONFLITOS.md` e rodar `node scripts/sincronizar.mjs --aplicar`.
+**Próximo passo:** ✅ entregue em 2026-10-23; seguem a .2 e a .3
 
 - **Nível:** PESADO — regra global que vale para todas as IAs e projetos, vários arquivos ligados
 - **Modelo:** só Sonnet ou DeepSeek — nunca outro (trocado do Opus em 2026-10-23, RECLASSIFICAR-PESADO-OPUS.2)
@@ -72,8 +69,16 @@ listar no `INDEX.md`, registrar a C46 no `CONFLITOS.md` e rodar `node scripts/si
   `vercel.json`; projeto que passar a publicar na Vercel já nasce com os dois), o que não entra e
   como conferir.
 - **Critérios de aceitação:** R1.
-- **Entrega:** —
-- **Verificação:** —
+- **Entrega:** 2026-10-23, Claude Code (Sonnet 5.5): criada `regras/vercel-sem-deploy-de-controle.md`
+  (comando padrão, arquivos de controle, `.vercelignore`, quando aplicar, o que não entra, como
+  conferir); item 22 em `regras/INDEX.md`; linha C46 em `CONFLITOS.md` (entre a C45 e a C47);
+  `node scripts/sincronizar.mjs --aplicar` regravou `dist/REGRAS-GLOBAIS.md`, `VERSAO.md`
+  (versão `2026-10-23-36a51f03`) e os arquivos globais das IAs (Gemini, Codex, Grok, Qoder,
+  opencode, Devin, Kiro, Hermes, Kilo); as quatro contas do Claude Code já estavam iguais (importam
+  o `dist/`). Commit: a cargo do Haiku (conferência).
+- **Verificação:** `node scripts/sincronizar.mjs` (prévia) mostrou "mudaria" nas 9 IAs e depois
+  `--aplicar` deu "gravado" nas 9; `grep -c C46 dist/REGRAS-GLOBAIS.md` = 2 (≥ 1, R1 atendido);
+  `grep -n "^22\." regras/INDEX.md` acha a regra nova.
 
 ### VERCEL-SEM-DEPLOY-DE-CONTROLE.2 — Aplicar no `aulasenai`
 

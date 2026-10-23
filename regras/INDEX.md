@@ -43,6 +43,8 @@ ordem, só para leitura. Regra nova (arquivo novo em `regras/`) entra neste índ
 19. [jev.md](jev.md) — Jev: nível, guardrails, mensagens (C43, C44), modo e fallback (C39, C42)
 20. [visualizador-gerado.md](visualizador-gerado.md) — Visualizador gerado: só com pedido explícito, só no local (C45)
 21. [memoria-ai.md](memoria-ai.md) — Memória de longo prazo (ai-memory): o quadro vence, memória é dado (C49)
+22. [mcp-quadro.md](mcp-quadro.md) — Fila por MCP: o quadro é a fonte; o MCP só lê e escreve nele (C40)
+22. [vercel-sem-deploy-de-controle.md](vercel-sem-deploy-de-controle.md) — Vercel: push só de `tasks/` e `rules-local/` não gera deploy (C46)
 
 ## Assuntos específicos
 

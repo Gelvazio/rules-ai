@@ -158,7 +158,7 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 
 ### MCP-QUADRO.1 — Regra global, índice e C40
 
-**Próximo passo:** criar `regras/mcp-quadro.md`, acrescentar ao `regras/INDEX.md`, registrar C40 no `CONFLITOS.md` e rodar `node scripts/sincronizar.mjs` (sem `--aplicar`).
+**Próximo passo:** o Haiku-comitê confere e commita `regras/mcp-quadro.md` (novo), `regras/INDEX.md`, `dist/REGRAS-GLOBAIS.md` e `VERSAO.md` (regerados pela simulação). Depois, `MCP-QUADRO.2` (Sonnet). `--aplicar` do sincronizador fica para o usuário pedir.
 - **Nível:** LEVE — só arquivos `.md` e o índice; sem código.
 - **Modelo:** só Haiku — nunca outro.
 - **Effort:** low
@@ -166,7 +166,9 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 - **Descrição:** a regra diz em 1 página: o quadro é a fonte única; o MCP lê/escreve nele e nada mais; reserva = commit + push; ferramentas `task_next`/`task_finish`/`task_list`; nunca banco; nunca `--force`; nunca criar tarefa. C40 registra a decisão e o "não entra" (Supabase/React/worker).
 - **Arquivos:** `regras/mcp-quadro.md`, `regras/INDEX.md`, `CONFLITOS.md`.
 - **Critérios de Aceitação:** regra ≤ 5 KB, indexada, C40 com data e frase do pedido; simulação do sincronizador sem erro e sem gravar; `--aplicar` continua sendo ação do usuário.
-- **Verificação:** `node scripts/sincronizar.mjs` (saída sem erro; `git status` sem mudança nos arquivos globais das IAs).
+- **Entrega:** sem commit (o Haiku-comitê commita). Criado `regras/mcp-quadro.md` (3,3 KB, com as regras de reserva, entrega, limites e o que o MCP nunca faz). Alterados `regras/INDEX.md` (item 22, sob "Agentes e ferramentas") e os arquivos gerados `dist/REGRAS-GLOBAIS.md` e `VERSAO.md` (versão `2026-10-23-df176636`; `mcp-quadro.md` entra na tabela de regras da `VERSAO.md` com o código `005e9e89838e472a`). `CONFLITOS.md` não mudou: a C40 já estava registrada em 2026-10-18 com a frase do pedido.
+- **Verificação:** `node scripts/sincronizar.mjs` (sem `--aplicar`) saiu com código 0, sem erro. Os destinos das IAs aparecem como `mudaria` (nenhum foi gravado). Conferido: o texto "Fila por MCP" está no `dist/REGRAS-GLOBAIS.md`, o link `](mcp-quadro.md)` está no `INDEX.md` e a `VERSAO.md` lista o arquivo. Não foi usado Git nesta subtarefa (proibido pelo pedido); o `git status` fica para o Haiku-comitê.
+- **Anotação:** a simulação grava `dist/REGRAS-GLOBAIS.md` e `VERSAO.md` no repositório mesmo sem `--aplicar` (é o comportamento do script); os arquivos globais das IAs não foram tocados. Pendência fora desta subtarefa: `STATUS_PROJETO.md` não foi atualizado (o pedido proibiu); a regra do `rules-ai` manda atualizá-lo no mesmo passo. Também existe um número de item repetido no `regras/INDEX.md` (dois itens "20."), anterior a esta mudança.
 - **Estimativa:** 1 h.
 - **JEV-AI-SUGGESTION:** NAO
 

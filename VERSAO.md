@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-23-d9c8a839
+- **Versão:** 2026-10-23-df176636
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -10,7 +10,7 @@
 
 | # | Arquivo | Código |
 |---|---------|--------|
-| 0 | INDEX.md | 930839c285dcd4f9 |
+| 0 | INDEX.md | faafe8096e511be0 |
 | 1 | regra-maior.md | bbf5f654197ffa51 |
 | 2 | ciclo-da-task.md | aeb14258c62f9ff4 |
 | 3 | niveis-e-modelos.md | 1dd656c8425c414a |
@@ -33,7 +33,9 @@
 | 20 | jev.md | 1500944d066573c9 |
 | 21 | visualizador-gerado.md | bced4974cd78dc89 |
 | 22 | memoria-ai.md | c9be07bdd8570bd9 |
-| 23 | atividades-e-idioma.md | a37b651279928422 |
+| 23 | mcp-quadro.md | 005e9e89838e472a |
+| 24 | vercel-sem-deploy-de-controle.md | 9801278fe383e99f |
+| 25 | atividades-e-idioma.md | a37b651279928422 |
 
 ## Pacote do rules-local (scripts e Jev)
 
