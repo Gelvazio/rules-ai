@@ -158,3 +158,6 @@ dashboard/modelos/
 # Logs do cliente Jev (JEV-RULES-AI)
 scripts/jev/saidas/*
 !scripts/jev/saidas/.gitkeep
+
+# graphify: grafo local, fora do Git (regras/graphify.md)
+graphify-out/

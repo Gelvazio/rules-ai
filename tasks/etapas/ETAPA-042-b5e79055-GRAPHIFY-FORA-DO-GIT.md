@@ -25,7 +25,7 @@
 
 ### GRAPHIFY-FORA-DO-GIT.1 — `git rm -r --cached graphify-out` e `graphify-out/` no `.gitignore`
 
-**Próximo passo:** 👀 esperar o "sim" do usuário ao plano; depois reservar e executar.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — mudança em massa (196 arquivos saem do Git)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -33,4 +33,5 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** acrescentar `graphify-out/` no `.gitignore`; `git rm -r --cached graphify-out`; um commit só com o `.gitignore`, a remoção e o quadro.
 - **Critérios de Aceitação:** `git ls-files graphify-out` vazio; a pasta continua no disco (`GRAPH_REPORT.md` existe); `git status` não mostra mais `graphify-out/`; push feito.
-- **Verificação:** a preencher na entrega.
+- **Entrega:** `.gitignore` com `graphify-out/` e `git rm -r --cached graphify-out` (196 arquivos fora do Git) no commit desta entrega, por Claude Code (Opus 5.5) (local · main · rules-ai), 2026-10-23 12:49.
+- **Verificação:** `git ls-files graphify-out` = 0; `graphify-out/GRAPH_REPORT.md` continua no disco; `git status` sem arquivos novos de `graphify-out/` (só as 196 remoções do índice neste commit); nada apagado do disco nem do histórico.
