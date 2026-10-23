@@ -141,7 +141,7 @@
 
 ### AI-MEMORY-INTEGRATION.6 — Desenhar o modelo de `.ai-memory.toml` e a lista de `ignore_paths` obrigatórios
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (jev (confiança 0.89))
 - **Modelo:** só Haiku — nunca outro
@@ -152,7 +152,8 @@
 - **Arquivos:** `docs/AI-MEMORY-MARKER.md`
 - **Critérios de Aceitação:** Lista cobre `.env*`, `tasks/`, `rules-local/`, `graphify-out/`, gabaritos, listas de alunos, PDFs de currículo e `DEMAIS-PROJETOS-*`.
 - **Depende de:** Nenhuma
-- **Verificação:** a preencher na entrega.
+- **Entrega:** docs/AI-MEMORY-MARKER.md (modelo do .ai-memory.toml e ignore_paths obrigatórios; nenhum marker criado; commit desta entrega)
+- **Verificação:** modelo conferido por leitura contra ai-memory/docs/marker-file.md (schema, [capture] ignore_paths, padrões * ? **) e o .gitignore do aulasenai; linhas com até 100 caracteres. NÃO CONFIRMADO (fica para a .7): nome real do projeto no servidor, local de gabaritos e listas de alunos, e o teste ai-memory hook --check-capture com leitura de variaveis.js e .env. Feita pelo agente Haiku e conferida pelo líder.
 
 ### AI-MEMORY-INTEGRATION.7 — Script `instalar-ai-memory.mjs`: grava o marker do projeto (idempotente, com dry-run)
 
