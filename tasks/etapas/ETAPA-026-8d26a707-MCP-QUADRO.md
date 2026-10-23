@@ -192,7 +192,7 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 
 ### MCP-QUADRO.8 — Testes da MCP-QUADRO.2: escrever, rodar e confirmar
 
-**Próximo passo:** o Haiku 5.5 escreve `mcp/testes/quadro.mjs` para a MCP-QUADRO.2 (só repositórios sintéticos na pasta temporária, apagados no fim), roda e confirma.
+**Próximo passo:** ✅ entregue em 2026-10-23.
 
 - **Nível:** LEVE — conferência por teste de um código já entregue
 - **Modelo:** só Haiku — nunca outro (pedido do usuário; podem fazer teste o Haiku 5.5, o Gemini Flash ou o DeepSeek Flash)
@@ -202,8 +202,24 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 - **Descrição:** Testar `mcp/quadro.mjs`, `mcp/projetos.mjs` e `mcp/config.mjs`: lê os 2 formatos de quadro; ler e serializar devolve o mesmo texto (LF, CRLF e BOM); atualizar uma linha mexe só nela; pasta `DEMAIS-PROJETOS-*` e ocultas nunca aparecem; caminho fora de `tasks/` é recusado; gravação que tira coluna é recusada. Não alterar o código da .2: se o teste achar defeito, relatar.
 - **Arquivos:** `mcp/testes/quadro.mjs`
 - **Critérios de Aceitação:** testes rodam com `node mcp/testes/quadro.mjs` e passam; relatório com o que cada teste cobre.
-- **Depende de:** MCP-QUADRO.2
-- **Verificação:** a preencher na entrega (saída do comando).
+- **Entrega:** Claude Code (Haiku 5.5 · agente), 2026-10-23: mcp/testes/quadro.mjs (12 testes)
+- **Verificação:** `node mcp/testes/quadro.mjs`: 12 testes, 11 passaram, 1 falhou. Falhou o teste extra "DEMAIS-PROJETOS em minúsculas também fica fora da descoberta (C23)": `ehPastaIgnorada` em `mcp/projetos.mjs` compara o prefixo sem ignorar caixa, então `demais-projetos-*` em minúsculas entra na lista. Os 7 testes pedidos passaram. `node --check mcp/testes/quadro.mjs` sem erro; nenhuma pasta temporária sobrou. Confirmado pelo Haiku 5.5 em 2026-10-23 (node mcp/testes/quadro.mjs: 12 passaram, 0 falharam).
+
+### MCP-QUADRO.9 — Corrigir `ehPastaIgnorada` (pasta `demais-projetos-*` em minúsculas)
+
+**Próximo passo:** ✅ entregue em 2026-10-23; o Haiku roda de novo `node mcp/testes/quadro.mjs` para confirmar.
+
+- **Nível:** MEDIO — correção de uma função em 1 arquivo (C26: defeito achado pelo teste da MCP-QUADRO.8)
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** manual
+- **Descrição:** `ehPastaIgnorada` comparava o prefixo `DEMAIS-PROJETOS-` sem ignorar maiúsculas e minúsculas; no Windows a pasta `demais-projetos-x` é a mesma e entraria na descoberta (C23).
+- **Arquivos:** `mcp/projetos.mjs` (linhas 37–38)
+- **Critérios de Aceitação:** o teste "DEMAIS-PROJETOS em minúsculas também fica fora da descoberta" passa.
+- **Depende de:** MCP-QUADRO.8
+- **Entrega:** Claude Code (Sonnet 5.5) (local · main · rules-ai), 2026-10-23: o nome é passado para maiúsculas antes de comparar com `PREFIXOS_IGNORADOS`.
+- **Verificação:** `node --check mcp/projetos.mjs` sem erro; a confirmação pelo teste fica com o Haiku (usuário: teste só pelo Haiku). Confirmado pelo Haiku 5.5 em 2026-10-23 (node mcp/testes/quadro.mjs: 12 passaram, 0 falharam).
 
 ### MCP-QUADRO.3 — Trava por Git: reserva atômica, recuperação e dry-run
 
