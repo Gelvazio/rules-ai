@@ -48,6 +48,8 @@ CASOS = {
                                          + "| 10 | A | | ⬜ | |\n",
     "colunas-em-outra-ordem": "## 📌 Tarefas\n| Status | Em uso por | Tarefa | Título |\n|-|-|-|-|\n"
                               "| 🔄 | Bia · 5% | 11.2 | Z |\n",
+    "linha-mais-curta-que-a-coluna-tarefa": "## 📌 Tarefas\n| Status | Em uso por | Tarefa |\n"
+                                            "|-|-|-|\n| 🔄 | Bia |\n| ⬜ | — | 14 |\n",
     "cabecalho-com-negrito": "## 📌 Tarefas\n| **Tarefa** | `Status` |\n|-|-|\n| 12 | ⬜ |\n",
     "sem-secao": "| Tarefa | Status |\n|-|-|\n| 1 | ⬜ |\n",
     "sem-colunas-obrigatorias": "## 📌 Tarefas\n| Título | Modelo |\n|-|-|\n| a | b |\n",

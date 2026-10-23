@@ -130,7 +130,7 @@ def ler_quadro(caminho):
     tarefas = []
     for linha in linhas:
         colunas = celulas(linha)
-        if colunas and colunas[mapa["tarefa"]]:
+        if mapa["tarefa"] < len(colunas) and colunas[mapa["tarefa"]]:
             tarefas.append(tarefa_da_linha(colunas, mapa, len(tarefas)))
     gravado = datetime.fromtimestamp(caminho.stat().st_mtime).isoformat(timespec="seconds")
     return {"atualizado_em": gravado, "tarefas": tarefas}

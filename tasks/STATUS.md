@@ -87,7 +87,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | AGENTES-REALTIME.29 | Conferir no navegador: abre sem servidor e anima ao dar push | 🟡 Média | Usuário | AGENTES-REALTIME.18, AGENTES-REALTIME.24 | 👀 Aguardando o usuário | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AGENTES-REALTIME.30 | Conferência final · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | AGENTES-REALTIME.23, AGENTES-REALTIME.26, AGENTES-REALTIME.27, AGENTES-REALTIME.28, AGENTES-REALTIME.29 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AGENTES-REALTIME.31 | Fechamento: grafo, `STATUS_PROJETO.md` e mover a tarefa para `task_complete.md` · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | AGENTES-REALTIME.30 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
-| AGENTES-REALTIME.32 | Corrigir o `IndexError` do `quadro_tarefas.py` com linha mais curta que a coluna Tarefa (achado da .6) | 🟡 Média | MEDIO · só Sonnet · effort medium | AGENTES-REALTIME.6 | 🔄 Em execução | Claude Code (Sonnet 5.5 · herdr w2:p12; líder Opus 5.5) (local · main · rules-ai) (desde 2026-10-23 13:38) · 0% | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 
 
 ## 🧭 Frentes de trabalho

@@ -610,7 +610,7 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 
 ### AGENTES-REALTIME.32 — Corrigir o `IndexError` do `quadro_tarefas.py` com linha curta
 
-**Próximo passo:** reproduzir com uma linha de tabela mais curta que a coluna Tarefa e corrigir para o Python ignorar a linha, como o JS.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — correção de bug em código Python, 1 arquivo (aberta pelo líder a partir do achado da .6, C26)
 - **Modelo:** só Sonnet — nunca outro
@@ -620,4 +620,5 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 - **Arquivos:** `dashboard/quadro_tarefas.py` (e `dashboard/testes/invariante_paridade_quadro.py`, só o caso novo)
 - **Critérios de Aceitação:** linha curta não quebra o Python; teste de paridade com o caso novo sai 0.
 - **Depende de:** AGENTES-REALTIME.6
-- **Verificação:** a preencher na entrega.
+- **Entrega:** dashboard/quadro_tarefas.py ignora linha mais curta que a coluna Tarefa (como o JS) e caso novo em dashboard/testes/invariante_paridade_quadro.py (correção de bug; commit desta entrega), feito por sn3 (Sonnet 5.5, herdr w2:p12, conta D).
+- **Verificação:** python -B dashboard/testes/invariante_paridade_quadro.py: código 0 com o caso novo (rodado pelo líder). O caso não foi rodado contra o código antigo; a causa foi confirmada por leitura.
