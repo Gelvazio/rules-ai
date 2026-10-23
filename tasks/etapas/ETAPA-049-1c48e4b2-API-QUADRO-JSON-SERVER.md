@@ -48,7 +48,7 @@
 
 ### API-QUADRO-JSON-SERVER.2 — Gerar o `db.json` a partir do quadro
 
-**Próximo passo:** aguardar a .1.
+**Próximo passo:** executor-medio (Sonnet) escreve `api/gerar-db.mjs`, roda `npm run gerar` e confere as contagens.
 
 - **Nível:** MEDIO — script com lógica de leitura de tabela Markdown
 - **Modelo:** só Sonnet — nunca outro
