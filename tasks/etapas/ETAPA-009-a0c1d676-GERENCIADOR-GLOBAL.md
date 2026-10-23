@@ -195,3 +195,18 @@
 - **Critérios de Aceitação:** desenho da .1 revisado, com a lista do que mudou; regras mescladas listadas nesta seção; nenhuma sessão disparada por esta etapa.
 - **Entrega:** — · **Verificação:** — · **Anotação:** —
 - **JEV-AI-SUGGESTION:** NAO
+
+### GERENCIADOR-GLOBAL.8 — Testes do script central `scripts/gerenciador.mjs`
+
+**Próximo passo:** o Haiku 5.5 executa (subtarefa criada pela C26 a pedido do usuário: teste vira subtarefa nova).
+
+- **Nível:** LEVE — conferência ou ajuste de texto
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** manual
+- **Descrição:** Escrever, rodar e confirmar testes (liberados pelo usuário, só Haiku/Gemini Flash/DeepSeek Flash) para `scripts/gerenciador.mjs` e `scripts/gerenciador/*.mjs`: lê o quadro, calcula livres por modelo, respeita dependência, recusa `--modo disparar`, nunca escreve em quadro. Sem alterar o código da .3: defeito achado vira relato.
+- **Arquivos:** `scripts/gerenciador/testes/gerenciador.mjs`
+- **Critérios de Aceitação:** `node scripts/gerenciador/testes/gerenciador.mjs` passa; relatório do que cada teste cobre.
+- **Depende de:** GERENCIADOR-GLOBAL.3
+- **Verificação:** a preencher na entrega.

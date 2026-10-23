@@ -123,3 +123,18 @@
 - **Depende de:** INTEGRACAO-DEEPSEEK.4
 - **Entrega:** `docs/DEEPSEEK-INTEGRACAO.md` (novo; o que é, como ligar, variáveis, como desligar, rotacionar a chave, auditoria, motivos de fallback e o que ainda não foi testado) e `.env.example` (linha opcional `DEEPSEEK_TIMEOUT_MS=30000` acrescentada; nenhuma linha apagada). `regras/niveis-e-modelos.md` não foi editado (pedido do usuário).
 - **Verificação:** leitura do doc contra o código de `scripts/deepseek/`. Cada variável e onde o código a lê: `DEEPSEEK_API_KEY` em `cliente.mjs` (`chamarDeepseek`, lida de `process.env`, não de `.env`); `DEEPSEEK_MODO` em `limites.mjs` (`estaDesligada`, valor `off` sem diferenciar maiúsculas) e reaproveitada em `cliente.mjs` e `roteador.mjs`; `DEEPSEEK_MAX_CUSTO_DIA` em `limites.mjs` (`lerLimites`, padrão 2, decimal), usada em `roteador.mjs` e `auditoria.mjs` (`lerTetoDiario`); `DEEPSEEK_MAX_TOKENS` em `limites.mjs` (padrão 2000, inteiro), usada em `cliente.mjs` (`max_tokens`) e `roteador.mjs` (entrada estimada, 1 token a cada 3 caracteres); `DEEPSEEK_TIMEOUT_MS` em `limites.mjs` (padrão 30000, inteiro), usada em `cliente.mjs` (`enviar`) e `roteador.mjs` (`limitarTempo`, +2 s). Motivos de fallback conferidos em `roteador.mjs`, `cliente.mjs` e `limites.mjs` (ordem das barreiras, ações `usada`, `fallback`, `bloqueada`). Campos da auditoria conferidos em `auditoria.mjs` (`montarLinha`, lista fechada). Nenhuma chamada real à API. Sem teste automatizado (regra do projeto).
+
+### INTEGRACAO-DEEPSEEK.6 — Testes dos limites e do roteador da DeepSeek
+
+**Próximo passo:** o Haiku 5.5 executa (subtarefa criada pela C26 a pedido do usuário: teste vira subtarefa nova).
+
+- **Nível:** LEVE — conferência ou ajuste de texto
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** manual
+- **Descrição:** Escrever, rodar e confirmar testes (liberados pelo usuário, só Haiku/Gemini Flash/DeepSeek Flash) para `scripts/deepseek/limites.mjs` e `roteador.mjs`: valores inválidos caem nos padrões; `off` não chama a API; limite de tokens; limite diário; tempo; PESADO nunca chama; nada lança; auditoria sem texto. `fetch` injetado e pasta temporária; sem chamada real. Sem alterar o código: defeito vira relato.
+- **Arquivos:** `scripts/deepseek/testes/limites.mjs`
+- **Critérios de Aceitação:** `node scripts/deepseek/testes/limites.mjs` passa; relatório do que cada teste cobre.
+- **Depende de:** INTEGRACAO-DEEPSEEK.4
+- **Verificação:** a preencher na entrega.

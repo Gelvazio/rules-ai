@@ -76,3 +76,18 @@ veem a ordem nova depois dele; o Claude Code lê o `dist/` direto pelo `@import`
 - **Modelo:** Usuário
 - **Effort:** low
 - **JEV-AI-SUGGESTION:** NAO
+
+### INDEX-REGRAS.4 — Corrigir a numeração repetida de `regras/INDEX.md`
+
+**Próximo passo:** o Haiku 5.5 executa (subtarefa criada pela C26 a pedido do usuário: teste vira subtarefa nova).
+
+- **Nível:** LEVE — conferência ou ajuste de texto
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** manual
+- **Descrição:** Renumerar a lista de `regras/INDEX.md` em sequência (hoje há itens 20 e 22 repetidos), sem mudar texto, ordem nem links; depois `node scripts/sincronizar.mjs` SEM `--aplicar` para regerar `dist/` e `VERSAO.md`.
+- **Arquivos:** `regras/INDEX.md`, `VERSAO.md`
+- **Critérios de Aceitação:** A lista fica 1..N sem repetição; nenhum link mudou; `VERSAO.md` regerada.
+- **Depende de:** INDEX-REGRAS.2
+- **Verificação:** a preencher na entrega.
