@@ -182,7 +182,7 @@
 
 ### AI-MEMORY-INTEGRATION.8 — Ligar os hooks do ai-memory no `.claude/settings.json` sem apagar os outros e depois do `sessao.mjs`
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -193,7 +193,8 @@
 - **Arquivos:** `scripts/instalar-ai-memory.mjs`, `.claude/settings.json` do projeto
 - **Critérios de Aceitação:** Ordem de `SessionStart`: `sessao.mjs` antes do ai-memory; reexecução não duplica entradas; permissões e `deny` intactos.
 - **Depende de:** AI-MEMORY-INTEGRATION.5, AI-MEMORY-INTEGRATION.7
-- **Verificação:** a preencher na entrega.
+- **Entrega:** scripts/instalar-ai-memory.mjs ganhou --hooks (e --mesmo-com-global) para gravar SessionStart, UserPromptSubmit e PostToolUse no .claude/settings.json do projeto (commit desta entrega), feito por w-a7 (Sonnet 5.5, herdr w2:pQ, conta B).
+- **Verificação:** node --check ok; numa cópia do settings.json do aulasenai: 3 eventos adicionados, 2ª execução sem mudança (hash igual), permissions e listas originais intactas, SessionStart na ordem inicio-da-sessao.js > sessao.mjs > ai-memory; --dry-run --hooks no aulasenai não grava (git status limpo, conferido pelo líder). Pendências: (1) o hook global do ai-memory está só no ~/.claude (conta A), as contas B, C e D não têm; (2) com o global ligado, o hook no projeto duplicaria a captura: o script pula por padrão; decidir na .16 se o global sai; (3) a ordem real de execução não foi medida, fica para a .15.
 
 ### AI-MEMORY-INTEGRATION.9 — Escrever a regra global `regras/memoria-ai.md`
 
