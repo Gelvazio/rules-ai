@@ -290,7 +290,7 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 
 ### AGENTES-REALTIME.6 — Invariante de paridade: parser JS igual ao Python
 
-**Próximo passo:** esperar AGENTES-REALTIME.5.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — banco, segurança, segredo ou contrato entre várias partes
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -299,6 +299,8 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 - **Descrição:** Script de comparação que roda os dois parsers em todos os `tasks/STATUS.md` de `C:\fontes` (sem as pastas proibidas) e lista as diferenças. Teste de invariante permitido em PESADO.
 - **Critérios de Aceitação:** INV-4 sem diferença; comando registrado na Verificação.
 - **Depende de:** AGENTES-REALTIME.5
+- **Entrega:** dashboard/testes/invariante_paridade_quadro.py (teste de invariante INV-4, C34; commit desta entrega), feito por sn3 (Sonnet 5.5, herdr w2:p12, conta D).
+- **Verificação:** python -B dashboard/testes/invariante_paridade_quadro.py: ok nos 15 casos (14 de borda + liberado:rules-ai), "INV-4: sem diferença", código 0 (rodado de novo pelo líder). Achado: quadro_tarefas.py lança IndexError com linha mais curta que a coluna Tarefa (o JS não); aberta a .32. Dígitos Unicode não testados.
 
 ### AGENTES-REALTIME.7 — Lista de projetos sem `/api/projetos`
 
@@ -599,3 +601,17 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 - **Descrição:** Rodar o graphify, atualizar o `STATUS_PROJETO.md` e fechar a mãe.
 - **Critérios de Aceitação:** Mãe movida; grafo atualizado.
 - **Depende de:** AGENTES-REALTIME.30
+
+### AGENTES-REALTIME.32 — Corrigir o `IndexError` do `quadro_tarefas.py` com linha curta
+
+**Próximo passo:** reproduzir com uma linha de tabela mais curta que a coluna Tarefa e corrigir para o Python ignorar a linha, como o JS.
+
+- **Nível:** MEDIO — correção de bug em código Python, 1 arquivo (aberta pelo líder a partir do achado da .6, C26)
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** `dashboard/quadro_tarefas.py` lança `IndexError` quando uma linha da tabela tem menos colunas que a posição da coluna Tarefa; o leitor JS (`quadro.js`) ignora a linha. Igualar o Python ao JS. Por ser correção de bug, um caso que reproduza a falha pode entrar no teste de paridade.
+- **Arquivos:** `dashboard/quadro_tarefas.py` (e `dashboard/testes/invariante_paridade_quadro.py`, só o caso novo)
+- **Critérios de Aceitação:** linha curta não quebra o Python; teste de paridade com o caso novo sai 0.
+- **Depende de:** AGENTES-REALTIME.6
+- **Verificação:** a preencher na entrega.
