@@ -1,4 +1,4 @@
-# 🧠 Jev — conselheiro de nível e guardrails (JEV-RULES-AI)
+# 🧠 Jev — classificador de nível e guardrails (JEV-RULES-AI)
 
 Decidido em 2026-10-18 (etapa 025, JEV-RULES-AI; pedido do usuário registrado na C39); reserva só
 pelos sinais desde 2026-10-19 (C42, etapa 028). Vale para todas as IAs e para todo projeto que use o `rules-ai`. Nível e modelo: `niveis-e-modelos.md`.
@@ -7,8 +7,8 @@ Effort: `esforco.md`. Quadro: `quadro-de-tarefas.md`. Chave e log: só no comput
 ## O que é
 
 O Jev é um serviço externo (TypeSafe, modelo `jev-1.13.0`, fixo) que responde perguntas fechadas
-sobre uma subtarefa ou um texto. O `rules-ai` o usa como **conselheiro**: ele sugere, o código e o
-humano decidem. Código em `scripts/jev/` (sem dependência npm nova).
+sobre uma subtarefa ou um texto. O `rules-ai` o usa como **classificador**: abaixo de 0,80 ele só sugere; com ≥ 0,80
+grava (C47). Código em `scripts/jev/` (sem dependência npm nova).
 
 ## Quando usar
 
@@ -20,14 +20,31 @@ humano decidem. Código em `scripts/jev/` (sem dependência npm nova).
   - comando destrutivo: **bloqueia** até confirmação humana explícita do alvo exato;
   - aprovação indevida (C32): **bloqueia** a mensagem.
 
-## Caráter consultivo (invariantes)
+## Jev grava nível, modelo e effort das subtarefas (C47)
 
-- ⛔ O Jev **não escreve** no `tasks/STATUS.md`, nas etapas nem no `task_complete.md`.
-- ⛔ O Jev **não reserva** subtarefa e **não escolhe** ferramenta.
-- ⛔ O Jev **não rebaixa** nível. Sinal de `PESADO` eleva, nunca diminui. Sugestão de `effort` do
-  Jev só serve para sinalizar revisão; quem define o `effort` é a C21 pelo nível final.
-- ⛔ O Jev **não aprova** plano, não responde permissão e não executa comando.
-- A matriz de `niveis-e-modelos.md` e a C21 continuam donas do modelo e do `effort`.
+Decidido em 2026-10-22 (etapa 035, JEV-GRAVA-NIVEL; pedido do usuário). **Altera** o antigo caráter
+consultivo e a regra "PESADO nunca é rebaixado" (C39) **na subtarefa**; a C22 continua valendo para
+quem executa. Vale para **todos os projetos e todas as IAs**.
+
+- ✅ O Jev **classifica e grava** `Nível`, `Modelo` e `Effort` na seção da subtarefa (etapa) e a
+  coluna Modelo do `STATUS.md`: `node scripts/jev.mjs classificar --id <ID> --gravar`
+  (`--dry-run` só mostra o que gravaria).
+- ✅ **Limiar 0,80:** com `confidence` ≥ 0,80 **e** nenhum sinal de PESADO ≥ 0,50, o Jev decide
+  sozinho e pode **subir ou baixar** o nível. Grava `JEV-AI-SUGGESTION: SIM` e `Fonte: jev (confiança X)`.
+- ✅ **Abaixo de 0,80, sinal de PESADO ≥ 0,50 ou falha do Jev** (rede, 401, 429, 529, timeout, sem
+  chave, `JEV_MODO=off`): grava o nível **mais restritivo** entre a matriz e os sinais, com
+  `JEV-AI-SUGGESTION: NAO` e `Fonte: sinais`; com sinal de PESADO ≥ 0,50 também devolve `revisar`.
+  **Nunca** `liberar` em silêncio.
+- ✅ **Campo `JEV-AI-SUGGESTION: SIM|NAO`** em toda seção de subtarefa: `SIM` só se o Jev escolheu
+  (≥ 0,80); `NAO` nos demais casos e nas ainda não classificadas. O script
+  `scripts/marcar_jev_ai_suggestion.py` deixa tudo `NAO` onde o campo não existe.
+- ⛔ Só grava em subtarefa **livre e sem `Nível`**; nível escrito por pessoa ou subtarefa reservada
+  só muda com `--reclassificar` pedido pelo usuário, em subtarefa livre.
+- ⛔ O Jev **não reserva**, não escolhe ferramenta, não muda status, prioridade, dependência nem
+  tarefa-mãe, não aprova plano, não responde permissão e não executa comando.
+- ⛔ Cada gravação sai em **um commit** (reversível por `git revert`). Auditoria em
+  `saidas/gravacoes-AAAA-MM.jsonl` (fora do Git), sem o texto.
+- O `effort` continua vindo da C21 pelo nível final; a matriz de `niveis-e-modelos.md` dá os modelos.
 
 ## Modo, rollback e fallback
 
@@ -59,8 +76,8 @@ humano decidem. Código em `scripts/jev/` (sem dependência npm nova).
   (tenta o Jev primeiro; sem chave, `off` ou falha segue só pelos sinais).
 - Benchmark cego (180 itens, `scripts/jev/benchmarks/`): nível final 0,60–0,61, só `nivel`
   0,66–0,67, recall de PESADO 0,883 (final). O "15/15" antigo vazava `nivel_atual` (com ele:
-  0,85). Uso real: `confianca` < 0,60 pede decisão humana. Nas subtarefas o Jev não decide
-  sozinho; na mensagem, ver C43.
+  0,85). Uso real: `confianca` < 0,60 pede decisão humana. Nas subtarefas o Jev decide só com
+  ≥ 0,80 (C47); na mensagem, ver C43.
 - Se o Jev falhar em PT-BR ou em decisão irreversível, não usar a sugestão sem revisão humana.
 
 ## Rollback
@@ -76,8 +93,8 @@ humano decidem. Código em `scripts/jev/` (sem dependência npm nova).
 
 ## Limites
 
-- ⛔ Não usar o Jev para decidir sozinho nível, modelo ou `effort` em subtarefa ou tarefa
-  `PESADO`. Na mensagem, o Jev decide só com confiança ≥ 0,80 e sem sinal de PESADO (C43).
+- ⛔ O Jev decide sozinho nível, modelo e `effort` **só com confiança ≥ 0,80** e sem sinal de
+  PESADO ≥ 0,50, na subtarefa (C47) e na mensagem (C43). Abaixo disso vale a matriz e os sinais.
 - ⛔ Não enviar conteúdo de pasta proibida, diff inteiro ou `.env` ao Jev.
 - ⛔ Não trocar `jev-1.13.0` por `jev-latest` sem nova validação no benchmark.
 
@@ -113,9 +130,8 @@ respostas em 2026-10-20 00:18. Vale para toda mensagem do usuário, em todo proj
   mensagem.
 - Senão → `decisao: matriz`. Vale o nível mais alto entre o Jev e os sinais, e a mensagem vai
   para revisão humana (`revisar`).
-- A decisão vale só para a mensagem. A classificação de subtarefas do quadro continua conselho
-  (C39).
-- ⛔ Um sinal de PESADO nunca é rebaixado (INV-5).
+- A decisão vale só para a mensagem. A classificação de subtarefas do quadro segue a C47 (acima).
+- ⛔ Um sinal de PESADO ≥ 0,50 nunca é rebaixado, na mensagem nem na subtarefa (INV-5).
 
 ### Mensagens puladas
 

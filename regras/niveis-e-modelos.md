@@ -49,6 +49,15 @@ forte fique com as difíceis. Vale para **todas as IAs**. Reserva: `frentes-e-re
 - Subtarefa de outro nível → liberar a reserva, reclassificar ou dividir; ⛔ nunca mudar o nível
   para caber na sua ferramenta.
 
+## Quem classifica: o Jev (C47)
+
+- Subtarefa **sem nível** é classificada pelo Jev (`node scripts/jev.mjs classificar --gravar`,
+  `jev.md`): com confiança ≥ 0,80 ele grava nível, modelo e `effort`, podendo **subir ou baixar**;
+  abaixo disso, ou se falhar, vale o sinal mais restritivo (**na dúvida, sobe o nível**).
+- Fica em cada subtarefa o campo `JEV-AI-SUGGESTION: SIM|NAO` (`SIM` = o Jev escolheu).
+- Nível escrito por pessoa não é reclassificado sem `--reclassificar` pedido pelo usuário. A matriz
+  "quem pega cada nível" continua do usuário; o Jev não a altera.
+
 ## Equipe de agentes do Claude Code
 
 O líder (Opus 5.5+ ou Fable) reserva **uma subtarefa por vez**, delega ao agente do nível

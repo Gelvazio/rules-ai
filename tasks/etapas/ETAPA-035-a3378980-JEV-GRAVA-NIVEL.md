@@ -89,7 +89,7 @@ passo manual, com a segurança de que confiança baixa ou falha do Jev nunca gra
 - **Modelo:** só Opus 5.5+/Fable, Sonnet (C48 + exceção do usuário de 2026-10-23) ou DeepSeek — nunca outro
 - **Effort:** high
 - **Critérios de aceitação:** R8 (texto).
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** commit "feat(regras): C47 Jev grava nível" (jev.md, niveis-e-modelos.md, CONFLITOS.md, STATUS.md) · **Verificação:** `grep -n C47 regras/jev.md regras/niveis-e-modelos.md CONFLITOS.md`; `dist/` sai na .3 · **Anotação:** executada por Sonnet 5.5 por exceção do usuário
 
 ### JEV-GRAVA-NIVEL.2 — CLI `classificar --gravar` e gravador
 

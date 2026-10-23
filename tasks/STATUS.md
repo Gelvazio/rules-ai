@@ -62,7 +62,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | VERCEL-SEM-DEPLOY-DE-CONTROLE.2 | Aplicar no `aulasenai` (`ignoreCommand` e `.vercelignore`) | 🟡 Média | MEDIO · só Sonnet · effort medium | VERCEL-SEM-DEPLOY-DE-CONTROLE.1 | ⬜ Pendente | — | [ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md) |
 | VERCEL-SEM-DEPLOY-DE-CONTROLE.3 | Aplicar no `dashboard-ai` (`ignoreCommand` e `.vercelignore`) | 🟡 Média | MEDIO · só Sonnet · effort medium | VERCEL-SEM-DEPLOY-DE-CONTROLE.1 | ⬜ Pendente | — | [ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md) |
 | **JEV-GRAVA-NIVEL** | **🌐 GLOBAL — O Jev classifica e grava nível, modelo e effort das subtarefas (≥ 0,80; sobe e baixa; plano aprovado em 2026-10-22)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
-| JEV-GRAVA-NIVEL.1 | Regra global C47 (jev.md, niveis-e-modelos.md, CONFLITOS) | 🟠 Alta | PESADO · só Opus 5.5+/Fable, Sonnet (exceção 2026-10-23) ou DeepSeek · effort high | Nenhuma | 🔄 Em execução | Claude Code (Sonnet 5.5) (local · main · rules-ai) (desde 2026-10-23 10:00) | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
 | JEV-GRAVA-NIVEL.2 | CLI `classificar --gravar` e gravador | 🟠 Alta | PESADO · só Opus 5.5+/Fable, Sonnet (exceção 2026-10-23) ou DeepSeek · effort high | JEV-GRAVA-NIVEL.1 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
 | JEV-GRAVA-NIVEL.3 | Sincronizar, STATUS_PROJETO e rollback | 🟠 Alta | PESADO · só Opus 5.5+/Fable, Sonnet (exceção 2026-10-23) ou DeepSeek · effort high | JEV-GRAVA-NIVEL.2, JEV-GRAVA-NIVEL.4 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
 | JEV-GRAVA-NIVEL.4 | Python que marca `JEV-AI-SUGGESTION: NAO` em todas as subtarefas | 🟠 Alta | PESADO · só Opus 5.5+/Fable, Sonnet (exceção 2026-10-23) ou DeepSeek · effort high | JEV-GRAVA-NIVEL.1 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
@@ -74,7 +73,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 |---|---|---|---|
 | Claude Code (Opus 5.5) (local · main · aulasenai s17) | HAIKU-COMMIT-GLOBAL.1 ([ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md)) | 🔄 Ativa | 2026-10-18 20:17 |
 | Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) (local · main · rules-ai) | JEV-SEM-LAYA.3 ([ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md)) | ⏹️ Encerrada | 2026-10-19 23:53 |
-| Claude Code (Sonnet 5.5) (local · main · rules-ai) | JEV-GRAVA-NIVEL.1 ([ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md)) | 🔄 Ativa | 2026-10-23 10:00 |
+| Claude Code (Sonnet 5.5) (local · main · rules-ai) | JEV-GRAVA-NIVEL.1 → .4 ([ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md)) | ⏹️ Encerrada | 2026-10-23 10:00 |
 | Claude Code (Sonnet 5.5) (local · main · aulasenai) | UPDATE-TODAS-PASTAS.1 ([ETAPA-037](etapas/ETAPA-037-7d41c0e9-UPDATE-TODAS-PASTAS.md)) | ⏹️ Encerrada | 2026-10-23 09:42 |
 
 
@@ -87,6 +86,7 @@ histórico ficam em `STATUS_PROJETO.md`.
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-23 10:15 | C47: o Jev classifica e grava nível/modelo/effort das subtarefas (≥ 0,80; sobe e baixa; campo `JEV-AI-SUGGESTION`); texto em `regras/jev.md` e `niveis-e-modelos.md` | Usuário (pedido de 2026-10-22; registrado por Claude Code (Sonnet 5.5)) | tarefas ainda sem classificação automática; JEV-GRAVA-NIVEL, etapa 035 |
 | 2026-10-18 19:00 | EFFORT-PADARIA movida para o quadro do `testes-effort-padaria` (mãe, .6 e .7 abertas; .1–.5, .8 e .9 concluídas). O gabarito **não** foi junto: fica em `gabaritos/EFFORT-PADARIA.md` do `rules-ai` | Usuário (registrado por Claude Code (Opus 5.5)) | "ESTA TAREFA EFFORT-PADARIA, MOVA PARA O PROJETO C:\fontes	estes-effort-padaria"; opção "Mover sem o gabarito" |
 | 2026-10-18 18:58 | DASHBOARD-REDE-NEURAL cancelada: a mãe e a subtarefa .4 (painel 2D) saem do quadro e vão para o `task_complete.md` como ❌ Cancelada. O que já foi entregue em `dashboard/` (.1–.3, .6–.27) continua no repositório | Usuário (registrado por Claude Code (Opus 5.5)) | "ESTA TAREFA DASHBOARD-REDE-NEURAL, PODE EXCLUIR" |
 | 2026-10-18 16:19 | MCP-QUADRO (etapa 026): tarefa grande (`PESADO`, spec C34) para servir a fila do quadro por MCP **sem banco** — `task_next`/`task_finish`/`task_list` sobre o `tasks/STATUS.md`, reserva por commit `lock:` + push; regra `regras/mcp-quadro.md` + C40 na `.1`. Plano completo na etapa; execução só depois do "sim" | DeepSeek Harness (lead) | "sim" ao registro proposto (fila via MCP sem Supabase) |
