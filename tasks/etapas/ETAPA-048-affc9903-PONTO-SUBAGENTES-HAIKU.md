@@ -12,7 +12,7 @@
 
 ### PONTO-SUBAGENTES-HAIKU.1 — Escrever a regra e registrar a C51
 
-**Próximo passo:** reservar e delegar ao `executor-leve` (Haiku 5.5).
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — só `.md`
 - **Modelo:** só Haiku — nunca outro
@@ -22,10 +22,12 @@
 - **Arquivos:** `regras/ponto-subagentes-haiku.md`, `regras/INDEX.md`, `regras/comando-ponto.md`, `regras/frentes-e-reserva.md`, `CONFLITOS.md`, `STATUS_PROJETO.md`
 - **Critérios de Aceitação:** a regra existe, está no índice e cita a C51; os dois arquivos de comando apontam para ela; nada mais muda nesses arquivos.
 - **Depende de:** Nenhuma
+- **Entrega:** `regras/ponto-subagentes-haiku.md` (nova), `regras/INDEX.md` (item 25; atividades passa a 26), `regras/comando-ponto.md` e `regras/frentes-e-reserva.md` (ponteiro), `CONFLITOS.md` (C51) e `STATUS_PROJETO.md`; escrito por Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) e commitado na conferência do Haiku (C41).
+- **Verificação:** `git diff` conferido pelo líder: só as linhas combinadas mudaram nos 5 arquivos; `grep ponto-subagentes-haiku` acha a regra no índice, nos dois ponteiros, na C51 e no `STATUS_PROJETO.md`.
 
 ### PONTO-SUBAGENTES-HAIKU.2 — Conferir a nova versão das regras
 
-**Próximo passo:** aguardar a .1.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — roda o sincronizador (script) e confere a saída
 - **Modelo:** só Sonnet — nunca outro
@@ -35,6 +37,8 @@
 - **Arquivos:** `VERSAO.md`, `dist/REGRAS-GLOBAIS.md`
 - **Critérios de Aceitação:** a prévia lista a regra nova e as duas regras com ponteiro; mais nada.
 - **Depende de:** PONTO-SUBAGENTES-HAIKU.1
+- **Entrega:** `VERSAO.md` na versão 2026-10-23-9561a2a7 (item 25 = `ponto-subagentes-haiku.md`; `dist/` fica fora do Git), feito pelo líder Claude Code (Sonnet 5.5) logo após a entrega da .1, sem reserva separada.
+- **Verificação:** `node scripts/sincronizar.mjs` (prévia, sem `--aplicar`): `VERSAO.md` mudou só no índice, em `frentes-e-reserva.md`, `comando-ponto.md` e na regra nova; `dist/REGRAS-GLOBAIS.md` traz a regra e os dois ponteiros.
 
 ### PONTO-SUBAGENTES-HAIKU.3 — Levar às IAs (`--aplicar`)
 

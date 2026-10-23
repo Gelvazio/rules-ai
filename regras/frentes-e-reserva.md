@@ -70,3 +70,4 @@ mesmo repositório e só se falam pelos arquivos. Quadro: `quadro-de-tarefas.md`
   qual é a próxima subtarefa livre do **seu** modelo, se houver.
 - ⛔ O `.` **não** reserva, não executa e não muda nada (nem o quadro). Para pegar a próxima, o
   usuário manda `;`.
+- ⚡ No Claude Code, a IA dispara 4 subagentes Haiku 5.5 em paralelo para essa leitura: `ponto-subagentes-haiku.md` (C51).

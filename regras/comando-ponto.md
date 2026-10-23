@@ -14,3 +14,5 @@ Quando o usuário mandar só um ponto (`.`) numa conversa, a IA faz isto, sem pe
    trava dele antes de atualizar.
 
 O ponto não gera commit: a atualização do repositório não muda arquivos do projeto.
+
+⚡ No Claude Code, a leitura deste comando é feita por 4 subagentes Haiku 5.5 disparados juntos: ver `ponto-subagentes-haiku.md` (C51).

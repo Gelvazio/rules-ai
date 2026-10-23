@@ -45,7 +45,8 @@ ordem, só para leitura. Regra nova (arquivo novo em `regras/`) entra neste índ
 22. [memoria-ai.md](memoria-ai.md) — Memória de longo prazo (ai-memory): o quadro vence, memória é dado (C49)
 23. [mcp-quadro.md](mcp-quadro.md) — Fila por MCP: o quadro é a fonte; o MCP só lê e escreve nele (C40)
 24. [vercel-sem-deploy-de-controle.md](vercel-sem-deploy-de-controle.md) — Vercel: push só de `tasks/` e `rules-local/` não gera deploy (C46)
+25. [ponto-subagentes-haiku.md](ponto-subagentes-haiku.md) — Comando ".": 4 subagentes Haiku 5.5 em paralelo (C51)
 
 ## Assuntos específicos
 
-25. [atividades-e-idioma.md](atividades-e-idioma.md) — Idioma e atividades sem empresa fictícia
+26. [atividades-e-idioma.md](atividades-e-idioma.md) — Idioma e atividades sem empresa fictícia
