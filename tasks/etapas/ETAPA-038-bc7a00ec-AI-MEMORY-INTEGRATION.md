@@ -379,7 +379,7 @@
 
 ### AI-MEMORY-INTEGRATION.21 — Backup e restauração do wiki da memória
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -390,7 +390,8 @@
 - **Arquivos:** `docs/AI-MEMORY-BACKUP.md`
 - **Critérios de Aceitação:** Backup feito e restaurado; memória volta igual; remoto privado, sem segredo.
 - **Depende de:** AI-MEMORY-INTEGRATION.4
-- **Verificação:** a preencher na entrega.
+- **Entrega:** docs/AI-MEMORY-BACKUP.md (commit desta entrega), feito por w-a21 (Sonnet 5.5, herdr w2:pT, conta B).
+- **Verificação:** ai-memory backup (72,41 KiB) e restore numa pasta vazia do scratchpad; diff -r -q entre o wiki original e o restaurado (com .git) sem diferenças; token não lido. O remoto privado depende do usuário e virou a AI-MEMORY-INTEGRATION.42; a cópia temporária do backup (com o config.toml) foi apagada pelo líder.
 
 ### AI-MEMORY-INTEGRATION.22 — Rollout nos 4 clones do `aulasenai` (a base já é o piloto)
 
@@ -685,4 +686,17 @@
 - **Arquivos:** `scripts/ai-memory-auditar.mjs`, `scripts/testes/ai-memory-invariantes.mjs`
 - **Critérios de Aceitação:** Nenhuma IA grava caminho proibido nem segredo; os 3 pontos 'não confirmado' da .30 resolvidos.
 - **Depende de:** AI-MEMORY-INTEGRATION.13, AI-MEMORY-INTEGRATION.14, AI-MEMORY-INTEGRATION.38, AI-MEMORY-INTEGRATION.39, AI-MEMORY-INTEGRATION.40
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.42 — Criar o repositório GitHub privado do wiki da memória e ligar o remoto
+
+**Próximo passo:** o usuário cria o repositório privado vazio no GitHub e roda `git remote add origin <url>` dentro de `%LOCALAPPDATA%i-memory\wiki`; depois um `git push` confere.
+
+- **Nível:** Usuário — ação externa no GitHub e no computador do usuário (aberta pela .21, C26)
+- **Modelo:** Usuário
+- **Effort:** — (ação do usuário)
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** fechar o critério "remoto privado" da .21: o wiki é um repositório Git local; falta o remoto privado (passo a passo em `docs/AI-MEMORY-BACKUP.md`).
+- **Critérios de Aceitação:** `git -C %LOCALAPPDATA%i-memory\wiki remote -v` mostra o repositório privado e o `git push` funciona; nenhum segredo no repositório (o `config.toml` não fica no wiki).
+- **Depende de:** AI-MEMORY-INTEGRATION.21
 - **Verificação:** a preencher na entrega.
