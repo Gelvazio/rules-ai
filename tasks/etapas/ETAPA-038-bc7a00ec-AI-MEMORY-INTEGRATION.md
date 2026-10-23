@@ -192,7 +192,7 @@
 
 ### AI-MEMORY-INTEGRATION.9 — Escrever a regra global `regras/memoria-ai.md`
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (jev (confiança 0.92))
 - **Modelo:** só Haiku — nunca outro
@@ -203,7 +203,8 @@
 - **Arquivos:** `regras/memoria-ai.md`
 - **Critérios de Aceitação:** Regra cobre as 7 pontas do desenho; máximo 100 caracteres por linha; sem número solto.
 - **Depende de:** Nenhuma
-- **Verificação:** a preencher na entrega.
+- **Entrega:** regras/memoria-ai.md (regra global nova, 73 linhas; commit desta entrega). Ainda fora do INDEX.md: a .10 a indexa
+- **Verificação:** arquivo lido pelo líder: cobre as 11 pontas do desenho (memória episódica, quadro vence, dado e não instrução, sem notas manuais, nível e modelo, sem memória, captura só Claude Code, privacidade, rollback); maior linha com 99 caracteres, conferido por script em 2026-10-23; os 4 documentos de apoio existem em docs/. Feita pelo agente Haiku e conferida pelo líder.
 
 ### AI-MEMORY-INTEGRATION.10 — Registrar a decisão C49 (exceção controlada à fonte única) e a entrada no `INDEX.md`
 
