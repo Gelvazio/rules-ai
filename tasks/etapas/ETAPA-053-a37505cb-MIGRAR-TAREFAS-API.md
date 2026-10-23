@@ -126,7 +126,7 @@
 
 ### MIGRAR-TAREFAS-API.4 — Contrato do schema da API como fonte (coleções, campos, chaves)
 
-**Próximo passo:** aguardar as dependências.
+**Próximo passo:** concluída; segue a .5, .6, .7, .12 e .53 (decisões em aberto listadas na Anotação).
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -135,6 +135,9 @@
 - **Descrição:** Definir coleções `tarefas`, `etapas` (texto completo em seções), `frentes`, `decisoes`, `riscos`, `pendencias`, `licoes`, `recados` e `projetos`; campos de leitura e de escrita; chave de cada uma; ordem estável das chaves. Estende o formato da etapa 049. Nenhuma tarefa fica em markdown.
 - **Critérios de Aceitação:** contrato escrito (arquivo `api/SCHEMA.md`) e aprovado; cobre as colunas do `STATUS.md` e `task_complete.md` e todas as seções das etapas.
 - **Depende de:** MIGRAR-TAREFAS-API.2
+- **Entrega:** commit "chore(MIGRAR-TAREFAS-API.4)" (api/SCHEMA.md)
+- **Verificação:** SCHEMA.md conferido por leitura e grep: 7 seções, 11 coleções, todas as colunas das tabelas do quadro com campo, sem segredo
+- **Anotação:** decisões do executor: id composto <projeto>:<codigo>; array ordenado por id; operações por POST /operacoes/<nome> com middleware e PATCH/PUT/DELETE direto recusados; 6 estados. Em aberto para o usuário: (1) coleção extra bloqueios (aprovar ou fundir em pendencias); (2) tabelas internas das etapas ficam como texto; (3) tasks/GERENCIADOR-HERDR/*.md: apagar ou manter (decidir na .46); (4) RECADOS.md não existe no rules-ai; (5) armazenamento multi-projeto: db único, arquivo por projeto, servidor por projeto ou híbrido (decide a .53; provisório: db único enquanto só o rules-ai, arquivo por projeto antes do aulasenai); (6) id de linha sem código usa hash do texto (editar o texto muda o id).
 
 ### MIGRAR-TAREFAS-API.5 — Versionar `api/db.json` (tirar do `.gitignore`) com formato estável
 
