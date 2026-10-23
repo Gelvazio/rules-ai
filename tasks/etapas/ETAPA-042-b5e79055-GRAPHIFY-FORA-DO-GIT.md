@@ -21,6 +21,7 @@
 ### Decisões
 
 - 2026-10-23 12:45: etapa criada e publicada; plano aguardando o "sim" do usuário (tarefa grande).
+- 2026-10-23 12:48: **o usuário disse "sim, pode tirar o graphify-out do git"** — plano aprovado.
 
 ### GRAPHIFY-FORA-DO-GIT.1 — `git rm -r --cached graphify-out` e `graphify-out/` no `.gitignore`
 
