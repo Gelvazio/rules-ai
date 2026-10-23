@@ -107,7 +107,7 @@
 
 ### MIGRAR-TAREFAS-API.3 — Inventário do que lê ou escreve `STATUS.md`, `task_complete.md` e etapas no `rules-ai`
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** concluída; as lacunas do inventário viraram as subtarefas .49 a .52.
 
 - **Nível:** MEDIO — código com lógica, poucos arquivos
 - **Modelo:** só Sonnet — nunca outro
@@ -116,6 +116,8 @@
 - **Descrição:** Lista (arquivo, função, leitura ou escrita) de `mcp/`, `scripts/gerenciador*`, `scripts/jev*`, `dashboard/*.py`, `dashboard/assets/js`, `.github/workflows`, `regras/*.md`, `AGENTS.md`; gravar como tabela na seção da subtarefa.
 - **Critérios de Aceitação:** todo arquivo do `grep STATUS.md` está na tabela.
 - **Depende de:** MIGRAR-TAREFAS-API.2
+- **Entrega:** commit "chore(MIGRAR-TAREFAS-API.3)" (api/INVENTARIO-LEITORES.md)
+- **Verificação:** 60 arquivos que citam o quadro conferidos por comando contra a tabela (nenhum faltando); sem segredo
 
 ### MIGRAR-TAREFAS-API.4 — Contrato do schema da API como fonte (coleções, campos, chaves)
 
