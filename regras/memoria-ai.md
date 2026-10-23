@@ -41,7 +41,10 @@ Decidido em 2026-10-23 (C49, etapa 038 AI-MEMORY-INTEGRATION). Vale para todos o
 ## Sem memória
 
 - ✅ Servidor fora do ar, projeto sem memória ligada ou sessão na nuvem: seguir só com o quadro
-  e o `rules-local`, dizendo em 1 linha que está sem memória.
+  e o `rules-local`, dizendo em 1 linha que está sem memória (ex.: "Sem memória: servidor do
+  ai-memory fora do ar; sigo com o quadro e o rules-local.").
+- ✅ Hook com servidor fora sai com código 0 e saída `{}`: a sessão abre sem erro e a
+  captura fica na fila local, sem perda (`docs/AI-MEMORY-INSTALACAO.md`, seção 7).
 - ⛔ Nunca bloquear a sessão por causa da memória.
 
 ## Captura (estado atual, decisão A da subtarefa .36, 2026-10-23)

@@ -354,7 +354,7 @@
 
 ### AI-MEMORY-INTEGRATION.19 — Fallback da nuvem: sessão sem servidor ai-memory segue só com `rules-local` e o quadro
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -365,7 +365,8 @@
 - **Arquivos:** `regras/memoria-ai.md`, `docs/AI-MEMORY-INSTALACAO.md`
 - **Critérios de Aceitação:** Sem servidor a sessão inicia sem erro e a IA diz em 1 linha que está sem memória.
 - **Depende de:** AI-MEMORY-INTEGRATION.9, AI-MEMORY-INTEGRATION.15
-- **Verificação:** a preencher na entrega.
+- **Entrega:** seção "Sem memória" de regras/memoria-ai.md (frase de 1 linha e comportamento com servidor fora) e seção 7 de docs/AI-MEMORY-INSTALACAO.md (commit desta entrega), feito por w-a21 (Haiku 5.5, herdr w2:pT, conta B).
+- **Verificação:** servidor fora simulado com AI_MEMORY_HOOK_URL=http://127.0.0.1:1 e AI_MEMORY_DATA_DIR temporário: hook sai 0, saída {}, evento na fila local, sem erro nem travamento; servidor real não foi parado. O caminho .ps1 levou ~4,7 s (2 chamadas com timeout), mas o líder conferiu que os hooks do ~/.claude/settings.json chamam o ai-memory.exe direto (a .15 mediu ~85 ms), então o R4.2 vale. A mudança em regras/memoria-ai.md exige versão nova: aberta a .44.
 
 ### AI-MEMORY-INTEGRATION.20 — Privacidade dos dados de alunos: ignorar listas e currículos e procedimento de purga
 
@@ -723,3 +724,17 @@
 - **Depende de:** AI-MEMORY-INTEGRATION.14, AI-MEMORY-INTEGRATION.20
 - **Entrega:** IGNORE_PATHS de scripts/instalar-ai-memory.mjs com as formas da raiz e os padrões da .20, cerca de 61 padrões, abaixo do limite de 128 (commit desta entrega), feito por w-a13 (Sonnet 5.5, herdr w2:pS, conta B).
 - **Verificação:** node --check ok; node scripts/testes/ai-memory-invariantes.mjs saiu 0 (conferido pelo líder); nenhum padrão antigo removido; marker existente não é sobrescrito. Desvio: **/*rg*.* virou rg.*, *-rg.*, *_rg.* (o original pegaria merge.js). Pendências: *.docx/*.xlsx ficam fora da captura em todo projeto; marker já gravado não se atualiza sozinho (nenhum foi gravado até agora); padrão com acento (currículo) não conferido no ai-memory.
+
+### AI-MEMORY-INTEGRATION.44 — Gerar nova versão das regras depois da mudança da .19 em `memoria-ai.md`
+
+**Próximo passo:** rodar `node scripts/sincronizar.mjs --aplicar` e conferir que a `VERSAO.md` traz o código novo de `memoria-ai.md`.
+
+- **Nível:** MEDIO — mesmo trabalho da .12 (aberta pelo líder, C26)
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** a .19 mudou a seção "Sem memória" de `regras/memoria-ai.md`; os projetos só recebem a regra nova com versão nova.
+- **Arquivos:** `VERSAO.md`, `dist/REGRAS-GLOBAIS.md`
+- **Critérios de Aceitação:** `VERSAO.md` com versão nova e o código novo de `memoria-ai.md`; o piloto (.16) já pega essa versão.
+- **Depende de:** AI-MEMORY-INTEGRATION.19
+- **Verificação:** a preencher na entrega.
