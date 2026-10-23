@@ -6,16 +6,18 @@
 
 ### Escopo
 
-- **Entra:** carga das tarefas do `rules-ai` (abertas, concluídas, frentes, decisões, riscos, pendências, lições, recados e os campos das etapas) na API; escrita pela API (reservar, entregar, criar subtarefa); espelho `.md` de leitura; adaptar leitores e regras que hoje usam `STATUS.md`; 1 subtarefa por projeto (aulasenai, aulas-senai-*, dashboard-ai-*, DASHBOARD-AI-PRINCIPAL, REA-APP-CLONES, projeto-frontend-com-testes, testes-de-frontend, gerenciador-de-ia) para deixá-lo Aguardando e tirá-lo da lista monitorada; ensaio, corte e rollback.
+- **Entra:** carga das tarefas do `rules-ai` (abertas, concluídas, frentes, decisões, riscos, pendências, lições, recados e os campos das etapas) na API; escrita pela API (reservar, entregar, criar subtarefa); leitura de queda pelo `api/db.json` do Git; adaptar leitores e regras que hoje usam `STATUS.md`; 1 subtarefa por projeto (aulasenai, aulas-senai-*, dashboard-ai-*, DASHBOARD-AI-PRINCIPAL, REA-APP-CLONES, projeto-frontend-com-testes, testes-de-frontend, gerenciador-de-ia) para deixá-lo Aguardando e tirá-lo da lista monitorada; ensaio, corte e rollback.
+- **Entra (pedido de 2026-10-23 20:02):** nenhuma tarefa em markdown no `rules-ai`: as etapas (texto completo) vão para a API e os `.md` de tarefa são apagados depois da conferência de perda zero.
 - **Não entra:** mexer no quadro de outro projeto (cada projeto sincroniza o seu: `gerenciador-centralizado.md`); apagar tarefas; banco, Supabase ou autenticação; publicar a API na internet; as pastas `DEMAIS-PROJETOS-*` (C20, C23); projetos sem quadro (`CONSERTO-ELANTRA-2.0`, `ai-memory`, `consumo-ia`).
 
 ### Riscos
 
 - **Muda a fonte única** (`quadro-de-tarefas.md`, C40) e a decisão P1 da etapa 049 (cópia só de leitura). Plano B: manter o `.md` como fonte e a API como cópia; a .30 deixa o rollback pronto.
-- **A API só escuta em 127.0.0.1:** sessões de nuvem e outros computadores não a alcançam; plano B = espelho no Git, somente leitura.
+- **A API só escuta em 127.0.0.1:** sessões de nuvem e outros computadores não a alcançam; plano B = `api/db.json` do Git, JSON, somente leitura.
 - **Concorrência:** o json-server grava o arquivo inteiro e não tem compare-and-set; duas frentes podem reservar a mesma subtarefa. Mitigação nas subtarefas .6 e .13; pergunta P4.
+- **Apagar os `.md` é irreversível fora do Git:** só depois da conferência de perda zero (INV-7), da tag de segurança e do alvo exato confirmado pelo usuário; rollback por `git revert` e reimportação.
 - **Perda de dados:** `db.json` hoje está fora do Git; sem versionar, a migração perde tudo ao apagar a pasta (pergunta P2).
-- **Muitos leitores** do `STATUS.md` (lista na .3): cada um migra separado; enquanto isso o espelho mantém os leitores antigos funcionando.
+- **Muitos leitores** do `STATUS.md` (lista na .3): cada um migra separado; enquanto isso os `.md` continuam valendo até o corte (.32), e só então são apagados (.47).
 - **Arquivos compartilhados:** as subtarefas .34 a .41 editam o mesmo `scripts/gerenciador.config.json` e `dashboard/projetos.json`; reservar uma por vez. `DASHBOARD-LE-API` e `AGENTES-REALTIME.*` mexem em `agentes.js`, `canal.js`, `config.js`: dois escritores nunca ao mesmo tempo.
 
 ### Decisões
@@ -26,6 +28,7 @@
 
 - 2026-10-23 19:58: **P1 a P8 respondidas pelo usuário** (perguntas fechadas). Resposta da P7: o `aulasenai` **não fica aguardando**: continua monitorado e intocado (subtarefa .34 cancelada); as demais ficam aguardando. Decisões que decorrem: API é a fonte (P1) e `db.json` versionado (P2, revoga a P3 da etapa 049); reserva atômica por middleware mínimo do json-server (P4, 1 arquivo `--middlewares`; o json-server continua sendo a única dependência); etapas em `.md` (P5).
 - 2026-10-23 20:00: **aprovação do usuário ao plano** ("1 sim"): pode começar pela .1 e seguir com 1 agente por subtarefa, no nível certo. Escopo aprovado = o desta etapa; mudança material pede nova aprovação.
+- 2026-10-23 20:02: **novo pedido do usuário**: "No projeto rules-ai, deve existir nada de tarefa em markdown, apenas no banco da api". Efeitos: **substitui a P5** (as etapas passam a viver na API, não em `.md`) e a **P8** (não há espelho `.md`); o `db.json` versionado no Git (P2) é a leitura de queda de quem não alcança a API (nuvem), em JSON, sem markdown. Depois do corte não existem em `rules-ai`: `tasks/STATUS.md`, `tasks/task_complete.md`, `tasks/RECADOS.md` nem `tasks/etapas/*.md`. O histórico fica no Git (tag de segurança antes de apagar). O apagamento exige o **alvo exato confirmado pelo usuário** (subtarefa .46). Regras (`regras/*.md`), documentação e os quadros dos outros projetos **não** são tarefas e continuam em markdown.
 
 ### Requisitos
 
@@ -35,12 +38,13 @@
 | R1.2 | SE o id da tarefa já existir na API, ENTÃO O SISTEMA DEVE atualizar a tarefa em vez de criar outra | MIGRAR-TAREFAS-API.7, MIGRAR-TAREFAS-API.11 | rodar a carga duas vezes e comparar o `db.json` |
 | R2.1 | QUANDO uma IA reservar uma subtarefa pela API, O SISTEMA DEVE gravar `emUsoPor` e `em_execucao` somente se a subtarefa estiver livre, com dependências concluídas e do modelo da IA | MIGRAR-TAREFAS-API.13 | reservar uma livre e uma ocupada; só a livre grava |
 | R2.2 | QUANDO uma subtarefa for entregue pela API, O SISTEMA DEVE marcá-la concluída, limpar `emUsoPor`, anotar entrega e verificação e liberar as dependentes | MIGRAR-TAREFAS-API.14 | entregar uma tarefa de teste e conferir as dependentes |
-| R3.1 | ENQUANTO a API for a fonte, O SISTEMA DEVE gerar `tasks/STATUS.md` e `tasks/task_complete.md` como espelho de leitura com aviso de arquivo gerado | MIGRAR-TAREFAS-API.16, MIGRAR-TAREFAS-API.32 | ler o topo dos dois arquivos; reimportar o espelho |
-| R3.2 | SE a API estiver fora do ar, ENTÃO OS LEITORES DEVEM usar o espelho do Git, só para leitura | MIGRAR-TAREFAS-API.17, MIGRAR-TAREFAS-API.21, MIGRAR-TAREFAS-API.23 | derrubar a API e rodar `gerenciador.mjs ver` |
+| R3.1 | QUANDO o corte terminar, O SISTEMA DEVE não ter nenhum arquivo `.md` de tarefa em `rules-ai` (`tasks/STATUS.md`, `tasks/task_complete.md`, `tasks/RECADOS.md`, `tasks/etapas/*.md`) | MIGRAR-TAREFAS-API.47, MIGRAR-TAREFAS-API.48 | `find tasks -name '*.md'` sem arquivo de tarefa |
+| R3.2 | SE a API estiver fora do ar, ENTÃO OS LEITORES DEVEM ler `api/db.json` do Git, em JSON, só para leitura | MIGRAR-TAREFAS-API.16, MIGRAR-TAREFAS-API.17, MIGRAR-TAREFAS-API.21, MIGRAR-TAREFAS-API.23 | derrubar a API e rodar `gerenciador.mjs ver` |
 | R4.1 | QUANDO um projeto for removido da lista, O SISTEMA DEVE registrá-lo na coleção `projetos` com `status: aguardando` e `monitorado: false` | MIGRAR-TAREFAS-API.12, MIGRAR-TAREFAS-API.34, MIGRAR-TAREFAS-API.41 | consultar `/projetos` |
 | R4.2 | ONDE um projeto estiver com `monitorado: false`, O SISTEMA DEVE não ler o quadro dele (gerenciador, MCP e dashboard) | MIGRAR-TAREFAS-API.17, MIGRAR-TAREFAS-API.18, MIGRAR-TAREFAS-API.42 | `gerenciador.mjs ver` e `task_list` só mostram o `rules-ai` e o `aulasenai` |
-| R5.1 | O SISTEMA DEVE permitir voltar ao `STATUS.md` como fonte com um procedimento documentado e ensaiado | MIGRAR-TAREFAS-API.30 | ensaio em cópia do repositório |
+| R5.1 | O SISTEMA DEVE permitir voltar aos `.md` pelo Git (tag de segurança e `git revert`) e reimportar | MIGRAR-TAREFAS-API.30, MIGRAR-TAREFAS-API.44 | ensaio em cópia do repositório |
 | R5.2 | O SISTEMA DEVE manter `api/db.json` versionado no Git com ordem de chaves fixa | MIGRAR-TAREFAS-API.5 | `git diff` após regerar sem mudança de dados é vazio |
+| R6.1 | O SISTEMA DEVE guardar na API o texto completo de cada etapa (seções, subtarefas, decisões, riscos, requisitos) antes de qualquer `.md` ser apagado | MIGRAR-TAREFAS-API.10, MIGRAR-TAREFAS-API.45 | script de perda zero |
 
 ### Invariantes
 
@@ -52,6 +56,7 @@
 | INV-4 | O `db.json` não contém segredo nem dado pessoal | todo o arquivo | `grep` por `sk-`, `tsk_`, `Bearer`, `ghp_`, CPF, e-mail | não: conferência por comando na .11 |
 | INV-5 | Rodar a carga N vezes dá o mesmo `db.json` (idempotência) | N de 1 a 5 | comparar o hash do arquivo | sim: script da .11 |
 | INV-6 | A migração não altera nenhum arquivo dos outros projetos (o `aulasenai` inclusive) | todas as pastas de `C:\fontes` exceto `rules-ai` | `git status` de cada projeto igual antes e depois | não: conferência por comando na .42 |
+| INV-7 | Antes de apagar qualquer `.md` de tarefa, todo o texto dele existe na API (nada se perde) | todos os arquivos de `tasks/` que serão apagados | script que compara cada seção do `.md` com o campo da API | sim: script da .45 |
 
 **Casos de borda que o código precisa sobreviver:**
 
@@ -114,14 +119,14 @@
 
 ### MIGRAR-TAREFAS-API.4 — Contrato do schema da API como fonte (coleções, campos, chaves)
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** aguardar as dependências.
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
 - **Effort:** high
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Definir coleções `tarefas`, `frentes`, `decisoes`, `riscos`, `pendencias`, `licoes`, `recados` e `projetos`; campos de leitura e de escrita; chave de cada uma; ordem estável das chaves; o que é só leitura. Estende o formato da etapa 049.
-- **Critérios de Aceitação:** contrato escrito na etapa e aprovado; cobre todas as colunas de `STATUS.md` e `task_complete.md`.
+- **Descrição:** Definir coleções `tarefas`, `etapas` (texto completo em seções), `frentes`, `decisoes`, `riscos`, `pendencias`, `licoes`, `recados` e `projetos`; campos de leitura e de escrita; chave de cada uma; ordem estável das chaves. Estende o formato da etapa 049. Nenhuma tarefa fica em markdown.
+- **Critérios de Aceitação:** contrato escrito (arquivo `api/SCHEMA.md`) e aprovado; cobre as colunas do `STATUS.md` e `task_complete.md` e todas as seções das etapas.
 - **Depende de:** MIGRAR-TAREFAS-API.2
 
 ### MIGRAR-TAREFAS-API.5 — Versionar `api/db.json` (tirar do `.gitignore`) com formato estável
@@ -184,16 +189,16 @@
 - **Critérios de Aceitação:** cada seção tem a mesma quantidade de linhas na API.
 - **Depende de:** MIGRAR-TAREFAS-API.7
 
-### MIGRAR-TAREFAS-API.10 — Carga dos campos das etapas por subtarefa
+### MIGRAR-TAREFAS-API.10 — Carga do texto completo das etapas na API (nada em markdown)
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** aguardar as dependências.
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
 - **Effort:** high
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Para cada subtarefa, ler a seção da etapa (Nível, Modelo, Effort, Descrição, Critérios, Próximo passo, Entrega, Verificação) e gravar na tarefa; o texto longo das etapas continua em `.md` (conforme P5).
-- **Critérios de Aceitação:** toda subtarefa com etapa tem os campos preenchidos ou `null` justificado.
+- **Descrição:** Importar cada `tasks/etapas/*.md` para a coleção `etapas` (cabeçalho, escopo, riscos, decisões, requisitos, invariantes, perguntas e o texto de cada subtarefa: Nível, Modelo, Effort, Descrição, Critérios, Próximo passo, Entrega, Verificação) e ligar cada subtarefa à sua etapa. Substitui a P5.
+- **Critérios de Aceitação:** toda etapa e toda subtarefa com seção tem o texto completo na API.
 - **Depende de:** MIGRAR-TAREFAS-API.7
 
 ### MIGRAR-TAREFAS-API.11 — Conferir a carga: paridade campo a campo, ids únicos e idempotência
@@ -256,16 +261,16 @@
 - **Critérios de Aceitação:** ids novos sequenciais; nunca cria mãe.
 - **Depende de:** MIGRAR-TAREFAS-API.13
 
-### MIGRAR-TAREFAS-API.16 — Espelho de leitura: gerar `STATUS.md` e `task_complete.md` a partir da API
+### MIGRAR-TAREFAS-API.16 — Leitura de queda: leitores usam `api/db.json` do Git quando a API está fora
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** aguardar as dependências.
 
 - **Nível:** MEDIO — código com lógica, poucos arquivos
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** `api/espelho.mjs` grava os dois arquivos com aviso "gerado da API, não editar" no topo; usado por quem não alcança a API (nuvem).
-- **Critérios de Aceitação:** espelho gerado reimportado dá o mesmo `db.json`.
+- **Descrição:** Padronizar como os leitores caem para o `api/db.json` versionado (JSON, só leitura) quando a API não responde; sem gerar nenhum `.md`. Substitui o espelho.
+- **Critérios de Aceitação:** função de leitura única, usada pelos leitores, com queda para o `db.json`.
 - **Depende de:** MIGRAR-TAREFAS-API.11
 
 ### MIGRAR-TAREFAS-API.17 — `scripts/gerenciador.mjs` e `scripts/gerenciador/quadro.mjs` leem a API
@@ -276,7 +281,7 @@
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Fonte = API (com queda para o espelho do Git); `projetos` vêm da coleção `projetos` (`monitorado: true`).
+- **Descrição:** Fonte = API (com queda para o `db.json` do Git); `projetos` vêm da coleção `projetos` (`monitorado: true`).
 - **Critérios de Aceitação:** `node scripts/gerenciador.mjs ver` mostra o mesmo que antes.
 - **Depende de:** MIGRAR-TAREFAS-API.16
 
@@ -324,7 +329,7 @@
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Ler a API (ou o espelho) no lugar do `STATUS.md`; a privacidade do payload não muda.
+- **Descrição:** Ler a API (ou o `db.json` do Git) no lugar do `STATUS.md`; a privacidade do payload não muda.
 - **Critérios de Aceitação:** `publicar_quadro.py --simular` gera o mesmo payload.
 - **Depende de:** MIGRAR-TAREFAS-API.16
 
@@ -352,7 +357,7 @@
 - **Critérios de Aceitação:** a página mostra as mesmas tarefas de antes.
 - **Depende de:** MIGRAR-TAREFAS-API.16
 
-### MIGRAR-TAREFAS-API.24 — Regra `quadro-de-tarefas.md`: fonte única = API, `.md` = espelho; nova decisão em `CONFLITOS.md`
+### MIGRAR-TAREFAS-API.24 — Regra `quadro-de-tarefas.md`: fonte única = API, nenhuma tarefa em markdown no `rules-ai`; nova decisão em `CONFLITOS.md`
 
 **Próximo passo:** aguardar as dependências e o sim do usuário.
 
@@ -384,7 +389,7 @@
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** `comando-ponto.md`, `comando-interrogacao.md` e o gatilho `;` leem a API (com o espelho como queda).
+- **Descrição:** `comando-ponto.md`, `comando-interrogacao.md` e o gatilho `;` leem a API (com o `db.json` do Git como queda).
 - **Critérios de Aceitação:** texto coerente com a fonte nova.
 - **Depende de:** MIGRAR-TAREFAS-API.24
 
@@ -396,8 +401,8 @@
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Trocar cada referência pelo caminho certo (API ou espelho), sem mudar o sentido da regra.
-- **Critérios de Aceitação:** `grep STATUS.md regras/` só acha o espelho ou menções históricas.
+- **Descrição:** Trocar cada referência pelo caminho certo (API ou `db.json` do Git), sem mudar o sentido da regra.
+- **Critérios de Aceitação:** `grep STATUS.md regras/` só acha menções históricas.
 - **Depende de:** MIGRAR-TAREFAS-API.24
 
 ### MIGRAR-TAREFAS-API.28 — Regerar `dist/REGRAS-GLOBAIS.md` e `VERSAO.md` (`sincronizar.mjs` sem `--aplicar`)
@@ -420,19 +425,19 @@
 - **Modelo:** só Haiku — nunca outro
 - **Effort:** low
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Descrever API como fonte, o espelho, o rollback e como subir.
+- **Descrição:** Descrever a API como fonte, a leitura de queda pelo `db.json`, o rollback e como subir.
 - **Critérios de Aceitação:** docs conferem com as regras.
 - **Depende de:** MIGRAR-TAREFAS-API.28
 
 ### MIGRAR-TAREFAS-API.30 — Plano de rollback documentado e conferido
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** aguardar as dependências.
 
 - **Nível:** MEDIO — código com lógica, poucos arquivos
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Passo a passo para voltar ao `STATUS.md` como fonte (gerar `.md` do `db.json` e reabrir a edição) e prova de que o espelho reimporta igual.
+- **Descrição:** Passo a passo para voltar aos `.md` pelo Git (tag `tasks-md-antes-da-api`, `git revert` e reimportação) com ensaio em cópia.
 - **Critérios de Aceitação:** rollback descrito e ensaiado em cópia.
 - **Depende de:** MIGRAR-TAREFAS-API.16
 
@@ -444,20 +449,20 @@
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
 - **Effort:** high
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Criar, reservar, entregar e fechar uma tarefa de teste só pela API; conferir `db.json` e o espelho.
+- **Descrição:** Criar, reservar, entregar e fechar uma tarefa de teste só pela API; conferir o `db.json`.
 - **Critérios de Aceitação:** ciclo completo sem tocar no `STATUS.md` à mão.
 - **Depende de:** MIGRAR-TAREFAS-API.18, MIGRAR-TAREFAS-API.25
 
-### MIGRAR-TAREFAS-API.32 — Corte: congelar a edição manual do `STATUS.md` e avisar em `RECADOS.md`
+### MIGRAR-TAREFAS-API.32 — Corte: avisar as frentes pela API e passar a ler só da API
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** aguardar as dependências.
 
 - **Nível:** MEDIO — código com lógica, poucos arquivos
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Aviso no topo do `STATUS.md`/`task_complete.md` ("fonte agora é a API") e recado para todas as frentes.
-- **Critérios de Aceitação:** aviso publicado; nenhuma frente edita o `.md` à mão.
+- **Descrição:** Registrar na coleção `recados` o aviso a todas as frentes ("a fonte agora é a API; `STATUS.md` deixa de ser editado") e passar os leitores a só a API; sem tocar nos `.md`.
+- **Critérios de Aceitação:** aviso publicado na API; nenhuma frente edita `.md` de tarefa.
 - **Depende de:** MIGRAR-TAREFAS-API.31
 
 ### MIGRAR-TAREFAS-API.33 — Rodar `node scripts/sincronizar.mjs --aplicar` e conferir nas IAs
@@ -591,3 +596,63 @@
 - **Descrição:** Entrada no histórico, atualização do grafo (regra graphify) e fechamento pelo ciclo da task.
 - **Critérios de Aceitação:** mãe e subtarefas concluídas.
 - **Depende de:** MIGRAR-TAREFAS-API.42, MIGRAR-TAREFAS-API.33
+
+### MIGRAR-TAREFAS-API.44 — Tag de segurança do Git antes de apagar (`tasks-md-antes-da-api`)
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** LEVE — só texto e configuração, sem lógica
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Criar a tag no commit atual (`git tag tasks-md-antes-da-api`) e enviá-la (`git push origin tasks-md-antes-da-api`); sem branch.
+- **Critérios de Aceitação:** tag existe no remoto.
+- **Depende de:** MIGRAR-TAREFAS-API.31
+
+### MIGRAR-TAREFAS-API.45 — Conferência de perda zero: todo texto de `tasks/**/*.md` está na API (INV-7)
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Script de invariante que compara cada tabela, seção e subtarefa dos `.md` com o campo da API; zero diferença antes de qualquer apagamento.
+- **Critérios de Aceitação:** relatório sem diferença; script no `api/`.
+- **Depende de:** MIGRAR-TAREFAS-API.10, MIGRAR-TAREFAS-API.11
+
+### MIGRAR-TAREFAS-API.46 — Confirmar a lista exata dos arquivos `.md` a apagar
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** LEVE — ação que só o usuário pode fazer
+- **Modelo:** Usuário — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** O usuário confirma o alvo exato: `tasks/STATUS.md`, `tasks/task_complete.md`, `tasks/RECADOS.md` e `tasks/etapas/*.md`; diz o que fazer com `tasks/GERENCIADOR-HERDR/*.md` e `tasks/.sessao-ativa`.
+- **Critérios de Aceitação:** lista confirmada por escrito nas Decisões.
+- **Depende de:** MIGRAR-TAREFAS-API.45
+
+### MIGRAR-TAREFAS-API.47 — Apagar do `rules-ai` os `.md` de tarefa
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — arquitetura, mudança em massa ou regra global
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Apagar exatamente os arquivos confirmados na .46, com commit e push; só depois da tag (.44), da conferência (.45) e do corte (.32).
+- **Critérios de Aceitação:** `find tasks -name '*.md'` não acha tarefa; histórico no Git.
+- **Depende de:** MIGRAR-TAREFAS-API.32, MIGRAR-TAREFAS-API.44, MIGRAR-TAREFAS-API.46
+
+### MIGRAR-TAREFAS-API.48 — Conferir que não sobrou tarefa em markdown e que leitores e regras apontam para a API
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** MEDIO — código com lógica, poucos arquivos
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** `find`/`grep` em `rules-ai`: nenhum `.md` de tarefa; nenhum leitor, script ou regra aponta para `tasks/STATUS.md`.
+- **Critérios de Aceitação:** zero ocorrência fora de menções históricas.
+- **Depende de:** MIGRAR-TAREFAS-API.47
