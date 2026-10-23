@@ -137,3 +137,4 @@
 | INDEX-RAIZ-DASHBOARD.1 | Criar o `index.html` da raiz · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-052](etapas/ETAPA-052-af320e5f-INDEX-RAIZ-DASHBOARD.md) |
 | **INDEX-RAIZ-DASHBOARD** | **`index.html` na raiz do `rules-ai` que abre `dashboard/index.html` (pedido do usuário em 2026-10-23)** | 🟡 Média | — | Nenhuma | ✅ Concluído | — | [ETAPA-052](etapas/ETAPA-052-af320e5f-INDEX-RAIZ-DASHBOARD.md) |
 | MIGRAR-TAREFAS-API.34 | `aulasenai`: deixar com status Aguardando e remover da lista de monitorados · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | MIGRAR-TAREFAS-API.12 | ❌ Cancelada | — | [ETAPA-053](etapas/ETAPA-053-a37505cb-MIGRAR-TAREFAS-API.md) |
+| MIGRAR-TAREFAS-API.1 | Fechar as perguntas abertas e aprovar o plano | 🟡 Média | Usuário | Nenhuma | ✅ Concluído | — | [ETAPA-053](etapas/ETAPA-053-a37505cb-MIGRAR-TAREFAS-API.md) |

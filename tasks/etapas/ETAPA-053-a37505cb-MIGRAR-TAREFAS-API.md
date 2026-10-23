@@ -25,7 +25,7 @@
 - 2026-10-23 19:49: "demais projetos" foi lido como os projetos que existem em `C:\fontes` com quadro, mais os padrões que ainda estão na lista monitorada; a pergunta P7 confirma a lista.
 
 - 2026-10-23 19:58: **P1 a P8 respondidas pelo usuário** (perguntas fechadas). Resposta da P7: o `aulasenai` **não fica aguardando**: continua monitorado e intocado (subtarefa .34 cancelada); as demais ficam aguardando. Decisões que decorrem: API é a fonte (P1) e `db.json` versionado (P2, revoga a P3 da etapa 049); reserva atômica por middleware mínimo do json-server (P4, 1 arquivo `--middlewares`; o json-server continua sendo a única dependência); etapas em `.md` (P5).
-- O "sim" ao plano ainda **não** foi dado: a .1 segue 👀 até o usuário aprovar.
+- 2026-10-23 20:00: **aprovação do usuário ao plano** ("1 sim"): pode começar pela .1 e seguir com 1 agente por subtarefa, no nível certo. Escopo aprovado = o desta etapa; mudança material pede nova aprovação.
 
 ### Requisitos
 
@@ -73,7 +73,7 @@
 
 ### MIGRAR-TAREFAS-API.1 — Fechar as perguntas abertas e aprovar o plano
 
-**Próximo passo:** responder as perguntas P1 a P8 e dar o sim ao plano.
+**Próximo passo:** ✅ concluída em 2026-10-23 20:00 (P1 a P8 respondidas e plano aprovado pelo usuário).
 
 - **Nível:** LEVE — ação que só o usuário pode fazer
 - **Modelo:** Usuário — nunca outro
@@ -83,9 +83,12 @@
 - **Critérios de Aceitação:** nenhuma pergunta `⬜` na etapa; aprovação registrada nas Decisões.
 - **Depende de:** Nenhuma
 
+- **Entrega:** respostas nas Perguntas abertas e aprovação nas Decisões (commit 08436c2 e este)
+- **Verificação:** `node spec/verificar-spec.mjs` sem falha com as perguntas fechadas
+
 ### MIGRAR-TAREFAS-API.2 — Rodar o gate da spec e registrar a aprovação
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** executor-leve (Haiku) roda o gate e registra o resultado na seção, e confere, commita e dá push do quadro (C41).
 
 - **Nível:** LEVE — só texto e configuração, sem lógica
 - **Modelo:** só Haiku — nunca outro
