@@ -76,6 +76,7 @@ passo manual, com a segurança de que confiança baixa ou falha do Jev nunca gra
 | 2026-10-22 | As três decisões do bloco acima | Usuário | pedido |
 | 2026-10-22 | A execução (`.1`–`.3`) é `PESADO`; o Sonnet só criou o plano | Claude Code (Sonnet 5.5) | `niveis-e-modelos.md` |
 | 2026-10-22 | Campo `JEV-AI-SUGGESTION: SIM/NAO` em cada subtarefa e Python que deixa tudo `NAO` (R10, R11, .4) | Usuário (mensagem no meio da tarefa) | tarefas ainda não classificadas pelo Jev |
+| 2026-10-23 | EXCEÇÃO: o Sonnet 5.5 executa as subtarefas .1–.4 desta tarefa, mesmo com a sessão do UPDATE-TODAS-PASTAS na trava `.sessao-ativa` (as duas mexem em arquivos diferentes; conflito = `git pull --rebase` e reler) | Usuário ("abra 1 exceção... mande o sonnet fazer JEV-GRAVA-NIVEL") | pedido em chat |
 | 2026-10-22 | Aprovação do plano, incluindo as propostas das perguntas 4, 5 e 7 | Usuário ("sim" em chat) | plano de tarefa PESADO; execução só por Opus 5.5+/Fable ou DeepSeek |
 
 ### JEV-GRAVA-NIVEL.1 — Regra global C47 (texto, C47, registro de decisão)
@@ -85,7 +86,7 @@ passo manual, com a segurança de que confiança baixa ou falha do Jev nunca gra
 `niveis-e-modelos.md` (C22 quanto ao Jev), acrescenta a C47 no `CONFLITOS.md` e no Registro de decisões.
 
 - **Nível:** PESADO — regra global, vale para todas as IAs e projetos
-- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro
+- **Modelo:** só Opus 5.5+/Fable, Sonnet (C48 + exceção do usuário de 2026-10-23) ou DeepSeek — nunca outro
 - **Effort:** high
 - **Critérios de aceitação:** R8 (texto).
 - **Entrega:** — · **Verificação:** —
@@ -97,7 +98,7 @@ a regra em `decidir.mjs` (≥ 0,80 sobe/baixa; < 0,80 e falha = sinais), a audit
 de invariante INV-1/INV-2 (exceção C34).
 
 - **Nível:** PESADO — escrita no quadro, nível/reserva, vários arquivos
-- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro
+- **Modelo:** só Opus 5.5+/Fable, Sonnet (C48 + exceção do usuário de 2026-10-23) ou DeepSeek — nunca outro
 - **Effort:** high
 - **Depende de:** JEV-GRAVA-NIVEL.1
 - **Critérios de aceitação:** R1–R7, R9, INV-1 a INV-4.
@@ -110,7 +111,7 @@ português, `--dry-run` padrão), rodar com `--aplicar` no `rules-ai` e registra
 antes da `.2` (não depende do gravador); o campo vira `SIM` só pelo gravador (R10).
 
 - **Nível:** PESADO — mudança em massa em todas as etapas
-- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro
+- **Modelo:** só Opus 5.5+/Fable, Sonnet (C48 + exceção do usuário de 2026-10-23) ou DeepSeek — nunca outro
 - **Effort:** high
 - **Depende de:** JEV-GRAVA-NIVEL.1
 - **Critérios de aceitação:** R10, R11.
@@ -122,7 +123,7 @@ antes da `.2` (não depende do gravador); o campo vira `SIM` só pelo gravador (
 atualizar `STATUS_PROJETO.md` e documentar o rollback (`JEV_MODO=off`, `git revert`).
 
 - **Nível:** PESADO — entrega global de regra (`rules-local/` em 20 projetos)
-- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro
+- **Modelo:** só Opus 5.5+/Fable, Sonnet (C48 + exceção do usuário de 2026-10-23) ou DeepSeek — nunca outro
 - **Effort:** high
 - **Depende de:** JEV-GRAVA-NIVEL.2
 - **Critérios de aceitação:** R8.
