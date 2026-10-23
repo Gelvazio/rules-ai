@@ -28,7 +28,6 @@
 **Não entra:**
 
 - Tabela no Supabase, `postgres_changes`, RLS de tabela e qualquer cópia da fila em banco.
-- Migrar a Tripo (geração 3D, saldo, `.glb`) para Supabase: continua no `servidor.py`.
 - Publicar projetos além do escolhido na pergunta 3 (cada repositório só recebe o workflow depois da aprovação).
 - Mudar o formato do `STATUS.md`, as regras de reserva ou o `gerenciador-centralizado.md`.
 - Abrir navegador ou rodar servidor de desenvolvimento para validar (regra de testes): a conferência na tela é feita pelo usuário.
@@ -75,7 +74,7 @@ Contrato da mensagem (evento `estado`): os mesmos campos que `GET /api/agentes` 
 | R2.3 | SE o canal ficar sem conexão por mais de 30 s, ENTÃO O SISTEMA DEVE voltar a consultar a cada 10 s até reconectar | MIGRAR-AGENTES-BROADCAST.4 | usuário desliga a rede por 40 s e confere o aviso e a volta |
 | R3.1 | O SISTEMA DEVE usar no navegador somente a chave publicável do Supabase | MIGRAR-AGENTES-BROADCAST.3 | `grep` por `service_role` e `sb_secret` em `dashboard/` retorna vazio (INV-1) |
 
-**Não-objetivos:** tabela ou banco, migrar a Tripo, publicar projetos fora da lista aprovada, painel novo, histórico de mudanças.
+**Não-objetivos:** tabela ou banco, publicar projetos fora da lista aprovada, painel novo, histórico de mudanças.
 
 ### Invariantes
 
@@ -103,14 +102,13 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 ### Decisões
 
 - **Aprovação (2026-10-20 10:59):** o usuário aprovou o plano e as recomendações das perguntas 1, 2, 3 e 5. A pergunta 4 segue ⬜ porque não tinha recomendação; ela bloqueia a subtarefa .4 e o gate desta etapa até ser respondida.
-- **Pergunta 4 (2026-10-20):** a página vai para a Vercel. Como a Vercel não roda `servidor.py`, a geração 3D da Tripo continua só no PC, e o fallback de R2.3 usa só o GitHub raw (não `/api/agentes`).
+- **Pergunta 4 (2026-10-20):** a página vai para a Vercel. Como a Vercel não roda `servidor.py`, o fallback de R2.3 usa só o GitHub raw (não `/api/agentes`).
 - **Liberação:** a subtarefa .1 fica disponível só para Opus 5.5+/Fable ou DeepSeek (PESADO). Esta sessão (Haiku 5.5) não executa nenhuma subtarefa desta etapa.
 
 - **Parser:** o publicador reaproveita `dashboard/quadro_tarefas.py` (Python) em vez de portar para Node, para não duplicar a leitura do quadro (plano, 2026-10-20).
 - **Sem tabela:** o Supabase só transmite; nada é guardado (regra `quadro-de-tarefas.md` e MCP-QUADRO).
 - **Execução na nuvem (2026-10-20 08:35):** líder "sargento" Claude Code (Opus 5.5), que só gerencia (`tasks/GERENCIADOR-HERDR/PROMPT_PARA_O_LIDER.md`); sem herdr na nuvem, os "terminais" são subagentes do nível (Opus para PESADO, Sonnet para MEDIO, Haiku para LEVE), com VIGIA e FINANCEIRO (Haiku) e orçamento de 1,5 milhão de tokens de subagentes. Respostas do usuário no chat: "Usar o AULAS SENAI", "Faço o código, você põe o secret", "Sim, adapte com subagentes".
 - **Secret do GitHub (2026-10-20 08:35):** a IA não grava secrets; código, workflow e testes vão para a `main` e o teste ao vivo (push → tela) fica 👀 até o usuário cadastrar o secret.
-- **Tripo fica no servidor local:** gasta créditos e é usada de vez em quando, então o tempo real traz pouco ganho (plano, 2026-10-20).
 - **Atraso de 30 s:** continua valendo no navegador, para a animação dos agentes, como hoje (`ATRASO_AGENTES`).
 
 ### Riscos e plano B

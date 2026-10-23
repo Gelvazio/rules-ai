@@ -43,7 +43,7 @@ no `STATUS.md` (Registro de decisões, 8 linhas) e nas etapas.
 
 ### Critério de pronto
 
-- `git grep -i -e tripo -e TRIPO_API_KEY -e X-Tripo-Key` na raiz do `rules-ai` devolve vazio.
+- `git grep -i -e tripo -e TRIPO_API_KEY -e X-Tripo-Key` na raiz do `rules-ai` devolve vazio, **exceto** esta etapa e as linhas `REMOVER-TRIPO` do quadro (o registro da própria remoção) e o `graphify-out/` até a `.5` regenerá-lo.
 - `node --check` passa nos `.js` restantes e `python -m py_compile` nos `.py` restantes.
 - `/api/agentes` e `/api/projetos` seguem devolvendo o mesmo JSON de antes.
 - `node spec/verificar-spec.mjs tasks/etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md` passa.
@@ -64,7 +64,7 @@ no `STATUS.md` (Registro de decisões, 8 linhas) e nas etapas.
 
 | ID | Requisito (EARS) | Cobre | Verificação |
 |----|------------------|-------|-------------|
-| R1.1 | O SISTEMA DEVE não ter, em arquivo versionado do `rules-ai`, as palavras "tripo", `TRIPO_API_KEY` nem `X-Tripo-Key` | REMOVER-TRIPO.2, .3, .4 | `git grep -i -e tripo -e TRIPO_API_KEY -e X-Tripo-Key` vazio |
+| R1.1 | O SISTEMA DEVE não ter, em arquivo versionado do `rules-ai`, as palavras "tripo", `TRIPO_API_KEY` nem `X-Tripo-Key`, salvo na ETAPA-039 e nas linhas `REMOVER-TRIPO` do quadro | REMOVER-TRIPO.2, .3, .4 | `git grep -i -e tripo -e TRIPO_API_KEY -e X-Tripo-Key` vazio fora dessas exceções |
 | R1.2 | O SISTEMA DEVE não ter mais `cliente_tripo.py`, `galeria_modelos.py`, `cenas_prompts.py` nem `TRIPO_AI_DOCS.md` | REMOVER-TRIPO.2 | `git ls-files dashboard` sem esses nomes |
 | R2.1 | QUANDO o servidor receber `GET /api/agentes` ou `GET /api/projetos`, O SISTEMA DEVE devolver o mesmo JSON de antes | REMOVER-TRIPO.2 | chamar as duas rotas antes e depois (`python -c`) e comparar |
 | R2.2 | SE o pedido for `/api/gerar`, `/api/tarefa/<id>`, `/api/saldo`, `/api/modelos`, `/api/cenas` ou `/api/estado`, ENTÃO O SISTEMA DEVE responder 404 | REMOVER-TRIPO.2 | leitura do mapa de rotas do `servidor.py` |
@@ -102,6 +102,7 @@ reescrever o histórico do Git.
 |---|---|---|---|
 | 2026-10-23 11:15 | Registrada como tarefa grande (`PESADO`, spec C34): apaga arquivos e reescreve histórico em massa; execução só depois das perguntas fechadas e do "sim" ao plano. Nada foi apagado | Claude Code (Sonnet 5.5) | Regra do ciclo da task (tarefa grande exige aprovação) |
 | 2026-10-23 11:21 | O usuário respondeu 1-a, 2-a e 3-b e disse SIM ao plano. `.1` e `.2` entregues. Achado: `graphify-out/` é versionado e tem ~700 menções à Tripo (snapshots de 17 a 19/10 + grafo atual); entra na `.5`: regenerar o grafo e apagar os snapshots datados que citam a Tripo ("TUDO") | Gelvazio / Claude Code (Sonnet 5.5) | Pedido "remover Tripo de tudo" |
+| 2026-10-23 11:26 | `.3` e `.4` entregues. Nota: "git grep vazio" é impossível ao pé da letra (a própria tarefa se chama REMOVER-TRIPO); a exceção ficou escrita no critério de pronto e em R1.1 | Claude Code (Sonnet 5.5) | Coerência do critério de pronto |
 | 2026-10-23 11:15 | Levantamento: `task_complete.md` não cita a Tripo; a história dela está no Registro de decisões do `STATUS.md` e nas etapas 013, 020 e 031 | Claude Code (Sonnet 5.5) | `grep -i tripo` na pasta, excluindo `.git`, `node_modules` e `graphify-out` |
 
 ### REMOVER-TRIPO.1 — Fechar as perguntas abertas e aprovar o plano
@@ -135,7 +136,7 @@ reescrever o histórico do Git.
 
 ### REMOVER-TRIPO.3 — Quadro e etapas: tirar a Tripo das tarefas e do histórico
 
-**Próximo passo:** esperar a `.1`; aplicar as respostas 2 e 3.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — reescreve histórico do quadro e de 3 etapas (apaga dados em massa)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -145,10 +146,11 @@ reescrever o histórico do Git.
   `ETAPA-031` e o `task_complete.md` conforme as respostas 2 e 3; sem deixar link quebrado.
 - **Critérios de Aceitação:** R1.1 (parte `tasks/`), R3.2; nenhum link do quadro aponta para arquivo inexistente.
 - **Depende de:** REMOVER-TRIPO.1
+- **Verificação:** `git grep -i tripo -- tasks` sem sobra fora da ETAPA-039 e das linhas REMOVER-TRIPO; removidas as 8 linhas do Registro de decisões do `STATUS.md`, as seções .13 e .14 e as linhas de decisão da .14 e dos trechos citando o serviço na ETAPA-013 (resposta 3-b), os trechos das ETAPA-020 e 031 (a 020 perdeu a R1.2 e as referências a ela); `task_complete.md` não citava o serviço. Limite: as seções .15 e .17 da ETAPA-013 (chave e saldo) continuam, sem citar o nome.
 
 ### REMOVER-TRIPO.4 — Benchmark do Jev e script de coleta sem a Tripo
 
-**Próximo passo:** esperar a `.1`.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — 2 arquivos (`golden.jsonl`, `scripts/config_coleta.py`), sem banco nem segurança
 - **Modelo:** só Sonnet — nunca outro
@@ -158,6 +160,7 @@ reescrever o histórico do Git.
   tirar a Tripo do `config_coleta.py`.
 - **Critérios de Aceitação:** R1.1; R3.1; INV-3.
 - **Depende de:** REMOVER-TRIPO.1
+- **Verificação:** 180 itens antes e depois; mesmos `id` e mesmo `esperado` em todos; 4 itens com o texto trocado por "gerador 3D"; `git grep -i tripo -- scripts` vazio.
 
 ### REMOVER-TRIPO.5 — Conferência final
 

@@ -4,7 +4,7 @@
 **Pedido:** "crie 1 tarefa pra deixar apenas o Fluxo de Dados *3 - Agentes ao vivo*, nesta pasta dashboard"
 **Objetivo:** a pasta `dashboard/` passa a ter só a página **Agentes ao vivo** (cena 3D das tarefas
 reais do `tasks/STATUS.md`) e o servidor local que a alimenta; saem a rede neural 3D, a aba de
-ferramentas de IA 3D, o coletor Python, o gerador da Tripo e a cena do prompt 04.
+ferramentas de IA 3D, o coletor Python, o gerador de modelos 3D e a cena do prompt 04.
 
 > 🟠 **Tarefa grande (`PESADO`)**: apaga arquivos em massa e muda vários arquivos ligados
 > (servidor, módulos JS, menu). O plano é esta etapa; a execução **só começa depois do "sim" do
@@ -18,7 +18,7 @@ ferramentas de IA 3D, o coletor Python, o gerador da Tripo e a cena do prompt 04
   (só `criarBase` e `ajustarTamanho`), a forma simples usada pelos personagens, `base.css` e
   `graphs.css` (só os estilos usados).
 - Servidor: `servidor.py` só com `/api/agentes` e `/api/projetos` (e os arquivos estáticos),
-  `quadro_tarefas.py` sem mudança, `config_graphs.py` sem nada da Tripo (fica `ATRASO_AGENTES`),
+  `quadro_tarefas.py` sem mudança, `config_graphs.py` só com o que os agentes usam (fica `ATRASO_AGENTES`),
   `.env.example` só com `ATRASO_AGENTES`.
 - `README.md` da pasta reescrito só para os Agentes ao vivo; caminho citado na regra C31 do
   `AGENTS.md` ajustado se a página mudar de lugar.
@@ -30,14 +30,14 @@ ferramentas de IA 3D, o coletor Python, o gerador da Tripo e a cena do prompt 04
 - Coletor: `scripts/`, `WEB-SCRAP.md`, `CLAUDE.md` (prompt de análise de mercado),
   `modelos-3d-de-ia.txt`.
 - 3D GRAPHS AI e cena do prompt 04: `graphs/index.html`, `graphs/cena.html`, `principal.js`, `cena.js`,
-  `chave.js`, `modal-config.js`, `saldo.js`, `cenas/` (JS e JSON), `cliente_tripo.py`,
-  `galeria_modelos.py`, `cenas_prompts.py`, `TRIPO_AI_DOCS.md`.
+  `chave.js`, `modal-config.js`, `saldo.js`, `cenas/` (JS e JSON) e os arquivos Python e o guia do gerador de modelos 3D
+  (já removidos pela ETAPA-039).
 - Prompts: os `.md` de `prompts/` e o `prompts/README.md`.
 
 **Guardado (pergunta 4):**
 - `dashboard/referencias/`: os 5 PNG de `prompts/` (incluindo `modelo.png`, desenho do mapa mental
   dos agentes) e o `coleta.json`, **versionados**.
-- `dashboard/referencias/fora-do-git/` (no `.gitignore`): os 5 GLB da Tripo e `MODELOS-DE-IA/`.
+- `dashboard/referencias/fora-do-git/` (no `.gitignore`): os 5 GLB gerados e `MODELOS-DE-IA/`.
 
 **Não entra:**
 - Mudar o comportamento dos Agentes ao vivo (globo, personagens, percentual C31, atraso, menu de
@@ -60,7 +60,7 @@ ferramentas de IA 3D, o coletor Python, o gerador da Tripo e a cena do prompt 04
 | Risco | Plano B |
 |---|---|
 | Módulo dos agentes depender de algo que vai ser apagado (`cenas/formas.js`, `api.js`, `visualizador.js`) | Antes de apagar, listar os imports de cada módulo restante (INV-1); o que for usado é enxugado, não apagado |
-| Apagar arquivo fora do Git (GLB gerados na Tripo, PNG dos prompts, reels) é irreversível | Só mexer neles conforme a pergunta 4; resposta padrão sugerida: mover, não apagar |
+| Apagar arquivo fora do Git (GLB gerados, PNG dos prompts, reels) é irreversível | Só mexer neles conforme a pergunta 4; resposta padrão sugerida: mover, não apagar |
 | Mudar a página de lugar quebrar caminhos relativos (`../assets/css/base.css`) e o link da regra C31 | Mudança de lugar numa subtarefa só (`.2`), com conferência de INV-1 logo depois |
 | Outra frente (herdr) editando o quadro ao mesmo tempo | Só mexer nas linhas desta tarefa; `git pull --rebase` antes de cada push |
 
@@ -71,7 +71,6 @@ ferramentas de IA 3D, o coletor Python, o gerador da Tripo e a cena do prompt 04
 | ID | Requisito (EARS) | Cobre | Verificação |
 |----|------------------|-------|-------------|
 | R1.1 | O SISTEMA DEVE ter em `dashboard/` (no Git) só os arquivos usados pela página Agentes ao vivo, pelo servidor dela e o `README.md` | DASHBOARD-AGENTES.1, .2 | `git ls-files dashboard` comparado com a lista da entrega |
-| R1.2 | O SISTEMA DEVE não citar a Tripo nem a `TRIPO_API_KEY` em nenhum arquivo restante de `dashboard/` | DASHBOARD-AGENTES.3, .4 | `git grep -i -e tripo -e TRIPO_API_KEY -- dashboard` vazio |
 | R2.1 | QUANDO o servidor receber `GET /api/agentes` ou `GET /api/projetos`, O SISTEMA DEVE devolver o mesmo JSON de antes da tarefa | DASHBOARD-AGENTES.3 | `python -c` chamando as duas rotas antes e depois; comparar as chaves e os valores |
 | R2.2 | SE o pedido for `/api/estado`, `/api/modelos`, `/api/saldo`, `/api/cenas`, `/api/tarefa/<id>` ou `POST /api/gerar`, ENTÃO O SISTEMA DEVE responder 404 | DASHBOARD-AGENTES.3 | Leitura do código: só 2 rotas no mapa e `do_POST` sem rota |
 | R2.3 | SE o caminho pedido for `.env`, arquivo oculto, `.py`, `.pyc` ou `__pycache__`, ENTÃO O SISTEMA DEVE responder 404 | DASHBOARD-AGENTES.3 | Leitura: `caminho_proibido` sem mudança |
@@ -110,7 +109,7 @@ ferramentas de IA 3D, o coletor Python, o gerador da Tripo e a cena do prompt 04
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
-| 2026-10-20 11:20 | Aprovado o plano de "só a parte de Agentes ao vivo, nada mais": a Tripo, a rede neural e a aba Ferramentas saem, conforme o escopo "Sai". Subtarefas .1 e .2 (PESADO) livres só para Opus 5.5+/Fable ou DeepSeek. Atenção: a `ETAPA-031` (.3 e .4) mexe em `agentes.js`, que esta etapa também enxuga; a ordem é decidida pelo líder antes de pegar a .3 da 031 | Gelvazio (mensagem "quero apenas a parte de agentes ao vivo, nada mais") | O usuário pediu só os Agentes ao vivo, que é exatamente este plano |
+| 2026-10-20 11:20 | Aprovado o plano de "só a parte de Agentes ao vivo, nada mais": o gerador 3D, a rede neural e a aba Ferramentas saem, conforme o escopo "Sai". Subtarefas .1 e .2 (PESADO) livres só para Opus 5.5+/Fable ou DeepSeek. Atenção: a `ETAPA-031` (.3 e .4) mexe em `agentes.js`, que esta etapa também enxuga; a ordem é decidida pelo líder antes de pegar a .3 da 031 | Gelvazio (mensagem "quero apenas a parte de agentes ao vivo, nada mais") | O usuário pediu só os Agentes ao vivo, que é exatamente este plano |
 | 2026-10-18 15:02 | Os 5 PNG e o `coleta.json` vão para `dashboard/referencias/` (versionados); sai do `.gitignore` a linha `dashboard/scripts/saida/`. Os 5 GLB (`graphs/modelos/`, ~210 MB) e `MODELOS-DE-IA/` (páginas salvas do Instagram) **não são apagados nem versionados**: vão para `dashboard/referencias/fora-do-git/`, que entra no `.gitignore` | Claude Code (Opus 5.5) | Pergunta 4: o usuário só citou PNG e `coleta.json`; apagar arquivo fora do Git não tem volta, então o resto é guardado sem versionar |
 | 2026-10-18 15:02 | A mudança local ainda sem commit no `prompts/MODELO-3D-REDE-NEURAL-04.md` é commitada antes do `git rm`, para o histórico guardá-la (resposta 2-a) | Claude Code (Opus 5.5) | Sem commit, o `git rm -f` a perderia de vez |
 | 2026-10-18 11:59 | Registrada como tarefa grande (`PESADO`, spec C34): execução só depois das perguntas fechadas e do "sim" ao plano | Claude Code (Opus 5.5) | Apaga arquivos em massa e mexe em vários arquivos ligados |
@@ -153,11 +152,11 @@ módulos que ficam (INV-1) e só então rodar o `git rm` da lista "Sai" do Escop
 - **Nível:** MEDIO — lógica em 2 arquivos Python (`servidor.py`, `config_graphs.py`) e o `.env.example`
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
-- **Descrição:** tirar do `servidor.py` as rotas e imports da Tripo, da galeria e das cenas (fica
+- **Descrição:** tirar do `servidor.py` as rotas e imports do gerador 3D, da galeria e das cenas (fica
 - **JEV-AI-SUGGESTION:** NAO
   `/api/agentes`, `/api/projetos` e `caminho_proibido`); tirar do `config_graphs.py` as constantes
-  e funções da Tripo; `.env.example` só com `ATRASO_AGENTES`.
-- **Critérios de aceitação:** R1.2 (parte Python), R2.1, R2.2, R2.3; INV-3.
+  e funções do gerador 3D; `.env.example` só com `ATRASO_AGENTES`.
+- **Critérios de aceitação:** R2.1, R2.2, R2.3; INV-3.
 
 ### DASHBOARD-AGENTES.4 — Módulos JS de apoio enxutos
 
@@ -169,7 +168,7 @@ módulos que ficam (INV-1) e só então rodar o `git rm` da lista "Sai" do Escop
 - **Descrição:** `api.js` só com `lerAgentes` (sem `chave.js`); `config.js` só com o que os
 - **JEV-AI-SUGGESTION:** NAO
   agentes usam; `visualizador.js` só com `criarBase` e `ajustarTamanho` (sem `GLTFLoader`).
-- **Critérios de aceitação:** R1.2 (parte JS), R3.1; INV-1; `node --check` nos 3 arquivos.
+- **Critérios de aceitação:** R3.1; INV-1; `node --check` nos 3 arquivos.
 
 ### DASHBOARD-AGENTES.5 — Personagens, menu e CSS só dos agentes
 
@@ -196,5 +195,5 @@ módulos que ficam (INV-1) e só então rodar o `git rm` da lista "Sai" do Escop
   `ATRASO_AGENTES`, regra C31, o que há em `referencias/`); resposta 3-a no quadro: a
   DASHBOARD-REDE-NEURAL.4 vira cancelada (motivo em "Pendências" do `STATUS.md`) e a mãe
   DASHBOARD-REDE-NEURAL fecha, com as linhas ✅ dela movidas para o `task_complete.md`.
-- **Critérios de aceitação:** README sem citar o que saiu (`git grep` por "Tripo", "rede neural",
+- **Critérios de aceitação:** README sem citar o que saiu (`git grep` por "rede neural",
   "coletor" vazio em `dashboard/`); critério de pronto da etapa conferido.

@@ -140,7 +140,7 @@ mostra as probabilidades da saída.
 
 ### DASHBOARD-REDE-NEURAL.6 — Coletor Python dos links do `dashboard/CLAUDE.md`
 
-**Status:** ✅ entregue 2026-10-17 15:25. Coleta de 15:22: L04, L05, L06, L08, L09 e L10 acessados; L07 bloqueado por verificação anti-bot; L01–L03 manuais; 403 nas extras da Tripo e do Canva; cotação 5,0627.
+**Status:** ✅ entregue 2026-10-17 15:25. Coleta de 15:22: L04, L05, L06, L08, L09 e L10 acessados; L07 bloqueado por verificação anti-bot; L01–L03 manuais; 403 nas extras do Canva; cotação 5,0627.
 
 - **Nível:** MEDIO — script Python com 4 arquivos pequenos, roteiro pronto no `WEB-SCRAP.md`.
 - **Modelo:** executada pelo Opus 5.5 a pedido do usuário
@@ -178,9 +178,8 @@ mostra as probabilidades da saída.
 - **Descrição:** botão "3D GRAPHS AI" no cabeçalho do `index.html` (link na mesma aba) para
 - **JEV-AI-SUGGESTION:** NAO
   `graphs/index.html`: visualizador Three.js 0.170.0 de GLB, campo de prompt e botão Gerar
-  (texto → 3D na API da Tripo, a mais barata da coleta: 1 crédito = US$ 0,01, 10–20 créditos por
-  modelo), progresso e galeria. `graphs/servidor.py` (biblioteca padrão) serve o dashboard e
-  repassa as chamadas com a `TRIPO_API_KEY` do `.env` (fora do Git); GLB salvos em
+  (texto → 3D por API paga, integração depois removida), progresso e galeria. `graphs/servidor.py` (biblioteca padrão) serve o dashboard e
+  repassa as chamadas com a chave do `.env` (fora do Git); GLB salvos em
   `graphs/modelos/` (fora do Git). Sem chave: a página abre, mostra a galeria e um exemplo
   procedural, e o Gerar fica desligado.
 - **Critérios de aceitação:** `py_compile` e `node --check` passam; servidor sobe e responde
@@ -190,15 +189,15 @@ mostra as probabilidades da saída.
 
 ### DASHBOARD-REDE-NEURAL.9 — Ícone de configuração e chave no `localStorage`
 
-**Status:** ✅ entregue 2026-10-17 16:18. Testado: chave do cabeçalho tem prioridade, `.env` como alternativa, chave malformada ignorada, chave não aparece no log; Tripo real responde 401 a chave falsa (URL base e auth confirmadas, erro 1010 do Cloudflare corrigido com User-Agent).
+**Status:** ✅ entregue 2026-10-17 16:18. Testado: chave do cabeçalho tem prioridade, `.env` como alternativa, chave malformada ignorada, chave não aparece no log; o serviço real responde 401 a chave falsa (URL base e auth confirmadas).
 
 - **Nível:** MEDIO — modal em JS + ajuste no servidor.
 - **Modelo:** Opus 5.5 (a pedido do usuário)
 - **Effort:** medium
 - **Descrição:** engrenagem no cabeçalho de `graphs/index.html` abre um `<dialog>` para salvar,
 - **JEV-AI-SUGGESTION:** NAO
-  mostrar/ocultar e remover a chave da Tripo no `localStorage`. O front manda a chave no
-  cabeçalho `X-Tripo-Key` só para o servidor local, que a repassa à Tripo; sem ela, vale o `.env`.
+  mostrar/ocultar e remover a chave no `localStorage`. O front manda a chave num
+  cabeçalho só para o servidor local, que a repassa; sem ela, vale o `.env`.
 - **Critérios de aceitação:** `py_compile` e `node --check` passam; o servidor usa a chave do
   cabeçalho e cai no `.env` sem ela; a chave nunca aparece em resposta nem em log.
 
@@ -230,68 +229,6 @@ mostra as probabilidades da saída.
 - **Descrição:** nenhum prompt cita outro prompt nem outra imagem. O 04 foi reescrito como
 - **JEV-AI-SUGGESTION:** NAO
   infográfico completo com foco na animação da rede do agente; o 02 perdeu a menção ao 04.
-
-### DASHBOARD-REDE-NEURAL.13 — Guia `graphs/TRIPO_AI_DOCS.md`
-
-**Status:** ✅ entregue 2026-10-17 16:38.
-
-- **Nível:** MEDIO — leitura de 8 páginas da documentação e escrita do guia.
-- **Descrição:** como obter a chave, fluxo REST V3 (criar, consultar, baixar), os 5 SDKs (JS,
-- **JEV-AI-SUGGESTION:** NAO
-  Python, Go, Rust, Java), endpoints, versões, créditos, limites, erros e divergências da
-  documentação. Não lidas (só abrem com JavaScript): "Texto para modelo 3D" e "Modelos".
-- **Achado:** a API atual é a V3 (`https://openapi.tripo3d.ai/v3`); o `graphs/` usa a V2. A
-  seção 11 do guia lista o que mudar para migrar.
-
-### DASHBOARD-REDE-NEURAL.14 — Prompt 04 no 3D GRAPHS AI com a API da Tripo (plano)
-
-**Respostas (2026-10-17 16:40):** 1 formas simples primeiro; 2 migrar para a V3; 3 prompts em inglês.
-
-**Status:** ✅ entregue 2026-10-17 16:44. Cena 3D do prompt 04 em `graphs/cena.html` com formas simples; cliente migrado para a V3 (401 com chave falsa nas 3 rotas); geração dos 5 objetos pronta, mas não executada (decisão do usuário: formas primeiro). Plano original abaixo: (criada 2026-10-17 16:39).
-
-- **Nível:** PESADO — leitor de prompts no servidor, geração em lote na Tripo, cena 3D nova com
-- **JEV-AI-SUGGESTION:** NAO
-  animação; vários arquivos ligados e gasto de créditos.
-- **Modelo:** só Opus 5.5+ ou Fable · **Effort:** high
-- **Depende de:** `.9` (chave no navegador) e `.13` (guia da API; decidir V2 ou V3).
-
-**Problema:** o `MODELO-3D-REDE-NEURAL-04.md` descreve uma **página HTML** (infográfico com
-cartões, kanban, rosca, Sankey e animação). A Tripo texto → 3D gera **um objeto por chamada** a
-partir de uma frase curta. O prompt não pode ser enviado inteiro.
-
-**Plano:**
-1. **Objetos do prompt 04** → arquivo `dashboard/graphs/cenas/prompt-04.json` (o `.md` do prompt
-   não muda): lista dos objetos 3D com um prompt curto em inglês para a Tripo e o papel na cena.
-   Proposta inicial (5 gerações, cerca de 50 a 100 créditos = US$ 0,50 a 1,00):
-   | Objeto | Prompt para a Tripo | Papel |
-   |---|---|---|
-   | Agente planejador | "orange pixelated voxel cube character, cute, game asset" | personagem 1 |
-   | Agente testador | "glossy glowing blue sphere character with simple eyes" | personagem 2 |
-   | Agente revisor | "glossy glowing pink sphere character with simple eyes" | personagem 3 |
-   | Hexágono do agente | "neon hexagonal badge, sci-fi, emissive red edges" | núcleo da rede |
-   | Assento | "minimal low poly office chair" | repetido 25 vezes (instâncias) |
-2. **Servidor:** rota `GET /api/cenas` (lista os `.json` de `graphs/cenas/`) e geração em lote
-   reaproveitando `/api/gerar` (1 tarefa por objeto, com confirmação do custo total e o
-   `LIMITE_GERACOES`); cada GLB salvo com o id do objeto (`prompt-04/<objeto>.glb`).
-3. **Página:** no 3D GRAPHS AI, seletor "Cena do prompt" com a 04; mostra os objetos, quais já
-   têm GLB e o botão "Gerar os que faltam" com o custo somado.
-4. **Cena 3D animada** (`graphs/assets/js/cenas/prompt-04.js`), fiel ao prompt 04 em 3D:
-   os 3 personagens no alto; 25 assentos em fila (InstancedMesh do GLB do assento); o hexágono à
-   direita; um relógio único (0 a 1) que assume os assentos um a um até 15 de 25; linhas verdes do
-   hexágono a cada assento com nó vermelho pulsante; cursor azul; contadores em HTML sobre a cena;
-   Pausar/Continuar, Reiniciar e velocidade 1x/2x/4x; `prefers-reduced-motion` mostra o estado
-   final. Enquanto um GLB não existir, usa uma forma simples no lugar (cubo, esfera, hexágono).
-5. Documentar no `graphs/README.md` e registrar as gerações feitas (task_id, créditos).
-
-**Perguntas para o usuário (antes do "sim"):**
-1. Gerar os 5 objetos na Tripo (cerca de US$ 0,50 a 1,00) ou montar primeiro a cena com formas
-   simples e gerar depois?
-2. Migrar o cliente para a API V3 junto (recomendado no `TRIPO_AI_DOCS.md`) ou manter a V2?
-3. Os prompts dos objetos ficam em inglês (a Tripo responde melhor) ou em português?
-
-**Critérios de aceitação:** `py_compile` e `node --check` passam; a cena abre sem chave (formas
-simples) e troca pelos GLB quando existirem; custo total confirmado antes de gerar; nenhuma chave
-no front-end além do `localStorage` já aprovado na `.9`.
 
 ### DASHBOARD-REDE-NEURAL.15 — Correção: ⚙ na cena e validação da chave
 
@@ -343,13 +280,13 @@ no front-end além do `localStorage` já aprovado na `.9`.
     `prefers-reduced-motion` sem animação.
   - `assets/js/agentes/hud-agentes.js`: contadores, últimos eventos (hora do `desde`), seletor
     de atraso (0/10/30/60/120 s, `localStorage` com try/catch) e selo "ao vivo −30 s".
-- **Fora do escopo:** outros quadros, transcripts das sessões, Supabase/Realtime, modelos novos
-  na Tripo para os agentes.
+- **Fora do escopo:** outros quadros, transcripts das sessões, Supabase/Realtime, modelos 3D novos
+  para os agentes.
 - **Fidelidade:** a cena só vê o que os agentes registram no quadro (granularidade do `STATUS.md`).
 - **Verificação:** `ler_quadro` via `python -c` confere contagem e campos; `curl
   localhost:8080/api/agentes` devolve JSON; `node --check` nos `.js`; `compararRetratos` testado
   com `node`; limites de 1000 linhas por arquivo e 45 por função. Visual conferido pelo usuário
-  (`.19`). Reiniciar o `servidor.py` só depois das gerações da Tripo em andamento.
+  (`.19`). Reiniciar o `servidor.py` depois desta versão.
 
 - **Entregue (2026-10-17 17:37), com os pedidos feitos durante a execução:**
   - Nome do agente como no quadro: um personagem por nome da coluna "Em uso por", com o nome
@@ -358,7 +295,7 @@ no front-end além do `localStorage` já aprovado na `.9`.
     atraso e eventos ficam sobre a cena.
   - `assets/js/menu.js`: menu único (Dashboard, 3D GRAPHS AI, Cena do prompt 04, Agentes ao vivo)
     usado em `index.html`, `cena.html` e `agentes.html`, com a página aberta destacada.
-  - Os personagens usam só formas simples (os GLB da Tripo foram deixados de lado por serem
+  - Os personagens usam só formas simples (os modelos GLB gerados foram deixados de lado por serem
     pesados demais: 1,4 milhão de triângulos cada).
   - Conferido: `node --check` em todos os `.js`, `py_compile`, fila testada com `node`
     (nada sai aos 29 s, tudo sai aos 30 s), servidor de teste na porta 8091 com `/api/agentes`
@@ -492,14 +429,9 @@ de uma tarefa no quadro e confere a animação cerca de 30 s depois.
 | 2026-10-17 17:21 | Plano aprovado; execução pelo líder Opus 5.5 com agentes por nível (Haiku .1, Sonnet .2 e .4, Opus .3) | Gelvazio | "sim, aprovo o plano da DASHBOARD-REDE-NEURAL (etapa 013)" |
 | 2026-10-17 15:03 | `.6` criada (C26): coletor Python dos links do `dashboard/CLAUDE.md` | Gelvazio | "crie 1 pasta scripts nele crie e rode o app em python que coleta os dados dos sites solicitados" |
 | 2026-10-17 15:37 | `.7` criada (C26): aba de ferramentas no `index.html` | Gelvazio | "leia coleta.json e atualize o dashboard em index.html com as informacoes..." |
-| 2026-10-17 15:50 | `.8` criada (C26): `graphs/` com a API da Tripo; sem chave, só texto → 3D, mesma aba | Gelvazio | Respostas às perguntas da tarefa |
-| 2026-10-17 16:16 | `.9` criada (C26): chave da Tripo no `localStorage` via modal | Gelvazio | "e um icone de config, que abre um modal pra colocar a chave de api..." |
 | 2026-10-17 16:21 | `.10` criada (C26): pasta `dashboard/prompts/` | Gelvazio | "crie 1 nova pasta de nome prompts" |
 | 2026-10-17 16:31 | `.11` criada (C26): um prompt por imagem em `dashboard/prompts/` | Gelvazio | "CRIE 1 prompt pra cada imagem nela..." |
 | 2026-10-17 16:34 | `.12` (C26): prompts independentes | Gelvazio | "cada prompt deve ser unico, e nao referenciar os outros" |
-| 2026-10-17 16:38 | `.13` (C26): guia da API e dos SDKs da Tripo | Gelvazio | "leia o site ... e crie um documento de nome TRIPO_AI_DOCS.md" |
-| 2026-10-17 16:39 | `.14` criada (C26) só com o plano; aguarda respostas e o "sim" | Gelvazio | "crie 1 tarefa pra isso, para o prompt 04" |
-| 2026-10-17 16:40 | `.14` aprovada: formas simples primeiro, V3, inglês | Gelvazio | "1-formas simples primeiro;2-migre para V3;3-ingles" |
 | 2026-10-17 16:50 | `.15` (correção): ⚙ na cena e validação da chave | Gelvazio | "n habilitou" |
 | 2026-10-17 16:57 | `.17` (C26): saldo de créditos no cabeçalho | Gelvazio | "sim, mostre o saldo de créditos na página" |
 | 2026-10-17 17:10 | `.18` criada (C26) com plano aprovado: fonte só o `rules-ai/tasks/STATUS.md`, atraso configurável (30 s); só registrada no quadro | Gelvazio | "como eu posso usar esta interface em 3D, pra mostrar o trabalho real dos meus agentes..." / "apenas grave a tarefa no quadro de tasks" |

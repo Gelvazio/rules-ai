@@ -28,3 +28,5 @@
 | AI-MEMORY-INTEGRATION.11 | Alinhar `ciclo-da-task.md` (Retomar) e `rules-local.md` à nova regra | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
 | REMOVER-TRIPO.1 | Fechar as 3 perguntas abertas e aprovar o plano | 🟡 Média | Usuário | Nenhuma | ✅ Concluído | — | [ETAPA-039](etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md) |
 | REMOVER-TRIPO.2 | Dashboard: apagar a Tripo do código, das rotas, da chave e dos docs | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | REMOVER-TRIPO.1 | ✅ Concluído | — | [ETAPA-039](etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md) |
+| REMOVER-TRIPO.3 | Quadro e etapas: tirar a Tripo das tarefas e do histórico | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | REMOVER-TRIPO.1 | ✅ Concluído | — | [ETAPA-039](etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md) |
+| REMOVER-TRIPO.4 | Benchmark do Jev (`golden.jsonl`) e script de coleta sem a Tripo | 🟡 Média | MEDIO · só Sonnet · effort medium | REMOVER-TRIPO.1 | ✅ Concluído | — | [ETAPA-039](etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md) |
