@@ -59,7 +59,7 @@ página sem `setInterval`; indicador de conexão; reconexão; fallback; remover 
 |----|------------------|-------|-------------|
 | R1.1 | QUANDO um `tasks/STATUS.md` liberado for enviado ao GitHub, O SISTEMA DEVE publicar o quadro no canal do projeto em até 10 s | AGENTES-REALTIME.24 | script de latência da .24 |
 | R1.2 | QUANDO a página abrir sem o `servidor.py`, O SISTEMA DEVE mostrar o estado atual do quadro lido do GitHub | AGENTES-REALTIME.5, AGENTES-REALTIME.19 | leitura do código e conferência do usuário (.29) |
-| R2.1 | O SISTEMA DEVE enviar ao canal só os campos `tarefa`, `titulo`, `pai`, `mae`, `nivel`, `status`, `agente`, `desde`, `progresso`, `global`, `indice`, e os metadados do envelope `projeto`, `commit`, `publicado_em`, `sequencia`, `atraso_padrao`, `intervalo` | AGENTES-REALTIME.8, AGENTES-REALTIME.9 | script de invariante da .9 |
+| R2.1 | O SISTEMA DEVE enviar ao canal só os campos `tarefa`, `titulo`, `pai`, `mae`, `nivel`, `status`, `agente`, `desde`, `progresso`, `global`, `indice`, e os metadados do envelope `versao`, `projeto`, `atualizado_em`, `commit`, `publicado_em`, `sequencia`, `atraso_padrao`, `intervalo` | AGENTES-REALTIME.8, AGENTES-REALTIME.9 | script de invariante da .9 |
 | R2.2 | SE o projeto estiver em `DEMAIS-PROJETOS-*`, ENTÃO O SISTEMA DEVE não listar, ler nem publicar | AGENTES-REALTIME.8, AGENTES-REALTIME.9 | script de invariante da .9 |
 | R3.1 | QUANDO o canal cair, O SISTEMA DEVE mostrar "reconectando" e, ao voltar, reler o estado completo | AGENTES-REALTIME.17, AGENTES-REALTIME.18 | leitura do código |
 | R3.2 | SE chegar mensagem com `sequencia` menor ou igual à atual, ENTÃO O SISTEMA DEVE descartá-la | AGENTES-REALTIME.14, AGENTES-REALTIME.18 | leitura do código |
@@ -101,6 +101,7 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 | 2026-10-23 11:24 | Níveis e modelos propostos pela matriz e pelos sinais; `JEV-AI-SUGGESTION: NAO` em todas até rodar `node scripts/jev.mjs classificar` | Claude Code (Sonnet 5.5) | O Jev não foi rodado nesta sessão |
 | 2026-10-23 13:09 | **"Sim" ao plano:** o usuário respondeu "faça tudo recomendado". Perguntas fechadas: 1-a, 2-a, 3-a, 4-a; 5 e 6 seguem as decisões do usuário na ETAPA-031 (projeto AULAS SENAI e Vercel). Também autorizou liberar a reserva parada da MIGRAR-AGENTES-BROADCAST.1 e usar a conta D na equipe herdr | Usuário (registrado pelo líder Opus 5.5) | Destrava a execução (C34) |
 | 2026-10-23 13:25 | Ajustes da conferência da .2 (achados do agente h1): R2.1/INV-1 passam a listar os metadados do envelope (`projeto`, `commit`, `publicado_em`, `sequencia`, `atraso_padrao`, `intervalo`) que a .4 e a .14 exigem; INV-3 com os padrões exatos do `git grep`; INV-5 com o script nomeado; linha solta das Decisões voltou para a tabela | Líder (Opus 5.5 · sargento) | Mudança material de requisito registrada (C34, regra 5); não muda o escopo |
+| 2026-10-23 13:34 | Contrato: `atualizado_em` fica no evento `estado` (como na 031 e no publicador já entregue); R2.1 passa a citar `versao` e `atualizado_em` no envelope | Líder (Opus 5.5 · sargento) | Evita mexer na 031 e no publicador; nada depende de tirar o campo |
 
 ### AGENTES-REALTIME.1 — Fechar as 6 perguntas abertas e aprovar o plano
 
@@ -185,7 +186,7 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 
 ### AGENTES-REALTIME.4 — Contrato do canal estendido: lista de projetos, metadados e versão
 
-**Próximo passo:** esperar AGENTES-REALTIME.3, MIGRAR-AGENTES-BROADCAST.1.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — banco, segurança, segredo ou contrato entre várias partes
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -194,6 +195,84 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 - **Descrição:** Estender o contrato da MIGRAR-AGENTES-BROADCAST.1 para cobrir a lista de projetos, `atraso_padrao`, `intervalo` e o campo `sequencia`; sem criar tabela.
 - **Critérios de Aceitação:** Contrato escrito na etapa e igual ao da 031 nos campos comuns.
 - **Depende de:** AGENTES-REALTIME.3, MIGRAR-AGENTES-BROADCAST.1
+- **Entrega:** contrato estendido (abaixo), feito por sn2 (Sonnet 5.5, herdr w2:p11, conta D).
+- **Verificação:** comparação com as seções 3 a 7 do contrato da 031 e com o inventário da .3: campos comuns iguais. Decisão do líder em 2026-10-23 13:34: o atualizado_em **fica** no estado (o publicador da 031.2 já o envia e nada depende de tirá-lo), então o item 1 da seção 4 e a linha atualizado_em da seção 3 abaixo não se aplicam.
+
+#### Contrato estendido (AGENTES-REALTIME.4)
+
+> Fechado em 2026-10-23 por Claude Code (Sonnet 5.5), executor da equipe herdr. **Só acrescenta** à
+> seção "Contrato do canal" da ETAPA-031 (.1): projeto, chaves, canal `quadro:<projeto>`, evento
+> `estado`, forma de envio e segurança continuam como lá. Nenhuma tabela; só Broadcast.
+
+##### 1. Campos comuns (idênticos à 031, seção 3)
+
+`versao`, `projeto`, `atraso_padrao`, `intervalo`, `commit`, `publicado_em`, `sequencia` e `tarefas[]`
+(11 campos: `tarefa`, `titulo`, `pai`, `mae`, `nivel`, `status`, `agente`, `desde`, `progresso`,
+`global`, `indice`) mantêm tipo, origem e regra da 031. Resumo do que a ETAPA-040 usa:
+
+| Campo | Onde | Regra (igual à 031) |
+|---|---|---|
+| `versao` | `estado` e `projetos` | inteiro, começa em `1`; a página ignora versão que não conhece |
+| `sequencia` | `estado` e `projetos` | `GITHUB_RUN_NUMBER`; a página descarta `sequencia` ≤ última aplicada (R3.2); `0` em `--simular` e no estado inicial lido do GitHub raw |
+| `atraso_padrao` | `estado` | inteiro (s), 30; a página lê do payload, com a constante `ATRASO_PADRAO_SEGUNDOS` do `config.js` como reserva |
+| `intervalo` | `estado` | inteiro (s), 10; só serve ao fallback (031.4); sem `setInterval` no fluxo normal |
+
+##### 2. Evento `projetos` (canal `quadro:_indice`)
+
+Mesma forma da seção 4 da 031; aqui ficam as regras que ela deixou para a 040:
+
+```json
+{ "versao": 1, "padrao": "rules-ai", "publicado_em": "2026-10-23T16:10:05Z", "sequencia": 412,
+  "projetos": [ { "id": "rules-ai", "nome": "Rules Ai" } ] }
+```
+
+| Campo | Tipo | Regra |
+|---|---|---|
+| `versao` | inteiro | `1` |
+| `padrao` | texto | projeto marcado quando a URL não traz `?projeto`; precisa existir em `projetos[].id`; hoje `rules-ai` |
+| `publicado_em` | texto ISO 8601 UTC | hora do envio |
+| `sequencia` | inteiro | `GITHUB_RUN_NUMBER`; ordem própria do canal `_indice` (a página guarda uma última `sequencia` por canal, não uma global) |
+| `projetos[]` | lista | só `id` e `nome`, **nenhum outro campo** (INV-1) |
+| `projetos[].id` | texto | nome da pasta = sufixo do canal `quadro:<id>`; nunca começa com `DEMAIS-PROJETOS-` nem com `.` (INV-2, C20/C23) |
+| `projetos[].nome` | texto | gerado no publicador (nome da pasta com `-`/`_` → espaço e iniciais maiúsculas, como `listar_projetos`); a página não deriva |
+
+- Hoje a lista tem só `rules-ai` (pergunta 3-a); quem gera é o script do publicador (.7), que lê os
+  projetos liberados da configuração do repositório, **não** varre `C:\fontes` no runner.
+- O mesmo conteúdo é versionado em `projetos.json` (mesmos campos, sem `sequencia`/`publicado_em`) ao lado
+  do dashboard. Ele é o **estado inicial e o fallback**: o Broadcast não guarda histórico, então quem
+  entra depois da mensagem lê o `projetos.json`, e a mensagem seguinte só vale com `sequencia` maior.
+- Tamanho: ≈ 100 bytes por projeto, muito abaixo dos 256 KB.
+- Envio: `POST …/api/broadcast/quadro%3A_indice/events/projetos` com `apikey` secreta, igual à seção 5 da
+  031 (mesmo plano B de lote). Publicado no mesmo workflow, só quando a lista muda.
+
+##### 3. O que sai do payload
+
+| Campo | Decisão | Por quê |
+|---|---|---|
+| `atualizado_em` | **sai do `estado`** | nenhum leitor no front (inventário .3); `publicado_em` + `commit` + `sequencia` o substituem. O fallback raw usa a hora do `fetch` |
+| `ROTAS`, erro `{"erro": …}` | não existem no canal | projeto fora de `projetos.json` → aviso na página; canal mudo → "reconectando/offline" (.17) |
+
+`projeto` **fica** no `estado`: a página já sabe o `?projeto=`, mas o campo serve de conferência contra
+mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do canal).
+
+##### 4. Diferenças em relação à 031
+
+1. **`atualizado_em`:** a 031 (seção 3, exemplo e tabela) o mantém no `estado`; este contrato o remove.
+   Ação: a 031 precisa tirar a linha do exemplo e da tabela, e o `git log -1 --format=%cI` do
+   workflow (seção 5) deixa de ser necessário — `fetch-depth: 0` pode voltar ao padrão. Se o líder
+   preferir não mexer na 031, é só manter o campo: nada mais neste contrato depende dele.
+2. **`atraso_padrao`/`intervalo`:** a 031 já os leva no `estado`; aqui só se registra que a página também
+   tem constantes de reserva no `config.js` (sem conflito).
+3. **`projetos`:** a 031 só dá a forma e remete a geração à 040; este contrato fixa `padrao` obrigatório,
+   `nome` gerado no publicador, `projetos.json` como estado inicial e `sequencia` por canal.
+4. Segurança (canal público que também aceita envio, validação de `versao`/`projeto`/`sequencia`)
+   inalterada; para `projetos`, a página também descarta `id` proibido ou fora de `projetos.json`.
+
+##### 5. Conferência (para a Verificação da .4)
+
+- Campos comuns do `estado` e da forma do `projetos`: `diff` visual com as seções 3 e 4 da 031 —
+  iguais, salvo `atualizado_em` (item 1 acima).
+- INV-1 (só campos permitidos) e INV-2 (nenhum `DEMAIS-PROJETOS-*`) valem para os dois eventos.
 
 ### AGENTES-REALTIME.5 — Leitor do `STATUS.md` em JavaScript (porta de `quadro_tarefas.py`)
 
