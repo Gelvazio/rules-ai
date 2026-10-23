@@ -8,6 +8,7 @@
 
 - **Entra:** regra global `memoria-ai.md`; decisão C49; instalador do marker e dos hooks; auditoria e teste de invariante;
   piloto, rollout em `aulasenai`, `dashboard-ai` e demais projetos; medição; rollback; documentação.
+- **Entra (acrescentado em 2026-10-23):** hooks de captura em todas as IAs com suporte (Codex, Gemini, Devin, Antigravity, Kimi, OpenCode/DeepSeek); investigação do TypeSafe como provedor generativo.
 - **Não entra:** substituir o `tasks/STATUS.md`; gravar status, nível ou reserva a partir da memória; mexer em
   `DEMAIS-PROJETOS-*`; alterar o código do ai-memory (é de terceiros); disparo automático de sessões (C28).
 - **Nível:** tarefa grande (`PESADO`, spec C34): plano na própria etapa e execução só depois do 'sim'.
@@ -26,6 +27,8 @@
 ### Decisões
 
 - 2026-10-23: etapa criada e publicada; plano aguardando o 'sim' do usuário (tarefa grande).
+
+- 2026-10-23 10:00: as 6 perguntas foram respondidas pelo usuário (tabela acima). Mudanças de escopo: piloto passa a ser o `aulasenai` (base primeiro; clones só depois da auditoria sem achados); captura em todas as IAs com hook (não só Claude Code); LLM de consolidação fica em aberto até a investigação do TypeSafe (.29). O 'sim' ao plano ainda é da .1.
 
 ### Requisitos
 
@@ -56,12 +59,12 @@
 
 | # | Pergunta | Resposta | Fechada em | Quem respondeu |
 |---|----------|----------|------------|----------------|
-| 1 | Posso abrir a exceção controlada à regra 'cada informação em um lugar só' (memória episódica como complemento, o quadro sempre vence)? | ⬜ | — | — |
-| 2 | O servidor do ai-memory roda só neste PC (loopback) ou também em outra máquina/servidor seu? | ⬜ | — | — |
-| 3 | Qual projeto é o piloto: `testes-effort-padaria` (recomendado, só texto) ou outro? | ⬜ | — | — |
-| 4 | Os hooks entram no `.claude/settings.json` de cada projeto (recomendado) ou no global da conta? | ⬜ | — | — |
-| 5 | Usar um provedor de LLM para consolidar a memória (custo) ou ficar só no caminho sem LLM? | ⬜ | — | — |
-| 6 | Codex e outras IAs também capturam desde o início, ou só o Claude Code no piloto? | ⬜ | — | — |
+| 1 | Posso abrir a exceção controlada à regra 'cada informação em um lugar só' (memória episódica como complemento, o quadro sempre vence)? | Sim — exceção controlada aprovada (o quadro vence) | 2026-10-23 10:00 | Gelvazio |
+| 2 | O servidor do ai-memory roda só neste PC (loopback) ou também em outra máquina/servidor seu? | Só neste PC (loopback) | 2026-10-23 10:00 | Gelvazio |
+| 3 | Qual projeto é o piloto: `testes-effort-padaria` (recomendado, só texto) ou outro? | aulasenai (diverge da recomendação: padaria) — base primeiro, clones depois da auditoria | 2026-10-23 10:00 | Gelvazio |
+| 4 | Os hooks entram no `.claude/settings.json` de cada projeto (recomendado) ou no global da conta? | Por projeto (`.claude/settings.json`) | 2026-10-23 10:00 | Gelvazio |
+| 5 | Usar um provedor de LLM para consolidar a memória (custo) ou ficar só no caminho sem LLM? | Investigar o TypeSafe antes de decidir; até lá, sem LLM | 2026-10-23 10:00 | Gelvazio |
+| 6 | Codex e outras IAs também capturam desde o início, ou só o Claude Code no piloto? | Todas as IAs (Claude Code, DeepSeek, Codex, Devin, Antigravity, Kimi, Gemini etc.) | 2026-10-23 10:00 | Gelvazio |
 
 ### AI-MEMORY-INTEGRATION.1 — Responder as perguntas abertas e aprovar o plano (tarefa grande)
 
@@ -69,6 +72,7 @@
 
 - **Nível:** Usuário — só o usuário pode fazer (ação no computador ou resposta)
 - **Modelo:** Usuário
+- **Effort:** — (ação do usuário)
 - **Descrição:** O usuário fecha as 6 perguntas da seção Perguntas abertas da etapa e dá o 'sim' ao plano.
 - **Critérios de Aceitação:** Nenhum `⬜` em Perguntas abertas; 'sim' registrado em Decisões da etapa.
 - **Verificação:** a preencher na entrega.
@@ -109,6 +113,7 @@
 
 - **Nível:** Usuário — só o usuário pode fazer (ação no computador ou resposta)
 - **Modelo:** Usuário
+- **Effort:** — (ação do usuário)
 - **Descrição:** Rodar a instalação, `ai-memory init` e configurar o token como variável de ambiente do Windows.
 - **Critérios de Aceitação:** `ai-memory` responde em `127.0.0.1:49374`; token fora de qualquer arquivo do Git.
 - **Depende de:** AI-MEMORY-INTEGRATION.3
@@ -279,7 +284,7 @@
 - **Depende de:** AI-MEMORY-INTEGRATION.8
 - **Verificação:** a preencher na entrega.
 
-### AI-MEMORY-INTEGRATION.16 — Piloto no `testes-effort-padaria`: marker e hooks
+### AI-MEMORY-INTEGRATION.16 — Piloto no `aulasenai` (pasta base): marker e hooks
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
@@ -289,17 +294,18 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Fonte:** sinais
 - **Descrição:** Aplicar o instalador no projeto piloto e registrar o resultado.
-- **Arquivos:** `testes-effort-padaria/.ai-memory.toml`, `.claude/settings.json`
+- **Arquivos:** `aulasenai/.ai-memory.toml`, `aulasenai/.claude/settings.json`
 - **Critérios de Aceitação:** Sessão no piloto cria observações; auditoria sem achados; `rules-local` intacto.
 - **Depende de:** AI-MEMORY-INTEGRATION.4, AI-MEMORY-INTEGRATION.8, AI-MEMORY-INTEGRATION.12
 - **Verificação:** a preencher na entrega.
 
-### AI-MEMORY-INTEGRATION.17 — Ensaio de retomada: sair do Claude Code e continuar no Codex no piloto
+### AI-MEMORY-INTEGRATION.17 — Ensaio de retomada: sair do Claude Code e continuar no Codex no piloto (aulasenai)
 
 **Próximo passo:** Ação do usuário no computador dele.
 
 - **Nível:** Usuário — só o usuário pode fazer (ação no computador ou resposta)
 - **Modelo:** Usuário
+- **Effort:** — (ação do usuário)
 - **Descrição:** Fazer uma tarefa curta no Claude, encerrar, abrir o Codex e conferir o handoff.
 - **Critérios de Aceitação:** Codex recebe o brief; a ordem Quadro primeiro, memória depois foi seguida; resultado anotado.
 - **Depende de:** AI-MEMORY-INTEGRATION.16
@@ -365,7 +371,7 @@
 - **Depende de:** AI-MEMORY-INTEGRATION.4
 - **Verificação:** a preencher na entrega.
 
-### AI-MEMORY-INTEGRATION.22 — Rollout no `aulasenai` (5 pastas, 1 repositório, mesmo projeto de memória)
+### AI-MEMORY-INTEGRATION.22 — Rollout nos 4 clones do `aulasenai` (a base já é o piloto)
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
@@ -377,7 +383,7 @@
 - **Descrição:** Aplicar o instalador no `aulasenai` e nos 4 clones com o mesmo `project`.
 - **Arquivos:** `aulasenai/.ai-memory.toml`, `aulasenai/.claude/settings.json`
 - **Critérios de Aceitação:** 5 pastas com o mesmo `project`; `ignore_paths` inclui `scripts/variaveis.js`; auditoria sem achados.
-- **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.17, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20
+- **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.17, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20, AI-MEMORY-INTEGRATION.34, AI-MEMORY-INTEGRATION.35
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.23 — Rollout no `dashboard-ai` (9 cópias, 1 repositório)
@@ -392,7 +398,7 @@
 - **Descrição:** Aplicar o instalador nas 9 cópias com o mesmo `project`.
 - **Arquivos:** `dashboard-ai-*/.ai-memory.toml`
 - **Critérios de Aceitação:** 9 cópias com o mesmo `project`; conflito de `tasks/STATUS.md` não aumenta; auditoria sem achados.
-- **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.17, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20
+- **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.17, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20, AI-MEMORY-INTEGRATION.34, AI-MEMORY-INTEGRATION.35
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.24 — Rollout nos demais projetos de `C:\fontes` (menos `DEMAIS-PROJETOS-*` e `rules-ai`)
@@ -468,4 +474,109 @@
 - **Arquivos:** `tasks/STATUS.md`, `tasks/task_complete.md`
 - **Critérios de Aceitação:** Mãe ✅ movida para `task_complete.md`; `graphify update .` rodado depois do push.
 - **Depende de:** AI-MEMORY-INTEGRATION.27
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.29 — Investigar se o TypeSafe tem modelo generativo compatível com o ai-memory (consolidação com LLM)
+
+**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+
+- **Nível:** LEVE — classificado (jev (confiança 0.86))
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.86)
+- **Descrição:** Ler a documentação do TypeSafe e conferir se há endpoint de chat com saída em JSON schema, preço e política de dados; concluir se serve ao ai-memory.
+- **Arquivos:** `docs/AI-MEMORY-LLM.md`
+- **Critérios de Aceitação:** Relatório com a conclusão (serve / não serve), custo e política de dados; pergunta 5 fechada de vez.
+- **Depende de:** AI-MEMORY-INTEGRATION.1
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.30 — Matriz de hooks por IA: o que cada harness captura e como fecha a sessão
+
+**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+
+- **Nível:** LEVE — classificado (sinais)
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
+- **Descrição:** Levantar, em `hooks/` do ai-memory, o suporte de Codex, DeepSeek/OpenCode, Devin, Antigravity, Kimi e Gemini (eventos, fim de sessão, exclusões de captura).
+- **Arquivos:** `docs/AI-MEMORY-HOOKS.md`
+- **Critérios de Aceitação:** Quadro IA × eventos × fim de sessão × `ignore_paths`; IA sem hook marcada como tal.
+- **Depende de:** AI-MEMORY-INTEGRATION.5
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.31 — Hooks de captura no Codex e no Gemini CLI
+
+**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+
+- **Nível:** MEDIO — classificado (jev (confiança 0.80))
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.80)
+- **Descrição:** Aplicar o instalador nos dois harnesses, no projeto, respeitando o gancho do Jev e o `codex_hooks`.
+- **Arquivos:** `scripts/instalar-ai-memory.mjs`, `.codex/hooks.json`, config do Gemini
+- **Critérios de Aceitação:** Os dois capturam no piloto; reexecução não duplica; nenhum hook bloqueia a mensagem.
+- **Depende de:** AI-MEMORY-INTEGRATION.30, AI-MEMORY-INTEGRATION.7
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.32 — Hooks de captura no Devin e no Antigravity (com `finalize-session`)
+
+**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+
+- **Nível:** MEDIO — classificado (jev (confiança 0.83))
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.83)
+- **Descrição:** Aplicar nos dois e documentar o fechamento explícito do Antigravity (`ai-memory finalize-session`).
+- **Arquivos:** `scripts/instalar-ai-memory.mjs`, `docs/AI-MEMORY-HOOKS.md`
+- **Critérios de Aceitação:** Os dois capturam; sessão do Antigravity é fechada pelo comando; resultado registrado.
+- **Depende de:** AI-MEMORY-INTEGRATION.30, AI-MEMORY-INTEGRATION.7
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.33 — Hooks de captura no Kimi e no OpenCode (DeepSeek)
+
+**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+
+- **Nível:** MEDIO — classificado (jev (confiança 0.83))
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.83)
+- **Descrição:** Aplicar nos dois e conferir como o DeepSeek (via OpenCode) entra na captura.
+- **Arquivos:** `scripts/instalar-ai-memory.mjs`, `docs/AI-MEMORY-HOOKS.md`
+- **Critérios de Aceitação:** Kimi e OpenCode capturam; caminho do DeepSeek documentado.
+- **Depende de:** AI-MEMORY-INTEGRATION.30, AI-MEMORY-INTEGRATION.7
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.34 — Auditoria de captura por IA: cada harness respeita `ignore_paths` e não vaza segredo
+
+**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
+- **Descrição:** Rodar a auditoria e o teste de invariante com eventos de cada IA instalada.
+- **Arquivos:** `scripts/ai-memory-auditar.mjs`, `scripts/testes/ai-memory-invariantes.mjs`
+- **Critérios de Aceitação:** Nenhuma IA grava caminho proibido nem segredo; achados corrigidos antes dos clones.
+- **Depende de:** AI-MEMORY-INTEGRATION.31, AI-MEMORY-INTEGRATION.32, AI-MEMORY-INTEGRATION.33, AI-MEMORY-INTEGRATION.13, AI-MEMORY-INTEGRATION.14
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.35 — Piloto no `aulasenai`: proteger `scripts/variaveis.js` (service_role) e dados de alunos antes de ligar
+
+**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
+- **Descrição:** Conferir `ignore_paths` do projeto real e rodar a auditoria só na pasta base antes de liberar os clones.
+- **Arquivos:** `aulasenai/.ai-memory.toml`, `docs/AI-MEMORY-PRIVACIDADE.md`
+- **Critérios de Aceitação:** Auditoria da pasta base sem achados; `variaveis.js`, `MATERIAIS/` e listas de alunos fora da memória.
+- **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.20
 - **Verificação:** a preencher na entrega.
