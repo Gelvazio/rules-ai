@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-23-e9e33b9a
+- **Versão:** 2026-10-23-a7fe983a
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -31,7 +31,7 @@
 | 18 | herdr.md | 0ed9c7e0c2280ae0 |
 | 19 | jev.md | 1500944d066573c9 |
 | 20 | visualizador-gerado.md | bced4974cd78dc89 |
-| 21 | memoria-ai.md | 67236a00849b5097 |
+| 21 | memoria-ai.md | c9be07bdd8570bd9 |
 | 22 | atividades-e-idioma.md | a37b651279928422 |
 
 ## Pacote do rules-local (scripts e Jev)

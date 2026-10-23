@@ -727,7 +727,7 @@
 
 ### AI-MEMORY-INTEGRATION.44 — Gerar nova versão das regras depois da mudança da .19 em `memoria-ai.md`
 
-**Próximo passo:** rodar `node scripts/sincronizar.mjs --aplicar` e conferir que a `VERSAO.md` traz o código novo de `memoria-ai.md`.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — mesmo trabalho da .12 (aberta pelo líder, C26)
 - **Modelo:** só Sonnet — nunca outro
@@ -737,4 +737,5 @@
 - **Arquivos:** `VERSAO.md`, `dist/REGRAS-GLOBAIS.md`
 - **Critérios de Aceitação:** `VERSAO.md` com versão nova e o código novo de `memoria-ai.md`; o piloto (.16) já pega essa versão.
 - **Depende de:** AI-MEMORY-INTEGRATION.19
-- **Verificação:** a preencher na entrega.
+- **Entrega:** VERSAO.md na versão 2026-10-23-a7fe983a (commit desta entrega; dist/ fora do Git), feito por w-a12 (Sonnet 5.5, herdr w2:pR, conta B).
+- **Verificação:** node scripts/sincronizar.mjs --aplicar; git diff da VERSAO.md (conferido pelo líder): só mudaram a versão (e9e33b9a -> a7fe983a) e o código de memoria-ai.md (67236a00849b5097 -> c9be07bdd8570bd9).
