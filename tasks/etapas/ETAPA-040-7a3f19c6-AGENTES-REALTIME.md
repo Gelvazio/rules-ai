@@ -102,6 +102,7 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 | 2026-10-23 13:09 | **"Sim" ao plano:** o usuário respondeu "faça tudo recomendado". Perguntas fechadas: 1-a, 2-a, 3-a, 4-a; 5 e 6 seguem as decisões do usuário na ETAPA-031 (projeto AULAS SENAI e Vercel). Também autorizou liberar a reserva parada da MIGRAR-AGENTES-BROADCAST.1 e usar a conta D na equipe herdr | Usuário (registrado pelo líder Opus 5.5) | Destrava a execução (C34) |
 | 2026-10-23 13:25 | Ajustes da conferência da .2 (achados do agente h1): R2.1/INV-1 passam a listar os metadados do envelope (`projeto`, `commit`, `publicado_em`, `sequencia`, `atraso_padrao`, `intervalo`) que a .4 e a .14 exigem; INV-3 com os padrões exatos do `git grep`; INV-5 com o script nomeado; linha solta das Decisões voltou para a tabela | Líder (Opus 5.5 · sargento) | Mudança material de requisito registrada (C34, regra 5); não muda o escopo |
 | 2026-10-23 13:34 | Contrato: `atualizado_em` fica no evento `estado` (como na 031 e no publicador já entregue); R2.1 passa a citar `versao` e `atualizado_em` no envelope | Líder (Opus 5.5 · sargento) | Evita mexer na 031 e no publicador; nada depende de tirar o campo |
+| 2026-10-23 15:45 | **A chave `FONTE_AGENTES` da `.28` não existe e não vai existir:** o seletor de fonte acabou sendo a própria `CANAL.chavePublicavel` do `config.js` (vazia = só o GitHub raw; preenchida = canal ao vivo com o raw como reserva), e o servidor local foi apagado na `.21`. A `.28` passa a documentar o rollback real (esvaziar a chave; `git revert` do commit da `.21` para trazer o servidor de volta; tirar o secret ou desligar o workflow para parar de publicar). Mudança material registrada (C34, regra 5) | Líder (Opus 5.5 · sargento) | Criar a variável só para o rollback seria código novo sem uso; o rollback de verdade já existe sem ela |
 | 2026-10-23 14:30 | **A `.24` foi dividida:** ela entrega o *instrumento* (script de medição, critério "script pronto e verificado") e a medição ponta a ponta virou a **`.33`**, que depende da `.12`. A `.30` passa a depender da `.33`. Mudança material de critério registrada (C34, regra 5) | Líder (Opus 5.5 · sargento) | Sem a chave publicável da `.12` (ação do usuário) não existe canal para medir; deixar a `.24` aberta travaria a `.29` sem motivo |
 
 ### AGENTES-REALTIME.1 — Fechar as 6 perguntas abertas e aprovar o plano
@@ -688,7 +689,7 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.26 — Documentar o fluxo no `README.md` do dashboard
 
-**Próximo passo:** esperar AGENTES-REALTIME.20.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — só texto, configuração simples ou comando de fechamento
 - **Modelo:** só Haiku — nunca outro
@@ -697,6 +698,8 @@ usuário decide ao cadastrar.
 - **Descrição:** Como configurar, variáveis, secrets, fallback e como voltar ao servidor local.
 - **Critérios de Aceitação:** README descreve os três modos e não cita rota removida.
 - **Depende de:** AGENTES-REALTIME.20
+- **Entrega:** `dashboard/README.md` — abertura reescrita (o quadro vem do `STATUS.md` pelo canal de Broadcast ou pelo GitHub raw, e a lista de projetos do `projetos.json`); seção **Configurar** nova (chave publicável no `config.js`, da `.12`, e o secret `SUPABASE_SECRET_KEY` só no workflow, sem nenhum valor escrito); lista de **Arquivos** refeita, com `privacidade_quadro.py`, `gerar_projetos.py`, `projetos.json`, `LIMITES-REALTIME.md`, `testes/` (os 3 invariantes e o medidor) e o workflow, e sem `servidor.py`, `config_graphs.py` e `api.js`, que não existem mais. Os três modos já tinham entrado na `.19`. Commit desta entrega. Feito por h1 (Haiku 5.5, herdr w2:pY, conta D).
+- **Verificação:** `git grep -n -e '/api/agentes' -e '/api/projetos' -- dashboard/` **vazio**; as 5 linhas acima de 100 caracteres são as mesmas do `HEAD` anterior, nenhuma nova; todos os arquivos citados na lista existem no disco e nenhum apagado é citado (conferido pelo líder).
 
 ### AGENTES-REALTIME.27 — Atualizar menções a `/api/agentes` em `AGENTS.md` e docs
 
