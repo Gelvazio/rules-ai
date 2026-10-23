@@ -74,7 +74,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | AGENTES-REALTIME.13 | Workflow reutilizável para os outros repositórios · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | MIGRAR-AGENTES-BROADCAST.2, AGENTES-REALTIME.12 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AGENTES-REALTIME.14 | Coalescer pushes seguidos e ordenar mensagens · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | AGENTES-REALTIME.4, MIGRAR-AGENTES-BROADCAST.2 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AGENTES-REALTIME.15 | Página sem o `setInterval` do servidor · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | MIGRAR-AGENTES-BROADCAST.3, AGENTES-REALTIME.3 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
-| AGENTES-REALTIME.16 | Menu de projetos lê o `projetos.json` · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | AGENTES-REALTIME.7 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
+| AGENTES-REALTIME.16 | Menu de projetos lê o `projetos.json` · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | AGENTES-REALTIME.7 | 🔄 Em execução | Claude Code (Sonnet 5.5 · herdr w2:p11; líder Opus 5.5) (local · main · rules-ai) (desde 2026-10-23 13:38) · 0% | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AGENTES-REALTIME.17 | Indicador de conexão na tela (ao vivo, reconectando, offline) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | MIGRAR-AGENTES-BROADCAST.3 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AGENTES-REALTIME.18 | Reconexão com estado completo e descarte de mensagem fora de ordem · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | AGENTES-REALTIME.14, AGENTES-REALTIME.15 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AGENTES-REALTIME.19 | Fallback sem Supabase e sem servidor (GitHub raw a cada 30 s) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | MIGRAR-AGENTES-BROADCAST.4, AGENTES-REALTIME.5 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
@@ -90,7 +90,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | AGENTES-REALTIME.29 | Conferir no navegador: abre sem servidor e anima ao dar push | 🟡 Média | Usuário | AGENTES-REALTIME.18, AGENTES-REALTIME.24 | 👀 Aguardando o usuário | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AGENTES-REALTIME.30 | Conferência final · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | AGENTES-REALTIME.23, AGENTES-REALTIME.26, AGENTES-REALTIME.27, AGENTES-REALTIME.28, AGENTES-REALTIME.29 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | AGENTES-REALTIME.31 | Fechamento: grafo, `STATUS_PROJETO.md` e mover a tarefa para `task_complete.md` · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | AGENTES-REALTIME.30 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
-| AGENTES-REALTIME.32 | Corrigir o `IndexError` do `quadro_tarefas.py` com linha mais curta que a coluna Tarefa (achado da .6) | 🟡 Média | MEDIO · só Sonnet · effort medium | AGENTES-REALTIME.6 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
+| AGENTES-REALTIME.32 | Corrigir o `IndexError` do `quadro_tarefas.py` com linha mais curta que a coluna Tarefa (achado da .6) | 🟡 Média | MEDIO · só Sonnet · effort medium | AGENTES-REALTIME.6 | 🔄 Em execução | Claude Code (Sonnet 5.5 · herdr w2:p12; líder Opus 5.5) (local · main · rules-ai) (desde 2026-10-23 13:38) · 0% | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 
 
 ## 🧭 Frentes de trabalho
@@ -105,7 +105,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · ai-memory) | AI-MEMORY-INTEGRATION.2, .5, .6, .29 e .30 ([ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md)) | ⏹️ Encerrada | 2026-10-23 10:55 |
 | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · ai-memory) | AI-MEMORY-INTEGRATION.9 ([ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md)) | ⏹️ Encerrada | 2026-10-23 11:09 |
 | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · ai-memory) | AI-MEMORY-INTEGRATION.10 e .11 ([ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md)) | ⏹️ Encerrada | 2026-10-23 11:18 |
-| Claude Code (Opus 5.5 · sargento herdr w2:p1) (local · main · rules-ai) | AGENTES-REALTIME.6, .7, .8 e MIGRAR-AGENTES-BROADCAST.3 ([ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md)) | 🔄 Ativa | 2026-10-23 13:21 |
+| Claude Code (Opus 5.5 · sargento herdr w2:p1) (local · main · rules-ai) | AGENTES-REALTIME.8, .16, .32 e MIGRAR-AGENTES-BROADCAST.3 ([ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md)) | 🔄 Ativa | 2026-10-23 13:21 |
 
 
 ## 🗂️ Etapas
