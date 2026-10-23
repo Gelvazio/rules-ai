@@ -37,6 +37,7 @@
 - 2026-10-23: achado da .30: apenas o Claude Code aceita --scope project; nas demais IAs o hook fica global e, sem .ai-memory.toml, o repositório é capturado por padrão. Aberta a subtarefa .36 (decisão do usuário) e as .31, .32 e .33 passam a depender dela.
 - 2026-10-23 11:02: **decisão A da .36 (usuário): captura só no Claude Code por enquanto; Codex, Gemini, Devin, Antigravity, Kimi, OpenCode e DeepSeek ficam sem captura até nova ordem.** Isso substitui a resposta 6 (todas as IAs). Canceladas: .31, .32, .33 (hooks nas outras IAs) e .17 (ensaio Claude → Codex, que precisaria do hook no Codex). A .34 passa a auditar só o Claude Code; a .25 não depende mais da .17. Reabrir as outras IAs exige nova tarefa, já com a matriz da .30 (`docs/AI-MEMORY-HOOKS-POR-IA.md`) pronta.
 - 2026-10-23: a pedido do usuário, abertas as subtarefas pendentes .37 a .41 para usar hooks em **todas** as IAs depois do piloto do Claude Code (a decisão A da .36 vale até lá). A .37 é do usuário: escolher o modo de captura (allowlist recomendado). Não altera a decisão A.
+- 2026-10-23 14:53: o usuário aceitou o token do ai-memory em `%LOCALAPPDATA%i-memoryuth-token` (arquivo fora do Git) no lugar da variável de ambiente pedida na .4; a .3 documenta essa forma. Também autorizou a equipe herdr: conta C, `--dangerously-skip-permissions`, Sonnet nas `PESADO` (.3, .13, .21).
 
 ### Requisitos
 
