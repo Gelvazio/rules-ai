@@ -245,7 +245,7 @@
 
 ### AI-MEMORY-INTEGRATION.12 — Gerar nova versão: `sincronizar.mjs` e conferir que a regra chega pelo pacote do rules-local
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — classificado (sinais)
 - **Modelo:** só Sonnet — nunca outro
@@ -256,7 +256,8 @@
 - **Arquivos:** `VERSAO.md`, `dist/REGRAS-GLOBAIS.md`
 - **Critérios de Aceitação:** `VERSAO.md` ganha a linha de `memoria-ai.md`; relatório de um projeto mostra 1 adicionado.
 - **Depende de:** AI-MEMORY-INTEGRATION.10, AI-MEMORY-INTEGRATION.11
-- **Verificação:** a preencher na entrega.
+- **Entrega:** VERSAO.md com a versão 2026-10-23-e9e33b9a (commit desta entrega; dist/ fora do Git), feito por w-a12 (Sonnet 5.5, herdr w2:pR, conta B).
+- **Verificação:** node scripts/sincronizar.mjs --aplicar: VERSAO.md ganhou a linha 21 memoria-ai.md; dist/REGRAS-GLOBAIS.md cita a regra; arquivos globais das outras IAs regravados com .bak. Não conferido: "1 adicionado" no relatório de um projeto (exigiria rodar sessao.mjs num projeto); fica para o piloto .16.
 
 ### AI-MEMORY-INTEGRATION.13 — Script de auditoria: conferir que nada de `ignore_paths` entrou no wiki da memória
 

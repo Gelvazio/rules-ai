@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-23-4f19d945
+- **Versão:** 2026-10-23-e9e33b9a
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -10,8 +10,8 @@
 
 | # | Arquivo | Código |
 |---|---------|--------|
-| 0 | INDEX.md | de179c52c17ca671 |
-| 1 | ciclo-da-task.md | 0f655a1970c31da1 |
+| 0 | INDEX.md | fd01fcb7f16a4758 |
+| 1 | ciclo-da-task.md | 5e7983c54b011633 |
 | 2 | niveis-e-modelos.md | e563d4c406d280c2 |
 | 3 | frentes-e-reserva.md | 35dc8d1e8f3c16f0 |
 | 4 | comando-ponto.md | 25fab5e441b75d40 |
@@ -27,11 +27,12 @@
 | 14 | graphify.md | f31357d0386045d2 |
 | 15 | gerenciador-centralizado.md | c6f5535db0d613a4 |
 | 16 | pastas-ignoradas.md | b33814d65cafd940 |
-| 17 | rules-local.md | 39d036270b2def36 |
+| 17 | rules-local.md | c324790daa1a3a05 |
 | 18 | herdr.md | 0ed9c7e0c2280ae0 |
 | 19 | jev.md | 1500944d066573c9 |
 | 20 | visualizador-gerado.md | bced4974cd78dc89 |
-| 21 | atividades-e-idioma.md | a37b651279928422 |
+| 21 | memoria-ai.md | 67236a00849b5097 |
+| 22 | atividades-e-idioma.md | a37b651279928422 |
 
 ## Pacote do rules-local (scripts e Jev)
 
