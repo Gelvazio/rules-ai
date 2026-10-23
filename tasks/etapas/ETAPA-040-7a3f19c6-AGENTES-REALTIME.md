@@ -133,7 +133,7 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 
 ### AGENTES-REALTIME.3 — Inventário do que ainda pede `/api/agentes` e `/api/projetos`
 
-**Próximo passo:** esperar AGENTES-REALTIME.1.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -142,6 +142,46 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 - **Descrição:** Listar no corpo da etapa cada arquivo e campo que consome as duas rotas (`tarefas`, `atualizado_em`, `projeto`, `atraso_padrao`, `intervalo`, `padrao`, `projetos`), com o plano de onde cada campo passa a vir.
 - **Critérios de Aceitação:** Tabela campo → nova origem, sem campo órfão.
 - **Depende de:** AGENTES-REALTIME.1
+
+- **Entrega:** inventário campo → nova origem (abaixo), feito por sn1 (Sonnet 5.5, herdr w2:pZ, conta D).
+- **Verificação:** leitura de dashboard/servidor.py, quadro_tarefas.py, config_graphs.py e dos consumidores em dashboard/assets/js (config.js, api.js, agentes.js, menu.js, fila-atrasada.js), README e .env.example; nenhum outro projeto de C:\fontes chama as rotas; todo campo tem nova origem (nenhum órfão).
+
+#### Inventário AGENTES-REALTIME.3 (levantado em 2026-10-23, só leitura)
+
+**Produtor das rotas:** `dashboard/servidor.py` (`do_GET`, linha 44: mapa de rotas; `rota_agentes` 61-66; `rota_projetos` 68-70), apoiado em `dashboard/quadro_tarefas.py` (`ler_quadro`, `listar_projetos`, `caminho_do_quadro`) e `dashboard/config_graphs.py` (`PROJETO_PADRAO`, `INTERVALO_COLETA_SEGUNDOS=10`, `atraso_agentes()` ← `ATRASO_AGENTES` do `.env`, padrão 30).
+
+**Consumidores (único fora do servidor é o front do `dashboard/`; nenhum outro projeto de `C:\fontes` chama as rotas):**
+
+| Arquivo | Linhas | O que faz com a rota |
+|---|---|---|
+| `dashboard/assets/js/config.js` | 4-6 | `ROTAS.agentes = '/api/agentes'` (constante) |
+| `dashboard/assets/js/api.js` | 16-19 | `lerAgentes(projeto)` → `GET /api/agentes?projeto=<pasta>` |
+| `dashboard/assets/js/agentes.js` | 14, 46-59, 77-98 | 1ª leitura + `setInterval(ler, intervalo*1000)`; usa `tarefas`, `intervalo`, `atraso_padrao`; mensagem de erro cita `servidor.py` e a rota (85-87) |
+| `dashboard/assets/js/menu.js` | 7-9, 53-66, 77 | `fetch('/api/projetos')` → `padrao`, `projetos[{id,nome}]`; fallback `PROJETOS_PADRAO` |
+| `dashboard/assets/js/agentes/fila-atrasada.js` | 14 | só comentário (`tarefas` "vindas de /api/agentes"); a lógica usa os campos das tarefas |
+| `dashboard/README.md` | 4, 37, 40 | documentação das rotas (alvo da .26/.27) |
+| `dashboard/index.html` | 17-18 | carrega `menu.js` e `agentes.js` (consumidores indiretos) |
+| `dashboard/.env.example` | 3 | `ATRASO_AGENTES=30` (origem de `atraso_padrao`) |
+
+**Tabela campo → nova origem (sem campo órfão):**
+
+| Campo (rota) | Quem lê hoje | Origem atual | Nova origem | Subtarefa |
+|---|---|---|---|---|
+| `tarefas[]` (`tarefa`, `titulo`, `pai`, `mae`, `nivel`, `status`, `agente`, `desde`, `progresso`, `global`, `indice`) — `/api/agentes` | `agentes.js` (cena, fila, HUD via `cena-agentes.js`, `fila-atrasada.js`, `hud-agentes.js`, `personagens.js`) | `quadro_tarefas.ler_quadro` lê `tasks/STATUS.md` do disco | **Canal Broadcast `quadro:<projeto>`, evento `estado`** (031.1/.2/.3), mesmos 11 campos (R2.1). Estado inicial e reconexão: `STATUS.md` do **GitHub raw** lido por parser JS (.5, porta de `quadro_tarefas.py`; paridade .6) | .4, .5, .6, .8, .9, .15, .18 |
+| `atualizado_em` — `/api/agentes` | **nenhum** (só devolvido; `agentes.js` não lê) | `st_mtime` do arquivo | Substituído por `publicado_em` + `commit` + `sequencia` no payload do canal (031.1; R3.2 descarta `sequencia` ≤ atual). Fallback raw: hora do `fetch`. Pode ser descartado na página | .4, .14, .18 |
+| `projeto` — `/api/agentes` | **nenhum** (só devolvido; a página já sabe o `?projeto=` da URL, `agentes.js` linha 14) | eco do parâmetro | Nome do canal `quadro:<projeto>` (e campo `projeto` no payload, por conferência). Valor vem da URL, como hoje | .4, .15 |
+| `atraso_padrao` — `/api/agentes` | `agentes.js` 94 → `ligarAtraso(padrao, ...)` (HUD) | `ATRASO_AGENTES` do `.env` (padrão 30) | **Constante em `assets/js/config.js`** (`ATRASO_PADRAO_SEGUNDOS = 30`); o seletor na tela já guarda o valor do usuário. `.env` deixa de ser lido (se a pergunta 4-a, `.env` aposentado na .21) | .15, .22 |
+| `intervalo` — `/api/agentes` | `agentes.js` 58 (`setInterval`) | `INTERVALO_COLETA_SEGUNDOS = 10` | Some do fluxo normal (sem `setInterval`, .15). Fica só como constante `INTERVALO_FALLBACK_SEGUNDOS` no `config.js` para o fallback de 10 s (031.4) e o GitHub raw a cada 30 s (.19) | .15, .19 |
+| `padrao` — `/api/projetos` | `menu.js` 53-55 (projeto marcado quando a URL não traz `?projeto`) | `PROJETO_PADRAO` = nome da pasta pai do dashboard (`rules-ai`) | Campo `padrao` do **`projetos.json` estático** (versionado, ao lado do dashboard); hoje `PROJETOS_PADRAO.padrao = 'rules-ai'` já existe no `menu.js` | .4, .7, .16 |
+| `projetos[{id,nome}]` — `/api/projetos` | `menu.js` 53-56, 60-62 | varredura de `C:\fontes` (`listar_projetos`: pastas com `tasks/STATUS.md`, sem `DEMAIS-PROJETOS-*` e sem `.`) | **`projetos.json` estático**, gerado por script na publicação (varredura fica fora do navegador), só `rules-ai` por ora (pergunta 3-a), com guarda anti-`DEMAIS-PROJETOS-*` (INV-2). `nome` = `nome_do_projeto` (gerado no script, não no front) | .4, .7, .9, .16 |
+| Erro `{"erro": ...}` + HTTP 400/404 (`executar`, `caminho_do_quadro`: projeto sem quadro / quadro ausente) | `api.js` 7 (`dados.erro`), `agentes.js` 85-90 | `ValueError` no servidor | Projeto fora de `projetos.json` → aviso na página; canal sem mensagem/`fetch` raw falho → estado "reconectando/offline" (.17); texto de `agentes.js` 86-87 (reiniciar `servidor.py`) é reescrito | .15, .17, .19 |
+| Servidor em si (`servidor.py`, `config_graphs.py`, `.env`) | — | — | Aposentados (pergunta 4-a): basta `python -m http.server` | .20, .21, .22 |
+
+**Conclusões / pendências para o líder:**
+1. `atualizado_em` e `projeto` não têm leitor no front: não são órfãos de verdade, mas a .4 deve decidir se mantém no contrato (recomendado: manter `projeto`/`publicado_em`/`sequencia`/`commit`, descartar `atualizado_em`).
+2. `intervalo` e `atraso_padrao` viram constantes do `config.js` (não vêm mais do servidor); decisão de nomes na .15/.22.
+3. O contrato do canal da 031.1 ainda não foi fechado (reserva parada); a coluna "Nova origem" assume os nomes da 031 (`quadro:<projeto>`, evento `estado`, `commit`, `publicado_em`) e a `sequencia` desta etapa (R3.2).
+4. `ROTAS.agentes` em `config.js` e `ROTA_PROJETOS` em `menu.js` devem sair; `INV-5` cobre links locais quebrados depois.
 
 ### AGENTES-REALTIME.4 — Contrato do canal estendido: lista de projetos, metadados e versão
 
