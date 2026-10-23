@@ -560,7 +560,7 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.18 — Reconexão com estado completo e descarte de mensagem fora de ordem
 
-**Próximo passo:** esperar AGENTES-REALTIME.14, AGENTES-REALTIME.15.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -569,6 +569,8 @@ usuário decide ao cadastrar.
 - **Descrição:** Ao reconectar, ler o estado inicial de novo e aplicar só mensagens com `sequencia` maior que a atual.
 - **Critérios de Aceitação:** Leitura do código: reconectar não duplica nem perde animação.
 - **Depende de:** AGENTES-REALTIME.14, AGENTES-REALTIME.15
+- **Entrega:** `dashboard/assets/js/agentes/canal.js` — o estado da assinatura virou um objeto (`ultima`, `geracao`, `caiu`); ao voltar de uma queda, `reler()` busca o estado completo do GitHub raw e **só o aplica se a `geracao` não mudou** (se chegou mensagem do canal enquanto a leitura estava a caminho, a leitura é descartada e a `ultima` nunca é zerada); a validação ganhou os itens 3, 4 e 6 da lista da `.10` — `CAMPOS_ENVELOPE` (9 chaves), `CAMPOS_TAREFA` (11 chaves), chave extra reprova a mensagem inteira, tipos conferidos (`sequencia` inteiro, `mae`/`global` booleanos, texto ≤ 500), `commit` com 40 hexadecimais. `agentes.js` não precisou mudar (`criarAplicador` compara retratos, então reaplicar o mesmo estado gera diferença vazia). Commit desta entrega. Feito por sn1 (Sonnet 5.5, herdr w2:pZ, conta D).
+- **Verificação:** `node --input-type=module --check` ok; harness fora do repositório (pasta da sessão) com o `mensagemValida` real contra o payload real do `publicar_quadro.py --simular`: 10 casos, todos como esperado — payload real com `sequencia` 412 **aceito**; `sequencia` igual ou menor **descartada** (R3.2); chave extra no envelope, chave extra na tarefa, `commit` fora de 40 hex, `projeto` errado, `versao` desconhecida, texto acima de 500 e `mae` não booleano **descartados**. Conferido também que o envelope do publicador tem exatamente as 9 chaves e as tarefas exatamente os 11 campos, com `mae`/`global` booleanos, `progresso` inteiro ou nulo e maior texto de 157 caracteres (conferido pelo líder). Nota: no `--simular` a `sequencia` é 0 de propósito (contrato da `.4`), por isso ela só é aceita a partir de 1, como no Actions.
 
 ### AGENTES-REALTIME.19 — Fallback sem Supabase e sem servidor (GitHub raw a cada 30 s)
 

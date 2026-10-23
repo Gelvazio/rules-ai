@@ -3,14 +3,58 @@
 import { CANAL } from '../config.js';
 import { lerQuadro } from './quadro.js';
 
-const CAMPOS_TEXTO = ['projeto'];
+const CAMPOS_ENVELOPE = Object.freeze(['versao', 'projeto', 'atualizado_em', 'atraso_padrao',
+  'intervalo', 'commit', 'publicado_em', 'sequencia', 'tarefas']);
+const CAMPOS_TAREFA = Object.freeze(['tarefa', 'titulo', 'pai', 'mae', 'nivel', 'status',
+  'agente', 'desde', 'progresso', 'global', 'indice']);
+const CAMPOS_TEXTO_TAREFA = Object.freeze(['tarefa', 'titulo', 'pai', 'nivel', 'status',
+  'agente', 'desde']);
+const CAMPOS_TEXTO_ENVELOPE = Object.freeze(['atualizado_em', 'publicado_em']);
+const CAMPOS_INTEIROS = Object.freeze(['atraso_padrao', 'intervalo']);
+const LIMITE_TEXTO = 500;
+const PADRAO_COMMIT = /^[0-9a-f]{40}$/i;
 
+/** Só chaves permitidas: uma chave extra reprova o objeto inteiro. */
+function soChavesPermitidas(objeto, permitidas) {
+  return Object.keys(objeto).every((chave) => permitidas.includes(chave));
+}
+
+/** Texto curto, ou ausente (null/undefined). */
+function textoValido(valor) {
+  return valor === undefined || valor === null
+    || (typeof valor === 'string' && valor.length <= LIMITE_TEXTO);
+}
+
+/** Inteiro, ou ausente (null/undefined). */
+function inteiroOpcional(valor) {
+  return valor === undefined || valor === null || Number.isInteger(valor);
+}
+
+/** Tarefa com só os 11 campos do contrato, nos tipos certos. */
+function tarefaValida(tarefa) {
+  if (!tarefa || typeof tarefa !== 'object' || Array.isArray(tarefa)) return false;
+  return soChavesPermitidas(tarefa, CAMPOS_TAREFA)
+    && CAMPOS_TEXTO_TAREFA.every((campo) => textoValido(tarefa[campo]))
+    && typeof tarefa.mae === 'boolean' && typeof tarefa.global === 'boolean'
+    && inteiroOpcional(tarefa.progresso) && inteiroOpcional(tarefa.indice);
+}
+
+/** Envelope: versão, projeto, chaves permitidas, tipos e commit de 40 hexadecimais. */
+function envelopeValido(carga) {
+  return carga.versao === CANAL.versaoContrato
+    && carga.projeto === CANAL.projeto
+    && soChavesPermitidas(carga, CAMPOS_ENVELOPE)
+    && Number.isInteger(carga.sequencia)
+    && CAMPOS_INTEIROS.every((campo) => inteiroOpcional(carga[campo]))
+    && CAMPOS_TEXTO_ENVELOPE.every((campo) => textoValido(carga[campo]))
+    && typeof carga.commit === 'string' && PADRAO_COMMIT.test(carga.commit);
+}
+
+/** Mensagem do canal aceita? Qualquer falha descarta em silêncio (sem expor o conteúdo). */
 function mensagemValida(carga, ultimaSequencia) {
-  if (!carga || typeof carga !== 'object') return false;
-  if (carga.versao !== CANAL.versaoContrato) return false;
-  if (CAMPOS_TEXTO.some((campo) => carga[campo] !== CANAL.projeto)) return false;
-  if (!Number.isInteger(carga.sequencia) || carga.sequencia <= ultimaSequencia) return false;
-  return Array.isArray(carga.tarefas);
+  if (!carga || typeof carga !== 'object' || Array.isArray(carga)) return false;
+  if (!envelopeValido(carga) || carga.sequencia <= ultimaSequencia) return false;
+  return Array.isArray(carga.tarefas) && carga.tarefas.every(tarefaValida);
 }
 
 /** Estado inicial lido do STATUS.md público, no mesmo formato da mensagem (sequência 0). */
@@ -35,14 +79,29 @@ async function assinar(aoMensagem, aoAviso, aoConexao) {
 }
 
 /**
- * Entrega o estado inicial (ou usa `inicial`, já lido) e, havendo chave publicável, aplica cada mensagem do canal.
+ * Relê o estado completo depois de uma reconexão. Não toca na sequência e descarta a leitura se
+ * chegou mensagem do canal enquanto ela estava a caminho (o estado do canal é mais novo).
+ */
+async function reler(estado, aoEstado, aoAviso) {
+  const geracao = estado.geracao;
+  try {
+    const completo = await lerEstadoInicial();
+    if (geracao === estado.geracao) aoEstado(completo);
+  } catch (erro) {
+    aoAviso(`Releitura do estado indisponível: ${erro.message}`);
+  }
+}
+
+/**
+ * Entrega o estado inicial (ou usa `inicial`, já lido) e, havendo chave publicável, aplica cada
+ * mensagem do canal com `sequencia` maior que a última. Ao voltar de uma queda, relê o estado.
  * Falha em qualquer etapa vira aviso; nunca lança.
  * @returns {Promise<object|null>} Cliente do Supabase, ou null sem chave/sem canal.
  */
 export async function iniciarCanal({
   aoEstado, aoAviso = () => {}, aoConexao = () => {}, inicial = null,
 }) {
-  let ultima = 0;
+  const estado = { ultima: 0, geracao: 0, caiu: false };
   if (!inicial) {
     try {
       aoEstado(await lerEstadoInicial());
@@ -52,12 +111,18 @@ export async function iniciarCanal({
   }
   if (!CANAL.chavePublicavel) return null;
   const aplicar = (carga) => {
-    if (!mensagemValida(carga, ultima)) return;
-    ultima = carga.sequencia;
+    if (!mensagemValida(carga, estado.ultima)) return;
+    estado.ultima = carga.sequencia;
+    estado.geracao += 1;
     aoEstado(carga);
   };
+  const conexao = (conectado) => {
+    if (conectado && estado.caiu) reler(estado, aoEstado, aoAviso);
+    estado.caiu = !conectado;
+    aoConexao(conectado);
+  };
   try {
-    return await assinar(aplicar, aoAviso, aoConexao);
+    return await assinar(aplicar, aoAviso, conexao);
   } catch (erro) {
     aoAviso(`Canal indisponível: ${erro.message}`);
     return null;
