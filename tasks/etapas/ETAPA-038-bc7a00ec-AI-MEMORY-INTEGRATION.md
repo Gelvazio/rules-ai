@@ -259,7 +259,7 @@
 
 ### AI-MEMORY-INTEGRATION.13 — Script de auditoria: conferir que nada de `ignore_paths` entrou no wiki da memória
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -270,7 +270,8 @@
 - **Arquivos:** `scripts/ai-memory-auditar.mjs`
 - **Critérios de Aceitação:** Sai com código 1 se achar `.env`, chave, CPF, `tasks/` ou pasta `DEMAIS-PROJETOS-*` nas páginas.
 - **Depende de:** AI-MEMORY-INTEGRATION.4, AI-MEMORY-INTEGRATION.6
-- **Verificação:** a preencher na entrega.
+- **Entrega:** scripts/ai-memory-auditar.mjs (commit desta entrega), feito por w-a13 (Sonnet 5.5, herdr w2:pS, conta B).
+- **Verificação:** node --check ok; wiki real: 4 páginas, 0 achados, código 0; pasta temporária com tasks/STATUS.md, .env e CPF: 3 achados, código 1. Pendência: o caminho no aviso sai cortado no início (só texto); a detecção é por regex e não cobre todos os padrões do ignore_paths (a .14 amplia). Conferido pelo líder.
 
 ### AI-MEMORY-INTEGRATION.14 — Teste de invariante: o `ignore_paths` nunca deixa vazar caminho proibido
 
