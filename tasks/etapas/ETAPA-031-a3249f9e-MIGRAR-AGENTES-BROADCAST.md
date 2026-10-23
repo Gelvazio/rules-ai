@@ -304,7 +304,7 @@ canal
 
 ### MIGRAR-AGENTES-BROADCAST.3 — Página assina o canal e recebe o estado inicial
 
-**Próximo passo:** em `assets/js/agentes.js`, buscar o estado inicial no GitHub raw e assinar `quadro:rules-ai` com a chave publicável; aplicar a mensagem na tela sem recarregar.
+**Próximo passo:** nenhum — entregue.
 - **Nível:** MEDIO — código com lógica em 2 arquivos.
 - **Modelo:** só Sonnet — nunca outro.
 - **Effort:** medium
@@ -312,7 +312,8 @@ canal
 - **Descrição:** trocar a consulta periódica pelo canal; manter o atraso de animação (`ATRASO_AGENTES`); a chave publicável fica em `assets/js/config.js`.
 - **Arquivos:** `dashboard/assets/js/agentes.js`, `dashboard/assets/js/config.js`.
 - **Critérios de Aceitação:** sem a chave secreta em nenhum arquivo (R3.1); tela atualiza com a mensagem; sem erro de sintaxe.
-- **Verificação:** `node --check dashboard/assets/js/agentes.js`; `grep` por `service_role` e `sb_secret` em `dashboard/` vazio. Teste na tela: aviso ao usuário (não abrir navegador).
+- **Entrega:** dashboard/assets/js/agentes/canal.js (iniciarCanal e lerEstadoInicial pelo GitHub raw com o leitor quadro.js), constante CANAL em dashboard/assets/js/config.js (chave publicável vazia por enquanto) e ligação em dashboard/assets/js/agentes.js (commit desta entrega), feito por sn1 (Sonnet 5.5, herdr w2:pZ, conta D).
+- **Verificação:** node --check ok nos 3 arquivos; canal.js e api.js importados no Node; com a chave vazia iniciarCanal devolve null sem erro; git grep de service_role/sb_secret_ vazio (conferido pelo líder). Pendências: preencher CANAL.chavePublicavel (usuário); conferência na tela (AGENTES-REALTIME.29); o setInterval e /api/agentes saem na AGENTES-REALTIME.15.
 - **Estimativa:** 2 h.
 - **JEV-AI-SUGGESTION:** NAO
 
