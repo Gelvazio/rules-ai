@@ -36,6 +36,7 @@
 - 2026-10-23: achado da .5 para a .8: nem o ai-memory nem o Claude Code documentam a ordem de execução entre hooks do mesmo evento; a .8 deve medir a ordem na prática (e não presumir) e tratar o fato de o aulasenai ter inicio-da-sessao.js antes do sessao.mjs.
 - 2026-10-23: achado da .30: apenas o Claude Code aceita --scope project; nas demais IAs o hook fica global e, sem .ai-memory.toml, o repositório é capturado por padrão. Aberta a subtarefa .36 (decisão do usuário) e as .31, .32 e .33 passam a depender dela.
 - 2026-10-23 11:02: **decisão A da .36 (usuário): captura só no Claude Code por enquanto; Codex, Gemini, Devin, Antigravity, Kimi, OpenCode e DeepSeek ficam sem captura até nova ordem.** Isso substitui a resposta 6 (todas as IAs). Canceladas: .31, .32, .33 (hooks nas outras IAs) e .17 (ensaio Claude → Codex, que precisaria do hook no Codex). A .34 passa a auditar só o Claude Code; a .25 não depende mais da .17. Reabrir as outras IAs exige nova tarefa, já com a matriz da .30 (`docs/AI-MEMORY-HOOKS-POR-IA.md`) pronta.
+- 2026-10-23: a pedido do usuário, abertas as subtarefas pendentes .37 a .41 para usar hooks em **todas** as IAs depois do piloto do Claude Code (a decisão A da .36 vale até lá). A .37 é do usuário: escolher o modo de captura (allowlist recomendado). Não altera a decisão A.
 
 ### Requisitos
 
@@ -604,3 +605,74 @@
 - **Critérios de Aceitação:** uma opção escolhida e registrada em Decisões da etapa.
 - **Depende de:** Nenhuma
 - **Verificação:** decisão A registrada pelo usuário em 2026-10-23 11:02 (captura só do Claude Code por enquanto).
+
+### AI-MEMORY-INTEGRATION.37 — Escolher o modo de captura das outras IAs (allowlist recomendado) e liberar o uso de hooks em todas
+
+**Próximo passo:** o usuário escolhe o modo e libera as .38 a .40.
+
+- **Nível:** Usuário — só o usuário decide
+- **Modelo:** Usuário
+- **Effort:** — (decisão do usuário)
+- **Descrição:** O usuário quer hooks em todas as IAs. A .30 mostrou que só o Claude Code tem escopo por projeto; nas outras o hook é global. Escolher: (B) `install-hooks --capture-mode allowlist`, que só captura repositórios com `.ai-memory.toml` (recomendado); ou (C) global sem filtro (não recomendado). Registrar a escolha em Decisões.
+- **Critérios de Aceitação:** Modo escolhido e registrado em Decisões da etapa.
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.38 — Hooks de captura no Codex e no Gemini CLI
+
+**Próximo passo:** Aguardando as dependências.
+
+- **Nível:** MEDIO — classificado (jev (confiança 0.80))
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.80)
+- **Descrição:** Aplicar o instalador nos dois harnesses, respeitando o gancho do Jev, o `codex_hooks` do Codex e o modo escolhido na .37.
+- **Arquivos:** `scripts/instalar-ai-memory.mjs`, `.codex/hooks.json`, configuração do Gemini CLI
+- **Critérios de Aceitação:** Os dois capturam no piloto; reexecução não duplica; nenhum hook bloqueia a mensagem; só repositórios com `.ai-memory.toml` são capturados (se a .37 escolher allowlist).
+- **Depende de:** AI-MEMORY-INTEGRATION.7, AI-MEMORY-INTEGRATION.37
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.39 — Hooks de captura no Devin e no Antigravity (com `finalize-session`)
+
+**Próximo passo:** Aguardando as dependências.
+
+- **Nível:** MEDIO — classificado (jev (confiança 0.85))
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.85)
+- **Descrição:** Aplicar nos dois e documentar o fechamento explícito do Antigravity (`ai-memory finalize-session --agent antigravity-cli`).
+- **Arquivos:** `scripts/instalar-ai-memory.mjs`, `docs/AI-MEMORY-HOOKS-POR-IA.md`
+- **Critérios de Aceitação:** Os dois capturam; a sessão do Antigravity é fechada pelo comando; resultado registrado.
+- **Depende de:** AI-MEMORY-INTEGRATION.7, AI-MEMORY-INTEGRATION.37
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.40 — Hooks de captura no Kimi Code, no OpenCode e no DeepSeek (DSH)
+
+**Próximo passo:** Aguardando as dependências.
+
+- **Nível:** MEDIO — classificado (jev (confiança 0.85))
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** SIM
+- **Fonte:** jev (confiança 0.85)
+- **Descrição:** Aplicar nos três e conferir como o DeepSeek entra (harness DSH, `install-hooks --agent dsh`).
+- **Arquivos:** `scripts/instalar-ai-memory.mjs`, `docs/AI-MEMORY-HOOKS-POR-IA.md`
+- **Critérios de Aceitação:** Kimi, OpenCode e DSH capturam; o fechamento manual do DSH está documentado.
+- **Depende de:** AI-MEMORY-INTEGRATION.7, AI-MEMORY-INTEGRATION.37
+- **Verificação:** a preencher na entrega.
+
+### AI-MEMORY-INTEGRATION.41 — Auditoria de captura das outras IAs: respeitam `ignore_paths` e não vazam segredo
+
+**Próximo passo:** Aguardando as dependências.
+
+- **Nível:** PESADO — classificado (sinais)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Fonte:** sinais
+- **Descrição:** Rodar a auditoria e o teste de invariante com eventos de Codex, Gemini, Devin, Antigravity, Kimi, OpenCode e DSH. Confirmar o `ignore_paths` em Gemini, Devin e DSH, que a .30 deixou como não confirmado.
+- **Arquivos:** `scripts/ai-memory-auditar.mjs`, `scripts/testes/ai-memory-invariantes.mjs`
+- **Critérios de Aceitação:** Nenhuma IA grava caminho proibido nem segredo; os 3 pontos 'não confirmado' da .30 resolvidos.
+- **Depende de:** AI-MEMORY-INTEGRATION.13, AI-MEMORY-INTEGRATION.14, AI-MEMORY-INTEGRATION.38, AI-MEMORY-INTEGRATION.39, AI-MEMORY-INTEGRATION.40
+- **Verificação:** a preencher na entrega.
