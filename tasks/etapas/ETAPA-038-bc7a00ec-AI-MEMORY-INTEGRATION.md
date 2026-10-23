@@ -313,7 +313,7 @@
 
 ### AI-MEMORY-INTEGRATION.16 — Piloto no `aulasenai` (pasta base): marker e hooks
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -324,7 +324,8 @@
 - **Arquivos:** `aulasenai/.ai-memory.toml`, `aulasenai/.claude/settings.json`
 - **Critérios de Aceitação:** Sessão no piloto cria observações; auditoria sem achados; `rules-local` intacto.
 - **Depende de:** AI-MEMORY-INTEGRATION.4, AI-MEMORY-INTEGRATION.8, AI-MEMORY-INTEGRATION.12, AI-MEMORY-INTEGRATION.35
-- **Verificação:** a preencher na entrega.
+- **Entrega:** aulasenai: .ai-memory.toml (project gelvazio-aulasenai) e hooks SessionStart e PostToolUse do ai-memory no .claude/settings.json, depois do sessao.mjs (commit 26791e98 no aulasenai), feito por w-a21 (Haiku 5.5, herdr w2:pT, conta B).
+- **Verificação:** reexecução do instalador sem mudança; sessão claude -p no aulasenai: doctor mostra claude-code "3 captured", projeto gelvazio-aulasenai criado (observações não abertas); auditoria: 5 páginas, 0 achados; sem UserPromptSubmit do ai-memory (só o do Jev); JSON válido (conferido pelo líder). rules-local: o sessao.mjs da sessão de teste atualizou para a versão a7fe983a (1 mudado: memoria-ai.md), o que confirma que a regra chega pelo pacote; nada foi quebrado. Pendências: o usuário precisa confiar a pasta aulasenai no Claude (as permissions.allow foram ignoradas no claude -p); 2 eventos presos no spool do ai-memory; a sincronização de tasks do rules-local (C36) fica para a próxima sessão do aulasenai.
 
 ### AI-MEMORY-INTEGRATION.17 — Ensaio de retomada: sair do Claude Code e continuar no Codex no piloto (aulasenai)
 
