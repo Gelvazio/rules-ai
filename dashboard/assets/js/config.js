@@ -1,9 +1,10 @@
 // Constantes da página Agentes ao vivo (sem lógica).
 
-/** Rotas do servidor local (servidor.py). */
-export const ROTAS = Object.freeze({
-  agentes: '/api/agentes',
-});
+/** Atraso padrão da animação dos agentes, em segundos (o seletor da tela guarda a escolha). */
+export const ATRASO_PADRAO_SEGUNDOS = 30;
+
+/** Intervalo da leitura de reserva pelo GitHub raw quando o canal está fora, em segundos. */
+export const INTERVALO_FALLBACK_SEGUNDOS = 10;
 
 /**
  * Canal de Broadcast do Supabase (MIGRAR-AGENTES-BROADCAST.3).

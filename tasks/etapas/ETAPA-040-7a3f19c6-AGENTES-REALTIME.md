@@ -519,7 +519,7 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.15 — Página sem o `setInterval` do servidor
 
-**Próximo passo:** reservada em 2026-10-23 14:15 para sn1 (Sonnet 5.5, herdr w2:pZ): tirar `lerAgentes`/`ROTAS.agentes` do fluxo, mover `atraso_padrao`/`intervalo` para constantes do `config.js` e reescrever a mensagem de erro que manda reiniciar o `servidor.py`.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -528,6 +528,8 @@ usuário decide ao cadastrar.
 - **Descrição:** Em `agentes.js`, tirar a consulta a cada 10 s à rota local; `atraso_padrao` e `intervalo` passam a vir do `config.js` e do canal.
 - **Critérios de Aceitação:** `agentes.js` não chama `lerAgentes` em laço; `node --check`.
 - **Depende de:** MIGRAR-AGENTES-BROADCAST.3, AGENTES-REALTIME.3
+- **Entrega:** `dashboard/assets/js/config.js` troca `ROTAS` pelas constantes `ATRASO_PADRAO_SEGUNDOS` (30) e `INTERVALO_FALLBACK_SEGUNDOS` (10); `dashboard/assets/js/api.js` **apagado** (só tinha `lerAgentes`, virou código morto); `dashboard/assets/js/agentes.js` sem o import de `api.js`, com o GitHub raw como única fonte, o intervalo do `vigiarQuadro` vindo da constante, aviso quando o `?projeto=` não é o publicado e a mensagem de erro sem citar o `servidor.py` (commit desta entrega). Feito por sn1 (Sonnet 5.5, herdr w2:pZ, conta D).
+- **Verificação:** `node --input-type=module --check` passa em `agentes.js` e `config.js`; `git grep -n "/api/agentes\|/api/projetos\|api\.js\|lerAgentes" -- dashboard/assets dashboard/index.html` vazio; as 4 linhas acima de 100 caracteres já existiam no `HEAD` anterior (conferido com `git show HEAD:…`), nenhuma nova (conferido pelo líder). O intervalo de 30 s do fallback é da `.19`; a conferência na tela é do usuário (`.29`).
 
 ### AGENTES-REALTIME.16 — Menu de projetos lê o `projetos.json`
 

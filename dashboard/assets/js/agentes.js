@@ -2,8 +2,7 @@
 // mudanças numa fila e só as anima na cena 3D depois do atraso escolhido.
 import * as THREE from 'three';
 import { CSS2DRenderer } from 'three/addons/renderers/CSS2DRenderer.js';
-import { lerAgentes } from './api.js';
-import { CANAL } from './config.js';
+import { ATRASO_PADRAO_SEGUNDOS, CANAL, INTERVALO_FALLBACK_SEGUNDOS } from './config.js';
 import { iniciarCanal, lerEstadoInicial } from './agentes/canal.js';
 import { montarCenaAgentes } from './agentes/cena-agentes.js';
 import { compararRetratos, criarFila, indexar } from './agentes/fila-atrasada.js';
@@ -12,11 +11,14 @@ import { ajustarTamanho, criarBase } from './visualizador.js';
 
 const $ = (id) => document.getElementById(id);
 const reduzirMovimento = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-/** Projeto escolhido no menu de projetos (?projeto=<pasta>); vazio = padrão do servidor. */
+/** Projeto escolhido no menu de projetos (?projeto=<pasta>); vazio = o publicado no canal. */
 const PROJETO = new URLSearchParams(window.location.search).get('projeto') ?? '';
 
-/** Valores que o GitHub raw não traz (iguais aos do servidor: atraso 30 s, coleta a cada 10 s). */
-const PADROES_RAW = Object.freeze({ atraso_padrao: 30, intervalo: 10 });
+/** Valores que o GitHub raw não traz (atraso e coleta do fallback). */
+const PADROES_RAW = Object.freeze({
+  atraso_padrao: ATRASO_PADRAO_SEGUNDOS,
+  intervalo: INTERVALO_FALLBACK_SEGUNDOS,
+});
 /** Tempo com o canal caído antes de voltar ao polling (R2.3). */
 const ATRASO_QUEDA_MS = 30000;
 
@@ -61,7 +63,7 @@ function criarAplicador(primeiro, fila) {
 }
 
 /** Lê o quadro pela fonte da abertura, a cada intervalo; liga e desliga sob demanda. */
-function vigiarQuadro(primeiro, aplicar, fila, fonte) {
+function vigiarQuadro(aplicar, fila, fonte) {
   const ler = async () => {
     try {
       aplicar(await fonte());
@@ -72,7 +74,7 @@ function vigiarQuadro(primeiro, aplicar, fila, fonte) {
   let timer = null;
   return {
     iniciar() {
-      if (timer === null) timer = window.setInterval(ler, primeiro.intervalo * 1000);
+      if (timer === null) timer = window.setInterval(ler, INTERVALO_FALLBACK_SEGUNDOS * 1000);
     },
     parar() {
       window.clearInterval(timer);
@@ -102,7 +104,7 @@ function criarFallback(vigia) {
   };
 }
 
-/** Sem canal (sem chave ou raw indisponível) o polling fica ligado; com canal, só no fallback. */
+/** Sem chave publicável o polling fica ligado; com canal, só no fallback. */
 async function ligarCanal(aplicar, primeiro, vigia) {
   if (!CANAL.chavePublicavel) return vigia.iniciar();
   const aoConexao = criarFallback(vigia);
@@ -113,18 +115,14 @@ async function ligarCanal(aplicar, primeiro, vigia) {
   if (!cliente) vigia.iniciar();
 }
 
-/** Estado inicial pelo GitHub raw (projeto do canal) ou, se falhar, pelo servidor local. */
+/** Estado inicial pelo GitHub raw, a única fonte; só o projeto do canal é publicado. */
 async function lerPrimeiro() {
-  if (!PROJETO || PROJETO === CANAL.projeto) {
-    try {
-      const fonte = async () => ({ ...PADROES_RAW, ...(await lerEstadoInicial()) });
-      return { primeiro: await fonte(), fonte, raw: true };
-    } catch (erro) {
-      avisar(`GitHub raw indisponível (${erro.message}); usando o servidor local.`);
-    }
+  if (PROJETO && PROJETO !== CANAL.projeto) {
+    avisar(`Só o projeto "${CANAL.projeto}" é publicado hoje; `
+      + `mostrando-o no lugar de "${PROJETO}".`);
   }
-  const fonte = () => lerAgentes(PROJETO);
-  return { primeiro: await fonte(), fonte, raw: false };
+  const fonte = async () => ({ ...PADROES_RAW, ...(await lerEstadoInicial()) });
+  return { primeiro: await fonte(), fonte };
 }
 
 function animar(base, cenaAgentes, fila) {
@@ -151,22 +149,17 @@ async function iniciar() {
   try {
     leitura = await lerPrimeiro();
   } catch (erro) {
-    if (erro instanceof TypeError || /404/.test(erro.message)) {
-      throw new Error('abra pelo servidor local (python dashboard/servidor.py); '
-        + 'se ele já estava rodando, reinicie-o para ganhar a rota /api/agentes.');
-    }
-    throw erro;
+    throw new Error(`o quadro não pôde ser lido do GitHub (${erro.message}); confira a rede.`);
   }
-  const { primeiro, fonte, raw } = leitura;
+  const { primeiro, fonte } = leitura;
   const cenaAgentes = montarCenaAgentes(base.cena, { reduzir });
   cenaAgentes.sincronizar(primeiro.tarefas);
   const fila = criarFila(0);
   fila.definirAtraso(ligarAtraso(primeiro.atraso_padrao, (segundos) => fila.definirAtraso(segundos)));
   marcarLeitura(0);
   const aplicar = criarAplicador(primeiro, fila);
-  const vigia = vigiarQuadro(primeiro, aplicar, fila, fonte);
-  if (raw) ligarCanal(aplicar, primeiro, vigia);
-  else vigia.iniciar();
+  const vigia = vigiarQuadro(aplicar, fila, fonte);
+  ligarCanal(aplicar, primeiro, vigia);
   animar(base, cenaAgentes, fila);
 }
 
