@@ -28,7 +28,7 @@
 ### Perguntas abertas
 
 - ✅ **P1.** Respondida em 2026-10-23: `LEVE` **e** `MEDIO` vão para o DeepSeek (R1 e R2).
-- ✅ **P2.** Respondida em 2026-10-23: limite de **US$ 2 por dia** (R3). O limite por chamada (tokens) não foi respondido: o executor da .4 propõe o valor e o usuário confirma antes de gravar.
+- ✅ **P2.** Respondida em 2026-10-23: limite de **US$ 2 por dia** e **2.000 tokens por chamada** (R3).
 - ✅ **P3.** Respondida em 2026-10-23: o cliente fica **só no `rules-ai`** (`scripts/deepseek/`).
 
 ### Riscos
@@ -41,7 +41,8 @@
 
 - 2026-10-23: tarefa criada a pedido do usuário; plano aguarda o "sim" dele; nenhuma subtarefa reservada.
 - 2026-10-23: **plano aprovado pelo usuário** ("Aprovo o plano da INTEGRACAO-DEEPSEEK").
-- 2026-10-23: **P1** — `LEVE` e `MEDIO` vão para o DeepSeek. **P2** — limite de **US$ 2 por dia**; por chamada, a definir (ver P2). **P3** — cliente só no `rules-ai`.
+- 2026-10-23: **P1** — `LEVE` e `MEDIO` vão para o DeepSeek. **P2** — limite de **US$ 2 por dia** e **2.000 tokens por chamada**. **P3** — cliente só no `rules-ai`.
+- 2026-10-23: limite por chamada (2.000 tokens) respondido pelo usuário; a `.4` deve gravá-lo como `DEEPSEEK_MAX_TOKENS`.
 - 2026-10-23: a `.1` foi concluída; a `.2` (PESADO) está livre para o modelo dela (Sonnet, Opus 5.5+/Fable ou DeepSeek). Este registro não reserva nada.
 
 ### INTEGRACAO-DEEPSEEK.1 — Responder P1, P2 e P3 (decisões do usuário)
