@@ -66,6 +66,9 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | JEV-GRAVA-NIVEL.2 | CLI `classificar --gravar` e gravador | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GRAVA-NIVEL.1 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
 | JEV-GRAVA-NIVEL.3 | Sincronizar, STATUS_PROJETO e rollback | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GRAVA-NIVEL.2, JEV-GRAVA-NIVEL.4 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
 | JEV-GRAVA-NIVEL.4 | Python que marca `JEV-AI-SUGGESTION: NAO` em todas as subtarefas | 🟠 Alta | PESADO · só Opus 5.5+/Fable ou DeepSeek · effort high | JEV-GRAVA-NIVEL.1 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
+| **UPDATE-TODAS-PASTAS** | **`scripts/UPDATE.py` atualiza todas as pastas de `C:ontes` (menos as ignoradas)** | 🟡 Média | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-037](etapas/ETAPA-037-7d41c0e9-UPDATE-TODAS-PASTAS.md) |
+| UPDATE-TODAS-PASTAS.1 | Trocar os prefixos por lista de exclusões em `UPDATE.py` · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | Nenhuma | ⬜ Pendente | — | [ETAPA-037](etapas/ETAPA-037-7d41c0e9-UPDATE-TODAS-PASTAS.md) |
+
 
 ## 🧭 Frentes de trabalho
 
