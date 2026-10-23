@@ -39,6 +39,7 @@
 - 2026-10-23: a pedido do usuário, abertas as subtarefas pendentes .37 a .41 para usar hooks em **todas** as IAs depois do piloto do Claude Code (a decisão A da .36 vale até lá). A .37 é do usuário: escolher o modo de captura (allowlist recomendado). Não altera a decisão A.
 - 2026-10-23 12:12: a .14 achou vazamento real no `ignore_paths` (formas da raiz); o líder abriu a .43 (correção + padrões da .20) e a .16 passou a depender dela.
 - 2026-10-23 12:14: a .35 achou que `MATERIAIS/` do aulasenai não está no `ignore_paths`; o líder ampliou os Arquivos da .35 para incluir `scripts/instalar-ai-memory.mjs` (só acrescentar `MATERIAIS/**` e `**/MATERIAIS/**`). A .34 ficou 👀: decisão do usuário sobre segredo digitado no prompt.
+- 2026-10-23 12:19: **o usuário decidiu (.34): opção A — não capturar `UserPromptSubmit` (o que se digita no prompt) no piloto; e tirar o hook global do ai-memory, deixando só o hook do projeto.** O líder fechou a .34 e abriu a .45 para aplicar; a .16 passou a depender da .45.
 - 2026-10-23 11:53: o usuário aceitou o token do ai-memory em `%LOCALAPPDATA%i-memoryuth-token` (arquivo fora do Git) no lugar da variável de ambiente pedida na .4; a .3 documenta essa forma. Também autorizou a equipe herdr: conta C, `--dangerously-skip-permissions`, Sonnet nas `PESADO` (.3, .13, .21).
 
 ### Requisitos
@@ -584,7 +585,7 @@
 
 ### AI-MEMORY-INTEGRATION.34 — Auditoria de captura do Claude Code: respeita `ignore_paths` e não vaza segredo
 
-**Próximo passo:** 👀 o usuário decide o que fazer com o segredo digitado no prompt (ver Anotação); depois, aplicar a decisão e fechar.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -595,7 +596,8 @@
 - **Arquivos:** `scripts/ai-memory-auditar.mjs`, `scripts/testes/ai-memory-invariantes.mjs`
 - **Critérios de Aceitação:** Nenhuma IA grava caminho proibido nem segredo; achados corrigidos antes dos clones.
 - **Depende de:** AI-MEMORY-INTEGRATION.13, AI-MEMORY-INTEGRATION.14
-- **Verificação:** a preencher na entrega.
+- **Entrega:** auditoria por `ai-memory hook --check-capture` (nenhum arquivo alterado), feita por w-a12 (Sonnet 5.5, herdr w2:pR, conta B); decisão do usuário em 2026-10-23 12:19.
+- **Verificação:** caminhos e comandos proibidos com `disposition=drop`; o único vazamento (segredo digitado no prompt, `user-prompt-submit` = keep) fica resolvido pela decisão A do usuário: o piloto não captura `UserPromptSubmit`. A aplicação no instalador é a .45.
 - **Anotação (2026-10-23 12:14, w-a12 Sonnet 5.5, herdr w2:pR):** `ai-memory hook --check-capture` com o marker do instalador numa pasta temporária: 9 caminhos proibidos e 3 comandos Bash com `disposition=drop` (até `ls src`: o Bash parece cair inteiro); `src/app.js` e `docs/x.md` ficam só com metadados; `post-tool-use` sobre `.env` também cai. **Achado:** `user-prompt-submit` com texto `sk-FAKE…` sai com `disposition=keep`: o ai-memory não filtra segredo digitado no prompt (o `ignore_paths` só cobre caminhos). Opções: (A) não ligar a captura de `UserPromptSubmit` no piloto; (B) aceitar o risco e contar com a auditoria periódica; (C) investigar redação própria do ai-memory. Nenhum arquivo alterado.
 
 ### AI-MEMORY-INTEGRATION.35 — Piloto no `aulasenai`: proteger `scripts/variaveis.js` (service_role) e dados de alunos antes de ligar
@@ -739,3 +741,17 @@
 - **Depende de:** AI-MEMORY-INTEGRATION.19
 - **Entrega:** VERSAO.md na versão 2026-10-23-a7fe983a (commit desta entrega; dist/ fora do Git), feito por w-a12 (Sonnet 5.5, herdr w2:pR, conta B).
 - **Verificação:** node scripts/sincronizar.mjs --aplicar; git diff da VERSAO.md (conferido pelo líder): só mudaram a versão (e9e33b9a -> a7fe983a) e o código de memoria-ai.md (67236a00849b5097 -> c9be07bdd8570bd9).
+
+### AI-MEMORY-INTEGRATION.45 — Aplicar as decisões do usuário: instalador sem `UserPromptSubmit` e tirar o hook global
+
+**Próximo passo:** mudar o `--hooks` do instalador para gravar só `SessionStart` e `PostToolUse`; tirar as entradas do ai-memory dos `settings.json` globais, com backup.
+
+- **Nível:** PESADO — configuração global de segurança (hooks da conta) e captura de segredo (aberta pelo líder, C26)
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** decisão do usuário em 2026-10-23 12:19: (1) o piloto não captura o prompt digitado: `scripts/instalar-ai-memory.mjs --hooks` deixa de gravar `UserPromptSubmit` do ai-memory (o do Jev continua); (2) tirar o hook global: remover só as entradas do ai-memory de `%USERPROFILE%\.claude\settings.json` e de qualquer `.claude-conta*\settings.json` que as tenha, com cópia `.bak`, sem tocar nos outros hooks.
+- **Arquivos:** `scripts/instalar-ai-memory.mjs`, `docs/AI-MEMORY-HOOKS.md`; fora do Git: `settings.json` globais (com `.bak`)
+- **Critérios de Aceitação:** `--dry-run --hooks` no aulasenai lista só `SessionStart` e `PostToolUse` e não diz mais "global já entrega"; nenhum `settings.json` global cita `ai-memory`; os outros hooks globais iguais ao `.bak`; teste de invariante sai 0.
+- **Depende de:** AI-MEMORY-INTEGRATION.34
+- **Verificação:** a preencher na entrega.
