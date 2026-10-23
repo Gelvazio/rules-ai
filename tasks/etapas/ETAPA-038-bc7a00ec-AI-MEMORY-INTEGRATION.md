@@ -34,6 +34,7 @@
 - 2026-10-23 10:57: esclarecimentos da conferência da .2: a decisão de 10:30 **substitui** a de 10:12 no alvo do rollout (fora: `rules-ai`, `ai-memory`, (sem Git) `CONSERTO-ELANTRA-2.0` e `DEMAIS-PROJETOS-*`); 'dashboard-ai' no Escopo = a pasta `DASHBOARD-AI-PRINCIPAL`; a pergunta 5 só fecha de vez com a .29; dependências corrigidas: a .35 (proteger dados) não espera mais a .16, e a .16 (piloto) passou a esperar a .35.
 - 2026-10-23: pergunta 5 fecha de vez com a .29: o TypeSafe/Jev NÃO serve para consolidar memória (só classifica por perguntas fechadas). O ai-memory segue sem LLM; qualquer provedor generativo futuro (Anthropic, OpenAI etc.) é decisão nova do usuário.
 - 2026-10-23: achado da .5 para a .8: nem o ai-memory nem o Claude Code documentam a ordem de execução entre hooks do mesmo evento; a .8 deve medir a ordem na prática (e não presumir) e tratar o fato de o aulasenai ter inicio-da-sessao.js antes do sessao.mjs.
+- 2026-10-23: achado da .30: apenas o Claude Code aceita --scope project; nas demais IAs o hook fica global e, sem .ai-memory.toml, o repositório é capturado por padrão. Aberta a subtarefa .36 (decisão do usuário) e as .31, .32 e .33 passam a depender dela.
 
 ### Requisitos
 
@@ -502,7 +503,7 @@
 
 ### AI-MEMORY-INTEGRATION.30 — Matriz de hooks por IA: o que cada harness captura e como fecha a sessão
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -513,7 +514,8 @@
 - **Arquivos:** `docs/AI-MEMORY-HOOKS-POR-IA.md`
 - **Critérios de Aceitação:** Quadro IA × eventos × fim de sessão × `ignore_paths`; IA sem hook marcada como tal.
 - **Depende de:** AI-MEMORY-INTEGRATION.5
-- **Verificação:** a preencher na entrega.
+- **Entrega:** docs/AI-MEMORY-HOOKS-POR-IA.md (quadro de 7 IAs: eventos, fim de sessão, escopo por projeto, ignore_paths; commit desta entrega)
+- **Verificação:** conferido por leitura dos hooks, de docs/install.md, ARCHITECTURE.md, marker-file.md e de install_hooks.rs (linha 645, onde --scope project é recusado para IAs que não são Claude Code). Resultado: escopo por projeto só no Claude Code; Codex, Gemini CLI, Devin, Antigravity, Kimi, OpenCode e DeepSeek (DSH) ficam na configuração global do usuário. ignore_paths: sim em Codex, Antigravity, Kimi e OpenCode; não confirmado em Gemini CLI, Devin e DSH. Feita pelo agente Haiku e conferida pelo líder.
 
 ### AI-MEMORY-INTEGRATION.31 — Hooks de captura no Codex e no Gemini CLI
 
