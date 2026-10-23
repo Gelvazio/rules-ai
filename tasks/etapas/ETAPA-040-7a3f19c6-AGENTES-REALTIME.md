@@ -346,7 +346,7 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 
 ### AGENTES-REALTIME.10 — Autorização do canal (público ou privado) conforme a pergunta 2
 
-**Próximo passo:** esperar AGENTES-REALTIME.1, AGENTES-REALTIME.4.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** PESADO — banco, segurança, segredo ou contrato entre várias partes
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -355,6 +355,66 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 - **Descrição:** Se privado: política em `realtime.messages` e login; se público: confirmar que só vai o que a pergunta 3 liberou e que a chave publicável não lê tabela alguma.
 - **Critérios de Aceitação:** Resposta da pergunta 2 aplicada; nenhuma tabela exposta.
 - **Depende de:** AGENTES-REALTIME.1, AGENTES-REALTIME.4
+- **Entrega:** texto da autorização do canal público (abaixo), feito por sn3 (Sonnet 5.5, herdr w2:p12, conta D).
+- **Verificação:** leitura do contrato da 031 (seções 1 a 7) e da 040; conferência do líder: nenhum .from(, .rpc( nem postgres_changes no JS do dashboard (só um Array.from em galhos.js, que não é do Supabase) e git grep de chave secreta vazio. Limite registrado: em canal público, mensagem bem-formada com sequencia alta não é barrada; o dano é só na tela até o próximo push.
+
+#### Autorização do canal (AGENTES-REALTIME.10)
+
+> Aplica a resposta **2-a** (canal público), fechada em 2026-10-23 13:09. Usa a seção 7 do contrato da
+> MIGRAR-AGENTES-BROADCAST.1 (ETAPA-031) e o contrato da AGENTES-REALTIME.4. Nenhuma tabela é criada.
+
+##### 1. O que "público" significa aqui
+
+| Item | Situação |
+|---|---|
+| Canais | `quadro:rules-ai` (evento `estado`) e `quadro:_indice` (evento `projetos`), sem `private: true` |
+| Quem ouve | qualquer um com a chave **publicável** `sb_publishable_…` (está no `config.js`, é pública por desenho) |
+| Quem envia | o publicador, com a chave **secreta** `sb_secret_…` (só no secret `SUPABASE_SECRET_KEY` do GitHub). **Porém**, em canal público a chave publicável também consegue enviar: a RLS só vale para canal privado |
+| Tabelas | **nenhuma** é criada nem lida. O Broadcast não grava nada; a chave publicável não dá acesso a tabela do `AULAS SENAI` por causa deste canal |
+| Conteúdo | só os campos de R2.1 de tarefas liberadas do `rules-ai`: o mesmo que já é público no GitHub (pergunta 3-a). Nada de `aulasenai` (dados pedagógicos) nem de `DEMAIS-PROJETOS-*` (INV-1, INV-2) |
+
+**Aceite:** a pergunta 2 está aplicada (público) e nenhuma tabela foi exposta. A conferência é por
+leitura: `git grep` de INV-3 vazio; nenhum `from(`/`.rpc(`/`postgres_changes` em `dashboard/assets/js`.
+
+##### 2. Como a página descarta mensagem falsa
+
+Como qualquer um pode enviar, a página trata toda mensagem como não confiável. Em `aplicarEstado`
+(e no equivalente de `projetos`), nesta ordem; qualquer falha **descarta em silêncio** (sem mexer na
+tela, sem erro visível, no máximo `console.debug` sem o conteúdo):
+
+1. `payload` é objeto e `versao` é a conhecida (`1`); outra versão é ignorada.
+2. `projeto` do payload é igual ao sufixo do canal e consta em `projetos.json` (para `projetos`: cada
+   `id` consta em `projetos.json`, não começa com `DEMAIS-PROJETOS-` nem com `.`).
+3. Só chaves permitidas: o envelope (`versao`, `projeto`, `atualizado_em`, `atraso_padrao`,
+   `intervalo`, `commit`, `publicado_em`, `sequencia`, `tarefas`) e os 11 campos de cada tarefa.
+   Chave extra faz descartar a mensagem inteira (não só a chave).
+4. Tipos certos: `sequencia`, `atraso_padrao`, `intervalo` e `progresso` inteiros; `mae` e `global`
+   booleanos; `tarefas` é lista; textos com tamanho razoável (ex.: ≤ 500 caracteres) e sempre
+   inseridos com `textContent`, **nunca** `innerHTML`.
+5. `sequencia` maior que a última aplicada **daquele canal** (R3.2). Mensagem repetida ou antiga cai aqui.
+6. `commit` com 40 caracteres hexadecimais (campo de conferência, não prova de origem).
+
+**Limite honesto:** estas regras barram lixo, canal errado, versão antiga e repetição, mas **não** barram
+um envio bem-formado com `sequencia` alta e tarefas inventadas; quem tem a chave publicável pode
+publicá-lo e a página o mostraria até o próximo push real. Mitigações já previstas, sem custo:
+a próxima publicação real do workflow tem `sequencia` do `GITHUB_RUN_NUMBER` e o estado é sempre o
+quadro inteiro (nunca diferença), e o estado inicial/reconexão volta do GitHub raw, que é a fonte
+de verdade. O dano máximo é cosmético e passageiro (títulos falsos na tela), sem vazar dado privado.
+
+##### 3. O que mudaria se o usuário escolher canal privado depois (pergunta 2-b)
+
+| Onde | Mudança |
+|---|---|
+| Supabase (painel, passo do usuário) | desligar **Allow public access** nas configurações do Realtime |
+| Banco | política RLS em `realtime.messages`: `SELECT` (receber) só para usuário autenticado permitido; **sem** `INSERT` para `authenticated`/`anon`, de modo que só a chave secreta envie. Isso é política de autorização, não tabela de dados |
+| Publicador (`publicar_quadro.py`) | acrescentar `?private=true` no POST (seção 5 da 031) ou `"private": true` no lote do plano B |
+| Página (`agentes.js`, `agentes/canal.js`) | `supabase.channel('quadro:rules-ai', { config: { private: true } })` e login antes de assinar (`supabase.auth.signInWithPassword` ou link mágico); chamar `realtime.setAuth()` com o token; tratar "sem sessão" como estado próprio |
+| Chave publicável | continua só como `apikey`; quem autoriza passa a ser o JWT do usuário |
+| Hospedagem (Vercel) | a página passa a exigir login; o estado inicial pelo GitHub raw segue só se o repositório for público |
+| Contrato | campos e eventos iguais; muda só o tipo do canal (linha "Tipo do canal" da seção 2 da 031) e a seção 7 |
+| Subtarefas afetadas | .10 (refazer), .11 (sem novo segredo), .15/.17 (login e reconexão), .23 e .29 (conferência) |
+
+O estado inicial pelo GitHub raw não depende do canal; por isso a mudança é isolada na assinatura e no envio.
 
 ### AGENTES-REALTIME.11 — Segredos do publicador: onde ficam e como rodam
 
