@@ -22,7 +22,7 @@
 | Memória contradiz o quadro e a IA segue a memória | Regra 'o quadro vence' + ensaio de divergência (subtarefa 18) |
 | Hooks atrasam o início da sessão | Medição (subtarefa 15); desligar o hook do ai-memory pelo rollback |
 | Servidor fora do ar | Sessão segue só com quadro e `rules-local` (subtarefa 19) |
-| 5 clones do `aulasenai` e 9 do `dashboard-ai` | Mesmo `project`; páginas compartilhadas, handoffs do dono |
+| `aulasenai` e `DASHBOARD-AI-PRINCIPAL` (1 pasta cada) | Sem disputa entre clones; o risco de projeto compartilhado deixou de existir |
 
 ### Decisões
 
@@ -30,6 +30,7 @@
 
 - 2026-10-23 10:00: as 6 perguntas foram respondidas pelo usuário (tabela acima). Mudanças de escopo: piloto passa a ser o `aulasenai` (base primeiro; clones só depois da auditoria sem achados); captura em todas as IAs com hook (não só Claude Code); LLM de consolidação fica em aberto até a investigação do TypeSafe (.29). O 'sim' ao plano ainda é da .1.
 - 2026-10-23 10:12: o usuário disse **SIM** ao plano. Ele pediu primeiro 'apenas no `aulasenai`' e logo depois corrigiu: **'deve ser pra todos os projetos'**. Vale a última instrução: escopo = todos os projetos de `C:ontes` (menos `DEMAIS-PROJETOS-*` e `rules-ai`), com o `aulasenai` como piloto (base primeiro, depois clones, `dashboard-ai` e demais). Regra `memoria-ai.md` volta a ser global. Nenhuma subtarefa foi cancelada.
+- 2026-10-23 10:30: conferido com `ls C:ontes`: as 4 pastas `aulas-senai-CLAUDE-*` e as 9 `dashboard-ai-*` **não existem mais** (o mapa `C:ontes\CLAUDE.md` estava desatualizado). Alvos reais do rollout: `aulasenai` (piloto), `DASHBOARD-AI-PRINCIPAL`, `REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`. Fora: `rules-ai` (fonte), `ai-memory` (repositório do próprio ai-memory), `CONSERTO-ELANTRA-2.0` (sem Git) e `DEMAIS-PROJETOS-*`. Cancelada a .22; .23 e .24 reapontadas.
 
 ### Requisitos
 
@@ -374,7 +375,7 @@
 
 ### AI-MEMORY-INTEGRATION.22 — Rollout nos 4 clones do `aulasenai` (a base já é o piloto)
 
-**Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
+**Próximo passo:** nenhum — cancelada (as 4 pastas clone não existem mais, 2026-10-23).
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -385,9 +386,9 @@
 - **Arquivos:** `aulasenai/.ai-memory.toml`, `aulasenai/.claude/settings.json`
 - **Critérios de Aceitação:** 5 pastas com o mesmo `project`; `ignore_paths` inclui `scripts/variaveis.js`; auditoria sem achados.
 - **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.17, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20, AI-MEMORY-INTEGRATION.34, AI-MEMORY-INTEGRATION.35
-- **Verificação:** a preencher na entrega.
+- **Verificação:** cancelada, não executada: `ls C:ontes` em 2026-10-23 10:30 não lista `aulas-senai-CLAUDE-*`.
 
-### AI-MEMORY-INTEGRATION.23 — Rollout no `dashboard-ai` (9 cópias, 1 repositório)
+### AI-MEMORY-INTEGRATION.23 — Rollout no `dashboard-ai` (pasta `DASHBOARD-AI-PRINCIPAL`, 1 repositório)
 
 **Próximo passo:** Aguardando as dependências e o 'sim' ao plano.
 
@@ -396,9 +397,9 @@
 - **Effort:** high
 - **JEV-AI-SUGGESTION:** NAO
 - **Fonte:** sinais
-- **Descrição:** Aplicar o instalador nas 9 cópias com o mesmo `project`.
-- **Arquivos:** `dashboard-ai-*/.ai-memory.toml`
-- **Critérios de Aceitação:** 9 cópias com o mesmo `project`; conflito de `tasks/STATUS.md` não aumenta; auditoria sem achados.
+- **Descrição:** Aplicar o instalador na pasta `DASHBOARD-AI-PRINCIPAL` (as 9 cópias antigas não existem mais).
+- **Arquivos:** `DASHBOARD-AI-PRINCIPAL/.ai-memory.toml`
+- **Critérios de Aceitação:** `.ai-memory.toml` e hooks no projeto; auditoria sem achados.
 - **Depende de:** AI-MEMORY-INTEGRATION.16, AI-MEMORY-INTEGRATION.17, AI-MEMORY-INTEGRATION.18, AI-MEMORY-INTEGRATION.20, AI-MEMORY-INTEGRATION.34, AI-MEMORY-INTEGRATION.35
 - **Verificação:** a preencher na entrega.
 
@@ -411,10 +412,10 @@
 - **Effort:** high
 - **JEV-AI-SUGGESTION:** NAO
 - **Fonte:** sinais
-- **Descrição:** Aplicar em lote, projeto a projeto, só nos que têm `rules-local`.
+- **Descrição:** Aplicar projeto a projeto, só nos que têm `rules-local` e remoto Git: `REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`.
 - **Arquivos:** `.ai-memory.toml` de cada projeto
 - **Critérios de Aceitação:** Quadro com projeto, resultado e auditoria de cada um; nenhum projeto proibido tocado.
-- **Depende de:** AI-MEMORY-INTEGRATION.22, AI-MEMORY-INTEGRATION.23
+- **Depende de:** AI-MEMORY-INTEGRATION.23
 - **Verificação:** a preencher na entrega.
 
 ### AI-MEMORY-INTEGRATION.25 — Medir o efeito: retomadas com e sem a memória
