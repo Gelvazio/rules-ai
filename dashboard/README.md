@@ -5,14 +5,15 @@ projetos (`/api/projetos` e `/api/agentes?projeto=<pasta>`, só leitura; padrão
 
 ## Como usar
 
-Rode, a partir de `C:\fontes\rules-ai`:
+Não há mais servidor Python (`servidor.py` e `config_graphs.py` foram aposentados). Sirva a pasta
+estática, a partir de `C:\fontes\rules-ai`:
 
 ```
-python dashboard/servidor.py
+python -m http.server 8080 --directory dashboard
 ```
 
-Abra http://localhost:8080/. Se o servidor já estava rodando de uma versão anterior, reinicie-o
-para ganhar as rotas atuais.
+Abra http://localhost:8080/. Também dá para abrir `dashboard/index.html` direto, mas os módulos
+JS do navegador costumam exigir `http://`.
 
 ## Agentes ao vivo
 
@@ -50,10 +51,9 @@ fica a linha dos projetos (`PROJETOS`), com o projeto atual em destaque.
 
 ## Arquivos
 
-- `servidor.py`: serve o dashboard e as rotas `/api/agentes` e `/api/projetos`. Nunca serve `.env`,
-  arquivos ocultos nem `.py`.
-- `config_graphs.py`: constantes do servidor e leitura do `.env` (`ATRASO_AGENTES`).
+- `publicar_quadro.py`: publica o quadro no canal de Broadcast (`ATRASO_PADRAO_SEGUNDOS` e
+  `INTERVALO_FALLBACK_SEGUNDOS` do envelope espelham o `assets/js/config.js`).
 - `quadro_tarefas.py`: lê a tabela do `tasks/STATUS.md` para `/api/agentes`.
 - `index.html`, `assets/js/agentes.js` e `assets/js/agentes/` (fila com atraso, cena, personagens,
   rótulos, painéis).
-- `assets/js/` (`api.js`, `config.js`, `visualizador.js`, `menu.js`) e `assets/css/`.
+- `assets/js/` (`config.js`, `visualizador.js`, `menu.js`) e `assets/css/`.

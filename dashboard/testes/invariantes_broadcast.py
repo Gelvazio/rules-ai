@@ -12,7 +12,6 @@ import os
 import re
 import subprocess
 from pathlib import Path
-from types import SimpleNamespace
 
 PASTA_DASHBOARD = Path(__file__).resolve().parent.parent
 RAIZ = PASTA_DASHBOARD.parent
@@ -20,7 +19,6 @@ sys.path.insert(0, str(PASTA_DASHBOARD))
 
 import publicar_quadro as publicador  # noqa: E402
 import quadro_tarefas as quadro  # noqa: E402
-import servidor  # noqa: E402
 
 PUBLICADOR = PASTA_DASHBOARD / "publicar_quadro.py"
 WORKFLOW = RAIZ / ".github" / "workflows" / "publicar-quadro.yml"
@@ -32,6 +30,7 @@ PADROES_CHAVE = re.compile("|".join([
 ]))
 CHAVE_FALSA = "sb_" + "secret_" + "TESTEinvariante0123456789"
 CAMPOS_EXTRAS = {"commit", "publicado_em", "sequencia", "versao"}
+CAMPOS_DO_QUADRO = {"projeto", "atraso_padrao", "intervalo"}  # além dos de ler_quadro
 CAMPOS_TAREFA = {"tarefa", "titulo", "pai", "mae", "nivel", "status", "agente", "desde",
                  "progresso", "global", "indice"}
 PASTAS_FORA = {".git", "node_modules", "__pycache__"}
@@ -78,21 +77,15 @@ def inv1_sem_chave():
 
 
 def inv2_campos():
-    """INV-2: payload = campos de GET /api/agentes + 4 extras; tarefas iguais às de ler_quadro."""
+    """INV-2: payload = campos de ler_quadro + projeto/atraso/intervalo + 4 extras;
+    tarefas iguais às de ler_quadro."""
     caminho = RAIZ.joinpath(*quadro.CAMINHO_QUADRO)
-    falso = SimpleNamespace(path="/api/agentes?projeto=rules-ai")
-    original = servidor.quadro
-    servidor.quadro = SimpleNamespace(ler_quadro=quadro.ler_quadro,
-                                      caminho_do_quadro=lambda _pasta, _projeto: caminho)
-    try:
-        rota = servidor.Manipulador.rota_agentes(falso)
-    finally:
-        servidor.quadro = original
+    campos_quadro = set(quadro.ler_quadro(caminho)) | CAMPOS_DO_QUADRO
     saida = rodar("--simular")
     conferir(saida.returncode == 0, "INV-2 --simular sai com 0")
     payload = json.loads(saida.stdout)
-    conferir(set(payload) == set(rota) | CAMPOS_EXTRAS,
-             f"INV-2 campos do payload = /api/agentes + {sorted(CAMPOS_EXTRAS)}")
+    conferir(set(payload) == campos_quadro | CAMPOS_EXTRAS,
+             f"INV-2 campos do payload = quadro + {sorted(CAMPOS_EXTRAS)}")
     conferir(payload["tarefas"] == quadro.ler_quadro(caminho)["tarefas"],
              "INV-2 tarefas idênticas à saída de ler_quadro")
     conferir(all(set(t) == CAMPOS_TAREFA for t in payload["tarefas"]),

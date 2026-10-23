@@ -23,11 +23,12 @@ from urllib.parse import quote
 
 import privacidade_quadro as privacidade
 import quadro_tarefas as quadro
-from config_graphs import INTERVALO_COLETA_SEGUNDOS, atraso_agentes
 
 RAIZ = Path(__file__).resolve().parent.parent
 URL_PADRAO = "https://hxlvonriearllcmfqeri.supabase.co"
 VARIAVEL_CHAVE = "SUPABASE_SECRET_KEY"
+ATRASO_PADRAO_SEGUNDOS = 30  # espelha ATRASO_PADRAO_SEGUNDOS de assets/js/config.js
+INTERVALO_FALLBACK_SEGUNDOS = 30  # espelha INTERVALO_FALLBACK_SEGUNDOS de assets/js/config.js
 EVENTO = "estado"
 VERSAO_CONTRATO = 1
 PROJETOS_PERMITIDOS = ("rules-ai",)  # pergunta 3 da etapa 031: só o rules-ai
@@ -63,7 +64,7 @@ def sequencia_da_execucao():
 
 
 def montar_payload(projeto, simular):
-    """Payload do evento 'estado': campos de GET /api/agentes + commit, publicado_em, etc."""
+    """Payload do evento 'estado': campos de ler_quadro + commit, publicado_em, etc."""
     caminho = RAIZ.joinpath(*quadro.CAMINHO_QUADRO)
     dados = quadro.ler_quadro(caminho)
     data_commit = git("log", "-1", "--format=%cI", "--", "/".join(quadro.CAMINHO_QUADRO))
@@ -71,8 +72,8 @@ def montar_payload(projeto, simular):
         "versao": VERSAO_CONTRATO,
         "projeto": projeto,
         "atualizado_em": data_commit or dados["atualizado_em"],
-        "atraso_padrao": atraso_agentes(),
-        "intervalo": INTERVALO_COLETA_SEGUNDOS,
+        "atraso_padrao": ATRASO_PADRAO_SEGUNDOS,
+        "intervalo": INTERVALO_FALLBACK_SEGUNDOS,
         "commit": os.environ.get("GITHUB_SHA") or git("rev-parse", "HEAD"),
         "publicado_em": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "sequencia": 0 if simular else sequencia_da_execucao(),
