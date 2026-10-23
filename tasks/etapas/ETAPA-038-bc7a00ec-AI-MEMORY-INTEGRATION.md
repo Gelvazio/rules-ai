@@ -224,7 +224,7 @@
 
 ### AI-MEMORY-INTEGRATION.11 — Alinhar `ciclo-da-task.md` (Retomar) e `rules-local.md` à nova regra
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (jev (confiança 0.97))
 - **Modelo:** só Haiku — nunca outro
@@ -235,7 +235,8 @@
 - **Arquivos:** `regras/ciclo-da-task.md`, `regras/rules-local.md`
 - **Critérios de Aceitação:** Retomar cita a memória só como complemento; nada contradiz a regra de fonte única.
 - **Depende de:** AI-MEMORY-INTEGRATION.9
-- **Verificação:** a preencher na entrega.
+- **Entrega:** regras/ciclo-da-task.md (item 4 em Retomar) e regras/rules-local.md (item em Início da sessão sobre a ordem do hook do ai-memory); commit desta entrega
+- **Verificação:** diff lido pelo líder: uma inserção em cada arquivo, itens 1-3 e a tabela de avisos intactos; nenhuma linha nova acima de 100 caracteres; sem contradição com memoria-ai.md. Observação sem correção: quadro-de-tarefas.md diz 'cada informação em um lugar só' sem citar a exceção; a memoria-ai.md já a registra (C49). Feita pelo agente Haiku e conferida pelo líder.
 
 ### AI-MEMORY-INTEGRATION.12 — Gerar nova versão: `sincronizar.mjs` e conferir que a regra chega pelo pacote do rules-local
 

@@ -25,3 +25,4 @@
 | AI-MEMORY-INTEGRATION.36 | Decidir a captura nas IAs sem escopo por projeto (Codex, Gemini, Devin, Antigravity, Kimi, OpenCode/DeepSeek) | 🟡 Média | Usuário | Nenhuma | ✅ Concluído | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
 | AI-MEMORY-INTEGRATION.9 | Escrever a regra global `regras/memoria-ai.md` | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
 | AI-MEMORY-INTEGRATION.10 | Registrar a decisão C49 (exceção controlada à fonte única) e a entrada no `INDEX.md` | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
+| AI-MEMORY-INTEGRATION.11 | Alinhar `ciclo-da-task.md` (Retomar) e `rules-local.md` à nova regra | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ✅ Concluído | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |

@@ -78,6 +78,9 @@ Decidido em 2026-10-20 (C44; etapa 030 do `rules-ai`, RULES-LOCAL-JEV). Cada pro
 - Só a frase **`DISPARAR A SINCRONIZAÇÃO DE TASKS`** dispara a sincronização. Os outros avisos
   não geram TASK nem commit.
 - O script **nunca** faz commit nem usa Git: quem commita é a sessão (passo 5 abaixo).
+- No Claude Code, o hook do ai-memory (quando ligado no projeto) roda **depois** do
+  `rules-local/sessao.mjs`, para as regras sincronizarem antes do brief da memória; o aviso da
+  memória não dispara nem substitui a sincronização de tasks (`memoria-ai.md`).
 
 ## Sincronização de tasks
 

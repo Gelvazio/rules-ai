@@ -81,3 +81,5 @@ Na dúvida, é grande. O projeto pode definir exceções (rotinas já autorizada
 2. Ler o **Próximo passo** da seção da subtarefa; conferir o que já foi feito (arquivos e commits)
    e **continuar de onde parou**.
 3. ❌ Não recomeçar do zero, não refazer o que está ✅, não pular etapas.
+4. Se o projeto tiver o ai-memory ligado, usar o brief/handoff dele **só depois** dos passos
+   acima e só como complemento; se divergir do quadro, vale o quadro (`memoria-ai.md`).
