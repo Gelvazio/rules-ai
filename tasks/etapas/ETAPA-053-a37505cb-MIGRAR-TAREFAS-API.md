@@ -720,7 +720,7 @@
 
 ### MIGRAR-TAREFAS-API.53 — Armazenamento multi-projeto: um `db.json` por projeto ou um só (volume do aulasenai)
 
-**Próximo passo:** aguardar as dependências.
+**Próximo passo:** concluída; a opção B aguarda a aprovação do usuário (lançador próprio só quando o aulasenai entrar, .54).
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -729,6 +729,9 @@
 - **Descrição:** Com base no `api/SCHEMA.md` (.4): decidir e documentar como a API guarda as tarefas de vários projetos (campo `projeto`, ids compostos, um arquivo por projeto ou único), considerando o aulasenai (~1.440 linhas de quadro e ~430 etapas) no tamanho e no diff do Git.
 - **Critérios de Aceitação:** decisão escrita e aprovada; json-server continua a única dependência.
 - **Depende de:** MIGRAR-TAREFAS-API.4
+- **Entrega:** commit "chore(MIGRAR-TAREFAS-API.53)" (api/ARMAZENAMENTO.md)
+- **Verificação:** números conferidos por comando (aulasenai: STATUS ~2.182 linhas e ~510 etapas; rules-ai ~53 etapas); sem segredo
+- **Anotação:** decisão recomendada: opção B (api/dados/<projeto>.json, um processo, uma porta, fila serial de reservas e trava de PID); só com o rules-ai o npm start comum atende, o lançador próprio só entra com o aulasenai; em aberto para o usuário: aprovar a opção B e a pasta api/dados/; dados dos filhos no Git do rules-ai (proposto); aceitar ~4 MB do aulasenai regravados a cada entrega; roteamento de vários routers do json-server 0.17 no mesmo Express ainda não testado
 
 ### MIGRAR-TAREFAS-API.54 — `aulasenai`: carga das tarefas abertas (`STATUS.md`) na API do rules-ai
 
