@@ -33,6 +33,7 @@
 - 2026-10-23 20:00: **aprovação do usuário ao plano** ("1 sim"): pode começar pela .1 e seguir com 1 agente por subtarefa, no nível certo. Escopo aprovado = o desta etapa; mudança material pede nova aprovação.
 - 2026-10-23 20:02: **novo pedido do usuário**: "No projeto rules-ai, deve existir nada de tarefa em markdown, apenas no banco da api". Efeitos: **substitui a P5** (as etapas passam a viver na API, não em `.md`) e a **P8** (não há espelho `.md`); o `db.json` versionado no Git (P2) é a leitura de queda de quem não alcança a API (nuvem), em JSON, sem markdown. Depois do corte não existem em `rules-ai`: `tasks/STATUS.md`, `tasks/task_complete.md`, `tasks/RECADOS.md` nem `tasks/etapas/*.md`. O histórico fica no Git (tag de segurança antes de apagar). O apagamento exige o **alvo exato confirmado pelo usuário** (subtarefa .46). Regras (`regras/*.md`), documentação e os quadros dos outros projetos **não** são tarefas e continuam em markdown.
 - 2026-10-23 20:10: **novo pedido do usuário**: "Nos projetos filho, aulasenai, dashboard-ai, as tarefas tb devem sempre vir de rules-ai". Respostas: filhos = **aulasenai e dashboard-ai** (DASHBOARD-AI-PRINCIPAL e cópias); **nada em markdown nos filhos também**; sessões de nuvem dos filhos **só leem** o `db.json` do Git; ordem: **rules-ai primeiro, filhos depois**. Efeito: `aulasenai` e `dashboard-ai` **não ficam Aguardando** (subtarefas .34, .36 e .37 canceladas); continuam Aguardando e fora da lista só `REA-APP-CLONES`, `testes-de-frontend`, `projeto-frontend-com-testes`, `gerenciador-de-ia` e os clones `aulas-senai-*`. O "sim" do usuário ao plano vale para esta ampliação (pedido explícito, escopo definido por ele); o apagamento nos filhos continua exigindo o alvo confirmado (.62, .68).
+- 2026-10-23 20:57: **respostas do usuário** às decisões da .53 e da .4: **opção B aprovada** (um arquivo por projeto em `api/dados/<projeto>.json`, um processo; lançador próprio só quando o `aulasenai` entrar); dados do `aulasenai` e do `dashboard-ai` **no Git do `rules-ai`**; **aceito o peso** de ~4 MB do `aulasenai` regravado a cada entrega; coleção **`bloqueios` mantida**.
 
 ### Requisitos
 
@@ -174,7 +175,7 @@
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
 - **Effort:** high
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Importador idempotente `api/migrar.mjs` (Node puro) que lê a seção "📌 Tarefas" e grava na coleção `tarefas`; roda N vezes sem duplicar (INV-5).
+- **Descrição:** Importador idempotente `api/migrar.mjs` (Node puro) que lê a seção "📌 Tarefas" e grava na coleção `tarefas`; roda N vezes sem duplicar (INV-5). **Caminho final (opção B aprovada):** o banco do `rules-ai` passa a `api/dados/rules-ai.json` (mover o `api/db.json` de hoje, ajustar README, serializador e `gerar-db.mjs`); a carga recebe `--projeto`.
 - **Critérios de Aceitação:** todas as linhas abertas do `STATUS.md` na API, ids únicos.
 - **Depende de:** MIGRAR-TAREFAS-API.4
 
@@ -234,7 +235,7 @@
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Criar a coleção com `id`, `nome`, `status` (`ativo`/`aguardando`), `monitorado` (booleano) e `motivo`; `rules-ai` entra como `ativo` e `monitorado`.
+- **Descrição:** Criar a coleção com `id`, `nome`, `status` (`ativo`/`aguardando`), `monitorado` (booleano) e `motivo`; `rules-ai` entra como `ativo` e `monitorado`. O arquivo da coleção é `api/dados/_projetos.json` (opção B).
 - **Critérios de Aceitação:** coleção criada e lida pela API.
 - **Depende de:** MIGRAR-TAREFAS-API.4
 
@@ -246,7 +247,7 @@
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
 - **Effort:** high
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Operação de reserva (`PATCH`) que só grava se `emUsoPor` estiver vazio, a dependência estiver concluída e o modelo for o certo (C22, C50); segue a estratégia da .6.
+- **Descrição:** Operação de reserva (`PATCH`) que só grava se `emUsoPor` estiver vazio, a dependência estiver concluída e o modelo for o certo (C22, C50); segue a estratégia da .6. **Inclui os achados da .6 (`api/CONCORRENCIA.md`):** tirar `--watch` do `npm start`; `--middlewares` com a reserva síncrona (sem `await` entre conferir e mudar); lançador `api/iniciar.mjs` com a trava `api/.servidor.lock` (PID); serializador no lugar do `db.write()` simples; operação `recarregar` (depois de `git pull`) e checagem de `mtime` (409 `db_alterado_por_fora`); script do INV-3 `api/testes/inv3-reservas.mjs`.
 - **Critérios de Aceitação:** reserva de subtarefa ocupada é recusada; reserva válida grava `emUsoPor` e `em_execucao`.
 - **Depende de:** MIGRAR-TAREFAS-API.6, MIGRAR-TAREFAS-API.11
 
