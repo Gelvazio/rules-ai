@@ -1,3 +1,5 @@
+- 2026-10-23 18:15 (Brasília): DASHBOARD-LEITURA-LOCAL entregue (etapa 047): em localhost o dashboard lê o `tasks/STATUS.md` do disco (servir a pasta `rules-ai`, abrir `/dashboard/`) e cai no GitHub raw se falhar; fora do host local segue no GitHub.
+
 - 2026-10-23 17:55 (Brasília): RECLASSIFICAR-PESADO-OPUS.2 e .4 entregues (etapa 046): 8 subtarefas PESADO passaram de Opus para Sonnet; ficam com o Opus GERENCIADOR-GLOBAL.4, GERENCIADOR-GLOBAL.7 e MCP-QUADRO.3. Falta a .3 (matriz, decisão do usuário).
 
 - 2026-10-23 17:30 (Brasília): HAIKU-COMMIT-GLOBAL concluída (etapa 027): a .2 rodou `sincronizar.mjs --aplicar` e levou a C41 aos arquivos globais de Gemini, Codex, Grok, Qoder, opencode, Devin, Kiro, Hermes e Kilo (versão 2026-10-23-d9c8a839). Falta, fora da tarefa, ligar `codex_hooks = true` no Codex, à mão.

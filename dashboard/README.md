@@ -9,10 +9,10 @@ de projetos vem de `dashboard/projetos.json`. Só leitura.
 Não há mais servidor Python. Sirva a pasta estática, a partir de `C:\fontes\rules-ai`:
 
 ```
-python -m http.server 8080 --directory dashboard
+python -m http.server 8080
 ```
 
-Abra http://localhost:8080/. Também dá para abrir `dashboard/index.html` direto, mas os módulos
+Abra http://localhost:8080/dashboard/ (assim a página lê o `tasks/STATUS.md` do disco; fora de localhost ela lê o GitHub raw). Também dá para abrir `dashboard/index.html` direto, mas os módulos
 JS do navegador costumam exigir `http://`.
 
 ## Agentes ao vivo
@@ -56,6 +56,32 @@ fica a linha dos projetos (`PROJETOS`), com o projeto atual em destaque.
   não liga e vale só o fallback do GitHub raw.
 - `SUPABASE_SECRET_KEY`: secret do repositório no GitHub, lido só pelo workflow
   `.github/workflows/publicar-quadro.yml`. Nunca vai para o navegador nem para o repositório.
+
+## Publicar o quadro e testar o canal
+
+O envio é feito pelo workflow `.github/workflows/publicar-quadro.yml` (na raiz do `rules-ai`). Ele roda
+a cada push na `main` que altera `tasks/STATUS.md`, executa `dashboard/publicar_quadro.py` e envia o
+evento `estado` ao canal `quadro:rules-ai`.
+
+- **Onde fica o secret:** em `Settings → Secrets and variables → Actions` do repositório
+  `Gelvazio/rules-ai`, com o nome `SUPABASE_SECRET_KEY`. Ele não vai para arquivo, para o HTML nem para
+  o log. Sem o secret, o workflow pula o envio com um aviso e não falha.
+- **Conferir sem enviar:** na raiz do `rules-ai`, `python -B dashboard/publicar_quadro.py --simular`
+  imprime o payload que seria enviado e não abre conexão. Sem `--simular`, o comando envia de verdade e
+  precisa da variável de ambiente `SUPABASE_SECRET_KEY`; sem ela, sai com erro e não grava nada.
+- **Testar o canal (depois de cadastrar o secret):** faça um push que altere `tasks/STATUS.md` na
+  `main`, acompanhe a execução na aba `Actions` (passo de publicação) e confira em `dashboard/index.html`
+  se as tarefas mudam sem recarregar a página. A mudança chega em até 60 s e aparece na cena depois do
+  atraso de 30 s.
+
+### Quando o canal cair
+
+- A página mantém o último quadro lido e, em até 30 s, passa a ler o `STATUS.md` do GitHub raw a cada
+  30 s (modo 2 de "De onde vem o quadro"). Quando o canal volta, ela para de ler e relê o quadro inteiro.
+- Sem rede, nada novo chega; a página tenta de novo sozinha (modo 3).
+- Se o canal não voltar, confira nesta ordem: `CANAL.chavePublicavel` preenchida em
+  `assets/js/config.js`; última execução do workflow com sucesso na aba `Actions`; secret
+  `SUPABASE_SECRET_KEY` cadastrado. A tela continua certa pelo fallback, só mais lenta.
 
 ## Arquivos
 

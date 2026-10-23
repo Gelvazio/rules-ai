@@ -1,6 +1,6 @@
 // Canal de Broadcast + estado inicial pelo GitHub raw (MIGRAR-AGENTES-BROADCAST.3).
 // Uso: iniciarCanal({ aoEstado, aoAviso }); aoEstado recebe o evento 'estado' do canal.
-import { CANAL } from '../config.js';
+import { CANAL, HOSTS_LOCAIS } from '../config.js';
 import { lerQuadro } from './quadro.js';
 
 const CAMPOS_ENVELOPE = Object.freeze(['versao', 'projeto', 'atualizado_em', 'atraso_padrao',
@@ -57,11 +57,34 @@ function mensagemValida(carga, ultimaSequencia) {
   return Array.isArray(carga.tarefas) && carga.tarefas.every(tarefaValida);
 }
 
-/** Estado inicial lido do STATUS.md público, no mesmo formato da mensagem (sequência 0). */
+/** Endereços do quadro, em ordem: o arquivo local (só em host local) e depois o GitHub raw. */
+function urlsDoQuadro() {
+  const estaEmHostLocal = HOSTS_LOCAIS.includes(globalThis.location?.hostname);
+  return estaEmHostLocal ? [CANAL.urlQuadroLocal, CANAL.urlQuadro] : [CANAL.urlQuadro];
+}
+
+/** Baixa um endereço; devolve o texto ou null se a resposta não for válida. */
+async function baixarTexto(url) {
+  try {
+    const resposta = await fetch(url, { cache: 'no-store' });
+    return resposta.ok ? await resposta.text() : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Texto do STATUS.md vindo da primeira origem que responder. */
+async function lerTextoDoQuadro() {
+  for (const url of urlsDoQuadro()) {
+    const texto = await baixarTexto(url);
+    if (texto !== null) return texto;
+  }
+  throw new Error('Quadro indisponível (arquivo local e GitHub raw)');
+}
+
+/** Estado inicial lido do STATUS.md (local ou GitHub), no formato da mensagem (sequência 0). */
 export async function lerEstadoInicial() {
-  const resposta = await fetch(CANAL.urlQuadro, { cache: 'no-store' });
-  if (!resposta.ok) throw new Error(`GitHub raw respondeu ${resposta.status}`);
-  const { tarefas } = lerQuadro(await resposta.text());
+  const { tarefas } = lerQuadro(await lerTextoDoQuadro());
   return { versao: CANAL.versaoContrato, projeto: CANAL.projeto, sequencia: 0, tarefas };
 }
 

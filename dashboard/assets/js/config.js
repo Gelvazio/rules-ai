@@ -22,8 +22,13 @@ export const CANAL = Object.freeze({
   evento: 'estado',
   versaoContrato: 1,
   urlQuadro: 'https://raw.githubusercontent.com/Gelvazio/rules-ai/main/tasks/STATUS.md',
+  // Em ambiente local (HOSTS_LOCAIS) o quadro vem do arquivo do disco, se a pasta rules-ai for servida.
+  urlQuadroLocal: '../tasks/STATUS.md',
   urlCliente: 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.0/+esm',
 });
+
+/** Hosts em que a página lê o quadro do arquivo local, em vez do GitHub raw. */
+export const HOSTS_LOCAIS = Object.freeze(['localhost', '127.0.0.1', '[::1]']);
 
 /** Câmera e luzes da cena. */
 export const CENA = Object.freeze({

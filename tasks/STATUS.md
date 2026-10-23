@@ -76,8 +76,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | INTEGRACAO-DEEPSEEK.5 | Documentar a integração · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | INTEGRACAO-DEEPSEEK.4 | ⬜ Pendente | — | [ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md) |
 | **RECLASSIFICAR-PESADO-OPUS** | **🌐 GLOBAL — Subtarefas `PESADO` que estão só com Opus 5.5+/Fable passam para Sonnet, exceto o que precisa do Opus (pedido do usuário em 2026-10-23)** | 🟠 Alta | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
 | RECLASSIFICAR-PESADO-OPUS.3 | Decidir a matriz `regras/niveis-e-modelos.md` (P3) | 🟠 Alta | Usuário | RECLASSIFICAR-PESADO-OPUS.2 | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
-| **DASHBOARD-LEITURA-LOCAL** | **O dashboard lê o `tasks/STATUS.md` local em ambiente local (pedido do usuário em 2026-10-23)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-047](etapas/ETAPA-047-ad0d7fad-DASHBOARD-LEITURA-LOCAL.md) |
-| DASHBOARD-LEITURA-LOCAL.1 | Leitura local do quadro quando o host é local · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | Nenhuma | 🔄 Em execução | Claude Code (Sonnet 5.5) (local · main · rules-ai) (desde 2026-10-23 18:10) | [ETAPA-047](etapas/ETAPA-047-ad0d7fad-DASHBOARD-LEITURA-LOCAL.md) |
 
 
 ## 🧭 Frentes de trabalho
