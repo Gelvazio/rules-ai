@@ -93,7 +93,7 @@
 **Próximo passo:** depois do .1, criar `scripts/gerenciador.py` (ou `.mjs`, conforme o .1) só com a leitura: lista de projetos, `git fetch`, leitura do `tasks/STATUS.md` do `origin/main` e cálculo das tarefas livres por modelo, sem disparar nada.
 
 - **Nível:** PESADO — mais de 3 arquivos ligados e lógica de leitura do quadro de vários projetos.
-- **Modelo:** só Opus 5.5+ ou Fable — nunca outro.
+- **Modelo:** só Sonnet — nunca outro. (trocado do Opus em 2026-10-23, RECLASSIFICAR-PESADO-OPUS.2)
 - **Descrição:** imprime, para cada projeto e modelo, as subtarefas livres e com dependências prontas.
 - **Critérios de Aceitação:** a saída bate com a conferência manual do quadro de cada projeto; nenhum quadro é escrito.
 - **Entrega:** — · **Verificação:** — · **Anotação:** —

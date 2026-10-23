@@ -374,7 +374,7 @@ ligado e anotar na etapa latência, custo, nível sugerido e alertas de cada uma
 (a prévia da nuvem gerou `VERSAO.md` `2026-10-19-39b490d0` com a seção C43 no `dist/`).
 
 - **Nível:** PESADO — Jev `LEVE`, final proposto `LEVE`, confiança 0.40, ação `humano`; elevado pelo líder: grava o arquivo global de todas as IAs (mudança em massa, como a JEV-SEM-LAYA.2)
-- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
+- **Modelo:** só Sonnet ou DeepSeek — nunca outro (C22) (trocado do Opus em 2026-10-23, RECLASSIFICAR-PESADO-OPUS.2)
 - **Effort:** high
 - **Arquivos:** `dist/REGRAS-GLOBAIS.md`, `VERSAO.md`, arquivos globais das IAs
 - **Critérios de aceitação:** R4.1.

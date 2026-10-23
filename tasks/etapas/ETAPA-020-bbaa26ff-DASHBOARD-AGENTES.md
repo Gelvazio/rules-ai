@@ -120,7 +120,7 @@ ferramentas de IA 3D, o coletor Python, o gerador de modelos 3D e a cena do prom
 módulos que ficam (INV-1) e só então rodar o `git rm` da lista "Sai" do Escopo.
 
 - **Nível:** PESADO — apaga dados em massa (mais de 40 arquivos)
-- **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
+- **Modelo:** só Sonnet (ou DeepSeek, C35) — nunca outro (trocado do Opus em 2026-10-23, RECLASSIFICAR-PESADO-OPUS.2)
 - **Effort:** high
 - **Descrição:** commitar antes a mudança local do `prompts/MODELO-3D-REDE-NEURAL-04.md`; mover os
 - **JEV-AI-SUGGESTION:** NAO
@@ -136,7 +136,7 @@ módulos que ficam (INV-1) e só então rodar o `git rm` da lista "Sai" do Escop
 **Próximo passo:** esperar a `.1`.
 
 - **Nível:** PESADO — move vários arquivos ligados e ajusta caminhos relativos entre eles
-- **Modelo:** só Opus 5.5+ ou Fable (ou DeepSeek, C35) — nunca outro
+- **Modelo:** só Sonnet (ou DeepSeek, C35) — nunca outro (trocado do Opus em 2026-10-23, RECLASSIFICAR-PESADO-OPUS.2)
 - **Effort:** high
 - **Descrição:** (resposta 1-a) `git mv` do `agentes.html` para `dashboard/index.html`, dos
 - **JEV-AI-SUGGESTION:** NAO

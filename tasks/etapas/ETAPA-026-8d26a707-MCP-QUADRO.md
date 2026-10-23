@@ -202,7 +202,7 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 
 **Próximo passo:** criar `mcp/servidor.mjs` e `mcp/ferramentas.mjs`; validar com um cliente stdio de teste.
 - **Nível:** PESADO — estrutura nova (protocolo MCP) e decisão de fila.
-- **Modelo:** só Opus 5.5+ ou Fable, ou DeepSeek — nunca outro.
+- **Modelo:** só Sonnet, ou DeepSeek — nunca outro. (trocado do Opus em 2026-10-23, RECLASSIFICAR-PESADO-OPUS.2)
 - **Effort:** high
 - **Depende de:** MCP-QUADRO.3.
 - **Descrição:** servidor JSON-RPC 2.0 por stdio, sem dependências; `task_list` (somente leitura, com filtros por modelo/projeto); `task_next` aplicando a matriz de níveis (INV-5) e recusando tarefa de outro nível; validação de argumentos; log JSONL sem segredo (INV-6); mensagens de erro curtas e claras.
@@ -216,7 +216,7 @@ Teste automatizado de invariante é a exceção permitida em `PESADO` (C34, `esp
 
 **Próximo passo:** implementar `task_finish` em `mcp/ferramentas.mjs` com o escritor da subtarefa/etapa.
 - **Nível:** PESADO — escreve no quadro e na etapa, faz commit de entrega; risco de perder histórico.
-- **Modelo:** só Opus 5.5+ ou Fable, ou DeepSeek — nunca outro.
+- **Modelo:** só Sonnet, ou DeepSeek — nunca outro. (trocado do Opus em 2026-10-23, RECLASSIFICAR-PESADO-OPUS.2)
 - **Effort:** high
 - **Depende de:** MCP-QUADRO.4.
 - **Descrição:** confere que a reserva é da frente chamadora; move a linha (não copia, C4) para `task_complete.md`; anota `Entrega`/`Verificação`/`Anotação` na seção da subtarefa na etapa; commit `feat(<COD>): ... por <frente>` + push; devolve "mãe concluída" quando a última subtarefa fecha (sem mover a mãe).

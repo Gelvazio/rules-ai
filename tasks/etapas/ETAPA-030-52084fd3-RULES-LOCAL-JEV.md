@@ -185,7 +185,7 @@ conferir, e depois nos outros da resposta da pergunta 2; um commit por projeto, 
 `rules-local/` atualiza sozinho e a 1ª mensagem traz o contexto do Jev real.
 
 - **Nível:** PESADO — Jev `MEDIO`, final proposto `MEDIO`, confiança 0.20, ação `humano`; elevado pelo líder: `--aplicar` grava o arquivo global de todas as IAs (mudança em massa, como a JEV-GLOBAL-AI-FINAL.22)
-- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro (C22)
+- **Modelo:** só Sonnet ou DeepSeek — nunca outro (C22) (trocado do Opus em 2026-10-23, RECLASSIFICAR-PESADO-OPUS.2)
 - **Effort:** high
 - **Arquivos:** `dist/`, `VERSAO.md`, esta etapa
 - **Critérios de aceitação:** R1.1, R2.1, R2.2, R4.1 com números.

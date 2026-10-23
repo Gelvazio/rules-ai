@@ -80,7 +80,7 @@
 
 ### RECLASSIFICAR-PESADO-OPUS.2 — Trocar o Modelo das linhas aprovadas para Sonnet
 
-**Próximo passo:** começar só depois do "sim" do usuário à lista da `.1` (P2).
+**Próximo passo:** ✅ entregue em 2026-10-23; falta a .4 (conferência, Haiku).
 
 - **Nível:** PESADO — muda o quadro e várias etapas
 - **Modelo:** só Sonnet — nunca outro
@@ -91,7 +91,8 @@
 - **Arquivos:** `tasks/STATUS.md`, `tasks/etapas/*.md` (só as linhas aprovadas)
 - **Critérios de Aceitação:** R3, INV-1, INV-2 e INV-3 atendidos.
 - **Depende de:** RECLASSIFICAR-PESADO-OPUS.1, P2
-- **Verificação:** a preencher na entrega (`git diff` e `grep`).
+- **Entrega:** Claude Code (Sonnet 5.5 · agente), 2026-10-23: Modelo trocado em 8 subtarefas (GERENCIADOR-GLOBAL.3, DASHBOARD-AGENTES.1, DASHBOARD-AGENTES.2, MCP-QUADRO.4, MCP-QUADRO.5, JEV-GLOBAL-AI-FINAL.22, RULES-LOCAL-JEV.9, VERCEL-SEM-DEPLOY-DE-CONTROLE.1)
+- **Verificação:** o `awk` do quadro (Modelo com Opus/Fable sem Sonnet) devolve só GERENCIADOR-GLOBAL.4, GERENCIADOR-GLOBAL.7 e MCP-QUADRO.3. `git diff` mostra só a coluna Modelo (8 linhas no `tasks/STATUS.md`) e a linha `**Modelo:**` (8 linhas em 6 etapas: 009, 020, 026, 029, 030, 034); nenhuma linha 🔄 mudou e nada aponta para Haiku em PESADO. Arquivos tocados: `tasks/STATUS.md`, ETAPA-009, ETAPA-020, ETAPA-026, ETAPA-029, ETAPA-030, ETAPA-034 e esta ETAPA-046.
 
 ### RECLASSIFICAR-PESADO-OPUS.3 — Matriz `niveis-e-modelos.md`
 

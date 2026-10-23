@@ -64,7 +64,7 @@ dado do aluno; a conferência é por `grep`, `json.load` e consulta aos deploys 
 listar no `INDEX.md`, registrar a C46 no `CONFLITOS.md` e rodar `node scripts/sincronizar.mjs --aplicar`.
 
 - **Nível:** PESADO — regra global que vale para todas as IAs e projetos, vários arquivos ligados
-- **Modelo:** só Opus 5.5+/Fable ou DeepSeek — nunca outro
+- **Modelo:** só Sonnet ou DeepSeek — nunca outro (trocado do Opus em 2026-10-23, RECLASSIFICAR-PESADO-OPUS.2)
 - **Effort:** high
 - **Descrição:** regra com: o que é arquivo de controle (`tasks/`, `rules-local/`), o
 - **JEV-AI-SUGGESTION:** NAO
