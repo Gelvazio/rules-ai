@@ -281,7 +281,7 @@
 - **Modelo:** só Sonnet — nunca outro
 - **Effort:** medium
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Fonte = API (com queda para o `db.json` do Git); `projetos` vêm da coleção `projetos` (`monitorado: true`).
+- **Descrição:** Fonte = API (com queda para o `db.json` do Git); `projetos` vêm da coleção `projetos` (`monitorado: true`). **Os outros projetos (aulasenai, dashboard-ai…) continuam em `.md`: o gerenciador, o MCP e o `construir-golden.mjs` precisam manter a leitura de `.md` para eles.**
 - **Critérios de Aceitação:** `node scripts/gerenciador.mjs ver` mostra o mesmo que antes.
 - **Depende de:** MIGRAR-TAREFAS-API.16
 
@@ -293,7 +293,7 @@
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
 - **Effort:** high
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Trocar leitor/escritor do MCP-QUADRO pela API (reserva e entrega pelas operações .13 e .14); descoberta de projetos pela coleção `projetos`.
+- **Descrição:** Trocar leitor/escritor do MCP-QUADRO pela API (reserva e entrega pelas operações .13 e .14); descoberta de projetos pela coleção `projetos`. **Os outros projetos (aulasenai, dashboard-ai…) continuam em `.md`: o gerenciador, o MCP e o `construir-golden.mjs` precisam manter a leitura de `.md` para eles.**
 - **Critérios de Aceitação:** `task_list`, `task_next` e `task_finish` funcionam contra a API.
 - **Depende de:** MIGRAR-TAREFAS-API.14
 
@@ -305,7 +305,7 @@
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
 - **Effort:** high
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** O Jev passa a gravar `Nível`, `Modelo` e `Effort` na tarefa da API (C47), mantendo o campo `JEV-AI-SUGGESTION`.
+- **Descrição:** O Jev passa a gravar `Nível`, `Modelo` e `Effort` na tarefa da API (C47), mantendo o campo `JEV-AI-SUGGESTION`. **Os outros projetos (aulasenai, dashboard-ai…) continuam em `.md`: o gerenciador, o MCP e o `construir-golden.mjs` precisam manter a leitura de `.md` para eles.**
 - **Critérios de Aceitação:** `jev.mjs classificar --dry-run` lê da API e `--gravar` grava na API.
 - **Depende de:** MIGRAR-TAREFAS-API.14
 
@@ -655,4 +655,52 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** `find`/`grep` em `rules-ai`: nenhum `.md` de tarefa; nenhum leitor, script ou regra aponta para `tasks/STATUS.md`.
 - **Critérios de Aceitação:** zero ocorrência fora de menções históricas.
+- **Depende de:** MIGRAR-TAREFAS-API.47, MIGRAR-TAREFAS-API.49, MIGRAR-TAREFAS-API.50, MIGRAR-TAREFAS-API.51, MIGRAR-TAREFAS-API.52
+
+### MIGRAR-TAREFAS-API.49 — Scripts de proteção da memória (`ai-memory-invariantes`, `ai-memory-auditar`, `instalar-ai-memory`) param de ler `tasks/*.md`
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** MEDIO — código com lógica, poucos arquivos
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Adaptar os 3 scripts que usam o quadro (achados no inventário `api/INVENTARIO-LEITORES.md`) para a API; `tasks/` fica fora do `ignore_paths` da memória só se ainda existir.
+- **Critérios de Aceitação:** os 3 scripts rodam sem `tasks/STATUS.md`.
+- **Depende de:** MIGRAR-TAREFAS-API.14
+
+### MIGRAR-TAREFAS-API.50 — `.gitignore` e trava `tasks/.sessao-ativa` (AGENTS.md) sem depender de `tasks/*.md`
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** LEVE — só texto e configuração, sem lógica
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Ajustar o `.gitignore` e o texto da trava de sessão do `AGENTS.md` para o novo desenho (a trava passa para a API ou para um arquivo que não é markdown; decisão registrada).
+- **Critérios de Aceitação:** `AGENTS.md` e `.gitignore` coerentes com a API.
+- **Depende de:** MIGRAR-TAREFAS-API.25
+
+### MIGRAR-TAREFAS-API.51 — Gate `spec/verificar-spec.mjs` lê as etapas da API em vez de `tasks/etapas`
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** MEDIO — código com lógica, poucos arquivos
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** O gate da C34 passa a ler a coleção `etapas` (com `--arquivo` só para os projetos que ainda usam `.md`).
+- **Critérios de Aceitação:** o gate dá o mesmo resultado nas etapas migradas.
+- **Depende de:** MIGRAR-TAREFAS-API.10
+
+### MIGRAR-TAREFAS-API.52 — Aposentar `api/gerar-db.mjs` (ponte `.md` → API) depois do corte
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** MEDIO — código com lógica, poucos arquivos
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** Depois da .47, remover o gerador que lê o quadro em markdown (a carga `.7` já está feita) e ajustar o README e o `package.json` da `api/`.
+- **Critérios de Aceitação:** `npm run gerar` removido; `api/` só sobe a API.
 - **Depende de:** MIGRAR-TAREFAS-API.47
