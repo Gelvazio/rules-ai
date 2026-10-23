@@ -88,7 +88,7 @@
 
 ### MIGRAR-TAREFAS-API.2 — Rodar o gate da spec e registrar a aprovação
 
-**Próximo passo:** executor-leve (Haiku) roda o gate e registra o resultado na seção, e confere, commita e dá push do quadro (C41).
+**Próximo passo:** concluída; segue a .3 (inventário) e a .4 (contrato do schema).
 
 - **Nível:** LEVE — só texto e configuração, sem lógica
 - **Modelo:** só Haiku — nunca outro
@@ -97,6 +97,8 @@
 - **Descrição:** `node spec/verificar-spec.mjs tasks/etapas/<esta etapa>` sem falha; registrar o resultado e a aprovação nas Decisões.
 - **Critérios de Aceitação:** gate com código 0.
 - **Depende de:** MIGRAR-TAREFAS-API.1
+- **Entrega:** commit "chore(MIGRAR-TAREFAS-API.2)"
+- **Verificação:** node spec/verificar-spec.mjs com código 0 (Requisitos, Invariantes, Perguntas abertas e Subtarefas ✅); aprovação do usuário registrada nas Decisões
 
 ### MIGRAR-TAREFAS-API.3 — Inventário do que lê ou escreve `STATUS.md`, `task_complete.md` e etapas no `rules-ai`
 
