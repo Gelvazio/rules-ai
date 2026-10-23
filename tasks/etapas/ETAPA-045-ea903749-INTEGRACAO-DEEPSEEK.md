@@ -126,7 +126,7 @@
 
 ### INTEGRACAO-DEEPSEEK.6 — Testes dos limites e do roteador da DeepSeek
 
-**Próximo passo:** o Haiku 5.5 executa (subtarefa criada pela C26 a pedido do usuário: teste vira subtarefa nova).
+**Próximo passo:** ✅ entregue em 2026-10-23.
 
 - **Nível:** LEVE — conferência ou ajuste de texto
 - **Modelo:** só Haiku — nunca outro
@@ -137,4 +137,5 @@
 - **Arquivos:** `scripts/deepseek/testes/limites.mjs`
 - **Critérios de Aceitação:** `node scripts/deepseek/testes/limites.mjs` passa; relatório do que cada teste cobre.
 - **Depende de:** INTEGRACAO-DEEPSEEK.4
-- **Verificação:** a preencher na entrega.
+- **Entrega:** Claude Code (Haiku 5.5 · agente), 2026-10-23: scripts/deepseek/testes/limites.mjs (13 testes)
+- **Verificação:** `node --check` = ok; `node scripts/deepseek/testes/limites.mjs` = 13 passaram, 0 falharam; maior linha = 100; nenhuma pasta temporária sobrou; `scripts/deepseek/saidas/` não foi criada e `git ls-files scripts/deepseek/saidas` = vazio; `sk-` no teste = sem resultado. Defeitos achados (código não alterado): (a) resposta HTTP 200 com JSON inválido sai como `rede` e não como `resposta-invalida` (`cliente.mjs`, `enviar`: o `json()` fica dentro do `try` que classifica tudo como rede); (b) quando o limite geral de tempo corta um `fetch` que ignora o abort, nenhuma linha de auditoria é gravada nesse caminho (confirmado com fetch simulado: 0 linhas), contra R5.
