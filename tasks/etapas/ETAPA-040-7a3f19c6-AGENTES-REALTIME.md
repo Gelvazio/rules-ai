@@ -607,7 +607,7 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.21 — Aposentar `servidor.py`, `config_graphs.py` e o `.env` do dashboard (se a pergunta 4 for a)
 
-**Próximo passo:** esperar AGENTES-REALTIME.20.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -616,6 +616,9 @@ usuário decide ao cadastrar.
 - **Descrição:** Se aposentado: apagar os arquivos e documentar `python -m http.server` (ou abrir `index.html`) como forma de ver a página. Se não, esta subtarefa é cancelada.
 - **Critérios de Aceitação:** Nenhum arquivo órfão; INV-5 ok.
 - **Depende de:** AGENTES-REALTIME.20
+- **Entrega:** `dashboard/servidor.py` e `dashboard/config_graphs.py` **apagados**. Antes de apagar, os dois valores que o publicador tirava do `config_graphs` viraram constantes do próprio `dashboard/publicar_quadro.py` (`ATRASO_PADRAO_SEGUNDOS = 30` e `INTERVALO_FALLBACK_SEGUNDOS = 30`, que espelham o `assets/js/config.js`) — o campo `intervalo` **continua** no envelope, como o contrato da `.4` exige, só mudou de onde o número vem. `dashboard/testes/invariantes_broadcast.py` deixou de importar o `servidor` (o INV-2 passou a comparar o payload com a saída de `ler_quadro` mais `projeto`/`atraso_padrao`/`intervalo`). `dashboard/.env.example` perdeu o `ATRASO_AGENTES` (ninguém mais lê o `.env`) e ficou só com as variáveis do Supabase, que o medidor da `.24` usa. `dashboard/README.md`: "Como usar" passou a ser `python -m http.server 8080 --directory dashboard` e a lista de Arquivos trocou o servidor pelo publicador. Commit desta entrega. Feito por sn1 (Sonnet 5.5, herdr w2:pZ, conta D).
+- **Verificação:** `git grep "config_graphs\|import servidor"` em `dashboard/` só acha a frase do README que diz que os dois foram aposentados; `python -m py_compile` passa em todos os `.py` de `dashboard/` e `dashboard/testes/`; os **três** testes de invariante passam — `invariantes_broadcast.py` e `invariante_payload_quadro.py` com "0 falha(s)" e `invariante_paridade_quadro.py` com "INV-4: sem diferença"; `publicar_quadro.py --simular` sai 0 com as **9** chaves do envelope e `atraso_padrao` 30 / `intervalo` 30; **INV-5** conferido por script na pasta da sessão (fora do repositório) que resolve todo `import`/`href`/`src` local dos `.html` e `.js` de `dashboard/`: **0 referência quebrada** (o `api.js` apagado na `.15` não deixou resto); a única linha acima de 100 caracteres do `publicar_quadro.py` já existia no `HEAD` anterior (conferido pelo líder).
+- **Anotação:** o `dashboard/README.md` ainda cita `/api/agentes` na linha 4 e na linha 56 — de propósito: essa limpeza é da `.26`.
 
 ### AGENTES-REALTIME.22 — Variáveis e `.gitignore`: `.env.example` e `config.js`
 
