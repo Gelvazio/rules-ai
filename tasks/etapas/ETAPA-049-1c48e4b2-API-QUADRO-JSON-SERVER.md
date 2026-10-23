@@ -63,7 +63,7 @@
 
 ### API-QUADRO-JSON-SERVER.3 — Conferir a API no ar
 
-**Próximo passo:** aguardar a .2.
+**Próximo passo:** executor-medio (Sonnet) sobe `npm start` em `api/`, confere as consultas com `curl`, compara as contagens com o quadro e derruba o servidor.
 
 - **Nível:** MEDIO — sobe o servidor e confere a saída por comando
 - **Modelo:** só Sonnet — nunca outro
