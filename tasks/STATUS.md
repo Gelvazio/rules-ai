@@ -23,7 +23,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | GERENCIADOR-GLOBAL.3 | 🌐 Script central: leitura dos quadros e tarefas livres por modelo (sem disparar) · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.4 | 🌐 Disparo de sessões por modelo, com limite, trava e `PARAR` · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.3 | ⛔ Bloqueado (automático em pausa pelo usuário, 2026-10-17 13:30) | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.5 | 🌐 Vigilância periódica (agendador ou loop no intervalo aprovado) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet | GERENCIADOR-GLOBAL.4 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
-| GERENCIADOR-GLOBAL.7 | 🌐 Mesclar o `gerenciador-de-tarefas` ao central e revisar o desenho da .1 com as respostas de 16:12 · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
+| GERENCIADOR-GLOBAL.7 | 🌐 Mesclar o `gerenciador-de-tarefas` ao central e revisar o desenho da .1 com as respostas de 16:12 · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.1 | 🔄 Em execução | Claude Code (Opus 5.5) (local · main · rules-ai) (desde 2026-10-23 17:02) · 0% | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | HERDR-GLOBAL | **🌐 GLOBAL — herdr (agentes em painéis) nas regras globais (C33)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-015](etapas/ETAPA-015-01ba1632-HERDR-GLOBAL.md) |
 | HERDR-GLOBAL.2 | 🌐 Levar ao computador do usuário (`--aplicar`, herdr, skill e integrações) | 🟡 Média | Usuário | HERDR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-015](etapas/ETAPA-015-01ba1632-HERDR-GLOBAL.md) |
 | **ESPEC-GLOBAL** | **🌐 GLOBAL — Fluxo de spec (requisitos, invariantes, perguntas abertas) em tarefa PESADA (C34)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
@@ -90,6 +90,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
 |---|---|---|---|
 | Claude Code (Opus 5.5) (local · main · aulasenai s17) | HAIKU-COMMIT-GLOBAL.1 ([ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md)) | 🔄 Ativa | 2026-10-18 20:17 |
+| Claude Code (Opus 5.5) (local · main · rules-ai) | GERENCIADOR-GLOBAL.7 ([ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md)) | 🔄 Ativa | 2026-10-23 17:02 |
 | Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) (local · main · rules-ai) | JEV-SEM-LAYA.3 ([ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md)) | ⏹️ Encerrada | 2026-10-19 23:53 |
 | Claude Code (Sonnet 5.5) (local · main · rules-ai) | REMOVER-TRIPO.1 a .5 e criação da AGENTES-REALTIME ([ETAPA-039](etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md), [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md)) | ⏹️ Encerrada | 2026-10-23 11:28 |
 | Claude Code (Sonnet 5.5) (local · main · rules-ai) | JEV-GRAVA-NIVEL ([ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md)) | ⏹️ Encerrada | 2026-10-23 10:00 |
