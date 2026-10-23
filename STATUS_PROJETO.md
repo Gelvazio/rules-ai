@@ -1,3 +1,5 @@
+- 2026-10-23 18:30 (Brasília): entregues e commitadas: MCP-QUADRO.1, MIGRAR-AGENTES-BROADCAST.5, VERCEL-SEM-DEPLOY-DE-CONTROLE.1 e INTEGRACAO-DEEPSEEK.2 (commits 011e75e, 80956b8 e 4a94ca2); INTEGRACAO-DEEPSEEK.2 criou scripts/deepseek/cliente.mjs (chave só em DEEPSEEK_API_KEY, 2.000 tokens por chamada, sem chamada real); VERCEL-SEM-DEPLOY-DE-CONTROLE.1 criou a regra C46 e MCP-QUADRO.1 a regra mcp-quadro.md, ambas levadas às IAs (VERSAO.md atualizada). README do dashboard já estava no HEAD; MIGRAR-AGENTES-BROADCAST.5 só registrou a etapa 031.
+
 - 2026-10-23 18:15 (Brasília): DASHBOARD-LEITURA-LOCAL entregue (etapa 047): em localhost o dashboard lê o `tasks/STATUS.md` do disco (servir a pasta `rules-ai`, abrir `/dashboard/`) e cai no GitHub raw se falhar; fora do host local segue no GitHub.
 
 - 2026-10-23 17:55 (Brasília): RECLASSIFICAR-PESADO-OPUS.2 e .4 entregues (etapa 046): 8 subtarefas PESADO passaram de Opus para Sonnet; ficam com o Opus GERENCIADOR-GLOBAL.4, GERENCIADOR-GLOBAL.7 e MCP-QUADRO.3. Falta a .3 (matriz, decisão do usuário).
