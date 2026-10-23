@@ -5,15 +5,15 @@
 // roteador seguir com o modelo da matriz (R3, INV-2). O texto passa pela redação de segredos
 // antes do envio (INV-1). Não escolhe modelo nem mede custo: isso é do roteador e dos limites.
 import { redigirTexto, resumirAchados } from '../jev/guardrails/redigir.mjs';
+import { estaDesligada, lerLimites } from './limites.mjs';
+
+// Modo off, tokens e tempo são lidos só em limites.mjs (reexportados por compatibilidade).
+export { estaDesligada, lerLimites };
 
 const URL_API = 'https://api.deepseek.com/chat/completions';
 const VARIAVEL_CHAVE = 'DEEPSEEK_API_KEY';
 const VARIAVEL_MODO = 'DEEPSEEK_MODO';
-const VARIAVEL_MAX_TOKENS = 'DEEPSEEK_MAX_TOKENS';
-const VARIAVEL_TEMPO = 'DEEPSEEK_TIMEOUT_MS';
 const MODO_DESLIGADO = 'off';
-const MAX_TOKENS_PADRAO = 2000;
-const TEMPO_MAXIMO_PADRAO_MS = 30000;
 const STATUS_CHAVE_RECUSADA = new Set([401, 403]);
 const STATUS_LIMITE_TAXA = 429;
 const STATUS_SERVIDOR_MINIMO = 500;
@@ -58,39 +58,6 @@ function montarErro(tipo, status) {
   const erro = { tipo, mensagem: MENSAGENS_ERRO[tipo] };
   if (status !== undefined) erro.status = status;
   return { ok: false, erro };
-}
-
-/**
- * Converte um valor de ambiente em inteiro positivo, ou devolve o padrão.
- * @param {string|undefined} valor Texto da variável.
- * @param {number} padrao Valor usado se o texto for ausente ou inválido.
- * @returns {number} Inteiro positivo.
- */
-function inteiroPositivo(valor, padrao) {
-  const numero = Number.parseInt(valor ?? '', 10);
-  const ehValido = Number.isInteger(numero) && numero > 0;
-  return ehValido ? numero : padrao;
-}
-
-/**
- * Diz se a DeepSeek está desligada pelo modo `off`.
- * @param {Record<string, string|undefined>} ambiente Variáveis de ambiente.
- * @returns {boolean} true se `DEEPSEEK_MODO=off`.
- */
-export function estaDesligada(ambiente = process.env) {
-  return String(ambiente[VARIAVEL_MODO] ?? '').trim().toLowerCase() === MODO_DESLIGADO;
-}
-
-/**
- * Lê os limites do ambiente: teto de tokens por chamada e tempo máximo. A chave NÃO é lida aqui.
- * @param {Record<string, string|undefined>} ambiente Variáveis de ambiente.
- * @returns {{maxTokens: number, tempoMaximoMs: number}} Limites em vigor.
- */
-export function lerLimites(ambiente = process.env) {
-  return {
-    maxTokens: inteiroPositivo(ambiente[VARIAVEL_MAX_TOKENS], MAX_TOKENS_PADRAO),
-    tempoMaximoMs: inteiroPositivo(ambiente[VARIAVEL_TEMPO], TEMPO_MAXIMO_PADRAO_MS),
-  };
 }
 
 /**

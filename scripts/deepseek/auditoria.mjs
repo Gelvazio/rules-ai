@@ -5,12 +5,11 @@
 // daqui lança exceção ao chamador: a auditoria nunca pode bloquear a sessão (INV-2).
 import { appendFile, mkdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import { lerLimites } from './limites.mjs';
 
 const DIRETORIO_PADRAO = fileURLToPath(new URL('./saidas/', import.meta.url));
 const PREFIXO_ARQUIVO = 'auditoria-';
 const EXTENSAO_ARQUIVO = '.jsonl';
-const VARIAVEL_TETO_DIA = 'DEEPSEEK_MAX_CUSTO_DIA';
-const TETO_DIA_PADRAO_USD = 2;
 const CODIGO_ARQUIVO_AUSENTE = 'ENOENT';
 const CASAS_CUSTO = 8;
 const TAMANHO_MAXIMO_MOTIVO = 60;
@@ -54,14 +53,12 @@ export function estimarCusto(tokensEntrada, tokensSaida) {
 }
 
 /**
- * Lê o teto de custo do dia (US$) do ambiente; valor inválido volta ao padrão.
+ * Lê o teto de custo do dia (US$); a leitura e a validação ficam em limites.mjs.
  * @param {Record<string, string|undefined>} ambiente Variáveis de ambiente.
  * @returns {number} Teto diário em US$.
  */
 export function lerTetoDiario(ambiente = process.env) {
-  const numero = Number.parseFloat(ambiente[VARIAVEL_TETO_DIA] ?? '');
-  const ehValido = Number.isFinite(numero) && numero > 0;
-  return ehValido ? numero : TETO_DIA_PADRAO_USD;
+  return lerLimites(ambiente).tetoDiarioUsd;
 }
 
 /**

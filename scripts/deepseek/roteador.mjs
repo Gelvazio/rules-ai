@@ -4,10 +4,17 @@
 //   PESADO -> NÃO usa a API sem liberação do usuário (R6): { usar: false, motivo }
 // Em qualquer falha (erro do cliente, modo off, teto diário estourado, auditoria ilegível) devolve
 // { usar: false, motivo } e a sessão segue com o modelo da matriz: nunca lança e nunca bloqueia
-// (R3, INV-2). Cada chamada tentada deixa uma linha na auditoria, sem o texto (R5). O nível vem
-// do quadro e nunca é alterado aqui (INV-3).
-import { chamarDeepseek, estaDesligada } from './cliente.mjs';
-import { estimarCusto, lerTetoDiario, registrarChamada, somarCustoDoDia } from './auditoria.mjs';
+// (R3, INV-2). Limites (off, tokens, dia, tempo) vêm só de limites.mjs. Cada chamada tentada
+// deixa uma linha na auditoria, sem o texto (R5). O nível vem do quadro e nunca é alterado aqui
+// (INV-3).
+import { chamarDeepseek } from './cliente.mjs';
+import { estimarCusto, registrarChamada, somarCustoDoDia } from './auditoria.mjs';
+import {
+  limitarTempo,
+  lerLimites,
+  passouDoTetoDeTokens,
+  passouDoTetoDiario,
+} from './limites.mjs';
 
 const MODELO_FLASH = 'deepseek-flash';
 const NIVEL_LEVE = 'LEVE';
@@ -23,6 +30,8 @@ export const MOTIVOS = Object.freeze({
   NIVEL_INVALIDO: 'nivel-invalido',
   DESLIGADO: 'desligado',
   LIMITE_DIARIO: 'limite-diario',
+  LIMITE_TOKENS: 'limite-tokens',
+  TEMPO: 'timeout',
   AUDITORIA_ILEGIVEL: 'auditoria-ilegivel',
   ERRO_INTERNO: 'erro-interno',
 });
@@ -64,22 +73,27 @@ function auditarSemUso(dados, opcoesAuditoria) {
 }
 
 /**
- * Confere as barreiras antes de chamar a API: nível, modo `off` e teto de custo do dia.
- * @param {string} nivel Nível normalizado.
+ * Confere as barreiras antes de chamar a API: nível, modo `off`, teto de tokens por chamada e
+ * teto de custo do dia (limites lidos só em limites.mjs).
+ * @param {{nivel: string, mensagens: object[]}} pedido Nível normalizado e mensagens.
  * @param {object} opcoes Ambiente e opções da auditoria.
  * @returns {Promise<{motivo: string, acao: string}|null>} Barreira encontrada, ou null se livre.
  */
-async function acharBarreira(nivel, opcoes) {
+async function acharBarreira(pedido, opcoes) {
+  const { nivel, mensagens } = pedido;
   if (nivel === NIVEL_PESADO) {
     return { motivo: MOTIVOS.PESADO_SEM_LIBERACAO, acao: ACOES.BLOQUEADA };
   }
   if (!ROTAS[nivel]) return { motivo: MOTIVOS.NIVEL_INVALIDO, acao: ACOES.BLOQUEADA };
-  if (estaDesligada(opcoes.ambiente)) {
-    return { motivo: MOTIVOS.DESLIGADO, acao: ACOES.FALLBACK };
+
+  const limites = lerLimites(opcoes.ambiente);
+  if (limites.desligada) return { motivo: MOTIVOS.DESLIGADO, acao: ACOES.FALLBACK };
+  if (passouDoTetoDeTokens(mensagens, limites.maxTokens)) {
+    return { motivo: MOTIVOS.LIMITE_TOKENS, acao: ACOES.BLOQUEADA };
   }
   const gastoHoje = await somarCustoDoDia(opcoes.auditoria);
   if (gastoHoje === null) return { motivo: MOTIVOS.AUDITORIA_ILEGIVEL, acao: ACOES.BLOQUEADA };
-  const estourou = gastoHoje >= lerTetoDiario(opcoes.ambiente);
+  const estourou = passouDoTetoDiario(gastoHoje, limites.tetoDiarioUsd);
   return estourou ? { motivo: MOTIVOS.LIMITE_DIARIO, acao: ACOES.BLOQUEADA } : null;
 }
 
@@ -126,6 +140,26 @@ async function executarRota(pedido, opcoes) {
 }
 
 /**
+ * Faz a rota inteira (barreiras, chamada e auditoria) sem nunca lançar exceção.
+ * @param {{nivel: string, mensagens: object[]}} pedido Pedido recebido.
+ * @param {object} opcoes Opções já completas (ambiente definido).
+ * @returns {Promise<object>} Resultado de {@link rotearChamada}.
+ */
+async function rotearComSeguranca(pedido, opcoes) {
+  try {
+    const nivel = normalizarNivel(pedido?.nivel);
+    const barreira = await acharBarreira({ nivel, mensagens: pedido?.mensagens }, opcoes);
+    if (barreira) {
+      await auditarSemUso({ nivel, rota: ROTAS[nivel], ...barreira }, opcoes.auditoria);
+      return semDeepseek(barreira.motivo);
+    }
+    return await executarRota({ nivel, mensagens: pedido.mensagens }, opcoes);
+  } catch {
+    return semDeepseek(MOTIVOS.ERRO_INTERNO);
+  }
+}
+
+/**
  * Escolhe o modelo DeepSeek pelo nível e faz a chamada. NUNCA lança e nunca bloqueia: em
  * qualquer falha devolve `{ usar: false, motivo }` e a sessão segue com o modelo da matriz.
  * @param {{nivel: string, mensagens: {role: string, content: string}[]}} pedido Nível da
@@ -138,17 +172,10 @@ async function executarRota(pedido, opcoes) {
  *   DeepSeek, ou o motivo para seguir com a matriz.
  */
 export async function rotearChamada(pedido, opcoes = {}) {
-  const nivel = normalizarNivel(pedido?.nivel);
-  const opcoesCompletas = { ...opcoes, ambiente: opcoes.ambiente ?? process.env };
-  try {
-    const barreira = await acharBarreira(nivel, opcoesCompletas);
-    if (barreira) {
-      const rota = ROTAS[nivel];
-      await auditarSemUso({ nivel, rota, ...barreira }, opcoesCompletas.auditoria);
-      return semDeepseek(barreira.motivo);
-    }
-    return await executarRota({ nivel, mensagens: pedido.mensagens }, opcoesCompletas);
-  } catch {
-    return semDeepseek(MOTIVOS.ERRO_INTERNO);
-  }
+  const ambiente = opcoes?.ambiente ?? process.env;
+  const opcoesCompletas = { ...opcoes, ambiente };
+  const { tempoMaximoMs } = lerLimites(ambiente);
+  const falhaPorTempo = semDeepseek(MOTIVOS.TEMPO);
+  const operacao = rotearComSeguranca(pedido, opcoesCompletas);
+  return limitarTempo(operacao, { tempoMaximoMs, aoFalhar: falhaPorTempo });
 }
