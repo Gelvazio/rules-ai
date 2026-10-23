@@ -1,7 +1,7 @@
 // Leitura simples da linha de comando do `scripts/jev.mjs`: subcomando, posicionais e opções.
 // Opções booleanas conhecidas não consomem valor; as demais leem o próximo argumento.
 
-const OPCOES_BOOLEANAS = new Set(['json', 'dry-run', 'ajuda', 'todas']);
+const OPCOES_BOOLEANAS = new Set(['json', 'dry-run', 'ajuda', 'todas', 'gravar', 'reclassificar']);
 
 /**
  * Separa a linha de comando em subcomando, argumentos posicionais e opções.

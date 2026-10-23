@@ -62,8 +62,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | VERCEL-SEM-DEPLOY-DE-CONTROLE.2 | Aplicar no `aulasenai` (`ignoreCommand` e `.vercelignore`) | 🟡 Média | MEDIO · só Sonnet · effort medium | VERCEL-SEM-DEPLOY-DE-CONTROLE.1 | ⬜ Pendente | — | [ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md) |
 | VERCEL-SEM-DEPLOY-DE-CONTROLE.3 | Aplicar no `dashboard-ai` (`ignoreCommand` e `.vercelignore`) | 🟡 Média | MEDIO · só Sonnet · effort medium | VERCEL-SEM-DEPLOY-DE-CONTROLE.1 | ⬜ Pendente | — | [ETAPA-034](etapas/ETAPA-034-932f56d2-VERCEL-SEM-DEPLOY-DE-CONTROLE.md) |
 | **JEV-GRAVA-NIVEL** | **🌐 GLOBAL — O Jev classifica e grava nível, modelo e effort das subtarefas (≥ 0,80; sobe e baixa; plano aprovado em 2026-10-22)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
-| JEV-GRAVA-NIVEL.2 | CLI `classificar --gravar` e gravador | 🟠 Alta | PESADO · só Opus 5.5+/Fable, Sonnet (exceção 2026-10-23) ou DeepSeek · effort high | JEV-GRAVA-NIVEL.1 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
-| JEV-GRAVA-NIVEL.3 | Sincronizar, STATUS_PROJETO e rollback | 🟠 Alta | PESADO · só Opus 5.5+/Fable, Sonnet (exceção 2026-10-23) ou DeepSeek · effort high | JEV-GRAVA-NIVEL.2, JEV-GRAVA-NIVEL.4 | ⬜ Pendente | — | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
+| JEV-GRAVA-NIVEL.3 | Sincronizar, STATUS_PROJETO e rollback | 🟠 Alta | PESADO · só Opus 5.5+/Fable, Sonnet (exceção 2026-10-23) ou DeepSeek · effort high | JEV-GRAVA-NIVEL.2, JEV-GRAVA-NIVEL.4 | 🔄 Em execução | Claude Code (Sonnet 5.5) (local · main · rules-ai) (desde 2026-10-23 11:00) | [ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md) |
 
 
 ## 🧭 Frentes de trabalho
@@ -72,7 +71,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 |---|---|---|---|
 | Claude Code (Opus 5.5) (local · main · aulasenai s17) | HAIKU-COMMIT-GLOBAL.1 ([ETAPA-027](etapas/ETAPA-027-56ebd953-HAIKU-COMMIT-GLOBAL.md)) | 🔄 Ativa | 2026-10-18 20:17 |
 | Claude Code (Sonnet 5.5 · executor-medio; líder Opus 5.5) (local · main · rules-ai) | JEV-SEM-LAYA.3 ([ETAPA-028](etapas/ETAPA-028-8fe0b340-JEV-SEM-LAYA.md)) | ⏹️ Encerrada | 2026-10-19 23:53 |
-| Claude Code (Sonnet 5.5) (local · main · rules-ai) | JEV-GRAVA-NIVEL.4 ([ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md)) | ⏹️ Encerrada | 2026-10-23 10:00 |
+| Claude Code (Sonnet 5.5) (local · main · rules-ai) | JEV-GRAVA-NIVEL.3 ([ETAPA-035](etapas/ETAPA-035-a3378980-JEV-GRAVA-NIVEL.md)) | 🔄 Ativa | 2026-10-23 10:00 |
 | Claude Code (Sonnet 5.5) (local · main · aulasenai) | UPDATE-TODAS-PASTAS.1 ([ETAPA-037](etapas/ETAPA-037-7d41c0e9-UPDATE-TODAS-PASTAS.md)) | ⏹️ Encerrada | 2026-10-23 09:42 |
 
 

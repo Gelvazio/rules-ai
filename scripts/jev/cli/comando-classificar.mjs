@@ -6,6 +6,7 @@ import { resolve } from 'node:path';
 import { criarClientePadrao } from '../cliente.mjs';
 import { MODOS, carregarConfiguracao } from '../config.mjs';
 import { classificarSubtarefa } from '../decidir.mjs';
+import { gravarClassificacao } from '../gravador.mjs';
 import {
   ARQUIVO_QUADRO, ehSubtarefa, estaLivre, lerQuadro, selecionarSubtarefas,
 } from '../estado.mjs';
@@ -59,6 +60,7 @@ function montarTexto(sugestoes) {
  * @throws {ErroJev} `CHAVE_AUSENTE` ou `CONFIGURACAO_INVALIDA` (a CLI converte em código 1).
  */
 export async function executarClassificar({ opcoes }) {
+  if (opcoes.gravar) return executarGravar({ opcoes });
   if (carregarConfiguracao().modo === MODOS.DESLIGADO) {
     console.error(MENSAGEM_DESLIGADO);
     return CODIGOS_SAIDA.DESLIGADO;
@@ -72,4 +74,40 @@ export async function executarClassificar({ opcoes }) {
   imprimir({ json: Boolean(opcoes.json), objeto: sugestoes, texto: montarTexto(sugestoes) });
   const jevFalhou = sugestoes.some((sugestao) => sugestao.erro_codigo);
   return jevFalhou ? CODIGOS_SAIDA.JEV_INDISPONIVEL : CODIGOS_SAIDA.OK;
+}
+
+/** Sugestão sem Jev (modo `off` ou sem chave): a gravação cai no nível mais restritivo (R4). */
+const SUGESTAO_SEM_JEV = Object.freeze({
+  nivel_sugerido: null, nivel_final_proposto: null, confianca: null, sinais: {},
+  erro_codigo: 'JEV_INDISPONIVEL',
+});
+const COLUNAS_GRAVACAO = ['Tarefa', 'Gravado', 'Nível', 'Effort', 'JEV-AI-SUGGESTION', 'Fonte',
+  'Recusa'];
+
+/**
+ * Classifica e GRAVA o nível das subtarefas livres e sem nível (C47). Com `--dry-run` só mostra.
+ * @param {{opcoes: Record<string, string|true>}} argumentos Argumentos lidos.
+ * @returns {Promise<number>} Código de saída (`REVISAR` se algo precisa de revisão humana).
+ */
+export async function executarGravar({ opcoes }) {
+  const arquivoQuadro = resolve(lerTexto(opcoes, 'quadro', ARQUIVO_QUADRO));
+  const desligado = carregarConfiguracao().modo === MODOS.DESLIGADO;
+  const cliente = desligado ? null : criarClientePadrao();
+  const linhas = [];
+  let revisar = false;
+  for (const item of escolherItens(opcoes, arquivoQuadro)) {
+    const sugestao = cliente
+      ? await classificarSubtarefa(item, { cliente, arquivoQuadro })
+      : { ...SUGESTAO_SEM_JEV, subtarefa: item.id };
+    const resultado = gravarClassificacao({ item, sugestao, arquivoQuadro },
+      { reclassificar: Boolean(opcoes.reclassificar), simular: Boolean(opcoes['dry-run']) });
+    const decisao = resultado.decisao;
+    revisar = revisar || Boolean(decisao?.revisar);
+    linhas.push([item.id, resultado.gravado ? 'sim' : 'não', decisao?.nivel ?? '—',
+      decisao?.effort ?? '—', decisao ? (decisao.jevDecidiu ? 'SIM' : 'NAO') : '—',
+      decisao?.fonte ?? '—', resultado.recusa ?? '—']);
+  }
+  const texto = linhas.length ? montarTabela(COLUNAS_GRAVACAO, linhas) : 'Nada a gravar.';
+  imprimir({ json: Boolean(opcoes.json), objeto: linhas, texto });
+  return revisar ? CODIGOS_SAIDA.REVISAR : CODIGOS_SAIDA.OK;
 }

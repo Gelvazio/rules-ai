@@ -25,6 +25,7 @@ const COMANDOS = Object.freeze({
 });
 const AJUDA = `jev.mjs — Jev (TypeSafe) no rules-ai
   classificar [--id ID] [--limite N] [--todas] [--quadro arquivo] [--dry-run] [--json]
+      [--gravar [--reclassificar]]  grava Nível/Modelo/Effort (C47); --dry-run só mostra
       sugere nível, effort e modelos elegíveis (somente leitura; exige TYPESAFE_API_KEY)
   mensagem [--texto "..."] [--projeto nome] [--dry-run] [--json]
       classifica a mensagem do usuário (texto pela entrada padrão se faltar --texto); sai com 0

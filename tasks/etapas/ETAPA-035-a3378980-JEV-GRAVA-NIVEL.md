@@ -103,7 +103,7 @@ de invariante INV-1/INV-2 (exceção C34).
 - **Effort:** high
 - **Depende de:** JEV-GRAVA-NIVEL.1
 - **Critérios de aceitação:** R1–R7, R9, INV-1 a INV-4.
-- **Entrega:** — · **Verificação:** —
+- **Entrega:** `scripts/jev/gravacao.mjs` (regra pura), `scripts/jev/gravador.mjs` (escrita, recusas, auditoria), `classificar --gravar [--reclassificar] [--dry-run]`, `scripts/jev/testes/gravacao.mjs` · **Verificação:** `node scripts/jev/testes/gravacao.mjs` (112 casos INV-1/INV-2 + INV-3); execução real com `JEV_MODO=off` num quadro de teste: gravou PESADO/NAO/`sinais (jev indisponivel)`, recusou a reservada, saiu com código 3 (revisar); INV-4 (cego): o estado enviado não muda · **Anotação:** R2/R3 (Jev ≥ 0,80 e < 0,80) cobertos pelo teste de propriedade com cliente simulado; chamada real ao Jev não rodada (sem uso de chave nesta sessão)
 - **JEV-AI-SUGGESTION:** NAO
 
 ### JEV-GRAVA-NIVEL.4 — Python que marca `JEV-AI-SUGGESTION: NAO` em todas as subtarefas
