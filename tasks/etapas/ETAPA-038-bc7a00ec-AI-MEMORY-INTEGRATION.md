@@ -208,7 +208,7 @@
 
 ### AI-MEMORY-INTEGRATION.10 — Registrar a decisão C49 (exceção controlada à fonte única) e a entrada no `INDEX.md`
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** LEVE — classificado (jev (confiança 0.98))
 - **Modelo:** só Haiku — nunca outro
@@ -219,7 +219,8 @@
 - **Arquivos:** `CONFLITOS.md`, `regras/INDEX.md`
 - **Critérios de Aceitação:** C49 escrita com data, quem decidiu e por quê; `INDEX.md` lista `memoria-ai.md` na ordem certa.
 - **Depende de:** AI-MEMORY-INTEGRATION.9
-- **Verificação:** a preencher na entrega.
+- **Entrega:** CONFLITOS.md (linha C49 depois da C48) e regras/INDEX.md (item 21: memoria-ai.md); commit desta entrega
+- **Verificação:** linhas lidas no diff pelo líder (2 inserções, nada mais mudou); o INDEX.md lista os 22 arquivos de regras/*.md, sem faltar nenhum; numeração repetida do 20 na seção Assuntos específicos já existia e não foi mexida. Feita pelo agente Haiku e conferida pelo líder.
 
 ### AI-MEMORY-INTEGRATION.11 — Alinhar `ciclo-da-task.md` (Retomar) e `rules-local.md` à nova regra
 

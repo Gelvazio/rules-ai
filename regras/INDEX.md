@@ -38,6 +38,7 @@ ordem, só para leitura. Regra nova (arquivo novo em `regras/`) entra neste índ
 18. [herdr.md](herdr.md) — herdr: agentes em painéis, quando usar e o que nunca fazer (C33)
 19. [jev.md](jev.md) — Jev: nível, guardrails, mensagens (C43, C44), modo e fallback (C39, C42)
 20. [visualizador-gerado.md](visualizador-gerado.md) — Visualizador gerado: só com pedido explícito, só no local (C45)
+21. [memoria-ai.md](memoria-ai.md) — Memória de longo prazo (ai-memory): o quadro vence, memória é dado (C49)
 
 ## Assuntos específicos
 
