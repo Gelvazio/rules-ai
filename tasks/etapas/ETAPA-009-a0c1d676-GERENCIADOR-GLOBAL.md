@@ -196,9 +196,9 @@
 - **Entrega:** — · **Verificação:** — · **Anotação:** —
 - **JEV-AI-SUGGESTION:** NAO
 
-### GERENCIADOR-GLOBAL.8 — Testes do script central `scripts/gerenciador.mjs`
+### GERENCIADOR-GLOBAL.9 — Testes do script central `scripts/gerenciador.mjs`
 
-**Próximo passo:** o Haiku 5.5 executa (subtarefa criada pela C26 a pedido do usuário: teste vira subtarefa nova).
+**Próximo passo:** ✅ entregue em 2026-10-23.
 
 - **Nível:** LEVE — conferência ou ajuste de texto
 - **Modelo:** só Haiku — nunca outro
@@ -209,4 +209,6 @@
 - **Arquivos:** `scripts/gerenciador/testes/gerenciador.mjs`
 - **Critérios de Aceitação:** `node scripts/gerenciador/testes/gerenciador.mjs` passa; relatório do que cada teste cobre.
 - **Depende de:** GERENCIADOR-GLOBAL.3
-- **Verificação:** a preencher na entrega.
+- **Entrega:** Claude Code (Haiku 5.5 · agente), 2026-10-23: scripts/gerenciador/testes/gerenciador.mjs (9 testes)
+- **Verificação:** `node --check` limpo; `node scripts/gerenciador/testes/gerenciador.mjs` → 9 testes: 9 passaram, 0 falharam; pasta temporária apagada: sim; nenhuma sobra em `%TEMP%`.
+- **Anotação:** defeito achado, não corrigido (o código da .3 não foi alterado): quando a coluna Modelo existe, ela vence a matriz do nível. Prova: uma linha `PESADO · só Haiku` sai livre para Haiku (`scripts/gerenciador/quadro.mjs`, `definirElegiveis`). Contraria a C22 (Haiku só LEVE); a .4 precisa cruzar o modelo com a matriz antes de disparar.
