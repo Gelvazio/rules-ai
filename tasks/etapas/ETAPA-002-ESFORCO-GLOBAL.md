@@ -42,6 +42,25 @@ Procedimento e problema padrão: os da ETAPA-012 do REA (`REA-APP-CLONES/tasks/e
 - **Critérios de aceitação:** tabela com `low`/`medium`/`high` (tokens, tempo, tamanho) e conclusão em uma linha (`aplicado`, `ignorado` ou `não deu para medir`).
 - **Entrega:** — · **Verificação:** — (por subtarefa, na hora de executar).
 
+#### CONFEFFORT-GLOBAL.1 — Haiku 5.5 — resultado (2026-10-23, Claude Haiku 5.5, local · main)
+
+**Próximo passo:** — (entregue).
+
+- **Nível:** LEVE · **Modelo:** só Haiku 5.5 · **Effort:** low
+- **Entrega:** 3 agentes descartáveis `model: haiku`, um por `effort` (low, medium, high; parâmetro `effort` do Agent), problema padrão da ETAPA-012 do REA colado sem mudar uma palavra; medidas do relatório de uso de cada subagente. Nenhum arquivo do repositório foi alterado pela medição.
+
+| effort | tokens totais | tempo | resposta |
+|---|---|---|---|
+| `low` | 129.116 | 23.591 ms | 39 de 40 ordens listadas (a 40ª ficou "ver nota"; o próprio agente admitiu a falha); método em 3 passos |
+| `medium` | 128.205 | 20.145 ms | 40 ordens, lista completa, método em 4 passos com conferência |
+| `high` | 132.099 | 35.192 ms | 40 ordens, lista completa, método em 6 passos, conferência por exclusão |
+
+**Conclusão (uma linha): não deu para medir com confiança** — só `high` se afasta (+2,3% de tokens e +49% de tempo em relação a `low`); `low` e `medium` ficam iguais e tokens e tempo não crescem de forma contínua de `low` a `high`.
+Ressalvas: 1 execução por nível (amostra pequena; o tempo varia muito entre execuções); o `effort` foi passado pelo parâmetro do Agent, não por frontmatter em cópia temporária (a ferramenta Agent não carrega definição de agente de pasta temporária); o mapeamento de `effort` para cada resultado segue a ordem de retorno dos três agentes (o retorno não traz o `effort`); os tokens incluem o contexto fixo do subagente (~129 mil, bem acima dos ~40 mil das rodadas do Opus), por isso só a diferença importa.
+
+- **Verificação:** os 3 relatórios de uso (`subagent_tokens` e `duration_ms`) lidos no retorno dos agentes; as contas finais (40) conferidas por exclusão (60 − 20 = 40), não linha a linha das listas; a lista do `low` tem 39 entradas.
+- **JEV-AI-SUGGESTION:** NAO
+
 #### CONFEFFORT-GLOBAL.2 — Sonnet 5.5 — resultado (2026-10-16 20:05, Claude Code Sonnet 5.5, local · main)
 
 Agentes descartáveis `model: sonnet` (parâmetro `effort` do Agent), problema padrão colado sem mudar uma palavra; medidas do relatório de uso de cada subagente:
