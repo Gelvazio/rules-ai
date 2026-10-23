@@ -1,0 +1,37 @@
+## Etapa 044-7a4d8f72 — REGRA-MAIS-FORTE-NUNCA: modelo mais forte nunca pega tarefa de modelo mais fraco
+
+**Tarefa:** REGRA-MAIS-FORTE-NUNCA · **Pedido em:** 2026-10-23 13:26 · **Criada por:** Claude Code (Opus 5.5 · sargento herdr w2:p1) (local · main · rules-ai)
+**Pedido:** "adicione 1 regra global de pegar tarefa que deve ser a maior de todas! NUNCA UM MODELO MAIS FORTE, PODE PEGAR TAREFA DE 1 MAIS FRACO! NUNCA, GRAVE ISSO EM rules-ai global"
+**Objetivo:** a regra passa a ser a primeira das regras globais (a que vence todas), para todas as IAs.
+
+### Decisões
+
+- 2026-10-23 13:26: pedido do usuário; vira a decisão **C50**. Reforça a C2 (cada IA só o seu nível) com prioridade máxima. Vale também para o líder: subtarefa `LEVE` ou `MEDIO` nunca é feita pelo Opus/Fable, mesmo de fechamento; o líder só reserva, confere e commita (edição do quadro não é subtarefa).
+
+### REGRA-MAIS-FORTE-NUNCA.1 — Escrever a regra e registrar a C50
+
+**Próximo passo:** escrever os arquivos com o texto combinado.
+
+- **Nível:** LEVE — só `.md`
+- **Modelo:** só Haiku — nunca outro
+- **Effort:** low
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** criar `regras/regra-maior.md`; pôr como item 0, antes de tudo, no `regras/INDEX.md`; linha C50 no `CONFLITOS.md`; uma linha em `regras/niveis-e-modelos.md` apontando para ela; entrada com data e hora no `STATUS_PROJETO.md`.
+- **Arquivos:** `regras/regra-maior.md`, `regras/INDEX.md`, `CONFLITOS.md`, `regras/niveis-e-modelos.md`, `STATUS_PROJETO.md`
+- **Critérios de Aceitação:** a regra existe, é a 1ª do índice e cita a C50; nada mais muda nos arquivos.
+- **Depende de:** Nenhuma
+- **Verificação:** a preencher na entrega.
+
+### REGRA-MAIS-FORTE-NUNCA.2 — Gerar a nova versão das regras
+
+**Próximo passo:** aguardando a .1.
+
+- **Nível:** MEDIO — roda o sincronizador (script) e confere a saída
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** `node scripts/sincronizar.mjs --aplicar`; conferir que `dist/REGRAS-GLOBAIS.md` começa pela regra nova e que a `VERSAO.md` ganhou a linha dela.
+- **Arquivos:** `VERSAO.md`, `dist/REGRAS-GLOBAIS.md`
+- **Critérios de Aceitação:** `VERSAO.md` com versão nova e `regra-maior.md`; a regra é o 1º bloco do `dist/`.
+- **Depende de:** REGRA-MAIS-FORTE-NUNCA.1
+- **Verificação:** a preencher na entrega.
