@@ -110,7 +110,7 @@
 
 ### RECLASSIFICAR-PESADO-OPUS.4 — Conferência final
 
-**Próximo passo:** começar depois da `.2`.
+**Próximo passo:** ✅ entregue em 2026-10-23.
 
 - **Nível:** LEVE — só contagem e leitura
 - **Modelo:** só Haiku — nunca outro
@@ -120,4 +120,5 @@
 - **Descrição:** Rodar `grep` para confirmar que as linhas `só Opus` restantes são as aprovadas em P2, e que nenhuma `PESADO` aponta para Haiku.
 - **Critérios de Aceitação:** INV-3 atendido; contagem igual à da `.1` menos as trocadas.
 - **Depende de:** RECLASSIFICAR-PESADO-OPUS.2
-- **Verificação:** a preencher na entrega.
+- **Entrega:** Claude Code (Haiku 5.5 · agente; conferência C41), 2026-10-23 (reclassificação da .2: commit `d39a271`)
+- **Verificação:** `awk` do quadro (Modelo com Opus/Fable sem Sonnet) devolve GERENCIADOR-GLOBAL.4, GERENCIADOR-GLOBAL.7 e MCP-QUADRO.3; `awk` de PESADO com Haiku vazio; `grep -rn "só Opus" tasks/STATUS.md` = 7 linhas: as 3 aprovadas e 4 que já eram `só Opus 5.5+/Fable, Sonnet ou DeepSeek` (não mudaram nesta reclassificação).
