@@ -610,7 +610,7 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.22 — Variáveis e `.gitignore`: `.env.example` e `config.js`
 
-**Próximo passo:** aplicar a tabela 1 da seção "Segredos do publicador" da .11 (`SUPABASE_URL` e chave publicável vazias; a secreta só como comentário "nunca aqui").
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -619,6 +619,8 @@ usuário decide ao cadastrar.
 - **Descrição:** Acrescentar `SUPABASE_URL` e a chave publicável (vazias) ao `.env.example`/`config.js`; a chave secreta só aparece em comentário "nunca aqui".
 - **Critérios de Aceitação:** Nenhum valor real em arquivo versionado.
 - **Depende de:** AGENTES-REALTIME.11
+- **Entrega:** `dashboard/.env.example` ganhou a seção do Supabase Realtime com `SUPABASE_URL` (valor público do AULAS SENAI), `SUPABASE_PUBLISHABLE_KEY=` vazia (com a nota de que o valor de verdade vive no `config.js` e que esta variável só alimenta o `testes/medir_latencia.mjs`) e a `SUPABASE_SECRET_KEY` **só como comentário** "NUNCA aqui"; `dashboard/assets/js/config.js` com o comentário do `CANAL` reescrito pela tabela 1 da `.11` (o arquivo vai para o navegador, só entra o que é público; ⛔ a chave secreta nunca entra). O `.gitignore` não foi tocado porque já cobria `.env`, `.env.*` (com `!.env.example`) e `dashboard/.env`. Commit desta entrega. Feito por sn2 (Sonnet 5.5, herdr w2:p11, conta D).
+- **Verificação:** INV-3 — `git grep -n -E "sb_secret_[A-Za-z0-9_-]{10,}|eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\."` vazio (nenhum valor real de chave em arquivo versionado); `node --input-type=module --check` ok no `config.js`; nenhuma linha acima de 100 caracteres nos dois arquivos; `.gitignore` conferido nas linhas 69-71 e 155 (conferido pelo líder).
 
 ### AGENTES-REALTIME.23 — Auditoria de segredo e de exposição
 
@@ -660,7 +662,7 @@ usuário decide ao cadastrar.
 
 ### AGENTES-REALTIME.25 — Conferir os limites do plano Supabase contra a frequência de pushes
 
-**Próximo passo:** reservada em 2026-10-23 14:15 para sn3 (Sonnet 5.5, herdr w2:p12): contar os pushes reais da `main` por dia/mês no histórico e comparar com os limites do plano gratuito do Realtime; registrar a folga ou o plano B.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -669,6 +671,8 @@ usuário decide ao cadastrar.
 - **Descrição:** Comparar mensagens por segundo e por mês permitidas com os pushes reais dos projetos liberados.
 - **Critérios de Aceitação:** Folga registrada ou plano B (coalescer mais).
 - **Depende de:** AGENTES-REALTIME.14
+- **Entrega:** `dashboard/LIMITES-REALTIME.md` — limites do Realtime com fonte (200 conexões e 100 mensagens/s no Free, 2 milhões de mensagens/mês pela página de cobrança), frequência real medida no histórico da `main` (364 commits que mexem no `STATUS.md` em 30 dias, pior dia 117, pico de 39 por hora e 7 em 2 minutos, com os comandos `git log` usados), a comparação e o plano B com gatilhos. **Veredito: cabe** — 0,18 % da cota mensal no pior dia repetido, 1,8 % com 10 pessoas na página. Commit desta entrega. Feito por sn3 (Sonnet 5.5, herdr w2:p12, conta D).
+- **Verificação:** os fatos citados foram conferidos no repositório pelo líder: o workflow dispara só em `push` na `main` com `paths: [tasks/STATUS.md]`, tem `concurrency` com `cancel-in-progress` e o `sleep 3` da `.14`, e o `publicar_quadro.py` tem `LIMITE_BYTES = 200 * 1024`. O tamanho da mensagem é **medido**, não estimado: 19.219 bytes para 72 tarefas (JSON compacto, UTF-8), ≈ 7,3 % do limite de 256 KB — o líder repetiu a medição e achou 18.988 bytes para 71 tarefas, coerente. Fato e estimativa estão separados no texto, e dois itens ficaram marcados **não verificado** (se cada entrega a um assinante conta na cota mensal, e qual o plano do projeto AULAS SENAI — foi usado o Free, pior caso). As 4 linhas acima de 100 caracteres que sobraram são linhas de tabela Markdown.
 
 ### AGENTES-REALTIME.26 — Documentar o fluxo no `README.md` do dashboard
 

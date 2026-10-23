@@ -8,7 +8,12 @@ export const INTERVALO_FALLBACK_SEGUNDOS = 10;
 
 /**
  * Canal de Broadcast do Supabase (MIGRAR-AGENTES-BROADCAST.3).
- * A chave publicável (sb_publishable_…) é a única permitida aqui; vazia = só o estado inicial.
+ * Este arquivo vai para o navegador: só entra o que é público.
+ * - url: pública (projeto AULAS SENAI); não é segredo.
+ * - chavePublicavel (sb_publishable_…): pública por desenho; o usuário a preenche na subtarefa
+ *   AGENTES-REALTIME.12. Vazia = só o estado inicial, sem canal ao vivo.
+ * ⛔ A chave SECRETA (sb_secret_…) nunca entra aqui: ela vive só no secret SUPABASE_SECRET_KEY
+ * do GitHub e é usada pelo publicador no workflow.
  */
 export const CANAL = Object.freeze({
   url: 'https://hxlvonriearllcmfqeri.supabase.co',
