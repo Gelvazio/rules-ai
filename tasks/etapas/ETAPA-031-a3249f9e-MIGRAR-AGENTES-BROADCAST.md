@@ -136,6 +136,8 @@ Teste automatizado de invariante é permitido aqui porque a tarefa é `PESADO` (
 - **Estimativa:** 1 h.
 - **JEV-AI-SUGGESTION:** NAO
 
+- **Anotação (2026-10-23 13:09):** a reserva da sessão na nuvem (desde 2026-10-20 08:35, 0%) foi liberada a pedido do usuário; nada desta subtarefa tinha sido entregue.
+
 ### MIGRAR-AGENTES-BROADCAST.2 — Publicador e workflow do GitHub Actions
 
 **Próximo passo:** criar `dashboard/publicar_quadro.py` com `--simular`, depois `.github/workflows/publicar-quadro.yml`, e escrever `dashboard/testes/invariantes_broadcast.py` (INV-1 a INV-4).

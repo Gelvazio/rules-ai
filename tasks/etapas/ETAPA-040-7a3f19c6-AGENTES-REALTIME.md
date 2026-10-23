@@ -86,12 +86,12 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 
 | # | Pergunta | Resposta | Fechada em | Quem respondeu |
 |---|----------|----------|------------|----------------|
-| 1 | A ETAPA-031 (MIGRAR-AGENTES-BROADCAST, aprovada) já migra a página por Broadcast. **a)** esta tarefa a **complementa** e cuida do que sobra de `/api/agentes` e `/api/projetos` (recomendado); **b)** esta tarefa a **substitui** por tabela + `postgres_changes` (exige exceção à regra "sem cópia da fila em tabela de banco" e cancela a 031); **c)** cancelar esta tarefa? | ⬜ aberta | — | — |
-| 2 | O canal é **a)** público (quem tem a chave publicável vê os títulos das tarefas liberadas) ou **b)** privado, com login? | ⬜ aberta | — | — |
-| 3 | Quais projetos publicam: **a)** só o `rules-ai` (recomendado para começar) ou **b)** todos os de `C:\fontes` com quadro, menos `DEMAIS-PROJETOS-*` (os títulos do `aulasenai` podem ter dados pedagógicos)? | ⬜ aberta | — | — |
-| 4 | O `servidor.py` depois disso: **a)** aposentado (basta `python -m http.server`); **b)** mantido só como fallback local; **c)** mantido só para arquivos estáticos? | ⬜ aberta | — | — |
-| 5 | O Supabase é **a)** um projeto novo e dedicado (recomendado: não mistura com os dados de alunos do `aulasenai`) ou **b)** um projeto existente? | ⬜ aberta | — | — |
-| 6 | A página roda **a)** só no seu computador ou **b)** também hospedada (Vercel, GitHub Pages)? | ⬜ aberta | — | — |
+| 1 | A ETAPA-031 (MIGRAR-AGENTES-BROADCAST, aprovada) já migra a página por Broadcast. **a)** esta tarefa a **complementa** e cuida do que sobra de `/api/agentes` e `/api/projetos` (recomendado); **b)** esta tarefa a **substitui** por tabela + `postgres_changes` (exige exceção à regra "sem cópia da fila em tabela de banco" e cancela a 031); **c)** cancelar esta tarefa? | ✅ **a)** complementa a MIGRAR-AGENTES-BROADCAST | 2026-10-23 13:09 | Usuário ("faça tudo recomendado"); 5 e 6 alinhadas à ETAPA-031 pelo líder |
+| 2 | O canal é **a)** público (quem tem a chave publicável vê os títulos das tarefas liberadas) ou **b)** privado, com login? | ✅ **a)** público (chave publicável; só títulos de tarefas liberadas) | 2026-10-23 13:09 | Usuário ("faça tudo recomendado"); 5 e 6 alinhadas à ETAPA-031 pelo líder |
+| 3 | Quais projetos publicam: **a)** só o `rules-ai` (recomendado para começar) ou **b)** todos os de `C:\fontes` com quadro, menos `DEMAIS-PROJETOS-*` (os títulos do `aulasenai` podem ter dados pedagógicos)? | ✅ **a)** só o `rules-ai`, para começar | 2026-10-23 13:09 | Usuário ("faça tudo recomendado"); 5 e 6 alinhadas à ETAPA-031 pelo líder |
+| 4 | O `servidor.py` depois disso: **a)** aposentado (basta `python -m http.server`); **b)** mantido só como fallback local; **c)** mantido só para arquivos estáticos? | ✅ **a)** aposentado (basta `python -m http.server`) | 2026-10-23 13:09 | Usuário ("faça tudo recomendado"); 5 e 6 alinhadas à ETAPA-031 pelo líder |
+| 5 | O Supabase é **a)** um projeto novo e dedicado (recomendado: não mistura com os dados de alunos do `aulasenai`) ou **b)** um projeto existente? | ✅ **b)** projeto existente **AULAS SENAI** (`hxlvonriearllcmfqeri`), só o canal de Broadcast, sem tabela nem dado — igual à decisão do usuário de 2026-10-20 08:35 na ETAPA-031 (a recomendação "projeto novo" foi trocada para não contradizer a 031) | 2026-10-23 13:09 | Usuário ("faça tudo recomendado"); 5 e 6 alinhadas à ETAPA-031 pelo líder |
+| 6 | A página roda **a)** só no seu computador ou **b)** também hospedada (Vercel, GitHub Pages)? | ✅ **b)** hospedada na Vercel, igual à pergunta 4 da ETAPA-031 (a resposta "só no computador" foi trocada para não contradizer a 031) | 2026-10-23 13:09 | Usuário ("faça tudo recomendado"); 5 e 6 alinhadas à ETAPA-031 pelo líder |
 
 ### Decisões
 
@@ -100,9 +100,11 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 | 2026-10-23 11:24 | Registrada como tarefa grande (`PESADO`, spec C34), com 31 subtarefas; execução só depois das perguntas fechadas e do "sim". Escrita como complemento da ETAPA-031 | Claude Code (Sonnet 5.5) | Banco/segurança/várias partes; a 031 já cobre parte do caminho |
 | 2026-10-23 11:24 | Níveis e modelos propostos pela matriz e pelos sinais; `JEV-AI-SUGGESTION: NAO` em todas até rodar `node scripts/jev.mjs classificar` | Claude Code (Sonnet 5.5) | O Jev não foi rodado nesta sessão |
 
+| 2026-10-23 13:09 | **"Sim" ao plano:** o usuário respondeu "faça tudo recomendado". Perguntas fechadas: 1-a, 2-a, 3-a, 4-a; 5 e 6 seguem as decisões do usuário na ETAPA-031 (projeto AULAS SENAI e Vercel). Também autorizou liberar a reserva parada da MIGRAR-AGENTES-BROADCAST.1 e usar a conta D na equipe herdr | Usuário (registrado pelo líder Opus 5.5) | Destrava a execução (C34) |
+
 ### AGENTES-REALTIME.1 — Fechar as 6 perguntas abertas e aprovar o plano
 
-**Próximo passo:** esperar a resposta do usuário.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** Usuário — só o usuário pode fazer (resposta, conta ou conferência na tela)
 - **Modelo:** Usuário — nunca outro
@@ -111,6 +113,8 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 - **Descrição:** Responder as perguntas 1 a 6 da etapa e dar o "sim" ao plano.
 - **Critérios de Aceitação:** Nenhum `⬜` em Perguntas abertas; "sim" registrado em Decisões.
 - **Depende de:** Nenhuma
+- **Entrega:** respostas e "sim" do usuário em 2026-10-23 13:09 (tabela Perguntas abertas e Decisões).
+- **Verificação:** nenhum `⬜` em Perguntas abertas; "sim" nas Decisões.
 
 ### AGENTES-REALTIME.2 — Fechar a spec e rodar o gate `verificar-spec.mjs`
 
