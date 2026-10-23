@@ -59,7 +59,7 @@ página sem `setInterval`; indicador de conexão; reconexão; fallback; remover 
 |----|------------------|-------|-------------|
 | R1.1 | QUANDO um `tasks/STATUS.md` liberado for enviado ao GitHub, O SISTEMA DEVE publicar o quadro no canal do projeto em até 10 s | AGENTES-REALTIME.24 | script de latência da .24 |
 | R1.2 | QUANDO a página abrir sem o `servidor.py`, O SISTEMA DEVE mostrar o estado atual do quadro lido do GitHub | AGENTES-REALTIME.5, AGENTES-REALTIME.19 | leitura do código e conferência do usuário (.29) |
-| R2.1 | O SISTEMA DEVE enviar ao canal só os campos `tarefa`, `titulo`, `pai`, `mae`, `nivel`, `status`, `agente`, `desde`, `progresso`, `global`, `indice` | AGENTES-REALTIME.8, AGENTES-REALTIME.9 | script de invariante da .9 |
+| R2.1 | O SISTEMA DEVE enviar ao canal só os campos `tarefa`, `titulo`, `pai`, `mae`, `nivel`, `status`, `agente`, `desde`, `progresso`, `global`, `indice`, e os metadados do envelope `projeto`, `commit`, `publicado_em`, `sequencia`, `atraso_padrao`, `intervalo` | AGENTES-REALTIME.8, AGENTES-REALTIME.9 | script de invariante da .9 |
 | R2.2 | SE o projeto estiver em `DEMAIS-PROJETOS-*`, ENTÃO O SISTEMA DEVE não listar, ler nem publicar | AGENTES-REALTIME.8, AGENTES-REALTIME.9 | script de invariante da .9 |
 | R3.1 | QUANDO o canal cair, O SISTEMA DEVE mostrar "reconectando" e, ao voltar, reler o estado completo | AGENTES-REALTIME.17, AGENTES-REALTIME.18 | leitura do código |
 | R3.2 | SE chegar mensagem com `sequencia` menor ou igual à atual, ENTÃO O SISTEMA DEVE descartá-la | AGENTES-REALTIME.14, AGENTES-REALTIME.18 | leitura do código |
@@ -75,9 +75,9 @@ página sem `setInterval`; indicador de conexão; reconexão; fallback; remover 
 |----|----------------------|--------------------|---------------|--------------------|
 | INV-1 | O payload tem só os campos permitidos em R2.1 | todo `STATUS.md` liberado | script da .9 | sim: script da .9 |
 | INV-2 | Nenhum projeto de `DEMAIS-PROJETOS-*` aparece no payload nem em `projetos.json` | todas as pastas de `C:\fontes` | script da .9 | sim: mesmo script |
-| INV-3 | Nenhuma chave secreta em arquivo versionado nem no HTML | todos os arquivos versionados | `git grep` de padrões de chave | não: conferência por comando |
+| INV-3 | Nenhuma chave secreta em arquivo versionado nem no HTML | todos os arquivos versionados | `git grep -n -E "service_role\|sb_secret_\|SUPABASE_SERVICE\|eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\."` vazio | não: conferência por comando |
 | INV-4 | O leitor JS devolve o mesmo resultado que `quadro_tarefas.py` | todos os `STATUS.md` liberados | script da .6 | sim: script da .6 |
-| INV-5 | Todo `import`, `href` e `src` local dos `.html` e `.js` restantes aponta para arquivo que existe | todos os `.html` e `.js` de `dashboard/` | script de leitura fora do repositório | não: conferência por comando |
+| INV-5 | Todo `import`, `href` e `src` local dos `.html` e `.js` restantes aponta para arquivo que existe | todos os `.html` e `.js` de `dashboard/` | script temporário na pasta da sessão (fora do repositório), descrito na Verificação da .30 | não: conferência por comando |
 
 **Casos de borda que o código precisa sobreviver:** `STATUS.md` sem a coluna "Modelo"; projeto sem quadro;
 canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; repositório privado.
@@ -99,8 +99,8 @@ canal fora do ar na abertura; mensagem duplicada; dois pushes em menos de 2 s; r
 |---|---|---|---|
 | 2026-10-23 11:24 | Registrada como tarefa grande (`PESADO`, spec C34), com 31 subtarefas; execução só depois das perguntas fechadas e do "sim". Escrita como complemento da ETAPA-031 | Claude Code (Sonnet 5.5) | Banco/segurança/várias partes; a 031 já cobre parte do caminho |
 | 2026-10-23 11:24 | Níveis e modelos propostos pela matriz e pelos sinais; `JEV-AI-SUGGESTION: NAO` em todas até rodar `node scripts/jev.mjs classificar` | Claude Code (Sonnet 5.5) | O Jev não foi rodado nesta sessão |
-
 | 2026-10-23 13:09 | **"Sim" ao plano:** o usuário respondeu "faça tudo recomendado". Perguntas fechadas: 1-a, 2-a, 3-a, 4-a; 5 e 6 seguem as decisões do usuário na ETAPA-031 (projeto AULAS SENAI e Vercel). Também autorizou liberar a reserva parada da MIGRAR-AGENTES-BROADCAST.1 e usar a conta D na equipe herdr | Usuário (registrado pelo líder Opus 5.5) | Destrava a execução (C34) |
+| 2026-10-23 13:25 | Ajustes da conferência da .2 (achados do agente h1): R2.1/INV-1 passam a listar os metadados do envelope (`projeto`, `commit`, `publicado_em`, `sequencia`, `atraso_padrao`, `intervalo`) que a .4 e a .14 exigem; INV-3 com os padrões exatos do `git grep`; INV-5 com o script nomeado; linha solta das Decisões voltou para a tabela | Líder (Opus 5.5 · sargento) | Mudança material de requisito registrada (C34, regra 5); não muda o escopo |
 
 ### AGENTES-REALTIME.1 — Fechar as 6 perguntas abertas e aprovar o plano
 
