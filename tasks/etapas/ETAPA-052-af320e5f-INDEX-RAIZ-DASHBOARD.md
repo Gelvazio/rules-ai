@@ -15,7 +15,7 @@
 
 ### INDEX-RAIZ-DASHBOARD.1 — Criar o `index.html` da raiz
 
-**Próximo passo:** executor-leve (Haiku) cria o arquivo e confere o caminho.
+**Próximo passo:** concluída.
 
 - **Nível:** LEVE — um HTML estático, sem lógica
 - **Modelo:** só Haiku — nunca outro
@@ -24,3 +24,5 @@
 - **Descrição:** criar `C:\fontes\rules-ai\index.html` (`lang="pt-BR"`, `charset`, `viewport`, título curto, `<meta http-equiv="refresh" content="0; url=dashboard/index.html">`, e no corpo um `<a href="dashboard/index.html">` de reserva). Sem `style=""`, sem `onclick`, sem JavaScript.
 - **Critérios de Aceitação:** o arquivo existe na raiz; o caminho `dashboard/index.html` existe a partir dele; nenhum outro arquivo alterado.
 - **Depende de:** Nenhuma
+- **Entrega:** commit "feat(INDEX-RAIZ-DASHBOARD.1)"
+- **Verificação:** arquivo conferido por leitura (meta refresh e link de reserva para dashboard/index.html; sem style, onclick, script nem iframe; dashboard/index.html existe a partir da raiz); página não aberta (a IA não abre navegador)
