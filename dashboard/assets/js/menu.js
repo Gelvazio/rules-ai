@@ -1,12 +1,16 @@
 // Menu único das páginas do 3D GRAPHS AI: preenche todo <nav data-menu> com os mesmos links,
 // destaca a página aberta e põe acima dele a linha dos projetos. Escolher um projeto recarrega a
 // página com ?projeto=<pasta>, e a página "Agentes ao vivo" passa a ler o quadro dele.
-// Para acrescentar uma página, basta uma linha em ITENS_MENU; os projetos vêm de /api/projetos.
+// Para acrescentar uma página, basta uma linha em ITENS_MENU; os projetos vêm do projetos.json.
 // Uma página pode esconder links com data-menu-ocultar="<href> <href>" no próprio <nav>.
 
-const ROTA_PROJETOS = '/api/projetos';
-/** Usado quando a página não veio do servidor local (sem /api/projetos). */
-const PROJETOS_PADRAO = Object.freeze({ padrao: 'rules-ai', projetos: [{ id: 'rules-ai', nome: 'Rules Ai' }] });
+/** Relativo à página (dashboard/), gerado por gerar_projetos.py. */
+const ARQUIVO_PROJETOS = 'projetos.json';
+/** Último recurso quando o projetos.json não carrega. */
+const PROJETOS_PADRAO = Object.freeze({
+  padrao: 'rules-ai',
+  projetos: [{ id: 'rules-ai', nome: 'Rules Ai' }],
+});
 
 const ITENS_MENU = Object.freeze([
   { texto: 'Dashboard', href: '../index.html' },
@@ -57,11 +61,11 @@ function preencherProjetos(linha, { padrao, projetos }) {
 
 async function carregarProjetos(linha) {
   try {
-    const resposta = await fetch(ROTA_PROJETOS);
+    const resposta = await fetch(ARQUIVO_PROJETOS);
     if (!resposta.ok) throw new Error(String(resposta.status));
     preencherProjetos(linha, await resposta.json());
   } catch {
-    // Sem servidor local (ou servidor antigo): fica só o projeto padrão.
+    // Sem o projetos.json (ou aberto por file://): fica só o projeto padrão.
   }
 }
 

@@ -416,7 +416,7 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 
 ### AGENTES-REALTIME.16 — Menu de projetos lê o `projetos.json`
 
-**Próximo passo:** esperar AGENTES-REALTIME.7.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -425,6 +425,8 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 - **Descrição:** `menu.js` lê a lista de projetos do `projetos.json` e usa `PROJETOS_PADRAO` se falhar.
 - **Critérios de Aceitação:** Menu abre sem `/api/projetos`.
 - **Depende de:** AGENTES-REALTIME.7
+- **Entrega:** dashboard/assets/js/menu.js lê o projetos.json (PROJETOS_PADRAO como último recurso) (commit desta entrega), feito por sn2 (Sonnet 5.5, herdr w2:p11, conta D).
+- **Verificação:** node --check menu.js ok; linhas ≤ 100; projetos.json no formato que preencherProjetos espera (conferido pelo líder). Conferência na tela fica com o usuário (.29).
 
 ### AGENTES-REALTIME.17 — Indicador de conexão na tela (ao vivo, reconectando, offline)
 
