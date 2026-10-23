@@ -77,6 +77,11 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | INTEGRACAO-DEEPSEEK.3 | Roteador de modelo por nível (LEVE e MEDIO) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet ou DeepSeek · effort medium | INTEGRACAO-DEEPSEEK.2 | ⬜ Pendente | — | [ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md) |
 | INTEGRACAO-DEEPSEEK.4 | Limite de custo, modo `off` e fallback de tempo · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | INTEGRACAO-DEEPSEEK.3 | ⬜ Pendente | — | [ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md) |
 | INTEGRACAO-DEEPSEEK.5 | Documentar a integração · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | INTEGRACAO-DEEPSEEK.4 | ⬜ Pendente | — | [ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md) |
+| **RECLASSIFICAR-PESADO-OPUS** | **🌐 GLOBAL — Subtarefas `PESADO` que estão só com Opus 5.5+/Fable passam para Sonnet, exceto o que precisa do Opus (pedido do usuário em 2026-10-23)** | 🟠 Alta | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
+| RECLASSIFICAR-PESADO-OPUS.1 | Inventariar as subtarefas `PESADO` com Opus e propor o destino de cada uma (Sonnet agora) · `PESADO · effort high` | 🟠 Alta | PESADO · só Sonnet · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
+| RECLASSIFICAR-PESADO-OPUS.2 | Trocar o Modelo das linhas aprovadas para Sonnet (depende do "sim" à lista, P2) · `PESADO · effort high` | 🟠 Alta | PESADO · só Sonnet · effort high | RECLASSIFICAR-PESADO-OPUS.1, P2 | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
+| RECLASSIFICAR-PESADO-OPUS.3 | Decidir a matriz `regras/niveis-e-modelos.md` (P3) | 🟠 Alta | Usuário | RECLASSIFICAR-PESADO-OPUS.2 | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
+| RECLASSIFICAR-PESADO-OPUS.4 | Conferência final com `grep` · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku · effort low | RECLASSIFICAR-PESADO-OPUS.2 | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
 
 
 ## 🧭 Frentes de trabalho

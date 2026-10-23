@@ -1,3 +1,5 @@
+- 2026-10-23 (Brasília): nova tarefa RECLASSIFICAR-PESADO-OPUS (etapa 046, pedido do usuário): subtarefas `PESADO` só com Opus passam para Sonnet, salvo o que precisa do Opus. A `.1` (inventário) é do Sonnet, agora; nada executado ainda.
+
 - 2026-10-23 (Brasília): nova tarefa INTEGRACAO-DEEPSEEK (etapa 045, pedido do usuário): chamadas à API da DeepSeek nas tarefas mais simples, com o modelo DeepSeek de cada nível. Plano de tarefa grande aguardando o "sim" e as perguntas P1 a P3 do usuário; nada executado.
 
 - 2026-10-23 17:06 (Brasília): AGENTES-REALTIME.11 entregue (etapa 040): onde vive cada variável do publicador (`SUPABASE_URL`, chave publicável, `SUPABASE_SECRET_KEY` só no secret do GitHub) e regras da chave secreta (nova e dedicada, nunca a `service_role` do `aulasenai`); INV-3 limpo. Alternativa registrada para a .12: publicar com a chave publicável (canal público). GERENCIADOR-GLOBAL.7 foi reservada e liberada sem entrega, a pedido do usuário.
