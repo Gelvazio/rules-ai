@@ -19,7 +19,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | GERENCIADOR-GLOBAL.4 | 🌐 Disparo de sessões por modelo, com limite, trava e `PARAR` · `PESADO · effort high` | 🟡 Média | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.3 | ⛔ Bloqueado (automático em pausa pelo usuário, 2026-10-17 13:30) | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.5 | 🌐 Vigilância periódica (agendador ou loop no intervalo aprovado) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet | GERENCIADOR-GLOBAL.4 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | GERENCIADOR-GLOBAL.7 | 🌐 Mesclar o `gerenciador-de-tarefas` ao central e revisar o desenho da .1 com as respostas de 16:12 · `PESADO · effort high` | 🟠 Alta | PESADO · só Opus 5.5+ ou Fable | GERENCIADOR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
-| GERENCIADOR-GLOBAL.8 | Testes do script central `scripts/gerenciador.mjs`: escrever, rodar e confirmar, só Haiku (pedido do usuário) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | GERENCIADOR-GLOBAL.3 | 🔄 Em execução | Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) (desde 2026-10-23 20:40) · 0% | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
+| GERENCIADOR-GLOBAL.9 | Testes do script central `scripts/gerenciador.mjs`: escrever, rodar e confirmar, só Haiku (pedido do usuário) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | GERENCIADOR-GLOBAL.3 | 🔄 Em execução | Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) (desde 2026-10-23 20:40) · 0% | [ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md) |
 | HERDR-GLOBAL | **🌐 GLOBAL — herdr (agentes em painéis) nas regras globais (C33)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-015](etapas/ETAPA-015-01ba1632-HERDR-GLOBAL.md) |
 | HERDR-GLOBAL.2 | 🌐 Levar ao computador do usuário (`--aplicar`, herdr, skill e integrações) | 🟡 Média | Usuário | HERDR-GLOBAL.1 | ⬜ Pendente | — | [ETAPA-015](etapas/ETAPA-015-01ba1632-HERDR-GLOBAL.md) |
 | **ESPEC-GLOBAL** | **🌐 GLOBAL — Fluxo de spec (requisitos, invariantes, perguntas abertas) em tarefa PESADA (C34)** | 🟠 Alta | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-016](etapas/ETAPA-016-3d8e2a71-ESPEC-GLOBAL.md) |
@@ -64,6 +64,10 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | AGENTES-REALTIME.31 | Fechamento: grafo, `STATUS_PROJETO.md` e mover a tarefa para `task_complete.md` · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | AGENTES-REALTIME.30 | ⬜ Pendente | — | [ETAPA-040](etapas/ETAPA-040-7a3f19c6-AGENTES-REALTIME.md) |
 | **RECLASSIFICAR-PESADO-OPUS** | **🌐 GLOBAL — Subtarefas `PESADO` que estão só com Opus 5.5+/Fable passam para Sonnet, exceto o que precisa do Opus (pedido do usuário em 2026-10-23)** | 🟠 Alta | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
 | RECLASSIFICAR-PESADO-OPUS.3 | Decidir a matriz `regras/niveis-e-modelos.md` (P3) | 🟠 Alta | Usuário | RECLASSIFICAR-PESADO-OPUS.2 | ⬜ Pendente | — | [ETAPA-046](etapas/ETAPA-046-5e875512-RECLASSIFICAR-PESADO-OPUS.md) |
+| **PONTO-SUBAGENTES-HAIKU** | **🌐 GLOBAL — O comando `.` dispara 4 subagentes Haiku 5.5 em paralelo (C51; pedido do usuário em 2026-10-23)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
+| PONTO-SUBAGENTES-HAIKU.1 | Escrever `regras/ponto-subagentes-haiku.md`, indexar, apontar em `comando-ponto.md` e `frentes-e-reserva.md`, registrar a C51 · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
+| PONTO-SUBAGENTES-HAIKU.2 | Conferir a nova versão das regras (`sincronizar.mjs` sem `--aplicar`) · `MEDIO · effort medium` | 🟡 Média | MEDIO · só Sonnet · effort medium | PONTO-SUBAGENTES-HAIKU.1 | ⬜ Pendente | — | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
+| PONTO-SUBAGENTES-HAIKU.3 | Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | PONTO-SUBAGENTES-HAIKU.2 | ⬜ Pendente | — | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
 
 
 ## 🧭 Frentes de trabalho
@@ -71,7 +75,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
 |---|---|---|---|
 | Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | INDEX-REGRAS.4 ([ETAPA-018](etapas/ETAPA-018-7cb128a2-INDEX-REGRAS.md)) | 🔄 Ativa | 2026-10-23 20:40 |
-| Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | GERENCIADOR-GLOBAL.8 ([ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md)) | 🔄 Ativa | 2026-10-23 20:40 |
+| Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | GERENCIADOR-GLOBAL.9 ([ETAPA-009](etapas/ETAPA-009-a0c1d676-GERENCIADOR-GLOBAL.md)) | 🔄 Ativa | 2026-10-23 20:40 |
 | Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | INTEGRACAO-DEEPSEEK.6 ([ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md)) | 🔄 Ativa | 2026-10-23 20:40 |
 | Claude Code (Sonnet 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | INTEGRACAO-DEEPSEEK.4 ([ETAPA-045](etapas/ETAPA-045-ea903749-INTEGRACAO-DEEPSEEK.md)) | ⏹️ Encerrada | 2026-10-23 20:30 |
 | Claude Code (Haiku 5.5 · agente; líder Sonnet 5.5) (local · main · rules-ai) | MCP-QUADRO.8 ([ETAPA-026](etapas/ETAPA-026-8d26a707-MCP-QUADRO.md)) | ⏹️ Encerrada | 2026-10-23 19:50 |
