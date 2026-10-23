@@ -118,15 +118,17 @@
 
 ### AI-MEMORY-INTEGRATION.4 — Instalar e subir o servidor ai-memory no computador do usuário
 
-**Próximo passo:** Ação do usuário no computador dele.
+**Próximo passo:** nenhum — entregue (ação do usuário no computador dele).
 
 - **Nível:** Usuário — só o usuário pode fazer (ação no computador ou resposta)
 - **Modelo:** Usuário
 - **Effort:** — (ação do usuário)
-- **Descrição:** Rodar a instalação, `ai-memory init` e configurar o token como variável de ambiente do Windows.
+- **Descrição:** Rodar a instalação (`ai-memory setup --yes --agent claude-code`, conforme `INSTALL_FOR_AGENTS.md` do ai-memory; a descrição original citava `ai-memory init`).
 - **Critérios de Aceitação:** `ai-memory` responde em `127.0.0.1:49374`; token fora de qualquer arquivo do Git.
 - **Depende de:** AI-MEMORY-INTEGRATION.3
-- **Verificação:** a preencher na entrega.
+- **Entrega:** instalação feita pelo usuário em 2026-10-23.
+- **Verificação:** em 2026-10-23, o servidor respondeu HTTP 404 na raiz de `127.0.0.1:49374` (servidor no ar; `config.toml` com `bind = "127.0.0.1:49374"`). O token está em `%LOCALAPPDATA%\ai-memory\auth-token` (fora do Git), e não em variável de ambiente do Windows, como a descrição pedia. Não há endpoint de saúde confirmado.
+- **Anotação:** o critério "token em variável de ambiente" não foi atendido literalmente. O `setup` guarda o token em arquivo fora do repositório; a descrição original deve ser ajustada se essa forma for aceita.
 
 ### AI-MEMORY-INTEGRATION.5 — Mapear os hooks do Claude Code do ai-memory e como convivem com `sessao.mjs` e com o Jev
 

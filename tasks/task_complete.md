@@ -31,3 +31,4 @@
 | REMOVER-TRIPO.3 | Quadro e etapas: tirar a Tripo das tarefas e do histórico | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | REMOVER-TRIPO.1 | ✅ Concluído | — | [ETAPA-039](etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md) |
 | REMOVER-TRIPO.4 | Benchmark do Jev (`golden.jsonl`) e script de coleta sem a Tripo | 🟡 Média | MEDIO · só Sonnet · effort medium | REMOVER-TRIPO.1 | ✅ Concluído | — | [ETAPA-039](etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md) |
 | REMOVER-TRIPO.5 | Conferência final (`git grep` vazio, sintaxe, rotas, gate da spec, grafo) | 🟡 Média | MEDIO · só Sonnet · effort medium | REMOVER-TRIPO.2, REMOVER-TRIPO.3, REMOVER-TRIPO.4 | ✅ Concluído | — | [ETAPA-039](etapas/ETAPA-039-e4b17c52-REMOVER-TRIPO.md) |
+| AI-MEMORY-INTEGRATION.4 | Instalar e subir o servidor ai-memory no computador do usuário | 🟡 Média | Usuário | AI-MEMORY-INTEGRATION.3 | ✅ Concluído | — | [ETAPA-038](etapas/ETAPA-038-bc7a00ec-AI-MEMORY-INTEGRATION.md) |
