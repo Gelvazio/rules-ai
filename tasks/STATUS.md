@@ -203,7 +203,7 @@ histórico ficam em `STATUS_PROJETO.md`.
 | Data | Pendência | Motivo | Origem |
 |---|---|---|---|
 | 2026-10-23 11:30 | Exercitar o `classificar --gravar --dry-run` com o Jev real (precisa de `TYPESAFE_API_KEY`); só o caminho sem Jev e o cliente simulado foram testados | a sessão não usou a chave | JEV-GRAVA-NIVEL, etapa 035 |
-| 2026-10-23 11:30 | Marcar `JEV-AI-SUGGESTION: NAO` nos outros projetos (`python scripts/marcar_jev_ai_suggestion.py <pasta> --aplicar`), uma TASK por projeto | mudança em massa; cada projeto cuida do seu quadro | JEV-GRAVA-NIVEL, etapa 035 |
+| 2026-10-23 11:30 | Marcar `JEV-AI-SUGGESTION: NAO` nos outros projetos (`python scripts/marcar_jev_ai_suggestion.py <pasta> --aplicar`), uma TASK por projeto — **TASKs `JEV-NAO` criadas em 2026-10-23** (DASHBOARD-AI-PRINCIPAL 028, REA-APP-CLONES 022, aulasenai 483, projeto-frontend-com-testes 007, testes-de-frontend 019); falta só executá-las | mudança em massa; cada projeto cuida do seu quadro | JEV-GRAVA-NIVEL, etapa 035 |
 | 2026-10-19 23:53 | `scripts/jev/testes/invariantes.mjs` falha: o INV-1 acha `modelo Claude` nos quadros reais (`conferirQuadrosReais`) | já falhava antes da JEV-SEM-LAYA.3; fora do escopo dela (conferido com `git stash`) | JEV-SEM-LAYA.3 (etapa 028) |
 | 2026-10-18 17:40 | Calibrar o Jev: limiar dos sinais de PESADO (hoje 0,50) e limiares de confiança; meta da etapa era acurácia ≥ 0,90 e recall PESADO ≥ 0,95 (medido: 0,61 e 0,88) | ajuste exige decisão do usuário (recall × acurácia) | JEV-RULES-AI, etapa 025 |
 | 2026-10-18 17:40 | Comparar Jev × Laya (McNemar) com `node scripts/jev.mjs avaliar --backend ambos` | Laya (`localhost:8000`) estava fora do ar | JEV-RULES-AI, etapa 025 |
