@@ -40,6 +40,7 @@
 - 2026-10-23 12:12: a .14 achou vazamento real no `ignore_paths` (formas da raiz); o líder abriu a .43 (correção + padrões da .20) e a .16 passou a depender dela.
 - 2026-10-23 12:14: a .35 achou que `MATERIAIS/` do aulasenai não está no `ignore_paths`; o líder ampliou os Arquivos da .35 para incluir `scripts/instalar-ai-memory.mjs` (só acrescentar `MATERIAIS/**` e `**/MATERIAIS/**`). A .34 ficou 👀: decisão do usuário sobre segredo digitado no prompt.
 - 2026-10-23 12:19: **o usuário decidiu (.34): opção A — não capturar `UserPromptSubmit` (o que se digita no prompt) no piloto; e tirar o hook global do ai-memory, deixando só o hook do projeto.** O líder fechou a .34 e abriu a .45 para aplicar; a .16 passou a depender da .45.
+- 2026-10-23 12:26: **o usuário mudou o escopo do rollout: "INSTALE APENAS NO aulasenai e dashboard-ai por enquanto, o resto farei depois".** A .24 (REA-APP-CLONES, projeto-frontend-com-testes, testes-de-frontend) fica ⛔ adiada pelo usuário; destrava com novo pedido dele. A .25 passa a depender da .23 e mede só aulasenai e DASHBOARD-AI-PRINCIPAL.
 - 2026-10-23 11:53: o usuário aceitou o token do ai-memory em `%LOCALAPPDATA%i-memoryuth-token` (arquivo fora do Git) no lugar da variável de ambiente pedida na .4; a .3 documenta essa forma. Também autorizou a equipe herdr: conta C, `--dangerously-skip-permissions`, Sonnet nas `PESADO` (.3, .13, .21).
 
 ### Requisitos
@@ -434,7 +435,7 @@
 
 ### AI-MEMORY-INTEGRATION.24 — Rollout nos demais projetos de `C:\fontes` (`REA-APP-CLONES`, `projeto-frontend-com-testes`, `testes-de-frontend`)
 
-**Próximo passo:** Aguardando as dependências.
+**Próximo passo:** ⛔ adiada pelo usuário em 2026-10-23 12:26 ("o resto farei depois"); destrava só com novo pedido dele.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
