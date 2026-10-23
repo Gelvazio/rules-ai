@@ -304,7 +304,7 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 
 ### AGENTES-REALTIME.7 — Lista de projetos sem `/api/projetos`
 
-**Próximo passo:** esperar AGENTES-REALTIME.4.
+**Próximo passo:** nenhum — entregue.
 
 - **Nível:** MEDIO — código com lógica em poucos arquivos, sem banco
 - **Modelo:** só Sonnet — nunca outro
@@ -313,6 +313,8 @@ mensagem enviada ao canal errado (a página descarta se `projeto` ≠ sufixo do 
 - **Descrição:** O publicador gera o `projetos.json` (id e nome de cada projeto com quadro, sem `DEMAIS-PROJETOS-*`) e a página lê dele; `PROJETOS_PADRAO` fica como último recurso.
 - **Critérios de Aceitação:** Menu de projetos monta sem o servidor Python.
 - **Depende de:** AGENTES-REALTIME.4
+- **Entrega:** dashboard/gerar_projetos.py (gera a lista só dos projetos liberados, sem DEMAIS-PROJETOS-* nem pastas com ponto; --verificar) e dashboard/projetos.json (commit desta entrega), feito por sn2 (Sonnet 5.5, herdr w2:p11, conta D).
+- **Verificação:** python -B dashboard/gerar_projetos.py --verificar: "em dia", código 0; projetos.json com padrao rules-ai e só id/nome (contrato da .4) (conferido pelo líder). O menu passa a ler o projetos.json na .16, que depende desta; o publicador pode importar montar_lista() para o evento projetos.
 
 ### AGENTES-REALTIME.8 — Guardrail de privacidade no publicador
 
