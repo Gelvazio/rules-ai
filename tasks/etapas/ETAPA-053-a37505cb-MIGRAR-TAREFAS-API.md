@@ -460,7 +460,7 @@
 **Próximo passo:** aguardar as dependências e o sim do usuário.
 
 - **Nível:** LEVE — só texto e configuração, sem lógica
-- **Modelo:** só Haiku — nunca outro
+- **Modelo:** só Haiku ou DeepSeek — nunca outro
 - **Effort:** low
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Rodar o script e conferir o relatório.
@@ -472,7 +472,7 @@
 **Próximo passo:** aguardar as dependências e o sim do usuário.
 
 - **Nível:** LEVE — só texto e configuração, sem lógica
-- **Modelo:** só Haiku — nunca outro
+- **Modelo:** só Haiku ou DeepSeek — nunca outro
 - **Effort:** low
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Descrever a API como fonte, a leitura de queda pelo `db.json`, o rollback e como subir.
@@ -641,7 +641,7 @@
 **Próximo passo:** aguardar as dependências e o sim do usuário.
 
 - **Nível:** LEVE — só texto e configuração, sem lógica
-- **Modelo:** só Haiku — nunca outro
+- **Modelo:** só Haiku ou DeepSeek — nunca outro
 - **Effort:** low
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Entrada no histórico, atualização do grafo (regra graphify) e fechamento pelo ciclo da task.
@@ -653,7 +653,7 @@
 **Próximo passo:** aguardar as dependências.
 
 - **Nível:** LEVE — só texto e configuração, sem lógica
-- **Modelo:** só Haiku — nunca outro
+- **Modelo:** só Haiku ou DeepSeek — nunca outro
 - **Effort:** low
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Criar a tag no commit atual (`git tag tasks-md-antes-da-api`) e enviá-la (`git push origin tasks-md-antes-da-api`); sem branch.
@@ -726,7 +726,7 @@
 **Próximo passo:** aguardar as dependências.
 
 - **Nível:** LEVE — só texto e configuração, sem lógica
-- **Modelo:** só Haiku — nunca outro
+- **Modelo:** só Haiku ou DeepSeek — nunca outro
 - **Effort:** low
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Ajustar o `.gitignore` e o texto da trava de sessão do `AGENTS.md` para o novo desenho (a trava passa para a API ou para um arquivo que não é markdown; decisão registrada).
