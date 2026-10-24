@@ -17,7 +17,7 @@
 
 ### CUSTOS-DE-IA.1 — Buscar na internet os modelos e preços de Claude, DeepSeek, Codex (OpenAI) e Gemini e gravar `dashboard/custos-de-ia.json`
 
-**Próximo passo:** classificar pelo Jev e depois executar.
+**Próximo passo:** concluída.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -27,6 +27,8 @@
 - **Descrição:** pesquisar nas páginas oficiais de preços (Anthropic, DeepSeek, OpenAI, Google) os modelos atuais e o custo por 1 milhão de tokens (entrada, saída e, quando existir, cache); gravar `dashboard/custos-de-ia.json` com `geradoEm`, `moeda`, `unidade` e, por fornecedor, a lista de modelos com preços, `fonte` (URL) e `coletadoEm`; valor que não for encontrado fica `null`, nunca inventado.
 - **Critérios de Aceitação:** o JSON é válido (`node -e`), tem os 4 fornecedores, cada preço tem `fonte` e `coletadoEm`, e nenhum valor foi estimado.
 - **Depende de:** Nenhuma
+- **Entrega:** commit "feat(CUSTOS-DE-IA.1)" (dashboard/custos-de-ia.json)
+- **Verificação:** `JSON.parse` ok; 4 fornecedores (claude 16, deepseek 2, codex 11, gemini 10 modelos), todos com `fonte` e `coletadoEm`; nenhum preço de entrada ou saída `null`; 3 modelos codex (gpt-5.2-codex, gpt-5.1-codex, gpt-5-codex) vieram de snippets das páginas oficiais de modelo, não da página de preços, e estão marcados na observação
 
 ### CUSTOS-DE-IA.2 — Criar a página `dashboard/quadro-modelos-de-ias.html` (CSS e JS próprios) que lê o `custos-de-ia.json` no visual futurista
 
