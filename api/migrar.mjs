@@ -1,5 +1,6 @@
 // Importador idempotente do quadro para api/dados/<projeto>.json (SCHEMA.md, MIGRAR-TAREFAS-API.7).
-// Esta etapa carrega so as tarefas abertas da tabela "📌 Tarefas" de tasks/STATUS.md.
+// Carrega as tarefas abertas ("📌 Tarefas" de tasks/STATUS.md, .7) e as concluidas
+// (tasks/task_complete.md, .8), que entram com `arquivada: true`.
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -10,6 +11,11 @@ const RAIZ = resolve(PASTA_API, '..');
 const PASTA_DADOS = join(PASTA_API, 'dados');
 const PROJETO_PADRAO = 'rules-ai';
 const FONTE_PADRAO = join(RAIZ, 'tasks', 'STATUS.md');
+const ARQUIVO_CONCLUIDAS = 'task_complete.md';
+const COLUNAS_CONCLUIDAS = [
+  'Tarefa', 'Título', 'Prioridade', 'Modelo', 'Depende de', 'Status', 'Em uso por', 'Etapa',
+];
+const PADRAO_SEPARADOR = /^\|[\s|:-]+\|?$/;
 const TITULO_TAREFAS = '## 📌 Tarefas';
 const COLUNAS_OBRIGATORIAS = ['Tarefa', 'Status'];
 const CODIGOS_STATUS = [
@@ -215,6 +221,25 @@ export function converterLinha(linha, contexto) {
 }
 
 /**
+ * Le as linhas de task_complete.md (colunas fixas, com ou sem cabecalho) como objetos.
+ * @param {string} texto - Conteudo do task_complete.md.
+ * @returns {object[]} Linhas de dados na ordem do arquivo.
+ * @throws {Error} Se uma linha tiver menos colunas que o esperado.
+ */
+export function lerTabelaConcluidas(texto) {
+  const linhas = texto.split('\n').filter((linha) => linha.startsWith('|'));
+  const dados = linhas.filter((linha) => !PADRAO_SEPARADOR.test(linha));
+  const semCabecalho = dados.filter((linha) => dividirCelulas(linha)[0] !== 'Tarefa');
+  return semCabecalho.map((linha, indice) => {
+    const celulas = dividirCelulas(linha);
+    if (celulas.length < COLUNAS_CONCLUIDAS.length) {
+      throw new Error(`Linha ${indice + 1} de task_complete.md com menos colunas que o esperado`);
+    }
+    return Object.fromEntries(COLUNAS_CONCLUIDAS.map((nome, posicao) => [nome, celulas[posicao]]));
+  });
+}
+
+/**
  * Garante id unico: repetidos recebem sufixo "#N" e um aviso no stderr.
  * @param {object[]} tarefas - Tarefas na ordem de leitura.
  * @returns {object[]} As mesmas tarefas, com ids unicos.
@@ -387,7 +412,25 @@ export function lerTarefasDoQuadro(caminhoFonte, projeto) {
 }
 
 /**
- * Importa as tarefas abertas do quadro para o banco do projeto.
+ * Le task_complete.md e devolve as tarefas concluidas, ja marcadas como arquivadas.
+ * @param {string} caminho - Caminho do task_complete.md (arquivo ausente = nenhuma).
+ * @param {{projeto: string, primeiraOrdem: number}} contexto - Projeto e ordem inicial.
+ * @returns {object[]} Tarefas arquivadas na ordem do arquivo.
+ * @throws {Error} Se uma linha nao tiver codigo.
+ */
+export function lerTarefasConcluidas(caminho, contexto) {
+  if (!existsSync(caminho)) return [];
+  const linhas = lerTabelaConcluidas(lerArquivo(caminho));
+  const convertidas = linhas.map((linha, i) => converterLinha(linha, {
+    projeto: contexto.projeto, ordem: contexto.primeiraOrdem + i,
+  }));
+  const temLinhaSemCodigo = convertidas.some((tarefa) => tarefa === null);
+  if (temLinhaSemCodigo) throw new Error('Linha sem codigo no task_complete.md');
+  return convertidas.map((tarefa) => ({ ...tarefa, arquivada: true }));
+}
+
+/**
+ * Importa as tarefas abertas e concluidas do quadro para o banco do projeto.
  * @param {{projeto: string, fonte: string, simular: boolean}} opcoes - Opcoes da execucao.
  * @returns {object} Resumo da carga.
  */
@@ -395,7 +438,11 @@ export function migrarTarefas(opcoes) {
   const { projeto, fonte, simular } = opcoes;
   const caminho = join(PASTA_DADOS, `${projeto}.json`);
   const agora = new Date().toISOString();
-  const lidas = lerTarefasDoQuadro(fonte, projeto);
+  const abertas = lerTarefasDoQuadro(fonte, projeto);
+  const concluidas = lerTarefasConcluidas(join(dirname(fonte), ARQUIVO_CONCLUIDAS), {
+    projeto, primeiraOrdem: abertas.length + 1,
+  });
+  const lidas = garantirIdsUnicos([...abertas, ...concluidas]);
   const banco = lerBancoOuVazio(caminho);
   const quantidadeAntes = banco.tarefas.filter((item) => item.projeto === projeto).length;
   const resultado = mesclarTarefas(banco.tarefas, lidas, { projeto, agora });
@@ -407,7 +454,8 @@ export function migrarTarefas(opcoes) {
     gravou = gravarSeMudou(caminho, novoBanco);
   }
   return {
-    projeto, caminho, lidas: lidas.length, quantidadeAntes, gravou, simular,
+    projeto, caminho, lidas: lidas.length, lidasConcluidas: concluidas.length,
+    quantidadeAntes, gravou, simular,
     totalProjeto: resultado.tarefas.filter((item) => item.projeto === projeto).length,
     ausentes: resultado.ausentes,
     dependenciasAusentes: resultado.dependenciasAusentes,
@@ -445,7 +493,8 @@ function imprimirResumo(resumo) {
   if (resumo.simular) situacao = 'simulado (nada gravado)';
   console.log(`projeto: ${resumo.projeto}`);
   console.log(`arquivo: ${resumo.caminho}`);
-  console.log(`tarefas lidas do quadro: ${resumo.lidas}`);
+  console.log(`tarefas lidas do quadro (abertas + concluidas): ${resumo.lidas}`);
+  console.log(`  das quais concluidas (task_complete.md): ${resumo.lidasConcluidas}`);
   console.log(`tarefas do projeto antes: ${resumo.quantidadeAntes}`);
   console.log(`tarefas do projeto depois: ${resumo.totalProjeto}`);
   console.log(`dependencias fora da colecao (tratadas concluidas): ${resumo.dependenciasAusentes}`);

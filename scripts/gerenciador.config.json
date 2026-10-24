@@ -15,8 +15,6 @@
   "projetos": [
     { "pasta": "rules-ai" },
     { "pasta": "aulasenai" },
-    { "pasta": "aulas-senai-*" },
-    { "pasta": "gerenciador-de-ia" },
     { "pasta": "dashboard-ai-*" }
   ]
 }
