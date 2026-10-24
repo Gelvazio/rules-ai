@@ -1,10 +1,10 @@
 // Subcomando `classificar`: sugere nível, effort e modelos elegíveis das subtarefas do quadro.
 // Somente leitura: não escreve no quadro, não reserva e não altera nível (INV-3). Exige a chave
 // do Jev (sem chave → código 1, R1.2) e respeita JEV_MODO=off
-// (código 2: siga só pelos sinais da skill).
+// (código 2: sem o Jev ninguém escolhe o modelo, C52).
 import { resolve } from 'node:path';
 import { criarClientePadrao } from '../cliente.mjs';
-import { MODOS, carregarConfiguracao } from '../config.mjs';
+import { ErroJev, MODOS, carregarConfiguracao } from '../config.mjs';
 import { classificarSubtarefa } from '../decidir.mjs';
 import { gravarClassificacao } from '../gravador.mjs';
 import {
@@ -14,8 +14,7 @@ import { lerTexto } from './argumentos.mjs';
 import { CODIGOS_SAIDA, formatarConfianca, imprimir, montarTabela } from './saida.mjs';
 
 const LIMITE_PADRAO = 10;
-const MENSAGEM_DESLIGADO = 'JEV_MODO=off: o Jev está desligado; siga só pelos sinais da skill '
-  + 'classificar-tarefa.';
+const MENSAGEM_DESLIGADO = 'JEV_MODO=off: o Jev está desligado (C52: ninguém escolhe o modelo sem ele).';
 const COLUNAS = ['Tarefa', 'Nível sugerido', 'Nível final', 'Effort', 'Confiança', 'Ação',
   'Modelos elegíveis', 'Motivos'];
 
@@ -76,29 +75,54 @@ export async function executarClassificar({ opcoes }) {
   return jevFalhou ? CODIGOS_SAIDA.JEV_INDISPONIVEL : CODIGOS_SAIDA.OK;
 }
 
-/** Sugestão sem Jev (modo `off` ou sem chave): a gravação cai no nível mais restritivo (R4). */
-const SUGESTAO_SEM_JEV = Object.freeze({
-  nivel_sugerido: null, nivel_final_proposto: null, confianca: null, sinais: {},
-  erro_codigo: 'JEV_INDISPONIVEL',
-});
 const COLUNAS_GRAVACAO = ['Tarefa', 'Gravado', 'Nível', 'Effort', 'JEV-AI-SUGGESTION', 'Fonte',
   'Recusa'];
+const MENSAGEM_RECUSA_JEV = 'C52: o Jev não respondeu; nada foi gravado. A subtarefa continua '
+  + 'SEM nível e ninguém deve pegá-la até o Jev responder.';
+const MOTIVO_RECUSA_JEV = 'Jev indisponível (C52): nada gravado, sem nível';
+
+/**
+ * Cria o cliente do Jev para a gravação, ou null quando falta a chave (C52).
+ * @returns {object|null} Cliente, ou null se `TYPESAFE_API_KEY` não existir.
+ * @throws {Error} Qualquer erro que não seja a chave ausente.
+ */
+function criarClienteParaGravar() {
+  try {
+    return criarClientePadrao();
+  } catch (erro) {
+    if (erro instanceof ErroJev && erro.codigo === 'CHAVE_AUSENTE') return null;
+    throw erro;
+  }
+}
 
 /**
  * Classifica e GRAVA o nível das subtarefas livres e sem nível (C47). Com `--dry-run` só mostra.
+ * Sem resposta do Jev (modo off, sem chave, rede, 401, 429, 529, timeout) recusa gravar (C52).
  * @param {{opcoes: Record<string, string|true>}} argumentos Argumentos lidos.
- * @returns {Promise<number>} Código de saída (`REVISAR` se algo precisa de revisão humana).
+ * @returns {Promise<number>} Código de saída (`REVISAR` se algo precisa de revisão humana,
+ *   `DESLIGADO` no modo off, `JEV_INDISPONIVEL` se o Jev não respondeu).
  */
 export async function executarGravar({ opcoes }) {
+  if (carregarConfiguracao().modo === MODOS.DESLIGADO) {
+    console.error(`${MENSAGEM_DESLIGADO} ${MENSAGEM_RECUSA_JEV}`);
+    return CODIGOS_SAIDA.DESLIGADO;
+  }
+  const cliente = criarClienteParaGravar();
+  if (!cliente) {
+    console.error(`TYPESAFE_API_KEY não definida. ${MENSAGEM_RECUSA_JEV}`);
+    return CODIGOS_SAIDA.JEV_INDISPONIVEL;
+  }
   const arquivoQuadro = resolve(lerTexto(opcoes, 'quadro', ARQUIVO_QUADRO));
-  const desligado = carregarConfiguracao().modo === MODOS.DESLIGADO;
-  const cliente = desligado ? null : criarClientePadrao();
   const linhas = [];
   let revisar = false;
+  let jevFalhou = false;
   for (const item of escolherItens(opcoes, arquivoQuadro)) {
-    const sugestao = cliente
-      ? await classificarSubtarefa(item, { cliente, arquivoQuadro })
-      : { ...SUGESTAO_SEM_JEV, subtarefa: item.id };
+    const sugestao = await classificarSubtarefa(item, { cliente, arquivoQuadro });
+    if (sugestao.erro_codigo || !sugestao.nivel_sugerido) {
+      jevFalhou = true;
+      linhas.push([item.id, 'não', '—', '—', '—', '—', MOTIVO_RECUSA_JEV]);
+      continue;
+    }
     const resultado = gravarClassificacao({ item, sugestao, arquivoQuadro },
       { reclassificar: Boolean(opcoes.reclassificar), simular: Boolean(opcoes['dry-run']) });
     const decisao = resultado.decisao;
@@ -109,5 +133,7 @@ export async function executarGravar({ opcoes }) {
   }
   const texto = linhas.length ? montarTabela(COLUNAS_GRAVACAO, linhas) : 'Nada a gravar.';
   imprimir({ json: Boolean(opcoes.json), objeto: linhas, texto });
+  if (jevFalhou) console.error(MENSAGEM_RECUSA_JEV);
+  if (jevFalhou) return CODIGOS_SAIDA.JEV_INDISPONIVEL;
   return revisar ? CODIGOS_SAIDA.REVISAR : CODIGOS_SAIDA.OK;
 }

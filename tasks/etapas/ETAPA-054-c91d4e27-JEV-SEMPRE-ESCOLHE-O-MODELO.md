@@ -54,7 +54,7 @@
 
 ### JEV-SEMPRE.4 — O comando do Jev não grava nada quando o Jev falha (sem chave, `JEV_MODO=off`, rede, 401, 429, 529, timeout)
 
-**Próximo passo:** classificar pelo Jev e depois executar.
+**Próximo passo:** concluída.
 
 - **Nível:** MEDIO — classificado (sinais)
 - **Modelo:** só Sonnet — nunca outro
@@ -64,3 +64,5 @@
 - **Descrição:** ajustar `scripts/jev/` (comando `classificar --gravar`) para, quando o Jev não responder, **recusar a gravação** e deixar a subtarefa sem nível, com mensagem clara ao usuário (C52); hoje ele grava o nível pelos sinais (`Fonte: sinais`) também nesse caso. Mantém a gravação pelo sinal mais restritivo quando o Jev **respondeu** com confiança baixa.
 - **Critérios de Aceitação:** com `JEV_MODO=off` e sem chave, `classificar --id <ID> --gravar` sai com código de erro e não altera o quadro nem a etapa; com o Jev respondendo, o comportamento atual se mantém.
 - **Depende de:** JEV-SEMPRE.1
+- **Entrega:** commit "feat(JEV-SEMPRE.4)" (scripts/jev/cli/comando-classificar.mjs)
+- **Verificação:** `node --check`; com `JEV_MODO=off` e com chave inválida (401) o `--gravar` sai com código 2 e 5, imprime a mensagem C52 e não grava; com o Jev respondendo, o comportamento anterior é mantido
