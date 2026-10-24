@@ -28,6 +28,21 @@ npm run gerar
 O script `gerar-db.mjs` lê o quadro e grava `api/db.json`, que fica versionado no Git. O arquivo é
 gerado: não editar à mão, só regerar com `npm run gerar`.
 
+## Como migrar o quadro para `dados/<projeto>.json`
+
+```
+npm run migrar                  # grava dados/rules-ai.json
+node migrar.mjs --dry-run       # so mostra o resumo
+node migrar.mjs --projeto <id> --fonte <caminho do STATUS.md>
+```
+
+`migrar.mjs` lê a tabela "📌 Tarefas" do `tasks/STATUS.md` e grava a coleção `tarefas` de
+`api/dados/<projeto>.json` (ids `<projeto>:<codigo>`, SCHEMA.md). É idempotente: rodar de novo sem
+mudança no quadro não altera o arquivo; linha que já existe é atualizada, nunca duplicada;
+tarefa que sumiu do quadro não é apagada (aparece como "ausente" no resumo); as outras coleções
+do arquivo são preservadas. Por enquanto só as tarefas abertas; as concluídas e o resto vêm nas
+subtarefas seguintes. O `npm start` já aponta para `dados/rules-ai.json`.
+
 ## Como subir
 
 ```
@@ -48,8 +63,9 @@ Sobe em `http://127.0.0.1:3333`, **só no localhost**. Não expor a porta em out
 
 ## Arquivos
 
-- `package.json`: scripts `start` e `gerar`, e a dependência json-server.
+- `package.json`: scripts `start`, `gerar` e `migrar`, e a dependência json-server.
 - `gerar-db.mjs`: gerador do `db.json` (Node puro, sem dependência npm).
+- `migrar.mjs`: importador idempotente do quadro (Node puro) para `dados/<projeto>.json`.
 - `serializador.mjs`: grava o `db.json` em formato estável (chaves em ordem fixa, LF) e só se
   o conteúdo mudou.
 - `db.json`: cópia gerada do quadro, **versionada no Git**. Regerar com `npm run gerar`; nunca

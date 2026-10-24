@@ -173,7 +173,7 @@
 
 ### MIGRAR-TAREFAS-API.7 — Carga inicial das tarefas abertas (`STATUS.md`)
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** concluída; a .8 carrega as concluídas e recalcula `disponivel`; `rules-ai:DASHBOARD-JEV-CALLS.3` ficou como ausente no JSON até a .8
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -182,6 +182,8 @@
 - **Descrição:** Importador idempotente `api/migrar.mjs` (Node puro) que lê a seção "📌 Tarefas" e grava na coleção `tarefas`; roda N vezes sem duplicar (INV-5). **Caminho final (opção B aprovada):** o banco do `rules-ai` passa a `api/dados/rules-ai.json` (mover o `api/db.json` de hoje, ajustar README, serializador e `gerar-db.mjs`); a carga recebe `--projeto`.
 - **Critérios de Aceitação:** todas as linhas abertas do `STATUS.md` na API, ids únicos.
 - **Depende de:** MIGRAR-TAREFAS-API.4
+- **Entrega:** commit "feat(MIGRAR-TAREFAS-API.7)" (api/migrar.mjs, api/dados/rules-ai.json)
+- **Verificação:** node --check ok; carga idempotente (mesmo md5 em duas execuções seguidas); contagem independente igual à do importador; ids únicos; json-server segue a única dependência
 
 ### MIGRAR-TAREFAS-API.8 — Carga das tarefas concluídas (`task_complete.md`)
 
