@@ -32,7 +32,7 @@
 
 ### JEV-SEMPRE.2 — Regerar `dist/REGRAS-GLOBAIS.md` e `VERSAO.md` (sem `--aplicar`)
 
-**Próximo passo:** aguardar a .1.
+**Próximo passo:** concluída; a .3 leva às IAs (`--aplicar`, usuário).
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku — nunca outro
@@ -42,10 +42,12 @@
 - **Descrição:** rodar `node scripts/sincronizar.mjs` sem `--aplicar` e conferir que o `dist/` contém a regra nova.
 - **Critérios de Aceitação:** `dist/REGRAS-GLOBAIS.md` e `VERSAO.md` regerados; a regra aparece no `dist/`.
 - **Depende de:** JEV-SEMPRE.1
+- **Entrega:** commit "feat(JEV-SEMPRE.2)" (VERSAO.md regerado; `dist/REGRAS-GLOBAIS.md` é local, fora do Git)
+- **Verificação:** `dist/REGRAS-GLOBAIS.md` contém a regra C52 (grep "C52", 10 ocorrências); `VERSAO.md` regerado para `2026-10-24-238070b8`
 
 ### JEV-SEMPRE.3 — Levar às IAs (`node scripts/sincronizar.mjs --aplicar`)
 
-**Próximo passo:** aguardar a .2.
+**Próximo passo:** o usuário roda `node scripts/sincronizar.mjs --aplicar` no computador dele.
 
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** o usuário roda `node scripts/sincronizar.mjs --aplicar` no computador dele (grava os arquivos globais das IAs).
