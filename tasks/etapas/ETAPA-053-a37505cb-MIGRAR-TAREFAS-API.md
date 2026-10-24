@@ -36,6 +36,27 @@
 - 2026-10-23 20:57: **respostas do usuário** às decisões da .53 e da .4: **opção B aprovada** (um arquivo por projeto em `api/dados/<projeto>.json`, um processo; lançador próprio só quando o `aulasenai` entrar); dados do `aulasenai` e do `dashboard-ai` **no Git do `rules-ai`**; **aceito o peso** de ~4 MB do `aulasenai` regravado a cada entrega; coleção **`bloqueios` mantida**.
 - 2026-10-23 21:00: **mais respostas do usuário**: as tabelas internas das etapas (Requisitos, Invariantes, Perguntas abertas) **viram coleções** na API (`requisitos`, `invariantes`, `perguntas`; contra a recomendação de texto cru) — nova subtarefa .71 atualiza o `SCHEMA.md`, e a .10 e a .51 passam a depender dela; `tasks/GERENCIADOR-HERDR/*.md` **fica como documentação** (fora do apagamento); ids por hash do texto nas linhas sem código (aceito); a tarefa `DASHBOARD-LE-API` **espera a migração** (depende da .48).
 
+### Mudança de escopo: Supabase Realtime no lugar do json-server (pedido em 2026-10-24)
+
+**Pedido do usuário:** "altere em vez de usar json-server, deverá usar realtime supabase"; "aulasenai e rules-ai, todas as tarefas vão pro banco de dados, faça um migrador em python pra isso, pra criar um seed inicial".
+
+**Decisões do usuário (2026-10-24):**
+1. Fonte única do quadro: **tabelas no Supabase** (projeto atual do `aulasenai`, `hxlvonriearllcmfqeri`), com **Realtime** para avisar frentes e dashboard.
+2. **Aposentar tudo**: json-server, `api/db.json` e qualquer export no Git. Sem arquivo de queda; se o Supabase cair, o quadro fica indisponível.
+3. **Reserva atômica:** função **RPC no Postgres** com `UPDATE` condicional (`reservar`, `entregar`, `criar_subtarefa`, `liberar`, `mudar_status`).
+4. **Acesso:** leitura com chave `anon` + RLS; escrita só pelas funções RPC, com a chave de serviço guardada **fora do Git** (variável de ambiente).
+5. **Seed:** migrador em **Python** que lê os `.md` e usa os JSON de `api/dados/` como referência de conferência; cria o seed inicial de `rules-ai` e `aulasenai`.
+6. Escopo de projetos: só `rules-ai` e `aulasenai` (o `dashboard-ai` está fora; cancelado em 2026-10-24).
+
+**O que muda no plano (a detalhar depois do "sim"):**
+- O que vale como entregue e continua: `SCHEMA.md` como desenho dos campos, os JSON de `api/dados/` (referência do seed) e as decisões de status (`👀 Pendente de revisão`).
+- Para reescrever: `.13` a `.15` viram funções RPC; `.16` (leitura de queda) deixa de existir; `.17` a `.23` leem o Supabase; `.30` (rollback) passa a ser restaurar o quadro em Markdown do Git pela tag de segurança; `.52` aposenta também o json-server; as tabelas, a RLS, o Realtime e o migrador Python viram subtarefas novas.
+- Outras tarefas afetadas: `API-QUADRO-JSON-SERVER` (cancelar o que não vale mais) e `DASHBOARD-LE-API` (lê do Supabase, não de `/tarefas`).
+
+**Riscos novos:** (a) mudança de **banco e segurança** em produção (RLS errada expõe o quadro, que não pode ter segredo nem dado pessoal); (b) chave de serviço só em variável de ambiente, nunca em arquivo; (c) sessões de nuvem precisam de acesso de leitura ao Supabase; (d) sem export no Git, o rollback depende da tag `tasks-md-antes-da-api` e dos `.md` ainda existentes até o corte; (e) o `aulasenai` e o `dashboard` usam o mesmo projeto Supabase, então limites e RLS são compartilhados.
+
+**Pergunta ainda aberta ao usuário:** aprovar este plano (tarefa grande: banco + segurança) antes de qualquer tabela, função ou chave ser criada.
+
 ### Requisitos
 
 | ID | Requisito (EARS) | Cobre | Verificação |
