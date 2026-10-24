@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-24-ab3bdd19
+- **Versão:** 2026-10-24-29a935b0
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -14,12 +14,12 @@
 | 1 | regra-maior.md | bbf5f654197ffa51 |
 | 2 | ciclo-da-task.md | 706d60bd58960947 |
 | 3 | niveis-e-modelos.md | 59a67190ed6ef932 |
-| 4 | frentes-e-reserva.md | 0d9244377755f18d |
-| 5 | comando-ponto.md | f7a65ab467b7d368 |
+| 4 | frentes-e-reserva.md | 869cf62ea28db83a |
+| 5 | comando-ponto.md | 25fab5e441b75d40 |
 | 6 | comando-interrogacao.md | e81811ae12199f38 |
 | 7 | quadro-de-tarefas.md | 6358739af2e50a25 |
 | 8 | exibicao-de-status.md | 762e831da32bdc80 |
-| 9 | git-geral.md | 9d2938daf92d3efe |
+| 9 | git-geral.md | 2167c76b4283c32a |
 | 10 | testes-validacao.md | 233579829f757900 |
 | 11 | codigo-limites-nomes.md | ca88cca3360ef918 |
 | 12 | codigo-solid.md | 6f3e1050946d15af |
@@ -37,7 +37,6 @@
 | 24 | vercel-sem-deploy-de-controle.md | 9801278fe383e99f |
 | 25 | mods-claude-code.md | 7792a2db01fe37f2 |
 | 26 | atividades-e-idioma.md | a37b651279928422 |
-| 27 | ponto-subagentes-haiku.md | b871dd65230fe8d0 |
 
 ## Pacote do rules-local (scripts e Jev)
 
