@@ -13,8 +13,8 @@ const PROJETOS_PADRAO = Object.freeze({
 });
 
 const ITENS_MENU = Object.freeze([
-  { texto: 'Dashboard', href: '../index.html' },
-  { texto: 'Agentes ao vivo', href: 'agentes.html' },
+  // A página de sessões mora no repositório consumo-ia, ao lado do rules-ai (C:/fontes/consumo-ia).
+  { texto: 'SESSÕES', href: '../../consumo-ia/index.html', novaAba: true },
   { texto: 'CHAMADAS JEV AI', href: 'JEV-AI-CALLS.html', novaAba: true },
   { texto: 'Custos de IA', href: 'quadro-modelos-de-ias.html', novaAba: true },
 ]);

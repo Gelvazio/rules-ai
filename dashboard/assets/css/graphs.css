@@ -630,3 +630,21 @@ body {
   color: #fff;
   background: var(--cor-destaque);
 }
+
+/* Caixa de transmissão (ao vivo, atraso e leitura) dentro da barra do menu, no topo. */
+.barra .transmissao--barra {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-left: auto;
+  padding: 0.3rem 0.6rem;
+  position: static;
+  font-size: 0.8rem;
+}
+
+.barra--com-transmissao {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}

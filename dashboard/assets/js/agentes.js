@@ -1,18 +1,14 @@
 // Página "Agentes ao vivo": lê o tasks/STATUS.md do GitHub raw (canal ao vivo ou fallback),
-// guarda as mudanças numa fila e só as anima na cena 3D depois do atraso escolhido.
-import * as THREE from 'three';
-import { CSS2DRenderer } from 'three/addons/renderers/CSS2DRenderer.js';
+// guarda cada leitura numa fila e só mostra no quadro kanban depois do atraso escolhido.
 import { ATRASO_PADRAO_SEGUNDOS, CANAL, INTERVALO_FALLBACK_SEGUNDOS } from './config.js';
 import { iniciarCanal, lerEstadoInicial } from './agentes/canal.js';
-import { montarCenaAgentes } from './agentes/cena-agentes.js';
-import { compararRetratos, criarFila, indexar } from './agentes/fila-atrasada.js';
+import { criarBufferAtraso } from './agentes/atraso-estados.js';
+import { criarKanban } from './agentes/kanban.js';
 import {
-  atualizarContagem, CONEXAO, ligarAtraso, marcarConexao, marcarLeitura, registrarEvento,
-} from './agentes/hud-agentes.js';
-import { ajustarTamanho, criarBase } from './visualizador.js';
+  CONEXAO, ligarAtraso, marcarConexao, marcarLeitura,
+} from './agentes/transmissao.js';
 
 const $ = (id) => document.getElementById(id);
-const reduzirMovimento = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 /** Projeto escolhido no menu de projetos (?projeto=<pasta>); vazio = o publicado no canal. */
 const PROJETO = new URLSearchParams(window.location.search).get('projeto') ?? '';
 
@@ -20,54 +16,21 @@ const PROJETO = new URLSearchParams(window.location.search).get('projeto') ?? ''
 const PADROES_RAW = Object.freeze({ atraso_padrao: ATRASO_PADRAO_SEGUNDOS });
 /** Tempo com o canal caído antes de voltar ao polling (R2.3). */
 const ATRASO_QUEDA_MS = 30000;
+/** Intervalo em que a página confere se há leitura pronta para mostrar. */
+const INTERVALO_MOSTRAR_MS = 1000;
 
 function avisar(texto) {
   $('aviso').textContent = texto;
   $('aviso').hidden = !texto;
 }
 
-/** Camada HTML dos rótulos, do tamanho da cena e sem capturar o mouse (os controles seguem no canvas). */
-function criarCamadaRotulos(conteiner) {
-  const rotulos = new CSS2DRenderer();
-  rotulos.domElement.className = 'camada-rotulos';
-  conteiner.append(rotulos.domElement);
-  return rotulos;
-}
-
-function prepararBase() {
-  const conteiner = $('cena');
-  const base = criarBase(conteiner);
-  base.rotulos = criarCamadaRotulos(conteiner);
-  base.controles.autoRotate = false;
-  base.camera.position.set(0, 1.5, 23);
-  base.controles.target.set(0, 0, 0);
-  const ajustar = () => {
-    ajustarTamanho(base, conteiner);
-    base.rotulos.setSize(conteiner.clientWidth, conteiner.clientHeight);
-  };
-  ajustar();
-  window.addEventListener('resize', ajustar);
-  return base;
-}
-
-/** Compara o estado novo com o último e põe as diferenças na fila (que aplica o atraso). */
-function criarAplicador(primeiro, fila) {
-  let retrato = indexar(primeiro.tarefas);
-  return (estado) => {
-    const novo = indexar(estado.tarefas);
-    fila.enfileirar(compararRetratos(retrato, novo));
-    retrato = novo;
-    marcarLeitura(fila.pendentes);
-  };
-}
-
 /** Lê o quadro pela fonte da abertura, a cada intervalo; liga e desliga sob demanda. */
-function vigiarQuadro(aplicar, fila, fonte) {
+function vigiarQuadro(aplicar, fonte) {
   const ler = async () => {
     try {
       aplicar(await fonte());
     } catch (erro) {
-      marcarLeitura(fila.pendentes, erro.message);
+      marcarLeitura(0, erro.message);
     }
   };
   let timer = null;
@@ -129,26 +92,15 @@ async function lerPrimeiro() {
   return { primeiro: await fonte(), fonte };
 }
 
-function animar(base, cenaAgentes, fila) {
-  const relogio = new THREE.Clock();
-  base.renderizador.setAnimationLoop(() => {
-    const dt = Math.min(relogio.getDelta(), 0.1);
-    for (const evento of fila.retirarProntos()) {
-      cenaAgentes.aplicarEvento(evento);
-      registrarEvento(evento);
-    }
-    atualizarContagem(cenaAgentes.contagem());
-    cenaAgentes.desenhar(dt, relogio.elapsedTime);
-    base.controles.update();
-    base.renderizador.render(base.cena, base.camera);
-    base.rotulos.render(base.cena, base.camera);
-  });
+/** Repete a cada segundo: se a leitura mais nova já passou do atraso, mostra no quadro. */
+function iniciarMostragem(buffer, kanban) {
+  window.setInterval(() => {
+    const pronto = buffer.retirarPronto();
+    if (pronto) kanban.atualizar(pronto.tarefas);
+  }, INTERVALO_MOSTRAR_MS);
 }
 
 async function iniciar() {
-  const base = prepararBase();
-  const reduzir = reduzirMovimento();
-  $('nota-movimento').hidden = !reduzir;
   let leitura;
   try {
     leitura = await lerPrimeiro();
@@ -156,15 +108,22 @@ async function iniciar() {
     throw new Error(`o quadro não pôde ser lido do GitHub (${erro.message}); confira a rede.`);
   }
   const { primeiro, fonte } = leitura;
-  const cenaAgentes = montarCenaAgentes(base.cena, { reduzir });
-  cenaAgentes.sincronizar(primeiro.tarefas);
-  const fila = criarFila(0);
-  fila.definirAtraso(ligarAtraso(primeiro.atraso_padrao, (segundos) => fila.definirAtraso(segundos)));
+  const kanban = criarKanban($('quadro'));
+  const buffer = criarBufferAtraso(primeiro.atraso_padrao);
+  const atrasoInicial = ligarAtraso(
+    primeiro.atraso_padrao,
+    (segundos) => buffer.definirAtraso(segundos),
+  );
+  buffer.definirAtraso(atrasoInicial);
+  kanban.atualizar(primeiro.tarefas);
   marcarLeitura(0);
-  const aplicar = criarAplicador(primeiro, fila);
-  const vigia = vigiarQuadro(aplicar, fila, fonte);
-  ligarCanal(aplicar, primeiro, vigia);
-  animar(base, cenaAgentes, fila);
+
+  const aplicar = (estado) => {
+    buffer.enfileirar(estado);
+    marcarLeitura(buffer.pendentes());
+  };
+  iniciarMostragem(buffer, kanban);
+  ligarCanal(aplicar, primeiro, vigiarQuadro(aplicar, fonte));
 }
 
-iniciar().catch((erro) => avisar(`Não foi possível montar a cena: ${erro.message}`));
+iniciar().catch((erro) => avisar(`Não foi possível montar a página: ${erro.message}`));
