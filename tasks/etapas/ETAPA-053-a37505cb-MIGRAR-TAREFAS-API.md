@@ -960,3 +960,27 @@
 - **Entrega:** commit "docs(MIGRAR-TAREFAS-API.71)" (api/SCHEMA.md)
 - **Verificação:** seções das 3 coleções novas, opção B, bloqueios, motivo, recarregar e mtime conferidas por grep; sem segredo
 - **Anotação:** em aberto: 409 pergunta_aberta no reservar e a rota com prefixo de projeto (decidir na .13); CONCORRENCIA.md ainda cita db.json e /operacoes sem prefixo; etapas sem Tarefa; roteamento de vários routers do json-server ainda não testado (.54)
+
+### MIGRAR-TAREFAS-API.72 — Revisar as 165 subtarefas só-de-etapa do `rules-ai` ("Pendente de revisão")
+
+**Próximo passo:** aguardar as dependências e pegar a subtarefa (livre, do modelo certo).
+
+- **Nível:** PESADO — mudança em massa de status (165 registros) com decisão por evidência
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** a carga das etapas (.10) criou 165 tarefas em `api/dados/rules-ai.json` que só existiam na seção da etapa, sem linha no quadro (`extras["Origem da carga"]`), todas como `👀 Pendente de revisão`. Para cada uma, ler a seção da etapa (Entrega, Verificação, Próximo passo) e os commits citados e definir o status real: `concluido` (com a evidência), `cancelada`, `pendente` ou deixar `👀` com o motivo. Gravar a decisão pelo importador ou por script de revisão idempotente (nunca editar o JSON à mão) e registrar um resumo por mãe nas Decisões da etapa. Sem evidência clara, a tarefa fica `👀`, nunca `concluido` por palpite.
+- **Critérios de Aceitação:** nenhuma das 165 fica sem decisão registrada; as que viram `concluido` têm a evidência em `entrega`/`verificacao`; contagem por status conferida por comando; segunda rodada sem mudança.
+- **Depende de:** MIGRAR-TAREFAS-API.10
+
+### MIGRAR-TAREFAS-API.73 — Revisar as 304 subtarefas só-de-etapa do `aulasenai` ("Pendente de revisão")
+
+**Próximo passo:** aguardar as dependências e pegar a subtarefa (livre, do modelo certo).
+
+- **Nível:** PESADO — mudança em massa de status (304 registros) com decisão por evidência
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** a carga das etapas (.10) criou 304 tarefas em `api/dados/aulasenai.json` que só existiam na seção da etapa, sem linha no quadro (`extras["Origem da carga"]`), todas como `👀 Pendente de revisão`. Para cada uma, ler a seção da etapa (Entrega, Verificação, Próximo passo) e os commits citados e definir o status real: `concluido` (com a evidência), `cancelada`, `pendente` ou deixar `👀` com o motivo. Gravar a decisão pelo importador ou por script de revisão idempotente (nunca editar o JSON à mão) e registrar um resumo por mãe nas Decisões da etapa. Sem evidência clara, a tarefa fica `👀`, nunca `concluido` por palpite.
+- **Critérios de Aceitação:** nenhuma das 304 fica sem decisão registrada; as que viram `concluido` têm a evidência em `entrega`/`verificacao`; contagem por status conferida por comando; segunda rodada sem mudança.
+- **Depende de:** MIGRAR-TAREFAS-API.10
