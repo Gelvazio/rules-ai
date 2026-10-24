@@ -8,6 +8,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { gravarSeMudou } from './serializador.mjs';
 import { lerArquivo } from './migrar.mjs';
+import { lerNomeArquivo } from './etapas-leitor.mjs';
 import { extrairReferencias } from './etapas-tabelas.mjs';
 import {
   acumularSubtarefas, aplicarNaTarefa, criarTarefaSemLinha, lerEtapa, mascarar, textoEstavel,
@@ -37,6 +38,20 @@ export function lerFontes(pasta) {
 }
 
 /**
+ * Acha os codigos ETAPA-NNN usados por mais de um arquivo (etapas antigas sem hash).
+ * @param {{arquivo: string}[]} fontes - Arquivos de etapa.
+ * @returns {Set<string>} Codigos repetidos.
+ */
+function descobrirNumerosRepetidos(fontes) {
+  const contagem = new Map();
+  for (const { arquivo } of fontes) {
+    const codigo = lerNomeArquivo(arquivo).codigo;
+    contagem.set(codigo, (contagem.get(codigo) || 0) + 1);
+  }
+  return new Set([...contagem].filter(([, quantidade]) => quantidade > 1).map(([c]) => c));
+}
+
+/**
  * Le todas as etapas: registros das colecoes e campos de secao acumulados por subtarefa.
  * @param {object[]} fontes - Arquivos lidos.
  * @param {{projeto: string, idsTarefas: Set<string>}} contexto - Projeto e ids existentes.
@@ -47,8 +62,9 @@ export function lerTodasEtapas(fontes, contexto) {
   const colecoes = { requisitos: [], invariantes: [], perguntas: [] };
   const acumulado = new Map();
   const subsPorEtapa = new Map();
+  const repetidos = descobrirNumerosRepetidos(fontes);
   for (const fonte of fontes) {
-    const lida = lerEtapa(fonte, contexto);
+    const lida = lerEtapa(fonte, { ...contexto, repetidos });
     const repetida = etapas.some((etapa) => etapa.id === lida.etapa.id);
     if (repetida) throw new Error(`Etapa repetida: ${lida.etapa.id} (${fonte.arquivo})`);
     etapas.push(lida.etapa);

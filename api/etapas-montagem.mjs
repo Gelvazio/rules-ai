@@ -149,8 +149,10 @@ function separarSecoes(blocos) {
  * @returns {object} Campos do cabecalho (id, numero, hash, tarefaMae...).
  */
 function montarCabecalho(entrada) {
-  const { arquivo, blocos, projeto } = entrada;
+  const { arquivo, blocos, projeto, repetidos } = entrada;
   const nome = lerNomeArquivo(arquivo);
+  // numero repetido entre arquivos: o nome do arquivo vira o codigo, para o id nao colidir
+  if (repetidos?.has(nome.codigo)) nome.codigo = arquivo.replace(/\.md$/, '');
   const doTitulo = lerNumeroHashTitulo(blocos.tituloLinha);
   const rotulos = lerRotulosCabecalho(blocos.cabecalho);
   const codigoMae = lerCodigoMae(rotulos, nome.nome);
@@ -174,7 +176,9 @@ function montarCabecalho(entrada) {
  */
 export function lerEtapa(fonte, contexto) {
   const blocos = dividirBlocos(fonte.texto);
-  const cabecalho = montarCabecalho({ arquivo: fonte.arquivo, blocos, projeto: contexto.projeto });
+  const cabecalho = montarCabecalho({
+    arquivo: fonte.arquivo, blocos, projeto: contexto.projeto, repetidos: contexto.repetidos,
+  });
   const { codigoMae, codigoEtapa, ...campos } = cabecalho;
   const { gerais, tabelas, subs } = separarSecoes(blocos);
   const vistos = { requisitos: new Map(), invariantes: new Map(), perguntas: new Map() };
