@@ -47,11 +47,16 @@ Decidido em 2026-10-23 (C49, etapa 038 AI-MEMORY-INTEGRATION). Vale para todos o
   captura fica na fila local, sem perda (`docs/AI-MEMORY-INSTALACAO.md`, seção 7).
 - ⛔ Nunca bloquear a sessão por causa da memória.
 
-## Captura (estado atual, decisão A da subtarefa .36, 2026-10-23)
+## Captura (estado atual, decisão A da subtarefa .36, 2026-10-23; DSH em 2026-10-23/24)
 
-- Por enquanto, **só o Claude Code captura**, com hooks **por projeto** (`--scope project`),
-  depois do `rules-local/sessao.mjs`.
-- As outras IAs ficam **sem captura** até a subtarefa .37 e as .38 a .41.
+- **Claude Code captura**, com hooks **por projeto** (`--scope project`), depois do
+  `rules-local/sessao.mjs`.
+- **DeepSeek Harness (DSH) também captura** (instalado no `rules-ai` a pedido do usuário em
+  2026-10-23/24): hooks via bridge `@deepseek-ai/dsh-hooks-claude-code` e MCP
+  `@deepseek-ai/dsh-mcp-client` no perfil do DSH, com sessões `agent=dsh`. O DSH não entrega
+  `SessionEnd`: fechar com `ai-memory finalize-session --agent dsh`; handoff só via MCP
+  (`memory_handoff_list` → `memory_handoff_accept`).
+- As demais IAs ficam **sem captura** até a subtarefa .37 e as .38 a .41.
 - ⛔ Sem LLM de consolidação: o TypeSafe/Jev não serve para isso (conclusão da subtarefa .29).
 
 ## Privacidade
