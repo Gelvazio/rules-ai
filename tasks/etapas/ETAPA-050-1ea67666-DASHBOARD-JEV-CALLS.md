@@ -35,7 +35,7 @@
 
 ### DASHBOARD-JEV-CALLS.2 — Documentar a página e fechar
 
-**Próximo passo:** aguardar a .1.
+**Próximo passo:** concluída; falta só a entrada no STATUS_PROJETO.md, que o líder registra no fechamento
 
 - **Nível:** LEVE — só texto e constantes, sem lógica
 - **Modelo:** só Haiku — nunca outro
@@ -44,6 +44,8 @@
 - **Descrição:** Uma seção curta no `dashboard/README.md` (o que mostra, de onde lê, que só funciona servindo a raiz do `rules-ai` em localhost e que o texto das mensagens nunca é exibido) e entrada no `STATUS_PROJETO.md`.
 - **Critérios de Aceitação:** README correto e coerente com a página entregue.
 - **Depende de:** DASHBOARD-JEV-CALLS.1
+- **Entrega:** commit "docs(DASHBOARD-JEV-CALLS.2)" (seção Chamadas do Jev no dashboard/README.md)
+- **Verificação:** caminhos citados existem; linhas até 100 colunas; o texto das mensagens não é exibido (o registro guarda só hash)
 ### DASHBOARD-JEV-CALLS.3 — Garantir que CHAMADAS JEV AI abre em nova janela
 
 **Próximo passo:** concluída; o working tree do menu.js segue com alterações de outra frente (itens do menu) fora do commit

@@ -99,3 +99,24 @@ evento `estado` ao canal `quadro:rules-ai`.
 - `index.html`, `assets/js/agentes.js` e `assets/js/agentes/` (`canal.js` assina o Broadcast;
   `quadro.js` lê o GitHub raw; fila com atraso, cena, personagens, rótulos, painéis).
 - `assets/js/` (`config.js`, `visualizador.js`, `menu.js`) e `assets/css/`.
+
+## Chamadas do Jev (CHAMADAS JEV AI)
+
+A página `dashboard/JEV-AI-CALLS.html` mostra as chamadas que o Jev fez à API, uma por linha.
+
+- **Resumo (cartões):** total de chamadas, custo em US$, tokens de entrada e de saída, latência
+  média (ms) e percentual de chamadas com situação diferente de `ok`.
+- **Tabela:** data, ação, modelo, perguntas, tokens, custo, latência, situação, tentativas e
+  erro, das mais novas para as mais antigas.
+- **Filtros:** por ação e por situação; `Todas` não filtra.
+
+Lê `scripts/jev/saidas/chamadas.jsonl` (na raiz do `rules-ai`), que fica fora do Git. Sem o
+arquivo, a página mostra um aviso em vez da tabela.
+
+Como abrir: na raiz do `rules-ai`, rode `python -m http.server 8080` e abra
+`http://localhost:8080/dashboard/JEV-AI-CALLS.html`. No menu, **CHAMADAS JEV AI** abre em nova
+janela.
+
+- Só funciona em localhost, servindo a raiz do `rules-ai`, com o arquivo local. Abrir por
+  `file://` não lê o `chamadas.jsonl`.
+- O texto das mensagens nunca aparece: o registro guarda só o hash do estado (`hash_state`).
