@@ -46,7 +46,7 @@
 - **Depende de:** DASHBOARD-JEV-CALLS.1
 ### DASHBOARD-JEV-CALLS.3 — Garantir que CHAMADAS JEV AI abre em nova janela
 
-**Próximo passo:** ver se o `criarLink` do `menu.js` no HEAD já trata `novaAba`.
+**Próximo passo:** concluída; o working tree do menu.js segue com alterações de outra frente (itens do menu) fora do commit
 
 - **Nível:** MEDIO — código com lógica em `menu.js`
 - **Modelo:** só Sonnet — nunca outro
@@ -55,3 +55,5 @@
 - **Descrição:** A .1 entregou o item com `novaAba: true`, mas o `criarLink` do `menu.js` commitado só lê `{ texto, href }`; a versão do working tree (alteração de outra frente, não commitada) já faz `target="_blank"`. Ver o estado do Git: se a outra frente já commitou o `menu.js`, só confirmar; senão, commitar apenas o trecho de `criarLink` que trata `novaAba`.
 - **Critérios de Aceitação:** o `menu.js` commitado põe `target="_blank"` e `rel="noopener"` em item com `novaAba`; `node --check` passa.
 - **Depende de:** DASHBOARD-JEV-CALLS.1
+- **Entrega:** commit "fix(DASHBOARD-JEV-CALLS.3)" (menu.js: criarLink trata novaAba, só esse trecho)
+- **Verificação:** node --check ok; diff contra o HEAD mostra só o criarLink; a tela não foi aberta (a IA não abre navegador): o usuário confere que CHAMADAS JEV AI abre em nova janela

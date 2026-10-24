@@ -31,11 +31,15 @@ function comProjeto(href) {
   return `${href}?projeto=${encodeURIComponent(projeto)}`;
 }
 
-function criarLink({ texto, href }, atual) {
+function criarLink({ texto, href, novaAba = false }, atual) {
   const link = document.createElement('a');
   link.className = 'abas__botao';
   link.href = comProjeto(href);
   link.textContent = texto;
+  if (novaAba) {
+    link.target = '_blank';
+    link.rel = 'noopener';
+  }
   if (href === atual) {
     link.classList.add('abas__botao--atual');
     link.setAttribute('aria-current', 'page');
