@@ -876,7 +876,7 @@
 
 ### MIGRAR-TAREFAS-API.65 — `dashboard-ai` (DASHBOARD-AI-PRINCIPAL e cópias): carga das tarefas e etapas na API
 
-**Próximo passo:** aguardar as dependências.
+**Próximo passo:** ❌ cancelada em 2026-10-24 08:42 (pedido do usuário: migrar apenas `aulasenai` e `rules-ai`; o `dashboard-ai` não entra)
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -888,7 +888,7 @@
 
 ### MIGRAR-TAREFAS-API.66 — `dashboard-ai`: conferência de perda zero
 
-**Próximo passo:** aguardar as dependências.
+**Próximo passo:** ❌ cancelada em 2026-10-24 08:42 (pedido do usuário: migrar apenas `aulasenai` e `rules-ai`; o `dashboard-ai` não entra)
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -900,7 +900,7 @@
 
 ### MIGRAR-TAREFAS-API.67 — `dashboard-ai`: `AGENTS.md`, regras, scripts, hooks e worker usam a API
 
-**Próximo passo:** aguardar as dependências.
+**Próximo passo:** ❌ cancelada em 2026-10-24 08:42 (pedido do usuário: migrar apenas `aulasenai` e `rules-ai`; o `dashboard-ai` não entra)
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -912,7 +912,7 @@
 
 ### MIGRAR-TAREFAS-API.68 — `dashboard-ai`: confirmar a lista exata dos `.md` a apagar
 
-**Próximo passo:** aguardar as dependências.
+**Próximo passo:** ❌ cancelada em 2026-10-24 08:42 (pedido do usuário: migrar apenas `aulasenai` e `rules-ai`; o `dashboard-ai` não entra)
 
 - **Nível:** LEVE — ação que só o usuário pode fazer
 - **Modelo:** Usuário — nunca outro
@@ -924,7 +924,7 @@
 
 ### MIGRAR-TAREFAS-API.69 — `dashboard-ai`: tag de segurança e apagar os `.md` de tarefa
 
-**Próximo passo:** aguardar as dependências.
+**Próximo passo:** ❌ cancelada em 2026-10-24 08:42 (pedido do usuário: migrar apenas `aulasenai` e `rules-ai`; o `dashboard-ai` não entra)
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -944,7 +944,7 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Conferir a coleção `projetos`, o `gerenciador.mjs ver`, o MCP e o `dashboard/projetos.json`: os três monitorados, os demais aguardando; nenhuma tarefa em markdown nos três.
 - **Critérios de Aceitação:** listas conferidas por comando.
-- **Depende de:** MIGRAR-TAREFAS-API.42, MIGRAR-TAREFAS-API.63, MIGRAR-TAREFAS-API.69
+- **Depende de:** MIGRAR-TAREFAS-API.42, MIGRAR-TAREFAS-API.63
 
 ### MIGRAR-TAREFAS-API.71 — Atualizar o `api/SCHEMA.md`: coleções `requisitos`, `invariantes` e `perguntas`, opção B e bloqueios
 
