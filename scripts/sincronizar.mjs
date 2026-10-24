@@ -2,6 +2,7 @@
 // Uso: node scripts/sincronizar.mjs            -> só mostra o que faria (nada é gravado)
 //      node scripts/sincronizar.mjs --aplicar  -> grava, com cópia .bak do arquivo original
 // Também instala o gancho de prompt do Jev (Claude Code e Codex): scripts/jev/ganchos/instalar.mjs
+import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import {
   copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync,
@@ -301,8 +302,34 @@ function gravarVersao() {
   console.log(`versão gravada: ${versao} (${ARQUIVO_VERSAO})`);
 }
 
+/**
+ * Confere que `regras/` é igual ao que está no GitHub (`origin/main`), sem arquivo local solto.
+ * A sincronização só pode sair do GitHub (pedido do usuário, 2026-10-24).
+ * @returns {{ok: boolean, motivo: string}} `ok` true quando a pasta bate com o remoto.
+ */
+function conferirRegrasComGitHub() {
+  const opcoes = { cwd: RAIZ, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] };
+  try {
+    execFileSync('git', ['fetch', '--quiet', 'origin', 'main'], opcoes);
+    execFileSync('git', ['diff', '--quiet', 'origin/main', '--', 'regras'], opcoes);
+  } catch {
+    return { ok: false, motivo: 'regras/ difere de origin/main (commit e push antes de sincronizar)' };
+  }
+  const naoRastreados = execFileSync('git', ['ls-files', '--others', '--exclude-standard', 'regras'], opcoes);
+  if (naoRastreados.trim()) {
+    return { ok: false, motivo: 'há arquivo em regras/ que não está no GitHub' };
+  }
+  return { ok: true, motivo: 'regras/ igual a origin/main' };
+}
+
 /** Gera o unificado, sincroniza todos os destinos e o gancho de prompt do Jev (C43). */
 function principal() {
+  const origem = conferirRegrasComGitHub();
+  if (!origem.ok) {
+    console.error(`sincronização recusada: ${origem.motivo}. Fonte única: https://github.com/Gelvazio/rules-ai`);
+    process.exit(1);
+  }
+  console.log(`origem: ${origem.motivo}`);
   const unificado = montarUnificado();
   mkdirSync(dirname(ARQUIVO_UNIFICADO), { recursive: true });
   writeFileSync(ARQUIVO_UNIFICADO, unificado, 'utf8');
