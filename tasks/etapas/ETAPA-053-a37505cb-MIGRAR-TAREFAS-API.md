@@ -55,7 +55,7 @@
 
 **Riscos novos:** (a) mudança de **banco e segurança** em produção (RLS errada expõe o quadro, que não pode ter segredo nem dado pessoal); (b) chave de serviço só em variável de ambiente, nunca em arquivo; (c) sessões de nuvem precisam de acesso de leitura ao Supabase; (d) sem export no Git, o rollback depende da tag `tasks-md-antes-da-api` e dos `.md` ainda existentes até o corte; (e) o `aulasenai` e o `dashboard` usam o mesmo projeto Supabase, então limites e RLS são compartilhados.
 
-**Pergunta ainda aberta ao usuário:** aprovar este plano (tarefa grande: banco + segurança) antes de qualquer tabela, função ou chave ser criada.
+**Aprovação:** Gelvazio, 2026-10-24 08:49, "sim" ao plano acima (tarefa grande: banco + segurança). Tabelas, funções e chaves só entram pela .77, feita pelo usuário.
 
 ### Requisitos
 
@@ -244,7 +244,7 @@
 
 ### MIGRAR-TAREFAS-API.11 — Conferir a carga: paridade campo a campo, ids únicos e idempotência
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** ❌ cancelada em 2026-10-24 08:49 (substituída pela .78 (conferência do seed no Supabase); plano aprovado em 2026-10-24)
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -268,7 +268,7 @@
 - **Entrega:** commit "feat(MIGRAR-TAREFAS-API.12)" (api/projetos.mjs, api/dados/_projetos.json)
 - **Verificação:** node --check ok; upsert idempotente (mesmo md5 duas vezes); valores inválidos recusados sem gravar; JSON só LF
 
-### MIGRAR-TAREFAS-API.13 — Escrita: reservar subtarefa pela API
+### MIGRAR-TAREFAS-API.13 — Cliente da RPC `reservar` e prova de exclusão com duas chamadas simultâneas
 
 **Próximo passo:** aguardar as dependências e o sim do usuário.
 
@@ -278,9 +278,10 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Operação de reserva (`PATCH`) que só grava se `emUsoPor` estiver vazio, a dependência estiver concluída e o modelo for o certo (C22, C50); segue a estratégia da .6. **Inclui os achados da .6 (`api/CONCORRENCIA.md`):** tirar `--watch` do `npm start`; `--middlewares` com a reserva síncrona (sem `await` entre conferir e mudar); lançador `api/iniciar.mjs` com a trava `api/.servidor.lock` (PID); serializador no lugar do `db.write()` simples; operação `recarregar` (depois de `git pull`) e checagem de `mtime` (409 `db_alterado_por_fora`); script do INV-3 `api/testes/inv3-reservas.mjs`.
 - **Critérios de Aceitação:** reserva de subtarefa ocupada é recusada; reserva válida grava `emUsoPor` e `em_execucao`.
-- **Depende de:** MIGRAR-TAREFAS-API.6, MIGRAR-TAREFAS-API.11
+- **Depende de:** MIGRAR-TAREFAS-API.75, MIGRAR-TAREFAS-API.78
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
-### MIGRAR-TAREFAS-API.14 — Escrita: entregar subtarefa pela API
+### MIGRAR-TAREFAS-API.14 — Cliente da RPC `entregar` (move para concluída, com entrega e verificação)
 
 **Próximo passo:** aguardar as dependências e o sim do usuário.
 
@@ -291,8 +292,9 @@
 - **Descrição:** Operação que marca concluída, limpa `emUsoPor`, anota `Entrega` e `Verificação` e libera as dependentes.
 - **Critérios de Aceitação:** subtarefa entregue vira `concluida` e as dependentes ficam `disponivel`.
 - **Depende de:** MIGRAR-TAREFAS-API.13
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
-### MIGRAR-TAREFAS-API.15 — Escrita: criar subtarefa nova na mãe atual (C26)
+### MIGRAR-TAREFAS-API.15 — Cliente da RPC `criar_subtarefa` na mãe atual (C26)
 
 **Próximo passo:** aguardar as dependências e o sim do usuário.
 
@@ -303,10 +305,11 @@
 - **Descrição:** Operação que cria `<TAREFA>.<n+1>` com nível, modelo e effort, só dentro de mãe aberta.
 - **Critérios de Aceitação:** ids novos sequenciais; nunca cria mãe.
 - **Depende de:** MIGRAR-TAREFAS-API.13
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
 ### MIGRAR-TAREFAS-API.16 — Leitura de queda: leitores usam `api/db.json` do Git quando a API está fora
 
-**Próximo passo:** aguardar as dependências.
+**Próximo passo:** ❌ cancelada em 2026-10-24 08:49 (sem arquivo de queda: json-server e `api/db.json` aposentados; plano aprovado em 2026-10-24)
 
 - **Nível:** MEDIO — código com lógica, poucos arquivos
 - **Modelo:** só Sonnet — nunca outro
@@ -326,7 +329,8 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Fonte = API (com queda para o `db.json` do Git); `projetos` vêm da coleção `projetos` (`monitorado: true`). **Os outros projetos (aulasenai, dashboard-ai…) continuam em `.md`: o gerenciador, o MCP e o `construir-golden.mjs` precisam manter a leitura de `.md` para eles.**
 - **Critérios de Aceitação:** `node scripts/gerenciador.mjs ver` mostra o mesmo que antes.
-- **Depende de:** MIGRAR-TAREFAS-API.16
+- **Depende de:** MIGRAR-TAREFAS-API.78
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
 ### MIGRAR-TAREFAS-API.18 — `mcp/` (config, quadro, projetos) lê e grava pela API
 
@@ -374,7 +378,8 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Ler a API (ou o `db.json` do Git) no lugar do `STATUS.md`; a privacidade do payload não muda.
 - **Critérios de Aceitação:** `publicar_quadro.py --simular` gera o mesmo payload.
-- **Depende de:** MIGRAR-TAREFAS-API.16
+- **Depende de:** MIGRAR-TAREFAS-API.78
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
 ### MIGRAR-TAREFAS-API.22 — Workflow `.github/workflows/publicar-quadro.yml`
 
@@ -398,9 +403,10 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Alinhar com a tarefa `DASHBOARD-LE-API`: a API vira a leitura primária; sem reserva ao mesmo tempo nos mesmos arquivos.
 - **Critérios de Aceitação:** a página mostra as mesmas tarefas de antes.
-- **Depende de:** MIGRAR-TAREFAS-API.16
+- **Depende de:** MIGRAR-TAREFAS-API.78
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
-### MIGRAR-TAREFAS-API.24 — Regra `quadro-de-tarefas.md`: fonte única = API, nenhuma tarefa em markdown no `rules-ai`; nova decisão em `CONFLITOS.md`
+### MIGRAR-TAREFAS-API.24 — Regra `quadro-de-tarefas.md`: fonte única = Supabase, nenhuma tarefa em markdown no `rules-ai`; nova decisão em `CONFLITOS.md`
 
 **Próximo passo:** aguardar as dependências e o sim do usuário.
 
@@ -411,6 +417,7 @@
 - **Descrição:** Reescrever a tabela "Cada informação em um lugar só" e o modelo do quadro; registrar a decisão (C52) e o que muda para quem não alcança a API.
 - **Critérios de Aceitação:** regra coerente com as respostas P1 a P5; `CONFLITOS.md` com a decisão.
 - **Depende de:** MIGRAR-TAREFAS-API.14
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
 ### MIGRAR-TAREFAS-API.25 — Regras `frentes-e-reserva.md` e `ciclo-da-task.md`: reservar e entregar pela API
 
@@ -482,7 +489,8 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Passo a passo para voltar aos `.md` pelo Git (tag `tasks-md-antes-da-api`, `git revert` e reimportação) com ensaio em cópia.
 - **Critérios de Aceitação:** rollback descrito e ensaiado em cópia.
-- **Depende de:** MIGRAR-TAREFAS-API.16
+- **Depende de:** MIGRAR-TAREFAS-API.78
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
 ### MIGRAR-TAREFAS-API.31 — Ensaio do corte: ciclo completo de uma tarefa de teste pela API
 
@@ -662,7 +670,8 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Script de invariante que compara cada tabela, seção e subtarefa dos `.md` com o campo da API; zero diferença antes de qualquer apagamento.
 - **Critérios de Aceitação:** relatório sem diferença; script no `api/`.
-- **Depende de:** MIGRAR-TAREFAS-API.10, MIGRAR-TAREFAS-API.11
+- **Depende de:** MIGRAR-TAREFAS-API.10, MIGRAR-TAREFAS-API.78
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
 ### MIGRAR-TAREFAS-API.46 — Confirmar a lista exata dos arquivos `.md` a apagar
 
@@ -736,7 +745,7 @@
 - **Critérios de Aceitação:** o gate dá o mesmo resultado nas etapas migradas.
 - **Depende de:** MIGRAR-TAREFAS-API.10, MIGRAR-TAREFAS-API.71
 
-### MIGRAR-TAREFAS-API.52 — Aposentar `api/gerar-db.mjs` (ponte `.md` → API) depois do corte
+### MIGRAR-TAREFAS-API.52 — Aposentar o json-server e o `api/` (db.json, migradores Node, `gerar-db.mjs`) depois do corte
 
 **Próximo passo:** aguardar as dependências.
 
@@ -747,6 +756,7 @@
 - **Descrição:** Depois da .47, remover o gerador que lê o quadro em markdown (a carga `.7` já está feita) e ajustar o README e o `package.json` da `api/`.
 - **Critérios de Aceitação:** `npm run gerar` removido; `api/` só sobe a API.
 - **Depende de:** MIGRAR-TAREFAS-API.47
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
 ### MIGRAR-TAREFAS-API.53 — Armazenamento multi-projeto: um `db.json` por projeto ou um só (volume do aulasenai)
 
@@ -765,7 +775,7 @@
 
 ### MIGRAR-TAREFAS-API.54 — `aulasenai`: carga das tarefas abertas (`STATUS.md`) na API do rules-ai
 
-**Próximo passo:** aguardar as dependências.
+**Próximo passo:** ❌ cancelada em 2026-10-24 08:49 (o seed em Python (.76/.78) cobre os dois projetos; plano aprovado em 2026-10-24)
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -777,7 +787,7 @@
 
 ### MIGRAR-TAREFAS-API.55 — `aulasenai`: carga das tarefas concluídas (`task_complete.md`)
 
-**Próximo passo:** aguardar as dependências.
+**Próximo passo:** ❌ cancelada em 2026-10-24 08:49 (o seed em Python (.76/.78) cobre os dois projetos; plano aprovado em 2026-10-24)
 
 - **Nível:** MEDIO — código com lógica, poucos arquivos
 - **Modelo:** só Sonnet — nunca outro
@@ -789,7 +799,7 @@
 
 ### MIGRAR-TAREFAS-API.56 — `aulasenai`: carga do texto completo das ~430 etapas na API
 
-**Próximo passo:** aguardar as dependências.
+**Próximo passo:** ❌ cancelada em 2026-10-24 08:49 (o seed em Python (.76/.78) cobre os dois projetos; plano aprovado em 2026-10-24)
 
 - **Nível:** PESADO — arquitetura, mudança em massa ou regra global
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -809,7 +819,8 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Script de invariante (INV-1, INV-2, INV-5, INV-7) para o aulasenai antes de qualquer apagamento.
 - **Critérios de Aceitação:** zero diferença; carga repetida não muda nada.
-- **Depende de:** MIGRAR-TAREFAS-API.55, MIGRAR-TAREFAS-API.56
+- **Depende de:** MIGRAR-TAREFAS-API.78
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
 ### MIGRAR-TAREFAS-API.58 — `aulasenai`: regras do projeto e hooks passam a usar a API
 
@@ -835,7 +846,7 @@
 - **Critérios de Aceitação:** cada skill e script roda contra a API.
 - **Depende de:** MIGRAR-TAREFAS-API.57
 
-### MIGRAR-TAREFAS-API.60 — `aulasenai`: sessões de nuvem leem o `db.json` do Git do `rules-ai` (só leitura)
+### MIGRAR-TAREFAS-API.60 — `aulasenai`: sessões de nuvem leem o Supabase com a chave `anon` (só leitura)
 
 **Próximo passo:** aguardar as dependências.
 
@@ -845,7 +856,8 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** Definir de onde a nuvem lê (URL do `api/db.json` em `Gelvazio/rules-ai`), que ela não reserva nem entrega, e como avisa o usuário quando precisa de ação local.
 - **Critérios de Aceitação:** nuvem consulta e não grava; texto da regra pronto.
-- **Depende de:** MIGRAR-TAREFAS-API.53
+- **Depende de:** MIGRAR-TAREFAS-API.78
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
 ### MIGRAR-TAREFAS-API.61 — `aulasenai`: ensaio do ciclo completo pela API (tarefa de teste)
 
@@ -992,7 +1004,8 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** a carga das etapas (.10) criou 165 tarefas em `api/dados/rules-ai.json` que só existiam na seção da etapa, sem linha no quadro (`extras["Origem da carga"]`), todas como `👀 Pendente de revisão`. Para cada uma, ler a seção da etapa (Entrega, Verificação, Próximo passo) e os commits citados e definir o status real: `concluido` (com a evidência), `cancelada`, `pendente` ou deixar `👀` com o motivo. Gravar a decisão pelo importador ou por script de revisão idempotente (nunca editar o JSON à mão) e registrar um resumo por mãe nas Decisões da etapa. Sem evidência clara, a tarefa fica `👀`, nunca `concluido` por palpite.
 - **Critérios de Aceitação:** nenhuma das 165 fica sem decisão registrada; as que viram `concluido` têm a evidência em `entrega`/`verificacao`; contagem por status conferida por comando; segunda rodada sem mudança.
-- **Depende de:** MIGRAR-TAREFAS-API.10
+- **Depende de:** MIGRAR-TAREFAS-API.78
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
 
 ### MIGRAR-TAREFAS-API.73 — Revisar as 304 subtarefas só-de-etapa do `aulasenai` ("Pendente de revisão")
 
@@ -1004,4 +1017,65 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** a carga das etapas (.10) criou 304 tarefas em `api/dados/aulasenai.json` que só existiam na seção da etapa, sem linha no quadro (`extras["Origem da carga"]`), todas como `👀 Pendente de revisão`. Para cada uma, ler a seção da etapa (Entrega, Verificação, Próximo passo) e os commits citados e definir o status real: `concluido` (com a evidência), `cancelada`, `pendente` ou deixar `👀` com o motivo. Gravar a decisão pelo importador ou por script de revisão idempotente (nunca editar o JSON à mão) e registrar um resumo por mãe nas Decisões da etapa. Sem evidência clara, a tarefa fica `👀`, nunca `concluido` por palpite.
 - **Critérios de Aceitação:** nenhuma das 304 fica sem decisão registrada; as que viram `concluido` têm a evidência em `entrega`/`verificacao`; contagem por status conferida por comando; segunda rodada sem mudança.
-- **Depende de:** MIGRAR-TAREFAS-API.10
+- **Depende de:** MIGRAR-TAREFAS-API.78
+- **Mudança (2026-10-24):** a fonte do quadro passou do json-server para tabelas no Supabase com Realtime e RPC (ver "Mudança de escopo" desta etapa); onde esta seção citar `api/db.json`, `/tarefas` ou json-server, vale o Supabase.
+
+### MIGRAR-TAREFAS-API.74 — SQL do quadro no Supabase: tabelas, índices, RLS de leitura (anon) e publicação Realtime (`database/quadro/`)
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — banco, segurança e mudança em massa
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** escrever os arquivos SQL (sem aplicar) das tabelas do SCHEMA (`tarefas`, `etapas`, `frentes`, `decisoes`, `riscos`, `bloqueios`, `pendencias`, `licoes`, `recados`, `requisitos`, `invariantes`, `perguntas`, `projetos`), chaves `<projeto>:<codigo>`, índices, RLS (leitura `anon`; nenhuma escrita direta por `anon`/`authenticated`) e `alter publication supabase_realtime add table ...`.
+- **Critérios de Aceitação:** SQL idempotente (`if not exists`/`create or replace`), sem segredo nem dado pessoal; `anon` só `select`; todas as tabelas no Realtime; revisado linha a linha antes de aplicar.
+- **Depende de:** Nenhuma
+
+### MIGRAR-TAREFAS-API.75 — Funções RPC do quadro: `reservar`, `entregar`, `criar_subtarefa`, `liberar` e `mudar_status` (UPDATE condicional, atômico)
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — banco, segurança e mudança em massa
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** funções `security definer` em plpgsql com `UPDATE ... WHERE em_uso_por is null AND dependências concluídas AND modelo certo`, devolvendo conflito em corrida; `entregar` exige entrega e verificação; `criar_subtarefa` só na mãe atual (C26); transições do SCHEMA seção 3; `execute` só para a chave de serviço.
+- **Critérios de Aceitação:** duas chamadas simultâneas de `reservar` na mesma subtarefa: uma vence e a outra recebe conflito; `anon` não executa as funções; transições fora da tabela do SCHEMA são recusadas.
+- **Depende de:** MIGRAR-TAREFAS-API.74
+
+### MIGRAR-TAREFAS-API.76 — Migrador em Python (`scripts/quadro_seed.py`): lê os `.md` de `rules-ai` e `aulasenai` e cria o seed no Supabase
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — banco, segurança e mudança em massa
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** ler `tasks/STATUS.md`, `task_complete.md`, `RECADOS.md` e as etapas (`--projeto`, `--fonte`, `--dry-run`), montar os mesmos registros do SCHEMA (os JSON de `api/dados/` servem de referência) e gravar por upsert idempotente com a chave de serviço lida da variável de ambiente `SUPABASE_SERVICE_KEY`; subtarefas só-de-etapa entram como `👀 Pendente de revisão`; mascarar segredo (INV-4); a chave nunca é impressa nem gravada em arquivo.
+- **Critérios de Aceitação:** `--dry-run` não grava; segunda rodada sem mudança; sem chave no código nem no log; contagens iguais às dos JSON de `api/dados/`.
+- **Depende de:** MIGRAR-TAREFAS-API.74
+
+### MIGRAR-TAREFAS-API.77 — Aplicar o SQL (.74 e .75) no Supabase `hxlvonriearllcmfqeri` e guardar `SUPABASE_URL`, `SUPABASE_ANON_KEY` e `SUPABASE_SERVICE_KEY` em variáveis de ambiente
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** Usuário — só o usuário pode fazer
+- **Modelo:** Usuário
+- **Effort:** —
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** o usuário confere o SQL, aplica no SQL Editor (ou autoriza a IA a aplicar pelo conector) e define as 3 variáveis de ambiente no computador e nas sessões de nuvem; nenhuma chave entra no Git.
+- **Critérios de Aceitação:** tabelas, funções e Realtime existem; variáveis definidas fora do Git.
+- **Depende de:** MIGRAR-TAREFAS-API.75
+
+### MIGRAR-TAREFAS-API.78 — Rodar o seed (`rules-ai` e `aulasenai`) e conferir: paridade com os JSON de `api/dados/`, ids únicos e idempotência
+
+**Próximo passo:** aguardar as dependências.
+
+- **Nível:** PESADO — banco, segurança e mudança em massa
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** rodar `quadro_seed.py` nos dois projetos e comparar, campo a campo, o banco com os JSON de `api/dados/`; conferir ids únicos, segunda rodada sem mudança e as 469 subtarefas em `👀 Pendente de revisão`.
+- **Critérios de Aceitação:** contagens iguais por coleção e projeto; zero divergência de campo; segunda rodada sem mudança; consulta `anon` lê e não escreve.
+- **Depende de:** MIGRAR-TAREFAS-API.76, MIGRAR-TAREFAS-API.77
