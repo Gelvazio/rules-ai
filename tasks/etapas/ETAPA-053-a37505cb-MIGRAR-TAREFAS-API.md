@@ -948,7 +948,7 @@
 
 ### MIGRAR-TAREFAS-API.71 — Atualizar o `api/SCHEMA.md`: coleções `requisitos`, `invariantes` e `perguntas`, opção B e bloqueios
 
-**Próximo passo:** executor-medio (Sonnet) edita o SCHEMA; o Haiku confere e entrega.
+**Próximo passo:** concluída; a .10 carrega as etapas nas coleções novas e a .13 decide o 409 pergunta_aberta e a rota /<projeto>/operacoes
 
 - **Nível:** PESADO — arquitetura: contrato do schema
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -957,3 +957,6 @@
 - **Descrição:** atualizar `api/SCHEMA.md` com as respostas do usuário: (a) as tabelas internas das etapas viram coleções `requisitos`, `invariantes` e `perguntas` (campos, chave composta `<projeto>:<etapa>:<id>`, relação com `etapas` e com as subtarefas que cobrem); (b) opção B decidida (item 7.1.6): `api/dados/<projeto>.json` e `api/dados/_projetos.json`; (c) coleção `bloqueios` mantida; (d) id por hash aceito; (e) o que a .6 trouxe (operações `recarregar`, checagem de `mtime`); (f) atualizar o mapeamento de INV-1..INV-7 e R1.1..R7.1.
 - **Critérios de Aceitação:** SCHEMA.md coerente com as decisões da etapa; toda seção da etapa (inclusive tabelas internas) tem coleção ou campo.
 - **Depende de:** MIGRAR-TAREFAS-API.4
+- **Entrega:** commit "docs(MIGRAR-TAREFAS-API.71)" (api/SCHEMA.md)
+- **Verificação:** seções das 3 coleções novas, opção B, bloqueios, motivo, recarregar e mtime conferidas por grep; sem segredo
+- **Anotação:** em aberto: 409 pergunta_aberta no reservar e a rota com prefixo de projeto (decidir na .13); CONCORRENCIA.md ainda cita db.json e /operacoes sem prefixo; etapas sem Tarefa; roteamento de vários routers do json-server ainda não testado (.54)
