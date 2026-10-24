@@ -82,8 +82,7 @@ dado do aluno; a conferência é por `grep`, `json.load` e consulta aos deploys 
 
 ### VERCEL-SEM-DEPLOY-DE-CONTROLE.2 — Aplicar no `aulasenai`
 
-**Próximo passo:** depois da `.1`, registrar a TASK no quadro do `aulasenai`, acrescentar
-`':(exclude)rules-local/'` ao `ignoreCommand` do `vercel.json` e `rules-local/` ao `.vercelignore`.
+**Próximo passo:** ✅ arquivos prontos em 2026-10-23; falta commit/push no aulasenai e conferir na Vercel
 
 - **Nível:** MEDIO — configuração de 2 arquivos, com lógica de comparação
 - **Modelo:** só Sonnet — nunca outro
@@ -94,13 +93,19 @@ dado do aluno; a conferência é por `grep`, `json.load` e consulta aos deploys 
   e com o URL `/rules-local/VERSAO.md`.
 - **Critérios de aceitação:** R2, R3, R4 e R5 no `aulasenai`.
 - **Depende de:** VERCEL-SEM-DEPLOY-DE-CONTROLE.1
-- **Entrega:** —
-- **Verificação:** —
+- **Entrega:** 2026-10-23, Claude Code (Sonnet 5.5): no `aulasenai`, `vercel.json` (`ignoreCommand`
+  agora com `':(exclude)tasks/' ':(exclude)rules-local/'`), `.vercelignore` (comentário + linha
+  `rules-local/`), nova etapa `tasks/etapas/ETAPA-484-77fe60ae-VERCEL-SEM-DEPLOY-DE-CONTROLE.md`,
+  linha da frente e linha da etapa no `tasks/STATUS.md`, e mãe + subtarefa ✅ no
+  `tasks/task_complete.md`. Commit/push: a cargo do Haiku; conferência na Vercel (R4/R5): líder.
+- **Verificação:** `JSON.parse` do `vercel.json` ok; `git diff -- vercel.json .vercelignore` só com a
+  linha do `ignoreCommand` mudada e as 2 linhas novas do `.vercelignore`; `git diff --quiet` do
+  comando padrão deu código 0 no commit `725e717e` (só `rules-local/`) e código 1 no `94310bde`
+  (código de login). R4 e R5 (consulta aos deploys) ainda não conferidos.
 
 ### VERCEL-SEM-DEPLOY-DE-CONTROLE.3 — Aplicar no `dashboard-ai`
 
-**Próximo passo:** depois da `.1`, acrescentar o `ignoreCommand` ao `vercel.json` e criar/atualizar
-o `.vercelignore` com `rules-local/`.
+**Próximo passo:** ✅ arquivos prontos em 2026-10-23; falta commit/push no dashboard-ai e conferir na Vercel
 
 - **Nível:** MEDIO — configuração de 2 arquivos, com lógica de comparação
 - **Modelo:** só Sonnet — nunca outro
@@ -111,5 +116,15 @@ o `.vercelignore` com `rules-local/`.
   exige `npm run check:agentes` em dia.
 - **Critérios de aceitação:** R2 e R3 no `dashboard-ai`.
 - **Depende de:** VERCEL-SEM-DEPLOY-DE-CONTROLE.1
-- **Entrega:** —
-- **Verificação:** —
+- **Entrega:** 2026-10-23, Claude Code (Sonnet 5.5): em `C:\fontes\DASHBOARD-AI-PRINCIPAL`,
+  `vercel.json` ganhou a chave `ignoreCommand` (comando padrão da C46; `functions` e `rewrites`
+  intactos), criado `.vercelignore` só com `rules-local/`, criada a etapa
+  `tasks/etapas/ETAPA-029-b7e41c93-VERCEL-SEM-DEPLOY-DE-CONTROLE.md` e acrescentadas a mãe e a
+  subtarefa `VERCEL-SEM-DEPLOY-DE-CONTROLE.1` (MEDIO · só Sonnet, ⬜) ao `tasks/STATUS.md` do
+  projeto (linhas em "📌 Tarefas" e em "🗂️ Etapas"). Commit/push: a cargo do Haiku (conferência).
+- **Verificação:** `JSON.parse` do `vercel.json` ok (chaves `$schema`, `ignoreCommand`,
+  `functions`, `rewrites`); `git diff -- vercel.json` só com a linha do `ignoreCommand`;
+  `grep -n "rules-local/" .vercelignore` acha a linha 1; `.vercelignore` não está no `.gitignore`;
+  comando padrão: código 0 no commit `901edb6` (só `rules-local/` e `tasks/`) e código 1 no
+  `5cd83ea` (outros arquivos), ou seja, R2 e R3 atendidos; `npm run check:agentes` = 0
+  desatualizado(s). Pendente (R4/R5): conferir na Vercel depois do push.
