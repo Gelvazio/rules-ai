@@ -143,8 +143,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | JEV-SEMPRE.2 | 🌐 Regerar `dist/REGRAS-GLOBAIS.md` e `VERSAO.md` (sem `--aplicar`) | 🟠 Alta | LEVE · só Haiku · effort low | JEV-SEMPRE.1 | ⬜ Pendente | — | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
 | JEV-SEMPRE.3 | 🌐 Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | JEV-SEMPRE.2 | ⬜ Pendente | — | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
 | **CUSTOS-DE-IA** | **Menu "Custos de IA" no dashboard: modelos e custos de Claude, DeepSeek, Codex e Gemini, lidos de `custos-de-ia.json` (pedido do usuário em 2026-10-24 08:57)** | 🟡 Média | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-055](etapas/ETAPA-055-d7a3f5b1-CUSTOS-DE-IA.md) |
-| CUSTOS-DE-IA.2 | Criar a página `dashboard/quadro-modelos-de-ias.html` (CSS e JS próprios) que lê o `custos-de-ia.json` no visual futurista | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | CUSTOS-DE-IA.1 | 🔄 Em execução | Claude Code (Sonnet 5.5) (local · main · rules-ai · custos-de-ia-2) (desde 2026-10-24 09:00) · 0% | [ETAPA-055](etapas/ETAPA-055-d7a3f5b1-CUSTOS-DE-IA.md) |
-| CUSTOS-DE-IA.3 | Acrescentar o item de menu **Custos de IA** em `dashboard/assets/js/menu.js` abrindo a página em nova aba | 🟡 Média | MEDIO · só Sonnet · effort medium | CUSTOS-DE-IA.2 | ⬜ Pendente | — | [ETAPA-055](etapas/ETAPA-055-d7a3f5b1-CUSTOS-DE-IA.md) |
 | CUSTOS-DE-IA.4 | Conferir: JSON válido, sintaxe, nomes de arquivo, limites de código e que a página só usa dados do JSON | 🟡 Média | MEDIO · só Sonnet · effort medium | CUSTOS-DE-IA.3 | ⬜ Pendente | — | [ETAPA-055](etapas/ETAPA-055-d7a3f5b1-CUSTOS-DE-IA.md) |
 
 

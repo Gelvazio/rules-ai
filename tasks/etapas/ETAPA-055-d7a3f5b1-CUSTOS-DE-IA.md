@@ -32,7 +32,7 @@
 
 ### CUSTOS-DE-IA.2 — Criar a página `dashboard/quadro-modelos-de-ias.html` (CSS e JS próprios) que lê o `custos-de-ia.json` no visual futurista
 
-**Próximo passo:** classificar pelo Jev e depois executar.
+**Próximo passo:** concluída.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -42,10 +42,12 @@
 - **Descrição:** página no padrão de `JEV-AI-CALLS.html`: `base.css` + `tema-futurista.css` (ver `prompts/VISUAL-FUTURISTA.md`) + `assets/css/custos-de-ia.css` + `assets/js/custos-de-ia.js`; um cartão por fornecedor (Claude, DeepSeek, Codex, Gemini) com a tabela de modelos e custos, a data da coleta e o link da fonte; erro claro se o JSON não carregar; SOLID, funções ≤45 linhas, nomes em português, sem estilo nem script inline.
 - **Critérios de Aceitação:** a página lista os 4 fornecedores com modelos e custos vindos só do JSON; sem valor fixo no HTML ou no JS; `node --check` passa; layout de uma coluna até 720 px.
 - **Depende de:** CUSTOS-DE-IA.1
+- **Entrega:** commit "feat(CUSTOS-DE-IA.2)" (dashboard/quadro-modelos-de-ias.html, assets/css/custos-de-ia.css, assets/js/custos-de-ia.js)
+- **Verificação:** `node --check` no JS; nenhuma linha acima de 100 caracteres; nenhuma função acima de 45 linhas; sem `style=`/`onclick` no HTML; `formatarPreco` e `montarFornecedor` carregam em módulo; nenhum preço fixo no HTML nem no JS; conferência na tela é do usuário (regra: sem navegador)
 
 ### CUSTOS-DE-IA.3 — Acrescentar o item de menu **Custos de IA** em `dashboard/assets/js/menu.js` abrindo a página em nova aba
 
-**Próximo passo:** classificar pelo Jev e depois executar.
+**Próximo passo:** concluída.
 
 - **Nível:** MEDIO — classificado (sinais)
 - **Modelo:** só Sonnet — nunca outro
@@ -55,6 +57,8 @@
 - **Descrição:** uma linha em `ITENS_MENU` (`texto: 'Custos de IA'`, `href: 'quadro-modelos-de-ias.html'`, `novaAba: true`), como o item CHAMADAS JEV AI.
 - **Critérios de Aceitação:** o menu mostra `Custos de IA` e o link abre em nova aba (`target=_blank`, `rel=noopener`).
 - **Depende de:** CUSTOS-DE-IA.2
+- **Entrega:** commit "feat(CUSTOS-DE-IA.3)" (dashboard/assets/js/menu.js: item "Custos de IA", `novaAba: true`)
+- **Verificação:** linha acrescentada em `ITENS_MENU` ao lado de CHAMADAS JEV AI; `node --check` do menu; `target=_blank` e `rel=noopener` vêm de `criarLink` quando `novaAba` é true
 
 ### CUSTOS-DE-IA.4 — Conferir: JSON válido, sintaxe, nomes de arquivo, limites de código e que a página só usa dados do JSON
 
