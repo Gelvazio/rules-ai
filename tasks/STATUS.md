@@ -142,8 +142,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | **JEV-SEMPRE** | **🌐 GLOBAL — O Jev AI sempre escolhe o modelo: a IA nunca escreve nível/modelo/effort sozinha (pedido do usuário em 2026-10-24 08:54)** | 🟠 Alta | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
 | JEV-SEMPRE.2 | 🌐 Regerar `dist/REGRAS-GLOBAIS.md` e `VERSAO.md` (sem `--aplicar`) | 🟠 Alta | LEVE · só Haiku · effort low | JEV-SEMPRE.1 | ⬜ Pendente | — | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
 | JEV-SEMPRE.3 | 🌐 Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | JEV-SEMPRE.2 | ⬜ Pendente | — | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
-| **CUSTOS-DE-IA** | **Menu "Custos de IA" no dashboard: modelos e custos de Claude, DeepSeek, Codex e Gemini, lidos de `custos-de-ia.json` (pedido do usuário em 2026-10-24 08:57)** | 🟡 Média | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-055](etapas/ETAPA-055-d7a3f5b1-CUSTOS-DE-IA.md) |
-| CUSTOS-DE-IA.4 | Conferir: JSON válido, sintaxe, nomes de arquivo, limites de código e que a página só usa dados do JSON | 🟡 Média | MEDIO · só Sonnet · effort medium | CUSTOS-DE-IA.3 | ⬜ Pendente | — | [ETAPA-055](etapas/ETAPA-055-d7a3f5b1-CUSTOS-DE-IA.md) |
 
 
 ## 🧭 Frentes de trabalho

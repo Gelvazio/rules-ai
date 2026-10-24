@@ -62,7 +62,7 @@
 
 ### CUSTOS-DE-IA.4 — Conferir: JSON válido, sintaxe, nomes de arquivo, limites de código e que a página só usa dados do JSON
 
-**Próximo passo:** classificar pelo Jev e depois executar.
+**Próximo passo:** concluída. O usuário confere a página na tela (regra: sem navegador).
 
 - **Nível:** MEDIO — classificado (sinais)
 - **Modelo:** só Sonnet — nunca outro
@@ -72,3 +72,5 @@
 - **Descrição:** conferir por leitura e comandos (sem navegador): `node --check`, `JSON.parse`, ausência de preços fixos no HTML/JS, referências do menu e das folhas de estilo existentes; avisar o usuário de que a conferência na tela é dele.
 - **Critérios de Aceitação:** todos os comandos passam; lista do que só o usuário pode ver na tela.
 - **Depende de:** CUSTOS-DE-IA.3
+- **Entrega:** commit "feat(CUSTOS-DE-IA.4)" (conferência; nenhum arquivo de código alterado)
+- **Verificação:** `JSON.parse` do custos-de-ia.json (4 fornecedores, 39 modelos, nenhuma entrada/saída nula); `node --check` em custos-de-ia.js e menu.js; nenhuma linha acima de 100 caracteres; sem `style=`/`onclick` no HTML; nenhum preço fixo no HTML/JS; o menu e a página usam as classes `.barra` e `.abas__botao` do tema-futurista.css; a página precisa de servidor (como CHAMADAS JEV AI); **só o usuário vê a tela**
