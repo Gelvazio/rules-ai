@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-23-9561a2a7
+- **Versão:** 2026-10-24-84bb91ab
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -10,12 +10,12 @@
 
 | # | Arquivo | Código |
 |---|---------|--------|
-| 0 | INDEX.md | 4c537e9856a9fb52 |
+| 0 | INDEX.md | 763172a1e2dbed0d |
 | 1 | regra-maior.md | bbf5f654197ffa51 |
 | 2 | ciclo-da-task.md | aeb14258c62f9ff4 |
 | 3 | niveis-e-modelos.md | 1dd656c8425c414a |
-| 4 | frentes-e-reserva.md | 0cb5b97b0b68ebc3 |
-| 5 | comando-ponto.md | f7a65ab467b7d368 |
+| 4 | frentes-e-reserva.md | e8bde01db3ef27aa |
+| 5 | comando-ponto.md | 25fab5e441b75d40 |
 | 6 | comando-interrogacao.md | e81811ae12199f38 |
 | 7 | quadro-de-tarefas.md | 412bac4a23471c1a |
 | 8 | exibicao-de-status.md | 762e831da32bdc80 |
@@ -32,10 +32,10 @@
 | 19 | herdr.md | 7d5677aa568db2a8 |
 | 20 | jev.md | 1500944d066573c9 |
 | 21 | visualizador-gerado.md | bced4974cd78dc89 |
-| 22 | memoria-ai.md | c9be07bdd8570bd9 |
+| 22 | memoria-ai.md | 19bbb249bd19b203 |
 | 23 | mcp-quadro.md | 005e9e89838e472a |
 | 24 | vercel-sem-deploy-de-controle.md | 9801278fe383e99f |
-| 25 | ponto-subagentes-haiku.md | b871dd65230fe8d0 |
+| 25 | mods-claude-code.md | 7792a2db01fe37f2 |
 | 26 | atividades-e-idioma.md | a37b651279928422 |
 
 ## Pacote do rules-local (scripts e Jev)
