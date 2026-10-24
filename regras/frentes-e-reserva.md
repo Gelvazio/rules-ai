@@ -17,7 +17,8 @@ mesmo repositório e só se falam pelos arquivos. Quadro: `quadro-de-tarefas.md`
 1. Sincronizar com o remoto; **só então** ler o `STATUS.md` (sem sincronizar, o quadro mente).
 2. Escolher uma **subtarefa** (nunca a linha da mãe) com **"Em uso por" = `—`**, **todas as
    dependências ✅** e **do seu modelo** (coluna Modelo; `niveis-e-modelos.md`). ⛔ **Nunca**
-   subtarefa de outro modelo, nem acima nem abaixo, sem exceção. Sem nível → classificar antes.
+   subtarefa de outro modelo, nem acima nem abaixo, sem exceção. Sem nível → **o Jev classifica**
+   antes (`node scripts/jev.mjs classificar --id <ID> --gravar`, C52); a IA nunca escolhe o nível.
 3. Entre as livres, a de **maior prioridade** (🔴 → 🟠 → 🟡 → 🟢); empate = ordem do quadro.
    🟢 Baixa só com orientação explícita do usuário (registrar na seção da subtarefa). Prioridade
    não fura dependência, reserva nem trava especial. Sem subtarefa livre do seu modelo → não pega

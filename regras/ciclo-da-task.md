@@ -10,13 +10,33 @@ Vale para qualquer projeto e para todas as IAs. Onde fica cada informação: `qu
 ## Ordem de todo pedido: criar → publicar → assumir → trabalhar
 
 1. Sincronizar com o remoto e ler o `tasks/STATUS.md`.
-2. **Criar:** a etapa, a linha da mãe e **no mínimo 1 subtarefa com nível**, e a linha em "🗂️ Etapas".
+2. **Criar:** a etapa, a linha da mãe e **no mínimo 1 subtarefa**, e a linha em "🗂️ Etapas". ⛔ **Sem
+   escrever nível, modelo nem `effort`: quem classifica é sempre o Jev** (seção abaixo, C52).
 3. **Publicar:** commit + push do quadro com a tarefa nova.
 4. **Assumir:** reservar a subtarefa que vai executar (`frentes-e-reserva.md`), commit + push.
 5. **Pedir confirmação só se for necessário:** se faltar detalhe crítico, perguntar numa mensagem
    só (objetivo e resultado esperado, escopo, arquivos, critério de pronto). Não perguntar o que
    já está no pedido, no quadro ou no código; pedido completo → confirmar o entendimento em 1 frase
    e seguir. ❌ Não assumir detalhe crítico em silêncio.
+
+## 🧠 O Jev AI escolhe o modelo: sempre, sem exceção (C52)
+
+Decidido em 2026-10-24 (C52, tarefa JEV-SEMPRE; pedido do usuário). Vale para **todas as IAs e
+todos os projetos** e vence qualquer atalho. Detalhe do Jev: `jev.md`.
+
+- ⛔ **NUNCA, JAMAIS nenhuma IA escolhe nível, modelo ou `effort` de tarefa ou subtarefa por conta
+  própria.** Nem "pelos sinais", nem "porque é óbvio", nem "só ampliando para Haiku ou DeepSeek".
+- ✅ **Quem cria ou divide uma tarefa** escreve a seção da subtarefa **sem** `Nível`, `Modelo` e
+  `Effort` (na linha do quadro, Modelo = `— (a classificar pelo Jev)`) e **roda o Jev**:
+  `node scripts/jev.mjs classificar --id <ID> --gravar`. O que o Jev gravar é o que vale.
+- ✅ **Mudar quem pode pegar** uma subtarefa (ampliar ou restringir a coluna Modelo) também passa
+  pelo Jev (`--reclassificar`) ou por **ordem escrita do usuário**, citada nas Decisões da etapa.
+- ⛔ **Jev indisponível** (sem `TYPESAFE_API_KEY`, `JEV_MODO=off`, rede, 401, 429, 529, timeout): a
+  subtarefa **fica sem nível**, **ninguém a pega**, e a IA avisa o usuário e tenta de novo depois.
+  A IA **nunca escolhe no lugar do Jev**.
+- ⛔ Nível escrito por IA sem o Jev é **infração**, igual à da regra maior: reclassificar pelo Jev.
+- A skill `classificar-tarefa` e a tabela de sinais **não** substituem o Jev: servem para entender a
+  resposta dele, não para decidir.
 
 ## Pequena ou grande
 

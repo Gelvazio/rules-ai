@@ -1,6 +1,8 @@
 # 🎚️ Níveis de tarefa — quem pega o quê
 
 > 🥇 **Regra maior (C50):** modelo mais forte NUNCA pega tarefa de modelo mais fraco — `regra-maior.md`.
+> 🧠 **Regra C52:** o nível e o modelo de toda subtarefa são SEMPRE escolhidos pelo Jev AI; NUNCA, JAMAIS
+> pela IA sozinha — `ciclo-da-task.md` (seção do Jev) e `jev.md`.
 
 Cada subtarefa tem um **nível**, para que modelos mais fracos façam as tarefas simples e o modelo
 forte fique com as difíceis. Vale para **todas as IAs**. Reserva: `frentes-e-reserva.md`.
@@ -46,8 +48,9 @@ forte fique com as difíceis. Vale para **todas as IAs**. Reserva: `frentes-e-re
   subtarefa livre do seu nível → não pega nenhuma e avisa o usuário.
 - **Onde fica o nível:** 1º item da seção da subtarefa na etapa —
   `- **Nível:** MEDIO — motivo curto` (o sinal que decidiu).
-- **Quem classifica:** quem cria ou divide a subtarefa. Subtarefa sem nível → classificar antes
-  de pegar.
+- **Quem classifica:** **sempre o Jev** (C52). Quem cria ou divide a subtarefa **não escreve** o
+  nível: roda `node scripts/jev.mjs classificar --id <ID> --gravar`. Subtarefa sem nível → o Jev
+  classifica antes de alguém pegar; sem o Jev, ela fica sem nível e ninguém a pega.
 - Subtarefa de outro nível → liberar a reserva, reclassificar ou dividir; ⛔ nunca mudar o nível
   para caber na sua ferramenta.
 
@@ -55,7 +58,8 @@ forte fique com as difíceis. Vale para **todas as IAs**. Reserva: `frentes-e-re
 
 - Subtarefa **sem nível** é classificada pelo Jev (`node scripts/jev.mjs classificar --gravar`,
   `jev.md`): com confiança ≥ 0,80 ele grava nível, modelo e `effort`, podendo **subir ou baixar**;
-  abaixo disso, ou se falhar, vale o sinal mais restritivo (**na dúvida, sobe o nível**).
+  abaixo disso, vale o sinal mais restritivo que o **próprio comando do Jev** aplica (**na dúvida,
+  sobe o nível**). Se o Jev **falhar ou estiver desligado**, nada é gravado (C52).
 - Fica em cada subtarefa o campo `JEV-AI-SUGGESTION: SIM|NAO` (`SIM` = o Jev escolheu).
 - Nível escrito por pessoa não é reclassificado sem `--reclassificar` pedido pelo usuário. A matriz
   "quem pega cada nível" continua do usuário; o Jev não a altera.

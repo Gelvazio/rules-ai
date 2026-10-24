@@ -17,7 +17,7 @@
 
 ### JEV-SEMPRE.1 — Escrever a regra "o Jev sempre escolhe o modelo" nas regras globais
 
-**Próximo passo:** classificar pelo Jev e depois executar.
+**Próximo passo:** concluída; a .2 regera o `dist/`.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -27,6 +27,8 @@
 - **Descrição:** escrever, de forma curta e proibitiva, em `ciclo-da-task.md` (passo de criar), `niveis-e-modelos.md` (seção do Jev), `jev.md` e `frentes-e-reserva.md` que: (1) quem cria ou divide tarefa **nunca** escreve `Nível`, `Modelo` nem `Effort`; (2) a classificação é sempre `node scripts/jev.mjs classificar --id <ID> --gravar`; (3) sem o Jev (sem chave, `JEV_MODO=off`, falha) a subtarefa fica **sem nível**, ninguém a pega e a IA avisa o usuário; (4) mudar de modelo, ampliar ou restringir quem pega (ex.: "Haiku ou DeepSeek") também passa pelo Jev ou por ordem escrita do usuário; (5) a IA que escolher modelo sem o Jev comete infração igual à da regra maior. Registrar a decisão no Registro de decisões do `STATUS.md`.
 - **Critérios de Aceitação:** a regra aparece, com as mesmas palavras-chave, nos quatro arquivos; nenhum trecho ainda diz que a IA escolhe nível pelos sinais; a C42/C47 está ajustada.
 - **Depende de:** Nenhuma
+- **Entrega:** commit "feat(JEV-SEMPRE.1)" (regras/ciclo-da-task.md, niveis-e-modelos.md, jev.md, frentes-e-reserva.md; decisão no STATUS.md)
+- **Verificação:** a regra C52 aparece nos 4 arquivos (grep "C52"); `niveis-e-modelos.md` e `jev.md` não dizem mais que a IA escolhe pelos sinais quando o Jev falha
 
 ### JEV-SEMPRE.2 — Regerar `dist/REGRAS-GLOBAIS.md` e `VERSAO.md` (sem `--aplicar`)
 
@@ -49,3 +51,16 @@
 - **Descrição:** o usuário roda `node scripts/sincronizar.mjs --aplicar` no computador dele (grava os arquivos globais das IAs).
 - **Critérios de Aceitação:** arquivos globais das IAs com a regra nova.
 - **Depende de:** JEV-SEMPRE.2
+
+### JEV-SEMPRE.4 — O comando do Jev não grava nada quando o Jev falha (sem chave, `JEV_MODO=off`, rede, 401, 429, 529, timeout)
+
+**Próximo passo:** classificar pelo Jev e depois executar.
+
+- **Nível:** MEDIO — classificado (sinais)
+- **Modelo:** só Sonnet — nunca outro
+- **Effort:** medium
+- **Fonte:** sinais
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** ajustar `scripts/jev/` (comando `classificar --gravar`) para, quando o Jev não responder, **recusar a gravação** e deixar a subtarefa sem nível, com mensagem clara ao usuário (C52); hoje ele grava o nível pelos sinais (`Fonte: sinais`) também nesse caso. Mantém a gravação pelo sinal mais restritivo quando o Jev **respondeu** com confiança baixa.
+- **Critérios de Aceitação:** com `JEV_MODO=off` e sem chave, `classificar --id <ID> --gravar` sai com código de erro e não altera o quadro nem a etapa; com o Jev respondendo, o comportamento atual se mantém.
+- **Depende de:** JEV-SEMPRE.1

@@ -4,6 +4,13 @@ Decidido em 2026-10-18 (etapa 025, JEV-RULES-AI; pedido do usuário registrado n
 pelos sinais desde 2026-10-19 (C42, etapa 028). Vale para todas as IAs e para todo projeto que use o `rules-ai`. Nível e modelo: `niveis-e-modelos.md`.
 Effort: `esforco.md`. Quadro: `quadro-de-tarefas.md`. Chave e log: só no computador local.
 
+## 🧠 Regra C52: o Jev escolhe o modelo, sempre
+
+- ⛔ NUNCA, JAMAIS nenhuma IA escolhe nível, modelo ou `effort` sem o Jev. A regra completa, com o que
+  fazer quando o Jev está indisponível, está em `ciclo-da-task.md` (seção "O Jev AI escolhe o modelo").
+- O Jev indisponível **não** libera a IA para escolher pelos sinais: a subtarefa fica sem nível e
+  ninguém a pega (altera a C42 e a C47 neste ponto).
+
 ## O que é
 
 O Jev é um serviço externo (TypeSafe, modelo `jev-1.13.0`, fixo) que responde perguntas fechadas
@@ -31,10 +38,11 @@ quem executa. Vale para **todos os projetos e todas as IAs**.
   (`--dry-run` só mostra o que gravaria).
 - ✅ **Limiar 0,80:** com `confidence` ≥ 0,80 **e** nenhum sinal de PESADO ≥ 0,50, o Jev decide
   sozinho e pode **subir ou baixar** o nível. Grava `JEV-AI-SUGGESTION: SIM` e `Fonte: jev (confiança X)`.
-- ✅ **Abaixo de 0,80, sinal de PESADO ≥ 0,50 ou falha do Jev** (rede, 401, 429, 529, timeout, sem
-  chave, `JEV_MODO=off`): grava o nível **mais restritivo** entre a matriz e os sinais, com
+- ✅ **Abaixo de 0,80 ou sinal de PESADO ≥ 0,50** (o Jev respondeu): grava o nível **mais restritivo** entre a matriz e os sinais, com
   `JEV-AI-SUGGESTION: NAO` e `Fonte: sinais`; com sinal de PESADO ≥ 0,50 também devolve `revisar`.
   **Nunca** `liberar` em silêncio.
+- ⛔ **Falha do Jev** (rede, 401, 429, 529, timeout, sem chave, `JEV_MODO=off`): **não grava nada**;
+  a subtarefa fica sem nível e ninguém a pega (C52). A IA avisa o usuário.
 - ✅ **Campo `JEV-AI-SUGGESTION: SIM|NAO`** em toda seção de subtarefa: `SIM` só se o Jev escolheu
   (≥ 0,80); `NAO` nos demais casos e nas ainda não classificadas. O script
   `scripts/marcar_jev_ai_suggestion.py` deixa tudo `NAO` onde o campo não existe.
@@ -49,7 +57,8 @@ quem executa. Vale para **todos os projetos e todas as IAs**.
 ## Modo, rollback e fallback
 
 - Variável `JEV_MODO`: `ativo` (padrão) ou `off`. Com `off`, a classificação segue só pelos sinais
-  da skill, sem chamada a nenhum servidor. `off` é o **rollback**.
+  da skill, sem chamada a nenhum servidor. `off` é o **rollback** do gancho de mensagens;
+  **para a escolha de modelo vale a C52** (sem o Jev, ninguém escolhe).
 - Sem `TYPESAFE_API_KEY`, o script sai com erro claro e não liga o modo automático; a classificação
   segue só pelos sinais.
 - Falha do Jev (rede, 401, 429, 529, timeout): **não há outro servidor de reserva** (C42). A
