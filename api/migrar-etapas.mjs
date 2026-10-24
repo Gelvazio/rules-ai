@@ -289,7 +289,7 @@ function imprimirResumo(resumo) {
   for (const nome of COLECOES_TABELA) console.log(`${nome}: ${resumo.colecoes[nome].length}`);
   console.log(`subtarefas ligadas as etapas: ${subtarefas}`);
   console.log(`tarefas com texto de secao aplicado: ${resumo.aplicado.enriquecidas}`);
-  console.log(`tarefas criadas sem linha no quadro (concluidas): ${resumo.criadasSemLinha}`);
+  console.log(`tarefas criadas sem linha no quadro (pendentes de revisao): ${resumo.criadasSemLinha}`);
   console.log(`secoes de subtarefa sem tarefa na colecao: ${resumo.aplicado.semRegistro.length}`);
   for (const id of resumo.aplicado.semRegistro) console.log(`  - ${id}`);
   console.log(`textos mascarados (INV-4): ${resumo.mascarados}`);

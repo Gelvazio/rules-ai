@@ -12,8 +12,8 @@ import { extrairDependencias } from './migrar.mjs';
 const ROTULO_ORIGEM_CARGA = 'Origem da carga';
 const ROTULO_DEPENDE_SECAO = 'Depende de';
 const ORIGEM_SEM_LINHA = 'seção da etapa sem linha no STATUS.md nem no task_complete.md; '
-  + 'status presumido concluído (MIGRAR-TAREFAS-API.10)';
-const STATUS_SEM_LINHA = '✅ Concluído';
+  + 'status desconhecido: pendente de revisão (MIGRAR-TAREFAS-API.10)';
+const STATUS_SEM_LINHA = '👀 Pendente de revisão';
 const PADRAO_SUFIXO_SUB = /\.\d+$/;
 const COLECOES_TABELA = ['requisitos', 'invariantes', 'perguntas'];
 const ROTULO_SECAO_CONJUNTA = 'Seção conjunta';
@@ -246,7 +246,7 @@ function acumularSubtarefas(subs, contexto, acumulado) {
 
 /**
  * Cria a tarefa de uma secao de subtarefa que nao tem linha no quadro (historico antigo): fica
- * concluida e arquivada, para nunca virar disponivel, e o motivo vai em `extras`.
+ * pendente de revisao (nunca disponivel), e o motivo vai em `extras`.
  * @param {string} id - Id `<projeto>:<codigo>`.
  * @param {object} campos - Campos lidos da secao.
  * @param {{projeto: string, ordem: number}} contexto - Projeto e posicao de exibicao.
@@ -262,8 +262,8 @@ function criarTarefaSemLinha(id, campos, contexto) {
     titulo: campos.tituloSecao || codigo, prioridade: '', modelo: '', nivel: null,
     nivelMotivo: null, effort: null, modeloSecao: null, jevAiSuggestion: null, fonteNivel: null,
     dependeDe: extrairDependencias(dependeDeTexto, projeto), dependeDeTexto,
-    status: STATUS_SEM_LINHA, statusCodigo: 'concluido', emUsoPor: null, reservadoEm: null,
-    travaEspecial: false, naoReservavel: false, concluida: true, arquivada: true,
+    status: STATUS_SEM_LINHA, statusCodigo: 'aguardando_usuario', emUsoPor: null, reservadoEm: null,
+    travaEspecial: false, naoReservavel: false, concluida: false, arquivada: false,
     disponivel: false, etapaId: campos.etapaId, etapaArquivo: campos.etapaArquivo,
     proximoPasso: '', descricao: '', criteriosAceitacao: '', criterioPronto: '', arquivos: [],
     estimativa: '', entrega: '', verificacao: '', verificacaoRotulo: null, anotacao: '',
