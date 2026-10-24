@@ -139,6 +139,10 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | PONTO-SUBAGENTES-HAIKU.3 | Levar a remoção às IAs (`node scripts/sincronizar.mjs --aplicar`, de novo) | 🟡 Média | Usuário | PONTO-SUBAGENTES-HAIKU.5 | ⬜ Pendente | — | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
 | PONTO-SUBAGENTES-HAIKU.4 | Remover a regra `ponto-subagentes-haiku.md` e os ponteiros (a pedido do usuário: demorou mais que o `.` normal) · `LEVE · effort low` | 🟠 Alta | LEVE · só Haiku · effort low | Nenhuma | 🔄 Em execução | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · rules-ai) (desde 2026-10-23 19:27) · 0% | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
 | PONTO-SUBAGENTES-HAIKU.5 | Conferir a nova versão das regras sem a regra (`sincronizar.mjs` sem `--aplicar`) · `MEDIO · effort medium` | 🟠 Alta | MEDIO · só Sonnet · effort medium | PONTO-SUBAGENTES-HAIKU.4 | ⬜ Pendente | — | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
+| **JEV-SEMPRE** | **🌐 GLOBAL — O Jev AI sempre escolhe o modelo: a IA nunca escreve nível/modelo/effort sozinha (pedido do usuário em 2026-10-24 08:54)** | 🟠 Alta | — | Nenhuma | ⬜ Pendente | — (não reservável) | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
+| JEV-SEMPRE.1 | 🌐 Escrever a regra "o Jev sempre escolhe o modelo" nas regras globais | 🟠 Alta | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | Nenhuma | ⬜ Pendente | — | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
+| JEV-SEMPRE.2 | 🌐 Regerar `dist/REGRAS-GLOBAIS.md` e `VERSAO.md` (sem `--aplicar`) | 🟠 Alta | LEVE · só Haiku · effort low | JEV-SEMPRE.1 | ⬜ Pendente | — | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
+| JEV-SEMPRE.3 | 🌐 Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | JEV-SEMPRE.2 | ⬜ Pendente | — | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
 
 
 ## 🧭 Frentes de trabalho
