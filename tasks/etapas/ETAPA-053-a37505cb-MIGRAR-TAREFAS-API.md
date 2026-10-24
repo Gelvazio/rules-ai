@@ -233,7 +233,7 @@
 
 ### MIGRAR-TAREFAS-API.12 — Coleção `projetos` com `status` e `monitorado`
 
-**Próximo passo:** aguardar as dependências e o sim do usuário.
+**Próximo passo:** concluída; as .35 e .38 a .41 usam `node api/projetos.mjs --id <projeto> --status aguardando --motivo "migração para a API"`
 
 - **Nível:** MEDIO — código com lógica, poucos arquivos
 - **Modelo:** só Sonnet — nunca outro
@@ -242,6 +242,8 @@
 - **Descrição:** Criar a coleção com `id`, `nome`, `status` (`ativo`/`aguardando`), `monitorado` (booleano) e `motivo`; `rules-ai` entra como `ativo` e `monitorado`. O arquivo da coleção é `api/dados/_projetos.json` (opção B).
 - **Critérios de Aceitação:** coleção criada e lida pela API.
 - **Depende de:** MIGRAR-TAREFAS-API.4
+- **Entrega:** commit "feat(MIGRAR-TAREFAS-API.12)" (api/projetos.mjs, api/dados/_projetos.json)
+- **Verificação:** node --check ok; upsert idempotente (mesmo md5 duas vezes); valores inválidos recusados sem gravar; JSON só LF
 
 ### MIGRAR-TAREFAS-API.13 — Escrita: reservar subtarefa pela API
 

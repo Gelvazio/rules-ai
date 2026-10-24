@@ -1,0 +1,39 @@
+{
+  "projetos": [
+    {
+      "id": "aulasenai",
+      "nome": "aulasenai",
+      "tipo": "filho",
+      "status": "ativo",
+      "monitorado": false,
+      "motivo": "aguarda a carga na API (.54)",
+      "caminho": "C:/fontes/aulasenai",
+      "repositorio": "Gelvazio/aulasenai",
+      "cortadoEm": null,
+      "ordem": 2
+    },
+    {
+      "id": "dashboard-ai",
+      "nome": "dashboard-ai",
+      "tipo": "filho",
+      "status": "ativo",
+      "monitorado": false,
+      "motivo": "aguarda a carga na API (.65)",
+      "caminho": "C:/fontes/dashboard-ai",
+      "repositorio": "Gelvazio/dashboard-ai",
+      "cortadoEm": null,
+      "ordem": 3
+    },
+    {
+      "id": "rules-ai",
+      "nome": "rules-ai",
+      "tipo": "mae",
+      "status": "ativo",
+      "monitorado": true,
+      "caminho": "C:/fontes/rules-ai",
+      "repositorio": "Gelvazio/rules-ai",
+      "cortadoEm": null,
+      "ordem": 1
+    }
+  ]
+}
