@@ -18,6 +18,7 @@
 ### Decisões
 
 - 2026-10-23 19:36: pedido do usuário; tarefa **grande** (várias partes, 20 subtarefas `LEVE`/`MEDIO`, nenhuma `PESADO`) — plano nesta etapa e **sim do usuário** antes de executar. Proposto: API primeiro (só local), plano B automático, `?fonte=` para depurar.
+- 2026-10-23 21:00: **decisão do usuário**: esta tarefa **espera a migração** (`MIGRAR-TAREFAS-API.48`): a fonte muda para `api/dados/rules-ai.json` e a leitura do dashboard se adapta a ela.
 - Depende da entrega das subtarefas `API-QUADRO-JSON-SERVER.2` e `.3`.
 
 

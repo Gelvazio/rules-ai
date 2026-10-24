@@ -34,6 +34,7 @@
 - 2026-10-23 20:02: **novo pedido do usuário**: "No projeto rules-ai, deve existir nada de tarefa em markdown, apenas no banco da api". Efeitos: **substitui a P5** (as etapas passam a viver na API, não em `.md`) e a **P8** (não há espelho `.md`); o `db.json` versionado no Git (P2) é a leitura de queda de quem não alcança a API (nuvem), em JSON, sem markdown. Depois do corte não existem em `rules-ai`: `tasks/STATUS.md`, `tasks/task_complete.md`, `tasks/RECADOS.md` nem `tasks/etapas/*.md`. O histórico fica no Git (tag de segurança antes de apagar). O apagamento exige o **alvo exato confirmado pelo usuário** (subtarefa .46). Regras (`regras/*.md`), documentação e os quadros dos outros projetos **não** são tarefas e continuam em markdown.
 - 2026-10-23 20:10: **novo pedido do usuário**: "Nos projetos filho, aulasenai, dashboard-ai, as tarefas tb devem sempre vir de rules-ai". Respostas: filhos = **aulasenai e dashboard-ai** (DASHBOARD-AI-PRINCIPAL e cópias); **nada em markdown nos filhos também**; sessões de nuvem dos filhos **só leem** o `db.json` do Git; ordem: **rules-ai primeiro, filhos depois**. Efeito: `aulasenai` e `dashboard-ai` **não ficam Aguardando** (subtarefas .34, .36 e .37 canceladas); continuam Aguardando e fora da lista só `REA-APP-CLONES`, `testes-de-frontend`, `projeto-frontend-com-testes`, `gerenciador-de-ia` e os clones `aulas-senai-*`. O "sim" do usuário ao plano vale para esta ampliação (pedido explícito, escopo definido por ele); o apagamento nos filhos continua exigindo o alvo confirmado (.62, .68).
 - 2026-10-23 20:57: **respostas do usuário** às decisões da .53 e da .4: **opção B aprovada** (um arquivo por projeto em `api/dados/<projeto>.json`, um processo; lançador próprio só quando o `aulasenai` entrar); dados do `aulasenai` e do `dashboard-ai` **no Git do `rules-ai`**; **aceito o peso** de ~4 MB do `aulasenai` regravado a cada entrega; coleção **`bloqueios` mantida**.
+- 2026-10-23 21:00: **mais respostas do usuário**: as tabelas internas das etapas (Requisitos, Invariantes, Perguntas abertas) **viram coleções** na API (`requisitos`, `invariantes`, `perguntas`; contra a recomendação de texto cru) — nova subtarefa .71 atualiza o `SCHEMA.md`, e a .10 e a .51 passam a depender dela; `tasks/GERENCIADOR-HERDR/*.md` **fica como documentação** (fora do apagamento); ids por hash do texto nas linhas sem código (aceito); a tarefa `DASHBOARD-LE-API` **espera a migração** (depende da .48).
 
 ### Requisitos
 
@@ -214,9 +215,9 @@
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
 - **Effort:** high
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** Importar cada `tasks/etapas/*.md` para a coleção `etapas` (cabeçalho, escopo, riscos, decisões, requisitos, invariantes, perguntas e o texto de cada subtarefa: Nível, Modelo, Effort, Descrição, Critérios, Próximo passo, Entrega, Verificação) e ligar cada subtarefa à sua etapa. Substitui a P5.
+- **Descrição:** Importar cada `tasks/etapas/*.md` para a coleção `etapas` (cabeçalho, escopo, riscos, decisões, as coleções `requisitos`, `invariantes` e `perguntas` e o texto de cada subtarefa: Nível, Modelo, Effort, Descrição, Critérios, Próximo passo, Entrega, Verificação) e ligar cada subtarefa à sua etapa. Substitui a P5.
 - **Critérios de Aceitação:** toda etapa e toda subtarefa com seção tem o texto completo na API.
-- **Depende de:** MIGRAR-TAREFAS-API.7
+- **Depende de:** MIGRAR-TAREFAS-API.7, MIGRAR-TAREFAS-API.71
 
 ### MIGRAR-TAREFAS-API.11 — Conferir a carga: paridade campo a campo, ids únicos e idempotência
 
@@ -646,7 +647,7 @@
 - **Modelo:** Usuário — nunca outro
 - **Effort:** low
 - **JEV-AI-SUGGESTION:** NAO
-- **Descrição:** O usuário confirma o alvo exato: `tasks/STATUS.md`, `tasks/task_complete.md`, `tasks/RECADOS.md` e `tasks/etapas/*.md`; diz o que fazer com `tasks/GERENCIADOR-HERDR/*.md` e `tasks/.sessao-ativa`.
+- **Descrição:** O usuário confirma o alvo exato: `tasks/STATUS.md`, `tasks/task_complete.md`, `tasks/RECADOS.md` e `tasks/etapas/*.md`; `tasks/GERENCIADOR-HERDR/*.md` fica fora do apagamento (decisão do usuário); diz o que fazer com `tasks/.sessao-ativa`.
 - **Critérios de Aceitação:** lista confirmada por escrito nas Decisões.
 - **Depende de:** MIGRAR-TAREFAS-API.45
 
@@ -708,7 +709,7 @@
 - **JEV-AI-SUGGESTION:** NAO
 - **Descrição:** O gate da C34 passa a ler a coleção `etapas` (com `--arquivo` só para os projetos que ainda usam `.md`).
 - **Critérios de Aceitação:** o gate dá o mesmo resultado nas etapas migradas.
-- **Depende de:** MIGRAR-TAREFAS-API.10
+- **Depende de:** MIGRAR-TAREFAS-API.10, MIGRAR-TAREFAS-API.71
 
 ### MIGRAR-TAREFAS-API.52 — Aposentar `api/gerar-db.mjs` (ponte `.md` → API) depois do corte
 
@@ -940,3 +941,15 @@
 - **Descrição:** Conferir a coleção `projetos`, o `gerenciador.mjs ver`, o MCP e o `dashboard/projetos.json`: os três monitorados, os demais aguardando; nenhuma tarefa em markdown nos três.
 - **Critérios de Aceitação:** listas conferidas por comando.
 - **Depende de:** MIGRAR-TAREFAS-API.42, MIGRAR-TAREFAS-API.63, MIGRAR-TAREFAS-API.69
+
+### MIGRAR-TAREFAS-API.71 — Atualizar o `api/SCHEMA.md`: coleções `requisitos`, `invariantes` e `perguntas`, opção B e bloqueios
+
+**Próximo passo:** executor-medio (Sonnet) edita o SCHEMA; o Haiku confere e entrega.
+
+- **Nível:** PESADO — arquitetura: contrato do schema
+- **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
+- **Effort:** high
+- **JEV-AI-SUGGESTION:** NAO
+- **Descrição:** atualizar `api/SCHEMA.md` com as respostas do usuário: (a) as tabelas internas das etapas viram coleções `requisitos`, `invariantes` e `perguntas` (campos, chave composta `<projeto>:<etapa>:<id>`, relação com `etapas` e com as subtarefas que cobrem); (b) opção B decidida (item 7.1.6): `api/dados/<projeto>.json` e `api/dados/_projetos.json`; (c) coleção `bloqueios` mantida; (d) id por hash aceito; (e) o que a .6 trouxe (operações `recarregar`, checagem de `mtime`); (f) atualizar o mapeamento de INV-1..INV-7 e R1.1..R7.1.
+- **Critérios de Aceitação:** SCHEMA.md coerente com as decisões da etapa; toda seção da etapa (inclusive tabelas internas) tem coleção ou campo.
+- **Depende de:** MIGRAR-TAREFAS-API.4
