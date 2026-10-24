@@ -9,6 +9,10 @@ Pontos de conflito entre projetos estão em `CONFLITOS.md`.
 - ✅ **Um commit por tarefa concluída e conferida**, com mensagem descritiva. ⛔ Nada de commit
   de tarefa incompleta ou falhando, nem várias tarefas num commit só. Commit e atualização do
   quadro saem sem perguntar.
+- ✅ **1 commit + 1 push a CADA ENTREGA** (regra principal, pedido do usuário em 2026-10-24): cada
+  subtarefa entregue, cada lote de arquivos conferido e cada atualização do quadro vira um commit
+  e um push na hora, sem esperar a tarefa-mãe fechar. ⛔ Juntar entregas num commit só, ou deixar
+  entrega sem push para depois, é infração. Histórico já feito não se reescreve (sem `--force`).
 - ✅ `git add <arquivos da tarefa>` pelo caminho; conferir com `git diff --cached --name-only`.
   ⛔ Nunca `git add .`.
 - ⛔ `git merge` e `git pull` sem `--rebase` (usar `git pull --rebase`); sem PR para entregar tarefa.
