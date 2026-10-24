@@ -19,11 +19,11 @@ export const EFFORT_POR_NIVEL = Object.freeze({
 /** `linha` é a 1ª célula da tabela "Quem pega cada nível" (usada na conferência com o .md). */
 const MODELOS_POR_NIVEL = Object.freeze({
   [NIVEIS.LEVE]: [
-    { linha: 'Claude Code', rotulo: 'Claude Code (Haiku)' },
+    { linha: 'Claude Code', rotulo: 'Claude Code (Haiku 5.5)' },
     { linha: 'Gemini CLI', rotulo: 'Gemini CLI (Flash)' },
     { linha: 'Antigravity', rotulo: 'Antigravity (Gemini Flash)' },
     { linha: 'Grok', rotulo: 'Grok (rápido)' },
-    { linha: 'DeepSeek', rotulo: 'DeepSeek (Flash)' },
+    { linha: 'DeepSeek', rotulo: 'DeepSeek (V4.1 Flash)' },
     { linha: 'OpenCode', rotulo: 'OpenCode (deepseek-flash)' },
     { linha: 'Codex / Cursor', rotulo: 'Codex' },
     { linha: 'Codex / Cursor', rotulo: 'Cursor' },

@@ -21,16 +21,18 @@ forte fique com as difíceis. Vale para **todas as IAs**. Reserva: `frentes-e-re
 
 | Ferramenta | `LEVE` | `MEDIO` | `PESADO` |
 |---|---|---|---|
-| **Claude Code** | Haiku | Sonnet | **Sonnet, Opus 5.5 ou superior, ou Fable** |
+| **Claude Code** | Haiku 5.5 | Sonnet | **Sonnet, Opus 5.5 ou superior, ou Fable** |
 | **Gemini CLI** | Flash | Pro | ⛔ |
 | **Antigravity** | Gemini Flash | ⛔ | ⛔ |
 | **Grok** | rápido | principal | ⛔ |
-| **DeepSeek** | Flash | raciocínio | ✅ |
+| **DeepSeek** | V4.1 Flash | raciocínio | ✅ |
 | **OpenCode** | DeepSeek V4.1 Flash (`deepseek-flash`) | DeepSeek V4.1 Flash com thinking (`deepseek-flash`) | **DeepSeek V4 Pro (`deepseek-v4-pro`)** |
 | **Codex** / **Cursor** | ✅ | ✅ | ⛔ |
 | **Qoder** | ✅ | ✅ | ⛔ |
 | **Devin** / **Copilot** | ✅ | ⛔ | ⛔ |
 
+- `LEVE` é **Haiku 5.5** (Claude Code) **ou DeepSeek V4.1 Flash** — a coluna `Modelo` do quadro grava
+  `só Haiku 5.5 ou DeepSeek V4.1 Flash` (C53, 2026-10-24).
 - `PESADO` exige **Claude Code com Sonnet, Opus 5.5 ou superior, ou Fable, ou DeepSeek** — no **OpenCode**,
   com `deepseek-v4-pro` (C35 e C37, 2026-10-18; altera a C22: o DeepSeek deixou de ser `⛔` em
   `PESADO`; C48, 2026-10-22: o Sonnet também pega `PESADO`).

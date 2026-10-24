@@ -59,7 +59,7 @@ Sem pasta `tasks/` no projeto: `STATUS.md` na raiz, com as mesmas colunas.
 
 - **Status** na linha: só o emoji e 1–3 palavras (`🔄 Em execução`); o detalhe fica na etapa.
 - **Modelo** (obrigatória em toda linha de subtarefa): `<nível> · só <modelo>` (ex.:
-  `LEVE · só Haiku`, `MEDIO · só Sonnet`, `PESADO · só Opus 5.5+ ou Fable`); `Usuário` quando só o
+  `LEVE · só Haiku 5.5 ou DeepSeek V4.1 Flash`, `MEDIO · só Sonnet`, `PESADO · só Opus 5.5+ ou Fable`); `Usuário` quando só o
   usuário pode fazer (nunca aceite, C32); `—` na mãe. ⛔ Só o modelo da coluna executa (`niveis-e-modelos.md`).
 - **Em uso por:** `<IA (modelo)> (<frente>) (desde <data hora>)`, `—` (livre) ou
   `— (não reservável)` na mãe.

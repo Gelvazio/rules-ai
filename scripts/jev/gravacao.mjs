@@ -10,7 +10,7 @@ import { SINAIS_PESADO } from './perguntas.mjs';
 
 /** Texto da coluna Modelo do quadro e da linha Modelo da etapa, por nível (C22 e C48). */
 const MODELO_POR_NIVEL = Object.freeze({
-  [NIVEIS.LEVE]: 'só Haiku',
+  [NIVEIS.LEVE]: 'só Haiku 5.5 ou DeepSeek V4.1 Flash',
   [NIVEIS.MEDIO]: 'só Sonnet',
   [NIVEIS.PESADO]: 'só Opus 5.5+/Fable, Sonnet ou DeepSeek',
 });
