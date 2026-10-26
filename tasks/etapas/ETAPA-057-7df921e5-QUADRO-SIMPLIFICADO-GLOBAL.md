@@ -92,7 +92,7 @@ Subtarefa sem nível: `nível a classificar pelo Jev`. O cabeçalho do arquivo a
 
 ### QUADRO-SIMPLIFICADO-GLOBAL.3 — Dashboard lê o formato simplificado
 
-**Próximo passo:** esperar a .2; depois adaptar `dashboard/quadro_tarefas.py` e `dashboard/assets/js/agentes/quadro.js`.
+**Próximo passo:** nenhum — concluída.
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.97))
 - **Modelo:** só Sonnet — nunca outro
@@ -101,7 +101,7 @@ Subtarefa sem nível: `nível a classificar pelo Jev`. O cabeçalho do arquivo a
 - **Descrição:** o dashboard mostra as mesmas tarefas e reservas nos dois formatos.
 - **Critérios de Aceitação:** R3.1.
 - **Depende de:** QUADRO-SIMPLIFICADO-GLOBAL.2
-- **Entrega:** a preencher · **Verificação:** a preencher
+- **Entrega:** commit `741be57` (`dashboard/quadro_tarefas.py` e `dashboard/assets/js/agentes/quadro.js`); executado por agente Sonnet (executor-medio), conferido e commitado por Haiku (C41) · **Verificação:** `invariante_paridade_quadro.py` com 16 casos ok e "INV-4: sem diferença"; `node --check` do JS ok; Python e JS leram o `STATUS.md` do `aulasenai` com saída idêntica (237 tarefas) (R3.1). Decisão: linhas soltas `- #N:` entram como tarefas pendentes.
 - **JEV-AI-SUGGESTION:** SIM
 
 ### QUADRO-SIMPLIFICADO-GLOBAL.4 — Conferência de paridade entre os dois formatos
