@@ -141,15 +141,14 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | PONTO-SUBAGENTES-HAIKU.5 | Conferir a nova versão das regras sem a regra (`sincronizar.mjs` sem `--aplicar`) · `MEDIO · effort medium` | 🟠 Alta | MEDIO · só Sonnet · effort medium | PONTO-SUBAGENTES-HAIKU.4 | ⬜ Pendente | — | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
 | **JEV-SEMPRE** | **🌐 GLOBAL — O Jev AI sempre escolhe o modelo: a IA nunca escreve nível/modelo/effort sozinha (pedido do usuário em 2026-10-24 08:54)** | 🟠 Alta | — | Nenhuma | 👀 Aguardando o usuário (tudo na `main`; falta só o `--aplicar`) | — (não reservável) | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
 | JEV-SEMPRE.3 | 🌐 Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | JEV-SEMPRE.2 | 👀 Aguardando o usuário (`--aplicar` no computador) | — | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
-| **NIVEL-DEVIN** | **🌐 GLOBAL — Devin (e Copilot) passa a pegar subtarefa `MEDIO` na matriz (pedido do usuário em 2026-10-26 19:09)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-056](etapas/ETAPA-056-e4b71a83-NIVEL-DEVIN-MEDIO.md) |
-| NIVEL-DEVIN.1 | 🌐 Liberar `MEDIO` para Devin/Copilot na matriz e nas cópias (regra, espelho do Jev, dist/, skill) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku 5.5 ou DeepSeek V4.1 Flash (pedido direto: Devin) | Nenhuma | 🔄 Em execução | Devin (SWE-2) (local · main · rules-ai) (desde 2026-10-26 19:09) · 0% | [ETAPA-056](etapas/ETAPA-056-e4b71a83-NIVEL-DEVIN-MEDIO.md) |
+
 
 
 ## 🧭 Frentes de trabalho
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
 |---|---|---|---|
-| Devin (SWE-2) (local · main · rules-ai) | NIVEL-DEVIN.1 ([ETAPA-056](etapas/ETAPA-056-e4b71a83-NIVEL-DEVIN-MEDIO.md)) | 🔄 Trabalhando | 2026-10-26 19:09 |
+| Devin (SWE-2) (local · main · rules-ai) | NIVEL-DEVIN.1 ([ETAPA-056](etapas/ETAPA-056-e4b71a83-NIVEL-DEVIN-MEDIO.md)) | ⏹️ Encerrada | 2026-10-26 19:12 |
 | Claude Code (Sonnet 5.5 · executor-medio; líder Sonnet 5.5) (local · main · rules-ai · jev3) | DASHBOARD-JEV-CALLS.3 ([ETAPA-050](etapas/ETAPA-050-1ea67666-DASHBOARD-JEV-CALLS.md)) | ⏹️ Encerrada | 2026-10-23 21:02 |
 | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · rules-ai · jev2) | DASHBOARD-JEV-CALLS.2 ([ETAPA-050](etapas/ETAPA-050-1ea67666-DASHBOARD-JEV-CALLS.md)) | ⏹️ Encerrada | 2026-10-23 21:06 |
 | Claude Code (Sonnet 5.5 · executor-medio; líder Sonnet 5.5) (local · main · rules-ai · migracao-71) | MIGRAR-TAREFAS-API.71 ([ETAPA-053](etapas/ETAPA-053-a37505cb-MIGRAR-TAREFAS-API.md)) | ⏹️ Encerrada | 2026-10-23 21:08 |
