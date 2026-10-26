@@ -141,12 +141,15 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | PONTO-SUBAGENTES-HAIKU.5 | Conferir a nova versão das regras sem a regra (`sincronizar.mjs` sem `--aplicar`) · `MEDIO · effort medium` | 🟠 Alta | MEDIO · só Sonnet · effort medium | PONTO-SUBAGENTES-HAIKU.4 | ⬜ Pendente | — | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
 | **JEV-SEMPRE** | **🌐 GLOBAL — O Jev AI sempre escolhe o modelo: a IA nunca escreve nível/modelo/effort sozinha (pedido do usuário em 2026-10-24 08:54)** | 🟠 Alta | — | Nenhuma | 👀 Aguardando o usuário (tudo na `main`; falta só o `--aplicar`) | — (não reservável) | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
 | JEV-SEMPRE.3 | 🌐 Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | JEV-SEMPRE.2 | 👀 Aguardando o usuário (`--aplicar` no computador) | — | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
+| **NIVEL-DEVIN** | **🌐 GLOBAL — Devin (e Copilot) passa a pegar subtarefa `MEDIO` na matriz (pedido do usuário em 2026-10-26 19:09)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-056](etapas/ETAPA-056-e4b71a83-NIVEL-DEVIN-MEDIO.md) |
+| NIVEL-DEVIN.1 | 🌐 Liberar `MEDIO` para Devin/Copilot na matriz e nas cópias (regra, espelho do Jev, dist/, skill) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku 5.5 ou DeepSeek V4.1 Flash (pedido direto: Devin) | Nenhuma | 🔄 Em execução | Devin (SWE-2) (local · main · rules-ai) (desde 2026-10-26 19:09) · 0% | [ETAPA-056](etapas/ETAPA-056-e4b71a83-NIVEL-DEVIN-MEDIO.md) |
 
 
 ## 🧭 Frentes de trabalho
 
 | Frente | Tarefa (etapa) | Situação | Atualizado em |
 |---|---|---|---|
+| Devin (SWE-2) (local · main · rules-ai) | NIVEL-DEVIN.1 ([ETAPA-056](etapas/ETAPA-056-e4b71a83-NIVEL-DEVIN-MEDIO.md)) | 🔄 Trabalhando | 2026-10-26 19:09 |
 | Claude Code (Sonnet 5.5 · executor-medio; líder Sonnet 5.5) (local · main · rules-ai · jev3) | DASHBOARD-JEV-CALLS.3 ([ETAPA-050](etapas/ETAPA-050-1ea67666-DASHBOARD-JEV-CALLS.md)) | ⏹️ Encerrada | 2026-10-23 21:02 |
 | Claude Code (Haiku 5.5 · executor-leve; líder Sonnet 5.5) (local · main · rules-ai · jev2) | DASHBOARD-JEV-CALLS.2 ([ETAPA-050](etapas/ETAPA-050-1ea67666-DASHBOARD-JEV-CALLS.md)) | ⏹️ Encerrada | 2026-10-23 21:06 |
 | Claude Code (Sonnet 5.5 · executor-medio; líder Sonnet 5.5) (local · main · rules-ai · migracao-71) | MIGRAR-TAREFAS-API.71 ([ETAPA-053](etapas/ETAPA-053-a37505cb-MIGRAR-TAREFAS-API.md)) | ⏹️ Encerrada | 2026-10-23 21:08 |
@@ -209,6 +212,7 @@ histórico ficam em `STATUS_PROJETO.md`.
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-26 19:09 | **C54: MEDIO liberado para Devin e Copilot.** A matriz de `niveis-e-modelos.md` passa a linha **Devin / Copilot** para `✅ / ✅ / ⛔` (PESADO continua proibido); espelho do Jev (`scripts/jev/modelos.mjs`), `dist/` e a skill `classificar-tarefa` alinhados; o `--aplicar` fica para ordem do usuário | Gelvazio | "mude a regra global,que fica em C:\fontes\rules-ai,permitindo o devin pegar medio tambem" |
 | 2026-10-24 09:29 | **C53: LEVE = Haiku 5.5 ou DeepSeek V4.1 Flash.** A coluna `Modelo` do quadro grava `só Haiku 5.5 ou DeepSeek V4.1 Flash` em LEVE (altera a C22 no LEVE). Regra em `niveis-e-modelos.md` e `scripts/jev/gravacao.mjs` | Gelvazio | "O MODELO LEVE DEVE SER HAIKU 5.5 OU MODELO DEEPSEEK V4.1 FLASH" |
 | 2026-10-24 08:56 | **C52: o Jev AI escolhe o modelo, sempre.** Nenhuma IA escolhe nível, modelo ou `effort` por conta própria; sem o Jev a subtarefa fica sem nível e ninguém a pega (altera a C42 e a C47 no fallback). Regra em `ciclo-da-task.md`, `niveis-e-modelos.md`, `jev.md` e `frentes-e-reserva.md` | Gelvazio | "NUNCA, JAMAIS ESCOLHA UM MODELO SEM O JEV AI" |
 | 2026-10-24 07:25 | ai-memory instalado no `rules-ai` (marker `.ai-memory.toml` + hooks do Claude Code) e captura do **DeepSeek Harness (DSH)** ligada (bridge `@deepseek-ai/dsh-hooks-claude-code` + MCP `@deepseek-ai/dsh-mcp-client`, `agent=dsh`), forçado (ignorando C29 e a trava "rules-ai é a fonte" do instalador) | Usuário (pedido direto; executado por DeepSeek Harness (lead)) | "INSTALE O AI-MEMORY NO rules-ai agora" → "deepseek tb deve capturar" → "SIM" (MCP) |
