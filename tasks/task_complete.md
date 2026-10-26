@@ -183,3 +183,4 @@
 
 | QUADRO-SIMPLIFICADO-GLOBAL.1 | 🌐 Regra: formato simplificado do `STATUS.md` e C55 | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-057](etapas/ETAPA-057-7df921e5-QUADRO-SIMPLIFICADO-GLOBAL.md) |
 | QUADRO-SIMPLIFICADO-GLOBAL.3 | 🌐 Dashboard lê o formato simplificado | 🟡 Média | MEDIO · só Sonnet · effort medium | Nenhuma (relaxada, ver Decisões da etapa 057) | ✅ Concluído | — | [ETAPA-057](etapas/ETAPA-057-7df921e5-QUADRO-SIMPLIFICADO-GLOBAL.md) |
+| QUADRO-SIMPLIFICADO-GLOBAL.2 | 🌐 Parsers do gerenciador, do MCP e do Jev leem o formato simplificado | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | Nenhuma (relaxada, ver Decisões da etapa 057) | ✅ Concluído | — | [ETAPA-057](etapas/ETAPA-057-7df921e5-QUADRO-SIMPLIFICADO-GLOBAL.md) |

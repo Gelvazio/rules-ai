@@ -78,7 +78,7 @@ Subtarefa sem nível: `nível a classificar pelo Jev`. O cabeçalho do arquivo a
 
 ### QUADRO-SIMPLIFICADO-GLOBAL.2 — Parsers do gerenciador, do MCP e do Jev leem o formato simplificado
 
-**Próximo passo:** esperar a .1; depois adaptar `scripts/gerenciador/quadro.mjs`, `mcp/quadro.mjs`, `scripts/jev/estado.mjs` e `scripts/jev/gravador.mjs`, mantendo o formato em tabela.
+**Próximo passo:** nenhum — concluída.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro
@@ -87,7 +87,7 @@ Subtarefa sem nível: `nível a classificar pelo Jev`. O cabeçalho do arquivo a
 - **Descrição:** cada parser detecta o formato e devolve o mesmo modelo de dados; reserva e entrega do MCP e a gravação do Jev escrevem no formato em que o arquivo está.
 - **Critérios de Aceitação:** R2.1, R2.2, R2.3, INV-1, INV-2.
 - **Depende de:** QUADRO-SIMPLIFICADO-GLOBAL.1
-- **Entrega:** a preencher · **Verificação:** a preencher
+- **Entrega:** commits `8c48586` (parsers: `scripts/jev/quadro-formato.mjs` novo, `scripts/gerenciador/quadro.mjs`, `scripts/gerenciador.mjs`, `mcp/quadro.mjs`, `scripts/jev/estado.mjs`, `gravacao.mjs`, `gravador.mjs`) e `ec35b4b` (`VERSAO.md`, pacote do rules-local); executado por agente Opus (executor-pesado), conferido e commitado por Haiku (C41) · **Verificação:** `gerenciador.mjs` 9/9, `mcp/testes/quadro.mjs` 12/12 e os 8 testes de `scripts/jev/testes/` com saída 0, antes e depois; `node --check` nos 7 arquivos; conferência ponta a ponta numa cópia do `STATUS.md` do `aulasenai` em CRLF (25/25): reserva muda uma linha, liberar devolve o arquivo igual byte a byte, arquivo inválido não grava (R2.1 a R2.3). Itens agrupados nunca saem livres.
 - **JEV-AI-SUGGESTION:** NAO
 
 ### QUADRO-SIMPLIFICADO-GLOBAL.3 — Dashboard lê o formato simplificado
