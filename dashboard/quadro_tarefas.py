@@ -16,6 +16,17 @@ NIVEIS = ("LEVE", "MEDIO", "PESADO")
 PADRAO_DESDE = re.compile(r"\(?desde (\d{4}-\d{2}-\d{2} \d{2}:\d{2})\)?")
 PADRAO_MARCAS = re.compile(r"[*`]")
 PADRAO_PERCENTUAL = re.compile(r"\s*·\s*(\d{1,3})\s*%\s*$")  # regra C31: "... · 40%" no fim
+# Índice simplificado (C55): "- #<ID> — [<título>](etapa) · <status> · <Em uso por>" e subtarefas recuadas.
+PADRAO_ITEM_INDICE = re.compile(r"^(\s*)- #(.+?) — (.*)$")
+PADRAO_ITEM_SOLTO = re.compile(r"^- #([^\s:]+): (.*?)(?: — \[.*)?$")
+PADRAO_LINK = re.compile(r"^\[(.*?)\]\([^)]*\)")
+PADRAO_NIVEL_CRASES = re.compile(r"^`([^`]*)`$")
+PADRAO_CAUDA_NIVEL = re.compile(r"\s*·\s*`[^`]*`\s*$")
+QUEBRA_DE_LINHA = re.compile(r"\r\n|[\n\r\v\f\x1c-\x1e\x85\u2028\u2029]")
+FORMATO_TABELA = "tabela"
+FORMATO_INDICE = "indice"
+MSG_FORMATO_DESCONHECIDO = ("O quadro não está em nenhum formato conhecido: nem a tabela "
+                            "'## 📌 Tarefas' nem o índice simplificado '- #<ID> — ...'.")
 
 
 def limpar(texto):
@@ -119,11 +130,75 @@ def tarefa_da_linha(colunas, mapa, indice):
     }
 
 
-def ler_quadro(caminho):
-    """Tarefas do quadro e a hora da última gravação do arquivo."""
-    if not caminho.exists():
-        raise ValueError(f"Quadro não encontrado: {caminho}")
-    cabecalho, linhas = linhas_da_tabela(caminho.read_text(encoding="utf-8"))
+def formato_do_quadro(texto):
+    """'tabela' (legado), 'indice' (simplificado) ou None quando o texto não casa com nenhum."""
+    if TITULO_SECAO in texto:
+        return FORMATO_TABELA
+    linhas = QUEBRA_DE_LINHA.split(texto)
+    if any(PADRAO_ITEM_INDICE.match(linha) or PADRAO_ITEM_SOLTO.match(linha) for linha in linhas):
+        return FORMATO_INDICE
+    return None
+
+
+def reserva_da_subtarefa(resto):
+    """Texto de 'Em uso por' guardado na observação entre parênteses da subtarefa (ou '')."""
+    abre = resto.find("(")
+    if abre < 0 or "desde" not in resto:
+        return ""
+    return resto[abre + 1:].strip().rstrip(")").strip()
+
+
+def partes_do_item(texto):
+    """(título, partes depois do título) de '[título](link) · a · b' ou 'título · a · b'."""
+    link = PADRAO_LINK.match(texto)
+    if link:
+        titulo = PADRAO_CAUDA_NIVEL.sub("", link.group(1))
+        return titulo, [p.strip() for p in texto[link.end():].split(" · ")[1:]]
+    partes = [p.strip() for p in texto.split(" · ")]
+    return partes[0], partes[1:]
+
+
+def tarefa_do_item_indice(identificador, texto, mae_atual, indice):
+    """Dict de um item do índice simplificado (mãe sem recuo ou subtarefa recuada)."""
+    titulo, partes = partes_do_item(texto)
+    eh_mae = "." not in identificador and not mae_atual[1]
+    status = partes[0] if partes else ""
+    if eh_mae:
+        agente, desde, progresso = agente_da_coluna(" · ".join(partes[1:]))
+        nivel = nivel_da_coluna(titulo) if not status else ""
+    else:
+        crases = PADRAO_NIVEL_CRASES.match(partes[1]) if len(partes) > 1 else None
+        nivel = nivel_da_coluna(crases.group(1)) if crases else ""
+        agente, desde, progresso = agente_da_coluna(reserva_da_subtarefa(" · ".join(partes[2:])))
+    return {
+        "tarefa": limpar(identificador), "titulo": limpar(titulo),
+        "pai": limpar(identificador) if eh_mae else mae_atual[0], "mae": eh_mae,
+        "nivel": nivel, "status": status_da_coluna(status), "agente": agente, "desde": desde,
+        "progresso": progresso, "global": "🌐" in titulo, "indice": indice,
+    }
+
+
+def tarefas_do_indice(texto):
+    """Tarefas do índice simplificado: mães sem recuo e subtarefas recuadas logo abaixo."""
+    tarefas, mae_atual = [], ("", False)
+    for linha in QUEBRA_DE_LINHA.split(texto):
+        item = PADRAO_ITEM_INDICE.match(linha)
+        solto = None if item else PADRAO_ITEM_SOLTO.match(linha)
+        if not item and not solto:
+            continue
+        recuada = bool(item and item.group(1))
+        identificador, resto = (item.group(2), item.group(3)) if item else solto.groups()
+        identificador = identificador.replace("#", "")
+        tarefa = tarefa_do_item_indice(identificador, resto, (mae_atual[0], recuada), len(tarefas))
+        if not recuada:
+            mae_atual = (tarefa["tarefa"], False)
+        tarefas.append(tarefa)
+    return tarefas
+
+
+def tarefas_da_tabela(texto):
+    """Tarefas da tabela '## 📌 Tarefas' (formato legado)."""
+    cabecalho, linhas = linhas_da_tabela(texto)
     mapa = mapa_de_colunas(cabecalho)
     if "tarefa" not in mapa or "status" not in mapa:
         raise ValueError("O quadro não tem as colunas Tarefa e Status na tabela de tarefas.")
@@ -132,5 +207,17 @@ def ler_quadro(caminho):
         colunas = celulas(linha)
         if mapa["tarefa"] < len(colunas) and colunas[mapa["tarefa"]]:
             tarefas.append(tarefa_da_linha(colunas, mapa, len(tarefas)))
+    return tarefas
+
+
+def ler_quadro(caminho):
+    """Tarefas do quadro (tabela legado ou índice simplificado) e a hora da última gravação."""
+    if not caminho.exists():
+        raise ValueError(f"Quadro não encontrado: {caminho}")
+    texto = caminho.read_text(encoding="utf-8")
+    formato = formato_do_quadro(texto)
+    if formato is None:
+        raise ValueError(MSG_FORMATO_DESCONHECIDO)
+    tarefas = tarefas_do_indice(texto) if formato == FORMATO_INDICE else tarefas_da_tabela(texto)
     gravado = datetime.fromtimestamp(caminho.stat().st_mtime).isoformat(timespec="seconds")
     return {"atualizado_em": gravado, "tarefas": tarefas}
