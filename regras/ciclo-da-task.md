@@ -1,6 +1,8 @@
 # 🔁 Ciclo de uma tarefa (TASK)
 
 Vale para qualquer projeto e para todas as IAs. Onde fica cada informação: `quadro-de-tarefas.md`.
+"Linha" do quadro = item do índice simplificado do `STATUS.md` (C55) ou linha da tabela
+(legado).
 
 ## O que vira TASK
 
@@ -63,7 +65,7 @@ Na dúvida, é grande. O projeto pode definir exceções (rotinas já autorizada
 - ✅ **Trabalho novo descoberto no caminho vira subtarefa da mãe atual** (C26, 2026-10-17): a IA
   que está numa subtarefa pode criar **subtarefas novas só dentro da mãe atual**
   (`<TAREFA>.<próximo número>`), com nível, modelo e `effort`, seção na etapa (descrição, critérios
-  e próximo passo) e linha `⬜` livre no `STATUS.md`, e **publica direto** (commit + push do quadro,
+  e próximo passo) e linha (ou item do índice simplificado) `⬜` livre no `STATUS.md`, e **publica direto** (commit + push do quadro,
   sem esperar aprovação do usuário). Não reserva a nova (segue na sua) e ⛔ **nunca cria
   tarefa-mãe nova**: trabalho fora da mãe atual → avisar o usuário. Na equipe de agentes do Claude
   Code, o executor avisa o líder, e o líder cria e publica.

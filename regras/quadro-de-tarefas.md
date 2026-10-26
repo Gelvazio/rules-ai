@@ -2,12 +2,16 @@
 
 Serve para qualquer projeto (nada específico de um projeto). Ciclo da tarefa:
 `ciclo-da-task.md` · várias sessões/IAs: `frentes-e-reserva.md` · níveis: `niveis-e-modelos.md`.
-Sem pasta `tasks/` no projeto: `STATUS.md` na raiz, com as mesmas colunas.
+Sem pasta `tasks/` no projeto: `STATUS.md` na raiz, no mesmo formato.
+
+> **Formato oficial (C55, 2026-10-26):** o `tasks/STATUS.md` é um **índice simplificado** (modelo
+> "formato simplificado" abaixo). O formato em tabela é **legado**: segue válido durante a migração
+> (os scripts leem os dois) e cada projeto migra o seu por TASK própria.
 
 ## Tarefa e subtarefa
 
 - **Toda tarefa-mãe tem no mínimo 1 subtarefa** (`<TAREFA>.1`, `<TAREFA>.2`…), cada uma com
-  **linha própria** em "📌 Tarefas" e **nível** (`niveis-e-modelos.md`). Não existe tarefa-mãe sem
+  **item próprio** no índice simplificado (ou linha própria em "📌 Tarefas", no legado) e **nível** (`niveis-e-modelos.md`). Não existe tarefa-mãe sem
   subtarefa.
 - O trabalho e a reserva são sempre numa **subtarefa**; a mãe não se reserva e fecha quando todas
   as subtarefas estiverem ✅.
@@ -18,7 +22,8 @@ Sem pasta `tasks/` no projeto: `STATUS.md` na raiz, com as mesmas colunas.
 
 | Informação | Lugar único |
 |------------|-------------|
-| Status, prioridade, modelo, dependências e reserva de cada subtarefa (e da mãe) **aberta ou em andamento** | Linha própria em "📌 Tarefas" do `tasks/STATUS.md` |
+| Status, prioridade, modelo, dependências e reserva de cada subtarefa (e da mãe) **aberta ou em andamento** | Item próprio do índice simplificado do `tasks/STATUS.md` (**fonte única**; legado: linha em "📌 Tarefas") |
+| Histórico detalhado do quadro (quando o projeto tiver) | `tasks/STATUS-COMPLETO.md`: só leitura, sem reserva nem status editado à mão |
 | Linha de tarefa ou subtarefa **concluída (✅)** | Tabela "✅ Concluídas" do `tasks/task_complete.md` |
 | Pedido, objetivo, plano (tarefa grande), escopo, riscos, decisões | **Etapa** da mãe: `tasks/etapas/ETAPA-NNN-<uuid8>-ASSUNTO.md` |
 | Nível, descrição, critérios, próximo passo, entrega e verificação de cada subtarefa | Seção da subtarefa dentro da etapa da mãe |
@@ -29,7 +34,7 @@ Sem pasta `tasks/` no projeto: `STATUS.md` na raiz, com as mesmas colunas.
 - ⛔ Não copiar para outro lugar: sem `TASKS.md`, sem plano separado em `docs/`, sem lista de
   pendências do usuário montada à mão, sem resumo com contagens, sem cópia da fila em tabela de banco.
 - ⛔ **No `STATUS.md` só ficam tarefas abertas ou em andamento.** Linha (mãe ou subtarefa) que vira
-  ✅ é **recortada** do "📌 Tarefas" e colada no fim da tabela do `tasks/task_complete.md`, no
+  ✅ é **recortada** do índice (ou do "📌 Tarefas") e colada no fim da tabela do `tasks/task_complete.md`, no
   **mesmo commit** da entrega (move, não copia). Reabrir = mover a linha de volta.
 - O que o usuário precisa fazer = linhas e itens **👀** (filtrar; não copiar).
 - O que não está no quadro não aconteceu. Histórico nunca é apagado: só se acrescentam etapas.
@@ -40,7 +45,38 @@ Sem pasta `tasks/` no projeto: `STATUS.md` na raiz, com as mesmas colunas.
 ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado (motivo + o que destrava) ·
 👀 Aguardando o usuário · Prioridade: 🔴 Máxima · 🟠 Alta · 🟡 Média · 🟢 Baixa
 
-## Modelo do `tasks/STATUS.md`
+## Modelo do `tasks/STATUS.md` — formato simplificado (oficial, C55)
+
+Um item por tarefa-mãe, com link para a etapa, e as subtarefas em lista recuada logo abaixo
+(exemplo real: `aulasenai/tasks/STATUS.md`).
+
+```markdown
+# STATUS — <Projeto> (Simplificado)
+
+**Objetivo:** índice simplificado com links para cada tarefa.
+**Status completo:** [STATUS-COMPLETO.md](STATUS-COMPLETO.md)
+
+## Tarefas
+
+- #<ID> — [<título>](etapas/ETAPA-NNN-<uuid8>-ASSUNTO.md) · <status> · <Em uso por>
+  - #<ID>.<n> — <título> · <status> · `<NIVEL>` · só <modelo> (<observação>)
+```
+
+- O `tasks/STATUS.md` é a **fonte única** de status e reserva: reservar, entregar e bloquear é
+  sempre editar o item dele.
+- **Mãe:** `<Em uso por>` = `— (não reservável)`. **Subtarefa:** a reserva vai na observação
+  (`<IA (modelo)> (<frente>) (desde <data hora>)`); sem ela, a subtarefa está livre.
+- **Status:** emoji + 1–3 palavras; dependência, prioridade ou motivo curto entre parênteses
+  (`⬜ Pendente (depende da #399)`). Subtarefa sem nível: `nível a classificar pelo Jev` (C52).
+- O `tasks/STATUS-COMPLETO.md` (quando existir) é **só histórico detalhado**: sem reserva e sem
+  status editado à mão; em divergência, vale o `STATUS.md`.
+- Concluídas continuam saindo do índice para o `tasks/task_complete.md` (C4).
+- Frentes, decisões, riscos, pendências e lições seguem em seções do próprio `STATUS.md`, abaixo
+  de "Tarefas".
+
+## Modelo do `tasks/STATUS.md` — formato em tabela (legado)
+
+Válido durante a migração; os scripts leem os dois formatos.
 
 ```markdown
 # STATUS — <Projeto>

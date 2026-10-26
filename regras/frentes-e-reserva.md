@@ -1,7 +1,8 @@
 # 🧭 Frentes e reserva de subtarefas
 
 Para projetos em que várias sessões ou IAs (Claude, Gemini, Grok, Copilot, Codex…) trabalham no
-mesmo repositório e só se falam pelos arquivos. Quadro: `quadro-de-tarefas.md`.
+mesmo repositório e só se falam pelos arquivos. Quadro: `quadro-de-tarefas.md`. "Linha" e
+"coluna" valem também para o item do índice simplificado do `STATUS.md` (C55).
 
 ## Frentes
 

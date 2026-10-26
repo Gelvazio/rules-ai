@@ -9,6 +9,8 @@ PowerShell, bash) e no chat do Claude Code no IDE.
 - Colunas mínimas para tarefas: **Tarefa (ID) · Título · Modelo · Status**, e **Em uso por**
   quando houver reserva; outros assuntos usam as colunas que fizerem sentido (ex.: Item · Situação
   · Detalhe).
+- O quadro mostrado é sempre tabela, mesmo com o `STATUS.md` no formato simplificado (C55):
+  cada item do índice simplificado vira uma linha da tabela.
 - ✅ **ID sempre visível:** todo quadro que fala de tarefa ou subtarefa (inclusive comparação,
   perguntas, riscos ou decisões de uma tarefa) tem a coluna **Tarefa** com o ID (`<TAREFA>` ou
   `<TAREFA>.<n>`); se todas as linhas são da mesma subtarefa, o ID vai no título do quadro.
