@@ -58,7 +58,9 @@ Subtarefa sem nível: `nível a classificar pelo Jev`. O cabeçalho do arquivo a
 
 - 2026-10-26 20:30 — Fonte única = `STATUS.md` simplificado; escopo = regras + scripts (resposta do usuário). Registrado por Claude Code (Sonnet 5.5).
 - 2026-10-26 20:30 — Tarefa concluída continua saindo do `STATUS.md` para o `task_complete.md` (regra atual C4 não muda). No `aulasenai`, onde as concluídas ficaram no índice, cada projeto decide na própria migração.
-- 2026-10-26 20:30 — **Plano aguardando o "sim" do usuário** (tarefa grande, `ciclo-da-task.md`): nenhuma subtarefa é reservada antes.
+- 2026-10-26 20:30 — Plano apresentado ao usuário (tarefa grande, `ciclo-da-task.md`).
+- 2026-10-26 21:00 — **Plano aprovado pelo usuário** ("sim, aprovo o plano da etapa 057; pode executar") e pedido de usar vários agentes. Executar só o escopo aprovado.
+- 2026-10-26 21:00 — Para rodar em paralelo, a dependência de .2 e .3 em relação à .1/.2 foi **relaxada**: o formato está fixado nesta etapa. A .4 continua depois das três. Os agentes só editam arquivos; a conferência, o commit e o push de cada entrega são do Haiku (C41).
 
 ### QUADRO-SIMPLIFICADO-GLOBAL.1 — Regra: formato simplificado do STATUS.md e C55
 
