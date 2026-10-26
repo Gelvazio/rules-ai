@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-24-29a935b0
+- **Versão:** 2026-10-26-06f7c1a8
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -13,7 +13,7 @@
 | 0 | INDEX.md | 763172a1e2dbed0d |
 | 1 | regra-maior.md | bbf5f654197ffa51 |
 | 2 | ciclo-da-task.md | 706d60bd58960947 |
-| 3 | niveis-e-modelos.md | 59a67190ed6ef932 |
+| 3 | niveis-e-modelos.md | d97fe686f7646747 |
 | 4 | frentes-e-reserva.md | 869cf62ea28db83a |
 | 5 | comando-ponto.md | 25fab5e441b75d40 |
 | 6 | comando-interrogacao.md | e81811ae12199f38 |
@@ -40,7 +40,7 @@
 
 ## Pacote do rules-local (scripts e Jev)
 
-- **Código do pacote:** b310c868
+- **Código do pacote:** 8e593681
 
 | # | Arquivo | Código |
 |---|---------|--------|
@@ -71,6 +71,6 @@
 | 24 | jev/mensagem/limite.mjs | 43777eeb103ac62b |
 | 25 | jev/mensagem/perguntas.mjs | b4076242fdb3536e |
 | 26 | jev/mensagem/repetida.mjs | 474b24f73b753f48 |
-| 27 | jev/modelos.mjs | ea46c576c4d409e6 |
+| 27 | jev/modelos.mjs | 1263d15bcaecf0ff |
 | 28 | jev/perguntas.mjs | bcec2aa12dcfdb10 |
 | 29 | jev/proxy.mjs | a027d2b70b57a904 |
