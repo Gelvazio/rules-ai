@@ -143,7 +143,7 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | JEV-SEMPRE.3 | 🌐 Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | JEV-SEMPRE.2 | 👀 Aguardando o usuário (`--aplicar` no computador) | — | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
 | **QUADRO-SIMPLIFICADO-GLOBAL** | **🌐 GLOBAL — STATUS.md simplificado vira o formato global do quadro (regras + scripts; plano aguardando o "sim" do usuário)** | 🟡 Média | — | Nenhuma | 🔄 Em execução | — (não reservável) | [ETAPA-057](etapas/ETAPA-057-7df921e5-QUADRO-SIMPLIFICADO-GLOBAL.md) |
 | QUADRO-SIMPLIFICADO-GLOBAL.2 | 🌐 Parsers do gerenciador, do MCP e do Jev leem o formato simplificado | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | Nenhuma (relaxada, ver Decisões da etapa 057) | 🔄 Em execução | Claude Code (Opus 5.5 · executor-pesado; líder Sonnet 5.5) (agente-parsers) (desde 2026-10-26 21:00) | [ETAPA-057](etapas/ETAPA-057-7df921e5-QUADRO-SIMPLIFICADO-GLOBAL.md) |
-| QUADRO-SIMPLIFICADO-GLOBAL.4 | 🌐 Conferência de paridade entre os dois formatos | 🟡 Média | MEDIO · só Sonnet · effort medium | QUADRO-SIMPLIFICADO-GLOBAL.2, QUADRO-SIMPLIFICADO-GLOBAL.3 | ⬜ Pendente | — | [ETAPA-057](etapas/ETAPA-057-7df921e5-QUADRO-SIMPLIFICADO-GLOBAL.md) |
+| QUADRO-SIMPLIFICADO-GLOBAL.4 | 🌐 Conferência de paridade entre os dois formatos | 🟡 Média | MEDIO · só Sonnet · effort medium | Nenhuma (.2 e .3 entregues) | 🔄 Em execução | Claude Code (Sonnet 5.5 · executor-medio; líder Sonnet 5.5) (agente-paridade) (desde 2026-10-26 21:30) | [ETAPA-057](etapas/ETAPA-057-7df921e5-QUADRO-SIMPLIFICADO-GLOBAL.md) |
 
 
 
