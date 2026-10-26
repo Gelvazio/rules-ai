@@ -106,7 +106,7 @@ Subtarefa sem nível: `nível a classificar pelo Jev`. O cabeçalho do arquivo a
 
 ### QUADRO-SIMPLIFICADO-GLOBAL.4 — Conferência de paridade entre os dois formatos
 
-**Próximo passo:** esperar a .2 e a .3; depois criar `scripts/testes/quadro-paridade.mjs` e rodar nos três quadros.
+**Próximo passo:** nenhum — concluída.
 
 - **Nível:** MEDIO — classificado (jev (confiança 0.95))
 - **Modelo:** só Sonnet — nunca outro
@@ -115,5 +115,5 @@ Subtarefa sem nível: `nível a classificar pelo Jev`. O cabeçalho do arquivo a
 - **Descrição:** teste de invariante (INV-1 e INV-2, permitido em `PESADO`) que compara os parsers sobre quadros reais.
 - **Critérios de Aceitação:** INV-1 e INV-2 sem falha nos quadros do `aulasenai`, `rules-ai` e `REA-APP-CLONES`.
 - **Depende de:** QUADRO-SIMPLIFICADO-GLOBAL.2, QUADRO-SIMPLIFICADO-GLOBAL.3
-- **Entrega:** a preencher · **Verificação:** a preencher
+- **Entrega:** commit `33f1865` (`scripts/testes/quadro-paridade.mjs`); escrito por agente Sonnet (executor-medio), conferido e commitado por Haiku (C41) · **Verificação:** `node scripts/testes/quadro-paridade.mjs` sai com 0 e `24/24 verificações passaram` (INV-1: aulasenai 293/293/293, REA-APP-CLONES 79/79/79, rules-ai 133/133/132, simplificado = tabela 22/22; INV-2: entradas inválidas sem gravar nada, quadros reais intactos). Defeito de dado achado: `DASHBOARD-LE-API.12` tem `|` sem escape no título (etapa 051); o teste avisa até corrigirem.
 - **JEV-AI-SUGGESTION:** SIM
