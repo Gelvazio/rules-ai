@@ -40,6 +40,8 @@ const MODELOS_POR_NIVEL = Object.freeze({
     { linha: 'Codex / Cursor', rotulo: 'Codex' },
     { linha: 'Codex / Cursor', rotulo: 'Cursor' },
     { linha: 'Qoder', rotulo: 'Qoder' },
+    { linha: 'Devin / Copilot', rotulo: 'Devin' },
+    { linha: 'Devin / Copilot', rotulo: 'Copilot' },
   ],
   [NIVEIS.PESADO]: [
     { linha: 'Claude Code', rotulo: 'Claude Code (Opus 5.5+ ou Fable)' },

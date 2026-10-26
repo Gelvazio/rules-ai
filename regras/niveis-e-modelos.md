@@ -29,7 +29,7 @@ forte fique com as difíceis. Vale para **todas as IAs**. Reserva: `frentes-e-re
 | **OpenCode** | DeepSeek V4.1 Flash (`deepseek-flash`) | DeepSeek V4.1 Flash com thinking (`deepseek-flash`) | **DeepSeek V4 Pro (`deepseek-v4-pro`)** |
 | **Codex** / **Cursor** | ✅ | ✅ | ⛔ |
 | **Qoder** | ✅ | ✅ | ⛔ |
-| **Devin** / **Copilot** | ✅ | ⛔ | ⛔ |
+| **Devin** / **Copilot** | ✅ | ✅ | ⛔ |
 
 - `LEVE` é **Haiku 5.5** (Claude Code) **ou DeepSeek V4.1 Flash** — a coluna `Modelo` do quadro grava
   `só Haiku 5.5 ou DeepSeek V4.1 Flash` (C53, 2026-10-24).
