@@ -40,7 +40,7 @@
 
 ## Pacote do rules-local (scripts e Jev)
 
-- **Código do pacote:** 8e593681
+- **Código do pacote:** a7fc37dc
 
 | # | Arquivo | Código |
 |---|---------|--------|
@@ -53,7 +53,7 @@
 | 6 | jev/cliente.mjs | 6b7824f10440578f |
 | 7 | jev/config.mjs | 40c6d99b6227f964 |
 | 8 | jev/decidir.mjs | 0548abe0d9805f84 |
-| 9 | jev/estado.mjs | f4a070ac742efc9a |
+| 9 | jev/estado.mjs | f05d06ea745f226c |
 | 10 | jev/ganchos/claude-prompt.mjs | da652d43e1845614 |
 | 11 | jev/ganchos/codex-prompt.mjs | cbff42b994d5e2f8 |
 | 12 | jev/guardrails/aprovacao.mjs | 960ae110bf3a2f90 |
@@ -74,3 +74,4 @@
 | 27 | jev/modelos.mjs | 1263d15bcaecf0ff |
 | 28 | jev/perguntas.mjs | bcec2aa12dcfdb10 |
 | 29 | jev/proxy.mjs | a027d2b70b57a904 |
+| 30 | jev/quadro-formato.mjs | 7ae4298bf789c584 |
