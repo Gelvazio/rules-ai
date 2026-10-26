@@ -1,4 +1,5 @@
 - 2026-10-23 20:30 (Brasília): INTEGRACAO-DEEPSEEK concluída (etapa 045): cliente, roteador, auditoria e limites em scripts/deepseek/ (US$ 2/dia, 2.000 tokens por chamada, modo off, fallback de tempo) e docs/DEEPSEEK-INTEGRACAO.md; nenhuma chamada real à API foi feita ainda e o nome do campo de raciocínio (thinking) precisa ser conferido na primeira chamada.
+- 2026-10-26 20:45 (Brasília): tarefa nova QUADRO-SIMPLIFICADO-GLOBAL (etapa 057), pedida pelo usuário: o `STATUS.md` simplificado do `aulasenai` vira o formato global do quadro (fonte única de status e reserva; `STATUS-COMPLETO.md` só histórico), com regras + scripts (gerenciador, MCP, Jev, dashboard). Tarefa grande (`PESADO`, spec C34): plano na etapa, gate da spec passou, 4 subtarefas classificadas pelo Jev; aguarda o "sim" do usuário ao plano antes de reservar.
 
 - 2026-10-23 19:50 (Brasília): MCP-QUADRO.2 (leitor/escritor do quadro em mcp/), .8 (testes, só Haiku) e .9 (correção do prefixo DEMAIS-PROJETOS em minúsculas) entregues e confirmadas; VERCEL-SEM-DEPLOY-DE-CONTROLE concluída (falta só conferir os deploys na Vercel). A .3 do MCP-QUADRO (Opus) segue parada.
 
