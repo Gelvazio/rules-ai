@@ -159,7 +159,13 @@ async function lerQuadroDoRamo(alvo, contexto) {
     timeoutSegundos,
   });
   const textos = { status: arquivo.texto, concluidas: concluidas?.texto ?? '' };
-  const quadro = calcularQuadro(textos, config);
+  let quadro;
+  try {
+    quadro = calcularQuadro(textos, config);
+  } catch (erro) {
+    // Formato do quadro não reconhecido (R2.3): o projeto sai como erro, com a mensagem.
+    return { pasta: alvo.nome, estado: 'erro', avisos: [...avisos, erro.message] };
+  }
   return {
     pasta: alvo.nome, estado: 'lido', ramo: alvo.ramo, commit, avisos,
     caminhoQuadro: arquivo.caminho, quadro,

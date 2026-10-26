@@ -1,9 +1,13 @@
 // Coletor de estado CEGO: lê o quadro (tasks/STATUS.md) e a seção da subtarefa na etapa, remove
 // todo rótulo de nível/modelo/effort (INV-1) e mascara segredos antes de montar o `state` do Jev.
-// Somente leitura: nada aqui escreve no quadro nem nas etapas.
+// Somente leitura: nada aqui escreve no quadro nem nas etapas. Lê os dois formatos do quadro
+// (C55): a tabela legada e o índice simplificado.
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { RAIZ_RULES_AI } from './config.mjs';
+import {
+  ErroFormatoQuadro, FORMATOS, detectarFormato, lerIndiceSimplificado,
+} from './quadro-formato.mjs';
 
 export const ARQUIVO_QUADRO = join(RAIZ_RULES_AI, 'tasks', 'STATUS.md');
 const TAMANHO_MAXIMO_DESCRICAO = 4000;
@@ -127,16 +131,49 @@ function montarItem(registro) {
 }
 
 /**
- * Lê as linhas da tabela de tarefas de um quadro (somente leitura).
+ * Converte um item do índice simplificado no mesmo formato de item da tabela.
+ * @param {object} item Item de `lerIndiceSimplificado`.
+ * @returns {{id: string, titulo: string, prioridade: string, status: string, emUsoPor: string,
+ *   etapa: {rotulo: string, caminho: string}|null}} Item do quadro.
+ */
+function itemDoIndice(item) {
+  return {
+    id: item.id,
+    titulo: limparMarkdown(item.titulo),
+    prioridade: item.prioridade,
+    status: item.status,
+    emUsoPor: item.emUsoPor,
+    etapa: item.etapaLink ? { rotulo: item.etapaRotulo, caminho: item.etapaLink } : null,
+  };
+}
+
+/**
+ * Lê o quadro sem cabeçalho de tabela: índice simplificado, arquivo vazio, tabela sem cabeçalho
+ * (vazio, como antes) ou erro de formato (R2.3).
+ * @param {string} texto Conteúdo do arquivo.
+ * @returns {object[]} Itens do quadro.
+ * @throws {ErroFormatoQuadro} Se o texto não casar com nenhum dos dois formatos.
+ */
+function lerQuadroSemTabela(texto) {
+  const formato = detectarFormato(texto);
+  if (formato === FORMATOS.VAZIO || formato === FORMATOS.TABELA) return [];
+  if (formato !== FORMATOS.SIMPLIFICADO) throw new ErroFormatoQuadro();
+  return lerIndiceSimplificado(texto).itens.map(itemDoIndice);
+}
+
+/**
+ * Lê as linhas de tarefa de um quadro (somente leitura), na tabela ou no índice simplificado.
  * @param {string} [arquivo] Caminho do `STATUS.md` ou do `task_complete.md`.
- * @returns {object[]} Itens do quadro (mães e subtarefas), vazio se não houver tabela.
+ * @returns {object[]} Itens do quadro (mães e subtarefas), vazio se o arquivo não existir.
+ * @throws {ErroFormatoQuadro} Se o arquivo não casar com nenhum dos dois formatos (R2.3).
  */
 export function lerQuadro(arquivo = ARQUIVO_QUADRO) {
   if (!existsSync(arquivo)) return [];
 
-  const linhas = readFileSync(arquivo, 'utf8').split(/\r?\n/);
+  const texto = readFileSync(arquivo, 'utf8');
+  const linhas = texto.split(/\r?\n/);
   const inicio = linhas.findIndex((linha) => PADRAO_CABECALHO_TABELA.test(linha));
-  if (inicio < 0) return [];
+  if (inicio < 0) return lerQuadroSemTabela(texto);
 
   const cabecalho = dividirCelulas(linhas[inicio]);
   const itens = [];
@@ -168,7 +205,7 @@ export function ehSubtarefa(item) {
  */
 export function extrairSecao(textoEtapa, id) {
   const escapado = id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const alvo = new RegExp(`^(#{2,4})\\s+${escapado}(?![A-Za-z0-9.])`);
+  const alvo = new RegExp(`^(#{2,4})\\s+#?${escapado}(?![A-Za-z0-9.])`);
   const linhas = textoEtapa.split(/\r?\n/);
   const inicio = linhas.findIndex((linha) => alvo.test(linha));
   if (inicio < 0) return '';

@@ -1,5 +1,6 @@
 // Gravador do nível pelo Jev (C47, JEV-GRAVA-NIVEL.2): escreve Nível, Modelo, Effort,
-// JEV-AI-SUGGESTION e Fonte na seção da etapa e a coluna Modelo do `STATUS.md`. Só mexe nesses
+// JEV-AI-SUGGESTION e Fonte na seção da etapa e a coluna Modelo do `STATUS.md` (ou o nível e o
+// modelo do item no índice simplificado, C55, com o fim de linha do arquivo). Só mexe nesses
 // campos (INV-3). Recusa subtarefa reservada, concluída ou já classificada (salvo
 // `reclassificar`) e etapa de pasta proibida (C20/C23). Auditoria sem texto em
 // `saidas/gravacoes-AAAA-MM.jsonl`.

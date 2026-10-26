@@ -7,6 +7,9 @@ import {
 } from './decidir.mjs';
 import { NIVEIS, derivarEffort } from './modelos.mjs';
 import { SINAIS_PESADO } from './perguntas.mjs';
+import {
+  ehFormatoSimplificado, lerIndiceSimplificado, reescreverNivel,
+} from './quadro-formato.mjs';
 
 /** Texto da coluna Modelo do quadro e da linha Modelo da etapa, por nível (C22 e C48). */
 const MODELO_POR_NIVEL = Object.freeze({
@@ -82,7 +85,7 @@ function montarLinhas(decisao) {
  */
 function acharSecao(linhas, id) {
   const escapado = id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const alvo = new RegExp(`^#{3}\\s+${escapado}(?![A-Za-z0-9.])`);
+  const alvo = new RegExp(`^#{3}\\s+#?${escapado}(?![A-Za-z0-9.])`);
   const inicio = linhas.findIndex((linha) => alvo.test(linha));
   if (inicio < 0) return null;
   const proximo = linhas.findIndex((linha, i) => i > inicio && /^#{2,3}\s/.test(linha));
@@ -152,6 +155,7 @@ export function aplicarNaSecao(textoEtapa, id, decisao) {
  * @returns {string|null} Texto novo, ou null se a linha ou a coluna não existir.
  */
 export function aplicarNoQuadro(textoQuadro, id, modeloNovo) {
+  if (ehFormatoSimplificado(textoQuadro)) return aplicarNoIndice(textoQuadro, id, modeloNovo);
   const linhas = textoQuadro.split('\n');
   const cabecalho = linhas.find((l) => l.startsWith('| Tarefa |'));
   const posicao = cabecalho
@@ -162,5 +166,24 @@ export function aplicarNoQuadro(textoQuadro, id, modeloNovo) {
   const partes = linhas[indice].split(/(?<!\\)\|/);
   partes[posicao + 1] = ` ${modeloNovo} `;
   linhas[indice] = partes.join('|');
+  return linhas.join('\n');
+}
+
+/**
+ * Troca nível e modelo do item da subtarefa no índice simplificado (C55); o resto não muda.
+ * @param {string} textoQuadro Conteúdo do `STATUS.md` (fim de linha `\n`).
+ * @param {string} id ID da subtarefa.
+ * @param {string} modeloNovo Texto de {@link montarModeloDoQuadro} (`NIVEL · só … · effort …`).
+ * @returns {string|null} Texto novo, ou null se o item não existir ou não puder ser reescrito.
+ */
+function aplicarNoIndice(textoQuadro, id, modeloNovo) {
+  const itens = lerIndiceSimplificado(textoQuadro).itens.filter((item) => item.id === id);
+  const unico = itens.length === 1 ? itens[0] : null;
+  const podeReescrever = unico && unico.ehSubtarefa && !unico.agrupada && unico.indiceStatus >= 0;
+  if (!podeReescrever) return null;
+  const [nivel, modelo, effort] = modeloNovo.split(' · ');
+  const effortLimpo = String(effort ?? '').replace(/^effort\s+/, '');
+  const linhas = textoQuadro.split('\n');
+  linhas[unico.indice] = reescreverNivel(unico, { nivel, modelo, effort: effortLimpo });
   return linhas.join('\n');
 }

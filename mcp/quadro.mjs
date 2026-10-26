@@ -4,6 +4,9 @@
  * As colunas são achadas pelo nome do cabeçalho (R2.2), então o mesmo código lê quadros com e
  * sem `Modelo` e `Verificado`. O escritor só troca o texto da célula pedida: a ordem das linhas
  * e a formatação do resto da tabela ficam byte a byte iguais (INV-2).
+ *
+ * Também lê e grava o índice simplificado do STATUS.md (C55): cada item vira um registro com os
+ * mesmos campos da tabela, e a reserva e a entrega reescrevem só o item, no formato do arquivo.
  */
 
 import fs from 'node:fs/promises';
@@ -26,6 +29,14 @@ import {
   VALORES_SEM_DEPENDENCIA,
 } from './config.mjs';
 import { resolverCaminhoDeTasks } from './projetos.mjs';
+import {
+  ErroFormatoQuadro,
+  FORMATOS,
+  MENSAGEM_FORMATO_DESCONHECIDO,
+  detectarFormato,
+  lerIndiceSimplificado,
+  reescreverItem,
+} from '../scripts/jev/quadro-formato.mjs';
 
 /** Nome normalizado de cada coluna conhecida -> chave usada nos registros. */
 const CHAVES_DAS_COLUNAS = {
@@ -42,6 +53,9 @@ const CHAVES_DAS_COLUNAS = {
 
 /** Colunas que o MCP pode alterar. Nível, modelo, prioridade e dependência ficam de fora. */
 const COLUNAS_EDITAVEIS = ['status', 'emUsoPor', 'verificado', 'etapa'];
+
+/** Campos que o MCP pode alterar no índice simplificado (não há Verificado nem Etapa editável). */
+const CAMPOS_EDITAVEIS_SIMPLIFICADO = ['status', 'emUsoPor'];
 
 /** Colunas sem as quais a tabela não é o quadro de tarefas. */
 const COLUNAS_OBRIGATORIAS = ['codigo', 'status', 'emUsoPor'];
@@ -265,6 +279,72 @@ function interpretarRegistro(linha, indice, tabela) {
 }
 
 /**
+ * Transforma um item do índice simplificado num registro igual ao da tabela.
+ * @param {object} item - Item de `lerIndiceSimplificado`.
+ * @returns {object} Registro da tarefa (com `item` para a reescrita).
+ */
+function registroDoItem(item) {
+  const etapa = item.etapaLink ? `[${item.etapaRotulo}](${item.etapaLink})` : VALOR_COLUNA_VAZIA;
+  const dependeDe = item.dependeDe || VALOR_COLUNA_VAZIA;
+  const emoji = extrairEmoji(item.status);
+  const celulas = [item.id, item.titulo, item.prioridade, item.modelo, dependeDe, item.status,
+    item.emUsoPor, etapa];
+  const podeReservar = !item.ehMae && !item.agrupada && emoji === EMOJI_PENDENTE;
+  return {
+    indice: item.indice,
+    bruto: item.bruto,
+    celulas,
+    codigo: item.id,
+    codigoCurto: item.idCurto,
+    titulo: item.titulo,
+    prioridade: item.prioridade,
+    modelo: item.modelo,
+    nivel: extrairNivel(item.modelo),
+    dependencias: extrairDependencias(item.dependeDe),
+    status: item.status,
+    emoji,
+    emUsoPor: item.emUsoPor,
+    etapa,
+    etapaLink: item.etapaLink,
+    verificado: '',
+    ehMae: item.ehMae,
+    agrupada: item.agrupada,
+    idMae: item.idMae,
+    item,
+    estaLivre: podeReservar && estaSemReserva(item.emUsoPor),
+  };
+}
+
+/**
+ * Monta o quadro a partir do índice simplificado. A "tabela" usa as colunas padrão, para o
+ * `task_complete.md` sem cabeçalho e a conversão de linha funcionarem igual.
+ * @param {{linhas: string[], eol: string, bom: boolean}} base - Texto já dividido.
+ * @param {object} opcoes - Opções de leitura.
+ * @returns {object} Quadro analisado, com `formato: 'simplificado'`.
+ */
+function analisarSimplificado(base, opcoes) {
+  const indice = lerIndiceSimplificado(base.linhas.join('\n'));
+  const tabela = {
+    cabecalhoIndice: -1,
+    nomes: COLUNAS_PADRAO,
+    colunas: mapearColunas(COLUNAS_PADRAO),
+    primeiraLinha: indice.secao.inicio,
+    ultimaLinha: indice.secao.fim,
+  };
+  const registros = indice.itens.map(registroDoItem);
+  return { ...base, opcoes, formato: FORMATOS.SIMPLIFICADO, tabela, registros };
+}
+
+/**
+ * Diz se o quadro analisado está no formato simplificado.
+ * @param {object} quadro - Quadro analisado.
+ * @returns {boolean} true para o índice simplificado.
+ */
+export function ehQuadroSimplificado(quadro) {
+  return quadro?.formato === FORMATOS.SIMPLIFICADO;
+}
+
+/**
  * Monta o quadro (linhas + tabela + registros) a partir das linhas do arquivo.
  * @param {{linhas: string[], eol: string, bom: boolean}} base - Texto já dividido.
  * @param {{nomesPadrao?: string[], aceitarSemCabecalho?: boolean}} [opcoes] - Opções.
@@ -274,11 +354,14 @@ function interpretarRegistro(linha, indice, tabela) {
 function analisarQuadro(base, opcoes = {}) {
   const { nomesPadrao = COLUNAS_PADRAO, aceitarSemCabecalho = false } = opcoes;
   let tabela = localizarTabelaComCabecalho(base.linhas);
+  const ehSimplificado = !tabela
+    && detectarFormato(base.linhas.join('\n')) === FORMATOS.SIMPLIFICADO;
+  if (ehSimplificado) return analisarSimplificado(base, opcoes);
   if (!tabela && aceitarSemCabecalho) {
     tabela = localizarTabelaSemCabecalho(base.linhas, nomesPadrao);
   }
   if (!tabela) {
-    throw new ErroQuadro(CODIGOS_ERRO.QUADRO_INVALIDO, 'Cabeçalho do quadro não encontrado.');
+    throw new ErroQuadro(CODIGOS_ERRO.QUADRO_INVALIDO, MENSAGEM_FORMATO_DESCONHECIDO);
   }
   const registros = [];
   for (let i = tabela.primeiraLinha; i < tabela.ultimaLinha; i += 1) {
@@ -322,7 +405,10 @@ export function validarQuadro(quadro) {
   const esperado = quadro.tabela.nomes.length;
   for (const registro of quadro.registros) {
     const motivos = [];
-    if (registro.celulas.length !== esperado) motivos.push('número de colunas diferente');
+    const contaColunas = !ehQuadroSimplificado(quadro);
+    if (contaColunas && registro.celulas.length !== esperado) {
+      motivos.push('número de colunas diferente');
+    }
     if (!registro.emoji) motivos.push('status sem emoji');
     if (!registro.codigo) motivos.push('tarefa sem código');
     for (const motivo of motivos) {
@@ -384,6 +470,7 @@ function refazerQuadro(quadro, linhas) {
  * @throws {ErroQuadro} Se a coluna não puder ser alterada ou não existir no quadro.
  */
 export function atualizarLinha(quadro, codigo, alteracoes) {
+  if (ehQuadroSimplificado(quadro)) return atualizarItemSimplificado(quadro, codigo, alteracoes);
   const registro = buscarRegistro(quadro, codigo);
   const trechos = dividirLinha(registro.bruto);
   for (const [chave, valor] of Object.entries(alteracoes)) {
@@ -402,6 +489,88 @@ export function atualizarLinha(quadro, codigo, alteracoes) {
 }
 
 /**
+ * Troca status e/ou reserva de um item do índice simplificado; o resto do arquivo não muda.
+ * @param {object} quadro - Quadro simplificado.
+ * @param {string} codigo - Código da subtarefa.
+ * @param {Record<string, string>} alteracoes - `status` e/ou `emUsoPor`.
+ * @returns {object} Novo quadro.
+ * @throws {ErroQuadro} Se o campo não for editável ou a linha nova não ler igual ao pedido.
+ */
+function atualizarItemSimplificado(quadro, codigo, alteracoes) {
+  const registro = buscarRegistro(quadro, codigo);
+  const pedido = {};
+  for (const [chave, valor] of Object.entries(alteracoes)) {
+    if (!CAMPOS_EDITAVEIS_SIMPLIFICADO.includes(chave)) {
+      throw new ErroQuadro(CODIGOS_ERRO.COLUNA_AUSENTE, `Campo não editável no índice: ${chave}.`);
+    }
+    pedido[chave] = prepararValorDoItem(valor);
+  }
+  let novaLinha;
+  try {
+    novaLinha = reescreverItem(registro.item, pedido);
+  } catch (erro) {
+    if (!(erro instanceof ErroFormatoQuadro)) throw erro;
+    throw new ErroQuadro(CODIGOS_ERRO.QUADRO_INVALIDO, erro.message);
+  }
+  const linhas = [...quadro.linhas];
+  linhas[registro.indice] = novaLinha;
+  return refazerQuadro(quadro, linhas);
+}
+
+/**
+ * Prepara um valor para o índice simplificado: uma linha só (as barras ficam como estão).
+ * @param {unknown} valor - Texto a gravar.
+ * @returns {string} Texto sem espaços nas pontas.
+ * @throws {ErroQuadro} Se tiver quebra de linha.
+ */
+function prepararValorDoItem(valor) {
+  const texto = String(valor).trim();
+  if (/[\r\n]/.test(texto)) {
+    throw new ErroQuadro(CODIGOS_ERRO.QUADRO_INVALIDO, 'Valor com quebra de linha.');
+  }
+  return texto;
+}
+
+/**
+ * Monta a linha da tabela de destino a partir de um item do índice simplificado.
+ * @param {object} registro - Registro de origem (índice simplificado).
+ * @param {object} destino - Quadro de destino (tabela).
+ * @returns {string} Linha pronta para o destino.
+ */
+function linhaDeTabelaDoItem(registro, destino) {
+  const nomesOrigem = COLUNAS_PADRAO.map(normalizarTexto);
+  const celulas = destino.tabela.nomes.map(normalizarTexto).map((nome) => {
+    const posicao = nomesOrigem.indexOf(nome);
+    const valor = posicao === -1 ? VALOR_COLUNA_VAZIA : (registro.celulas[posicao] ?? '');
+    return prepararValorDaCelula(valor || VALOR_COLUNA_VAZIA);
+  });
+  return `| ${celulas.join(' | ')} |`;
+}
+
+/**
+ * Recusa mover o que o índice simplificado não deixa: item agrupado, mãe com subtarefas ainda no
+ * índice e destino que não é tabela.
+ * @param {object} registro - Registro de origem.
+ * @param {object} origem - Quadro de origem.
+ * @param {object} destino - Quadro de destino.
+ * @returns {void}
+ * @throws {ErroQuadro} Se o movimento deixaria o quadro inconsistente.
+ */
+function conferirMovimentoSimplificado(registro, origem, destino) {
+  if (ehQuadroSimplificado(destino)) {
+    throw new ErroQuadro(CODIGOS_ERRO.QUADRO_INVALIDO, 'O destino precisa ser uma tabela.');
+  }
+  if (!ehQuadroSimplificado(origem)) return;
+  if (registro.agrupada) {
+    throw new ErroQuadro(CODIGOS_ERRO.QUADRO_INVALIDO, 'Subtarefa agrupada: separe o item antes.');
+  }
+  const temFilhas = origem.registros.some((outro) => outro.idMae === registro.codigo);
+  if (registro.ehMae && temFilhas) {
+    throw new ErroQuadro(CODIGOS_ERRO.QUADRO_INVALIDO, 'A mãe ainda tem subtarefas no índice.');
+  }
+}
+
+/**
  * Monta a linha de destino com as colunas do quadro de destino (por nome).
  * @param {object} registro - Registro de origem.
  * @param {object} origem - Quadro de origem.
@@ -409,6 +578,7 @@ export function atualizarLinha(quadro, codigo, alteracoes) {
  * @returns {string} Linha pronta para o destino.
  */
 function converterLinha(registro, origem, destino) {
+  if (ehQuadroSimplificado(origem)) return linhaDeTabelaDoItem(registro, destino);
   const nomesOrigem = origem.tabela.nomes.map(normalizarTexto);
   const nomesDestino = destino.tabela.nomes.map(normalizarTexto);
   if (nomesOrigem.join('|') === nomesDestino.join('|')) return registro.bruto;
@@ -429,6 +599,7 @@ function converterLinha(registro, origem, destino) {
  */
 export function moverLinha(origem, destino, codigo) {
   const registro = buscarRegistro(origem, codigo);
+  conferirMovimentoSimplificado(registro, origem, destino);
   if (destino.registros.some((outro) => outro.codigo === codigo)) {
     throw new ErroQuadro(CODIGOS_ERRO.TAREFA_DUPLICADA, 'Tarefa já está no destino.');
   }
@@ -453,7 +624,10 @@ export function moverLinha(origem, destino, codigo) {
  */
 export function dependenciasPendentes(dependencias, aberto, concluidas) {
   const todos = [...aberto.registros, ...(concluidas?.registros ?? [])];
-  const feitos = new Set(todos.filter((r) => r.emoji === EMOJI_CONCLUIDO).map((r) => r.codigo));
+  const concluidos = todos.filter((r) => r.emoji === EMOJI_CONCLUIDO);
+  const feitos = new Set(concluidos.map((r) => r.codigo));
+  // No índice simplificado a mãe é "400-8e2a4c60" e a dependência cita só "400".
+  for (const registro of concluidos) if (registro.codigoCurto) feitos.add(registro.codigoCurto);
   return dependencias.filter((codigo) => !feitos.has(codigo));
 }
 
@@ -475,7 +649,8 @@ function escaparParaRegex(texto) {
  */
 export function localizarSecao(linhas, codigo) {
   const fimDoCodigo = '(?![\\p{L}\\p{N}._#-])';
-  const titulo = new RegExp(`^(#{2,4})\\s+\\**${escaparParaRegex(codigo)}${fimDoCodigo}`, 'u');
+  const alvo = `${escaparParaRegex(codigo)}${fimDoCodigo}`;
+  const titulo = new RegExp(`^(#{2,4})\\s+\\**#?${alvo}`, 'u');
   const inicio = linhas.findIndex((linha) => titulo.test(linha));
   if (inicio === -1) return null;
   const nivel = titulo.exec(linhas[inicio])[1].length;
@@ -667,6 +842,9 @@ function problemasNovos(antes, depois) {
 function conferirQuadroAntesDeGravar(textoAtual, textoNovo, opcoes) {
   const depois = lerQuadro(textoNovo, opcoes);
   const antes = textoAtual === null ? null : lerQuadro(textoAtual, opcoes);
+  if (antes && ehQuadroSimplificado(antes) !== ehQuadroSimplificado(depois)) {
+    throw new ErroQuadro(CODIGOS_ERRO.QUADRO_INVALIDO, 'O formato do quadro mudou.');
+  }
   if (antes && antes.tabela.nomes.join('|') !== depois.tabela.nomes.join('|')) {
     throw new ErroQuadro(CODIGOS_ERRO.QUADRO_INVALIDO, 'As colunas do quadro mudaram.');
   }

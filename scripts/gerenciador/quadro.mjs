@@ -3,7 +3,12 @@
  *
  * Só funções puras: este módulo não lê disco, não usa Git e não escreve nada.
  * A regra de "subtarefa livre" vem do desenho da etapa 009 (GERENCIADOR-GLOBAL.1).
+ * Lê os dois formatos do STATUS.md (C55): a tabela legada e o índice simplificado.
  */
+
+import {
+  ErroFormatoQuadro, FORMATOS, detectarFormato, lerIndiceSimplificado,
+} from '../jev/quadro-formato.mjs';
 
 const EMOJI_PENDENTE = '⬜';
 const EMOJI_EM_EXECUCAO = '🔄';
@@ -128,11 +133,11 @@ function recortarSecaoTarefas(texto) {
 }
 
 /**
- * Lê as linhas de tarefa de um quadro (`STATUS.md` ou `task_complete.md`).
+ * Lê as linhas da tabela de tarefas (formato legado).
  * @param {string} texto - Conteúdo do arquivo.
- * @returns {{linhas: Object[], ignoradas: number}} Linhas lidas e quantas foram descartadas.
+ * @returns {{linhas: Object[], ignoradas: number, temCabecalho: boolean}} Linhas lidas.
  */
-export function lerLinhasQuadro(texto) {
+function lerLinhasDaTabela(texto) {
   const linhas = [];
   let indices = null;
   let ignoradas = 0;
@@ -152,7 +157,58 @@ export function lerLinhasQuadro(texto) {
     if (linha) linhas.push(linha);
     else ignoradas += 1;
   }
-  return { linhas, ignoradas };
+  return { linhas, ignoradas, temCabecalho: indices !== null };
+}
+
+/**
+ * Converte um item do índice simplificado na mesma forma de linha da tabela.
+ * @param {Object} item - Item de `lerIndiceSimplificado`.
+ * @returns {Object} Linha com id, título, prioridade, modelo, dependências, status e reserva.
+ */
+function linhaDoItemSimplificado(item) {
+  return {
+    id: item.id,
+    titulo: item.titulo,
+    prioridade: item.prioridade,
+    modelo: item.modelo,
+    dependencias: item.dependeDe,
+    status: item.status,
+    emUsoPor: item.emUsoPor,
+    ehMae: item.ehMae,
+    agrupada: item.agrupada,
+    idCurto: item.idCurto,
+  };
+}
+
+/**
+ * Tira o campo interno `temCabecalho` do resultado da tabela.
+ * @param {{linhas: Object[], ignoradas: number}} resultado - Resultado da tabela.
+ * @returns {{linhas: Object[], ignoradas: number}} Só linhas e ignoradas.
+ */
+function semCampoInterno(resultado) {
+  return { linhas: resultado.linhas, ignoradas: resultado.ignoradas };
+}
+
+/**
+ * Lê as linhas de tarefa de um quadro (`STATUS.md` ou `task_complete.md`), nos dois formatos.
+ * A tabela legada vence: com cabeçalho de tabela, o resultado é o mesmo de antes (R2.2).
+ * @param {string} texto - Conteúdo do arquivo.
+ * @returns {{linhas: Object[], ignoradas: number, formato: string|null}} Linhas lidas, quantas
+ *   foram descartadas e o formato detectado (null = nenhum).
+ */
+export function lerLinhasQuadro(texto) {
+  const tabela = lerLinhasDaTabela(texto);
+  if (tabela.temCabecalho) return { ...semCampoInterno(tabela), formato: FORMATOS.TABELA };
+
+  const formato = detectarFormato(texto);
+  if (formato !== FORMATOS.SIMPLIFICADO) return { ...semCampoInterno(tabela), formato };
+
+  const indice = lerIndiceSimplificado(texto);
+  return {
+    linhas: indice.itens.map(linhaDoItemSimplificado),
+    ignoradas: indice.ignoradas,
+    formato,
+  };
 }
 
 /**
@@ -178,6 +234,11 @@ function construirMapaConcluidas(linhasStatus, linhasConcluidas) {
   }
   for (const linha of linhasStatus) {
     mapa.set(linha.id, linha.status.startsWith(EMOJI_CONCLUIDO));
+  }
+  // No índice simplificado a mãe é "#400-8e2a4c60" e a dependência cita só "#400".
+  for (const linha of [...linhasConcluidas, ...linhasStatus]) {
+    const temApelido = linha.idCurto && linha.idCurto !== linha.id && !mapa.has(linha.idCurto);
+    if (temApelido) mapa.set(linha.idCurto, mapa.get(linha.id));
   }
   return mapa;
 }
@@ -270,7 +331,8 @@ function definirElegiveis(linha, matriz) {
 function ehMae(linha) {
   const emUso = semAcento(linha.emUsoPor).toLowerCase();
   const status = semAcento(linha.status).toLowerCase();
-  return emUso.includes('nao reservavel') || /\bmae\b/.test(status);
+  const marcadaComoMae = linha.ehMae === true;
+  return marcadaComoMae || emUso.includes('nao reservavel') || /\bmae\b/.test(status);
 }
 
 /**
@@ -282,6 +344,7 @@ function motivoDeExclusao(linha) {
   const modelo = semAcento(linha.modelo).toLowerCase();
   if (!linha.status.startsWith(EMOJI_PENDENTE)) return 'status';
   if (ehMae(linha)) return 'mae';
+  if (linha.agrupada) return 'agrupada';
   if (!TRAVESSOES.has(linha.emUsoPor.trim())) return 'reservada';
   if (PADRAO_NUVEM.test(`${linha.modelo} ${linha.status}`)) return 'nuvem';
   if (modelo.startsWith('usuario')) return 'usuario';
@@ -366,10 +429,12 @@ function calcularOcupacao(linhas, modelos) {
  * Calcula, para um projeto, as subtarefas livres, a ocupação por modelo e as contagens.
  * @param {{status: string, concluidas: string}} textos - Conteúdo dos dois arquivos.
  * @param {Object} config - Configuração (modelos, matrizNivelModelos, dependenciaAusente).
- * @returns {Object} `{totalLinhas, ignoradas, motivos, livres, ocupacao}`.
+ * @returns {Object} `{totalLinhas, ignoradas, motivos, livres, ocupacao, formato}`.
+ * @throws {ErroFormatoQuadro} Se o STATUS não casar com nenhum dos dois formatos (R2.3).
  */
 export function calcularQuadro(textos, config) {
   const lidas = lerLinhasQuadro(textos.status);
+  if (lidas.formato === null) throw new ErroFormatoQuadro();
   const concluidas = lerLinhasQuadro(textos.concluidas ?? '').linhas;
   const modelos = prepararModelos(config.modelos ?? []);
   const mapa = construirMapaConcluidas(lidas.linhas, concluidas);
@@ -389,5 +454,6 @@ export function calcularQuadro(textos, config) {
     motivos,
     livres,
     ocupacao: calcularOcupacao(lidas.linhas, modelos),
+    formato: lidas.formato,
   };
 }
