@@ -64,7 +64,7 @@ Subtarefa sem nível: `nível a classificar pelo Jev`. O cabeçalho do arquivo a
 
 ### QUADRO-SIMPLIFICADO-GLOBAL.1 — Regra: formato simplificado do STATUS.md e C55
 
-**Próximo passo:** esperar o "sim" ao plano; depois editar `regras/quadro-de-tarefas.md` e as referências, registrar a C55 em `CONFLITOS.md` e regerar `dist/`.
+**Próximo passo:** nenhum — concluída.
 
 - **Nível:** PESADO — classificado (sinais)
 - **Modelo:** só Opus 5.5+/Fable, Sonnet ou DeepSeek — nunca outro

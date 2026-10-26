@@ -180,3 +180,5 @@
 | CUSTOS-DE-IA.4 | Conferir: JSON válido, sintaxe, nomes de arquivo, limites de código e que a página só usa dados do JSON | 🟡 Média | MEDIO · só Sonnet · effort medium | CUSTOS-DE-IA.3 | ✅ Concluído | — | [ETAPA-055](etapas/ETAPA-055-d7a3f5b1-CUSTOS-DE-IA.md) |
 | **NIVEL-DEVIN** | **🌐 GLOBAL — Devin (e Copilot) passa a pegar subtarefa `MEDIO` na matriz (pedido do usuário em 2026-10-26 19:09)** | 🟡 Média | — | Nenhuma | ✅ Concluído | — (não reservável) | [ETAPA-056](etapas/ETAPA-056-e4b71a83-NIVEL-DEVIN-MEDIO.md) |
 | NIVEL-DEVIN.1 | 🌐 Liberar `MEDIO` para Devin/Copilot na matriz e nas cópias (regra, espelho do Jev, dist/, skill) · `LEVE · effort low` | 🟡 Média | LEVE · só Haiku 5.5 ou DeepSeek V4.1 Flash (executada pelo Devin a pedido do usuário) | Nenhuma | ✅ Concluído | — | [ETAPA-056](etapas/ETAPA-056-e4b71a83-NIVEL-DEVIN-MEDIO.md) |
+
+| QUADRO-SIMPLIFICADO-GLOBAL.1 | 🌐 Regra: formato simplificado do `STATUS.md` e C55 | 🟡 Média | PESADO · só Opus 5.5+/Fable, Sonnet ou DeepSeek · effort high | Nenhuma | ✅ Concluído | — | [ETAPA-057](etapas/ETAPA-057-7df921e5-QUADRO-SIMPLIFICADO-GLOBAL.md) |
