@@ -53,6 +53,10 @@ mesmo repositório e só se falam pelos arquivos. Quadro: `quadro-de-tarefas.md`
 
 - Mensagem do usuário **só com `;`** = "Pegue a próxima tarefa disponível para o seu modelo".
   Vale para todas as IAs, sem confirmar nada antes.
+- **Passo 0 (só PC local):** antes de tudo, rodar `python C:\fontes\rules-ai\scripts\UPDATE.py`
+  (atualiza os repositórios de `C:\fontes`, ignorando `rules-ai` e `DEMAIS-PROJETOS-*`) e mostrar o
+  resultado em quadro. Conflito de rebase é relatado, sem escolher lado. Na nuvem (sem
+  `C:\fontes`), o passo é pulado sem erro. Decisão C56.
 - A IA faz, nesta ordem: **1)** sincronizar com o remoto; **2)** ler o `STATUS.md`; **3)** escolher a
   subtarefa por "Pegar uma subtarefa" (livre, dependências ✅, **do seu modelo**, maior
   prioridade); **4)** reservar (commit + push); **5)** executar até entregar; **6)** encerrar pelo
