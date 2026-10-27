@@ -141,8 +141,6 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | PONTO-SUBAGENTES-HAIKU.5 | Conferir a nova versão das regras sem a regra (`sincronizar.mjs` sem `--aplicar`) · `MEDIO · effort medium` | 🟠 Alta | MEDIO · só Sonnet · effort medium | PONTO-SUBAGENTES-HAIKU.4 | ⬜ Pendente | — | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
 | **JEV-SEMPRE** | **🌐 GLOBAL — O Jev AI sempre escolhe o modelo: a IA nunca escreve nível/modelo/effort sozinha (pedido do usuário em 2026-10-24 08:54)** | 🟠 Alta | — | Nenhuma | 👀 Aguardando o usuário (tudo na `main`; falta só o `--aplicar`) | — (não reservável) | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
 | JEV-SEMPRE.3 | 🌐 Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | JEV-SEMPRE.2 | 👀 Aguardando o usuário (`--aplicar` no computador) | — | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
-| **GATILHO-PONTOVIRGULA-UPDATE** | **🌐 GLOBAL — O `;` atualiza os projetos locais (`UPDATE.py`) antes de pegar tarefa, só em PC local** | 🟡 Média | — | Nenhuma | 🔄 Em progresso | — (não reservável) | [ETAPA-058](etapas/ETAPA-058-3c9e7a14-GATILHO-PONTOVIRGULA-UPDATE.md) |
-| GATILHO-PONTOVIRGULA-UPDATE.1 | Acrescentar a atualização local ao gatilho `;` | 🟡 Média | LEVE · só Haiku 5.5 ou DeepSeek V4.1 Flash · effort low | Nenhuma | 🔄 Em execução | Claude Code (Haiku 5.5) (local · main · rules-ai) (desde 2026-10-26) | [ETAPA-058](etapas/ETAPA-058-3c9e7a14-GATILHO-PONTOVIRGULA-UPDATE.md) |
 
 
 ## 🧭 Frentes de trabalho

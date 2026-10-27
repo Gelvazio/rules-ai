@@ -11,7 +11,7 @@
 
 ### GATILHO-PONTOVIRGULA-UPDATE.1 — Acrescentar a atualização local ao gatilho `;`
 
-**Próximo passo:** regerar `dist/` sem `--aplicar` e conferir.
+**Próximo passo:** nenhum. Entregue.
 
 - **Nível:** LEVE — classificado (sinais)
 - **Modelo:** só Haiku 5.5 ou DeepSeek V4.1 Flash — nunca outro
@@ -20,3 +20,4 @@
 - **Descrição:** em `regras/frentes-e-reserva.md`, o passo 0 do gatilho `;`: no PC local, rodar `python C:\fontes\rules-ai\scripts\UPDATE.py` (ignora `rules-ai` e `DEMAIS-PROJETOS-*`); mostrar o resultado em quadro; conflito de rebase é relatado, sem escolher lado. Regerar `dist/` e `VERSAO.md`.
 - **Critérios de Aceitação:** regra escrita com "só PC local"; `dist/` regerado; decisão C56 no `STATUS.md`.
 - **JEV-AI-SUGGESTION:** NAO
+- **Entrega:** `2508a76` (reserva), commit da regra em `regras/frentes-e-reserva.md` (passo 0 do `;`) e commit de fechamento · **Verificação:** `grep` do passo 0 em `regras/frentes-e-reserva.md`; `scripts/sincronizar.mjs` (sem `--aplicar`) regerou `dist/REGRAS-GLOBAIS.md` com `UPDATE.py` (contagem 1) e `VERSAO.md` 2026-10-26-15740d51.

@@ -2,7 +2,7 @@
 
 <!-- gerado por scripts/sincronizar.mjs; não editar -->
 
-- **Versão:** 2026-10-26-584e06a5
+- **Versão:** 2026-10-26-15740d51
 - **Algoritmo:** sha256 do texto (sem BOM, fim de linha LF); 16 caracteres por arquivo, 8 na versão
 - **Fonte:** https://github.com/Gelvazio/rules-ai/tree/main/regras
 
@@ -14,7 +14,7 @@
 | 1 | regra-maior.md | bbf5f654197ffa51 |
 | 2 | ciclo-da-task.md | c33948460b09e32e |
 | 3 | niveis-e-modelos.md | d97fe686f7646747 |
-| 4 | frentes-e-reserva.md | f34a17a522d8c2af |
+| 4 | frentes-e-reserva.md | 421670df6006915c |
 | 5 | comando-ponto.md | 25fab5e441b75d40 |
 | 6 | comando-interrogacao.md | e81811ae12199f38 |
 | 7 | quadro-de-tarefas.md | 145f77a3dfd8e21c |
