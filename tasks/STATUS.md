@@ -141,7 +141,8 @@ Legenda: ⬜ Pendente · 🔄 Em progresso · ✅ Concluído · ⛔ Bloqueado ·
 | PONTO-SUBAGENTES-HAIKU.5 | Conferir a nova versão das regras sem a regra (`sincronizar.mjs` sem `--aplicar`) · `MEDIO · effort medium` | 🟠 Alta | MEDIO · só Sonnet · effort medium | PONTO-SUBAGENTES-HAIKU.4 | ⬜ Pendente | — | [ETAPA-048](etapas/ETAPA-048-affc9903-PONTO-SUBAGENTES-HAIKU.md) |
 | **JEV-SEMPRE** | **🌐 GLOBAL — O Jev AI sempre escolhe o modelo: a IA nunca escreve nível/modelo/effort sozinha (pedido do usuário em 2026-10-24 08:54)** | 🟠 Alta | — | Nenhuma | 👀 Aguardando o usuário (tudo na `main`; falta só o `--aplicar`) | — (não reservável) | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
 | JEV-SEMPRE.3 | 🌐 Levar às IAs (`node scripts/sincronizar.mjs --aplicar`) | 🟡 Média | Usuário | JEV-SEMPRE.2 | 👀 Aguardando o usuário (`--aplicar` no computador) | — | [ETAPA-054](etapas/ETAPA-054-c91d4e27-JEV-SEMPRE-ESCOLHE-O-MODELO.md) |
-
+| **GATILHO-PONTOVIRGULA-UPDATE** | **🌐 GLOBAL — O `;` atualiza os projetos locais (`UPDATE.py`) antes de pegar tarefa, só em PC local** | 🟡 Média | — | Nenhuma | 🔄 Em progresso | — (não reservável) | [ETAPA-058](etapas/ETAPA-058-3c9e7a14-GATILHO-PONTOVIRGULA-UPDATE.md) |
+| GATILHO-PONTOVIRGULA-UPDATE.1 | Acrescentar a atualização local ao gatilho `;` | 🟡 Média | LEVE · só Haiku 5.5 ou DeepSeek V4.1 Flash · effort low | Nenhuma | ⬜ Pendente | — | [ETAPA-058](etapas/ETAPA-058-3c9e7a14-GATILHO-PONTOVIRGULA-UPDATE.md) |
 
 
 ## 🧭 Frentes de trabalho
@@ -211,6 +212,7 @@ histórico ficam em `STATUS_PROJETO.md`.
 
 | Data | Decisão | Quem | Por quê |
 |---|---|---|---|
+| 2026-10-26 | **C56: o `;` atualiza os projetos locais antes de pegar tarefa (só PC local).** `regras/frentes-e-reserva.md`: passo 0 roda `scripts/UPDATE.py`; depois segue a C24. | Gelvazio | "adicione 1 comando ;... execute a atualizacao local de projetos sempre" / "apenas em pc local" |
 | 2026-10-26 19:09 | **C54: MEDIO liberado para Devin e Copilot.** A matriz de `niveis-e-modelos.md` passa a linha **Devin / Copilot** para `✅ / ✅ / ⛔` (PESADO continua proibido); espelho do Jev (`scripts/jev/modelos.mjs`), `dist/` e a skill `classificar-tarefa` alinhados; o `--aplicar` fica para ordem do usuário | Gelvazio | "mude a regra global,que fica em C:\fontes\rules-ai,permitindo o devin pegar medio tambem" |
 | 2026-10-24 09:29 | **C53: LEVE = Haiku 5.5 ou DeepSeek V4.1 Flash.** A coluna `Modelo` do quadro grava `só Haiku 5.5 ou DeepSeek V4.1 Flash` em LEVE (altera a C22 no LEVE). Regra em `niveis-e-modelos.md` e `scripts/jev/gravacao.mjs` | Gelvazio | "O MODELO LEVE DEVE SER HAIKU 5.5 OU MODELO DEEPSEEK V4.1 FLASH" |
 | 2026-10-24 08:56 | **C52: o Jev AI escolhe o modelo, sempre.** Nenhuma IA escolhe nível, modelo ou `effort` por conta própria; sem o Jev a subtarefa fica sem nível e ninguém a pega (altera a C42 e a C47 no fallback). Regra em `ciclo-da-task.md`, `niveis-e-modelos.md`, `jev.md` e `frentes-e-reserva.md` | Gelvazio | "NUNCA, JAMAIS ESCOLHA UM MODELO SEM O JEV AI" |
