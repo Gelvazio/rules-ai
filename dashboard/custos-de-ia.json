@@ -73,6 +73,17 @@
         { "nome": "gemini-2.5-flash", "entrada": 0.30, "saida": 2.50, "cache": 0.03, "observacao": "Texto/imagem/vídeo; áudio 1.00 de entrada. Mais armazenamento." },
         { "nome": "gemini-2.5-flash-lite", "entrada": 0.10, "saida": 0.40, "cache": 0.01, "observacao": "Texto/imagem/vídeo; áudio 0.30 de entrada. Mais armazenamento." }
       ]
+    },
+    {
+      "id": "kimi",
+      "nome": "Kimi (Moonshot AI)",
+      "fonte": "https://platform.kimi.ai/docs/pricing/chat",
+      "coletadoEm": "2026-10-29",
+      "modelos": [
+        { "nome": "Kimi K2.7 Code", "entrada": 0.95, "saida": 4.00, "cache": 0.19, "observacao": "Valor de fonte secundária (guia de preços jun/2026), não conferido na tabela oficial, que não carregou. Série K2 sai para novos usuários em 31/10/2026 e é aposentada até o fim de dez/2026. Confirmado também por CometAPI (entrada 0.95, cache 0.19)." },
+        { "nome": "Kimi K2.6", "entrada": 0.95, "saida": 4.00, "cache": 0.16, "observacao": "Valor de fonte secundária (guia de preços jun/2026), não conferido na tabela oficial, que não carregou. Série K2 sai para novos usuários em 31/10/2026 e é aposentada até o fim de dez/2026." },
+        { "nome": "Kimi K2.5", "entrada": 0.60, "saida": 3.00, "cache": 0.10, "observacao": "Valor de fonte secundária (guia de preços jun/2026), não conferido na tabela oficial, que não carregou. Série K2 sai para novos usuários em 31/10/2026 e é aposentada até o fim de dez/2026." }
+      ]
     }
   ]
 }
